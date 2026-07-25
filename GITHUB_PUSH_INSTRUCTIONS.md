@@ -6,7 +6,7 @@ https://github.com/ahvsjags/SnowLotus-CellFM
 
 Current visibility: private.
 
-Main branch commit: `65a984165992371852c77b7ae06467588798f184`.
+Main branch: current release source tree plus publication-status documentation updates.
 
 Release tag:
 
@@ -19,9 +19,7 @@ https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/editor-v0.3
 - `snowlotus-cellfm-editor-v0.3-manuscript.tar.gz`
 - `snowlotus-cellfm-editor-v0.3-full-with-models.tar.gz`
 
-The full model archive has GitHub-reported digest:
-
-`sha256:358c529ee66a030681d7e52035cd9021663e5418f5be5e6e251374207c84d411`
+The full model archive should be checked against the GitHub-reported release-asset digest and the top-level `ARCHIVE_SHA256SUMS.txt` distributed with the editor package.
 
 It contains the current frozen best embedding checkpoint:
 
