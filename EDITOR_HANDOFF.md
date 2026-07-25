@@ -20,7 +20,7 @@ This is not being oversold as a completed Snow Lotus single-cell atlas. It is a 
 
 ## Repository publication status
 
-The repository has been published to GitHub at `https://github.com/ahvsjags/SnowLotus-CellFM` with main commit `65a984165992371852c77b7ae06467588798f184` and release tag `editor-v0.3`. The release contains the source/metadata archive, manuscript archive, one-click editor package and the full model archive with the current best epoch-5 embedding checkpoint. The repository is currently private, so editor/reviewer access should be granted, or the repository should be made public, before using the URL as a reviewer-facing link.
+The repository has been published to GitHub at `https://github.com/ahvsjags/SnowLotus-CellFM` with release tag `editor-v0.3`. The release contains the source/metadata archive, manuscript archive, one-click editor package and the full model archive with the current best epoch-5 embedding checkpoint. The repository is currently private, so editor/reviewer access should be granted, or the repository should be made public, before using the URL as a reviewer-facing link.
 
 ## Next revision
 
