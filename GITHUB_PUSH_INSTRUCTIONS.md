@@ -1,56 +1,47 @@
-# GitHub push instructions
+# GitHub release status
 
-The GitHub-ready repository is already prepared on the RTX 5090 server:
+The editor-v0.3 repository has been created on GitHub:
 
-```bash
-/root/snowlotus-cellfm/outputs/github_release/SnowLotus-CellFM
-```
+https://github.com/ahvsjags/SnowLotus-CellFM
 
-The repository has Git LFS configured for the two frozen model files:
+Current visibility: private.
 
-```text
-models/SnowLotus_CellFM_best_annotation.pt
-models/SnowLotus_CellFM_best_embedding.pt
-```
+Main branch commit: `65a984165992371852c77b7ae06467588798f184`.
 
-## Fastest path
+Release tag:
 
-1. Create an empty GitHub repository, preferably `ahvsjags/SnowLotus-CellFM`.
-2. Add this server deploy key to that repository with write access:
+https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/editor-v0.3
 
-```text
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO2eTUAlmDPil4rcJmm5Gq8jw6xtoubvkkIAX+ZfaflK snowlotus-cellfm-release-20260725
-```
+## Uploaded release assets
 
-3. Run the push from the server:
+- `SnowLotus-CellFM_editor-v0.3_submit-now.zip`
+- `snowlotus-cellfm-editor-v0.3-source-metadata.tar.gz`
+- `snowlotus-cellfm-editor-v0.3-manuscript.tar.gz`
+- `snowlotus-cellfm-editor-v0.3-full-with-models.tar.gz`
 
-```bash
-cd /root/snowlotus-cellfm/outputs/github_release/SnowLotus-CellFM
-git remote remove origin 2>/dev/null || true
-git remote add origin git@github.com:ahvsjags/SnowLotus-CellFM.git
-GIT_SSH_COMMAND='ssh -i ~/.ssh/snowlotus_cellfm_github_ed25519 -o IdentitiesOnly=yes' git push -u origin main
-```
+The full model archive has GitHub-reported digest:
 
-## If using a different repository name
+`sha256:358c529ee66a030681d7e52035cd9021663e5418f5be5e6e251374207c84d411`
 
-Replace the remote URL before pushing:
+It contains the current frozen best embedding checkpoint:
 
-```bash
-cd /root/snowlotus-cellfm/outputs/github_release/SnowLotus-CellFM
-git remote remove origin 2>/dev/null || true
-git remote add origin git@github.com:OWNER/REPO.git
-GIT_SSH_COMMAND='ssh -i ~/.ssh/snowlotus_cellfm_github_ed25519 -o IdentitiesOnly=yes' git push -u origin main
-```
+`649448b2071816856cd5f92a43985c6d865d115d45d91274db94cb5f9348d577`
 
 ## Verify the release after clone
 
 ```bash
-git lfs pull
-sha256sum -c models/SHA256SUMS.txt
 python -m pip install -e ".[singlecell,dev]"
 pytest tests/test_snowcell_core.py -q
 ```
 
-## Current blocker
+After downloading the full model archive, verify:
 
-The server can reach GitHub, but GitHub currently rejects the release deploy key with `Permission denied (publickey)`. The server-side package is otherwise ready to push once `ahvsjags/SnowLotus-CellFM` exists and the deploy key above has write access.
+```bash
+tar -xzf snowlotus-cellfm-editor-v0.3-full-with-models.tar.gz
+cd SnowLotus-CellFM/models
+sha256sum -c SHA256SUMS.txt
+```
+
+## Submission note
+
+Because the repository is private, grant editor/reviewer access or switch the repository visibility to public before using the GitHub URL as a reviewer-facing link.
