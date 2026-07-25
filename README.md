@@ -4,6 +4,12 @@ SnowLotus-CellFM is an editor-ready research release for audited plant single-ce
 
 This snapshot is designed for rapid editorial review: it separates validated model and corpus evidence from data-promotion work that is still running on the RTX 5090 server. The `editor-v0.3` package promotes the current best public-expansion embedding checkpoint for immediate submission while the longer continuation queue remains active in the background.
 
+GitHub repository: https://github.com/ahvsjags/SnowLotus-CellFM
+
+GitHub release: https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/editor-v0.3
+
+The repository is currently private. Grant editor/reviewer access or switch it to public before using these URLs as reviewer-facing links.
+
 ## Editor Snapshot
 
 - Release label: `editor-v0.3`
