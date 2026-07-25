@@ -1,0 +1,89 @@
+Metadata-Version: 2.4
+Name: snowlotus-cellfm
+Version: 0.1.0
+Summary: 天山雪莲与植物单细胞层级注释基础模型
+Author: SnowLotus-CellFM contributors
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.26
+Requires-Dist: pandas>=2.1
+Requires-Dist: PyYAML>=6.0
+Requires-Dist: scipy>=1.11
+Requires-Dist: scikit-learn>=1.4
+Requires-Dist: torch>=2.5
+Provides-Extra: singlecell
+Requires-Dist: anndata>=0.10; extra == "singlecell"
+Requires-Dist: h5py>=3.10; extra == "singlecell"
+Provides-Extra: pipeline
+Requires-Dist: anndata>=0.10; extra == "pipeline"
+Requires-Dist: h5py>=3.10; extra == "pipeline"
+Requires-Dist: tqdm>=4.66; extra == "pipeline"
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"
+Requires-Dist: ruff>=0.8; extra == "dev"
+
+# SnowLotus-CellFM
+
+SnowLotus-CellFM 是一个面向天山雪莲和泛植物单细胞数据的注释基础模型原型。它把每个细胞表达最高的一组基因作为集合输入，联合建模 gene token、表达量、物种和组织信息，输出细胞粗类、细类和嵌入。
+
+## 快速开始
+
+```bash
+python -m pip install -e ".[singlecell,dev]"
+snowcell make-demo --output data/demo.npz
+snowcell train --config configs/smoke.yaml
+snowcell predict --checkpoint outputs/smoke/best.pt --data data/demo.npz --output outputs/smoke/predictions.csv
+```
+
+## 真实数据
+
+把天山雪莲 `.h5ad` 放到 `data/saussurea_involucrata.h5ad`，并按需修改 `configs/rtx5090_base.yaml`：
+
+- `data.path`
+- `data.layer`
+- `data.label_key`
+- `data.coarse_label_key`
+- `data.group_key`
+- `data.ortholog_map`
+
+然后运行：
+
+```bash
+snowcell train --config configs/rtx5090_base.yaml --device cuda
+```
+
+## 方案文档
+
+完整开发路线见 [docs/development_plan.md](docs/development_plan.md)。
+
+顶刊级研发路线见 [docs/top_journal_strategy.md](docs/top_journal_strategy.md)。
+
+## 5090 服务器流程
+
+```bash
+cd /root/snowlotus-cellfm
+bash scripts/install_server_dependencies.sh
+bash scripts/collect_public_data.sh
+bash scripts/top_journal_pipeline.sh
+```
+
+多个公开数据集合并：
+
+```bash
+cp data/corpus_manifest.template.tsv data/corpus_manifest.tsv
+# 编辑 data/corpus_manifest.tsv，填入实际下载到的 h5ad/npz 路径
+snowcell build-corpus --manifest data/corpus_manifest.tsv --output data/plant_foundation_corpus.h5ad
+```
+
+基础模型预训练：
+
+```bash
+snowcell train --config configs/foundation_5090_pretrain.yaml --device cuda
+```
+
+雪莲 LoRA 微调：
+
+```bash
+snowcell train --config configs/saussurea_lora_finetune.yaml --device cuda
+```

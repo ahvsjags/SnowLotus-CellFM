@@ -1,0 +1,53 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/scPlantDB_h5ad/SRP285040.h5ad	scplantdb_SRP285040	Arabidopsis thaliana	Root tip		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/ERP132245.h5ad	scplantdb_ERP132245	Arabidopsis thaliana	True leaf		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/DRP009643.h5ad	scplantdb_DRP009643	Arabidopsis thaliana	Rosette leaf		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP148288.h5ad	scplantdb_SRP148288	Arabidopsis thaliana	Whole root		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP273996.h5ad	scplantdb_SRP273996	Arabidopsis thaliana	Root		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP307169.h5ad	scplantdb_SRP307169	Arabidopsis thaliana	True leaf		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP320285.h5ad	scplantdb_SRP320285	Arabidopsis thaliana	Inflorescence		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP182008.h5ad	scplantdb_SRP182008	Arabidopsis thaliana	Root tip		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP292306.h5ad	scplantdb_SRP292306	Arabidopsis thaliana	Leaf		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP285817.h5ad	scplantdb_SRP285817	Arabidopsis thaliana	Root outside the meristem		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP253497.h5ad	scplantdb_SRP253497	Arabidopsis thaliana	Rosette-Leaf explant		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP169576.h5ad	scplantdb_SRP169576	Arabidopsis thaliana	Whole root		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/CRA002977_1.h5ad	scplantdb_CRA002977_1	Arabidopsis thaliana	True leaf		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP166333.h5ad	scplantdb_SRP166333	Arabidopsis thaliana	Whole root		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP279055.h5ad	scplantdb_SRP279055	Arabidopsis thaliana	Hypocotyl callus		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP173393.h5ad	scplantdb_SRP173393	Arabidopsis thaliana	Root tip		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP338044.h5ad	scplantdb_SRP338044	Arabidopsis thaliana	True leaf		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP398011.h5ad	scplantdb_SRP398011	Arabidopsis thaliana	Leaf		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP332285.h5ad	scplantdb_SRP332285	Arabidopsis thaliana	Root phloem tissue		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP247828_3.h5ad	scplantdb_SRP247828_3	Arabidopsis thaliana	Cotyledon		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP247828_1.h5ad	scplantdb_SRP247828_1	Arabidopsis thaliana	Cotyledon		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP280069.h5ad	scplantdb_SRP280069	Arabidopsis thaliana	Leaf		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP171040.h5ad	scplantdb_SRP171040	Arabidopsis thaliana	Root tip		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP235541.h5ad	scplantdb_SRP235541	Arabidopsis thaliana	Root tip		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP330542.h5ad	scplantdb_SRP330542	Arabidopsis thaliana	Root tip		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP247828_2.h5ad	scplantdb_SRP247828_2	Arabidopsis thaliana	True leaf; Cotyledon		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/CRA002977_2.h5ad	scplantdb_CRA002977_2	Arabidopsis thaliana	Vegetative shoot apex		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP374045.h5ad	scplantdb_SRP374045	Arabidopsis thaliana	Pollen		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP386976.h5ad	scplantdb_SRP386976	Oryza sativa	Pistil		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP339472.h5ad	scplantdb_SRP339472	Oryza sativa	Inflorescence; Flag leaf and inflorescence		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP286275.h5ad	scplantdb_SRP286275	Oryza sativa	Leaf		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP250946.h5ad	scplantdb_SRP250946	Oryza sativa	Root tip		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP309176.h5ad	scplantdb_SRP309176	Oryza sativa	Root tip		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP164771.h5ad	scplantdb_SRP164771	Zea mays	Pollen		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP335180.h5ad	scplantdb_SRP335180	Zea mays	Root tip		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP272727_23_26.h5ad	scplantdb_SRP272727_23_26	Zea mays	Ear inflorescence		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP281914.h5ad	scplantdb_SRP281914	Zea mays	Leaf		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP224648.h5ad	scplantdb_SRP224648	Zea mays	Leaf		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/CRA008788.h5ad	scplantdb_CRA008788	Triticum aestivum	Root tip		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP241596.h5ad	scplantdb_SRP241596	Gossypium hirsutum	Ovule outer integument		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP286427.h5ad	scplantdb_SRP286427	Solanum lycopersicum	Stem-Borne Root		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP335448.h5ad	scplantdb_SRP335448	Catharanthus roseus	Leaf		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP354482.h5ad	scplantdb_SRP354482	Nicotiana attenuata	Corolla		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/CRA009614.h5ad	scplantdb_CRA009614	Bombax ceiba	Ovule inner integument		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/CRA004476.h5ad	scplantdb_CRA004476	Populus alba var. pyramidalis	Wood tissue; Bark tissue		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP424189.h5ad	scplantdb_SRP424189	Gossypium bickii	Cotyledon		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP390780.h5ad	scplantdb_SRP390780	Medicago truncatula	Root		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/CRA007122.h5ad	scplantdb_CRA007122	Glycine max	Nodule; Root		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP307440.h5ad	scplantdb_SRP307440	Populus alba x Populus glandulosa	Stem stele		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/SRP406470.h5ad	scplantdb_SRP406470	Manihot esculenta	Tuberous root		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/CRA006988.h5ad	scplantdb_CRA006988	Brassica rapa	Rosette leaf		Celltype	Celltype	Orig.ident
+data/public/scPlantDB_h5ad/CRA004848.h5ad	scplantdb_CRA004848	Fragaria vesca	The first true leaves		Celltype	Celltype	Orig.ident

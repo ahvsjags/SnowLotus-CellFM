@@ -1,0 +1,295 @@
+{
+  "base_url": "https://scplantannotate.missouri.edu/",
+  "summary": {
+    "web_server_reachable": true,
+    "root_status": 200,
+    "asset_count": 5,
+    "fetched_asset_count": 8,
+    "api_or_upload_terms_detected": true,
+    "batch_api_detected": false,
+    "endpoint_probe_count": 3,
+    "anonymous_api_accessible": false,
+    "auth_required_endpoint_count": 3,
+    "comparison_ready": false
+  },
+  "root": {
+    "url": "https://scplantannotate.missouri.edu/",
+    "final_url": "https://scplantannotate.missouri.edu/",
+    "status": 200,
+    "content_type": "text/html",
+    "bytes_read": 896,
+    "error": "",
+    "text_excerpt": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <script type=\"module\">import { injectIntoGlobalHook } from \"/@react-refresh\";\ninjectIntoGlobalHook(window);\nwindow.$RefreshReg$ = () => {};\nwindow.$RefreshSig$ = () => (type) => type;</script>\n\n  <script type=\"module\" src=\"/@vite/client\"></script>\n\n    <meta charset=\"utf-8\"/>\n    <link rel=\"icon\" href=\"/logo.jpeg\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n    <meta name=\"theme-color\" content=\"#000000\"/>\n    <meta name=\"description\" content=\"scPlantAnnotate\"/>\n    <link rel=\"apple-touch-icon\" href=\"/logo192.png\"/>\n    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap\" rel=\"stylesheet\">\n    <link rel=\"manifest\" href=\"/manifest.json\"/>\n    <title>scPlantAnnotate</title>\n</head>\n<body>\n<div id=\"root\"></div>\n<script type=\"module\" src=\"/src/index.jsx\"></script>\n</body>\n</html>",
+    "scan": {
+      "url_literals": [
+        "/>\n    <link rel=",
+        "/>\n    <meta name=",
+        "/@react-refresh",
+        "/@vite/client",
+        "/logo.jpeg",
+        "/logo192.png",
+        "/manifest.json",
+        "/src/index.jsx",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap"
+      ],
+      "keyword_line_count": 0,
+      "keyword_lines": []
+    }
+  },
+  "assets": [
+    {
+      "url": "https://scplantannotate.missouri.edu/@vite/client",
+      "final_url": "https://scplantannotate.missouri.edu/@vite/client",
+      "status": 200,
+      "content_type": "text/javascript",
+      "bytes_read": 178928,
+      "error": "",
+      "text_excerpt": "import \"/node_modules/vite/dist/client/env.mjs\";\n\n//#region \\0@oxc-project+runtime@0.99.0/helpers/typeof.js\nfunction _typeof(o) {\n\t\"@babel/helpers - typeof\";\n\treturn _typeof = \"function\" == typeof Symbol && \"symbol\" == typeof Symbol.iterator ? function(o$1) {\n\t\treturn typeof o$1;\n\t} : function(o$1) {\n\t\treturn o$1 && \"function\" == typeof Symbol && o$1.constructor === Symbol && o$1 !== Symbol.prototype ? \"symbol\" : typeof o$1;\n\t}, _typeof(o);\n}\n\n//#endregion\n//#region \\0@oxc-project+runtime@0.99.0/helpers/toPrimitive.js\nfunction toPrimitive(t, r) {\n\tif (\"object\" != _typeof(t) || !t) return t;\n\tvar e = t[Symbol.toPrimitive];\n\tif (void 0 !== e) {\n\t\tvar i = e.call(t, r || \"default\");\n\t\tif (\"object\" != _typeof(i)) return i;\n\t\tthrow new TypeError(\"@@toPrimitive must return a primitive value.\");\n\t}\n\treturn (\"string\" === r ? String : Number)(t);\n}\n\n//#endregion\n//#region \\0@oxc-project+runtime@0.99.0/helpers/toPropertyKey.js\nfunction toPropertyKey(t) {\n\tvar i = toPrimitive(t, \"string\");\n\treturn",
+      "scan": {
+        "url_literals": [
+          "/index.html",
+          "/node_modules/vite/dist/client/env.mjs",
+          "http://vite.dev"
+        ],
+        "keyword_line_count": 7,
+        "keyword_lines": [
+          "if (!(err instanceof Error) || !err.message.includes(\"fetch\")) this.logger.error(err);",
+          "const result = await transport$1.invoke({",
+          "if (\"error\" in result) throw reviveInvokeError(result.error);",
+          "return result.result;",
+          "const { error, result } = data.data;",
+          "else promise.resolve(result);",
+          "fetch(new URL(`${base$1}__open-in-editor?file=${encodeURIComponent(file)}`, import.meta.url));"
+        ]
+      }
+    },
+    {
+      "url": "https://scplantannotate.missouri.edu/logo.jpeg",
+      "final_url": "https://scplantannotate.missouri.edu/logo.jpeg",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "bytes_read": 53082,
+      "error": "",
+      "text_excerpt": "����\u0000\u0010JFIF\u0000\u0001\u0001\u0001\u0000`\u0000`\u0000\u0000��\u0000C\u0000\u0003\u0002\u0002\u0003\u0002\u0002\u0003\u0003\u0003\u0003\u0004\u0003\u0003\u0004\u0005\b\u0005\u0005\u0004\u0004\u0005\n\u0007\u0007\u0006\b\f\n\f\f\u000b\n\u000b\u000b\r\u000e\u0012\u0010\r\u000e\u0011\u000e\u000b\u000b\u0010\u0016\u0010\u0011\u0013\u0014\u0015\u0015\u0015\f\u000f\u0017\u0018\u0016\u0014\u0018\u0012\u0014\u0015\u0014��\u0000C\u0001\u0003\u0004\u0004\u0005\u0004\u0005\t\u0005\u0005\t\u0014\r\u000b\r\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014\u0014��\u0000\u0011\b\u0001�\u0001�\u0003\u0001\"\u0000\u0002\u0011\u0001\u0003\u0011\u0001��\u0000\u001f\u0000\u0000\u0001\u0005\u0001\u0001\u0001\u0001\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b��\u0000�\u0010\u0000\u0002\u0001\u0003\u0003\u0002\u0004\u0003\u0005\u0005\u0004\u0004\u0000\u0000\u0001}\u0001\u0002\u0003\u0000\u0004\u0011\u0005\u0012!1A\u0006\u0013Qa\u0007\"q\u00142���\b#B��\u0015R��$3br�\t\n\u0016\u0017\u0018\u0019\u001a%&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz���������������������������������������������������������������������������\u0000\u001f\u0001\u0000\u0003\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b��\u0000�\u0011\u0000\u0002\u0001\u0002\u0004\u0004\u0003\u0004\u0007\u0005\u0004\u0004\u0000\u0001\u0002w\u0000\u0001\u0002\u0003\u0011\u0004\u0005!1\u0006\u0012AQ\u0007aq\u0013\"2�\b\u0014B����\t#3R�\u0015br�\n\u0016$4�%�\u0017\u0018\u0019\u001a&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz��������������������������������������������������������������������������\u0000\f\u0003\u0001\u0000\u0002\u0011\u0003\u0011\u0000?\u0000��P��4�ݑڹ�U�\u0003޷�wdv�.'#v7�����\u0018�-��#\u0015\u0007���W״�p-u9\u0019W��v�?BY���Kn�z69\u0015SI���\u0000�w�(�jV1�?ލ����ȕ#���f\u001c\u0012p3�^�~-��ool�\u0004p��*�ſ�1�%���\u0006���l�{��µm���\u0014���4mn\u001dc�|�2���\u001fN{R�w��\b��,��ߝ$q��\u0014�\u0000'�-u\u0011�{n\u0015�\u0007\u001d���95�wk�s�ʒ\u0011�P4U�p�\f���1�\b��c�k\u00023�U��\r�|�GPe�6!�\u0015�\u001f����NX��Z�뻨�S2{��\u0000��\u001a��Au\u001f��E��\r��\u000fukp\u0018�ʞ\fg*I#\u000b��\u0002\u0006��#���K�Kw�բ�F�+�\tT��#\u0013��F¤`�-��8$ץ�˕\r���\u001f���Ֆ���A>�l�\u001e�\u0000.�\u0006W.�H+�v�$��^���&�u�֍��&x",
+      "scan": {
+        "url_literals": [],
+        "keyword_line_count": 0,
+        "keyword_lines": []
+      }
+    },
+    {
+      "url": "https://scplantannotate.missouri.edu/logo192.png",
+      "final_url": "https://scplantannotate.missouri.edu/logo192.png",
+      "status": 200,
+      "content_type": "image/png",
+      "bytes_read": 5347,
+      "error": "",
+      "text_excerpt": "�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000�\u0000\u0000\u0000�\b\u0003\u0000\u0000\u0000e\u0002�5\u0000\u0000\u0000�PLTE\u0000\u0000\u0000d��a��a��a��a��a��a��a��a��a��a��a��a��a��a��a��a��a��a��`��a��a��a��a��a��a��a��`��a��a��a��a��a��a��a��a��a��a��a��f��a��c��e��h��H�Ɣ\u0000\u0000\u0000'tRNS\u0000\b�#�\u000f,���_����E��L\u001c\u0017n?X�4Qg�yt�:�Ň���!�\u0000\u0000\u0013�IDATx��[�r�0\u0010.\u0002\u001bl.\u001b;>�\u0015�i���?_-,�)���\u0014����L'\u0001��ޫ��o��o��o��o��o�*x-��F?�\u001e���\u0007&�?B�Y>\u0015���MO\u001fq�\u001c\u0016����8�r����1�O��'�\u0000��<��\rx\u0010��h�>�[�q�@L��\u0013)\u0000�ݑ׼\"7����$݌��/��I�k�*���T�wϢ\u0000�O�V�\u0002\u0010B8��O_���YI��.�\f \u0015e��\u0011\u00020�5SH\u0001\r��|\fܮ�/�\u0005e8=vbu�\\5��\u001a����}7r��l.hյO\u001d\u000fO\u0000p'8?i�3\t�O�-ȗ㔛��6\u0000\n\u000eCS\u0000�3\u000eu\u0015�qHc6I��)(�\u001f�\u0012��\u000f�k��LV�\u0007�\u0000�#���,<��фןt�pz�\u001e�Ӟ��!��\u0016YQ�yZ\u0010��C:ǒa\tx�D\u001d�Ż�|�\\�\u001e\u0003�M�Q\u001a�4\u00056\u0007b.�O9�Q�X���\u001f��wt3�\b�~\u0014�0\u0010�͌\u0017��̥\u0002@��K\u001c�d�[T\u001b�r��k�\bʳ@�O�X6$\u0001\u0007J����\f\f��,5�\u0003��F��#�0�_o���Iy����S���*\u0006�>mߐ�K9%\u0004�m�9�W֌�VJ��uX��Cc���p\u0002\u0018+�\"��Ŧ��򖂪>��)>x\u000b�!\"\u0016#s3���d�'���\u0004�4{���H�n��fP\u0003���\t\u0002#�����8C�b��\u0000\"������\\@\b�˴F���P��Mul�\u0013v�&\u001f�\u0000��2᷽�\u0007n~\u0011�P#��g�L˚\u0010�\u001f���K��7C\u0011���IOͭ--������I\u0013)@�`'��KOY\u0000\u0013\u001a؉2r?�C�\u0003\nC(��8�\u001a\u000f�7���M|68\u0001��\u0007y��\u0015\u0018\u001eЭ��D�*U:R����\u001a܊�7��G��W�.mT#t�\t�;\u0017�[�ς<)��\u0014\u0001����W��S3��\b�?�kS�&\u001d���1�)[x��u�PG��`<",
+      "scan": {
+        "url_literals": [],
+        "keyword_line_count": 0,
+        "keyword_lines": []
+      }
+    },
+    {
+      "url": "https://scplantannotate.missouri.edu/manifest.json",
+      "final_url": "https://scplantannotate.missouri.edu/manifest.json",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes_read": 492,
+      "error": "",
+      "text_excerpt": "{\n  \"short_name\": \"React App\",\n  \"name\": \"Create React App Sample\",\n  \"icons\": [\n    {\n      \"src\": \"favicon.ico\",\n      \"sizes\": \"64x64 32x32 24x24 16x16\",\n      \"type\": \"image/x-icon\"\n    },\n    {\n      \"src\": \"logo192.png\",\n      \"type\": \"image/png\",\n      \"sizes\": \"192x192\"\n    },\n    {\n      \"src\": \"logo512.png\",\n      \"type\": \"image/png\",\n      \"sizes\": \"512x512\"\n    }\n  ],\n  \"start_url\": \".\",\n  \"display\": \"standalone\",\n  \"theme_color\": \"#000000\",\n  \"background_color\": \"#ffffff\"\n}\n",
+      "scan": {
+        "url_literals": [],
+        "keyword_line_count": 0,
+        "keyword_lines": []
+      }
+    },
+    {
+      "url": "https://scplantannotate.missouri.edu/src/index.jsx",
+      "final_url": "https://scplantannotate.missouri.edu/src/index.jsx",
+      "status": 200,
+      "content_type": "text/javascript",
+      "bytes_read": 2628,
+      "error": "",
+      "text_excerpt": "import __vite__cjsImport0_react_jsxDevRuntime from \"/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=7de1c5b0\"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime[\"jsxDEV\"];\nimport __vite__cjsImport1_react from \"/node_modules/.vite/deps/react.js?v=7de1c5b0\"; const React = __vite__cjsImport1_react.__esModule ? __vite__cjsImport1_react.default : __vite__cjsImport1_react;\nimport __vite__cjsImport2_reactDom_client from \"/node_modules/.vite/deps/react-dom_client.js?v=7de1c5b0\"; const ReactDOM = __vite__cjsImport2_reactDom_client.__esModule ? __vite__cjsImport2_reactDom_client.default : __vite__cjsImport2_reactDom_client;\nimport \"/src/index.css\";\nimport App from \"/src/App.jsx\";\nimport reportWebVitals from \"/src/reportWebVitals.js\";\nconst root = ReactDOM.createRoot(document.getElementById(\"root\"));\nroot.render(\n  /* @__PURE__ */ jsxDEV(React.StrictMode, { children: /* @__PURE__ */ jsxDEV(App, {}, void 0, false, {\n    fileName: \"/usr/src/app/src/index.jsx\",\n    lineNumber: 10,\n    column",
+      "scan": {
+        "url_literals": [
+          "/node_modules/.vite/deps/react-dom_client.js?v=7de1c5b0",
+          "/node_modules/.vite/deps/react.js?v=7de1c5b0",
+          "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=7de1c5b0",
+          "/src/App.jsx",
+          "/src/index.css",
+          "/src/reportWebVitals.js",
+          "/usr/src/app/src/index.jsx"
+        ],
+        "keyword_line_count": 0,
+        "keyword_lines": []
+      }
+    },
+    {
+      "url": "https://scplantannotate.missouri.edu/node_modules/.vite/deps/react-dom_client.js?v=7de1c5b0",
+      "final_url": "https://scplantannotate.missouri.edu/node_modules/.vite/deps/react-dom_client.js?v=7de1c5b0",
+      "status": 200,
+      "content_type": "text/javascript",
+      "bytes_read": 500000,
+      "error": "",
+      "text_excerpt": "import {\n  require_react_dom\n} from \"/node_modules/.vite/deps/chunk-F554S2KQ.js?v=7de1c5b0\";\nimport {\n  require_react\n} from \"/node_modules/.vite/deps/chunk-APAI5QCZ.js?v=7de1c5b0\";\nimport {\n  __commonJS\n} from \"/node_modules/.vite/deps/chunk-PR4QN5HX.js?v=7de1c5b0\";\n\n// node_modules/scheduler/cjs/scheduler.development.js\nvar require_scheduler_development = __commonJS({\n  \"node_modules/scheduler/cjs/scheduler.development.js\"(exports) {\n    \"use strict\";\n    (function() {\n      function performWorkUntilDeadline() {\n        needsPaint = false;\n        if (isMessageLoopRunning) {\n          var currentTime = exports.unstable_now();\n          startTime = currentTime;\n          var hasMoreWork = true;\n          try {\n            a: {\n              isHostCallbackScheduled = false;\n              isHostTimeoutScheduled && (isHostTimeoutScheduled = false, localClearTimeout(taskTimeoutID), taskTimeoutID = -1);\n              isPerformingWork = true;\n              var previousPriorityLevel = curren",
+      "scan": {
+        "url_literals": [
+          "/node_modules/.vite/deps/chunk-APAI5QCZ.js?v=7de1c5b0",
+          "/node_modules/.vite/deps/chunk-F554S2KQ.js?v=7de1c5b0",
+          "/node_modules/.vite/deps/chunk-PR4QN5HX.js?v=7de1c5b0",
+          "https://react.dev/link/hydration-mismatch"
+        ],
+        "keyword_line_count": 14,
+        "keyword_lines": [
+          "case \"download\":",
+          "\"Hydration failed because the server rendered \" + (fromText ? \"text\" : \"HTML\") + \" didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:\\n\\n- A server/client branch `if (typeof window !== 'undefined')`.\\n- Variable input ",
+          "function chainThenableValue(thenable, result) {",
+          "thenableWithOverride.value = result;",
+          "for (var i = 0; i < listeners.length; i++) (0, listeners[i])(result);",
+          "\"The result of getServerSnapshot should be cached to avoid an infinite loop\"",
+          "\"The result of getSnapshot should be cached to avoid an infinite loop\"",
+          "\"The result of getSnapshot should be cached to avoid an infinite loop\"",
+          "function startHostTransition(formFiber, pendingState, action, formData) {",
+          "return action(formData);",
+          "\"%s uses the legacy contextTypes API which was removed in React 19. Use React.createContext() with React.useContext() instead. (https://react.dev/link/legacy-context)\",",
+          "\"%s uses the legacy childContextTypes API which was removed in React 19. Use React.createContext() instead. (https://react.dev/link/legacy-context)\",",
+          "\"%s uses the legacy contextTypes API which was removed in React 19. Use React.createContext() with static contextType instead. (https://react.dev/link/legacy-context)\",",
+          "\"%s has a method called componentDidReceiveProps(). But there is no such lifecycle method. If you meant to update the state in response to changing props, use componentWillReceiveProps(). If you meant to fetch data or run side-effects or mutations after React has updated the UI, use componentDidUpda"
+        ]
+      }
+    },
+    {
+      "url": "https://scplantannotate.missouri.edu/node_modules/.vite/deps/react.js?v=7de1c5b0",
+      "final_url": "https://scplantannotate.missouri.edu/node_modules/.vite/deps/react.js?v=7de1c5b0",
+      "status": 200,
+      "content_type": "text/javascript",
+      "bytes_read": 1024,
+      "error": "",
+      "text_excerpt": "import {\n  require_react\n} from \"/node_modules/.vite/deps/chunk-APAI5QCZ.js?v=7de1c5b0\";\nimport \"/node_modules/.vite/deps/chunk-PR4QN5HX.js?v=7de1c5b0\";\nexport default require_react();\n\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlYWN0LmpzP3Y9N2RlMWM1YjAiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtcbiAgcmVxdWlyZV9yZWFjdFxufSBmcm9tIFwiL25vZGVfbW9kdWxlcy8udml0ZS9kZXBzL2NodW5rLUFQQUk1UUNaLmpzP3Y9N2RlMWM1YjBcIjtcbmltcG9ydCBcIi9ub2RlX21vZHVsZXMvLnZpdGUvZGVwcy9jaHVuay1QUjRRTjVIWC5qcz92PTdkZTFjNWIwXCI7XG5leHBvcnQgZGVmYXVsdCByZXF1aXJlX3JlYWN0KCk7XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsTUFBTSxDQUFDO0FBQ1AsQ0FBQyxDQUFDO0FBQ0YsQ0FBQyxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUMsWUFBWSxDQUFDLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsUUFBUSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsUUFBUSxDQUFDO0FBQzlELE1BQU0sQ0FBQyxDQUFDLENBQUMsWUFBWSxDQUFDLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsUUFBUSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsUUFBUSxDQUFDO0FBQzlELE1BQU0sQ0FBQyxPQUFPLENBQUMs",
+      "scan": {
+        "url_literals": [
+          "/node_modules/.vite/deps/chunk-APAI5QCZ.js?v=7de1c5b0",
+          "/node_modules/.vite/deps/chunk-PR4QN5HX.js?v=7de1c5b0"
+        ],
+        "keyword_line_count": 0,
+        "keyword_lines": []
+      }
+    },
+    {
+      "url": "https://scplantannotate.missouri.edu/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=7de1c5b0",
+      "final_url": "https://scplantannotate.missouri.edu/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=7de1c5b0",
+      "status": 200,
+      "content_type": "text/javascript",
+      "bytes_read": 12375,
+      "error": "",
+      "text_excerpt": "import {\n  require_react\n} from \"/node_modules/.vite/deps/chunk-APAI5QCZ.js?v=7de1c5b0\";\nimport {\n  __commonJS\n} from \"/node_modules/.vite/deps/chunk-PR4QN5HX.js?v=7de1c5b0\";\n\n// node_modules/react/cjs/react-jsx-dev-runtime.development.js\nvar require_react_jsx_dev_runtime_development = __commonJS({\n  \"node_modules/react/cjs/react-jsx-dev-runtime.development.js\"(exports) {\n    \"use strict\";\n    (function() {\n      function getComponentNameFromType(type) {\n        if (null == type) return null;\n        if (\"function\" === typeof type)\n          return type.$$typeof === REACT_CLIENT_REFERENCE ? null : type.displayName || type.name || null;\n        if (\"string\" === typeof type) return type;\n        switch (type) {\n          case REACT_FRAGMENT_TYPE:\n            return \"Fragment\";\n          case REACT_PROFILER_TYPE:\n            return \"Profiler\";\n          case REACT_STRICT_MODE_TYPE:\n            return \"StrictMode\";\n          case REACT_SUSPENSE_TYPE:\n            return \"Suspense\";\n        ",
+      "scan": {
+        "url_literals": [
+          "/node_modules/.vite/deps/chunk-APAI5QCZ.js?v=7de1c5b0",
+          "/node_modules/.vite/deps/chunk-PR4QN5HX.js?v=7de1c5b0"
+        ],
+        "keyword_line_count": 1,
+        "keyword_lines": [
+          "\"%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)\","
+        ]
+      }
+    }
+  ],
+  "endpoint_probes": [
+    {
+      "url": "https://scplantannotate.missouri.edu/api/jobs/api/job_annotate_and_plot_query/",
+      "final_url": "https://scplantannotate.missouri.edu/api/jobs/api/job_annotate_and_plot_query/",
+      "status": 403,
+      "content_type": "application/json",
+      "bytes_read": 58,
+      "error": "HTTPError: Forbidden",
+      "text_excerpt": "{\"detail\":\"Authentication credentials were not provided.\"}",
+      "endpoint": "/api/jobs/api/job_annotate_and_plot_query/",
+      "anonymous_accessible": false,
+      "authentication_required": true
+    },
+    {
+      "url": "https://scplantannotate.missouri.edu/api/organisms/api/organism_query/",
+      "final_url": "https://scplantannotate.missouri.edu/api/organisms/api/organism_query/",
+      "status": 403,
+      "content_type": "application/json",
+      "bytes_read": 58,
+      "error": "HTTPError: Forbidden",
+      "text_excerpt": "{\"detail\":\"Authentication credentials were not provided.\"}",
+      "endpoint": "/api/organisms/api/organism_query/",
+      "anonymous_accessible": false,
+      "authentication_required": true
+    },
+    {
+      "url": "https://scplantannotate.missouri.edu/api/predictors/api/predictor_query_public/",
+      "final_url": "https://scplantannotate.missouri.edu/api/predictors/api/predictor_query_public/",
+      "status": 403,
+      "content_type": "application/json",
+      "bytes_read": 58,
+      "error": "HTTPError: Forbidden",
+      "text_excerpt": "{\"detail\":\"Authentication credentials were not provided.\"}",
+      "endpoint": "/api/predictors/api/predictor_query_public/",
+      "anonymous_accessible": false,
+      "authentication_required": true
+    }
+  ],
+  "discovered_assets": [
+    "https://scplantannotate.missouri.edu/@vite/client",
+    "https://scplantannotate.missouri.edu/logo.jpeg",
+    "https://scplantannotate.missouri.edu/logo192.png",
+    "https://scplantannotate.missouri.edu/manifest.json",
+    "https://scplantannotate.missouri.edu/src/index.jsx"
+  ],
+  "url_literals": [
+    "/>\n    <link rel=",
+    "/>\n    <meta name=",
+    "/@react-refresh",
+    "/@vite/client",
+    "/index.html",
+    "/logo.jpeg",
+    "/logo192.png",
+    "/manifest.json",
+    "/node_modules/.vite/deps/chunk-APAI5QCZ.js?v=7de1c5b0",
+    "/node_modules/.vite/deps/chunk-F554S2KQ.js?v=7de1c5b0",
+    "/node_modules/.vite/deps/chunk-PR4QN5HX.js?v=7de1c5b0",
+    "/node_modules/.vite/deps/react-dom_client.js?v=7de1c5b0",
+    "/node_modules/.vite/deps/react.js?v=7de1c5b0",
+    "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=7de1c5b0",
+    "/node_modules/vite/dist/client/env.mjs",
+    "/src/App.jsx",
+    "/src/index.css",
+    "/src/index.jsx",
+    "/src/reportWebVitals.js",
+    "/usr/src/app/src/index.jsx",
+    "http://vite.dev",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap",
+    "https://react.dev/link/hydration-mismatch"
+  ],
+  "keyword_lines": [
+    "\"%s has a method called componentDidReceiveProps(). But there is no such lifecycle method. If you meant to update the state in response to changing props, use componentWillReceiveProps(). If you meant to fetch data or run side-effects or mutations after React has updated the UI, use componentDidUpda",
+    "\"%s uses the legacy childContextTypes API which was removed in React 19. Use React.createContext() instead. (https://react.dev/link/legacy-context)\",",
+    "\"%s uses the legacy contextTypes API which was removed in React 19. Use React.createContext() with React.useContext() instead. (https://react.dev/link/legacy-context)\",",
+    "\"%s uses the legacy contextTypes API which was removed in React 19. Use React.createContext() with static contextType instead. (https://react.dev/link/legacy-context)\",",
+    "\"%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)\",",
+    "\"Hydration failed because the server rendered \" + (fromText ? \"text\" : \"HTML\") + \" didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:\\n\\n- A server/client branch `if (typeof window !== 'undefined')`.\\n- Variable input ",
+    "\"The result of getServerSnapshot should be cached to avoid an infinite loop\"",
+    "\"The result of getSnapshot should be cached to avoid an infinite loop\"",
+    "case \"download\":",
+    "const result = await transport$1.invoke({",
+    "const { error, result } = data.data;",
+    "else promise.resolve(result);",
+    "fetch(new URL(`${base$1}__open-in-editor?file=${encodeURIComponent(file)}`, import.meta.url));",
+    "for (var i = 0; i < listeners.length; i++) (0, listeners[i])(result);",
+    "function chainThenableValue(thenable, result) {",
+    "function startHostTransition(formFiber, pendingState, action, formData) {",
+    "if (!(err instanceof Error) || !err.message.includes(\"fetch\")) this.logger.error(err);",
+    "if (\"error\" in result) throw reviveInvokeError(result.error);",
+    "return action(formData);",
+    "return result.result;",
+    "thenableWithOverride.value = result;"
+  ],
+  "interpretation": "A reachable web front end and discoverable API route are not enough for a reproducible benchmark if the routes require an authenticated session. SnowLotus-CellFM should keep scPlantAnnotate comparison missing unless valid credentials, a scriptable guest API, a CLI, official model weights, or an author-provided result export path is available."
+}

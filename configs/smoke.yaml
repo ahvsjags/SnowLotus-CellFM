@@ -1,0 +1,45 @@
+data:
+  path: data/demo.npz
+  label_key: cell_type
+  coarse_label_key: cell_type_coarse
+  group_key: sample_id
+  species_key: species
+  tissue_key: tissue
+  max_genes: 64
+  min_genes_per_cell: 5
+  min_cells_per_gene: 2
+  validation_fraction: 0.15
+  test_fraction: 0.15
+
+architecture:
+  d_model: 64
+  n_layers: 2
+  n_heads: 4
+  ffn_dim: 160
+  dropout: 0.10
+  value_bins: 32
+
+train:
+  stage: hybrid
+  seed: 42
+  epochs: 3
+  batch_size: 64
+  eval_batch_size: 128
+  learning_rate: 0.0008
+  weight_decay: 0.02
+  warmup_fraction: 0.10
+  gradient_accumulation_steps: 1
+  mixed_precision: "no"
+  tuning_mode: full
+  label_smoothing: 0.02
+  coarse_loss_weight: 0.30
+  hierarchy_loss_weight: 0.10
+  mlm_loss_weight: 0.30
+  value_loss_weight: 0.10
+  mask_ratio: 0.15
+  class_balance: true
+  early_stopping_patience: 3
+
+output:
+  directory: outputs/smoke
+  save_every_epochs: 0

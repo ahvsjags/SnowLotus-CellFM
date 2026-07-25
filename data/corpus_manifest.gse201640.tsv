@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE201640_npz/GSE201640_mtx_extracted.npz	geo_gse201640_zea_mays_decoding_gene_regulatory_network_endosperm	Zea mays	public_discovery		cell_type	cell_type_coarse	sample_id

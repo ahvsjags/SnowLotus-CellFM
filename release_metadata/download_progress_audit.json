@@ -1,0 +1,5091 @@
+{
+  "project_dir": ".",
+  "status_summary_path": "outputs/publication_package/status_summary.json",
+  "summary": {
+    "active_partial_file_count": 0,
+    "complete_manifest_count": 42,
+    "downloading_partial_count": 0,
+    "generated_at_utc": "2026-07-25T21:55:36.601760+00:00",
+    "manifest_row_count": 120,
+    "npz_file_count": 63,
+    "partial_file_count": 0,
+    "raw_file_count": 299,
+    "residual_partial_file_count": 0,
+    "status_counts": {
+      "complete_manifest": 42,
+      "metadata_only": 1,
+      "unsupported_for_matrix_corpus": 20
+    },
+    "target_count": 63,
+    "unsupported_for_matrix_corpus_count": 20
+  },
+  "targets": [
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "scplantdb_global",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-24T10:11:49.907790+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 6554,
+        "exists": true,
+        "modified_utc": "2026-07-24T10:11:49.907790+00:00",
+        "path": "data/corpus_manifest.scplantdb.tsv",
+        "rows": 52
+      },
+      "manifest_rows": 52,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/scPlantDB_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "A",
+      "public_manifest_status": "manual_index",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 25058063284,
+        "examples": [
+          "data/public/scPlantDB_h5ad/CRA002977_1.h5ad",
+          "data/public/scPlantDB_h5ad/CRA002977_2.h5ad",
+          "data/public/scPlantDB_h5ad/CRA004476.h5ad",
+          "data/public/scPlantDB_h5ad/CRA004848.h5ad",
+          "data/public/scPlantDB_h5ad/CRA006988.h5ad"
+        ],
+        "file_count": 104,
+        "largest_file": {
+          "bytes": 1126549910,
+          "modified_utc": "2026-07-24T10:08:34.042738+00:00",
+          "path": "data/public/scPlantDB_h5ad/SRP374045.h5ad"
+        },
+        "latest_modified_utc": "2026-07-24T10:11:49.843791+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/scPlantDB_h5ad*/*",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "manifest_ready"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": {
+        "bytes": 915,
+        "exists": true,
+        "modified_utc": "2026-07-23T10:57:21.795234+00:00",
+        "path": "data/corpus_manifest.gse268881.available.tsv",
+        "rows": 5
+      },
+      "dataset_id": "brassicaceae_multi_species_root_atlas",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-23T11:01:12.535738+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 915,
+        "exists": true,
+        "modified_utc": "2026-07-23T10:59:11.693552+00:00",
+        "path": "data/corpus_manifest.gse268881.tsv",
+        "rows": 5
+      },
+      "manifest_rows": 10,
+      "npz_files": {
+        "bytes": 292252572,
+        "examples": [
+          "data/public/GSE268881_npz/GSM8302004_Ath_Root_Ctrl_scRNAseq_R1.npz",
+          "data/public/GSE268881_npz/GSM8302010_Esa_Root_Ctrl_scRNAseq_R1.npz",
+          "data/public/GSE268881_npz/GSM8302016_Sir_Root_Ctrl_scRNAseq_R1.npz",
+          "data/public/GSE268881_npz/GSM8302022_Spa_Root_Ctrl_scRNAseq_R1.npz",
+          "data/public/GSE268881_npz/GSM8302028_Csa_Root_Ctrl_scRNAseq_R1.npz"
+        ],
+        "file_count": 5,
+        "largest_file": {
+          "bytes": 81544862,
+          "modified_utc": "2026-07-23T10:56:36.003935+00:00",
+          "path": "data/public/GSE268881_npz/GSM8302016_Sir_Root_Ctrl_scRNAseq_R1.npz"
+        },
+        "latest_modified_utc": "2026-07-23T11:01:12.535738+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE268881_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "A",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 460518603,
+        "examples": [
+          "data/public/GSE268881_10x/GSM8302004_Ath_Root_Ctrl_scRNAseq_R1_barcodes.tsv.gz",
+          "data/public/GSE268881_10x/GSM8302004_Ath_Root_Ctrl_scRNAseq_R1_features.tsv.gz",
+          "data/public/GSE268881_10x/GSM8302004_Ath_Root_Ctrl_scRNAseq_R1_matrix.mtx.gz",
+          "data/public/GSE268881_10x/GSM8302010_Esa_Root_Ctrl_scRNAseq_R1_barcodes.tsv.gz",
+          "data/public/GSE268881_10x/GSM8302010_Esa_Root_Ctrl_scRNAseq_R1_features.tsv.gz"
+        ],
+        "file_count": 15,
+        "largest_file": {
+          "bytes": 126598413,
+          "modified_utc": "2026-07-23T08:26:31.069811+00:00",
+          "path": "data/public/GSE268881_10x/GSM8302016_Sir_Root_Ctrl_scRNAseq_R1_matrix.mtx.gz"
+        },
+        "latest_modified_utc": "2026-07-23T11:00:43.460165+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE268881_10x/*",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "manifest_ready"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "arabidopsis_root_atlas",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-23T10:49:20.170605+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 362,
+        "exists": true,
+        "modified_utc": "2026-07-23T10:49:20.170605+00:00",
+        "path": "data/corpus_manifest.gse152766.tsv",
+        "rows": 2
+      },
+      "manifest_rows": 2,
+      "npz_files": {
+        "bytes": 61943715,
+        "examples": [
+          "data/public/GSE152766_npz/spliced_counts_filtered.npz",
+          "data/public/GSE152766_npz/unspliced_counts_filtered.npz"
+        ],
+        "file_count": 2,
+        "largest_file": {
+          "bytes": 51384235,
+          "modified_utc": "2026-07-23T10:49:16.482661+00:00",
+          "path": "data/public/GSE152766_npz/spliced_counts_filtered.npz"
+        },
+        "latest_modified_utc": "2026-07-23T10:49:20.170605+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE152766_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "A",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 85132026,
+        "examples": [
+          "data/public/GSE152766_mtx_tar/GSM4625993_sc_1_mtx.tar.gz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 85132026,
+          "modified_utc": "2026-07-23T10:17:23.875893+00:00",
+          "path": "data/public/GSE152766_mtx_tar/GSM4625993_sc_1_mtx.tar.gz"
+        },
+        "latest_modified_utc": "2026-07-23T10:17:23.875893+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE152766_mtx_tar/*",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "manifest_ready"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "rice_root_tip_atlas",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-23T11:43:38.757458+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 211,
+        "exists": true,
+        "modified_utc": "2026-07-23T11:43:38.757458+00:00",
+        "path": "data/corpus_manifest.gse146034.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 72400148,
+        "examples": [
+          "data/public/GSE146034_npz/GSE146034_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 72400148,
+          "modified_utc": "2026-07-23T11:43:38.753458+00:00",
+          "path": "data/public/GSE146034_npz/GSE146034_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-23T11:43:38.753458+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE146034_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "B",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 206387344,
+        "examples": [
+          "data/public/GSE146034_raw_tar/GSE146034_RAW.aria2_urls.txt",
+          "data/public/GSE146034_raw_tar/GSE146034_RAW.tar"
+        ],
+        "file_count": 2,
+        "largest_file": {
+          "bytes": 206387200,
+          "modified_utc": "2026-07-23T11:43:09.457905+00:00",
+          "path": "data/public/GSE146034_raw_tar/GSE146034_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-23T11:43:09.457905+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE146034_raw_tar/*",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "manifest_ready"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "arabidopsis_lifecycle_spatial_atlas",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-24T05:49:17.767870+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 251,
+        "exists": true,
+        "modified_utc": "2026-07-24T05:49:17.767870+00:00",
+        "path": "data/corpus_manifest.gse226097.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 28583098,
+        "examples": [
+          "data/public/GSE226097_npz/GSE226097_seedling_3d_relaxed_220711.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 28583098,
+          "modified_utc": "2026-07-24T05:49:17.635872+00:00",
+          "path": "data/public/GSE226097_npz/GSE226097_seedling_3d_relaxed_220711.npz"
+        },
+        "latest_modified_utc": "2026-07-24T05:49:17.635872+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE226097_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "A",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 61723856,
+        "examples": [
+          "data/public/GSE226097_rds/GSE226097_seedling_3d_relaxed_220711.rds"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 61723856,
+          "modified_utc": "2026-07-24T05:48:56.760180+00:00",
+          "path": "data/public/GSE226097_rds/GSE226097_seedling_3d_relaxed_220711.rds"
+        },
+        "latest_modified_utc": "2026-07-24T05:48:56.760180+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE226097_rds/*",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "manifest_ready"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "cotton_glandular_terpenoid_atlas",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-23T13:02:34.857224+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 242,
+        "exists": true,
+        "modified_utc": "2026-07-23T13:02:34.857224+00:00",
+        "path": "data/corpus_manifest.gse243419.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 28493033,
+        "examples": [
+          "data/public/GSE243419_npz/GSE243419_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 28493033,
+          "modified_utc": "2026-07-23T13:02:34.857224+00:00",
+          "path": "data/public/GSE243419_npz/GSE243419_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-23T13:02:34.857224+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE243419_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "B",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 150825104,
+        "examples": [
+          "data/public/GSE243419_raw_tar/GSE243419_RAW.aria2_urls.txt",
+          "data/public/GSE243419_raw_tar/GSE243419_RAW.tar"
+        ],
+        "file_count": 2,
+        "largest_file": {
+          "bytes": 150824960,
+          "modified_utc": "2026-07-23T13:02:23.065405+00:00",
+          "path": "data/public/GSE243419_raw_tar/GSE243419_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-23T13:02:23.065405+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE243419_raw_tar/*",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "manifest_ready"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "rice_soil_stress_root_atlas",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-23T11:31:35.424495+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 217,
+        "exists": true,
+        "modified_utc": "2026-07-23T11:31:35.424495+00:00",
+        "path": "data/corpus_manifest.gse251706.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 30067624,
+        "examples": [
+          "data/public/GSE251706_npz/GSM8660509_sc_303_COPILOT.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 30067624,
+          "modified_utc": "2026-07-23T11:31:35.264497+00:00",
+          "path": "data/public/GSE251706_npz/GSM8660509_sc_303_COPILOT.npz"
+        },
+        "latest_modified_utc": "2026-07-23T11:31:35.264497+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE251706_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "A",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 662220767,
+        "examples": [
+          "data/public/GSE251706_rds/GSM8660509_sc_303_COPILOT.rds.gz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 662220767,
+          "modified_utc": "2026-07-23T11:25:16.258276+00:00",
+          "path": "data/public/GSE251706_rds/GSM8660509_sc_303_COPILOT.rds.gz"
+        },
+        "latest_modified_utc": "2026-07-23T11:25:16.258276+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE251706_rds/*",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "manifest_ready"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "wheat_soil_root_atlas",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-23T09:23:17.757571+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 233,
+        "exists": true,
+        "modified_utc": "2026-07-23T09:23:17.757571+00:00",
+        "path": "data/corpus_manifest.gse270342.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 19395028,
+        "examples": [
+          "data/public/GSE270342_npz/GSM8339904_rep1_filtered_feature_bc_matrix.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 19395028,
+          "modified_utc": "2026-07-23T09:23:17.757571+00:00",
+          "path": "data/public/GSE270342_npz/GSM8339904_rep1_filtered_feature_bc_matrix.npz"
+        },
+        "latest_modified_utc": "2026-07-23T09:23:17.757571+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE270342_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "B",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 14907099,
+        "examples": [
+          "data/public/GSE270342_h5/GSM8339904_rep1_filtered_feature_bc_matrix.h5"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 14907099,
+          "modified_utc": "2026-07-23T09:23:11.009675+00:00",
+          "path": "data/public/GSE270342_h5/GSM8339904_rep1_filtered_feature_bc_matrix.h5"
+        },
+        "latest_modified_utc": "2026-07-23T09:23:11.009675+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE270342_h5/*",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "manifest_ready"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "arabidopsis_secondary_root_dev_atlas",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-23T18:12:15.519735+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 262,
+        "exists": true,
+        "modified_utc": "2026-07-23T18:12:15.519735+00:00",
+        "path": "data/corpus_manifest.gse270140.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 107011367,
+        "examples": [
+          "data/public/GSE270140_npz/GSM8335426_JWE03_filtered_feature_bc_matrix.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 107011367,
+          "modified_utc": "2026-07-23T18:12:15.515735+00:00",
+          "path": "data/public/GSE270140_npz/GSM8335426_JWE03_filtered_feature_bc_matrix.npz"
+        },
+        "latest_modified_utc": "2026-07-23T18:12:15.515735+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE270140_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "B",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 2529976638,
+        "examples": [
+          "data/public/GSE270140_raw_tar/GSE270140_RAW.aria2_urls.txt",
+          "data/public/GSE270140_raw_tar/GSE270140_RAW.members.txt",
+          "data/public/GSE270140_raw_tar/GSE270140_RAW.selected_h5.txt",
+          "data/public/GSE270140_raw_tar/GSE270140_RAW.tar"
+        ],
+        "file_count": 4,
+        "largest_file": {
+          "bytes": 2529976320,
+          "modified_utc": "2026-07-23T18:04:42.894425+00:00",
+          "path": "data/public/GSE270140_raw_tar/GSE270140_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-23T18:11:40.760249+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE270140_raw_tar/*",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "manifest_ready"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "maize_easy_multiome_seedling",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-23T17:38:13.533879+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 258,
+        "exists": true,
+        "modified_utc": "2026-07-23T17:38:13.533879+00:00",
+        "path": "data/corpus_manifest.gse338572.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 36626069,
+        "examples": [
+          "data/public/GSE338572_npz/GSE338572_AH15AH17_eMultiRNA_Zm_seedling.MergedSeuratObjs.cluster.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 36626069,
+          "modified_utc": "2026-07-23T17:38:13.397881+00:00",
+          "path": "data/public/GSE338572_npz/GSE338572_AH15AH17_eMultiRNA_Zm_seedling.MergedSeuratObjs.cluster.npz"
+        },
+        "latest_modified_utc": "2026-07-23T17:38:13.397881+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE338572_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "B",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 634699862,
+        "examples": [
+          "data/public/GSE338572_rds/GSE338572_AH15AH17_eMultiRNA_Zm_seedling.MergedSeuratObjs.cluster.RDS"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 634699862,
+          "modified_utc": "2026-07-23T17:36:10.323699+00:00",
+          "path": "data/public/GSE338572_rds/GSE338572_AH15AH17_eMultiRNA_Zm_seedling.MergedSeuratObjs.cluster.RDS"
+        },
+        "latest_modified_utc": "2026-07-23T17:36:10.323699+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE338572_rds/*",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "manifest_ready"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "rice_leaf_stress_snuc_atlas",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-23T18:43:47.347753+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 224,
+        "exists": true,
+        "modified_utc": "2026-07-23T18:40:17.794854+00:00",
+        "path": "data/corpus_manifest.gse313726.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 357913229,
+        "examples": [
+          "data/public/GSE313726_npz/GSE313726_OsLeafStressIntegrated.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 357913229,
+          "modified_utc": "2026-07-23T18:43:47.347753+00:00",
+          "path": "data/public/GSE313726_npz/GSE313726_OsLeafStressIntegrated.npz"
+        },
+        "latest_modified_utc": "2026-07-23T18:43:47.347753+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE313726_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "A",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 897951595,
+        "examples": [
+          "data/public/GSE313726_rds/GSE313726_OsLeafStressIntegrated.rds"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 897951595,
+          "modified_utc": "2026-07-23T18:28:08.121649+00:00",
+          "path": "data/public/GSE313726_rds/GSE313726_OsLeafStressIntegrated.rds"
+        },
+        "latest_modified_utc": "2026-07-23T18:28:08.121649+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE313726_rds/*",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "manifest_ready"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "brassicaceae_regulatory_multiome",
+      "download_status": "metadata_only",
+      "latest_modified_utc": null,
+      "log_path": null,
+      "manifest": {
+        "bytes": 0,
+        "exists": false,
+        "modified_utc": null,
+        "path": "data/corpus_manifest.gse332675.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE332675_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "B",
+      "public_manifest_status": "discovery_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE332675_h5ad/*",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "not_started_or_metadata_only"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "stevia_leaf_secondary_metabolism_snuc",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-23T18:50:08.522142+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 230,
+        "exists": true,
+        "modified_utc": "2026-07-23T18:50:08.522142+00:00",
+        "path": "data/corpus_manifest.gse311951.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 19965088,
+        "examples": [
+          "data/public/GSE311951_npz/GSE311951_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 19965088,
+          "modified_utc": "2026-07-23T18:50:08.518142+00:00",
+          "path": "data/public/GSE311951_npz/GSE311951_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-23T18:50:08.518142+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE311951_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "A",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 843212944,
+        "examples": [
+          "data/public/GSE311951_raw_tar/GSE311951_RAW.aria2_urls.txt",
+          "data/public/GSE311951_raw_tar/GSE311951_RAW.tar"
+        ],
+        "file_count": 2,
+        "largest_file": {
+          "bytes": 843212800,
+          "modified_utc": "2026-07-23T18:50:01.442246+00:00",
+          "path": "data/public/GSE311951_raw_tar/GSE311951_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-23T18:50:01.442246+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE311951_raw_tar/*",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "manifest_ready"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "arabidopsis_lateral_root_founder_atlas",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-23T19:12:09.886788+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 225,
+        "exists": true,
+        "modified_utc": "2026-07-23T19:12:09.886788+00:00",
+        "path": "data/corpus_manifest.gse302041.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 264796300,
+        "examples": [
+          "data/public/GSE302041_npz/GSE302041_LRFC.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 264796300,
+          "modified_utc": "2026-07-23T19:12:09.766790+00:00",
+          "path": "data/public/GSE302041_npz/GSE302041_LRFC.npz"
+        },
+        "latest_modified_utc": "2026-07-23T19:12:09.766790+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE302041_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "B",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 4579000829,
+        "examples": [
+          "data/public/GSE302041_rds/GSE302041_LRFC.rds"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 4579000829,
+          "modified_utc": "2026-07-23T18:59:04.946275+00:00",
+          "path": "data/public/GSE302041_rds/GSE302041_LRFC.rds"
+        },
+        "latest_modified_utc": "2026-07-23T18:59:04.946275+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE302041_rds/*",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "manifest_ready"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "tomato_mycorrhiza_snuc_atlas",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-23T19:30:54.238396+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 228,
+        "exists": true,
+        "modified_utc": "2026-07-23T19:27:21.669488+00:00",
+        "path": "data/corpus_manifest.gse314252.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 189476221,
+        "examples": [
+          "data/public/GSE314252_npz/GSE314252_seuratObj_for_pub.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 189476221,
+          "modified_utc": "2026-07-23T19:30:54.238396+00:00",
+          "path": "data/public/GSE314252_npz/GSE314252_seuratObj_for_pub.npz"
+        },
+        "latest_modified_utc": "2026-07-23T19:30:54.238396+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE314252_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "B",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 2653415260,
+        "examples": [
+          "data/public/GSE314252_rds/GSE314252_seuratObj_for_pub.rds"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 2653415260,
+          "modified_utc": "2026-07-23T19:17:24.170194+00:00",
+          "path": "data/public/GSE314252_rds/GSE314252_seuratObj_for_pub.rds"
+        },
+        "latest_modified_utc": "2026-07-23T19:17:24.170194+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE314252_rds/*",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "manifest_ready"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "arabidopsis_scrna_method_benchmark",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-23T19:40:50.141762+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 230,
+        "exists": true,
+        "modified_utc": "2026-07-23T19:40:50.141762+00:00",
+        "path": "data/corpus_manifest.gse300264.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 139542596,
+        "examples": [
+          "data/public/GSE300264_npz/GSE300264_merged_seurat.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 139542596,
+          "modified_utc": "2026-07-23T19:40:50.009763+00:00",
+          "path": "data/public/GSE300264_npz/GSE300264_merged_seurat.npz"
+        },
+        "latest_modified_utc": "2026-07-23T19:40:50.009763+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE300264_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "B",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 2026495447,
+        "examples": [
+          "data/public/GSE300264_rds/GSE300264_merged_seurat.rds"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 2026495447,
+          "modified_utc": "2026-07-23T19:33:19.308285+00:00",
+          "path": "data/public/GSE300264_rds/GSE300264_merged_seurat.rds"
+        },
+        "latest_modified_utc": "2026-07-23T19:33:19.308285+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE300264_rds/*",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "manifest_ready"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "marchantia_spore_asymmetry_single_cell",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-23T19:52:18.223897+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-23T19:52:18.223897+00:00",
+        "path": "data/corpus_manifest.gse336751.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE336751_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "C",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 9985731,
+        "examples": [
+          "data/public/GSE336751_raw_tar/GSE336751_RAW.aria2_urls.txt",
+          "data/public/GSE336751_raw_tar/GSE336751_RAW.tar",
+          "data/public/GSE336751_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 9984000,
+          "modified_utc": "2026-07-23T18:32:37.693661+00:00",
+          "path": "data/public/GSE336751_raw_tar/GSE336751_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-23T19:52:18.223897+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE336751_raw_tar/*",
+        "unsupported_payloads": [
+          {
+            "accession": "GSE336751",
+            "corpus_manifest": "data/corpus_manifest.gse336751.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "marchantia_spore_asymmetry_single_cell",
+            "example_files": [
+              "GSM9841677_201190_lane1_quant.sf.gz",
+              "GSM9841678_201190_lane2_quant.sf.gz",
+              "GSM9841679_201190_lane3_quant.sf.gz",
+              "GSM9841680_201190_lane4_quant.sf.gz",
+              "GSM9841681_201190_lane5_quant.sf.gz",
+              "GSM9841682_296107_lane1_quant.sf.gz",
+              "GSM9841683_296107_lane2_quant.sf.gz",
+              "GSM9841684_296107_lane3_quant.sf.gz",
+              "GSM9841685_296107_lane4_quant.sf.gz",
+              "GSM9841686_296107_lane5_quant.sf.gz",
+              "GSM9841687_206130_lane1_quant.sf.gz",
+              "GSM9841688_206130_lane2_quant.sf.gz",
+              "GSM9841689_206130_lane3_quant.sf.gz",
+              "GSM9841690_206130_lane4_quant.sf.gz",
+              "GSM9841691_206130_lane5_quant.sf.gz",
+              "GSM9841692_203166_lane1_quant.sf.gz",
+              "GSM9841693_203166_lane2_quant.sf.gz",
+              "GSM9841694_203166_lane3_quant.sf.gz",
+              "GSM9841695_203166_lane4_quant.sf.gz",
+              "GSM9841696_203166_lane5_quant.sf.gz",
+              "GSM9841697_205142_lane1_quant.sf.gz",
+              "GSM9841698_205142_lane2_quant.sf.gz",
+              "GSM9841699_205142_lane3_quant.sf.gz",
+              "GSM9841700_205142_lane4_quant.sf.gz",
+              "GSM9841701_205142_lane5_quant.sf.gz"
+            ],
+            "file_count": 30,
+            "quant_sf_file_count": 30,
+            "reason": "No Matrix Market/10x matrix files were found after extracting the GEO RAW tar archive.",
+            "species": "Marchantia polymorpha",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {
+              ".sf.gz": 30
+            },
+            "tissue": "spore"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 1587,
+            "modified_utc": "2026-07-23T19:52:18.223897+00:00",
+            "path": "data/public/GSE336751_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "public_data_target",
+      "source_url": null,
+      "status_summary_stage": "unsupported_for_matrix_corpus"
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse149217",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-24T20:19:37.206588+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-24T20:19:37.206588+00:00",
+        "path": "data/corpus_manifest.gse149217.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE149217_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 1059,
+        "examples": [
+          "data/public/GSE149217_raw_tar/GSE149217_RAW.aria2_urls.txt",
+          "data/public/GSE149217_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 2,
+        "largest_file": {
+          "bytes": 846,
+          "modified_utc": "2026-07-24T20:19:37.206588+00:00",
+          "path": "data/public/GSE149217_raw_tar/unsupported_single_cell_matrix.json"
+        },
+        "latest_modified_utc": "2026-07-24T20:19:37.206588+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE149217_10x/*",
+          "data/public/GSE149217_h5/*",
+          "data/public/GSE149217_h5ad/*",
+          "data/public/GSE149217_mtx_tar/*",
+          "data/public/GSE149217_mtx_components/*",
+          "data/public/GSE149217_raw_tar/*",
+          "data/public/GSE149217_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE149217",
+            "corpus_manifest": "data/corpus_manifest.gse149217.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "tomato_rice_root_tip_celltype_atlas",
+            "example_supplementary_files": [
+              "GSE149217_Rice_ATLAS_raw_counts.csv.gz",
+              "GSE149217_Tomato_ATLAS_raw_counts.csv.gz",
+              "GSE149217_Tomato_DWL_raw_counts.csv.gz",
+              "GSE149217_Tomato_Field_raw_counts.csv.gz"
+            ],
+            "reason": "GEO GSE149217 is a tomato/rice root cell-type TRAP-seq and ATAC-seq atlas. The downloadable raw_counts CSV.gz files are gene-by-sample count tables, not scRNA/snRNA cell-by-gene expression matrices with cell barcodes.",
+            "source_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE149217",
+            "species": "Solanum lycopersicum; Oryza sativa",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "tissue": "root_tip"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 846,
+            "modified_utc": "2026-07-24T20:19:37.206588+00:00",
+            "path": "data/public/GSE149217_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse157757_zea_mays_single_cell_sequencing_reveals_phloem",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T19:44:23.675823+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 244,
+        "exists": true,
+        "modified_utc": "2026-07-25T19:44:23.675823+00:00",
+        "path": "data/corpus_manifest.gse157757.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 44772670,
+        "examples": [
+          "data/public/GSE157757_npz/GSE157757_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 44772670,
+          "modified_utc": "2026-07-25T19:44:23.675823+00:00",
+          "path": "data/public/GSE157757_npz/GSE157757_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-25T19:44:23.675823+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE157757_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 122511504,
+        "examples": [
+          "data/public/GSE157757_raw_tar/GSE157757_RAW.aria2_urls.txt",
+          "data/public/GSE157757_raw_tar/GSE157757_RAW.tar",
+          "data/public/GSE157757_raw_tar/GSE157757_conversion_error.log"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 122511360,
+          "modified_utc": "2026-07-25T19:44:01.564155+00:00",
+          "path": "data/public/GSE157757_raw_tar/GSE157757_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T19:44:05.368098+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE157757_10x/*",
+          "data/public/GSE157757_h5/*",
+          "data/public/GSE157757_h5ad/*",
+          "data/public/GSE157757_mtx_tar/*",
+          "data/public/GSE157757_mtx_components/*",
+          "data/public/GSE157757_raw_tar/*",
+          "data/public/GSE157757_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse157758",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-25T19:48:54.611755+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-25T19:48:54.611755+00:00",
+        "path": "data/corpus_manifest.gse157758.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE157758_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 10855503,
+        "examples": [
+          "data/public/GSE157758_raw_tar/GSE157758_RAW.aria2_urls.txt",
+          "data/public/GSE157758_raw_tar/GSE157758_RAW.detected_h5.txt",
+          "data/public/GSE157758_raw_tar/GSE157758_RAW.tar",
+          "data/public/GSE157758_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 4,
+        "largest_file": {
+          "bytes": 10854400,
+          "modified_utc": "2026-07-25T19:48:53.763767+00:00",
+          "path": "data/public/GSE157758_raw_tar/GSE157758_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T19:48:54.611755+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE157758_10x/*",
+          "data/public/GSE157758_h5/*",
+          "data/public/GSE157758_h5ad/*",
+          "data/public/GSE157758_mtx_tar/*",
+          "data/public/GSE157758_mtx_components/*",
+          "data/public/GSE157758_raw_tar/*",
+          "data/public/GSE157758_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE157758",
+            "corpus_manifest": "data/corpus_manifest.gse157758.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse157758_zea_mays_single_cell_sequencing_reveals_phloem",
+            "example_files": [
+              "GSM4774631_ML1_CKDL200154017-1a_H7YLVCCX2_L8_1_val_1.fq.gz_processedCounts.tab.gz",
+              "GSM4774632_ML2_CKDL200154018-1a_H7YLVCCX2_L8_1_val_1.fq.gz_processedCounts.tab.gz",
+              "GSM4774633_MP1_CKDL200154019-1a_H7YLVCCX2_L8_1_val_1.fq.gz_processedCounts.tab.gz",
+              "GSM4774634_MP2_CKDL200154020-1a_H7YLVCCX2_L8_1_val_1.fq.gz_processedCounts.tab.gz"
+            ],
+            "feature_like_file_count": 0,
+            "file_count": 4,
+            "matrix_like_file_count": 0,
+            "quant_sf_file_count": 0,
+            "reason": "No Matrix Market/10x matrix files were found after extracting the GEO RAW tar archive.",
+            "species": "Zea mays",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {
+              ".fq.gz_processedCounts.tab.gz": 4
+            },
+            "tissue": "leaf"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 959,
+            "modified_utc": "2026-07-25T19:48:54.611755+00:00",
+            "path": "data/public/GSE157758_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse180121_liriodendron_chinense_single_cell_transcriptomics_unveils_xylem",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T20:15:46.411305+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 932,
+        "exists": true,
+        "modified_utc": "2026-07-25T20:15:46.411305+00:00",
+        "path": "data/corpus_manifest.gse180121.tsv",
+        "rows": 3
+      },
+      "manifest_rows": 3,
+      "npz_files": {
+        "bytes": 87306815,
+        "examples": [
+          "data/public/GSE180121_npz/GSM5453537_filtered_feature_bc_matrix_Ptr.npz",
+          "data/public/GSE180121_npz/GSM5453540_filtered_feature_bc_matrix_Lch.npz",
+          "data/public/GSE180121_npz/GSM6234943_filtered_feature_bc_matrix_Ptr_batch2.npz"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 60766108,
+          "modified_utc": "2026-07-25T20:15:46.407305+00:00",
+          "path": "data/public/GSE180121_npz/GSM6234943_filtered_feature_bc_matrix_Ptr_batch2.npz"
+        },
+        "latest_modified_utc": "2026-07-25T20:15:46.407305+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE180121_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 956390620,
+        "examples": [
+          "data/public/GSE180121_h5/GSM5453537_filtered_feature_bc_matrix_Ptr.h5",
+          "data/public/GSE180121_h5/GSM5453540_filtered_feature_bc_matrix_Lch.h5",
+          "data/public/GSE180121_h5/GSM6234943_filtered_feature_bc_matrix_Ptr_batch2.h5",
+          "data/public/GSE180121_raw_tar/GSE180121_RAW.aria2_urls.txt",
+          "data/public/GSE180121_raw_tar/GSE180121_RAW.detected_h5.txt"
+        ],
+        "file_count": 7,
+        "largest_file": {
+          "bytes": 898549760,
+          "modified_utc": "2026-07-25T20:11:41.175040+00:00",
+          "path": "data/public/GSE180121_raw_tar/GSE180121_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T20:15:16.003768+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE180121_10x/*",
+          "data/public/GSE180121_h5/*",
+          "data/public/GSE180121_h5ad/*",
+          "data/public/GSE180121_mtx_tar/*",
+          "data/public/GSE180121_mtx_components/*",
+          "data/public/GSE180121_raw_tar/*",
+          "data/public/GSE180121_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse182507_medicago_truncatula_single_cell_rna_sequencing_medicago",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-24T23:33:10.709247+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 264,
+        "exists": true,
+        "modified_utc": "2026-07-24T23:33:10.709247+00:00",
+        "path": "data/corpus_manifest.gse182507.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 7939349,
+        "examples": [
+          "data/public/GSE182507_npz/GSE182507_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 7939349,
+          "modified_utc": "2026-07-24T23:33:10.705247+00:00",
+          "path": "data/public/GSE182507_npz/GSE182507_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-24T23:33:10.705247+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE182507_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 36557013,
+        "examples": [
+          "data/public/GSE182507_raw_tar/GSE182507_RAW.aria2_urls.txt",
+          "data/public/GSE182507_raw_tar/GSE182507_RAW.tar"
+        ],
+        "file_count": 2,
+        "largest_file": {
+          "bytes": 36556800,
+          "modified_utc": "2026-07-24T23:33:07.201299+00:00",
+          "path": "data/public/GSE182507_raw_tar/GSE182507_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-24T23:33:07.201299+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE182507_10x/*",
+          "data/public/GSE182507_h5/*",
+          "data/public/GSE182507_h5ad/*",
+          "data/public/GSE182507_mtx_tar/*",
+          "data/public/GSE182507_mtx_components/*",
+          "data/public/GSE182507_raw_tar/*",
+          "data/public/GSE182507_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse190649_populus_tremula_single_nuclei_transcriptomic_populus_tremula",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T20:18:33.052766+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 292,
+        "exists": true,
+        "modified_utc": "2026-07-25T20:18:33.052766+00:00",
+        "path": "data/corpus_manifest.gse190649.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 48709583,
+        "examples": [
+          "data/public/GSE190649_npz/GSE190649_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 48709583,
+          "modified_utc": "2026-07-25T20:18:33.052766+00:00",
+          "path": "data/public/GSE190649_npz/GSE190649_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-25T20:18:33.052766+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE190649_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 67491984,
+        "examples": [
+          "data/public/GSE190649_raw_tar/GSE190649_RAW.aria2_urls.txt",
+          "data/public/GSE190649_raw_tar/GSE190649_RAW.tar",
+          "data/public/GSE190649_raw_tar/GSE190649_conversion_error.log"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 67491840,
+          "modified_utc": "2026-07-25T20:18:10.785105+00:00",
+          "path": "data/public/GSE190649_raw_tar/GSE190649_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T20:18:13.269068+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE190649_10x/*",
+          "data/public/GSE190649_h5/*",
+          "data/public/GSE190649_h5ad/*",
+          "data/public/GSE190649_mtx_tar/*",
+          "data/public/GSE190649_mtx_components/*",
+          "data/public/GSE190649_raw_tar/*",
+          "data/public/GSE190649_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse196882",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-24T21:22:19.722398+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-24T21:22:19.722398+00:00",
+        "path": "data/corpus_manifest.gse196882.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE196882_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 2760848608,
+        "examples": [
+          "data/public/GSE196882_raw_tar/GSE196882_RAW.aria2_urls.txt",
+          "data/public/GSE196882_raw_tar/GSE196882_RAW.tar",
+          "data/public/GSE196882_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 2760847360,
+          "modified_utc": "2026-07-24T21:22:17.450432+00:00",
+          "path": "data/public/GSE196882_raw_tar/GSE196882_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-24T21:22:19.722398+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE196882_10x/*",
+          "data/public/GSE196882_h5/*",
+          "data/public/GSE196882_h5ad/*",
+          "data/public/GSE196882_mtx_tar/*",
+          "data/public/GSE196882_mtx_components/*",
+          "data/public/GSE196882_raw_tar/*",
+          "data/public/GSE196882_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE196882",
+            "corpus_manifest": "data/corpus_manifest.gse196882.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse196882_zea_mays_spatial_transcriptomics_maize_embryonic_leaves",
+            "example_files": [
+              "GSM5903592_XGE21_VR04.tar.gz",
+              "GSM5903593_XGE21_VR03.tar.gz",
+              "GSM5903594_XGE21_VR02.tar.gz",
+              "GSM5903595_XGE21_VR01.tar.gz",
+              "GSM5903596_XGE20_UL01.tar.gz",
+              "GSM5903597_XGE20_UL02.tar.gz",
+              "GSM5903598_XGE20_UL04.tar.gz",
+              "GSM9197254_DQ01_S5.rds",
+              "GSM9197255_DQ02_S5.rds",
+              "GSM9197256_DQ03_S5.rds",
+              "GSM9197257_DQ04_S5.rds",
+              "GSM9197258_DQ05_S5.rds",
+              "GSM9197259_DQ06_S5.rds",
+              "GSM9197260_DQ07_S5.rds",
+              "GSM9197261_DQ08_S5.rds"
+            ],
+            "file_count": 15,
+            "quant_sf_file_count": 0,
+            "reason": "No Matrix Market/10x matrix files were found after extracting the GEO RAW tar archive.",
+            "species": "Zea mays",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {
+              ".rds": 8,
+              ".tar.gz": 7
+            },
+            "tissue": "leaf"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 1035,
+            "modified_utc": "2026-07-24T21:22:19.722398+00:00",
+            "path": "data/public/GSE196882_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse201640_zea_mays_decoding_gene_regulatory_network_endosperm",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T02:27:33.096997+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 261,
+        "exists": true,
+        "modified_utc": "2026-07-25T02:27:33.096997+00:00",
+        "path": "data/corpus_manifest.gse201640.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 10587429,
+        "examples": [
+          "data/public/GSE201640_npz/GSE201640_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 10587429,
+          "modified_utc": "2026-07-25T02:27:33.092997+00:00",
+          "path": "data/public/GSE201640_npz/GSE201640_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-25T02:27:33.092997+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE201640_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 158535893,
+        "examples": [
+          "data/public/GSE201640_raw_tar/GSE201640_RAW.aria2_urls.txt",
+          "data/public/GSE201640_raw_tar/GSE201640_RAW.tar",
+          "data/public/GSE201640_raw_tar/GSE201640_conversion_error.log"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 158535680,
+          "modified_utc": "2026-07-25T02:27:28.325068+00:00",
+          "path": "data/public/GSE201640_raw_tar/GSE201640_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T02:27:28.497065+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE201640_10x/*",
+          "data/public/GSE201640_h5/*",
+          "data/public/GSE201640_h5ad/*",
+          "data/public/GSE201640_mtx_tar/*",
+          "data/public/GSE201640_mtx_components/*",
+          "data/public/GSE201640_raw_tar/*",
+          "data/public/GSE201640_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse201931_solanum_lycopersicum_high_throughput_single_cell_transcriptome",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T01:53:35.071404+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 443,
+        "exists": true,
+        "modified_utc": "2026-07-25T01:53:35.071404+00:00",
+        "path": "data/corpus_manifest.gse201931.tsv",
+        "rows": 2
+      },
+      "manifest_rows": 2,
+      "npz_files": {
+        "bytes": 195612256,
+        "examples": [
+          "data/public/GSE201931_npz/GSE201931.npz",
+          "data/public/GSE201931_npz/GSE201931_V0.npz"
+        ],
+        "file_count": 2,
+        "largest_file": {
+          "bytes": 97808367,
+          "modified_utc": "2026-07-25T01:53:35.071404+00:00",
+          "path": "data/public/GSE201931_npz/GSE201931_V0.npz"
+        },
+        "latest_modified_utc": "2026-07-25T01:53:35.071404+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE201931_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 365434021,
+        "examples": [
+          "data/public/GSE201931_mtx_components/GSE201931_V0_barcodes.tsv.gz",
+          "data/public/GSE201931_mtx_components/GSE201931_V0_features.tsv.gz",
+          "data/public/GSE201931_mtx_components/GSE201931_V0_matrix.mtx.gz",
+          "data/public/GSE201931_mtx_components/GSE201931_barcodes.tsv.gz",
+          "data/public/GSE201931_mtx_components/GSE201931_component_conversion_error.log"
+        ],
+        "file_count": 8,
+        "largest_file": {
+          "bytes": 182246627,
+          "modified_utc": "2026-07-25T01:30:48.791797+00:00",
+          "path": "data/public/GSE201931_mtx_components/GSE201931_V0_matrix.mtx.gz"
+        },
+        "latest_modified_utc": "2026-07-25T01:52:28.492397+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE201931_10x/*",
+          "data/public/GSE201931_h5/*",
+          "data/public/GSE201931_h5ad/*",
+          "data/public/GSE201931_mtx_tar/*",
+          "data/public/GSE201931_mtx_components/*",
+          "data/public/GSE201931_raw_tar/*",
+          "data/public/GSE201931_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse210881_medicago_truncatula_gene_expression_profile_at_single",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T04:36:47.929655+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 291,
+        "exists": true,
+        "modified_utc": "2026-07-25T04:36:47.929655+00:00",
+        "path": "data/corpus_manifest.gse210881.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 159429289,
+        "examples": [
+          "data/public/GSE210881_npz/GSE210881_sNucRNA-seq_Medicago_integrated_root_atlas.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 159429289,
+          "modified_utc": "2026-07-25T04:36:47.793657+00:00",
+          "path": "data/public/GSE210881_npz/GSE210881_sNucRNA-seq_Medicago_integrated_root_atlas.npz"
+        },
+        "latest_modified_utc": "2026-07-25T04:36:47.793657+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE210881_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 871935267,
+        "examples": [
+          "data/public/GSE210881_rds/GSE210881_sNucRNA-seq_Medicago_integrated_root_atlas.rds.gz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 871935267,
+          "modified_utc": "2026-07-25T04:31:51.002082+00:00",
+          "path": "data/public/GSE210881_rds/GSE210881_sNucRNA-seq_Medicago_integrated_root_atlas.rds.gz"
+        },
+        "latest_modified_utc": "2026-07-25T04:31:51.002082+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE210881_10x/*",
+          "data/public/GSE210881_h5/*",
+          "data/public/GSE210881_h5ad/*",
+          "data/public/GSE210881_mtx_tar/*",
+          "data/public/GSE210881_mtx_components/*",
+          "data/public/GSE210881_raw_tar/*",
+          "data/public/GSE210881_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse220277_arabidopsis_drought_recovery_plants_triggers_a",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-24T21:23:55.912962+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 259,
+        "exists": true,
+        "modified_utc": "2026-07-24T21:23:55.912962+00:00",
+        "path": "data/corpus_manifest.gse220277.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 169136685,
+        "examples": [
+          "data/public/GSE220277_npz/GSE220277_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 169136685,
+          "modified_utc": "2026-07-24T21:23:55.908962+00:00",
+          "path": "data/public/GSE220277_npz/GSE220277_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-24T21:23:55.908962+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE220277_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 2839808213,
+        "examples": [
+          "data/public/GSE220277_raw_tar/GSE220277_RAW.aria2_urls.txt",
+          "data/public/GSE220277_raw_tar/GSE220277_RAW.tar"
+        ],
+        "file_count": 2,
+        "largest_file": {
+          "bytes": 2839808000,
+          "modified_utc": "2026-07-24T21:22:49.397955+00:00",
+          "path": "data/public/GSE220277_raw_tar/GSE220277_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-24T21:22:49.397955+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE220277_10x/*",
+          "data/public/GSE220277_h5/*",
+          "data/public/GSE220277_h5ad/*",
+          "data/public/GSE220277_mtx_tar/*",
+          "data/public/GSE220277_mtx_components/*",
+          "data/public/GSE220277_raw_tar/*",
+          "data/public/GSE220277_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse222584_oryza_sativa_single_cell_sequencing_revealed_cell",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-24T22:30:46.749097+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 263,
+        "exists": true,
+        "modified_utc": "2026-07-24T22:30:46.749097+00:00",
+        "path": "data/corpus_manifest.gse222584.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 21307438,
+        "examples": [
+          "data/public/GSE222584_npz/GSE222584_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 21307438,
+          "modified_utc": "2026-07-24T22:30:46.745097+00:00",
+          "path": "data/public/GSE222584_npz/GSE222584_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-24T22:30:46.745097+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE222584_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 348477653,
+        "examples": [
+          "data/public/GSE222584_raw_tar/GSE222584_RAW.aria2_urls.txt",
+          "data/public/GSE222584_raw_tar/GSE222584_RAW.tar"
+        ],
+        "file_count": 2,
+        "largest_file": {
+          "bytes": 348477440,
+          "modified_utc": "2026-07-24T22:30:37.541234+00:00",
+          "path": "data/public/GSE222584_raw_tar/GSE222584_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-24T22:30:37.541234+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE222584_10x/*",
+          "data/public/GSE222584_h5/*",
+          "data/public/GSE222584_h5ad/*",
+          "data/public/GSE222584_mtx_tar/*",
+          "data/public/GSE222584_mtx_components/*",
+          "data/public/GSE222584_raw_tar/*",
+          "data/public/GSE222584_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse224228",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-25T20:45:23.288267+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-25T20:45:23.288267+00:00",
+        "path": "data/corpus_manifest.gse224228.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE224228_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 316386500,
+        "examples": [
+          "data/public/GSE224228_raw_tar/GSE224228_RAW.aria2_urls.txt",
+          "data/public/GSE224228_raw_tar/GSE224228_RAW.detected_h5.txt",
+          "data/public/GSE224228_raw_tar/GSE224228_RAW.tar",
+          "data/public/GSE224228_raw_tar/GSE224228_RAW.tar.corrupt.20260726_044118",
+          "data/public/GSE224228_raw_tar/GSE224228_RAW.tar.corrupt.20260726_044433"
+        ],
+        "file_count": 8,
+        "largest_file": {
+          "bytes": 105461760,
+          "modified_utc": "2026-07-25T20:45:23.044271+00:00",
+          "path": "data/public/GSE224228_raw_tar/GSE224228_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T20:45:23.288267+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE224228_10x/*",
+          "data/public/GSE224228_h5/*",
+          "data/public/GSE224228_h5ad/*",
+          "data/public/GSE224228_mtx_tar/*",
+          "data/public/GSE224228_mtx_components/*",
+          "data/public/GSE224228_raw_tar/*",
+          "data/public/GSE224228_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE224228",
+            "corpus_manifest": "data/corpus_manifest.gse224228.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse224228_triticum_aestivum_a_quantitative_computational_framework_allopolyploid",
+            "example_files": [],
+            "feature_like_file_count": 0,
+            "file_count": 0,
+            "matrix_like_file_count": 0,
+            "quant_sf_file_count": 0,
+            "reason": "No Matrix Market/10x matrix files were found after extracting the GEO RAW tar archive.",
+            "species": "Triticum aestivum",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {},
+            "tissue": "public_discovery"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 604,
+            "modified_utc": "2026-07-25T20:45:23.288267+00:00",
+            "path": "data/public/GSE224228_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse224539",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-25T20:49:56.956109+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-25T20:49:56.956109+00:00",
+        "path": "data/corpus_manifest.gse224539.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE224539_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 167097532,
+        "examples": [
+          "data/public/GSE224539_raw_tar/GSE224539_RAW.aria2_urls.txt",
+          "data/public/GSE224539_raw_tar/GSE224539_RAW.detected_h5.txt",
+          "data/public/GSE224539_raw_tar/GSE224539_RAW.tar",
+          "data/public/GSE224539_raw_tar/GSE224539_gzip_quarantine.json",
+          "data/public/GSE224539_raw_tar/GSE224539_gzip_validation_error.log"
+        ],
+        "file_count": 6,
+        "largest_file": {
+          "bytes": 167096320,
+          "modified_utc": "2026-07-25T20:49:48.116243+00:00",
+          "path": "data/public/GSE224539_raw_tar/GSE224539_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T20:49:56.956109+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE224539_10x/*",
+          "data/public/GSE224539_h5/*",
+          "data/public/GSE224539_h5ad/*",
+          "data/public/GSE224539_mtx_tar/*",
+          "data/public/GSE224539_mtx_components/*",
+          "data/public/GSE224539_raw_tar/*",
+          "data/public/GSE224539_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE224539",
+            "corpus_manifest": "data/corpus_manifest.gse224539.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse224539_medicago_truncatula_single_cell_transcriptome_program_nodule",
+            "example_files": [],
+            "feature_like_file_count": 0,
+            "file_count": 0,
+            "matrix_like_file_count": 0,
+            "quant_sf_file_count": 0,
+            "reason": "No Matrix Market/10x matrix files were found after extracting the GEO RAW tar archive.",
+            "species": "Medicago truncatula",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {},
+            "tissue": "public_discovery"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 596,
+            "modified_utc": "2026-07-25T20:49:56.956109+00:00",
+            "path": "data/public/GSE224539_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse226149_glycine_max_gene_expression_profile_at_single",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T04:56:31.987990+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 246,
+        "exists": true,
+        "modified_utc": "2026-07-25T04:56:31.987990+00:00",
+        "path": "data/corpus_manifest.gse226149.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 34768705,
+        "examples": [
+          "data/public/GSE226149_npz/GSE226149_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 34768705,
+          "modified_utc": "2026-07-25T04:56:31.983990+00:00",
+          "path": "data/public/GSE226149_npz/GSE226149_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-25T04:56:31.983990+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE226149_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 572774613,
+        "examples": [
+          "data/public/GSE226149_raw_tar/GSE226149_RAW.aria2_urls.txt",
+          "data/public/GSE226149_raw_tar/GSE226149_RAW.tar",
+          "data/public/GSE226149_raw_tar/GSE226149_conversion_error.log"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 572774400,
+          "modified_utc": "2026-07-25T04:55:18.741080+00:00",
+          "path": "data/public/GSE226149_raw_tar/GSE226149_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T04:56:16.056227+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE226149_10x/*",
+          "data/public/GSE226149_h5/*",
+          "data/public/GSE226149_h5ad/*",
+          "data/public/GSE226149_mtx_tar/*",
+          "data/public/GSE226149_mtx_components/*",
+          "data/public/GSE226149_raw_tar/*",
+          "data/public/GSE226149_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse226826_arabidopsis_thaliana_time_resolved_single_cell_spatial",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T10:51:57.076226+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 279,
+        "exists": true,
+        "modified_utc": "2026-07-25T10:51:57.076226+00:00",
+        "path": "data/corpus_manifest.gse226826.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 10950934,
+        "examples": [
+          "data/public/GSE226826_npz/GSE226826_AvrRpm1_24h_peak.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 10950934,
+          "modified_utc": "2026-07-25T10:51:56.936228+00:00",
+          "path": "data/public/GSE226826_npz/GSE226826_AvrRpm1_24h_peak.npz"
+        },
+        "latest_modified_utc": "2026-07-25T10:51:56.936228+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE226826_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 110789674,
+        "examples": [
+          "data/public/GSE226826_rds/GSE226826_AvrRpm1_24h_peak.rds.gz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 110789674,
+          "modified_utc": "2026-07-25T08:23:10.954596+00:00",
+          "path": "data/public/GSE226826_rds/GSE226826_AvrRpm1_24h_peak.rds.gz"
+        },
+        "latest_modified_utc": "2026-07-25T08:23:10.954596+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE226826_10x/*",
+          "data/public/GSE226826_h5/*",
+          "data/public/GSE226826_h5ad/*",
+          "data/public/GSE226826_mtx_tar/*",
+          "data/public/GSE226826_mtx_components/*",
+          "data/public/GSE226826_raw_tar/*",
+          "data/public/GSE226826_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse232863",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-25T16:20:43.121855+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-25T16:20:43.121855+00:00",
+        "path": "data/corpus_manifest.gse232863.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE232863_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 889,
+        "examples": [
+          "data/public/GSE232863_raw_tar/GSE232863_RAW.aria2_urls.txt",
+          "data/public/GSE232863_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 2,
+        "largest_file": {
+          "bytes": 745,
+          "modified_utc": "2026-07-25T16:20:43.121855+00:00",
+          "path": "data/public/GSE232863_raw_tar/unsupported_single_cell_matrix.json"
+        },
+        "latest_modified_utc": "2026-07-25T16:20:43.121855+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE232863_10x/*",
+          "data/public/GSE232863_h5/*",
+          "data/public/GSE232863_h5ad/*",
+          "data/public/GSE232863_mtx_tar/*",
+          "data/public/GSE232863_mtx_components/*",
+          "data/public/GSE232863_raw_tar/*",
+          "data/public/GSE232863_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE232863",
+            "corpus_manifest": "data/corpus_manifest.gse232863.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse232863_oryza_sativa_a_single_cell_multiomics_atlas",
+            "example_files": [],
+            "feature_like_file_count": 0,
+            "file_count": 0,
+            "matrix_like_file_count": 0,
+            "quant_sf_file_count": 0,
+            "reason": "GEO RAW tar is 8632883200 bytes, which exceeds SNOWCELL_GEO_RAW_TAR_MAX_BYTES=5368709120. Whole-tar retrieval is deferred; use a file-level matrix member retrieval strategy or rerun with SNOWCELL_GEO_RAW_TAR_ALLOW_LARGE=1 after confirming disk/network budget.",
+            "species": "Oryza sativa",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {},
+            "tissue": "public_discovery"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 745,
+            "modified_utc": "2026-07-25T16:20:43.121855+00:00",
+            "path": "data/public/GSE232863_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "arabidopsis_callus_regeneration_scrna",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-24T19:53:28.906015+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 244,
+        "exists": true,
+        "modified_utc": "2026-07-24T19:53:28.906015+00:00",
+        "path": "data/corpus_manifest.gse234192.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 118700181,
+        "examples": [
+          "data/public/GSE234192_npz/GSE234192_processed.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 118700181,
+          "modified_utc": "2026-07-24T19:53:28.774017+00:00",
+          "path": "data/public/GSE234192_npz/GSE234192_processed.npz"
+        },
+        "latest_modified_utc": "2026-07-24T19:53:28.774017+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE234192_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "B",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 3393944462,
+        "examples": [
+          "data/public/GSE234192_rds/GSE234192_processed.rds"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 3393944462,
+          "modified_utc": "2026-07-24T19:42:29.467863+00:00",
+          "path": "data/public/GSE234192_rds/GSE234192_processed.rds"
+        },
+        "latest_modified_utc": "2026-07-24T19:42:29.467863+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE234192_10x/*",
+          "data/public/GSE234192_h5/*",
+          "data/public/GSE234192_h5ad/*",
+          "data/public/GSE234192_mtx_tar/*",
+          "data/public/GSE234192_mtx_components/*",
+          "data/public/GSE234192_raw_tar/*",
+          "data/public/GSE234192_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse235494",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-25T00:01:54.735503+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-25T00:01:54.735503+00:00",
+        "path": "data/corpus_manifest.gse235494.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE235494_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 1924896219,
+        "examples": [
+          "data/public/GSE235494_raw_tar/GSE235494_RAW.aria2_urls.txt",
+          "data/public/GSE235494_raw_tar/GSE235494_RAW.tar",
+          "data/public/GSE235494_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 1924894720,
+          "modified_utc": "2026-07-24T23:58:17.794745+00:00",
+          "path": "data/public/GSE235494_raw_tar/GSE235494_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T00:01:54.735503+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE235494_10x/*",
+          "data/public/GSE235494_h5/*",
+          "data/public/GSE235494_h5ad/*",
+          "data/public/GSE235494_mtx_tar/*",
+          "data/public/GSE235494_mtx_components/*",
+          "data/public/GSE235494_raw_tar/*",
+          "data/public/GSE235494_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE235494",
+            "corpus_manifest": "data/corpus_manifest.gse235494.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse235494_arabidopsis_thaliana_multiome_same_cell_revealed_impact",
+            "example_files": [
+              "GSM7504010_ATAC_Control1_atac_peaks.bed.gz",
+              "GSM7504010_ATAC_Control1_barcodes.tsv.gz",
+              "GSM7504010_ATAC_Control1_matrix.mtx.gz",
+              "GSM7504011_ATAC_Control2_atac_peaks.bed.gz",
+              "GSM7504011_ATAC_Control2_barcodes.tsv.gz",
+              "GSM7504011_ATAC_Control2_matrix.mtx.gz",
+              "GSM7504012_ATAC_Case1_atac_peaks.bed.gz",
+              "GSM7504012_ATAC_Case1_barcodes.tsv.gz",
+              "GSM7504012_ATAC_Case1_matrix.mtx.gz",
+              "GSM7504013_ATAC_Case2_atac_peaks.bed.gz",
+              "GSM7504013_ATAC_Case2_barcodes.tsv.gz",
+              "GSM7504013_ATAC_Case2_matrix.mtx.gz"
+            ],
+            "feature_like_file_count": 0,
+            "file_count": 12,
+            "matrix_like_file_count": 4,
+            "quant_sf_file_count": 0,
+            "reason": "Matrix files were present, but no gene/features TSV files were found; this is likely a non-RNA modality matrix such as ATAC peaks rather than a cell-by-gene expression matrix.",
+            "species": "Arabidopsis thaliana",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {
+              ".bed.gz": 4,
+              ".mtx.gz": 4,
+              ".tsv.gz": 4
+            },
+            "tissue": "root"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 1286,
+            "modified_utc": "2026-07-25T00:01:54.735503+00:00",
+            "path": "data/public/GSE235494_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse235495_arabidopsis_thaliana_multiome_same_cell_revealed_impact",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T00:06:52.027061+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 265,
+        "exists": true,
+        "modified_utc": "2026-07-25T00:06:52.027061+00:00",
+        "path": "data/corpus_manifest.gse235495.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 29148912,
+        "examples": [
+          "data/public/GSE235495_npz/GSE235495_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 29148912,
+          "modified_utc": "2026-07-25T00:06:52.023062+00:00",
+          "path": "data/public/GSE235495_npz/GSE235495_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-25T00:06:52.023062+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE235495_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 405811413,
+        "examples": [
+          "data/public/GSE235495_raw_tar/GSE235495_RAW.aria2_urls.txt",
+          "data/public/GSE235495_raw_tar/GSE235495_RAW.tar",
+          "data/public/GSE235495_raw_tar/GSE235495_conversion_error.log"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 405811200,
+          "modified_utc": "2026-07-25T00:03:16.930275+00:00",
+          "path": "data/public/GSE235495_raw_tar/GSE235495_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T00:06:37.603277+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE235495_10x/*",
+          "data/public/GSE235495_h5/*",
+          "data/public/GSE235495_h5ad/*",
+          "data/public/GSE235495_mtx_tar/*",
+          "data/public/GSE235495_mtx_components/*",
+          "data/public/GSE235495_raw_tar/*",
+          "data/public/GSE235495_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse235509",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-25T00:08:49.285309+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-25T00:08:49.285309+00:00",
+        "path": "data/corpus_manifest.gse235509.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE235509_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 44811321,
+        "examples": [
+          "data/public/GSE235509_raw_tar/GSE235509_RAW.aria2_urls.txt",
+          "data/public/GSE235509_raw_tar/GSE235509_RAW.tar",
+          "data/public/GSE235509_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 44810240,
+          "modified_utc": "2026-07-25T00:08:49.149312+00:00",
+          "path": "data/public/GSE235509_raw_tar/GSE235509_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T00:08:49.285309+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE235509_10x/*",
+          "data/public/GSE235509_h5/*",
+          "data/public/GSE235509_h5ad/*",
+          "data/public/GSE235509_mtx_tar/*",
+          "data/public/GSE235509_mtx_components/*",
+          "data/public/GSE235509_raw_tar/*",
+          "data/public/GSE235509_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE235509",
+            "corpus_manifest": "data/corpus_manifest.gse235509.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse235509_arabidopsis_thaliana_multiome_same_cell_revealed_impact",
+            "example_files": [
+              "GSM7504421_CK1.bw",
+              "GSM7504421_CK1_peaks.xls.gz",
+              "GSM7504422_CK2.bw",
+              "GSM7504422_CK2_peaks.xls.gz",
+              "GSM7504423_Treat1.bw",
+              "GSM7504423_Treat1_peaks.xls.gz",
+              "GSM7504424_Treat2.bw",
+              "GSM7504424_Treat2_peaks.xls.gz"
+            ],
+            "feature_like_file_count": 0,
+            "file_count": 8,
+            "matrix_like_file_count": 0,
+            "quant_sf_file_count": 0,
+            "reason": "No Matrix Market/10x matrix files were found after extracting the GEO RAW tar archive.",
+            "species": "Arabidopsis thaliana",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {
+              ".bw": 4,
+              ".xls.gz": 4
+            },
+            "tissue": "root"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 868,
+            "modified_utc": "2026-07-25T00:08:49.285309+00:00",
+            "path": "data/public/GSE235509_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse235510",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-25T00:16:46.882174+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-25T00:16:46.878174+00:00",
+        "path": "data/corpus_manifest.gse235510.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE235510_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 2375507004,
+        "examples": [
+          "data/public/GSE235510_raw_tar/GSE235510_RAW.aria2_urls.txt",
+          "data/public/GSE235510_raw_tar/GSE235510_RAW.tar",
+          "data/public/GSE235510_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 2375505920,
+          "modified_utc": "2026-07-25T00:10:50.819494+00:00",
+          "path": "data/public/GSE235510_raw_tar/GSE235510_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T00:16:46.882174+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE235510_10x/*",
+          "data/public/GSE235510_h5/*",
+          "data/public/GSE235510_h5ad/*",
+          "data/public/GSE235510_mtx_tar/*",
+          "data/public/GSE235510_mtx_components/*",
+          "data/public/GSE235510_raw_tar/*",
+          "data/public/GSE235510_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE235510",
+            "corpus_manifest": "data/corpus_manifest.gse235510.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse235510_arabidopsis_thaliana_multiome_same_cell_revealed_impact",
+            "example_files": [
+              "GSM7504010_ATAC_Control1_atac_peaks.bed.gz",
+              "GSM7504010_ATAC_Control1_barcodes.tsv.gz",
+              "GSM7504010_ATAC_Control1_matrix.mtx.gz"
+            ],
+            "feature_like_file_count": 0,
+            "file_count": 3,
+            "matrix_like_file_count": 1,
+            "quant_sf_file_count": 0,
+            "reason": "Matrix files were present, but no gene/features TSV files were found; this is likely a non-RNA modality matrix such as ATAC peaks rather than a cell-by-gene expression matrix.",
+            "species": "Arabidopsis thaliana",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {
+              ".bed.gz": 1,
+              ".mtx.gz": 1,
+              ".tsv.gz": 1
+            },
+            "tissue": "root"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 871,
+            "modified_utc": "2026-07-25T00:16:46.882174+00:00",
+            "path": "data/public/GSE235510_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse240098_medicago_truncatula_spatial_co_transcriptomics_reveals_discrete",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T12:16:19.195699+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 284,
+        "exists": true,
+        "modified_utc": "2026-07-25T12:16:19.195699+00:00",
+        "path": "data/corpus_manifest.gse240098.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 17983457,
+        "examples": [
+          "data/public/GSE240098_npz/GSE240098_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 17983457,
+          "modified_utc": "2026-07-25T12:16:19.191699+00:00",
+          "path": "data/public/GSE240098_npz/GSE240098_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-25T12:16:19.191699+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE240098_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 337244304,
+        "examples": [
+          "data/public/GSE240098_raw_tar/GSE240098_RAW.aria2_urls.txt",
+          "data/public/GSE240098_raw_tar/GSE240098_RAW.tar",
+          "data/public/GSE240098_raw_tar/GSE240098_RAW.tar.corrupt.20260725_194702",
+          "data/public/GSE240098_raw_tar/GSE240098_conversion_error.log"
+        ],
+        "file_count": 4,
+        "largest_file": {
+          "bytes": 168622080,
+          "modified_utc": "2026-07-25T12:16:07.695873+00:00",
+          "path": "data/public/GSE240098_raw_tar/GSE240098_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T12:16:11.771811+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE240098_10x/*",
+          "data/public/GSE240098_h5/*",
+          "data/public/GSE240098_h5ad/*",
+          "data/public/GSE240098_mtx_tar/*",
+          "data/public/GSE240098_mtx_components/*",
+          "data/public/GSE240098_raw_tar/*",
+          "data/public/GSE240098_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse240102_medicago_truncatula_spatial_co_transcriptomics_reveals_discrete",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T15:49:38.186105+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 284,
+        "exists": true,
+        "modified_utc": "2026-07-25T15:49:38.186105+00:00",
+        "path": "data/corpus_manifest.gse240102.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 1788736,
+        "examples": [
+          "data/public/GSE240102_npz/GSE240102_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 1788736,
+          "modified_utc": "2026-07-25T15:49:38.182105+00:00",
+          "path": "data/public/GSE240102_npz/GSE240102_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-25T15:49:38.182105+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE240102_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 448399504,
+        "examples": [
+          "data/public/GSE240102_raw_tar/GSE240102_RAW.aria2_urls.txt",
+          "data/public/GSE240102_raw_tar/GSE240102_RAW.tar",
+          "data/public/GSE240102_raw_tar/GSE240102_conversion_error.log"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 448399360,
+          "modified_utc": "2026-07-25T15:49:31.830201+00:00",
+          "path": "data/public/GSE240102_raw_tar/GSE240102_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T15:49:36.950123+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE240102_10x/*",
+          "data/public/GSE240102_h5/*",
+          "data/public/GSE240102_h5ad/*",
+          "data/public/GSE240102_mtx_tar/*",
+          "data/public/GSE240102_mtx_components/*",
+          "data/public/GSE240102_raw_tar/*",
+          "data/public/GSE240102_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse241573_arabidopsis_thaliana_synthetic_deconvolution_an_auxin_dependent",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-24T22:20:15.530518+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 285,
+        "exists": true,
+        "modified_utc": "2026-07-24T22:20:15.530518+00:00",
+        "path": "data/corpus_manifest.gse241573.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 23145640,
+        "examples": [
+          "data/public/GSE241573_npz/GSE241573_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 23145640,
+          "modified_utc": "2026-07-24T22:20:15.530518+00:00",
+          "path": "data/public/GSE241573_npz/GSE241573_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-24T22:20:15.530518+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE241573_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 690411733,
+        "examples": [
+          "data/public/GSE241573_raw_tar/GSE241573_RAW.aria2_urls.txt",
+          "data/public/GSE241573_raw_tar/GSE241573_RAW.tar"
+        ],
+        "file_count": 2,
+        "largest_file": {
+          "bytes": 690411520,
+          "modified_utc": "2026-07-24T22:20:04.954676+00:00",
+          "path": "data/public/GSE241573_raw_tar/GSE241573_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-24T22:20:04.954676+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE241573_10x/*",
+          "data/public/GSE241573_h5/*",
+          "data/public/GSE241573_h5ad/*",
+          "data/public/GSE241573_mtx_tar/*",
+          "data/public/GSE241573_mtx_components/*",
+          "data/public/GSE241573_raw_tar/*",
+          "data/public/GSE241573_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse243174_glycine_max_single_cell_multiomic_profiling_soybean",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T19:05:25.830935+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 252,
+        "exists": true,
+        "modified_utc": "2026-07-25T19:05:25.830935+00:00",
+        "path": "data/corpus_manifest.gse243174.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 68022682,
+        "examples": [
+          "data/public/GSE243174_npz/GSE243174_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 68022682,
+          "modified_utc": "2026-07-25T19:05:25.826935+00:00",
+          "path": "data/public/GSE243174_npz/GSE243174_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-25T19:05:25.826935+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE243174_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 1399552297,
+        "examples": [
+          "data/public/GSE243174_raw_tar/GSE243174_RAW.aria2_urls.txt",
+          "data/public/GSE243174_raw_tar/GSE243174_RAW.members.txt",
+          "data/public/GSE243174_raw_tar/GSE243174_RAW.tar",
+          "data/public/GSE243174_raw_tar/GSE243174_conversion_error.log"
+        ],
+        "file_count": 4,
+        "largest_file": {
+          "bytes": 1399552000,
+          "modified_utc": "2026-07-25T18:28:16.892856+00:00",
+          "path": "data/public/GSE243174_raw_tar/GSE243174_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T19:04:54.487411+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE243174_10x/*",
+          "data/public/GSE243174_h5/*",
+          "data/public/GSE243174_h5ad/*",
+          "data/public/GSE243174_mtx_tar/*",
+          "data/public/GSE243174_mtx_components/*",
+          "data/public/GSE243174_raw_tar/*",
+          "data/public/GSE243174_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse255880",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-24T22:34:43.017570+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-24T22:34:43.017570+00:00",
+        "path": "data/corpus_manifest.gse255880.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE255880_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 30956747,
+        "examples": [
+          "data/public/GSE255880_raw_tar/GSE255880_RAW.aria2_urls.txt",
+          "data/public/GSE255880_raw_tar/GSE255880_RAW.tar",
+          "data/public/GSE255880_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 30955520,
+          "modified_utc": "2026-07-24T22:34:42.893572+00:00",
+          "path": "data/public/GSE255880_raw_tar/GSE255880_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-24T22:34:43.017570+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE255880_10x/*",
+          "data/public/GSE255880_h5/*",
+          "data/public/GSE255880_h5ad/*",
+          "data/public/GSE255880_mtx_tar/*",
+          "data/public/GSE255880_mtx_components/*",
+          "data/public/GSE255880_raw_tar/*",
+          "data/public/GSE255880_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE255880",
+            "corpus_manifest": "data/corpus_manifest.gse255880.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse255880_arabidopsis_thaliana_time_series_single_nuclei_rna",
+            "example_files": [
+              "GSM8082189_Atday0_105146_manual_selection_WellList.txt.gz",
+              "GSM8082189_analysis_day0_genematrix.csv.gz",
+              "GSM8082190_Atday2_104754_manual_selection_WellList.txt.gz",
+              "GSM8082190_analysis_day2_genematrix.csv.gz",
+              "GSM8082191_Atday4_104721_WellList_manual_selection.txt.gz",
+              "GSM8082191_analysis_day4_genematrix.csv.gz",
+              "GSM8082192_Atday8_105214_manual_selection_WellList.txt.gz",
+              "GSM8082192_analysis_day8_genematrix.csv.gz"
+            ],
+            "file_count": 8,
+            "quant_sf_file_count": 0,
+            "reason": "No Matrix Market/10x matrix files were found after extracting the GEO RAW tar archive.",
+            "species": "Arabidopsis thaliana",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {
+              ".csv.gz": 4,
+              ".txt.gz": 4
+            },
+            "tissue": "flower"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 1014,
+            "modified_utc": "2026-07-24T22:34:43.017570+00:00",
+            "path": "data/public/GSE255880_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse261441_arabidopsis_thaliana_a_single_nuclei_transcriptome_census",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T11:21:40.125288+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 852,
+        "exists": true,
+        "modified_utc": "2026-07-25T11:21:40.125288+00:00",
+        "path": "data/corpus_manifest.gse261441.tsv",
+        "rows": 4
+      },
+      "manifest_rows": 4,
+      "npz_files": {
+        "bytes": 25144574,
+        "examples": [
+          "data/public/GSE261441_npz/GSE261441_D10_experiment_1.npz",
+          "data/public/GSE261441_npz/GSE261441_D10_experiment_2.npz",
+          "data/public/GSE261441_npz/GSE261441_D12_experiment_2.npz",
+          "data/public/GSE261441_npz/GSE261441_D14_experiment_2.npz"
+        ],
+        "file_count": 4,
+        "largest_file": {
+          "bytes": 8793889,
+          "modified_utc": "2026-07-25T11:21:38.345315+00:00",
+          "path": "data/public/GSE261441_npz/GSE261441_D12_experiment_2.npz"
+        },
+        "latest_modified_utc": "2026-07-25T11:21:40.125288+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE261441_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 37412323,
+        "examples": [
+          "data/public/GSE261441_mtx_components/GSE261441_D10_experiment_1_barcodes.tsv.gz",
+          "data/public/GSE261441_mtx_components/GSE261441_D10_experiment_1_features.tsv.gz",
+          "data/public/GSE261441_mtx_components/GSE261441_D10_experiment_1_matrix.mtx.gz",
+          "data/public/GSE261441_mtx_components/GSE261441_D10_experiment_2_barcodes.tsv.gz",
+          "data/public/GSE261441_mtx_components/GSE261441_D10_experiment_2_features.tsv.gz"
+        ],
+        "file_count": 13,
+        "largest_file": {
+          "bytes": 12100753,
+          "modified_utc": "2026-07-25T11:21:26.781490+00:00",
+          "path": "data/public/GSE261441_mtx_components/GSE261441_D12_experiment_2_matrix.mtx.gz"
+        },
+        "latest_modified_utc": "2026-07-25T11:21:29.889443+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE261441_10x/*",
+          "data/public/GSE261441_h5/*",
+          "data/public/GSE261441_h5ad/*",
+          "data/public/GSE261441_mtx_tar/*",
+          "data/public/GSE261441_mtx_components/*",
+          "data/public/GSE261441_raw_tar/*",
+          "data/public/GSE261441_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse262840",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-25T16:08:19.525126+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-25T16:08:19.525126+00:00",
+        "path": "data/corpus_manifest.gse262840.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE262840_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 889,
+        "examples": [
+          "data/public/GSE262840_raw_tar/GSE262840_RAW.aria2_urls.txt",
+          "data/public/GSE262840_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 2,
+        "largest_file": {
+          "bytes": 745,
+          "modified_utc": "2026-07-25T16:08:19.525126+00:00",
+          "path": "data/public/GSE262840_raw_tar/unsupported_single_cell_matrix.json"
+        },
+        "latest_modified_utc": "2026-07-25T16:08:19.525126+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE262840_10x/*",
+          "data/public/GSE262840_h5/*",
+          "data/public/GSE262840_h5ad/*",
+          "data/public/GSE262840_mtx_tar/*",
+          "data/public/GSE262840_mtx_components/*",
+          "data/public/GSE262840_raw_tar/*",
+          "data/public/GSE262840_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE262840",
+            "corpus_manifest": "data/corpus_manifest.gse262840.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse262840_arabidopsis_thaliana_single_cell_rna_seq_data",
+            "example_files": [],
+            "feature_like_file_count": 0,
+            "file_count": 0,
+            "matrix_like_file_count": 0,
+            "quant_sf_file_count": 0,
+            "reason": "GEO RAW tar is 59872870400 bytes, which exceeds SNOWCELL_GEO_RAW_TAR_MAX_BYTES=21474836480. Whole-tar retrieval is deferred; use a file-level matrix member retrieval strategy or rerun with SNOWCELL_GEO_RAW_TAR_ALLOW_LARGE=1 after confirming disk/network budget.",
+            "species": "Arabidopsis thaliana",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {},
+            "tissue": "root"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 745,
+            "modified_utc": "2026-07-25T16:08:19.525126+00:00",
+            "path": "data/public/GSE262840_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse267159_populus_trichocarpa_single_cell_spatial_multi_omics",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T01:02:33.805114+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 2616,
+        "exists": true,
+        "modified_utc": "2026-07-25T01:02:33.805114+00:00",
+        "path": "data/corpus_manifest.gse267159.tsv",
+        "rows": 12
+      },
+      "manifest_rows": 12,
+      "npz_files": {
+        "bytes": 641273419,
+        "examples": [
+          "data/public/GSE267159_npz/GSM8261200_Vertical_bio2_filtered_feature_bc_matrix.npz",
+          "data/public/GSE267159_npz/GSM8261201_Vertical_bio3_filtered_feature_bc_matrix.npz",
+          "data/public/GSE267159_npz/GSM8261202_Vertical_bio4_filtered_feature_bc_matrix.npz",
+          "data/public/GSE267159_npz/GSM8261203_Vertical_bio5_filtered_feature_bc_matrix.npz",
+          "data/public/GSE267159_npz/GSM8261204_Opposite_bio1_filtered_feature_bc_matrix.npz"
+        ],
+        "file_count": 12,
+        "largest_file": {
+          "bytes": 80321368,
+          "modified_utc": "2026-07-25T01:00:56.142573+00:00",
+          "path": "data/public/GSE267159_npz/GSM8261203_Vertical_bio5_filtered_feature_bc_matrix.npz"
+        },
+        "latest_modified_utc": "2026-07-25T01:02:33.805114+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE267159_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 820251574,
+        "examples": [
+          "data/public/GSE267159_h5/GSM8261200_Vertical_bio2_filtered_feature_bc_matrix.h5",
+          "data/public/GSE267159_h5/GSM8261201_Vertical_bio3_filtered_feature_bc_matrix.h5",
+          "data/public/GSE267159_h5/GSM8261202_Vertical_bio4_filtered_feature_bc_matrix.h5",
+          "data/public/GSE267159_h5/GSM8261203_Vertical_bio5_filtered_feature_bc_matrix.h5",
+          "data/public/GSE267159_h5/GSM8261204_Opposite_bio1_filtered_feature_bc_matrix.h5"
+        ],
+        "file_count": 16,
+        "largest_file": {
+          "bytes": 410132480,
+          "modified_utc": "2026-07-25T00:50:56.995525+00:00",
+          "path": "data/public/GSE267159_raw_tar/GSE267159_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T00:59:35.067784+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE267159_10x/*",
+          "data/public/GSE267159_h5/*",
+          "data/public/GSE267159_h5ad/*",
+          "data/public/GSE267159_mtx_tar/*",
+          "data/public/GSE267159_mtx_components/*",
+          "data/public/GSE267159_raw_tar/*",
+          "data/public/GSE267159_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse269624_arabidopsis_thaliana_glutathione_accelerates_cell_cycle_cellular",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T19:42:53.589176+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 286,
+        "exists": true,
+        "modified_utc": "2026-07-25T19:42:53.589176+00:00",
+        "path": "data/corpus_manifest.gse269624.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 78066282,
+        "examples": [
+          "data/public/GSE269624_npz/GSE269624_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 78066282,
+          "modified_utc": "2026-07-25T19:42:53.585176+00:00",
+          "path": "data/public/GSE269624_npz/GSE269624_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-25T19:42:53.585176+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE269624_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 283494544,
+        "examples": [
+          "data/public/GSE269624_raw_tar/GSE269624_RAW.aria2_urls.txt",
+          "data/public/GSE269624_raw_tar/GSE269624_RAW.tar",
+          "data/public/GSE269624_raw_tar/GSE269624_conversion_error.log"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 283494400,
+          "modified_utc": "2026-07-25T19:42:12.333795+00:00",
+          "path": "data/public/GSE269624_raw_tar/GSE269624_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T19:42:20.977665+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE269624_10x/*",
+          "data/public/GSE269624_h5/*",
+          "data/public/GSE269624_h5ad/*",
+          "data/public/GSE269624_mtx_tar/*",
+          "data/public/GSE269624_mtx_components/*",
+          "data/public/GSE269624_raw_tar/*",
+          "data/public/GSE269624_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse270392",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-25T05:39:51.637349+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-25T05:39:51.637349+00:00",
+        "path": "data/corpus_manifest.gse270392.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE270392_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 75736087,
+        "examples": [
+          "data/public/GSE270392_raw_tar/GSE270392_RAW.aria2_urls.txt",
+          "data/public/GSE270392_raw_tar/GSE270392_RAW.detected_h5.txt",
+          "data/public/GSE270392_raw_tar/GSE270392_RAW.tar",
+          "data/public/GSE270392_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 4,
+        "largest_file": {
+          "bytes": 75735040,
+          "modified_utc": "2026-07-25T05:12:28.901785+00:00",
+          "path": "data/public/GSE270392_raw_tar/GSE270392_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T05:39:51.637349+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE270392_10x/*",
+          "data/public/GSE270392_h5/*",
+          "data/public/GSE270392_h5ad/*",
+          "data/public/GSE270392_mtx_tar/*",
+          "data/public/GSE270392_mtx_components/*",
+          "data/public/GSE270392_raw_tar/*",
+          "data/public/GSE270392_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE270392",
+            "corpus_manifest": "data/corpus_manifest.gse270392.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse270392_glycine_max_a_spatially_resolved_multiomic_single",
+            "example_files": [
+              "GSM8341871_CS_A_aligned_fiducials.jpg.gz",
+              "GSM8341871_CS_A_detected_tissue_image.jpg.gz",
+              "GSM8341871_CS_A_scalefactors_json.json.gz",
+              "GSM8341871_CS_A_tissue_hires_image.png.gz"
+            ],
+            "feature_like_file_count": 0,
+            "file_count": 4,
+            "matrix_like_file_count": 0,
+            "quant_sf_file_count": 0,
+            "reason": "No Matrix Market/10x matrix files were found after extracting the GEO RAW tar archive.",
+            "species": "Glycine max",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {
+              ".jpg.gz": 2,
+              ".json.gz": 1,
+              ".png.gz": 1
+            },
+            "tissue": "public_discovery"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 834,
+            "modified_utc": "2026-07-25T05:39:51.637349+00:00",
+            "path": "data/public/GSE270392_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse270866",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-24T22:25:05.178195+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-24T22:25:05.178195+00:00",
+        "path": "data/corpus_manifest.gse270866.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE270866_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 677960652,
+        "examples": [
+          "data/public/GSE270866_raw_tar/GSE270866_RAW.aria2_urls.txt",
+          "data/public/GSE270866_raw_tar/GSE270866_RAW.tar",
+          "data/public/GSE270866_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 677959680,
+          "modified_utc": "2026-07-24T22:25:04.622203+00:00",
+          "path": "data/public/GSE270866_raw_tar/GSE270866_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-24T22:25:05.178195+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE270866_10x/*",
+          "data/public/GSE270866_h5/*",
+          "data/public/GSE270866_h5ad/*",
+          "data/public/GSE270866_mtx_tar/*",
+          "data/public/GSE270866_mtx_components/*",
+          "data/public/GSE270866_raw_tar/*",
+          "data/public/GSE270866_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE270866",
+            "corpus_manifest": "data/corpus_manifest.gse270866.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse270866_zea_mays_kil_transcription_factors_facilitate_embryo",
+            "example_files": [
+              "GSM8353850_Rep1_filtered_matrix.h5",
+              "GSM8353850_Rep1_raw_matrix.h5",
+              "GSM8353851_Rep2_filtered_matrix.h5",
+              "GSM8353851_Rep2_raw_matrix.h5",
+              "GSM8353852_Rep3_filtered_matrix.h5",
+              "GSM8353852_Rep3_raw_matrix.h5"
+            ],
+            "file_count": 6,
+            "quant_sf_file_count": 0,
+            "reason": "No Matrix Market/10x matrix files were found after extracting the GEO RAW tar archive.",
+            "species": "Zea mays",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {
+              ".h5": 6
+            },
+            "tissue": "embryo"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 759,
+            "modified_utc": "2026-07-24T22:25:05.178195+00:00",
+            "path": "data/public/GSE270866_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse271725",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-25T16:22:38.504106+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-25T16:22:38.504106+00:00",
+        "path": "data/corpus_manifest.gse271725.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE271725_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 746,
+        "examples": [
+          "data/public/GSE271725_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 746,
+          "modified_utc": "2026-07-25T16:22:38.504106+00:00",
+          "path": "data/public/GSE271725_raw_tar/unsupported_single_cell_matrix.json"
+        },
+        "latest_modified_utc": "2026-07-25T16:22:38.504106+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE271725_10x/*",
+          "data/public/GSE271725_h5/*",
+          "data/public/GSE271725_h5ad/*",
+          "data/public/GSE271725_mtx_tar/*",
+          "data/public/GSE271725_mtx_components/*",
+          "data/public/GSE271725_raw_tar/*",
+          "data/public/GSE271725_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE271725",
+            "corpus_manifest": "data/corpus_manifest.gse271725.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse271725_triticum_aestivum_a_soil_grown_wheat_root",
+            "generated_at_utc": "2026-07-25T16:22:38.508043+00:00",
+            "raw_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE271nnn/GSE271725/suppl/GSE271725_RAW.tar",
+            "reason": "GEO RAW tar is 9792604160 bytes, exceeding the active queue threshold 5368709120 bytes. Whole-tar retrieval is deferred to protect disk and keep the training/data queue moving; use file-level matrix member retrieval or rerun with an explicit larger budget.",
+            "species": "Triticum aestivum",
+            "status": "deferred_large_raw_tar_file_level_retrieval_required",
+            "tissue": "root"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 746,
+            "modified_utc": "2026-07-25T16:22:38.504106+00:00",
+            "path": "data/public/GSE271725_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse273033",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-24T23:47:05.560789+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-24T23:47:05.560789+00:00",
+        "path": "data/corpus_manifest.gse273033.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE273033_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 3260171918,
+        "examples": [
+          "data/public/GSE273033_raw_tar/GSE273033_RAW.aria2_urls.txt",
+          "data/public/GSE273033_raw_tar/GSE273033_RAW.tar",
+          "data/public/GSE273033_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 3260170240,
+          "modified_utc": "2026-07-24T23:47:02.996827+00:00",
+          "path": "data/public/GSE273033_raw_tar/GSE273033_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-24T23:47:05.560789+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE273033_10x/*",
+          "data/public/GSE273033_h5/*",
+          "data/public/GSE273033_h5ad/*",
+          "data/public/GSE273033_mtx_tar/*",
+          "data/public/GSE273033_mtx_components/*",
+          "data/public/GSE273033_raw_tar/*",
+          "data/public/GSE273033_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE273033",
+            "corpus_manifest": "data/corpus_manifest.gse273033.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse273033_arabidopsis_thaliana_dual_spatially_resolved_drought_responses",
+            "example_files": [
+              "GSM8417224_WW_rep1_RSEC_MolsPerCell_MEX.zip",
+              "GSM8417224_WW_rep1_RSEC_MolsPerCell_Unfiltered_MEX.zip",
+              "GSM8417225_MD_rep1_RSEC_MolsPerCell_MEX.zip",
+              "GSM8417225_MD_rep1_RSEC_MolsPerCell_Unfiltered_MEX.zip",
+              "GSM8417226_WW_F_rep1_RSEC_MolsPerCell_MEX.zip",
+              "GSM8417226_WW_F_rep1_RSEC_MolsPerCell_Unfiltered_MEX.zip",
+              "GSM8417227_MD_F_rep1_RSEC_MolsPerCell_MEX.zip",
+              "GSM8417227_MD_F_rep1_RSEC_MolsPerCell_Unfiltered_MEX.zip",
+              "GSM8417228_WW_rep2_RSEC_MolsPerCell_MEX.zip",
+              "GSM8417228_WW_rep2_RSEC_MolsPerCell_Unfiltered_MEX.zip",
+              "GSM8417229_MD_rep2_RSEC_MolsPerCell_MEX.zip",
+              "GSM8417229_MD_rep2_RSEC_MolsPerCell_Unfiltered_MEX.zip",
+              "GSM8417230_WW_F_rep2_RSEC_MolsPerCell_MEX.zip",
+              "GSM8417230_WW_F_rep2_RSEC_MolsPerCell_Unfiltered_MEX.zip",
+              "GSM8417231_MD_F_rep2_RSEC_MolsPerCell_MEX.zip",
+              "GSM8417231_MD_F_rep2_RSEC_MolsPerCell_Unfiltered_MEX.zip"
+            ],
+            "file_count": 16,
+            "quant_sf_file_count": 0,
+            "reason": "No Matrix Market/10x matrix files were found after extracting the GEO RAW tar archive.",
+            "species": "Arabidopsis thaliana",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {
+              ".zip": 16
+            },
+            "tissue": "leaf"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 1465,
+            "modified_utc": "2026-07-24T23:47:05.560789+00:00",
+            "path": "data/public/GSE273033_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse273722_camellia_sinensis_transcriptional_landscape_camellia_sinensis_roots",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-24T22:42:47.866333+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 274,
+        "exists": true,
+        "modified_utc": "2026-07-24T22:42:47.866333+00:00",
+        "path": "data/corpus_manifest.gse273722.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 44159309,
+        "examples": [
+          "data/public/GSE273722_npz/GSE273722_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 44159309,
+          "modified_utc": "2026-07-24T22:42:47.862333+00:00",
+          "path": "data/public/GSE273722_npz/GSE273722_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-24T22:42:47.862333+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE273722_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 258908373,
+        "examples": [
+          "data/public/GSE273722_raw_tar/GSE273722_RAW.aria2_urls.txt",
+          "data/public/GSE273722_raw_tar/GSE273722_RAW.tar"
+        ],
+        "file_count": 2,
+        "largest_file": {
+          "bytes": 258908160,
+          "modified_utc": "2026-07-24T22:42:30.138598+00:00",
+          "path": "data/public/GSE273722_raw_tar/GSE273722_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-24T22:42:30.138598+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE273722_10x/*",
+          "data/public/GSE273722_h5/*",
+          "data/public/GSE273722_h5ad/*",
+          "data/public/GSE273722_mtx_tar/*",
+          "data/public/GSE273722_mtx_components/*",
+          "data/public/GSE273722_raw_tar/*",
+          "data/public/GSE273722_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse273875_oryza_sativa_a_single_cell_multiomics_atlas",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-24T21:57:39.506766+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 264,
+        "exists": true,
+        "modified_utc": "2026-07-24T21:57:39.506766+00:00",
+        "path": "data/corpus_manifest.gse273875.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 138720091,
+        "examples": [
+          "data/public/GSE273875_npz/GSE273875_LTP_NIP_label_240622.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 138720091,
+          "modified_utc": "2026-07-24T21:57:39.382768+00:00",
+          "path": "data/public/GSE273875_npz/GSE273875_LTP_NIP_label_240622.npz"
+        },
+        "latest_modified_utc": "2026-07-24T21:57:39.382768+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE273875_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 409043555,
+        "examples": [
+          "data/public/GSE273875_rds/GSE273875_LTP_NIP_label_240622.rds.gz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 409043555,
+          "modified_utc": "2026-07-24T21:56:15.384021+00:00",
+          "path": "data/public/GSE273875_rds/GSE273875_LTP_NIP_label_240622.rds.gz"
+        },
+        "latest_modified_utc": "2026-07-24T21:56:15.384021+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE273875_10x/*",
+          "data/public/GSE273875_h5/*",
+          "data/public/GSE273875_h5ad/*",
+          "data/public/GSE273875_mtx_tar/*",
+          "data/public/GSE273875_mtx_components/*",
+          "data/public/GSE273875_raw_tar/*",
+          "data/public/GSE273875_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse275267",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-25T16:22:41.588059+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-25T16:22:41.588059+00:00",
+        "path": "data/corpus_manifest.gse275267.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE275267_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 788,
+        "examples": [
+          "data/public/GSE275267_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 788,
+          "modified_utc": "2026-07-25T16:22:41.588059+00:00",
+          "path": "data/public/GSE275267_raw_tar/unsupported_single_cell_matrix.json"
+        },
+        "latest_modified_utc": "2026-07-25T16:22:41.588059+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE275267_10x/*",
+          "data/public/GSE275267_h5/*",
+          "data/public/GSE275267_h5ad/*",
+          "data/public/GSE275267_mtx_tar/*",
+          "data/public/GSE275267_mtx_components/*",
+          "data/public/GSE275267_raw_tar/*",
+          "data/public/GSE275267_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE275267",
+            "corpus_manifest": "data/corpus_manifest.gse275267.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse275267_arabidopsis_thaliana_an_antagonistic_epigenetic_mechanism_regulating",
+            "generated_at_utc": "2026-07-25T16:22:41.589310+00:00",
+            "raw_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE275nnn/GSE275267/suppl/GSE275267_RAW.tar",
+            "reason": "GEO RAW tar is 9081057280 bytes, exceeding the active queue threshold 5368709120 bytes. Whole-tar retrieval is deferred to protect disk and keep the training/data queue moving; use file-level matrix member retrieval or rerun with an explicit larger budget.",
+            "species": "Arabidopsis thaliana",
+            "status": "deferred_large_raw_tar_file_level_retrieval_required",
+            "tissue": "public_discovery"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 788,
+            "modified_utc": "2026-07-25T16:22:41.588059+00:00",
+            "path": "data/public/GSE275267_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse275409_zea_mays_genetic_architecture_cell_type_specific",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T21:43:32.671285+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 280,
+        "exists": true,
+        "modified_utc": "2026-07-25T21:43:32.671285+00:00",
+        "path": "data/corpus_manifest.gse275409.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 117575496,
+        "examples": [
+          "data/public/GSE275409_npz/GSE275409_maize_seedling_snRNA_seq_raw_counts.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 117575496,
+          "modified_utc": "2026-07-25T21:43:32.439288+00:00",
+          "path": "data/public/GSE275409_npz/GSE275409_maize_seedling_snRNA_seq_raw_counts.npz"
+        },
+        "latest_modified_utc": "2026-07-25T21:43:32.439288+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE275409_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 129984467,
+        "examples": [
+          "data/public/GSE275409_rds/GSE275409_maize_seedling_snRNA_seq_raw_counts.rds.gz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 129984467,
+          "modified_utc": "2026-07-25T20:52:15.390006+00:00",
+          "path": "data/public/GSE275409_rds/GSE275409_maize_seedling_snRNA_seq_raw_counts.rds.gz"
+        },
+        "latest_modified_utc": "2026-07-25T20:52:15.390006+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE275409_10x/*",
+          "data/public/GSE275409_h5/*",
+          "data/public/GSE275409_h5ad/*",
+          "data/public/GSE275409_mtx_tar/*",
+          "data/public/GSE275409_mtx_components/*",
+          "data/public/GSE275409_raw_tar/*",
+          "data/public/GSE275409_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse283835_populus_tremula_single_nuclei_transcriptomic_bulk_rna",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-25T01:03:15.208496+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 273,
+        "exists": true,
+        "modified_utc": "2026-07-25T01:03:15.208496+00:00",
+        "path": "data/corpus_manifest.gse283835.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 7644928,
+        "examples": [
+          "data/public/GSE283835_npz/GSE283835_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 7644928,
+          "modified_utc": "2026-07-25T01:03:15.204496+00:00",
+          "path": "data/public/GSE283835_npz/GSE283835_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-25T01:03:15.204496+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE283835_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 31652053,
+        "examples": [
+          "data/public/GSE283835_raw_tar/GSE283835_RAW.aria2_urls.txt",
+          "data/public/GSE283835_raw_tar/GSE283835_RAW.tar",
+          "data/public/GSE283835_raw_tar/GSE283835_conversion_error.log"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 31651840,
+          "modified_utc": "2026-07-25T00:58:18.904922+00:00",
+          "path": "data/public/GSE283835_raw_tar/GSE283835_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T01:03:11.788547+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE283835_10x/*",
+          "data/public/GSE283835_h5/*",
+          "data/public/GSE283835_h5ad/*",
+          "data/public/GSE283835_mtx_tar/*",
+          "data/public/GSE283835_mtx_components/*",
+          "data/public/GSE283835_raw_tar/*",
+          "data/public/GSE283835_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse303744",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-24T21:53:19.786640+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-24T21:53:19.786640+00:00",
+        "path": "data/corpus_manifest.gse303744.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE303744_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 1714934867,
+        "examples": [
+          "data/public/GSE303744_raw_tar/GSE303744_RAW.aria2_urls.txt",
+          "data/public/GSE303744_raw_tar/GSE303744_RAW.tar",
+          "data/public/GSE303744_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 1714933760,
+          "modified_utc": "2026-07-24T21:53:18.618657+00:00",
+          "path": "data/public/GSE303744_raw_tar/GSE303744_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-24T21:53:19.786640+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE303744_10x/*",
+          "data/public/GSE303744_h5/*",
+          "data/public/GSE303744_h5ad/*",
+          "data/public/GSE303744_mtx_tar/*",
+          "data/public/GSE303744_mtx_components/*",
+          "data/public/GSE303744_raw_tar/*",
+          "data/public/GSE303744_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE303744",
+            "corpus_manifest": "data/corpus_manifest.gse303744.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse303744_arabidopsis_thaliana_drought_recovery_plants_triggers_a",
+            "example_files": [
+              "GSM9135018_202505071107_all-conditions-5-7-25_VMSC31910_region_D0.vzg.gz",
+              "GSM9135019_202505071107_all-conditions-5-7-25_VMSC31910_region_R15.vzg.gz",
+              "GSM9135020_202505071107_all-conditions-5-7-25_VMSC31910_region_W0.vzg.gz",
+              "GSM9135021_202505071107_all-conditions-5-7-25_VMSC31910_region_W15.vzg.gz"
+            ],
+            "file_count": 4,
+            "quant_sf_file_count": 0,
+            "reason": "No Matrix Market/10x matrix files were found after extracting the GEO RAW tar archive.",
+            "species": "Arabidopsis thaliana; synthetic construct",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {
+              ".vzg.gz": 4
+            },
+            "tissue": "public_discovery"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 894,
+            "modified_utc": "2026-07-24T21:53:19.786640+00:00",
+            "path": "data/public/GSE303744_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse303996_arabidopsis_thaliana_histone_deacetylases_cell_cycle_regulators",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-24T21:50:37.877055+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 273,
+        "exists": true,
+        "modified_utc": "2026-07-24T21:50:37.877055+00:00",
+        "path": "data/corpus_manifest.gse303996.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 57722702,
+        "examples": [
+          "data/public/GSE303996_npz/GSE303996_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 57722702,
+          "modified_utc": "2026-07-24T21:50:37.877055+00:00",
+          "path": "data/public/GSE303996_npz/GSE303996_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-24T21:50:37.877055+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE303996_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 6542315733,
+        "examples": [
+          "data/public/GSE303996_raw_tar/GSE303996_RAW.aria2_urls.txt",
+          "data/public/GSE303996_raw_tar/GSE303996_RAW.tar"
+        ],
+        "file_count": 2,
+        "largest_file": {
+          "bytes": 6542315520,
+          "modified_utc": "2026-07-24T21:49:33.670012+00:00",
+          "path": "data/public/GSE303996_raw_tar/GSE303996_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-24T21:49:33.670012+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE303996_10x/*",
+          "data/public/GSE303996_h5/*",
+          "data/public/GSE303996_h5ad/*",
+          "data/public/GSE303996_mtx_tar/*",
+          "data/public/GSE303996_mtx_components/*",
+          "data/public/GSE303996_raw_tar/*",
+          "data/public/GSE303996_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse308672_arabidopsis_thaliana_discrete_cell_specific_hypoxic_responses",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-24T21:11:55.547713+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 271,
+        "exists": true,
+        "modified_utc": "2026-07-24T21:11:55.547713+00:00",
+        "path": "data/corpus_manifest.gse308672.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 47422535,
+        "examples": [
+          "data/public/GSE308672_npz/GSE308672_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 47422535,
+          "modified_utc": "2026-07-24T21:11:55.543713+00:00",
+          "path": "data/public/GSE308672_npz/GSE308672_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-24T21:11:55.543713+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE308672_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 252057813,
+        "examples": [
+          "data/public/GSE308672_raw_tar/GSE308672_RAW.aria2_urls.txt",
+          "data/public/GSE308672_raw_tar/GSE308672_RAW.tar"
+        ],
+        "file_count": 2,
+        "largest_file": {
+          "bytes": 252057600,
+          "modified_utc": "2026-07-24T21:11:36.799993+00:00",
+          "path": "data/public/GSE308672_raw_tar/GSE308672_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-24T21:11:36.799993+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE308672_10x/*",
+          "data/public/GSE308672_h5/*",
+          "data/public/GSE308672_h5ad/*",
+          "data/public/GSE308672_mtx_tar/*",
+          "data/public/GSE308672_mtx_components/*",
+          "data/public/GSE308672_raw_tar/*",
+          "data/public/GSE308672_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "rice_node_reproductive_stage_atlas",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-24T13:01:34.860154+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 258,
+        "exists": true,
+        "modified_utc": "2026-07-24T13:01:34.860154+00:00",
+        "path": "data/corpus_manifest.gse308757.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 68318907,
+        "examples": [
+          "data/public/GSE308757_npz/GSE308757_mtx_extracted.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 68318907,
+          "modified_utc": "2026-07-24T13:01:34.856154+00:00",
+          "path": "data/public/GSE308757_npz/GSE308757_mtx_extracted.npz"
+        },
+        "latest_modified_utc": "2026-07-24T13:01:34.856154+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE308757_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": "A",
+      "public_manifest_status": "download_candidate",
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 355031184,
+        "examples": [
+          "data/public/GSE308757_raw_tar/GSE308757_RAW.aria2_urls.txt",
+          "data/public/GSE308757_raw_tar/GSE308757_RAW.tar"
+        ],
+        "file_count": 2,
+        "largest_file": {
+          "bytes": 355031040,
+          "modified_utc": "2026-07-24T13:01:06.948570+00:00",
+          "path": "data/public/GSE308757_raw_tar/GSE308757_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-24T13:01:06.948570+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE308757_10x/*",
+          "data/public/GSE308757_h5/*",
+          "data/public/GSE308757_h5ad/*",
+          "data/public/GSE308757_mtx_tar/*",
+          "data/public/GSE308757_mtx_components/*",
+          "data/public/GSE308757_raw_tar/*",
+          "data/public/GSE308757_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse325371",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-24T18:22:48.887449+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-24T18:22:48.887449+00:00",
+        "path": "data/corpus_manifest.gse325371.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE325371_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 1721386465,
+        "examples": [
+          "data/public/GSE325371_raw_tar/GSE325371_RAW.aria2_urls.txt",
+          "data/public/GSE325371_raw_tar/GSE325371_RAW.tar",
+          "data/public/GSE325371_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 1721384960,
+          "modified_utc": "2026-07-24T18:22:47.855464+00:00",
+          "path": "data/public/GSE325371_raw_tar/GSE325371_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-24T18:22:48.887449+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE325371_10x/*",
+          "data/public/GSE325371_h5/*",
+          "data/public/GSE325371_h5ad/*",
+          "data/public/GSE325371_mtx_tar/*",
+          "data/public/GSE325371_mtx_components/*",
+          "data/public/GSE325371_raw_tar/*",
+          "data/public/GSE325371_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE325371",
+            "corpus_manifest": "data/corpus_manifest.gse325371.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "tomato_salt_idioblast_atlas",
+            "example_files": [
+              "GSM9601952_CK1_filtered_feature_bc_matrix.tar.gz",
+              "GSM9601952_CK_1_seurat.rds",
+              "GSM9601953_CK2_filtered_feature_bc_matrix.tar.gz",
+              "GSM9601953_CK_2_seurat.rds",
+              "GSM9601954_CK3_filtered_feature_bc_matrix.tar.gz",
+              "GSM9601954_CK_3_seurat.rds",
+              "GSM9601955_LTSS1_filtered_feature_bc_matrix.tar.gz",
+              "GSM9601955_LTSS_1_seurat.rds",
+              "GSM9601956_LTSS2_filtered_feature_bc_matrix.tar.gz",
+              "GSM9601956_LTSS_2_seurat.rds",
+              "GSM9601957_LTSS3_filtered_feature_bc_matrix.tar.gz",
+              "GSM9601957_LTSS_3_seurat.rds",
+              "GSM9601958_CK1_matrix.tar.gz",
+              "GSM9601958_CK_1_ST.rds",
+              "GSM9601959_CK2_matrix.tar.gz",
+              "GSM9601959_CK_2_ST.rds",
+              "GSM9601960_LTSS1_matrix.tar.gz",
+              "GSM9601960_LTSS_1_ST.rds",
+              "GSM9601961_LTSS2_matrix.tar.gz",
+              "GSM9601961_LTSS_2_ST.rds"
+            ],
+            "file_count": 20,
+            "quant_sf_file_count": 0,
+            "reason": "No Matrix Market/10x matrix files were found after extracting the GEO RAW tar archive.",
+            "species": "Solanum lycopersicum",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {
+              ".rds": 10,
+              ".tar.gz": 10
+            },
+            "tissue": "leaf_salt_stress_idioblast"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 1361,
+            "modified_utc": "2026-07-24T18:22:48.887449+00:00",
+            "path": "data/public/GSE325371_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse49607",
+      "download_status": "unsupported_for_matrix_corpus",
+      "latest_modified_utc": "2026-07-25T05:05:25.392072+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 76,
+        "exists": true,
+        "modified_utc": "2026-07-25T05:05:25.392072+00:00",
+        "path": "data/corpus_manifest.gse49607.tsv",
+        "rows": 0
+      },
+      "manifest_rows": 0,
+      "npz_files": {
+        "bytes": 0,
+        "examples": [],
+        "file_count": 0,
+        "largest_file": null,
+        "latest_modified_utc": null,
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE49607_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 8316070,
+        "examples": [
+          "data/public/GSE49607_raw_tar/GSE49607_RAW.aria2_urls.txt",
+          "data/public/GSE49607_raw_tar/GSE49607_RAW.detected_h5.txt",
+          "data/public/GSE49607_raw_tar/GSE49607_RAW.tar",
+          "data/public/GSE49607_raw_tar/unsupported_single_cell_matrix.json"
+        ],
+        "file_count": 4,
+        "largest_file": {
+          "bytes": 8314880,
+          "modified_utc": "2026-07-25T05:05:25.276073+00:00",
+          "path": "data/public/GSE49607_raw_tar/GSE49607_RAW.tar"
+        },
+        "latest_modified_utc": "2026-07-25T05:05:25.392072+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE49607_10x/*",
+          "data/public/GSE49607_h5/*",
+          "data/public/GSE49607_h5ad/*",
+          "data/public/GSE49607_mtx_tar/*",
+          "data/public/GSE49607_mtx_components/*",
+          "data/public/GSE49607_raw_tar/*",
+          "data/public/GSE49607_rds/*"
+        ],
+        "unsupported_payloads": [
+          {
+            "accession": "GSE49607",
+            "corpus_manifest": "data/corpus_manifest.gse49607.tsv",
+            "corpus_manifest_rows": 0,
+            "dataset_id": "geo_gse49607_cucumis_sativus_transcriptome_profiling_reveals_roles_meristem",
+            "example_files": [
+              "GSM1202545_WT_rep1_TagCopyNumber.txt.gz",
+              "GSM1202546_WT_rep2_TagCopyNumber.txt.gz",
+              "GSM1202547_tbh_rep1_TagCopyNumber.txt.gz",
+              "GSM1202548_tbh_rep2_TagCopyNumber.txt.gz",
+              "GSM1202549_Y05_rep1_TagCopyNumber.txt.gz",
+              "GSM1202550_Y05_rep2_TagCopyNumber.txt.gz",
+              "GSM1202551_Y16_rep1_TagCopyNumber.txt.gz",
+              "GSM1202552_Y16_rep2_TagCopyNumber.txt.gz"
+            ],
+            "feature_like_file_count": 0,
+            "file_count": 8,
+            "matrix_like_file_count": 0,
+            "quant_sf_file_count": 0,
+            "reason": "No Matrix Market/10x matrix files were found after extracting the GEO RAW tar archive.",
+            "species": "Cucumis sativus",
+            "status": "unsupported_for_single_cell_matrix_corpus",
+            "suffix_counts": {
+              ".txt.gz": 8
+            },
+            "tissue": "stem"
+          }
+        ],
+        "unsupported_report_count": 1,
+        "unsupported_reports": [
+          {
+            "bytes": 983,
+            "modified_utc": "2026-07-25T05:05:25.392072+00:00",
+            "path": "data/public/GSE49607_raw_tar/unsupported_single_cell_matrix.json"
+          }
+        ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    }
+  ]
+}

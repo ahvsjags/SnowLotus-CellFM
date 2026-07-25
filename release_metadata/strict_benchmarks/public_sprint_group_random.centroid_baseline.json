@@ -1,0 +1,53 @@
+{
+  "coarse_test_accuracy": 0.7583172944734672,
+  "coarse_test_macro_f1": 0.712468064803474,
+  "coarse_validation_accuracy": 0.7983293556085919,
+  "coarse_validation_macro_f1": 0.7675814060210313,
+  "config": "configs/foundation_5090_public_sprint.yaml",
+  "fine_test_accuracy": 0.7583172944734672,
+  "fine_test_macro_f1": 0.712468064803474,
+  "fine_validation_accuracy": 0.7983293556085919,
+  "fine_validation_macro_f1": 0.7675814060210313,
+  "method": "cosine_nearest_centroid",
+  "split": {
+    "leaveout_key": null,
+    "leaveout_test_values": [],
+    "leaveout_validation_values": [],
+    "strategy": "group_random",
+    "test_cells": 3637,
+    "test_groups": [
+      "SRX5025987"
+    ],
+    "test_leaveout_values": [
+      "SRX5025987"
+    ],
+    "train_cells": 30352,
+    "train_groups": [
+      "SRX5025979",
+      "SRX5025980",
+      "SRX5025981",
+      "SRX5025983",
+      "SRX5025984",
+      "SRX5025985",
+      "SRX5025986",
+      "SRX5025988"
+    ],
+    "train_leaveout_values": [
+      "SRX5025979",
+      "SRX5025980",
+      "SRX5025981",
+      "SRX5025983",
+      "SRX5025984",
+      "SRX5025985",
+      "SRX5025986",
+      "SRX5025988"
+    ],
+    "validation_cells": 1676,
+    "validation_groups": [
+      "SRX5025982"
+    ],
+    "validation_leaveout_values": [
+      "SRX5025982"
+    ]
+  }
+}

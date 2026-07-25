@@ -1,0 +1,153 @@
+{
+  "summary": {
+    "status": "reference_preprocess_ready",
+    "input_ready": true,
+    "reference_metadata_ready": true,
+    "reference_chunks_ready": true,
+    "selected_cells": 1000,
+    "retained_genes": 24392,
+    "gene_vocab_overlap_rate": 1.0
+  },
+  "input_dir": "outputs/external_benchmarks/scplantllm_preprocess_probe_input",
+  "export_summary": {
+    "method": "scplantllm_input_export",
+    "config": "configs/foundation_5090_public_sprint.yaml",
+    "output_dir": "outputs/external_benchmarks/scplantllm_preprocess_probe_input",
+    "h5_path": "outputs/external_benchmarks/scplantllm_preprocess_probe_input/snowcell_public_sprint.h5",
+    "metadata_csv": "outputs/external_benchmarks/scplantllm_preprocess_probe_input/snowcell_public_sprint.meta.csv",
+    "selected_splits": [
+      "train",
+      "validation",
+      "test"
+    ],
+    "requested_max_cells": 1000,
+    "selected_cells": 1000,
+    "retained_genes": 24392,
+    "split_counts": {
+      "train": 856,
+      "validation": 36,
+      "test": 108
+    },
+    "label_counts": {
+      "Columella root cap": 34,
+      "G1/G0 phase": 15,
+      "Lateral root cap": 93,
+      "Non-hair": 78,
+      "Phloem": 6,
+      "Root cap": 64,
+      "Root cortex": 92,
+      "Root endodermis": 110,
+      "Root hair": 113,
+      "Root stele": 104,
+      "S phase": 69,
+      "Unknow": 196,
+      "Xylem": 26
+    },
+    "expression_provenance": {
+      "source": "SnowCell prepare_data output",
+      "normalize_total": 10000.0,
+      "log1p": true,
+      "min_genes_per_cell": 40,
+      "min_cells_per_gene": 10
+    },
+    "scplantllm_format": {
+      "h5_group": "count",
+      "required_datasets": [
+        "count/data",
+        "count/cell_names",
+        "count/gene_names"
+      ],
+      "metadata_file_suffix": "meta.csv",
+      "metadata_required_columns": [
+        "cell",
+        "orig.ident",
+        "celltype"
+      ]
+    },
+    "scplantllm_gene_vocab": {
+      "path": "external/scPlantLLM/gene_vocab.json",
+      "available": true,
+      "overlap_count": 24392,
+      "overlap_rate": 1.0
+    }
+  },
+  "h5": {
+    "path": "outputs/external_benchmarks/scplantllm_preprocess_probe_input/snowcell_public_sprint.h5",
+    "exists": true,
+    "present_required_keys": [
+      "count/data",
+      "count/cell_names",
+      "count/gene_names"
+    ],
+    "missing_required_keys": [],
+    "required_keys_present": true,
+    "matrix_shape": [
+      1000,
+      24392
+    ]
+  },
+  "metadata_csv": {
+    "path": "outputs/external_benchmarks/scplantllm_preprocess_probe_input/snowcell_public_sprint.meta.csv",
+    "exists": true,
+    "columns": [
+      "cell",
+      "orig.ident",
+      "celltype",
+      "coarse_celltype",
+      "sample_id",
+      "species",
+      "tissue",
+      "snowcell_split",
+      "matrix_index"
+    ],
+    "missing_required_columns": [],
+    "required_columns_present": true
+  },
+  "scplantllm_checkout": {
+    "path": "external/scPlantLLM",
+    "exists": true,
+    "gene_vocab_exists": true,
+    "gene_vocab_bytes": 5114876
+  },
+  "reference_outputs": {
+    "metadata_files": [
+      {
+        "path": "outputs/external_benchmarks/scplantllm_preprocess_probe_input/reference_preprocess/batch_effect.meta",
+        "exists": true,
+        "bytes": 73016
+      },
+      {
+        "path": "outputs/external_benchmarks/scplantllm_preprocess_probe_input/reference_preprocess/batch_effect_vocab.meta.json",
+        "exists": true,
+        "bytes": 19
+      },
+      {
+        "path": "outputs/external_benchmarks/scplantllm_preprocess_probe_input/reference_preprocess/cell_type.meta",
+        "exists": true,
+        "bytes": 76959
+      },
+      {
+        "path": "outputs/external_benchmarks/scplantllm_preprocess_probe_input/reference_preprocess/cell_type_vocab.meta.json",
+        "exists": true,
+        "bytes": 278
+      }
+    ],
+    "metadata_ready": true,
+    "chunk_files": [
+      {
+        "path": "outputs/external_benchmarks/scplantllm_preprocess_probe_input/reference_preprocess/chunks/test_chunk_1.h5",
+        "bytes": 161545
+      },
+      {
+        "path": "outputs/external_benchmarks/scplantllm_preprocess_probe_input/reference_preprocess/chunks/train_chunk_1.h5",
+        "bytes": 735181
+      },
+      {
+        "path": "outputs/external_benchmarks/scplantllm_preprocess_probe_input/reference_preprocess/chunks/valid_chunk_1.h5",
+        "bytes": 166340
+      }
+    ],
+    "chunk_count": 3,
+    "chunks_ready": true
+  }
+}

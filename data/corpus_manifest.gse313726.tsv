@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE313726_npz/GSE313726_OsLeafStressIntegrated.npz	rice_leaf_stress_snuc_atlas	Oryza sativa	leaf		cell_type	cell_type_coarse	sample_id

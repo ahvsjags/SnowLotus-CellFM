@@ -1,0 +1,4 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/arabidopsis_root.h5ad	arabidopsis_root	Arabidopsis_thaliana	root		cell_type	cell_type_coarse	sample_id
+data/public/rice_seedling.h5ad	rice_seedling	Oryza_sativa	seedling		cell_type	cell_type_coarse	sample_id
+data/saussurea_involucrata.h5ad	saussurea_involucrata	Saussurea_involucrata	mixed		cell_type	cell_type_coarse	sample_id

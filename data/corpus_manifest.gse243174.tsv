@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE243174_npz/GSE243174_mtx_extracted.npz	geo_gse243174_glycine_max_single_cell_multiomic_profiling_soybean	Glycine max	seed		cell_type	cell_type_coarse	sample_id

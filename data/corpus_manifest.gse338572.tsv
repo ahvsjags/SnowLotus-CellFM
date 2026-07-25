@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE338572_npz/GSE338572_AH15AH17_eMultiRNA_Zm_seedling.MergedSeuratObjs.cluster.npz	maize_easy_multiome_seedling	Zea mays	seedling		cell_type	cell_type_coarse	sample_id

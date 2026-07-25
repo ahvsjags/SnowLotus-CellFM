@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE251706_npz/GSM8660509_sc_303_COPILOT.npz	rice_soil_stress_root_atlas	Oryza sativa	root		cell_type	cell_type_coarse	sample_id

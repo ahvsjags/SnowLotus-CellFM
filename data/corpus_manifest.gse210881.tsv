@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE210881_npz/GSE210881_sNucRNA-seq_Medicago_integrated_root_atlas.npz	geo_gse210881_medicago_truncatula_gene_expression_profile_at_single	Medicago truncatula	root		cell_type	cell_type_coarse	sample_id

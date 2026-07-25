@@ -1,0 +1,447 @@
+{
+  "generated_at_utc": "2026-07-25T21:55:59.024733+00:00",
+  "project_dir": ".",
+  "intended_use": "Plant single-cell and single-nucleus foundation annotation, public cross-species pretraining, and Snow Lotus transfer once primary Saussurea data are available.",
+  "model_family": "Transformer-based expression foundation model with MLM-style pretraining and hierarchical labels.",
+  "runs": [
+    {
+      "run": "outputs/smoke",
+      "checkpoint": true,
+      "checkpoint_size": "499.2 KB",
+      "epochs_recorded": 3,
+      "latest_epoch": 3,
+      "fine_macro_f1": "0.0476",
+      "coarse_macro_f1": "0.1250",
+      "eval_loss": "3.9180"
+    },
+    {
+      "run": "outputs/foundation_5090_public_sprint",
+      "checkpoint": true,
+      "checkpoint_size": "38.3 MB",
+      "epochs_recorded": 3,
+      "latest_epoch": 3,
+      "fine_macro_f1": "0.2602",
+      "coarse_macro_f1": "0.2285",
+      "eval_loss": "5.8913"
+    },
+    {
+      "run": "outputs/foundation_5090_public_safe_init",
+      "checkpoint": true,
+      "checkpoint_size": "181.7 MB",
+      "epochs_recorded": 12,
+      "latest_epoch": 12,
+      "fine_macro_f1": "0.7523",
+      "coarse_macro_f1": "0.7526",
+      "eval_loss": "3.7105"
+    },
+    {
+      "run": "outputs/foundation_5090_pretrain",
+      "checkpoint": true,
+      "checkpoint_size": "541.7 MB",
+      "epochs_recorded": 24,
+      "latest_epoch": 24,
+      "fine_macro_f1": "0.7983",
+      "coarse_macro_f1": "0.7955",
+      "eval_loss": "5.1526"
+    },
+    {
+      "run": "outputs/foundation_5090_mlm_public_available_expansion",
+      "checkpoint": false,
+      "checkpoint_size": "0 B",
+      "epochs_recorded": 0,
+      "latest_epoch": "",
+      "fine_macro_f1": "",
+      "coarse_macro_f1": "",
+      "eval_loss": ""
+    },
+    {
+      "run": "outputs/foundation_5090_mlm_public_expansion",
+      "checkpoint": true,
+      "checkpoint_size": "559.7 MB",
+      "epochs_recorded": 12,
+      "latest_epoch": 12,
+      "fine_macro_f1": "",
+      "coarse_macro_f1": "",
+      "eval_loss": "15.2775"
+    },
+    {
+      "run": "outputs/foundation_5090_mlm_public_expansion_continuation",
+      "checkpoint": true,
+      "checkpoint_size": "883.5 MB",
+      "epochs_recorded": 20,
+      "latest_epoch": 20,
+      "fine_macro_f1": "",
+      "coarse_macro_f1": "",
+      "eval_loss": "8.0196"
+    },
+    {
+      "run": "outputs/foundation_5090_mlm_public_late_refresh",
+      "checkpoint": true,
+      "checkpoint_size": "628.5 MB",
+      "epochs_recorded": 10,
+      "latest_epoch": 10,
+      "fine_macro_f1": "",
+      "coarse_macro_f1": "",
+      "eval_loss": "13.8535"
+    },
+    {
+      "run": "outputs/foundation_5090_mlm_public_late_refresh_safe",
+      "checkpoint": true,
+      "checkpoint_size": "882.0 MB",
+      "epochs_recorded": 8,
+      "latest_epoch": 8,
+      "fine_macro_f1": "",
+      "coarse_macro_f1": "",
+      "eval_loss": "9.6529"
+    },
+    {
+      "run": "outputs/foundation_5090_mlm_public_post_gse226097_refresh_safe",
+      "checkpoint": false,
+      "checkpoint_size": "0 B",
+      "epochs_recorded": 0,
+      "latest_epoch": "",
+      "fine_macro_f1": "",
+      "coarse_macro_f1": "",
+      "eval_loss": ""
+    }
+  ],
+  "corpora": [
+    {
+      "path": "data/plant_foundation_corpus.h5ad",
+      "exists": true,
+      "size": "43.1 MB"
+    },
+    {
+      "path": "data/plant_foundation_corpus_public_mlm_available.h5ad",
+      "exists": true,
+      "size": "704.7 MB"
+    },
+    {
+      "path": "data/plant_foundation_corpus_public_mlm.h5ad",
+      "exists": true,
+      "size": "1.9 GB"
+    }
+  ],
+  "public_data_targets": [
+    {
+      "dataset_id": "scplantdb_global",
+      "priority": "A",
+      "status": "manual_index",
+      "stage": "manifest_ready",
+      "manifest_rows": 52,
+      "raw_files": 104,
+      "npz_files": 0
+    },
+    {
+      "dataset_id": "brassicaceae_multi_species_root_atlas",
+      "priority": "A",
+      "status": "download_candidate",
+      "stage": "manifest_ready",
+      "manifest_rows": 5,
+      "raw_files": 15,
+      "npz_files": 5
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "priority": "A",
+      "status": "download_candidate",
+      "stage": "manifest_ready",
+      "manifest_rows": 2,
+      "raw_files": 1,
+      "npz_files": 2
+    },
+    {
+      "dataset_id": "rice_root_tip_atlas",
+      "priority": "B",
+      "status": "download_candidate",
+      "stage": "manifest_ready",
+      "manifest_rows": 1,
+      "raw_files": 2,
+      "npz_files": 1
+    },
+    {
+      "dataset_id": "arabidopsis_lifecycle_spatial_atlas",
+      "priority": "A",
+      "status": "download_candidate",
+      "stage": "manifest_ready",
+      "manifest_rows": 1,
+      "raw_files": 1,
+      "npz_files": 1
+    },
+    {
+      "dataset_id": "cotton_glandular_terpenoid_atlas",
+      "priority": "B",
+      "status": "download_candidate",
+      "stage": "manifest_ready",
+      "manifest_rows": 1,
+      "raw_files": 2,
+      "npz_files": 1
+    },
+    {
+      "dataset_id": "rice_soil_stress_root_atlas",
+      "priority": "A",
+      "status": "download_candidate",
+      "stage": "manifest_ready",
+      "manifest_rows": 1,
+      "raw_files": 1,
+      "npz_files": 1
+    },
+    {
+      "dataset_id": "wheat_soil_root_atlas",
+      "priority": "B",
+      "status": "download_candidate",
+      "stage": "manifest_ready",
+      "manifest_rows": 1,
+      "raw_files": 1,
+      "npz_files": 1
+    },
+    {
+      "dataset_id": "arabidopsis_secondary_root_dev_atlas",
+      "priority": "B",
+      "status": "download_candidate",
+      "stage": "manifest_ready",
+      "manifest_rows": 1,
+      "raw_files": 4,
+      "npz_files": 1
+    },
+    {
+      "dataset_id": "maize_easy_multiome_seedling",
+      "priority": "B",
+      "status": "download_candidate",
+      "stage": "manifest_ready",
+      "manifest_rows": 1,
+      "raw_files": 1,
+      "npz_files": 1
+    },
+    {
+      "dataset_id": "rice_leaf_stress_snuc_atlas",
+      "priority": "A",
+      "status": "download_candidate",
+      "stage": "manifest_ready",
+      "manifest_rows": 1,
+      "raw_files": 1,
+      "npz_files": 1
+    },
+    {
+      "dataset_id": "brassicaceae_regulatory_multiome",
+      "priority": "B",
+      "status": "discovery_candidate",
+      "stage": "not_started_or_metadata_only",
+      "manifest_rows": 0,
+      "raw_files": 0,
+      "npz_files": 0
+    },
+    {
+      "dataset_id": "stevia_leaf_secondary_metabolism_snuc",
+      "priority": "A",
+      "status": "download_candidate",
+      "stage": "manifest_ready",
+      "manifest_rows": 1,
+      "raw_files": 2,
+      "npz_files": 1
+    },
+    {
+      "dataset_id": "arabidopsis_lateral_root_founder_atlas",
+      "priority": "B",
+      "status": "download_candidate",
+      "stage": "manifest_ready",
+      "manifest_rows": 1,
+      "raw_files": 1,
+      "npz_files": 1
+    },
+    {
+      "dataset_id": "tomato_mycorrhiza_snuc_atlas",
+      "priority": "B",
+      "status": "download_candidate",
+      "stage": "manifest_ready",
+      "manifest_rows": 1,
+      "raw_files": 1,
+      "npz_files": 1
+    },
+    {
+      "dataset_id": "arabidopsis_scrna_method_benchmark",
+      "priority": "B",
+      "status": "download_candidate",
+      "stage": "manifest_ready",
+      "manifest_rows": 1,
+      "raw_files": 1,
+      "npz_files": 1
+    },
+    {
+      "dataset_id": "marchantia_spore_asymmetry_single_cell",
+      "priority": "C",
+      "status": "download_candidate",
+      "stage": "unsupported_for_matrix_corpus",
+      "manifest_rows": 0,
+      "raw_files": 3,
+      "npz_files": 0
+    }
+  ],
+  "pending_corpus_additions": [
+    {
+      "dataset_ids": "geo_gse157757_zea_mays_single_cell_sequencing_reveals_phloem",
+      "manifest": "data/corpus_manifest.gse157757.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse180121_liriodendron_chinense_single_cell_transcriptomics_unveils_xylem",
+      "manifest": "data/corpus_manifest.gse180121.tsv",
+      "rows_missing_from_public_mlm_manifest": 3
+    },
+    {
+      "dataset_ids": "geo_gse182507_medicago_truncatula_single_cell_rna_sequencing_medicago",
+      "manifest": "data/corpus_manifest.gse182507.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse190649_populus_tremula_single_nuclei_transcriptomic_populus_tremula",
+      "manifest": "data/corpus_manifest.gse190649.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse201640_zea_mays_decoding_gene_regulatory_network_endosperm",
+      "manifest": "data/corpus_manifest.gse201640.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse201931_solanum_lycopersicum_high_throughput_single_cell_transcriptome",
+      "manifest": "data/corpus_manifest.gse201931.tsv",
+      "rows_missing_from_public_mlm_manifest": 2
+    },
+    {
+      "dataset_ids": "geo_gse210881_medicago_truncatula_gene_expression_profile_at_single",
+      "manifest": "data/corpus_manifest.gse210881.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse220277_arabidopsis_drought_recovery_plants_triggers_a",
+      "manifest": "data/corpus_manifest.gse220277.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse222584_oryza_sativa_single_cell_sequencing_revealed_cell",
+      "manifest": "data/corpus_manifest.gse222584.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse226149_glycine_max_gene_expression_profile_at_single",
+      "manifest": "data/corpus_manifest.gse226149.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse226826_arabidopsis_thaliana_time_resolved_single_cell_spatial",
+      "manifest": "data/corpus_manifest.gse226826.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "arabidopsis_callus_regeneration_scrna",
+      "manifest": "data/corpus_manifest.gse234192.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse235495_arabidopsis_thaliana_multiome_same_cell_revealed_impact",
+      "manifest": "data/corpus_manifest.gse235495.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse240098_medicago_truncatula_spatial_co_transcriptomics_reveals_discrete",
+      "manifest": "data/corpus_manifest.gse240098.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse240102_medicago_truncatula_spatial_co_transcriptomics_reveals_discrete",
+      "manifest": "data/corpus_manifest.gse240102.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse241573_arabidopsis_thaliana_synthetic_deconvolution_an_auxin_dependent",
+      "manifest": "data/corpus_manifest.gse241573.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse243174_glycine_max_single_cell_multiomic_profiling_soybean",
+      "manifest": "data/corpus_manifest.gse243174.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse261441_arabidopsis_thaliana_a_single_nuclei_transcriptome_census",
+      "manifest": "data/corpus_manifest.gse261441.tsv",
+      "rows_missing_from_public_mlm_manifest": 4
+    },
+    {
+      "dataset_ids": "geo_gse267159_populus_trichocarpa_single_cell_spatial_multi_omics",
+      "manifest": "data/corpus_manifest.gse267159.tsv",
+      "rows_missing_from_public_mlm_manifest": 12
+    },
+    {
+      "dataset_ids": "geo_gse269624_arabidopsis_thaliana_glutathione_accelerates_cell_cycle_cellular",
+      "manifest": "data/corpus_manifest.gse269624.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse273722_camellia_sinensis_transcriptional_landscape_camellia_sinensis_roots",
+      "manifest": "data/corpus_manifest.gse273722.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse273875_oryza_sativa_a_single_cell_multiomics_atlas",
+      "manifest": "data/corpus_manifest.gse273875.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse275409_zea_mays_genetic_architecture_cell_type_specific",
+      "manifest": "data/corpus_manifest.gse275409.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse283835_populus_tremula_single_nuclei_transcriptomic_bulk_rna",
+      "manifest": "data/corpus_manifest.gse283835.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse303996_arabidopsis_thaliana_histone_deacetylases_cell_cycle_regulators",
+      "manifest": "data/corpus_manifest.gse303996.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "geo_gse308672_arabidopsis_thaliana_discrete_cell_specific_hypoxic_responses",
+      "manifest": "data/corpus_manifest.gse308672.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "rice_node_reproductive_stage_atlas",
+      "manifest": "data/corpus_manifest.gse308757.tsv",
+      "rows_missing_from_public_mlm_manifest": 1
+    },
+    {
+      "dataset_ids": "scplantdb_CRA002977_1;scplantdb_CRA002977_2;scplantdb_CRA004476;scplantdb_CRA004848;scplantdb_CRA006988;scplantdb_CRA007122;scplantdb_CRA008788;scplantdb_CRA009614;scplantdb_DRP009643;scplantdb_ERP132245;scplantdb_SRP148288;scplantdb_SRP164771;scplantdb_SRP166333;scplantdb_SRP169576;scplantdb_SRP171040;scplantdb_SRP173393;scplantdb_SRP182008;scplantdb_SRP224648;scplantdb_SRP235541;scplantdb_SRP241596;scplantdb_SRP247828_1;scplantdb_SRP247828_2;scplantdb_SRP247828_3;scplantdb_SRP250946;scplantdb_SRP253497;scplantdb_SRP272727_23_26;scplantdb_SRP273996;scplantdb_SRP279055;scplantdb_SRP280069;scplantdb_SRP281914;scplantdb_SRP285040;scplantdb_SRP285817;scplantdb_SRP286275;scplantdb_SRP286427;scplantdb_SRP292306;scplantdb_SRP307169;scplantdb_SRP307440;scplantdb_SRP309176;scplantdb_SRP320285;scplantdb_SRP330542;scplantdb_SRP332285;scplantdb_SRP335180;scplantdb_SRP335448;scplantdb_SRP338044;scplantdb_SRP339472;scplantdb_SRP354482;scplantdb_SRP374045;scplantdb_SRP386976;scplantdb_SRP390780;scplantdb_SRP398011;scplantdb_SRP406470;scplantdb_SRP424189",
+      "manifest": "data/corpus_manifest.scplantdb.tsv",
+      "rows_missing_from_public_mlm_manifest": 52
+    }
+  ],
+  "publication_gates": {
+    "baseline_benchmark_metric_present": true,
+    "data_integrity_audit_present": true,
+    "external_tool_benchmarks_present": true,
+    "gpu_training_active_or_artifacts_present": true,
+    "public_data_ingested": true,
+    "referenced_matrices_readable": true,
+    "snow_lotus_scRNA_present": false,
+    "ssh_remote_execution": true,
+    "strict_split_audit_present": true
+  },
+  "known_limitations": [
+    "Real Snow Lotus scRNA/snRNA primary data are not yet present as data/saussurea_involucrata.h5ad.",
+    "Current public foundation training uses heterogeneous public plant matrices with incomplete harmonized labels.",
+    "Several newly reviewed GEO datasets are still downloading or pending conversion.",
+    "External tool benchmarks and wet-lab validation are required before top-journal biological claims.",
+    "The current model card is a living project artifact and should be frozen with final checksums before submission."
+  ],
+  "recommended_next_actions": [
+    "Let public MLM training finish, then allow late-refresh to rebuild the corpus with GSE243419.",
+    "Continue reviewed GEO downloads and add converted manifests to the public MLM corpus.",
+    "Add primary Saussurea involucrata scRNA/snRNA h5ad and run Snow Lotus fine-tuning.",
+    "Run strict external benchmarks and produce marker/regulator validation tables.",
+    "Deposit final raw and processed data with stable accessions and update Data Availability."
+  ]
+}

@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE182507_npz/GSE182507_mtx_extracted.npz	geo_gse182507_medicago_truncatula_single_cell_rna_sequencing_medicago	Medicago truncatula	root		cell_type	cell_type_coarse	sample_id

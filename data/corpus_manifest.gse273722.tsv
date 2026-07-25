@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE273722_npz/GSE273722_mtx_extracted.npz	geo_gse273722_camellia_sinensis_transcriptional_landscape_camellia_sinensis_roots	Camellia sinensis	root		cell_type	cell_type_coarse	sample_id

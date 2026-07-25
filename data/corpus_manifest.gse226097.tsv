@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE226097_npz/GSE226097_seedling_3d_relaxed_220711.npz	arabidopsis_lifecycle_spatial_atlas	Arabidopsis_thaliana	multi_organ		cell_type	cell_type_coarse	sample_id

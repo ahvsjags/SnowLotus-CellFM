@@ -1,0 +1,2 @@
+[console_scripts]
+snowcell = snowcell.cli:main

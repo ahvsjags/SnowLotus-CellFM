@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE283835_npz/GSE283835_mtx_extracted.npz	geo_gse283835_populus_tremula_single_nuclei_transcriptomic_bulk_rna	Populus tremula x Populus alba	stem		cell_type	cell_type_coarse	sample_id

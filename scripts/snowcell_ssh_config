@@ -1,0 +1,9 @@
+Host snowcell-5090
+  HostName px1-jcy.matpool.com
+  Port 27683
+  User root
+  PreferredAuthentications password,keyboard-interactive,publickey
+  PasswordAuthentication yes
+  ServerAliveInterval 30
+  ServerAliveCountMax 3
+  StrictHostKeyChecking accept-new

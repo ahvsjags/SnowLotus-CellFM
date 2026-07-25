@@ -1,0 +1,72 @@
+{
+  "summary": {
+    "status": "input_ready_waiting_for_authorized_scplantannotate_run",
+    "counts_as_completed_metric": false,
+    "input_h5ad": "outputs/external_benchmarks/scplantannotate_public_sprint_input/scplantannotate_input.h5ad",
+    "truth_csv": "outputs/external_benchmarks/scplantannotate_public_sprint_input/truth_labels.csv",
+    "selected_cells": 5000,
+    "retained_genes": 27547,
+    "class_count": 12,
+    "species": "Arabidopsis thaliana",
+    "label_key": "cell_type",
+    "coarse_label_key": "cell_type_coarse",
+    "source_h5ad": "data/plant_foundation_corpus.h5ad",
+    "dataset_name": "snowcell_public_sprint_scplantannotate_probe",
+    "organism_id": "1",
+    "predictor_id": "1"
+  },
+  "label_counts": [
+    [
+      "Columella root cap",
+      417
+    ],
+    [
+      "G1/G0 phase",
+      417
+    ],
+    [
+      "Lateral root cap",
+      417
+    ],
+    [
+      "Non-hair",
+      417
+    ],
+    [
+      "Phloem",
+      417
+    ],
+    [
+      "Root cap",
+      417
+    ],
+    [
+      "Root cortex",
+      417
+    ],
+    [
+      "Root endodermis",
+      417
+    ],
+    [
+      "Root hair",
+      416
+    ],
+    [
+      "Root stele",
+      416
+    ],
+    [
+      "S phase",
+      416
+    ],
+    [
+      "Xylem",
+      416
+    ]
+  ],
+  "commands": {
+    "authorized_submit_and_wait": "SCPLANTANNOTATE_USERNAME=<user> SCPLANTANNOTATE_PASSWORD=<password> python scripts/run_scplantannotate_authenticated_benchmark.py --input-h5ad outputs/external_benchmarks/scplantannotate_public_sprint_input/scplantannotate_input.h5ad --dataset-name snowcell_public_sprint_scplantannotate_probe --organism-id 1 --predictor-id 1 --execute --wait --output outputs/external_benchmarks/scplantannotate_authenticated_benchmark_plan.json",
+    "author_or_web_export_to_metric": "python scripts/run_scplantannotate_authenticated_benchmark.py --prediction-csv <scplantannotate_predictions.csv> --truth-csv outputs/external_benchmarks/scplantannotate_public_sprint_input/truth_labels.csv --metrics-output outputs/external_benchmarks/scplantannotate_final_metrics.json --output outputs/external_benchmarks/scplantannotate_authenticated_benchmark_plan.json"
+  }
+}

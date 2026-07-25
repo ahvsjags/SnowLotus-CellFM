@@ -1,0 +1,91 @@
+{
+  "summary": {
+    "requirement_count": 10,
+    "ready": 8,
+    "missing": 2,
+    "in_progress": 0,
+    "top_journal_benchmark_ready": false
+  },
+  "requirements": [
+    {
+      "id": "random_split_centroid",
+      "label": "Random/group split nearest-centroid baseline",
+      "status": "READY",
+      "evidence": "outputs/strict_benchmarks/public_sprint_group_random.centroid_baseline.json",
+      "blocker": "Run scripts/run_strict_benchmark_audits.sh after a labelled corpus is available.",
+      "priority": "A"
+    },
+    {
+      "id": "leave_dataset_split_audit",
+      "label": "Leave-dataset-out split audit",
+      "status": "READY",
+      "evidence": "outputs/strict_benchmarks/leaveout_brassicaceae_dataset.split_audit.json",
+      "blocker": "Build the public MLM corpus and run strict benchmark audits.",
+      "priority": "A"
+    },
+    {
+      "id": "leave_species_split_audit",
+      "label": "Leave-species-out split audit",
+      "status": "READY",
+      "evidence": "outputs/strict_benchmarks/leaveout_eutrema_species.split_audit.json",
+      "blocker": "Build the public MLM corpus and run strict benchmark audits.",
+      "priority": "A"
+    },
+    {
+      "id": "leaveout_supervised_baseline",
+      "label": "Supervised leave-out baseline metric",
+      "status": "READY",
+      "evidence": "outputs/strict_benchmarks/leaveout_*.centroid_baseline.json",
+      "blocker": "Current leave-out splits need enough labelled train/validation/test cells after filtering.",
+      "priority": "A"
+    },
+    {
+      "id": "marker_candidate_mining",
+      "label": "Marker-candidate interpretability artifact",
+      "status": "READY",
+      "evidence": "outputs/strict_benchmarks/public_sprint.marker_candidates.json",
+      "blocker": "Run snowcell marker-candidates on a labelled benchmark corpus.",
+      "priority": "A"
+    },
+    {
+      "id": "seurat_label_transfer",
+      "label": "Seurat label-transfer benchmark",
+      "status": "READY",
+      "evidence": "outputs/external_benchmarks/*seurat*.json",
+      "blocker": "Export comparable train/test matrices and run Seurat label transfer in R.",
+      "priority": "A"
+    },
+    {
+      "id": "scplantllm_comparison",
+      "label": "scPlantLLM comparison",
+      "status": "READY",
+      "evidence": "outputs/external_benchmarks/*scplantllm*.json",
+      "blocker": "Prepare scPlantLLM-compatible input and run its public evaluation code.",
+      "priority": "A"
+    },
+    {
+      "id": "scplantannotate_comparison",
+      "label": "scPlantAnnotate comparison",
+      "status": "MISSING",
+      "evidence": "outputs/external_benchmarks/*scplantannotate*.json",
+      "blocker": "Prepare matched Arabidopsis/maize/rice/soybean benchmarks and run scPlantAnnotate.",
+      "priority": "B"
+    },
+    {
+      "id": "snow_lotus_finetune_benchmark",
+      "label": "Snow Lotus fine-tune and holdout benchmark",
+      "status": "MISSING",
+      "evidence": "outputs/saussurea_lora_finetune/* and data/saussurea_involucrata.h5ad",
+      "blocker": "Requires real data/saussurea_involucrata.h5ad with cell labels and sample metadata.",
+      "priority": "S"
+    },
+    {
+      "id": "public_corpus_scale",
+      "label": "Multi-dataset public corpus coverage",
+      "status": "READY",
+      "evidence": "15 manifest-ready public targets",
+      "blocker": "Finish queued GEO downloads/conversions and rebuild the public MLM corpus.",
+      "priority": "A"
+    }
+  ]
+}

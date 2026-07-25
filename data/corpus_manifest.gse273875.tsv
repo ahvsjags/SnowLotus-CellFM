@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE273875_npz/GSE273875_LTP_NIP_label_240622.npz	geo_gse273875_oryza_sativa_a_single_cell_multiomics_atlas	Oryza sativa	public_discovery		cell_type	cell_type_coarse	sample_id

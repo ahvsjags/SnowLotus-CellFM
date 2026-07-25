@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE226826_npz/GSE226826_AvrRpm1_24h_peak.npz	geo_gse226826_arabidopsis_thaliana_time_resolved_single_cell_spatial	Arabidopsis thaliana	public_discovery		cell_type	cell_type_coarse	sample_id

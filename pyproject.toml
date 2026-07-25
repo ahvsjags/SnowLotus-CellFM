@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snowlotus-cellfm"
+version = "0.1.0"
+description = "天山雪莲与植物单细胞层级注释基础模型"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "SnowLotus-CellFM contributors" }]
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "PyYAML>=6.0",
+  "scipy>=1.11",
+  "scikit-learn>=1.4",
+  "torch>=2.5",
+]
+
+[project.optional-dependencies]
+singlecell = [
+  "anndata>=0.10",
+  "h5py>=3.10",
+]
+pipeline = [
+  "anndata>=0.10",
+  "h5py>=3.10",
+  "tqdm>=4.66",
+]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.8",
+]
+
+[project.scripts]
+snowcell = "snowcell.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

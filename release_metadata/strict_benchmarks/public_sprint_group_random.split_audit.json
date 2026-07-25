@@ -1,0 +1,190 @@
+{
+  "cells": {
+    "test": 3637,
+    "train": 30352,
+    "validation": 1676
+  },
+  "coarse_labels": {
+    "test": {
+      "Columella root cap": 206,
+      "G1/G0 phase": 82,
+      "Lateral root cap": 271,
+      "Non-hair": 235,
+      "Phloem": 78,
+      "Root cap": 319,
+      "Root cortex": 342,
+      "Root endodermis": 470,
+      "Root hair": 152,
+      "Root stele": 668,
+      "S phase": 485,
+      "Unknow": 189,
+      "Xylem": 140
+    },
+    "train": {
+      "Columella root cap": 1000,
+      "G1/G0 phase": 406,
+      "Lateral root cap": 2977,
+      "Non-hair": 2340,
+      "Phloem": 308,
+      "Root cap": 1693,
+      "Root cortex": 2490,
+      "Root endodermis": 3115,
+      "Root hair": 4254,
+      "Root stele": 2423,
+      "S phase": 1695,
+      "Unknow": 7197,
+      "Xylem": 454
+    },
+    "unseen_test_labels": [],
+    "validation": {
+      "Columella root cap": 96,
+      "G1/G0 phase": 28,
+      "Lateral root cap": 199,
+      "Non-hair": 79,
+      "Phloem": 61,
+      "Root cap": 166,
+      "Root cortex": 181,
+      "Root endodermis": 188,
+      "Root hair": 20,
+      "Root stele": 344,
+      "S phase": 149,
+      "Unknow": 96,
+      "Xylem": 69
+    }
+  },
+  "config": "configs/foundation_5090_public_sprint.yaml",
+  "data_path": "data/plant_foundation_corpus.h5ad",
+  "fine_labels": {
+    "test": {
+      "Columella root cap": 206,
+      "G1/G0 phase": 82,
+      "Lateral root cap": 271,
+      "Non-hair": 235,
+      "Phloem": 78,
+      "Root cap": 319,
+      "Root cortex": 342,
+      "Root endodermis": 470,
+      "Root hair": 152,
+      "Root stele": 668,
+      "S phase": 485,
+      "Unknow": 189,
+      "Xylem": 140
+    },
+    "train": {
+      "Columella root cap": 1000,
+      "G1/G0 phase": 406,
+      "Lateral root cap": 2977,
+      "Non-hair": 2340,
+      "Phloem": 308,
+      "Root cap": 1693,
+      "Root cortex": 2490,
+      "Root endodermis": 3115,
+      "Root hair": 4254,
+      "Root stele": 2423,
+      "S phase": 1695,
+      "Unknow": 7197,
+      "Xylem": 454
+    },
+    "unseen_test_labels": [],
+    "validation": {
+      "Columella root cap": 96,
+      "G1/G0 phase": 28,
+      "Lateral root cap": 199,
+      "Non-hair": 79,
+      "Phloem": 61,
+      "Root cap": 166,
+      "Root cortex": 181,
+      "Root endodermis": 188,
+      "Root hair": 20,
+      "Root stele": 344,
+      "S phase": 149,
+      "Unknow": 96,
+      "Xylem": 69
+    }
+  },
+  "group_key": "sample_id",
+  "group_leakage": {
+    "train_test_overlap": [],
+    "train_validation_overlap": [],
+    "validation_test_overlap": []
+  },
+  "leaveout_key": "sample_id",
+  "leaveout_test_values": [],
+  "leaveout_validation_values": [],
+  "leaveout_values": {
+    "test": {
+      "SRX5025987": 3637
+    },
+    "train": {
+      "SRX5025979": 4133,
+      "SRX5025980": 3754,
+      "SRX5025981": 14546,
+      "SRX5025983": 1067,
+      "SRX5025984": 1294,
+      "SRX5025985": 1600,
+      "SRX5025986": 1100,
+      "SRX5025988": 2858
+    },
+    "validation": {
+      "SRX5025982": 1676
+    }
+  },
+  "preprocessing": {
+    "label_hierarchy": {
+      "ambiguous_fine_label_count": 0,
+      "ambiguous_fine_labels": {}
+    },
+    "quality_control": {
+      "input_cells": 35665,
+      "input_genes": 27547,
+      "log1p": true,
+      "median_library_size_before_normalization": 607.0,
+      "normalize_total": 10000.0,
+      "retained_cells": 35665,
+      "retained_genes": 24392
+    },
+    "split": {
+      "leaveout_key": null,
+      "leaveout_test_values": [],
+      "leaveout_validation_values": [],
+      "strategy": "group_random",
+      "test_cells": 3637,
+      "test_groups": [
+        "SRX5025987"
+      ],
+      "test_leaveout_values": [
+        "SRX5025987"
+      ],
+      "train_cells": 30352,
+      "train_groups": [
+        "SRX5025979",
+        "SRX5025980",
+        "SRX5025981",
+        "SRX5025983",
+        "SRX5025984",
+        "SRX5025985",
+        "SRX5025986",
+        "SRX5025988"
+      ],
+      "train_leaveout_values": [
+        "SRX5025979",
+        "SRX5025980",
+        "SRX5025981",
+        "SRX5025983",
+        "SRX5025984",
+        "SRX5025985",
+        "SRX5025986",
+        "SRX5025988"
+      ],
+      "validation_cells": 1676,
+      "validation_groups": [
+        "SRX5025982"
+      ],
+      "validation_leaveout_values": [
+        "SRX5025982"
+      ]
+    }
+  },
+  "split_strategy": "group_random",
+  "supervised_benchmark_ready": true
+}

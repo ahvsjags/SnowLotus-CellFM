@@ -1,0 +1,3 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE152766_npz/spliced_counts_filtered.npz	arabidopsis_root_atlas	Arabidopsis_thaliana	root		cell_type	cell_type_coarse	sample_id
+data/public/GSE152766_npz/unspliced_counts_filtered.npz	arabidopsis_root_atlas	Arabidopsis_thaliana	root		cell_type	cell_type_coarse	sample_id

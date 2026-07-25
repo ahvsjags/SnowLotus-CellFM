@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE300264_npz/GSE300264_merged_seurat.npz	arabidopsis_scrna_method_benchmark	Arabidopsis thaliana	root		cell_type	cell_type_coarse	sample_id

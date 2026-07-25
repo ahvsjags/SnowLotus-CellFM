@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE226149_npz/GSE226149_mtx_extracted.npz	geo_gse226149_glycine_max_gene_expression_profile_at_single	Glycine max	root		cell_type	cell_type_coarse	sample_id

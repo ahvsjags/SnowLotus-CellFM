@@ -1,0 +1,244 @@
+{
+  "cells": {
+    "test": 38506,
+    "train": 121052,
+    "validation": 3751
+  },
+  "coarse_labels": {
+    "test": {
+      "unannotated_root": 38506
+    },
+    "train": {
+      "0": 7474,
+      "1": 6404,
+      "10": 969,
+      "11": 875,
+      "12": 816,
+      "13": 794,
+      "14": 577,
+      "15": 301,
+      "16": 289,
+      "17": 202,
+      "18": 72,
+      "19": 43,
+      "2": 4343,
+      "3": 3022,
+      "4": 2275,
+      "5": 1358,
+      "6": 1316,
+      "7": 1197,
+      "8": 1004,
+      "9": 974,
+      "Columella root cap": 1108,
+      "G1/G0 phase": 500,
+      "Lateral root cap": 3224,
+      "Non-hair": 2545,
+      "Phloem": 416,
+      "Root cap": 1993,
+      "Root cortex": 2914,
+      "Root endodermis": 3659,
+      "Root hair": 4370,
+      "Root stele": 3254,
+      "S phase": 2139,
+      "Unknow": 7318,
+      "Xylem": 625,
+      "unannotated": 21194,
+      "unannotated_root": 18924,
+      "unannotated_root_tip": 12564
+    },
+    "unseen_test_labels": [],
+    "validation": {
+      "Columella root cap": 194,
+      "G1/G0 phase": 16,
+      "Lateral root cap": 223,
+      "Non-hair": 109,
+      "Phloem": 31,
+      "Root cap": 185,
+      "Root cortex": 99,
+      "Root endodermis": 114,
+      "Root hair": 56,
+      "Root stele": 181,
+      "S phase": 190,
+      "Unknow": 164,
+      "Xylem": 38,
+      "unknown": 2151
+    }
+  },
+  "config": "configs/generated/leaveout_brassicaceae_dataset_available.yaml",
+  "data_path": "data/plant_foundation_corpus_public_mlm_available.h5ad",
+  "fine_labels": {
+    "test": {
+      "unannotated_root": 38506
+    },
+    "train": {
+      "0": 7474,
+      "1": 6404,
+      "10": 969,
+      "11": 875,
+      "12": 816,
+      "13": 794,
+      "14": 577,
+      "15": 301,
+      "16": 289,
+      "17": 202,
+      "18": 72,
+      "19": 43,
+      "2": 4343,
+      "3": 3022,
+      "4": 2275,
+      "5": 1358,
+      "6": 1316,
+      "7": 1197,
+      "8": 1004,
+      "9": 974,
+      "Columella root cap": 1108,
+      "G1/G0 phase": 500,
+      "Lateral root cap": 3224,
+      "Non-hair": 2545,
+      "Phloem": 416,
+      "Root cap": 1993,
+      "Root cortex": 2914,
+      "Root endodermis": 3659,
+      "Root hair": 4370,
+      "Root stele": 3254,
+      "S phase": 2139,
+      "Unknow": 7318,
+      "Xylem": 625,
+      "unannotated": 21194,
+      "unannotated_root": 18924,
+      "unannotated_root_tip": 12564
+    },
+    "unseen_test_labels": [],
+    "validation": {
+      "Columella root cap": 194,
+      "G1/G0 phase": 16,
+      "Lateral root cap": 223,
+      "Non-hair": 109,
+      "Phloem": 31,
+      "Root cap": 185,
+      "Root cortex": 99,
+      "Root endodermis": 114,
+      "Root hair": 56,
+      "Root stele": 181,
+      "S phase": 190,
+      "Unknow": 164,
+      "Xylem": 38,
+      "unknown": 2151
+    }
+  },
+  "group_key": "sample_id",
+  "group_leakage": {
+    "train_test_overlap": [],
+    "train_validation_overlap": [],
+    "validation_test_overlap": []
+  },
+  "leaveout_key": "dataset_id",
+  "leaveout_test_values": [
+    "brassicaceae_multi_species_root_atlas"
+  ],
+  "leaveout_validation_values": [],
+  "leaveout_values": {
+    "test": {
+      "brassicaceae_multi_species_root_atlas": 38506
+    },
+    "train": {
+      "arabidopsis_lifecycle_spatial_atlas": 34305,
+      "arabidopsis_root_atlas": 21194,
+      "arabidopsis_secondary_root_dev_atlas": 17140,
+      "rice_root_tip_atlas": 12564,
+      "scplantllm_srp169576_SRX5025979_seurat0": 4133,
+      "scplantllm_srp169576_SRX5025980_seurat0": 3754,
+      "scplantllm_srp169576_SRX5025981_seurat0": 14546,
+      "scplantllm_srp169576_SRX5025982_seurat0": 1676,
+      "scplantllm_srp169576_SRX5025983_seurat0": 1067,
+      "scplantllm_srp169576_SRX5025984_seurat0": 1294,
+      "scplantllm_srp169576_SRX5025986_seurat0": 1100,
+      "scplantllm_srp169576_SRX5025987_seurat0": 3637,
+      "scplantllm_srp169576_SRX5025988_seurat0": 2858,
+      "wheat_soil_root_atlas": 1784
+    },
+    "validation": {
+      "rice_soil_stress_root_atlas": 2151,
+      "scplantllm_srp169576_SRX5025985_seurat0": 1600
+    }
+  },
+  "preprocessing": {
+    "label_hierarchy": {
+      "ambiguous_fine_label_count": 0,
+      "ambiguous_fine_labels": {}
+    },
+    "quality_control": {
+      "input_cells": 163311,
+      "input_genes": 542704,
+      "log1p": true,
+      "median_library_size_before_normalization": 1062.0,
+      "normalize_total": 10000.0,
+      "retained_cells": 163309,
+      "retained_genes": 238870
+    },
+    "split": {
+      "leaveout_key": "dataset_id",
+      "leaveout_test_values": [
+        "brassicaceae_multi_species_root_atlas"
+      ],
+      "leaveout_validation_values": [],
+      "strategy": "explicit_leaveout",
+      "test_cells": 38506,
+      "test_groups": [
+        "GSM8302004_Ath_Root_Ctrl_scRNAseq_R1",
+        "GSM8302010_Esa_Root_Ctrl_scRNAseq_R1",
+        "GSM8302016_Sir_Root_Ctrl_scRNAseq_R1",
+        "GSM8302022_Spa_Root_Ctrl_scRNAseq_R1",
+        "GSM8302028_Csa_Root_Ctrl_scRNAseq_R1"
+      ],
+      "test_leaveout_values": [
+        "brassicaceae_multi_species_root_atlas"
+      ],
+      "train_cells": 121052,
+      "train_groups": [
+        "GSE146034_mtx_extracted",
+        "GSM8335426_JWE03_filtered_feature_bc_matrix",
+        "GSM8339904_rep1_filtered_feature_bc_matrix",
+        "SRX5025979",
+        "SRX5025980",
+        "SRX5025981",
+        "SRX5025982",
+        "SRX5025983",
+        "SRX5025984",
+        "SRX5025986",
+        "SRX5025987",
+        "SRX5025988",
+        "seedling_6d",
+        "spliced_counts_filtered",
+        "unspliced_counts_filtered"
+      ],
+      "train_leaveout_values": [
+        "arabidopsis_lifecycle_spatial_atlas",
+        "arabidopsis_root_atlas",
+        "arabidopsis_secondary_root_dev_atlas",
+        "rice_root_tip_atlas",
+        "scplantllm_srp169576_SRX5025979_seurat0",
+        "scplantllm_srp169576_SRX5025980_seurat0",
+        "scplantllm_srp169576_SRX5025981_seurat0",
+        "scplantllm_srp169576_SRX5025982_seurat0",
+        "scplantllm_srp169576_SRX5025983_seurat0",
+        "scplantllm_srp169576_SRX5025984_seurat0",
+        "scplantllm_srp169576_SRX5025986_seurat0",
+        "scplantllm_srp169576_SRX5025987_seurat0",
+        "scplantllm_srp169576_SRX5025988_seurat0",
+        "wheat_soil_root_atlas"
+      ],
+      "validation_cells": 3751,
+      "validation_groups": [
+        "SRX5025985",
+        "sc_303"
+      ],
+      "validation_leaveout_values": [
+        "rice_soil_stress_root_atlas",
+        "scplantllm_srp169576_SRX5025985_seurat0"
+      ]
+    }
+  },
+  "split_strategy": "explicit_leaveout",
+  "supervised_benchmark_ready": false
+}

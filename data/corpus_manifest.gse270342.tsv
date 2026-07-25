@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE270342_npz/GSM8339904_rep1_filtered_feature_bc_matrix.npz	wheat_soil_root_atlas	Triticum aestivum	root		cell_type	cell_type_coarse	sample_id

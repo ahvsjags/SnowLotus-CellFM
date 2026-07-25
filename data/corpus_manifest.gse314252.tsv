@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE314252_npz/GSE314252_seuratObj_for_pub.npz	tomato_mycorrhiza_snuc_atlas	Solanum lycopersicum	root		cell_type	cell_type_coarse	sample_id

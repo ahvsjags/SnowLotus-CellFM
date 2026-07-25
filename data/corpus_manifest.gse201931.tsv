@@ -1,0 +1,3 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE201931_npz/GSE201931.npz	geo_gse201931_solanum_lycopersicum_high_throughput_single_cell_transcriptome	Solanum lycopersicum	leaf		cell_type	cell_type_coarse	sample_id
+data/public/GSE201931_npz/GSE201931_V0.npz	geo_gse201931_solanum_lycopersicum_high_throughput_single_cell_transcriptome	Solanum lycopersicum	leaf		cell_type	cell_type_coarse	sample_id

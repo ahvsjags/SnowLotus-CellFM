@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE220277_npz/GSE220277_mtx_extracted.npz	geo_gse220277_arabidopsis_drought_recovery_plants_triggers_a	Arabidopsis	public_discovery		cell_type	cell_type_coarse	sample_id

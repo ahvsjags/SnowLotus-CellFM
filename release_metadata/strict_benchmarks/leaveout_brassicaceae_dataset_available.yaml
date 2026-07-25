@@ -1,0 +1,56 @@
+data:
+  path: data/plant_foundation_corpus_public_mlm_available.h5ad
+  layer: null
+  label_key: cell_type
+  coarse_label_key: cell_type_coarse
+  group_key: sample_id
+  species_key: species
+  tissue_key: tissue
+  cell_id_key: cell_id
+  normalize_total: 10000.0
+  log1p: true
+  max_genes: 768
+  min_genes_per_cell: 40
+  min_cells_per_gene: 10
+  validation_fraction: 0.1
+  test_fraction: 0.1
+  split_strategy: explicit_leaveout
+  leaveout_key: dataset_id
+  leaveout_test_values:
+  - brassicaceae_multi_species_root_atlas
+  leaveout_validation_values: []
+architecture:
+  d_model: 256
+  n_layers: 4
+  n_heads: 8
+  ffn_dim: 768
+  dropout: 0.1
+  value_bins: 128
+  gradient_checkpointing: false
+train:
+  stage: hybrid
+  seed: 42
+  epochs: 3
+  batch_size: 32
+  eval_batch_size: 64
+  learning_rate: 0.0002
+  head_learning_rate: 0.0006
+  weight_decay: 0.03
+  warmup_fraction: 0.05
+  gradient_accumulation_steps: 2
+  max_grad_norm: 1.0
+  mixed_precision: bf16
+  tuning_mode: full
+  label_smoothing: 0.05
+  coarse_loss_weight: 0.35
+  hierarchy_loss_weight: 0.1
+  mlm_loss_weight: 0.35
+  value_loss_weight: 0.1
+  mask_ratio: 0.15
+  class_balance: true
+  early_stopping_patience: 3
+  num_workers: 4
+  compile_model: false
+output:
+  directory: outputs/strict_benchmarks/leaveout_brassicaceae_dataset_available_train
+  save_every_epochs: 1

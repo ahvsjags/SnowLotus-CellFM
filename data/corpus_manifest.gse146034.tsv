@@ -1,0 +1,2 @@
+path	dataset_id	species	tissue	layer	label_key	coarse_label_key	sample_key
+data/public/GSE146034_npz/GSE146034_mtx_extracted.npz	rice_root_tip_atlas	Oryza sativa	root_tip		cell_type	cell_type_coarse	sample_id
