@@ -20,7 +20,7 @@ This is not being oversold as a completed Snow Lotus single-cell atlas. It is a 
 
 ## Repository publication status
 
-The GitHub-ready repository is staged at `/root/snowlotus-cellfm/outputs/github_release/SnowLotus-CellFM` on the RTX 5090 server. The two frozen model files are present in `models/` and verified against `models/SHA256SUMS.txt`. The completed v0.2 run remains the stable baseline; `editor-v0.3` promotes the stronger v0.3 best checkpoint for the submission package while training continues. GitHub publication is blocked only by repository/key authorization: GitHub currently rejects the server deploy key with `Permission denied (publickey)`. Once the repository `ahvsjags/SnowLotus-CellFM` exists and the deploy key in `GITHUB_PUSH_INSTRUCTIONS.md` has write access, the staged repository can be pushed as-is.
+The repository has been published to GitHub at `https://github.com/ahvsjags/SnowLotus-CellFM` with main commit `65a984165992371852c77b7ae06467588798f184` and release tag `editor-v0.3`. The release contains the source/metadata archive, manuscript archive, one-click editor package and the full model archive with the current best epoch-5 embedding checkpoint. The repository is currently private, so editor/reviewer access should be granted, or the repository should be made public, before using the URL as a reviewer-facing link.
 
 ## Next revision
 
