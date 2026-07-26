@@ -23,6 +23,8 @@ PACKAGE_FILES = [
     "matpool_ssh_recovery_runbook.md",
     "matpool_px1_next_port.example.txt",
     "matpool_px1_candidate_ports.example.txt",
+    "remote_training_state.after_px2_recovery.md",
+    "remote_training_state.after_px2_recovery.json",
     "README.remote.md",
     "GITHUB_PUSH_INSTRUCTIONS.remote.md",
     "EDITOR_HANDOFF.remote.md",
@@ -223,8 +225,8 @@ def main() -> int:
     parser.add_argument("--root", default=".")
     parser.add_argument("--package-dir", default="editor_package/current_submit_v0.3")
     parser.add_argument("--alias", default="matpool-px1-jcy")
-    parser.add_argument("--host", default="px1-jcy.matpool.com")
-    parser.add_argument("--port", type=int, default=27683)
+    parser.add_argument("--host", default="px2-jcy.matpool.com")
+    parser.add_argument("--port", type=int, default=29153)
     parser.add_argument("--watcher-pid", default="")
     parser.add_argument("--log-path", default="logs/wait_and_start_remote_full_on_disk.log")
     parser.add_argument("--github-commit", default="")
