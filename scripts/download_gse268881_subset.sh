@@ -140,11 +140,11 @@ else
     fi
     echo "downloading $filename"
     if [ "$resume" = "1" ]; then
-      curl -L --fail --retry 5 --connect-timeout 20 --max-time 7200 -C - \
+      curl -L --fail --http1.1 --retry 5 --retry-all-errors --connect-timeout 20 --max-time 7200 -C - \
         -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
         -o "$target" "$url"
     else
-      curl -L --fail --retry 5 --connect-timeout 20 --max-time 7200 \
+      curl -L --fail --http1.1 --retry 5 --retry-all-errors --connect-timeout 20 --max-time 7200 -C - \
         -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
         -o "$target" "$url"
     fi
