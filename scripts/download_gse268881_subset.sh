@@ -7,8 +7,23 @@ mkdir -p data/public/GSE268881_10x data/public/GSE268881_npz logs
 source .venv/bin/activate 2>/dev/null || true
 
 filelist="data/public/geo_filelists/GSE268881/filelist.txt"
-if [ ! -s "$filelist" ]; then
-  echo "Missing $filelist; run scripts/generated_downloads/download_geo_filelists.sh first."
+
+filelist_ready() {
+  [ -s "$filelist" ] \
+    && grep -Eq "GSM[0-9]+_.*_(barcodes\\.tsv|features\\.tsv|matrix\\.mtx)\\.gz" "$filelist" \
+    && ! grep -qiE "<html|access forbidden" "$filelist"
+}
+
+if ! filelist_ready; then
+  echo "Missing $filelist; fetching GEO supplementary file list for GSE268881."
+  SNOWCELL_GEO_ACCESSION=GSE268881 bash scripts/fetch_geo_supplementary_filelist.sh || true
+fi
+if ! filelist_ready && [ -f scripts/generated_downloads/download_geo_filelists.sh ]; then
+  echo "GSE268881 file list still missing; trying generated GEO filelist downloader."
+  bash scripts/generated_downloads/download_geo_filelists.sh || true
+fi
+if ! filelist_ready; then
+  echo "Missing $filelist; unable to continue GSE268881 subset download."
   exit 1
 fi
 
