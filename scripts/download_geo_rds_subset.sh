@@ -54,41 +54,12 @@ geo_sample_url() {
     "$sample_bucket" "$sample_accession" "$filename"
 }
 
-verify_download() {
-  local path="$1"
-  [ -s "$path" ] || return 1
-  case "$path" in
-    *.gz)
-      gzip -t "$path" >/dev/null 2>&1
-      ;;
-    *)
-      return 0
-      ;;
-  esac
-}
-
-curl_download_file() {
-  local filename="$1"
-  local target="$download_dir/$filename"
-  local tmp="${target}.curltmp"
-  rm -f "$tmp"
-  if curl --http1.1 -L --fail --retry 24 --retry-all-errors --connect-timeout 20 --max-time 14400 \
-    -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
-    -o "$tmp" "$(geo_sample_url "$filename")" && verify_download "$tmp"; then
-    mv "$tmp" "$target"
-    rm -f "${target}.aria2"
-    return 0
-  fi
-  rm -f "$tmp"
-  return 1
-}
-
 aria2_input="data/public/${accession}_rds_aria2_urls.txt"
 : > "$aria2_input"
 while IFS= read -r filename; do
   [ -n "$filename" ] || continue
   target="$download_dir/$filename"
-  if ! verify_download "$target" || [ -f "${target}.aria2" ]; then
+  if [ ! -s "$target" ]; then
     {
       geo_sample_url "$filename"
       printf "\n  dir=%s\n  out=%s\n" "$download_dir" "$filename"
@@ -100,24 +71,18 @@ done < "$download_list"
 
 if [ -s "$aria2_input" ]; then
   if command -v aria2c >/dev/null 2>&1; then
-    if ! aria2c -c -j "${SNOWCELL_GEO_PARALLEL_JOBS:-1}" -x 4 -s 4 \
+    aria2c -c -j "${SNOWCELL_GEO_PARALLEL_JOBS:-1}" -x 4 -s 4 \
       --max-tries=8 --retry-wait=10 --timeout=60 \
       --user-agent="SnowLotus-CellFM/0.1 public-data-collector" \
-      -i "$aria2_input"; then
-      echo "aria2 reported failure; validating partial outputs and falling back to curl where needed." >&2
-    fi
+      -i "$aria2_input"
+  else
+    while IFS= read -r filename; do
+      [ -n "$filename" ] || continue
+      curl -L --fail --http1.1 --retry 5 --retry-all-errors --connect-timeout 20 --max-time 14400 -C - \
+        -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
+        -o "$download_dir/$filename" "$(geo_sample_url "$filename")"
+    done < "$download_list"
   fi
-  while IFS= read -r filename; do
-    [ -n "$filename" ] || continue
-    target="$download_dir/$filename"
-    if verify_download "$target"; then
-      rm -f "${target}.aria2"
-      echo "verified $target"
-      continue
-    fi
-    rm -f "$target" "${target}.aria2"
-    curl_download_file "$filename"
-  done < "$download_list"
 fi
 
 if ! command -v Rscript >/dev/null 2>&1; then
