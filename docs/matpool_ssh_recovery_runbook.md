@@ -57,6 +57,8 @@ python -X utf8 (Join-Path $ProjectRoot "scripts\probe_matpool_candidate_ports.py
 
 The probe only checks ports listed in the candidate file. It does not scan ranges unless `--allow-ranges` is explicitly provided.
 
+The local recovery watcher now performs the same candidate-port probe automatically before each SSH attempt if `config\matpool_px1_candidate_ports.txt` exists. When any listed port opens, the probe writes `config\matpool_px1_next_port.txt`; the watcher then updates the `matpool-px1-jcy` alias and continues the remote startup path.
+
 Then restart the local recovery watcher:
 
 ```powershell
