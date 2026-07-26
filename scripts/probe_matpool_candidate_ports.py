@@ -143,7 +143,7 @@ def main() -> int:
             "write config/matpool_px1_next_port.txt for the recovery watcher."
         )
     )
-    parser.add_argument("--host", default="px1-jcy.matpool.com")
+    parser.add_argument("--host", default="px2-jcy.matpool.com")
     parser.add_argument("--ports-file", default="config/matpool_px1_candidate_ports.txt")
     parser.add_argument("--timeout", type=float, default=5.0)
     parser.add_argument("--max-ports", type=int, default=64)
