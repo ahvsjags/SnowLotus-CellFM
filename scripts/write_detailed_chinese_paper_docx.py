@@ -19,7 +19,7 @@ MD_OUT = OUT_DIR / "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0
 GENERATED = datetime.now().strftime("%Y-%m-%d %H:%M")
 GITHUB_REPO = "https://github.com/ahvsjags/SnowLotus-CellFM"
 GITHUB_RELEASE = "https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/editor-v0.3"
-GITHUB_COMMIT = "ce065cc31e521879461de862b3e7c1add8bd31b7"
+GITHUB_COMMIT = "b7ea6dd18cfe739efb0c6e640c4065cc5942de4d"
 ZIP_NAME = "SnowLotus-CellFM_editor-v0.3_submit-now.zip"
 
 
