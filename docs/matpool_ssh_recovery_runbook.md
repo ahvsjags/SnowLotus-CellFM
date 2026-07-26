@@ -1,12 +1,13 @@
 # Matpool SSH recovery runbook
 
-Generated context: SnowLotus-CellFM is prepared to continue on the RTX 5090 host through the `matpool-px1-jcy` SSH alias.
+Generated context: SnowLotus-CellFM is prepared to continue through the `matpool-px1-jcy` SSH alias, currently reassigned to `root@px2-jcy.matpool.com:29153`.
 
 ## Current evidence
 
-- Expected endpoint: `root@px1-jcy.matpool.com:27683`
+- Expected endpoint: `root@px2-jcy.matpool.com:29153`
 - Expected alias: `matpool-px1-jcy`
 - Expected identity: `~/.ssh/snowcell_matpool_px1_27683_ed25519`
+- Current observed GPU on the reassigned host: `NVIDIA GeForce RTX 4090, 24564 MiB`.
 - Last observed local failure mode: TCP and SSH both return `Connection refused`.
 - Interpretation: the local alias and key can be correct while the remote Matpool port is not accepting connections. This is different from an SSH authentication failure.
 
@@ -15,11 +16,11 @@ Generated context: SnowLotus-CellFM is prepared to continue on the RTX 5090 host
 ```powershell
 $ProjectRoot = (Resolve-Path .).Path
 ssh -G matpool-px1-jcy | Select-String -Pattern '^(hostname|port|user|identityfile|batchmode) '
-Test-NetConnection px1-jcy.matpool.com -Port 27683
+Test-NetConnection px2-jcy.matpool.com -Port 29153
 Get-Content -Tail 30 (Join-Path $ProjectRoot "logs\wait_and_start_remote_full_on_disk.log")
 ```
 
-If `ssh -G` shows `hostname px1-jcy.matpool.com`, `port 27683`, and `user root`, but `Test-NetConnection` is false or `ssh` returns `Connection refused`, the immediate blocker is the remote endpoint/port rather than the local alias.
+If `ssh -G` shows `hostname px2-jcy.matpool.com`, `port 29153`, and `user root`, but `Test-NetConnection` is false or `ssh` returns `Connection refused`, the immediate blocker is the remote endpoint/port rather than the local alias.
 
 ## If Matpool assigns a new port
 
@@ -44,11 +45,11 @@ If Matpool shows several candidate ports or the UI changed while the server is c
 ```powershell
 $ProjectRoot = (Resolve-Path .).Path
 Set-Content -Encoding ascii -Path (Join-Path $ProjectRoot "config\matpool_px1_candidate_ports.txt") -Value @(
-  "27683",
+  "29153",
   "<NEW_PORT>"
 )
 python -X utf8 (Join-Path $ProjectRoot "scripts\probe_matpool_candidate_ports.py") `
-  --host px1-jcy.matpool.com `
+  --host px2-jcy.matpool.com `
   --ports-file (Join-Path $ProjectRoot "config\matpool_px1_candidate_ports.txt") `
   --write-hint-if-open (Join-Path $ProjectRoot "config\matpool_px1_next_port.txt") `
   --output-md (Join-Path $ProjectRoot "editor_package\current_submit_v0.3\matpool_candidate_port_probe.local.md") `
