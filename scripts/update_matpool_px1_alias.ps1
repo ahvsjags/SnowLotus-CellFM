@@ -1,7 +1,7 @@
 param(
   [string]$Alias = "matpool-px1-jcy",
-  [string]$HostName = "px1-jcy.matpool.com",
-  [int]$Port = 27683,
+  [string]$HostName = "px2-jcy.matpool.com",
+  [int]$Port = 29153,
   [string]$User = "root"
 )
 
