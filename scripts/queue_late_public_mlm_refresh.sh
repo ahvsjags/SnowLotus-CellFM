@@ -88,7 +88,7 @@ has_running_training_session() {
   local token
   local running_train_processes
 
-  running_train_processes="$(pgrep -af "[s]nowcell train --config" 2>/dev/null || true)"
+  running_train_processes="$(ps -eo pid,args 2>/dev/null | grep -F "snowcell train" | grep -F -- "--config" | grep -v grep || true)"
   if [ -n "$running_train_processes" ]; then
     echo "[$(date)] detected active snowcell training process"
     printf '%s\n' "$running_train_processes" | head -5
