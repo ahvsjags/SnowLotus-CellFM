@@ -1,6 +1,6 @@
 # GEO Promotion Queue Health Audit
 
-Generated UTC: `2026-07-26T01:15:21.304158+00:00`
+Generated UTC: `2026-07-26T02:08:38.602449+00:00`
 
 ## Summary
 
@@ -16,7 +16,7 @@ Generated UTC: `2026-07-26T01:15:21.304158+00:00`
 | Tracked running promotion jobs | 1 |
 | Untracked active promotion sessions | 0 |
 | Complete promotion manifests | 6 |
-| Active partial control files | 0 |
+| Active partial control files | 1 |
 | Residual control files | 0 |
 
 ## Promotion Jobs
@@ -24,7 +24,7 @@ Generated UTC: `2026-07-26T01:15:21.304158+00:00`
 | Session | Accession | Status | Rows | Active partials | Residual | Unsupported | Log |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | snowcell_geo_promotion_gse224928 | GSE224928 | unsupported_expression_corpus | 0 | 0 | 0 | 1 | logs/geo_promotion_gse224928.log |
-| snowcell_geo_promotion_gse155304 | GSE155304 | running | 0 | 0 | 0 | 0 | logs/geo_promotion_gse155304.log |
+| snowcell_geo_promotion_gse155304 | GSE155304 | running | 0 | 1 | 0 | 0 | logs/geo_promotion_gse155304.log |
 | snowcell_geo_promotion_gse123013 | GSE123013 | queued_waiting_for_slot | 0 | 0 | 0 | 0 | logs/geo_promotion_gse123013.log |
 | snowcell_geo_promotion_gse138526 | GSE138526 | queued_waiting_for_slot | 0 | 0 | 0 | 0 | logs/geo_promotion_gse138526.log |
 | snowcell_geo_promotion_gse181999 | GSE181999 | queued_waiting_for_slot | 0 | 0 | 0 | 0 | logs/geo_promotion_gse181999.log |

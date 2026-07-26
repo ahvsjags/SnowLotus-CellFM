@@ -1,54 +1,59 @@
 {
-  "generated_utc": "2026-07-26T01:18:14.944223+00:00",
+  "generated_utc": "2026-07-26T02:08:57.377590+00:00",
   "gpu": {
     "returncode": 0,
     "stderr": "",
-    "stdout": "2026/07/26 09:18:15.086, 70 %, 30652 MiB, 32607 MiB"
+    "stdout": "2026/07/26 10:08:57.507, 90 %, 30652 MiB, 32607 MiB"
   },
   "gse226826": {
-    "accession": "GSE226826",
-    "download_dir": "data/public/GSE226826_rds",
+    "accession": "GSE155304",
+    "download_dir": "data/public/GSE155304_rds",
     "files": [
       {
+        "has_aria2_sidecar": true,
+        "name": "GSE155304_rnaseq_integration.rds.gz",
+        "size_bytes": 653694678
+      },
+      {
         "has_aria2_sidecar": false,
-        "name": "GSE226826_AvrRpm1_24h_peak.rds.gz",
-        "size_bytes": 110789674
+        "name": "GSE155304_rnaseq_integration.rds.gz.aria2",
+        "size_bytes": 156
       }
     ],
     "latest_progress": {
-      "done": "105MiB",
-      "eta": null,
-      "gid": "a97acc",
-      "percent": 99,
-      "speed": "20KiB",
-      "total": "105MiB"
+      "done": "491MiB",
+      "eta": "20m14s",
+      "gid": "5d67cc",
+      "percent": 78,
+      "speed": "111KiB",
+      "total": "623MiB"
     },
     "manifest": {
-      "exists": true,
-      "ready": true,
-      "rows": 1
+      "exists": false,
+      "ready": false,
+      "rows": 0
     },
     "watchdog_tail": [
-      "Updated git hooks.",
-      "Git LFS initialized.",
-      "\"*.pt\" already supported",
-      "\"*.pth\" already supported",
-      "\"*.h5ad\" already supported",
-      "\"*.npz\" already supported",
-      "\"*.tar.gz\" already supported",
-      "\"*.zip\" already supported",
-      "[main 666793d] Sync SnowLotus-CellFM editor-v0.2 release",
-      " 15 files changed, 88 insertions(+), 77 deletions(-)",
-      " create mode 100755 scripts/push_github_release.sh",
-      "Updated tag 'editor-v0.2' (was 4b5c842)",
-      "models/SnowLotus_CellFM_best_annotation.pt: OK",
-      "models/SnowLotus_CellFM_best_embedding.pt: OK",
-      "RELEASE_DIR=/root/snowlotus-cellfm/outputs/github_release/SnowLotus-CellFM",
-      "SOURCE_ARCHIVE=/root/snowlotus-cellfm/outputs/github_release_archives/snowlotus-cellfm-editor-v0.2-source-metadata.tar.gz",
-      "MANUSCRIPT_ARCHIVE=/root/snowlotus-cellfm/outputs/github_release_archives/snowlotus-cellfm-editor-v0.2-manuscript.tar.gz",
-      "## main",
-      "666793d Sync SnowLotus-CellFM editor-v0.2 release",
-      "completed GSE226826 lifecycle"
+      "[#5d67cc 489MiB/623MiB(78%) CN:2 DL:169KiB ETA:13m27s]",
+      "[#5d67cc 489MiB/623MiB(78%) CN:2 DL:173KiB ETA:13m11s]",
+      "[#5d67cc 489MiB/623MiB(78%) CN:2 DL:160KiB ETA:14m13s]",
+      "[#5d67cc 489MiB/623MiB(78%) CN:2 DL:151KiB ETA:15m5s]",
+      "[#5d67cc 489MiB/623MiB(78%) CN:2 DL:145KiB ETA:15m42s]",
+      "[#5d67cc 490MiB/623MiB(78%) CN:2 DL:139KiB ETA:16m21s]",
+      "[#5d67cc 490MiB/623MiB(78%) CN:2 DL:137KiB ETA:16m34s]",
+      "[#5d67cc 490MiB/623MiB(78%) CN:2 DL:131KiB ETA:17m19s]",
+      "[#5d67cc 490MiB/623MiB(78%) CN:2 DL:127KiB ETA:17m47s]",
+      "[#5d67cc 490MiB/623MiB(78%) CN:2 DL:123KiB ETA:18m22s]",
+      "[#5d67cc 490MiB/623MiB(78%) CN:2 DL:118KiB ETA:19m9s]",
+      "[#5d67cc 490MiB/623MiB(78%) CN:2 DL:114KiB ETA:19m42s]",
+      "[#5d67cc 490MiB/623MiB(78%) CN:2 DL:115KiB ETA:19m32s]",
+      "[#5d67cc 490MiB/623MiB(78%) CN:2 DL:114KiB ETA:19m49s]",
+      " *** Download Progress Summary as of Sun Jul 26 10:08:43 2026 *** ",
+      "===============================================================================",
+      "[#5d67cc 491MiB/623MiB(78%) CN:2 DL:111KiB ETA:20m14s]",
+      "FILE: data/public/GSE155304_rds/GSE155304_rnaseq_integration.rds.gz",
+      "-------------------------------------------------------------------------------",
+      ""
     ]
   },
   "project_dir": "/root/snowlotus-cellfm",
@@ -74,11 +79,12 @@
     "all_query": {
       "returncode": 0,
       "stderr": "",
-      "stdout": "snowcell_checkpoint_benchmark_refresh_watchdog: 1 windows (created Sun Jul 26 02:07:18 2026)\nsnowcell_editor_v03_best_release_watchdog: 1 windows (created Sun Jul 26 03:33:47 2026)\nsnowcell_editor_v03_release_metadata_watchdog: 1 windows (created Sun Jul 26 03:36:42 2026)\nsnowcell_geo_promotion_download_queue: 1 windows (created Sun Jul 26 08:36:58 2026)\nsnowcell_geo_promotion_gse155304: 1 windows (created Sun Jul 26 09:13:41 2026)\nsnowcell_gse226097_lifecycle_watchdog: 1 windows (created Fri Jul 24 13:42:24 2026)\nsnowcell_late_public_refresh_queue: 1 windows (created Sat Jul 25 19:29:18 2026)\nsnowcell_mlm_public_expansion_continuation_watchdog: 1 windows (created Fri Jul 24 12:27:15 2026)\nsnowcell_mlm_public_expansion_v0_3: 1 windows (created Sat Jul 25 18:33:29 2026)\nsnowcell_mlm_public_expansion_v0_3_watchdog: 1 windows (created Sat Jul 25 18:33:29 2026)\nsnowcell_mlm_public_expansion_v0_4_after_v0_3_watchdog: 1 windows (created Sun Jul 26 01:50:52 2026)\nsnowcell_publication_package_watchdog: 1 windows (created Fri Jul 24 07:26:27 2026)\nsnowcell_publication_package_watchdog_continuation: 1 windows (created Fri Jul 24 12:33:19 2026)\nsnowcell_reviewed_geo_download_queue: 1 windows (created Sat Jul 25 04:01:48 2026)\nsnowcell_safe_mlm_watchdog: 1 windows (created Fri Jul 24 06:36:25 2026)"
+      "stdout": "snowcell_checkpoint_benchmark_refresh_watchdog: 1 windows (created Sun Jul 26 02:07:18 2026)\nsnowcell_editor_v03_best_release_watchdog: 1 windows (created Sun Jul 26 03:33:47 2026)\nsnowcell_editor_v03_release_metadata_watchdog: 1 windows (created Sun Jul 26 03:36:42 2026)\nsnowcell_geo_promotion_download_queue: 1 windows (created Sun Jul 26 08:36:58 2026)\nsnowcell_geo_promotion_gse155304: 1 windows (created Sun Jul 26 09:13:41 2026)\nsnowcell_geo_promotion_gse155304_rds_rescue: 1 windows (created Sun Jul 26 09:49:35 2026)\nsnowcell_gse226097_lifecycle_watchdog: 1 windows (created Fri Jul 24 13:42:24 2026)\nsnowcell_late_public_refresh_queue: 1 windows (created Sat Jul 25 19:29:18 2026)\nsnowcell_mlm_public_expansion_continuation_watchdog: 1 windows (created Fri Jul 24 12:27:15 2026)\nsnowcell_mlm_public_expansion_v0_3: 1 windows (created Sat Jul 25 18:33:29 2026)\nsnowcell_mlm_public_expansion_v0_3_watchdog: 1 windows (created Sat Jul 25 18:33:29 2026)\nsnowcell_mlm_public_expansion_v0_4_after_v0_3_watchdog: 1 windows (created Sun Jul 26 01:50:52 2026)\nsnowcell_publication_package_watchdog: 1 windows (created Fri Jul 24 07:26:27 2026)\nsnowcell_publication_package_watchdog_continuation: 1 windows (created Fri Jul 24 12:33:19 2026)\nsnowcell_reviewed_geo_download_queue: 1 windows (created Sat Jul 25 04:01:48 2026)\nsnowcell_safe_mlm_watchdog: 1 windows (created Fri Jul 24 06:36:25 2026)"
     },
     "interesting_sessions": [
       "snowcell_geo_promotion_download_queue: 1 windows (created Sun Jul 26 08:36:58 2026)",
       "snowcell_geo_promotion_gse155304: 1 windows (created Sun Jul 26 09:13:41 2026)",
+      "snowcell_geo_promotion_gse155304_rds_rescue: 1 windows (created Sun Jul 26 09:49:35 2026)",
       "snowcell_mlm_public_expansion_continuation_watchdog: 1 windows (created Fri Jul 24 12:27:15 2026)",
       "snowcell_mlm_public_expansion_v0_3: 1 windows (created Sat Jul 25 18:33:29 2026)",
       "snowcell_mlm_public_expansion_v0_3_watchdog: 1 windows (created Sat Jul 25 18:33:29 2026)",
@@ -86,16 +92,28 @@
     ]
   },
   "training": {
-    "epoch": 20,
-    "eval_batches": 210.0,
-    "eval_loss": 8.019609460376557,
-    "eval_mlm_gene_loss": 8.019446125484649,
-    "eval_mlm_value_loss": 0.0008166207634660947,
-    "optimizer_updates": 57800,
-    "status": "epoch_completed",
-    "timestamp_utc": "2026-07-25T09:57:38.680933+00:00",
-    "train_loss": 8.492808394179596,
-    "train_mlm_gene_loss": 8.492562000816676,
-    "train_mlm_value_loss": 0.0012319797797257933
+    "best_checkpoint_sha256": "00c1b0a1049c441585ecd7ee03e81d05704bd93100c692cc06f7bdc90f2c034a",
+    "best_epoch": 7,
+    "best_eval_loss": 7.19169863483362,
+    "epoch": 8,
+    "epoch_progress_percent": 72.74,
+    "latest_batch_losses": {
+      "loss": 8.417547225952148,
+      "mlm_gene_loss": 8.417238235473633,
+      "mlm_value_loss": 0.001544781494885683
+    },
+    "latest_eval_loss": 7.19169863483362,
+    "latest_evaluated_epoch": 7,
+    "optimizer_updates": 24054,
+    "run_id": "foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm",
+    "running_train_losses": {
+      "loss": 8.496233380697987,
+      "mlm_gene_loss": 8.495989168366041,
+      "mlm_value_loss": 0.0012210669057555153
+    },
+    "status": "training",
+    "step": 40750,
+    "timestamp_utc": "2026-07-26T02:08:43.950059+00:00",
+    "train_batches_per_epoch": 56022
   }
 }

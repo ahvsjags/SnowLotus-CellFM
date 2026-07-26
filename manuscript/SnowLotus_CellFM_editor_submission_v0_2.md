@@ -1,6 +1,6 @@
 # SnowLotus-CellFM for audited plant single-cell transfer
 
-Editor-facing manuscript draft v0.3, generated 2026-07-26 01:18 UTC
+Editor-facing manuscript draft v0.3, generated 2026-07-26 01:52 UTC
 
 ## Abstract
 
@@ -38,7 +38,7 @@ This evidence boundary also clarifies the next biological experiment. Once a pri
 
 SnowLotus-CellFM represents each cell through highly expressed genes, binned expression values and metadata fields such as species, tissue, sample and batch. The masked-modelling run uses library-size normalization to 10,000 counts, log1p transformation, a maximum of 1,536 genes per cell, masked gene prediction and auxiliary expression-value prediction. The active v0.3 configuration uses a 512-dimensional hidden state, 10 transformer layers, 8 attention heads, a 1,536-dimensional feed-forward block, dropout of 0.10, 128 expression-value bins, gradient checkpointing and bf16 mixed precision.
 
-For the editor snapshot, the frozen embedding asset is the v0.3 best checkpoint from `outputs/foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm/best.pt`. It reached validation eval loss 7.1917 at epoch 7, and its SHA256 is `00c1b0a1049c441585ecd7ee03e81d05704bd93100c692cc06f7bdc90f2c034a`. Training remains active in epoch 8, at step 15500 of 56022 batches per epoch at the time of this manuscript refresh. The package freezes the best audited checkpoint rather than the most recent in-progress state, so the submitted model asset is reproducible even while background training continues.
+For the editor snapshot, the frozen embedding asset is the v0.3 best checkpoint from `outputs/foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm/best.pt`. It reached validation eval loss 7.1917 at epoch 7, and its SHA256 is `00c1b0a1049c441585ecd7ee03e81d05704bd93100c692cc06f7bdc90f2c034a`. Training remains active in epoch 8, at step 31750 of 56022 batches per epoch at the time of this manuscript refresh. The package freezes the best audited checkpoint rather than the most recent in-progress state, so the submitted model asset is reproducible even while background training continues.
 
 ### Annotation and benchmark assets define the immediate utility
 

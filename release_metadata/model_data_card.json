@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-26T01:15:43.134894+00:00",
+  "generated_at_utc": "2026-07-26T02:09:03.210804+00:00",
   "project_dir": ".",
   "intended_use": "Plant single-cell and single-nucleus foundation annotation, public cross-species pretraining, and Snow Lotus transfer once primary Saussurea data are available.",
   "model_family": "Transformer-based expression foundation model with MLM-style pretraining and hierarchical labels.",

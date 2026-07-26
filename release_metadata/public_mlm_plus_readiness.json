@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-26T01:14:38.983360+00:00",
+  "generated_at_utc": "2026-07-26T02:08:39.791173+00:00",
   "active_manifest": "data/corpus_manifest_public_mlm.tsv",
   "active_manifest_exists": true,
   "active_manifest_rows": 29,
@@ -13,22 +13,16 @@
   "plus_corpus_exists": false,
   "plus_corpus_modified_utc": null,
   "v03_progress": {
+    "checkpoint": "latest.pt",
     "epoch": 8,
-    "latest_batch_losses": {
-      "loss": 8.482151985168457,
-      "mlm_gene_loss": 8.481817245483398,
-      "mlm_value_loss": 0.001674977014772594
-    },
-    "optimizer_updates": 22568,
-    "running_train_losses": {
-      "loss": 8.496203394378934,
-      "mlm_gene_loss": 8.49595763533456,
-      "mlm_value_loss": 0.0012288152686253722
-    },
-    "status": "training",
-    "step": 14000,
-    "timestamp_utc": "2026-07-26T01:14:29.831894+00:00",
-    "train_batches_per_epoch": 56022
+    "optimizer_updates": 24050,
+    "status": "latest_checkpoint_saved",
+    "step": 40662,
+    "timestamp_utc": "2026-07-26T02:08:34.707514+00:00",
+    "train_batches_per_epoch": 56022,
+    "train_loss": 8.496189498237628,
+    "train_mlm_gene_loss": 8.495945311291571,
+    "train_mlm_value_loss": 0.0012209397743851481
   },
   "v03_best_exists": true,
   "v04_config_exists": true,
@@ -430,9 +424,9 @@
     "rows_missing_from_active": 96,
     "manifests_with_rows_missing_from_plus": null,
     "rows_missing_from_plus": null,
-    "v03_status": "training",
+    "v03_status": "latest_checkpoint_saved",
     "v03_epoch": 8,
-    "v03_step": 14000,
+    "v03_step": 40662,
     "v03_train_batches_per_epoch": 56022,
     "active_training_process_count": 7
   }
