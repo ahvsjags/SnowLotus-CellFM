@@ -2,7 +2,7 @@
 
 中文论文式详稿（模型功能、创新与优势加强版）
 
-生成时间：2026-07-27 03:28 Asia/Shanghai
+生成时间：2026-07-27 03:29 Asia/Shanghai
 
 代码地址：https://github.com/ahvsjags/SnowLotus-CellFM
 
@@ -101,7 +101,7 @@ SnowLotus-CellFM 的第一项优势是植物专用。通用单细胞基础模型
 
 训练与数据方面，项目已经形成从公开数据发现到真实矩阵预训练的完整路径：scPlantLLM SRP169576 相关公开数据已完成下载转换，scPlantDB SRP169576 smoke corpus、public MLM corpus 和 available corpus 增量构建流程已经写入脚本；同时，NCBI GEO GSE146034 已完成原始归档、MTX/TSV 转换、样本元数据补全和真实表达预训练，形成 23,532 个细胞、43,311 个基因的可核查训练语料。当前主线还保留服务器 public MLM 长训、数据 watchdog 和 GPU tmux 队列入口，便于后续扩展到更大公开植物语料。
 
-工程交付方面，项目已经生成中文功能创新说明、中文论文稿、英文 manuscript draft、cover note、README、模型卡、数据卡、数据完整性审计、corpus provenance audit、benchmark gap audit、scPlantLLM 输入准备、scPlantAnnotate 授权 benchmark 输入包、提交状态页和一键 zip。最新主线 commit 为 `ce065cc31e521879461de862b3e7c1add8bd31b7`，编辑可以从 GitHub 链接进入代码，也可以直接打开 Word 稿和 zip 包核查模型功能、优势、真实数据训练记录和可复现材料。
+工程交付方面，项目已经生成中文功能创新说明、中文论文稿、英文 manuscript draft、cover note、README、模型卡、数据卡、数据完整性审计、corpus provenance audit、benchmark gap audit、scPlantLLM 输入准备、scPlantAnnotate 授权 benchmark 输入包、提交状态页和一键 zip。GitHub `main` 分支持续同步最新源码，编辑可以从 GitHub 链接进入代码，也可以直接打开 Word 稿和 zip 包核查模型功能、优势、真实数据训练记录和可复现材料。
 
 ## 8 实测功能与可复现证据
 
