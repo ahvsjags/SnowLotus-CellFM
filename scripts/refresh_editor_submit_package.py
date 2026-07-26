@@ -37,6 +37,8 @@ PACKAGE_FILES = [
     "models_SHA256SUMS.remote.txt",
     "SnowLotus_CellFM_editor_submission_v0_3.docx",
     "SnowLotus_CellFM_editor_submission_v0_3.md",
+    "SnowLotus_CellFM_中文功能创新说明_v0_1.docx",
+    "SnowLotus_CellFM_中文功能创新说明_v0_1.md",
     "editor_cover_note_v0_3.docx",
     "editor_cover_note_v0_3.md",
     "snowlotus-cellfm-editor-v0.3-source-metadata.tar.gz",
