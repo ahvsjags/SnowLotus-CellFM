@@ -1,0 +1,693 @@
+{
+  "generated_at_utc": "2026-07-26T20:41:16.922087+00:00",
+  "config_path": "configs\\local_srp169576_annotation_finetune_1024_unbalanced.yaml",
+  "checkpoint_path": "outputs\\local_srp169576_annotation_finetune_1024_unbalanced_8e\\best.pt",
+  "checkpoint_epoch": 4,
+  "checkpoint_metrics": {
+    "epoch": 4,
+    "train_coarse_loss": 0.3075154682551071,
+    "train_fine_loss": 0.3069208853017047,
+    "train_hierarchy_loss": 0.18946944464894258,
+    "train_loss": 0.4027466975363358,
+    "eval_coarse_loss": 1.0038472298456698,
+    "eval_fine_loss": 1.017582347806619,
+    "eval_hierarchy_loss": 0.9153845907271314,
+    "eval_loss": 1.360082612759402,
+    "eval_batches": 147.0,
+    "fine_accuracy": 0.8020833333333334,
+    "fine_macro_f1": 0.7618149100739254,
+    "coarse_accuracy": 0.8005952380952381,
+    "coarse_macro_f1": 0.7597799911542732
+  },
+  "split": "test",
+  "device": "cuda",
+  "batch_size": 32,
+  "max_batches": null,
+  "summary": {
+    "evaluated_cells": 17404,
+    "fine": {
+      "accuracy": 0.7597104113996782,
+      "macro_f1": 0.7417439813835064,
+      "weighted_f1": 0.7568557766117019,
+      "class_count": 13,
+      "classification_report": {
+        "Columella root cap": {
+          "precision": 0.7365079365079366,
+          "recall": 0.5260770975056689,
+          "f1-score": 0.6137566137566137,
+          "support": 441.0
+        },
+        "G1/G0 phase": {
+          "precision": 0.40540540540540543,
+          "recall": 0.5244755244755245,
+          "f1-score": 0.4573170731707317,
+          "support": 143.0
+        },
+        "Lateral root cap": {
+          "precision": 0.9056818181818181,
+          "recall": 0.8124362895005097,
+          "f1-score": 0.8565287479849544,
+          "support": 981.0
+        },
+        "Non-hair": {
+          "precision": 0.6770833333333334,
+          "recall": 0.8693941778127459,
+          "f1-score": 0.7612814330003445,
+          "support": 1271.0
+        },
+        "Phloem": {
+          "precision": 0.8378378378378378,
+          "recall": 0.6838235294117647,
+          "f1-score": 0.7530364372469636,
+          "support": 136.0
+        },
+        "Root cap": {
+          "precision": 0.7385542168674699,
+          "recall": 0.8909883720930233,
+          "f1-score": 0.8076416337285902,
+          "support": 688.0
+        },
+        "Root cortex": {
+          "precision": 0.6660849331006399,
+          "recall": 0.8172733761598858,
+          "f1-score": 0.7339743589743589,
+          "support": 1401.0
+        },
+        "Root endodermis": {
+          "precision": 0.9244114002478315,
+          "recall": 0.8574712643678161,
+          "f1-score": 0.8896839594514013,
+          "support": 1740.0
+        },
+        "Root hair": {
+          "precision": 0.7193539082780502,
+          "recall": 0.9122165325530358,
+          "f1-score": 0.8043863892920496,
+          "support": 2734.0
+        },
+        "Root stele": {
+          "precision": 0.7721943048576214,
+          "recall": 0.7208756841282252,
+          "f1-score": 0.7456530529720987,
+          "support": 1279.0
+        },
+        "S phase": {
+          "precision": 0.7862857142857143,
+          "recall": 0.8309178743961353,
+          "f1-score": 0.8079859072225485,
+          "support": 828.0
+        },
+        "Unknow": {
+          "precision": 0.7797001153402537,
+          "recall": 0.6151046405823476,
+          "f1-score": 0.6876907426246185,
+          "support": 5495.0
+        },
+        "Xylem": {
+          "precision": 0.7530364372469636,
+          "recall": 0.6966292134831461,
+          "f1-score": 0.7237354085603113,
+          "support": 267.0
+        },
+        "accuracy": 0.7597104113996782,
+        "macro avg": {
+          "precision": 0.7463182585762211,
+          "recall": 0.750591044343833,
+          "f1-score": 0.7417439813835064,
+          "support": 17404.0
+        },
+        "weighted avg": {
+          "precision": 0.7691599266401564,
+          "recall": 0.7597104113996782,
+          "f1-score": 0.7568557766117019,
+          "support": 17404.0
+        }
+      }
+    },
+    "coarse": {
+      "accuracy": 0.7586187083429097,
+      "macro_f1": 0.7414503808586594,
+      "weighted_f1": 0.7558152868344662,
+      "class_count": 13,
+      "classification_report": {
+        "Columella root cap": {
+          "precision": 0.7452229299363057,
+          "recall": 0.5306122448979592,
+          "f1-score": 0.6198675496688741,
+          "support": 441.0
+        },
+        "G1/G0 phase": {
+          "precision": 0.40540540540540543,
+          "recall": 0.5244755244755245,
+          "f1-score": 0.4573170731707317,
+          "support": 143.0
+        },
+        "Lateral root cap": {
+          "precision": 0.908675799086758,
+          "recall": 0.8114169215086646,
+          "f1-score": 0.8572967151319332,
+          "support": 981.0
+        },
+        "Non-hair": {
+          "precision": 0.6736068585425597,
+          "recall": 0.8654602675059009,
+          "f1-score": 0.7575757575757576,
+          "support": 1271.0
+        },
+        "Phloem": {
+          "precision": 0.8378378378378378,
+          "recall": 0.6838235294117647,
+          "f1-score": 0.7530364372469636,
+          "support": 136.0
+        },
+        "Root cap": {
+          "precision": 0.7427184466019418,
+          "recall": 0.8895348837209303,
+          "f1-score": 0.8095238095238095,
+          "support": 688.0
+        },
+        "Root cortex": {
+          "precision": 0.6686182669789227,
+          "recall": 0.8151320485367595,
+          "f1-score": 0.7346413637825667,
+          "support": 1401.0
+        },
+        "Root endodermis": {
+          "precision": 0.9228395061728395,
+          "recall": 0.8591954022988506,
+          "f1-score": 0.8898809523809523,
+          "support": 1740.0
+        },
+        "Root hair": {
+          "precision": 0.7134686874463826,
+          "recall": 0.9125822970007316,
+          "f1-score": 0.8008345369924571,
+          "support": 2734.0
+        },
+        "Root stele": {
+          "precision": 0.7762711864406779,
+          "recall": 0.7161845191555903,
+          "f1-score": 0.7450183001220008,
+          "support": 1279.0
+        },
+        "S phase": {
+          "precision": 0.7895953757225433,
+          "recall": 0.8248792270531401,
+          "f1-score": 0.8068517424689899,
+          "support": 828.0
+        },
+        "Unknow": {
+          "precision": 0.7778289928554967,
+          "recall": 0.6141947224749773,
+          "f1-score": 0.6863941427699817,
+          "support": 5495.0
+        },
+        "Xylem": {
+          "precision": 0.7420634920634921,
+          "recall": 0.700374531835206,
+          "f1-score": 0.720616570327553,
+          "support": 267.0
+        },
+        "accuracy": 0.7586187083429097,
+        "macro avg": {
+          "precision": 0.7464732911608588,
+          "recall": 0.749835855375077,
+          "f1-score": 0.7414503808586594,
+          "support": 17404.0
+        },
+        "weighted avg": {
+          "precision": 0.7682804647971206,
+          "recall": 0.7586187083429097,
+          "f1-score": 0.7558152868344662,
+          "support": 17404.0
+        }
+      }
+    },
+    "fine_confidence": {
+      "mean": 0.9056263405232903,
+      "median": 0.9799012839794159,
+      "mean_correct": 0.9377772607537013,
+      "mean_incorrect": 0.8039765396417755
+    },
+    "coarse_confidence": {
+      "mean": 0.902131334997729,
+      "median": 0.9776099622249603,
+      "mean_correct": 0.935482754686028,
+      "mean_incorrect": 0.7973137215379306
+    }
+  },
+  "low_fine_f1_classes": [
+    {
+      "label": "G1/G0 phase",
+      "precision": 0.40540540540540543,
+      "recall": 0.5244755244755245,
+      "f1-score": 0.4573170731707317,
+      "support": 143.0
+    },
+    {
+      "label": "Columella root cap",
+      "precision": 0.7365079365079366,
+      "recall": 0.5260770975056689,
+      "f1-score": 0.6137566137566137,
+      "support": 441.0
+    },
+    {
+      "label": "Unknow",
+      "precision": 0.7797001153402537,
+      "recall": 0.6151046405823476,
+      "f1-score": 0.6876907426246185,
+      "support": 5495.0
+    },
+    {
+      "label": "Xylem",
+      "precision": 0.7530364372469636,
+      "recall": 0.6966292134831461,
+      "f1-score": 0.7237354085603113,
+      "support": 267.0
+    },
+    {
+      "label": "Root cortex",
+      "precision": 0.6660849331006399,
+      "recall": 0.8172733761598858,
+      "f1-score": 0.7339743589743589,
+      "support": 1401.0
+    },
+    {
+      "label": "Root stele",
+      "precision": 0.7721943048576214,
+      "recall": 0.7208756841282252,
+      "f1-score": 0.7456530529720987,
+      "support": 1279.0
+    },
+    {
+      "label": "Phloem",
+      "precision": 0.8378378378378378,
+      "recall": 0.6838235294117647,
+      "f1-score": 0.7530364372469636,
+      "support": 136.0
+    },
+    {
+      "label": "Non-hair",
+      "precision": 0.6770833333333334,
+      "recall": 0.8693941778127459,
+      "f1-score": 0.7612814330003445,
+      "support": 1271.0
+    },
+    {
+      "label": "Root hair",
+      "precision": 0.7193539082780502,
+      "recall": 0.9122165325530358,
+      "f1-score": 0.8043863892920496,
+      "support": 2734.0
+    },
+    {
+      "label": "Root cap",
+      "precision": 0.7385542168674699,
+      "recall": 0.8909883720930233,
+      "f1-score": 0.8076416337285902,
+      "support": 688.0
+    }
+  ],
+  "high_confidence_fine_errors": [
+    {
+      "cell_index": 34593,
+      "cell_id": "SRX5025988@@_TTATGTCGCGCC",
+      "sample_id": "SRX5025988",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Unknow",
+      "pred_fine": "S phase",
+      "fine_confidence": "0.997225",
+      "fine_correct": "False",
+      "true_coarse": "Unknow",
+      "pred_coarse": "S phase",
+      "coarse_confidence": "0.995728",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 34348,
+      "cell_id": "SRX5025988@@_CCTGGCTGTGCG",
+      "sample_id": "SRX5025988",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Unknow",
+      "pred_fine": "S phase",
+      "fine_confidence": "0.997070",
+      "fine_correct": "False",
+      "true_coarse": "Unknow",
+      "pred_coarse": "S phase",
+      "coarse_confidence": "0.996093",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 33931,
+      "cell_id": "SRX5025988@@_CGAATTAATTGT",
+      "sample_id": "SRX5025988",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "G1/G0 phase",
+      "pred_fine": "S phase",
+      "fine_confidence": "0.996864",
+      "fine_correct": "False",
+      "true_coarse": "G1/G0 phase",
+      "pred_coarse": "S phase",
+      "coarse_confidence": "0.995408",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 34220,
+      "cell_id": "SRX5025988@@_ATGAGTCTGGGC",
+      "sample_id": "SRX5025988",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Unknow",
+      "pred_fine": "Columella root cap",
+      "fine_confidence": "0.996012",
+      "fine_correct": "False",
+      "true_coarse": "Unknow",
+      "pred_coarse": "Columella root cap",
+      "coarse_confidence": "0.994674",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 33680,
+      "cell_id": "SRX5025988@@_GCTGAGGACCGT",
+      "sample_id": "SRX5025988",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Root hair",
+      "pred_fine": "Phloem",
+      "fine_confidence": "0.995990",
+      "fine_correct": "False",
+      "true_coarse": "Root hair",
+      "pred_coarse": "Phloem",
+      "coarse_confidence": "0.993797",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 17155,
+      "cell_id": "SRX5025981@@_TACACTGCGGCT",
+      "sample_id": "SRX5025981",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Root stele",
+      "pred_fine": "S phase",
+      "fine_confidence": "0.995878",
+      "fine_correct": "False",
+      "true_coarse": "Root stele",
+      "pred_coarse": "S phase",
+      "coarse_confidence": "0.993641",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 9672,
+      "cell_id": "SRX5025981@@_TAGAGTGGAATT",
+      "sample_id": "SRX5025981",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Root endodermis",
+      "pred_fine": "Unknow",
+      "fine_confidence": "0.995759",
+      "fine_correct": "False",
+      "true_coarse": "Root endodermis",
+      "pred_coarse": "Unknow",
+      "coarse_confidence": "0.995097",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 34490,
+      "cell_id": "SRX5025988@@_GGTTGGCGAGAG",
+      "sample_id": "SRX5025988",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Root hair",
+      "pred_fine": "Unknow",
+      "fine_confidence": "0.995758",
+      "fine_correct": "False",
+      "true_coarse": "Root hair",
+      "pred_coarse": "Unknow",
+      "coarse_confidence": "0.994277",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 20152,
+      "cell_id": "SRX5025981@@_CTTTAGTTGCCA",
+      "sample_id": "SRX5025981",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Root cortex",
+      "pred_fine": "Unknow",
+      "fine_confidence": "0.995733",
+      "fine_correct": "False",
+      "true_coarse": "Root cortex",
+      "pred_coarse": "Unknow",
+      "coarse_confidence": "0.994975",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 21479,
+      "cell_id": "SRX5025981@@_CGGTCTACTTCC",
+      "sample_id": "SRX5025981",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Root endodermis",
+      "pred_fine": "Unknow",
+      "fine_confidence": "0.995716",
+      "fine_correct": "False",
+      "true_coarse": "Root endodermis",
+      "pred_coarse": "Unknow",
+      "coarse_confidence": "0.994691",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 16512,
+      "cell_id": "SRX5025981@@_CCTGTTCAGTAC",
+      "sample_id": "SRX5025981",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Root cortex",
+      "pred_fine": "Unknow",
+      "fine_confidence": "0.995701",
+      "fine_correct": "False",
+      "true_coarse": "Root cortex",
+      "pred_coarse": "Unknow",
+      "coarse_confidence": "0.994923",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 19582,
+      "cell_id": "SRX5025981@@_GTTGTTTGGTAC",
+      "sample_id": "SRX5025981",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "S phase",
+      "pred_fine": "Columella root cap",
+      "fine_confidence": "0.995597",
+      "fine_correct": "False",
+      "true_coarse": "S phase",
+      "pred_coarse": "Columella root cap",
+      "coarse_confidence": "0.994737",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 8734,
+      "cell_id": "SRX5025981@@_ATATCTTACTCA",
+      "sample_id": "SRX5025981",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Root stele",
+      "pred_fine": "Unknow",
+      "fine_confidence": "0.995572",
+      "fine_correct": "False",
+      "true_coarse": "Root stele",
+      "pred_coarse": "Unknow",
+      "coarse_confidence": "0.995166",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 20373,
+      "cell_id": "SRX5025981@@_CTTTAGTTGTTG",
+      "sample_id": "SRX5025981",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Root cortex",
+      "pred_fine": "Unknow",
+      "fine_confidence": "0.995553",
+      "fine_correct": "False",
+      "true_coarse": "Root cortex",
+      "pred_coarse": "Unknow",
+      "coarse_confidence": "0.994032",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 35093,
+      "cell_id": "SRX5025988@@_GCAACCGCAGTT",
+      "sample_id": "SRX5025988",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "G1/G0 phase",
+      "pred_fine": "S phase",
+      "fine_confidence": "0.995475",
+      "fine_correct": "False",
+      "true_coarse": "G1/G0 phase",
+      "pred_coarse": "S phase",
+      "coarse_confidence": "0.994350",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 16789,
+      "cell_id": "SRX5025981@@_CCGCCCTTCACG",
+      "sample_id": "SRX5025981",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Root cortex",
+      "pred_fine": "Unknow",
+      "fine_confidence": "0.995431",
+      "fine_correct": "False",
+      "true_coarse": "Root cortex",
+      "pred_coarse": "Unknow",
+      "coarse_confidence": "0.994711",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 15366,
+      "cell_id": "SRX5025981@@_GGTAGGGTCACG",
+      "sample_id": "SRX5025981",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Root stele",
+      "pred_fine": "Unknow",
+      "fine_confidence": "0.995415",
+      "fine_correct": "False",
+      "true_coarse": "Root stele",
+      "pred_coarse": "Unknow",
+      "coarse_confidence": "0.995213",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 21261,
+      "cell_id": "SRX5025981@@_AAGCTTTTGACC",
+      "sample_id": "SRX5025981",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Root stele",
+      "pred_fine": "Unknow",
+      "fine_confidence": "0.995303",
+      "fine_correct": "False",
+      "true_coarse": "Root stele",
+      "pred_coarse": "Unknow",
+      "coarse_confidence": "0.994817",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 18270,
+      "cell_id": "SRX5025981@@_GCGCCCTTCCAA",
+      "sample_id": "SRX5025981",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Root cortex",
+      "pred_fine": "Unknow",
+      "fine_confidence": "0.995250",
+      "fine_correct": "False",
+      "true_coarse": "Root cortex",
+      "pred_coarse": "Unknow",
+      "coarse_confidence": "0.994372",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 11659,
+      "cell_id": "SRX5025981@@_AATGTTTGGTGG",
+      "sample_id": "SRX5025981",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Columella root cap",
+      "pred_fine": "Unknow",
+      "fine_confidence": "0.995246",
+      "fine_correct": "False",
+      "true_coarse": "Columella root cap",
+      "pred_coarse": "Unknow",
+      "coarse_confidence": "0.994796",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 32822,
+      "cell_id": "SRX5025988@@_TGTGCGCTTACT",
+      "sample_id": "SRX5025988",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "G1/G0 phase",
+      "pred_fine": "S phase",
+      "fine_confidence": "0.995205",
+      "fine_correct": "False",
+      "true_coarse": "G1/G0 phase",
+      "pred_coarse": "S phase",
+      "coarse_confidence": "0.993627",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 33402,
+      "cell_id": "SRX5025988@@_TTGTGCGCATCA",
+      "sample_id": "SRX5025988",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "G1/G0 phase",
+      "pred_fine": "S phase",
+      "fine_confidence": "0.994980",
+      "fine_correct": "False",
+      "true_coarse": "G1/G0 phase",
+      "pred_coarse": "S phase",
+      "coarse_confidence": "0.992084",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 8409,
+      "cell_id": "SRX5025981@@_CATATCTTACTT",
+      "sample_id": "SRX5025981",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Root stele",
+      "pred_fine": "Unknow",
+      "fine_confidence": "0.994975",
+      "fine_correct": "False",
+      "true_coarse": "Root stele",
+      "pred_coarse": "Unknow",
+      "coarse_confidence": "0.995094",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 33006,
+      "cell_id": "SRX5025988@@_TTTGGTGCGGAG",
+      "sample_id": "SRX5025988",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Root stele",
+      "pred_fine": "G1/G0 phase",
+      "fine_confidence": "0.994887",
+      "fine_correct": "False",
+      "true_coarse": "Root stele",
+      "pred_coarse": "G1/G0 phase",
+      "coarse_confidence": "0.995735",
+      "coarse_correct": "False"
+    },
+    {
+      "cell_index": 12625,
+      "cell_id": "SRX5025981@@_CCTTCGCCACGT",
+      "sample_id": "SRX5025981",
+      "species": "Root",
+      "tissue": "Whole root",
+      "true_fine": "Lateral root cap",
+      "pred_fine": "Unknow",
+      "fine_confidence": "0.994865",
+      "fine_correct": "False",
+      "true_coarse": "Lateral root cap",
+      "pred_coarse": "Unknow",
+      "coarse_confidence": "0.993458",
+      "coarse_correct": "False"
+    }
+  ],
+  "artifacts": {
+    "predictions_tsv": "outputs\\local_srp169576_annotation_finetune_1024_unbalanced_8e\\detailed_test\\predictions.tsv",
+    "fine_confusion_matrix_tsv": "outputs\\local_srp169576_annotation_finetune_1024_unbalanced_8e\\detailed_test\\fine_confusion_matrix.tsv",
+    "coarse_confusion_matrix_tsv": "outputs\\local_srp169576_annotation_finetune_1024_unbalanced_8e\\detailed_test\\coarse_confusion_matrix.tsv"
+  }
+}

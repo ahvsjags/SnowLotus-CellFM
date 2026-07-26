@@ -1,0 +1,164 @@
+{
+  "config": "configs\\local_srp169576_annotation_finetune_1024_unbalanced.yaml",
+  "checkpoint": "outputs\\local_srp169576_annotation_finetune_1024_unbalanced_8e\\best.pt",
+  "method": "probability_fusion_transformer_centroid",
+  "centroid_temperature": 0.05,
+  "model_temperature": 1.0,
+  "validation_grid": [
+    {
+      "alpha": 0.0,
+      "accuracy": 0.8027210884353742,
+      "macro_f1": 0.7624039845269809,
+      "weighted_f1": 0.8032929777722518
+    },
+    {
+      "alpha": 0.05,
+      "accuracy": 0.8031462585034014,
+      "macro_f1": 0.7627331383924935,
+      "weighted_f1": 0.8036695585405234
+    },
+    {
+      "alpha": 0.1,
+      "accuracy": 0.8031462585034014,
+      "macro_f1": 0.7625838405932198,
+      "weighted_f1": 0.8035898342093462
+    },
+    {
+      "alpha": 0.15000000000000002,
+      "accuracy": 0.8035714285714286,
+      "macro_f1": 0.7627592840620173,
+      "weighted_f1": 0.803957304939051
+    },
+    {
+      "alpha": 0.2,
+      "accuracy": 0.8031462585034014,
+      "macro_f1": 0.7623383404127287,
+      "weighted_f1": 0.8034892759804994
+    },
+    {
+      "alpha": 0.25,
+      "accuracy": 0.8029336734693877,
+      "macro_f1": 0.7618595843443073,
+      "weighted_f1": 0.8030544179515214
+    },
+    {
+      "alpha": 0.30000000000000004,
+      "accuracy": 0.8031462585034014,
+      "macro_f1": 0.7620132379375634,
+      "weighted_f1": 0.8032553971995139
+    },
+    {
+      "alpha": 0.35000000000000003,
+      "accuracy": 0.8025085034013606,
+      "macro_f1": 0.761418291250329,
+      "weighted_f1": 0.8025490412868359
+    },
+    {
+      "alpha": 0.4,
+      "accuracy": 0.8027210884353742,
+      "macro_f1": 0.7613485919995041,
+      "weighted_f1": 0.8027438010648178
+    },
+    {
+      "alpha": 0.45,
+      "accuracy": 0.8044217687074829,
+      "macro_f1": 0.7628107557870109,
+      "weighted_f1": 0.8042417911310532
+    },
+    {
+      "alpha": 0.5,
+      "accuracy": 0.8046343537414966,
+      "macro_f1": 0.7627853456079987,
+      "weighted_f1": 0.8043090858670485
+    },
+    {
+      "alpha": 0.55,
+      "accuracy": 0.8050595238095238,
+      "macro_f1": 0.7613663608768779,
+      "weighted_f1": 0.8042426343324255
+    },
+    {
+      "alpha": 0.6000000000000001,
+      "accuracy": 0.8039965986394558,
+      "macro_f1": 0.7579080455486461,
+      "weighted_f1": 0.8022944107366564
+    },
+    {
+      "alpha": 0.65,
+      "accuracy": 0.8031462585034014,
+      "macro_f1": 0.7562225633875495,
+      "weighted_f1": 0.8009398569570361
+    },
+    {
+      "alpha": 0.7000000000000001,
+      "accuracy": 0.8012329931972789,
+      "macro_f1": 0.75135370614239,
+      "weighted_f1": 0.7980146841035984
+    },
+    {
+      "alpha": 0.75,
+      "accuracy": 0.7982568027210885,
+      "macro_f1": 0.7467117977330603,
+      "weighted_f1": 0.7938616411578349
+    },
+    {
+      "alpha": 0.8,
+      "accuracy": 0.7969812925170068,
+      "macro_f1": 0.744756921519403,
+      "weighted_f1": 0.7914570135458338
+    },
+    {
+      "alpha": 0.8500000000000001,
+      "accuracy": 0.7857142857142857,
+      "macro_f1": 0.7342003721577923,
+      "weighted_f1": 0.7785885175243533
+    },
+    {
+      "alpha": 0.9,
+      "accuracy": 0.7648809523809523,
+      "macro_f1": 0.7133682222634353,
+      "weighted_f1": 0.7534109630411681
+    },
+    {
+      "alpha": 0.9500000000000001,
+      "accuracy": 0.7302295918367347,
+      "macro_f1": 0.6828236457478195,
+      "weighted_f1": 0.7137738257598166
+    },
+    {
+      "alpha": 1.0,
+      "accuracy": 0.7049319727891157,
+      "macro_f1": 0.6574548122470786,
+      "weighted_f1": 0.6849452043567799
+    }
+  ],
+  "selected_alpha": 0.45,
+  "selected_validation": {
+    "alpha": 0.45,
+    "accuracy": 0.8044217687074829,
+    "macro_f1": 0.7628107557870109,
+    "weighted_f1": 0.8042417911310532
+  },
+  "test": {
+    "split": "test",
+    "n_cells": 17404,
+    "model": {
+      "accuracy": 0.7597104113996782,
+      "macro_f1": 0.7417439813835064,
+      "weighted_f1": 0.7568557766117019
+    },
+    "centroid": {
+      "accuracy": 0.7747069639163411,
+      "macro_f1": 0.7445826685171402,
+      "weighted_f1": 0.7757967056211349
+    },
+    "fusion": {
+      "accuracy": 0.7648241783498047,
+      "macro_f1": 0.7467307314404971,
+      "weighted_f1": 0.7621741626431061
+    }
+  },
+  "artifacts": {
+    "test_predictions_tsv": "outputs\\local_srp169576_annotation_finetune_1024_unbalanced_8e\\hybrid_fusion_test_predictions.tsv"
+  }
+}
