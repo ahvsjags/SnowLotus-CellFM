@@ -26,6 +26,41 @@ other_transfer_sessions=(
   snowcell_gse270140_arabidopsis_secondary_root_subset
 )
 
+manifest_matrix_status() {
+  local manifest="$1"
+  python - "$manifest" <<'PY'
+import csv
+import sys
+from pathlib import Path
+
+path = Path(sys.argv[1])
+root = Path(".")
+if not path.exists() or path.stat().st_size == 0:
+    print("missing_manifest")
+    raise SystemExit(0)
+with path.open("r", encoding="utf-8", newline="") as handle:
+    rows = list(csv.DictReader(handle, delimiter="\t"))
+if not rows:
+    print("empty_manifest")
+    raise SystemExit(0)
+missing = []
+for row in rows:
+    value = row.get("path", "")
+    if not value:
+        missing.append("<empty>")
+        continue
+    matrix = Path(value)
+    if not matrix.is_absolute():
+        matrix = root / matrix
+    if not matrix.is_file():
+        missing.append(value)
+if missing:
+    print("missing_files")
+else:
+    print("ready")
+PY
+}
+
 manifest_row_count() {
   local manifest="$1"
   python - "$manifest" <<'PY'
@@ -75,9 +110,9 @@ partial_download_for_manifest() {
 job_done_status() {
   local session="$1"
   local manifest="$2"
-  local rows partial unsupported
-  rows="$(manifest_row_count "$manifest")"
-  if [ "$rows" -gt 0 ]; then
+  local status partial unsupported
+  status="$(manifest_matrix_status "$manifest")"
+  if [ "$status" = "ready" ]; then
     echo "complete"
     return 0
   fi
@@ -93,6 +128,10 @@ job_done_status() {
   unsupported="$(unsupported_report_for_manifest "$manifest")"
   if [ -n "$unsupported" ]; then
     echo "unsupported"
+    return 0
+  fi
+  if [ "$status" = "missing_files" ]; then
+    echo "stale_manifest"
     return 0
   fi
   echo "missing"
