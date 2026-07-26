@@ -2,7 +2,7 @@
 
 SnowLotus-CellFM is an editor-ready research release for audited plant single-cell and single-nucleus expression modelling, with a target-species transfer path for *Saussurea involucrata* (Snow Lotus). The repository freezes the best current annotation and embedding checkpoints, the code needed to reproduce smoke training and prediction, and the audit trail that defines exactly which public plant matrices were usable at submission time.
 
-This snapshot is designed for rapid editorial review: it separates validated model and corpus evidence from data-promotion work that is still running on the RTX 5090 server. The `editor-v0.3` package promotes the current best public-expansion embedding checkpoint for immediate submission while the longer continuation queue remains active in the background.
+This snapshot is designed for rapid editorial review: it separates validated model and corpus evidence from data-promotion work that is still running on the recovered Matpool GPU host. The current replacement host exposes an RTX 4090 with 24 GB VRAM, not the originally expected 5090. The `editor-v0.3` package promotes the current best public-expansion embedding checkpoint for immediate submission while the longer continuation and public-data queues remain active in the background.
 
 GitHub repository: https://github.com/ahvsjags/SnowLotus-CellFM
 
@@ -19,7 +19,8 @@ The repository is currently private. Grant editor/reviewer access or switch it t
 - Best annotation checkpoint: `foundation_5090_pretrain/best.pt`, macro-F1 evidence 0.8121 in the release manifest
 - Best embedding checkpoint: `foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm/best.pt`, SHA256 `00c1b0a1049c441585ecd7ee03e81d05704bd93100c692cc06f7bdc90f2c034a`
 - Current best evidence: v0.3 epoch-7 evaluation loss 7.1917 after vocabulary-aware warm-start from the completed v0.2 continuation; v0.3 epoch-9 training is still running and will be superseded only after passing the same audit gates
-- Newly promoted public matrices after v0.2 include GSE226826, GSE240098 and GSE240102; the v0.4 plus-corpus continuation is queued behind active v0.3 training on the RTX 5090 server
+- Recovered-host public MLM training has emitted epoch-3 validation loss 8.8806 on the reconstructed public MLM corpus while additional GEO/scPlantDB data queues continue in tmux
+- Newly promoted public matrices after v0.2 include GSE226826, GSE240098 and GSE240102; the next plus-corpus continuation is queued behind active training on the recovered GPU host
 
 ## What Is Included
 
@@ -27,6 +28,7 @@ The repository is currently private. Grant editor/reviewer access or switch it t
 - Public-corpus manifests and audits that distinguish readable cell-by-gene matrices from unsupported public records.
 - Two frozen checkpoint assets for immediate editorial inspection and reproducibility checks.
 - Manuscript, cover note, model card, release manifest, data-integrity audit, corpus-provenance audit and benchmark-gap audit.
+- Chinese function/innovation brief for rapid editorial communication: `SnowLotus_CellFM_中文功能创新说明_v0_1.docx`.
 - Focused regression tests for the core package.
 
 ## Evidence Boundary
