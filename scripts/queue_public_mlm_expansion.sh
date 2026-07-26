@@ -23,6 +23,21 @@ optional_public_manifests=(
   data/corpus_manifest.gse270342.tsv
 )
 
+list_running_training_processes() {
+  ps -eo pid,args 2>/dev/null | grep -F "snowcell train" | grep -F -- "--config" | grep -v grep || true
+}
+
+has_running_training_process() {
+  local running_train_processes
+  running_train_processes="$(list_running_training_processes)"
+  if [ -n "$running_train_processes" ]; then
+    echo "[$(date)] detected active snowcell training process"
+    printf '%s\n' "$running_train_processes" | head -5
+    return 0
+  fi
+  return 1
+}
+
 manifest_matrix_ready() {
   local manifest="$1"
   python - "$manifest" <<'PY'
@@ -98,13 +113,18 @@ while ! manifest_matrix_ready "$gse_manifest"; do
   bash scripts/build_available_public_mlm_corpus.sh || true
   bash scripts/run_strict_benchmark_audits.sh || true
   if [ -s data/plant_foundation_corpus_public_mlm_available.h5ad ] \
-    && ! tmux has-session -t "$foundation_session" 2>/dev/null \
     && ! tmux has-session -t "$available_mlm_session" 2>/dev/null \
     && [ ! -f outputs/foundation_5090_mlm_public_available_expansion/best.pt ]; then
-    stamp="$(date +%Y%m%d_%H%M%S)"
-    echo "[$(date)] launching available public MLM expansion in tmux: $available_mlm_session"
-    tmux new-session -d -s "$available_mlm_session" \
-      "cd /root/snowlotus-cellfm && source .venv/bin/activate 2>/dev/null || true; snowcell train --config configs/foundation_5090_mlm_public_available_expansion.yaml --device cuda 2>&1 | tee logs/mlm_public_available_expansion_${stamp}.log; bash scripts/run_strict_benchmark_audits.sh; bash scripts/generate_publication_package.sh"
+    if has_running_training_process; then
+      echo "[$(date)] delaying available public MLM expansion until current training is idle"
+    elif tmux has-session -t "$foundation_session" 2>/dev/null; then
+      echo "[$(date)] delaying available public MLM expansion until foundation session is gone: $foundation_session"
+    else
+      stamp="$(date +%Y%m%d_%H%M%S)"
+      echo "[$(date)] launching available public MLM expansion in tmux: $available_mlm_session"
+      tmux new-session -d -s "$available_mlm_session" \
+        "cd /root/snowlotus-cellfm && source .venv/bin/activate 2>/dev/null || true; snowcell train --config configs/foundation_5090_mlm_public_available_expansion.yaml --device cuda 2>&1 | tee logs/mlm_public_available_expansion_${stamp}.log; bash scripts/run_strict_benchmark_audits.sh; bash scripts/generate_publication_package.sh"
+    fi
   fi
   if tmux has-session -t snowcell_gse268881_subset 2>/dev/null; then
     echo "[$(date)] waiting for GSE268881 subset conversion: $gse_manifest"
@@ -129,6 +149,13 @@ exit_if_continuation_exists
 
 while tmux has-session -t "$foundation_session" 2>/dev/null; do
   echo "[$(date)] waiting for GPU foundation session to finish: $foundation_session"
+  bash scripts/ensure_public_data_jobs.sh || true
+  bash scripts/build_available_public_mlm_corpus.sh || true
+  sleep "$poll_seconds"
+done
+
+while has_running_training_process; do
+  echo "[$(date)] waiting for active snowcell training process to finish before public MLM launch"
   bash scripts/ensure_public_data_jobs.sh || true
   bash scripts/build_available_public_mlm_corpus.sh || true
   sleep "$poll_seconds"
