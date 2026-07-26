@@ -1,0 +1,3 @@
+sample_id	geo_accession	cultivar	cultivar_group	stage	tissue_source	cell_source	platform	sra_accession	reference_pmid	source_url
+GSM4363200_9311	GSM4363200	93-11	Indica	3-day-old	5mm root tip	protoplast	GPL24468 / HiSeq X Ten	SRX7814224	33352304	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4363200
+GSM4363201_Nip	GSM4363201	Nipponbare	Japonica	3-day-old	5mm root tip	protoplast	GPL24468 / HiSeq X Ten	SRX7814225	33352304	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4363201
