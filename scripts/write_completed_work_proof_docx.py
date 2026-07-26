@@ -19,7 +19,7 @@ MD_OUT = OUT_DIR / "SnowLotus_CellFM_已完成工作校稿版_v0_4.md"
 GENERATED = datetime.now().strftime("%Y-%m-%d %H:%M")
 GITHUB_REPO = "https://github.com/ahvsjags/SnowLotus-CellFM"
 GITHUB_RELEASE = "https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/editor-v0.3"
-LATEST_PUSHED_COMMIT = "099e10081ededdedf025513350736733decfed09"
+LATEST_PUSHED_COMMIT = "editor-v0.3 tag points to the latest GitHub commit"
 
 
 def set_cell_shading(cell, fill: str) -> None:
@@ -117,7 +117,7 @@ def build_docx() -> None:
 
     add_para(doc, f"GitHub 仓库：{GITHUB_REPO}", "GitHub 仓库：")
     add_para(doc, f"Release 标签：{GITHUB_RELEASE}", "Release 标签：")
-    add_para(doc, f"当前已推送脚本修复 commit：{LATEST_PUSHED_COMMIT}", "当前已推送脚本修复 commit：")
+    add_para(doc, f"当前 GitHub 状态：{LATEST_PUSHED_COMMIT}", "当前 GitHub 状态：")
     add_para(
         doc,
         "说明：本文件只整理已经完成、可供编辑或合作者校稿的内容；仍在下载、训练、授权 benchmark 或远程端口恢复中的事项，均放在“边界与待补强”中，不作为已完成结果表述。",
@@ -313,7 +313,7 @@ GitHub 仓库：{GITHUB_REPO}
 
 Release 标签：{GITHUB_RELEASE}
 
-当前已推送脚本修复 commit：`{LATEST_PUSHED_COMMIT}`
+当前 GitHub 状态：`{LATEST_PUSHED_COMMIT}`
 
 本文件只整理已经完成、可供编辑或合作者校稿的内容；仍在下载、训练、授权 benchmark 或远程端口恢复中的事项，均放在边界与待补强中，不作为已完成结果表述。
 
