@@ -1,9 +1,9 @@
 {
-  "generated_utc": "2026-07-25T22:06:36.385988+00:00",
+  "generated_utc": "2026-07-26T00:02:04.549042+00:00",
   "gpu": {
     "returncode": 0,
     "stderr": "",
-    "stdout": "2026/07/26 06:06:36.518, 71 %, 30650 MiB, 32607 MiB"
+    "stdout": "2026/07/26 08:02:04.672, 8 %, 30652 MiB, 32607 MiB"
   },
   "gse226826": {
     "accession": "GSE226826",
@@ -61,7 +61,7 @@
     "lfs": {
       "returncode": 0,
       "stderr": "",
-      "stdout": "ebc95ca58f * models/SnowLotus_CellFM_best_annotation.pt\n649448b207 * models/SnowLotus_CellFM_best_embedding.pt"
+      "stdout": "ebc95ca58f * models/SnowLotus_CellFM_best_annotation.pt\ned90abffeb * models/SnowLotus_CellFM_best_embedding.pt"
     },
     "release_dir": "outputs/github_release/SnowLotus-CellFM",
     "sha256": {

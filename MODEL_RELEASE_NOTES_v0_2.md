@@ -1,6 +1,6 @@
 # SnowLotus-CellFM editor-v0.3 model release notes
 
-Generated 2026-07-25 21:54 UTC
+Generated 2026-07-25 23:34 UTC
 
 ## Release Purpose
 
@@ -11,9 +11,9 @@ This release freezes the best current SnowLotus-CellFM assets for an urgent edit
 | Asset | Source checkpoint | Intended use | Evidence in this snapshot |
 | --- | --- | --- | --- |
 | `SnowLotus_CellFM_best_annotation.pt` | `outputs/foundation_5090_pretrain/best.pt` | Immediate annotation and label-transfer demonstrations | Macro-F1 0.8121; SHA256 `ebc95ca58ffede9c9bfd2bb4f056c452b7dc43a0f799cbaf88ff77e4e9d3a4ef` |
-| `SnowLotus_CellFM_best_embedding.pt` | `outputs/foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm/best.pt` | Plant expression representation and downstream transfer experiments | v0.3 epoch-5 eval loss 7.2156; SHA256 `649448b2071816856cd5f92a43985c6d865d115d45d91274db94cb5f9348d577` |
+| `SnowLotus_CellFM_best_embedding.pt` | `outputs/foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm/best.pt` | Plant expression representation and downstream transfer experiments | v0.3 epoch-6 eval loss 7.2026; SHA256 `ed90abffeb110fca3e5a4eb11fefc18cd0198b09669341002971b89eb664bf4c` |
 
-The active v0.3 run remains in epoch 6, step 33030 of 56022. The release uses the validation-best audited checkpoint rather than the latest in-progress state.
+The active v0.3 run remains in epoch 7, step 23250 of 56022. The release uses the validation-best audited checkpoint rather than the latest in-progress state.
 
 ## Corpus and Integrity Evidence
 

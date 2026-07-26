@@ -198,7 +198,7 @@
     }
   ],
   "summary": {
-    "generated_at_utc": "2026-07-25T21:54:46.719243+00:00",
+    "generated_at_utc": "2026-07-25T23:57:25.286305+00:00",
     "job_count": 14,
     "promotion_tsv": "data/public_discovery/geo_manifest_promotion_candidates.tsv",
     "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",

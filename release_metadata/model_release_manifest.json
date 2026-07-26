@@ -27,12 +27,12 @@
     },
     {
       "bytes": 926433358,
-      "checkpoint_epoch": 5,
+      "checkpoint_epoch": 6,
       "checkpoint_kind": "best",
       "coarse_macro_f1": null,
       "coarse_vocab_size": 0,
       "config": "outputs/foundation_5090_mlm_public_expansion_continuation/config.resolved.json",
-      "eval_loss": 7.215641703521996,
+      "eval_loss": 7.202640119351838,
       "fine_macro_f1": null,
       "fine_vocab_size": 0,
       "gene_vocab_size": 379504,
@@ -43,12 +43,12 @@
       "path": "outputs/foundation_5090_mlm_public_expansion_continuation/best.pt",
       "release_note": "Pretraining checkpoint: embeddings/MLM evidence, not label annotation.",
       "run_id": "foundation_5090_mlm_public_expansion_continuation",
-      "sha256": "649448b2071816856cd5f92a43985c6d865d115d45d91274db94cb5f9348d577",
+      "sha256": "ed90abffeb110fca3e5a4eb11fefc18cd0198b09669341002971b89eb664bf4c",
       "species_vocab_size": 12,
       "stage": "pretrain",
       "status": "embedding_release_candidate",
       "tissue_vocab_size": 7,
-      "train_loss": 8.511812622453267
+      "train_loss": 8.506708756249335
     },
     {
       "bytes": 2751940673,
@@ -152,32 +152,32 @@
     },
     {
       "bytes": 926433358,
-      "checkpoint_epoch": 5,
+      "checkpoint_epoch": 6,
       "checkpoint_kind": "best",
       "coarse_macro_f1": null,
       "coarse_vocab_size": 0,
       "config": "outputs/foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm/config.resolved.json",
-      "eval_loss": 7.215641703521996,
+      "eval_loss": 7.202640119351838,
       "fine_macro_f1": null,
       "fine_vocab_size": 0,
       "gene_vocab_size": 379504,
-      "history_epochs": 5,
+      "history_epochs": 6,
       "model_d_model": 512,
       "model_heads": 8,
       "model_layers": 10,
       "path": "outputs/foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm/best.pt",
       "release_note": "Pretraining checkpoint: embeddings/MLM evidence, not label annotation.",
       "run_id": "foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm",
-      "sha256": "649448b2071816856cd5f92a43985c6d865d115d45d91274db94cb5f9348d577",
+      "sha256": "ed90abffeb110fca3e5a4eb11fefc18cd0198b09669341002971b89eb664bf4c",
       "species_vocab_size": 12,
       "stage": "pretrain",
       "status": "embedding_release_candidate",
       "tissue_vocab_size": 7,
-      "train_loss": 8.511812622453267
+      "train_loss": 8.506708756249335
     },
     {
-      "bytes": 2756812289,
-      "checkpoint_epoch": 6,
+      "bytes": 2756812545,
+      "checkpoint_epoch": 7,
       "checkpoint_kind": "latest",
       "coarse_macro_f1": null,
       "coarse_vocab_size": 0,
@@ -186,19 +186,19 @@
       "fine_macro_f1": null,
       "fine_vocab_size": 0,
       "gene_vocab_size": 379504,
-      "history_epochs": 5,
+      "history_epochs": 6,
       "model_d_model": 512,
       "model_heads": 8,
       "model_layers": 10,
       "path": "outputs/foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm/latest.pt",
       "release_note": "Pretraining checkpoint: embeddings/MLM evidence, not label annotation.",
       "run_id": "foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm",
-      "sha256": "79ab40792f9a23d9b5372bff9336c84b612b2a46c95bba7283a99aba786b4154",
+      "sha256": "31c8af84761855971ad411a259838c3c8108a09ffeeaeb833f0accfc56a44c01",
       "species_vocab_size": 12,
       "stage": "pretrain",
       "status": "embedding_release_candidate",
       "tissue_vocab_size": 7,
-      "train_loss": 8.5073088082528
+      "train_loss": 8.500252355976812
     },
     {
       "bytes": 658999758,
@@ -402,13 +402,13 @@
     }
   ],
   "errors": [],
-  "generated_at_utc": "2026-07-25T21:56:36.209549+00:00",
+  "generated_at_utc": "2026-07-25T23:59:05.360237+00:00",
   "project_dir": ".",
   "summary": {
     "checkpoint_count": 16,
     "embedding_release_candidate_count": 11,
     "error_count": 0,
     "label_release_candidate_count": 5,
-    "total_checkpoint_bytes": 20097413570
+    "total_checkpoint_bytes": 20097413826
   }
 }

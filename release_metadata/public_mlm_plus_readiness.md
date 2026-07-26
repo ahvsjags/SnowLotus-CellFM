@@ -1,6 +1,6 @@
 # Public MLM Plus-Corpus Readiness
 
-Generated UTC: `2026-07-25T22:06:33.943503+00:00`
+Generated UTC: `2026-07-25T23:57:24.693397+00:00`
 
 ## Summary
 
@@ -11,7 +11,7 @@ Generated UTC: `2026-07-25T22:06:33.943503+00:00`
 | Rows missing from active public MLM manifest | 96 |
 | Rows missing from plus manifest | None |
 | v0.3 status | training |
-| v0.3 epoch/step | 6 / 38750 |
+| v0.3 epoch/step | 7 / 34000 |
 | v0.3 batches per epoch | 56022 |
 | v0.4 watcher active | True |
 | Active training processes | 7 |

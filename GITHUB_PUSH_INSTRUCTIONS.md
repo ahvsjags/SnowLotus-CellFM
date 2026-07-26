@@ -23,7 +23,7 @@ The full model archive should be checked against the GitHub-reported release-ass
 
 It contains the current frozen best embedding checkpoint:
 
-`649448b2071816856cd5f92a43985c6d865d115d45d91274db94cb5f9348d577`
+`ed90abffeb110fca3e5a4eb11fefc18cd0198b09669341002971b89eb664bf4c`
 
 ## Verify the release after clone
 

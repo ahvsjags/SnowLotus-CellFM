@@ -20,8 +20,8 @@ This automated NCBI pass searches SRA, BioProject, GEO DataSets, PubMed, and PMC
 
 ## Low-Confidence Query Guard
 
-- `sra` `"天山雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`7293164`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
-- `sra` `"雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`7293164`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
+- `sra` `"天山雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`7293170`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
+- `sra` `"雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`7293170`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
 - `bioproject` `"天山雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`98581`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
 - `bioproject` `"雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`98581`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
 - `gds` `"天山雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`461538`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
@@ -55,6 +55,12 @@ This automated NCBI pass searches SRA, BioProject, GEO DataSets, PubMed, and PMC
 | sra | `SRR26779318` | False | True | RNA-seq of Saussurea involucrata in room temperature | https://www.ncbi.nlm.nih.gov/sra/SRR26779318 |
 | sra | `SRR26779319` | False | True | RNA-seq of Saussurea involucrata in room temperature | https://www.ncbi.nlm.nih.gov/sra/SRR26779319 |
 | sra | `SRR516284` | False | True | Saussurea involucrata transcriptome | https://www.ncbi.nlm.nih.gov/sra/SRR516284 |
+| sra | `SRR39832577` | False | False | PSTVd-E | https://www.ncbi.nlm.nih.gov/sra/SRR39832577 |
+| sra | `SRR39832578` | False | False | PSTVd-P | https://www.ncbi.nlm.nih.gov/sra/SRR39832578 |
+| sra | `SRR39832579` | False | False | Mock-E | https://www.ncbi.nlm.nih.gov/sra/SRR39832579 |
+| sra | `SRR39832580` | False | False | Mock-P | https://www.ncbi.nlm.nih.gov/sra/SRR39832580 |
+| sra | `SRR39832292` | False | False | PEAK1 EC-cKO--MCAO/R | https://www.ncbi.nlm.nih.gov/sra/SRR39832292 |
+| sra | `SRR39832293` | False | False | PEAK1 EC-cKO--Sham | https://www.ncbi.nlm.nih.gov/sra/SRR39832293 |
 | sra | `SRR39832267` | False | False | MCAO/R | https://www.ncbi.nlm.nih.gov/sra/SRR39832267 |
 | sra | `SRR39832268` | False | False | Sham | https://www.ncbi.nlm.nih.gov/sra/SRR39832268 |
 | sra | `SRR39831972` | False | False | ABC | https://www.ncbi.nlm.nih.gov/sra/SRR39831972 |
@@ -69,12 +75,6 @@ This automated NCBI pass searches SRA, BioProject, GEO DataSets, PubMed, and PMC
 | sra | `SRR39831317` | False | False | mazF_BMB171_12h_1 | https://www.ncbi.nlm.nih.gov/sra/SRR39831317 |
 | sra | `SRR39831318` | False | False | BMB171_36h_3 | https://www.ncbi.nlm.nih.gov/sra/SRR39831318 |
 | sra | `SRR39831319` | False | False | BMB171_36h_2 | https://www.ncbi.nlm.nih.gov/sra/SRR39831319 |
-| sra | `SRR39831320` | False | False | BMB171_36h_1 | https://www.ncbi.nlm.nih.gov/sra/SRR39831320 |
-| sra | `SRR39831321` | False | False | BMB171_24h_3 | https://www.ncbi.nlm.nih.gov/sra/SRR39831321 |
-| sra | `SRR39831322` | False | False | BMB171_24h_2 | https://www.ncbi.nlm.nih.gov/sra/SRR39831322 |
-| sra | `SRR39831323` | False | False | BMB171_24h_1 | https://www.ncbi.nlm.nih.gov/sra/SRR39831323 |
-| sra | `SRR39831324` | False | False | BMB171_12h_3 | https://www.ncbi.nlm.nih.gov/sra/SRR39831324 |
-| sra | `SRR39831325` | False | False | mazF_BMB171_36h_3 | https://www.ncbi.nlm.nih.gov/sra/SRR39831325 |
 | bioproject | `1218246` | False | True | Integrated transcriptome and metabolome analysis revealed the low pressure regulation  in Saussurea involucrata leaves | https://www.ncbi.nlm.nih.gov/bioproject/1218246 |
 | bioproject | `1033840` | False | True | Transcriptome on Saussurea involucrata in response to low-temperature stress | https://www.ncbi.nlm.nih.gov/bioproject/1033840 |
 | bioproject | `387384` | False | True | Saussurea involucrata Raw sequence reads | https://www.ncbi.nlm.nih.gov/bioproject/387384 |

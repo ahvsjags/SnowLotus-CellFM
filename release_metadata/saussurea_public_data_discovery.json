@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-25T21:57:55.962734+00:00",
+  "generated_at_utc": "2026-07-26T00:00:56.463138+00:00",
   "summary": {
     "database_count": 5,
     "query_count": 25,
@@ -52,8 +52,14 @@
     {
       "db": "sra",
       "query": "\"天山雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
-      "count": 7293164,
+      "count": 7293170,
       "ids": [
+        "45860577",
+        "45860576",
+        "45860575",
+        "45860574",
+        "45860292",
+        "45860291",
         "45860269",
         "45860268",
         "45859973",
@@ -67,13 +73,7 @@
         "45859358",
         "45859332",
         "45859331",
-        "45859330",
-        "45859329",
-        "45859328",
-        "45859327",
-        "45859326",
-        "45859325",
-        "45859324"
+        "45859330"
       ],
       "reliability": "low_confidence_ncbi_tokenization_noise",
       "usable_for_primary_absence": false,
@@ -82,8 +82,14 @@
     {
       "db": "sra",
       "query": "\"雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
-      "count": 7293164,
+      "count": 7293170,
       "ids": [
+        "45860577",
+        "45860576",
+        "45860575",
+        "45860574",
+        "45860292",
+        "45860291",
         "45860269",
         "45860268",
         "45859973",
@@ -97,13 +103,7 @@
         "45859358",
         "45859332",
         "45859331",
-        "45859330",
-        "45859329",
-        "45859328",
-        "45859327",
-        "45859326",
-        "45859325",
-        "45859324"
+        "45859330"
       ],
       "reliability": "low_confidence_ncbi_tokenization_noise",
       "usable_for_primary_absence": false,
@@ -561,8 +561,14 @@
     {
       "db": "sra",
       "query": "\"天山雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
-      "count": 7293164,
+      "count": 7293170,
       "ids": [
+        "45860577",
+        "45860576",
+        "45860575",
+        "45860574",
+        "45860292",
+        "45860291",
         "45860269",
         "45860268",
         "45859973",
@@ -576,13 +582,7 @@
         "45859358",
         "45859332",
         "45859331",
-        "45859330",
-        "45859329",
-        "45859328",
-        "45859327",
-        "45859326",
-        "45859325",
-        "45859324"
+        "45859330"
       ],
       "reliability": "low_confidence_ncbi_tokenization_noise",
       "usable_for_primary_absence": false,
@@ -591,8 +591,14 @@
     {
       "db": "sra",
       "query": "\"雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
-      "count": 7293164,
+      "count": 7293170,
       "ids": [
+        "45860577",
+        "45860576",
+        "45860575",
+        "45860574",
+        "45860292",
+        "45860291",
         "45860269",
         "45860268",
         "45859973",
@@ -606,13 +612,7 @@
         "45859358",
         "45859332",
         "45859331",
-        "45859330",
-        "45859329",
-        "45859328",
-        "45859327",
-        "45859326",
-        "45859325",
-        "45859324"
+        "45859330"
       ],
       "reliability": "low_confidence_ncbi_tokenization_noise",
       "usable_for_primary_absence": false,
@@ -1040,6 +1040,72 @@
     {
       "db": "sra",
       "query": "\"天山雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
+      "uid": "45860577",
+      "title": "PSTVd-E",
+      "source": "",
+      "accession": "SRR39832577",
+      "url": "https://www.ncbi.nlm.nih.gov/sra/SRR39832577",
+      "single_cell_terms": false,
+      "saussurea_involucrata_terms": false
+    },
+    {
+      "db": "sra",
+      "query": "\"天山雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
+      "uid": "45860576",
+      "title": "PSTVd-P",
+      "source": "",
+      "accession": "SRR39832578",
+      "url": "https://www.ncbi.nlm.nih.gov/sra/SRR39832578",
+      "single_cell_terms": false,
+      "saussurea_involucrata_terms": false
+    },
+    {
+      "db": "sra",
+      "query": "\"天山雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
+      "uid": "45860575",
+      "title": "Mock-E",
+      "source": "",
+      "accession": "SRR39832579",
+      "url": "https://www.ncbi.nlm.nih.gov/sra/SRR39832579",
+      "single_cell_terms": false,
+      "saussurea_involucrata_terms": false
+    },
+    {
+      "db": "sra",
+      "query": "\"天山雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
+      "uid": "45860574",
+      "title": "Mock-P",
+      "source": "",
+      "accession": "SRR39832580",
+      "url": "https://www.ncbi.nlm.nih.gov/sra/SRR39832580",
+      "single_cell_terms": false,
+      "saussurea_involucrata_terms": false
+    },
+    {
+      "db": "sra",
+      "query": "\"天山雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
+      "uid": "45860292",
+      "title": "PEAK1 EC-cKO--MCAO/R",
+      "source": "",
+      "accession": "SRR39832292",
+      "url": "https://www.ncbi.nlm.nih.gov/sra/SRR39832292",
+      "single_cell_terms": false,
+      "saussurea_involucrata_terms": false
+    },
+    {
+      "db": "sra",
+      "query": "\"天山雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
+      "uid": "45860291",
+      "title": "PEAK1 EC-cKO--Sham",
+      "source": "",
+      "accession": "SRR39832293",
+      "url": "https://www.ncbi.nlm.nih.gov/sra/SRR39832293",
+      "single_cell_terms": false,
+      "saussurea_involucrata_terms": false
+    },
+    {
+      "db": "sra",
+      "query": "\"天山雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
       "uid": "45860269",
       "title": "MCAO/R",
       "source": "",
@@ -1188,72 +1254,6 @@
       "source": "",
       "accession": "SRR39831319",
       "url": "https://www.ncbi.nlm.nih.gov/sra/SRR39831319",
-      "single_cell_terms": false,
-      "saussurea_involucrata_terms": false
-    },
-    {
-      "db": "sra",
-      "query": "\"天山雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
-      "uid": "45859329",
-      "title": "BMB171_36h_1",
-      "source": "",
-      "accession": "SRR39831320",
-      "url": "https://www.ncbi.nlm.nih.gov/sra/SRR39831320",
-      "single_cell_terms": false,
-      "saussurea_involucrata_terms": false
-    },
-    {
-      "db": "sra",
-      "query": "\"天山雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
-      "uid": "45859328",
-      "title": "BMB171_24h_3",
-      "source": "",
-      "accession": "SRR39831321",
-      "url": "https://www.ncbi.nlm.nih.gov/sra/SRR39831321",
-      "single_cell_terms": false,
-      "saussurea_involucrata_terms": false
-    },
-    {
-      "db": "sra",
-      "query": "\"天山雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
-      "uid": "45859327",
-      "title": "BMB171_24h_2",
-      "source": "",
-      "accession": "SRR39831322",
-      "url": "https://www.ncbi.nlm.nih.gov/sra/SRR39831322",
-      "single_cell_terms": false,
-      "saussurea_involucrata_terms": false
-    },
-    {
-      "db": "sra",
-      "query": "\"天山雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
-      "uid": "45859326",
-      "title": "BMB171_24h_1",
-      "source": "",
-      "accession": "SRR39831323",
-      "url": "https://www.ncbi.nlm.nih.gov/sra/SRR39831323",
-      "single_cell_terms": false,
-      "saussurea_involucrata_terms": false
-    },
-    {
-      "db": "sra",
-      "query": "\"天山雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
-      "uid": "45859325",
-      "title": "BMB171_12h_3",
-      "source": "",
-      "accession": "SRR39831324",
-      "url": "https://www.ncbi.nlm.nih.gov/sra/SRR39831324",
-      "single_cell_terms": false,
-      "saussurea_involucrata_terms": false
-    },
-    {
-      "db": "sra",
-      "query": "\"天山雪莲\" AND (单细胞 OR 单核 OR 转录组 OR \"10x\" OR RNA-seq)",
-      "uid": "45859324",
-      "title": "mazF_BMB171_36h_3",
-      "source": "",
-      "accession": "SRR39831325",
-      "url": "https://www.ncbi.nlm.nih.gov/sra/SRR39831325",
       "single_cell_terms": false,
       "saussurea_involucrata_terms": false
     },

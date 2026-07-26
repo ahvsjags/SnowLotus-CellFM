@@ -55,8 +55,18 @@ def update_file(path: Path, sha: str, best_epoch: int, best_loss: float, current
     active = current_epoch if current_epoch > 0 else best_epoch + 1
 
     text = re.sub(
-        r"SHA256 `[0-9a-f]{64}`",
-        f"SHA256 `{sha}`",
+        r"(Best embedding checkpoint:.*?SHA256 `)[0-9a-f]{64}(`)",
+        rf"\g<1>{sha}\2",
+        text,
+    )
+    text = re.sub(
+        r"(Embedding checkpoint:.*?SHA256 `)[0-9a-f]{64}(`)",
+        rf"\g<1>{sha}\2",
+        text,
+    )
+    text = re.sub(
+        r"(`SnowLotus_CellFM_best_embedding\.pt` \| [^\n]*?SHA256 `)[0-9a-f]{64}(`)",
+        rf"\g<1>{sha}\2",
         text,
     )
     text = re.sub(
@@ -103,7 +113,12 @@ def main() -> None:
     best_epoch, best_loss = best_metrics()
     current_epoch = active_epoch()
     changed = []
-    for filename in ["README.md", "MODEL_RELEASE_NOTES_v0_2.md", "EDITOR_HANDOFF.md"]:
+    for filename in [
+        "README.md",
+        "MODEL_RELEASE_NOTES_v0_2.md",
+        "MODEL_RELEASE_NOTES_v0_3.md",
+        "EDITOR_HANDOFF.md",
+    ]:
         path = DOCS_DIR / filename
         if path.exists() and update_file(path, sha, best_epoch, best_loss, current_epoch):
             changed.append(filename)
