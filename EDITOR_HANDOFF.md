@@ -12,6 +12,7 @@ SnowLotus-CellFM is submitted as an audited plant single-cell foundation-model s
 - Embedding checkpoint: `models/SnowLotus_CellFM_best_embedding.pt`, promoted from `outputs/foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm/best.pt`; current best v0.3 epoch-7 eval loss 7.1917, SHA256 `00c1b0a1049c441585ecd7ee03e81d05704bd93100c692cc06f7bdc90f2c034a`.
 - Data expansion after v0.2: GSE226826, GSE240098 and GSE240102 were recovered into usable NPZ/manifests; v0.4 plus-corpus training is queued behind v0.3.
 - Release manifest: 11 checkpoint entries with no load errors.
+- Chinese function/innovation brief: `SnowLotus_CellFM_中文功能创新说明_v0_1.docx`, including the GitHub repository and release links for editor-facing forwarding.
 - External references: Seurat label transfer and scPlantLLM-style embedding probes are included; scPlantAnnotate remains an authenticated benchmark pending final access.
 
 ## What to tell the editor
@@ -20,7 +21,7 @@ This is not being oversold as a completed Snow Lotus single-cell atlas. It is a 
 
 ## Repository publication status
 
-The repository has been published to GitHub at `https://github.com/ahvsjags/SnowLotus-CellFM` with release tag `editor-v0.3`. The release contains the source/metadata archive, manuscript archive, one-click editor package and the full model archive with the current best epoch-6 embedding checkpoint. The repository is currently private, so editor/reviewer access should be granted, or the repository should be made public, before using the URL as a reviewer-facing link.
+The repository has been published to GitHub at `https://github.com/ahvsjags/SnowLotus-CellFM` with release tag `editor-v0.3`. The release contains the source/metadata archive, manuscript archive and one-click editor package; the large full model archive is documented by SHA256 and should only be uploaded as a GitHub Release asset after explicit approval. The repository is currently private, so editor/reviewer access should be granted, or the repository should be made public, before using the URL as a reviewer-facing link.
 
 ## Next revision
 
