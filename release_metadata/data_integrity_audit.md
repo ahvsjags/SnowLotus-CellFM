@@ -1,7 +1,7 @@
 # SnowLotus-CellFM Data Integrity Audit
 
-- Manifest files audited: `67`
-- Ready manifests: `67`
+- Manifest files audited: `68`
+- Ready manifests: `68`
 - Manifests with issues: `0`
 - Matrix files referenced: `209`
 - Missing matrix files: `0`
@@ -28,6 +28,7 @@
 | data/corpus_manifest.gse222584.tsv | 1 | ready | 0 | 0 | 4515 | geo_gse222584_oryza_sativa_single_cell_sequencing_revealed_cell |
 | data/corpus_manifest.gse224228.tsv | 0 | ready | 0 | 0 | 0 |  |
 | data/corpus_manifest.gse224539.tsv | 0 | ready | 0 | 0 | 0 |  |
+| data/corpus_manifest.gse224928.tsv | 0 | ready | 0 | 0 | 0 |  |
 | data/corpus_manifest.gse226097.tsv | 1 | ready | 0 | 0 | 34305 | arabidopsis_lifecycle_spatial_atlas |
 | data/corpus_manifest.gse226149.tsv | 1 | ready | 0 | 0 | 672862 | geo_gse226149_glycine_max_gene_expression_profile_at_single |
 | data/corpus_manifest.gse226826.tsv | 1 | ready | 0 | 0 | 3615 | geo_gse226826_arabidopsis_thaliana_time_resolved_single_cell_spatial |

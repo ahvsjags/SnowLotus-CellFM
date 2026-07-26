@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-25T23:57:24.693397+00:00",
+  "generated_at_utc": "2026-07-26T01:14:38.983360+00:00",
   "active_manifest": "data/corpus_manifest_public_mlm.tsv",
   "active_manifest_exists": true,
   "active_manifest_rows": 29,
@@ -13,21 +13,21 @@
   "plus_corpus_exists": false,
   "plus_corpus_modified_utc": null,
   "v03_progress": {
-    "epoch": 7,
+    "epoch": 8,
     "latest_batch_losses": {
-      "loss": 8.408759117126465,
-      "mlm_gene_loss": 8.408514022827148,
-      "mlm_value_loss": 0.0012253397144377232
+      "loss": 8.482151985168457,
+      "mlm_gene_loss": 8.481817245483398,
+      "mlm_value_loss": 0.001674977014772594
     },
-    "optimizer_updates": 20566,
+    "optimizer_updates": 22568,
     "running_train_losses": {
-      "loss": 8.500167277462342,
-      "mlm_gene_loss": 8.499916971360935,
-      "mlm_value_loss": 0.0012515367418185206
+      "loss": 8.496203394378934,
+      "mlm_gene_loss": 8.49595763533456,
+      "mlm_value_loss": 0.0012288152686253722
     },
     "status": "training",
-    "step": 34000,
-    "timestamp_utc": "2026-07-25T23:56:56.766336+00:00",
+    "step": 14000,
+    "timestamp_utc": "2026-07-26T01:14:29.831894+00:00",
     "train_batches_per_epoch": 56022
   },
   "v03_best_exists": true,
@@ -38,10 +38,10 @@
     "14042 tmux new-session -d -s snowcell_foundation_long cd /root/snowlotus-cellfm; source .venv/bin/activate; { snowcell baseline-centroid --config configs/foundation_5090_pretrain.yaml --output outputs/foundation_5090_pretrain/centroid_baseline.json; snowcell train --config configs/foundation_5090_pretrain.yaml --device cuda; bash scripts/generate_publication_package.sh; } 2>&1 | tee logs/foundation_long_20260723_150323.log",
     "452723 bash -c cd '/root/snowlotus-cellfm' && source .venv/bin/activate 2>/dev/null || true; snowcell train --config 'configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml' --device 'cuda' 2>&1 | tee 'logs/mlm_public_expansion_v0_3_20260725_183329.log'; bash scripts/generate_publication_package.sh 2>&1 | tee -a 'logs/mlm_public_expansion_v0_3_20260725_183329.log'",
     "452726 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda",
-    "728531 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda",
-    "728532 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda",
-    "728533 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda",
-    "728534 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda"
+    "760290 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda",
+    "760291 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda",
+    "760292 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda",
+    "760293 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda"
   ],
   "manifest_readiness": [
     {
@@ -431,8 +431,8 @@
     "manifests_with_rows_missing_from_plus": null,
     "rows_missing_from_plus": null,
     "v03_status": "training",
-    "v03_epoch": 7,
-    "v03_step": 34000,
+    "v03_epoch": 8,
+    "v03_step": 14000,
     "v03_train_batches_per_epoch": 56022,
     "active_training_process_count": 7
   }

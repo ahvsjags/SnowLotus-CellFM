@@ -24,8 +24,8 @@ This automated NCBI pass searches SRA, BioProject, GEO DataSets, PubMed, and PMC
 - `sra` `"雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`7293170`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
 - `bioproject` `"天山雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`98581`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
 - `bioproject` `"雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`98581`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
-- `gds` `"天山雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`461538`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
-- `gds` `"雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`461538`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
+- `gds` `"天山雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`461688`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
+- `gds` `"雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`461688`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
 - `pubmed` `"天山雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`98078`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
 - `pubmed` `"雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`98078`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
 - `pmc` `"天山雪莲" AND (单细胞 OR 单核 OR 转录组 OR "10x" OR RNA-seq)` count=`564793`: NCBI returned an implausibly broad count for a Chinese-language query; treat this search as a sanity check only, not as accession-level evidence.
@@ -99,23 +99,23 @@ This automated NCBI pass searches SRA, BioProject, GEO DataSets, PubMed, and PMC
 | bioproject | `1499904` | False | False | Study on Attractant Activity and Mechanism of 1,8-Cineole against Bactrocera dorsalis | https://www.ncbi.nlm.nih.gov/bioproject/1499904 |
 | bioproject | `1499897` | False | False | Integrated Transcriptomic and Metabolomic Dynamics Reveal Mechanisms of Tobacco Resistance to Phytophthora nicotianae | https://www.ncbi.nlm.nih.gov/bioproject/1499897 |
 | bioproject | `1499893` | False | False | Tor tambra RNA-seq | https://www.ncbi.nlm.nih.gov/bioproject/1499893 |
+| gds | `GSE339349` | False | False | Physiological YAP activation alleviate ER stress to mitigate alcohol-induced liver damage by promoting ATF6 transcriptional activation | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE339349 |
+| gds | `GSE339298` | False | False | Transcriptomic profiling of ATP6AP1 knockdown in activated human hepatic stellate LX-2 cells | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE339298 |
+| gds | `GSE339272` | False | False | An Injectable ROS-Responsive Nanozyme Hydrogel Regulates the Uterine Microenvironment to Reverse Intrauterine Adhesions | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE339272 |
+| gds | `GSE339268` | False | False | PBX1 knockdown RNA-seq in HUCCT1 and RBE cells | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE339268 |
+| gds | `GSE339247` | False | False | RNA-seq transcriptomic profiling reveals renoprotective mechanism of novel Psidium meroterpenoid derivatives (d)-G8 and (d)-G4 against cisplatin-induced acute kidney injury in huma | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE339247 |
+| gds | `GSE339245` | False | False | RNA-seq transcriptome profiling of HK-2 human renal tubular epithelial cells upon gene knockdown mediated by sgRNA | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE339245 |
+| gds | `GSE339204` | False | False | Transcription-dependent heterochromatin at the Xist promoter shapes the random choice of the inactive X chromosome [Timecourse_Amplicon_Bisulfite_Seq] | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE339204 |
+| gds | `GSE339180` | False | False | RNA-seq of CDO1-overexpressing AGS gastric cancer cells | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE339180 |
+| gds | `GSE339170` | False | False | The fungal volatile organic compound 6-pentyl-alpha-pyrone | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE339170 |
+| gds | `GSE338460` | True | False | Immune hallmarks of recurrent immune checkpoint inhibitor-mediated inflammatory arthritis | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE338460 |
+| gds | `GSE337138` | True | False | SARS-CoV-2 Defective Viral Genomes from Distinct Genomic Regions Drive Divergent Interferon Responses | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE337138 |
+| gds | `GSE333904` | False | False | KRAS mutations reprogram RNA m6A modification to drive CD73-dependent immune evasion in colorectal cancer [RNA-seq] | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE333904 |
+| gds | `GSE333693` | True | False | Rat thymic epithelium-free areas are specialized medullary niches enriched for mature thymocytes and distinct stromal subsets | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE333693 |
+| gds | `GSE314060` | False | False | Lymphotoxin Beta Receptor Activity in Fibroblasts Regulates Collagen Synthesis and is Crucial for Lung Fibrosis | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE314060 |
+| gds | `GSE311795` | True | False | KRAS mutations reprogram RNA m6A modification to drive CD73-dependent immune evasion in colorectal cancer [scRNA-seq] | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE311795 |
+| gds | `GSE310023` | False | False | Mutation of SCARECROW-LIKE28 or CYTOKININ OXIDASE3/5 suppresses rosette branching in Arabidopsis | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE310023 |
+| gds | `GSE303925` | False | False | RNA-seq of HT and ST14-knockout B-cell lymphoma xenografts | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE303925 |
+| gds | `GSE303346` | True | False | Single-Cell RNA-Seq Reveals Immunosuppressive Effects of Triple-Negative Breast Cancer–Derived Exosomes on NK Cell Responses | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE303346 |
+| gds | `GSE299520` | False | False | Ankrd11 deficiency reverses the dysfunction of chronic HBV-specific T-cell [RNA-seq] | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE299520 |
 | gds | `GSE341280` | False | False | Systematic identification of age-related microbiome metabolites that impact the brain - mouse brain RNA-seq | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341280 |
-| gds | `GSE341091` | False | False | total RNA-seq from HG03129 (ENCSR998MYO) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341091 |
-| gds | `GSE341090` | False | False | long read RNA-seq from right lung (ENCSR997XFO) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341090 |
-| gds | `GSE341089` | False | False | total RNA-seq from GM19449 (ENCSR997LSS) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341089 |
-| gds | `GSE341088` | False | False | total RNA-seq from T-helper 1 cell (ENCSR997HFD) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341088 |
-| gds | `GSE341087` | False | False | long read RNA-seq from stomach (ENCSR993RKQ) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341087 |
-| gds | `GSE341086` | False | False | long read RNA-seq from large intestine (ENCSR992UMK) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341086 |
-| gds | `GSE341085` | False | False | total RNA-seq from CD4-positive, alpha-beta T cell (ENCSR992FYQ) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341085 |
-| gds | `GSE341084` | False | False | total RNA-seq from T-cell (ENCSR990GHM) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341084 |
-| gds | `GSE341083` | False | False | total RNA-seq from GM21775 (ENCSR989SXC) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341083 |
-| gds | `GSE341082` | False | False | long read RNA-seq from muscle of arm (ENCSR989PGQ) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341082 |
-| gds | `GSE341077` | False | False | total RNA-seq from GM19020 (ENCSR984PRR) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341077 |
-| gds | `GSE341076` | False | False | total RNA-seq from CD4-positive, alpha-beta T cell (ENCSR983YCJ) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341076 |
-| gds | `GSE341075` | False | False | total RNA-seq from GM19037 (ENCSR983OGO) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341075 |
-| gds | `GSE341074` | False | False | total RNA-seq from CD4-positive, alpha-beta T cell (ENCSR982RIX) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341074 |
-| gds | `GSE341073` | False | False | total RNA-seq from GM19437 (ENCSR982AOX) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341073 |
-| gds | `GSE341071` | False | False | total RNA-seq from HG03369 (ENCSR981CYF) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341071 |
-| gds | `GSE341070` | False | False | long read RNA-seq from muscle of leg (ENCSR979UPD) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341070 |
-| gds | `GSE341069` | False | False | total RNA-seq from HG03268 (ENCSR979JWV) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341069 |
-| gds | `GSE341068` | False | False | total RNA-seq from CD4-positive, alpha-beta T cell (ENCSR979GPU) | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE341068 |

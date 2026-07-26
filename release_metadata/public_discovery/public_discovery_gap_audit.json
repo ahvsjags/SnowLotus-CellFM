@@ -1,59 +1,282 @@
 {
-  "geo_download_ready_unknown_manifest": [],
-  "geo_download_ready_unknown_manifest_queued": [],
-  "geo_download_ready_unknown_manifest_unqueued": [],
-  "manifest_download_ready_queued": [
+  "geo_download_ready_unknown_manifest": [
     {
-      "accession": "GSE303996",
-      "dataset_id": "discovered_gse303996",
-      "file_type_counts": "mtx_archive:1;seurat_rds:16",
-      "matrix_file_count": 17,
-      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE303996",
+      "accession": "GSE155304",
+      "dataset_id": "discovered_gse155304",
+      "file_type_counts": "metadata_table:3;mtx_archive:1;seurat_rds:2",
+      "matrix_file_count": 3,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155304",
       "priority": "A",
       "queue_job": {
-        "command": "bash scripts/generated_geo_promotion_downloads/download_gse303996_geo_gse303996_arabidopsis_thaliana_histone_deacetylases_cell_cycle_regulators.sh",
-        "log_path": "logs/geo_promotion_gse303996.log",
-        "manifest": "data/corpus_manifest.gse303996.tsv",
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse155304_geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis.sh",
+        "log_path": "logs/geo_promotion_gse155304.log",
+        "manifest": "data/corpus_manifest.gse155304.tsv",
         "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
-        "session": "snowcell_geo_promotion_gse303996"
+        "session": "snowcell_geo_promotion_gse155304"
       },
       "queued_download": true,
       "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
     },
     {
-      "accession": "GSE308672",
-      "dataset_id": "discovered_gse308672",
-      "file_type_counts": "mtx_archive:1;seurat_rds:1",
-      "matrix_file_count": 2,
-      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE308672",
+      "accession": "GSE121619",
+      "dataset_id": "discovered_gse121619",
+      "file_type_counts": "metadata_table:3;seurat_rds:1",
+      "matrix_file_count": 1,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE121619",
       "priority": "A",
       "queue_job": {
-        "command": "bash scripts/generated_geo_promotion_downloads/download_gse308672_geo_gse308672_arabidopsis_thaliana_discrete_cell_specific_hypoxic_responses.sh",
-        "log_path": "logs/geo_promotion_gse308672.log",
-        "manifest": "data/corpus_manifest.gse308672.tsv",
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse121619_geo_gse121619_arabidopsis_thaliana_dynamics_gene_expression_single_root.sh",
+        "log_path": "logs/geo_promotion_gse121619.log",
+        "manifest": "data/corpus_manifest.gse121619.tsv",
         "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
-        "session": "snowcell_geo_promotion_gse308672"
+        "session": "snowcell_geo_promotion_gse121619"
+      },
+      "queued_download": true,
+      "recommended_action": "download Seurat RDS; export with export_seurat_rds_to_mtx.R; build NPZ manifest"
+    },
+    {
+      "accession": "GSE123013",
+      "dataset_id": "discovered_gse123013",
+      "file_type_counts": "metadata_table:1;mtx_archive:1",
+      "matrix_file_count": 1,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE123013",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse123013_geo_gse123013_arabidopsis_thaliana_single_cell_rna_sequencing_analysis.sh",
+        "log_path": "logs/geo_promotion_gse123013.log",
+        "manifest": "data/corpus_manifest.gse123013.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse123013"
       },
       "queued_download": true,
       "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
     },
     {
-      "accession": "GSE157757",
-      "dataset_id": "discovered_gse157757",
+      "accession": "GSE138526",
+      "dataset_id": "discovered_gse138526",
       "file_type_counts": "mtx_archive:1",
       "matrix_file_count": 1,
-      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE157757",
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE138526",
       "priority": "A",
       "queue_job": {
-        "command": "bash scripts/generated_geo_promotion_downloads/download_gse157757_geo_gse157757_zea_mays_single_cell_sequencing_reveals_phloem.sh",
-        "log_path": "logs/geo_promotion_gse157757.log",
-        "manifest": "data/corpus_manifest.gse157757.tsv",
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse138526_geo_gse138526_zea_mays_high_throughput_single_cell_rna.sh",
+        "log_path": "logs/geo_promotion_gse138526.log",
+        "manifest": "data/corpus_manifest.gse138526.tsv",
         "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
-        "session": "snowcell_geo_promotion_gse157757"
+        "session": "snowcell_geo_promotion_gse138526"
       },
       "queued_download": true,
       "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
     },
+    {
+      "accession": "GSE181999",
+      "dataset_id": "discovered_gse181999",
+      "file_type_counts": "mtx_archive:1",
+      "matrix_file_count": 1,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE181999",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse181999_geo_gse181999_arabidopsis_thaliana_an_arabidopsis_root_phloem_pole.sh",
+        "log_path": "logs/geo_promotion_gse181999.log",
+        "manifest": "data/corpus_manifest.gse181999.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse181999"
+      },
+      "queued_download": true,
+      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
+    },
+    {
+      "accession": "GSE212403",
+      "dataset_id": "discovered_gse212403",
+      "file_type_counts": "mtx_archive:1",
+      "matrix_file_count": 1,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE212403",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse212403_geo_gse212403_solanum_lycopersicum_single_cell_data_suberized_exodermis.sh",
+        "log_path": "logs/geo_promotion_gse212403.log",
+        "manifest": "data/corpus_manifest.gse212403.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse212403"
+      },
+      "queued_download": true,
+      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
+    },
+    {
+      "accession": "GSE214130",
+      "dataset_id": "discovered_gse214130",
+      "file_type_counts": "mtx_archive:1",
+      "matrix_file_count": 1,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE214130",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse214130_geo_gse214130_oryza_sativa_chromatin_accessibility_map_rice_root.sh",
+        "log_path": "logs/geo_promotion_gse214130.log",
+        "manifest": "data/corpus_manifest.gse214130.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse214130"
+      },
+      "queued_download": true,
+      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
+    },
+    {
+      "accession": "GSE226218",
+      "dataset_id": "discovered_gse226218",
+      "file_type_counts": "metadata_table:2;mtx_component:1",
+      "matrix_file_count": 1,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE226218",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse226218_geo_gse226218_gossypium_arboreum_transcriptional_landscape_cottont_roots_respons.sh",
+        "log_path": "logs/geo_promotion_gse226218.log",
+        "manifest": "data/corpus_manifest.gse226218.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse226218"
+      },
+      "queued_download": true,
+      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
+    }
+  ],
+  "geo_download_ready_unknown_manifest_queued": [
+    {
+      "accession": "GSE155304",
+      "dataset_id": "discovered_gse155304",
+      "file_type_counts": "metadata_table:3;mtx_archive:1;seurat_rds:2",
+      "matrix_file_count": 3,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155304",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse155304_geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis.sh",
+        "log_path": "logs/geo_promotion_gse155304.log",
+        "manifest": "data/corpus_manifest.gse155304.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse155304"
+      },
+      "queued_download": true,
+      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
+    },
+    {
+      "accession": "GSE121619",
+      "dataset_id": "discovered_gse121619",
+      "file_type_counts": "metadata_table:3;seurat_rds:1",
+      "matrix_file_count": 1,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE121619",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse121619_geo_gse121619_arabidopsis_thaliana_dynamics_gene_expression_single_root.sh",
+        "log_path": "logs/geo_promotion_gse121619.log",
+        "manifest": "data/corpus_manifest.gse121619.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse121619"
+      },
+      "queued_download": true,
+      "recommended_action": "download Seurat RDS; export with export_seurat_rds_to_mtx.R; build NPZ manifest"
+    },
+    {
+      "accession": "GSE123013",
+      "dataset_id": "discovered_gse123013",
+      "file_type_counts": "metadata_table:1;mtx_archive:1",
+      "matrix_file_count": 1,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE123013",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse123013_geo_gse123013_arabidopsis_thaliana_single_cell_rna_sequencing_analysis.sh",
+        "log_path": "logs/geo_promotion_gse123013.log",
+        "manifest": "data/corpus_manifest.gse123013.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse123013"
+      },
+      "queued_download": true,
+      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
+    },
+    {
+      "accession": "GSE138526",
+      "dataset_id": "discovered_gse138526",
+      "file_type_counts": "mtx_archive:1",
+      "matrix_file_count": 1,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE138526",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse138526_geo_gse138526_zea_mays_high_throughput_single_cell_rna.sh",
+        "log_path": "logs/geo_promotion_gse138526.log",
+        "manifest": "data/corpus_manifest.gse138526.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse138526"
+      },
+      "queued_download": true,
+      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
+    },
+    {
+      "accession": "GSE181999",
+      "dataset_id": "discovered_gse181999",
+      "file_type_counts": "mtx_archive:1",
+      "matrix_file_count": 1,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE181999",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse181999_geo_gse181999_arabidopsis_thaliana_an_arabidopsis_root_phloem_pole.sh",
+        "log_path": "logs/geo_promotion_gse181999.log",
+        "manifest": "data/corpus_manifest.gse181999.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse181999"
+      },
+      "queued_download": true,
+      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
+    },
+    {
+      "accession": "GSE212403",
+      "dataset_id": "discovered_gse212403",
+      "file_type_counts": "mtx_archive:1",
+      "matrix_file_count": 1,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE212403",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse212403_geo_gse212403_solanum_lycopersicum_single_cell_data_suberized_exodermis.sh",
+        "log_path": "logs/geo_promotion_gse212403.log",
+        "manifest": "data/corpus_manifest.gse212403.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse212403"
+      },
+      "queued_download": true,
+      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
+    },
+    {
+      "accession": "GSE214130",
+      "dataset_id": "discovered_gse214130",
+      "file_type_counts": "mtx_archive:1",
+      "matrix_file_count": 1,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE214130",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse214130_geo_gse214130_oryza_sativa_chromatin_accessibility_map_rice_root.sh",
+        "log_path": "logs/geo_promotion_gse214130.log",
+        "manifest": "data/corpus_manifest.gse214130.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse214130"
+      },
+      "queued_download": true,
+      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
+    },
+    {
+      "accession": "GSE226218",
+      "dataset_id": "discovered_gse226218",
+      "file_type_counts": "metadata_table:2;mtx_component:1",
+      "matrix_file_count": 1,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE226218",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse226218_geo_gse226218_gossypium_arboreum_transcriptional_landscape_cottont_roots_respons.sh",
+        "log_path": "logs/geo_promotion_gse226218.log",
+        "manifest": "data/corpus_manifest.gse226218.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse226218"
+      },
+      "queued_download": true,
+      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
+    }
+  ],
+  "geo_download_ready_unknown_manifest_unqueued": [],
+  "manifest_download_ready_queued": [
     {
       "accession": "GSE182507",
       "dataset_id": "discovered_gse182507",
@@ -123,6 +346,23 @@
       "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
     },
     {
+      "accession": "GSE235495",
+      "dataset_id": "discovered_gse235495",
+      "file_type_counts": "mtx_archive:1",
+      "matrix_file_count": 1,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE235495",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse235495_geo_gse235495_arabidopsis_thaliana_multiome_same_cell_revealed_impact.sh",
+        "log_path": "logs/geo_promotion_gse235495.log",
+        "manifest": "data/corpus_manifest.gse235495.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse235495"
+      },
+      "queued_download": true,
+      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
+    },
+    {
       "accession": "GSE267159",
       "dataset_id": "discovered_gse267159",
       "file_type_counts": "mtx_archive:1",
@@ -135,23 +375,6 @@
         "manifest": "data/corpus_manifest.gse267159.tsv",
         "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
         "session": "snowcell_geo_promotion_gse267159"
-      },
-      "queued_download": true,
-      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
-    },
-    {
-      "accession": "GSE283835",
-      "dataset_id": "discovered_gse283835",
-      "file_type_counts": "metadata_table:1;mtx_archive:1",
-      "matrix_file_count": 1,
-      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE283835",
-      "priority": "A",
-      "queue_job": {
-        "command": "bash scripts/generated_geo_promotion_downloads/download_gse283835_geo_gse283835_populus_tremula_single_nuclei_transcriptomic_bulk_rna.sh",
-        "log_path": "logs/geo_promotion_gse283835.log",
-        "manifest": "data/corpus_manifest.gse283835.tsv",
-        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
-        "session": "snowcell_geo_promotion_gse283835"
       },
       "queued_download": true,
       "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
@@ -160,57 +383,6 @@
   "manifest_download_ready_unqueued": [],
   "manifest_download_ready_without_corpus": [
     {
-      "accession": "GSE303996",
-      "dataset_id": "discovered_gse303996",
-      "file_type_counts": "mtx_archive:1;seurat_rds:16",
-      "matrix_file_count": 17,
-      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE303996",
-      "priority": "A",
-      "queue_job": {
-        "command": "bash scripts/generated_geo_promotion_downloads/download_gse303996_geo_gse303996_arabidopsis_thaliana_histone_deacetylases_cell_cycle_regulators.sh",
-        "log_path": "logs/geo_promotion_gse303996.log",
-        "manifest": "data/corpus_manifest.gse303996.tsv",
-        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
-        "session": "snowcell_geo_promotion_gse303996"
-      },
-      "queued_download": true,
-      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
-    },
-    {
-      "accession": "GSE308672",
-      "dataset_id": "discovered_gse308672",
-      "file_type_counts": "mtx_archive:1;seurat_rds:1",
-      "matrix_file_count": 2,
-      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE308672",
-      "priority": "A",
-      "queue_job": {
-        "command": "bash scripts/generated_geo_promotion_downloads/download_gse308672_geo_gse308672_arabidopsis_thaliana_discrete_cell_specific_hypoxic_responses.sh",
-        "log_path": "logs/geo_promotion_gse308672.log",
-        "manifest": "data/corpus_manifest.gse308672.tsv",
-        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
-        "session": "snowcell_geo_promotion_gse308672"
-      },
-      "queued_download": true,
-      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
-    },
-    {
-      "accession": "GSE157757",
-      "dataset_id": "discovered_gse157757",
-      "file_type_counts": "mtx_archive:1",
-      "matrix_file_count": 1,
-      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE157757",
-      "priority": "A",
-      "queue_job": {
-        "command": "bash scripts/generated_geo_promotion_downloads/download_gse157757_geo_gse157757_zea_mays_single_cell_sequencing_reveals_phloem.sh",
-        "log_path": "logs/geo_promotion_gse157757.log",
-        "manifest": "data/corpus_manifest.gse157757.tsv",
-        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
-        "session": "snowcell_geo_promotion_gse157757"
-      },
-      "queued_download": true,
-      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
-    },
-    {
       "accession": "GSE182507",
       "dataset_id": "discovered_gse182507",
       "file_type_counts": "mtx_archive:1",
@@ -279,6 +451,23 @@
       "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
     },
     {
+      "accession": "GSE235495",
+      "dataset_id": "discovered_gse235495",
+      "file_type_counts": "mtx_archive:1",
+      "matrix_file_count": 1,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE235495",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse235495_geo_gse235495_arabidopsis_thaliana_multiome_same_cell_revealed_impact.sh",
+        "log_path": "logs/geo_promotion_gse235495.log",
+        "manifest": "data/corpus_manifest.gse235495.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse235495"
+      },
+      "queued_download": true,
+      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
+    },
+    {
       "accession": "GSE267159",
       "dataset_id": "discovered_gse267159",
       "file_type_counts": "mtx_archive:1",
@@ -291,23 +480,6 @@
         "manifest": "data/corpus_manifest.gse267159.tsv",
         "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
         "session": "snowcell_geo_promotion_gse267159"
-      },
-      "queued_download": true,
-      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
-    },
-    {
-      "accession": "GSE283835",
-      "dataset_id": "discovered_gse283835",
-      "file_type_counts": "metadata_table:1;mtx_archive:1",
-      "matrix_file_count": 1,
-      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE283835",
-      "priority": "A",
-      "queue_job": {
-        "command": "bash scripts/generated_geo_promotion_downloads/download_gse283835_geo_gse283835_populus_tremula_single_nuclei_transcriptomic_bulk_rna.sh",
-        "log_path": "logs/geo_promotion_gse283835.log",
-        "manifest": "data/corpus_manifest.gse283835.tsv",
-        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
-        "session": "snowcell_geo_promotion_gse283835"
       },
       "queued_download": true,
       "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
@@ -525,6 +697,16 @@
       "url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA939009"
     },
     {
+      "accession": "GSE212404",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Solanum lycopersicum",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 7,
+      "title": "Protoplast data: suberized exodermis is required for tomato drought tolerance",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE212404"
+    },
+    {
       "accession": "GSE289042",
       "matched_queries": "plant_single_cell_gds",
       "organism": "Arabidopsis thaliana",
@@ -536,7 +718,7 @@
     },
     {
       "accession": "GSE290214",
-      "matched_queries": "plant_single_cell_gds",
+      "matched_queries": "medicinal_secondary_metabolism_single_cell;plant_single_cell_gds",
       "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
@@ -555,264 +737,254 @@
       "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE295131"
     },
     {
-      "accession": "GSE172277",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Zea mays",
+      "accession": "GSE90142",
+      "matched_queries": "plant_single_cell_gds;woody_legume_cereal_single_cell_gds",
+      "organism": "Glycine max",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Ground tissue circuitry regulates organ complexity in monocot roots [slices]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE172277"
+      "score": 7,
+      "title": "Divergent cytosine DNA methylation patterns in single-cell, soybean root hairs (MethylC-seq)",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE90142"
     },
     {
-      "accession": "GSE173087",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Zea mays",
+      "accession": "GSE98045",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Ground tissue circuitry regulates organ complexity in monocot roots [root meristem scRNA-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE173087"
+      "score": 7,
+      "title": "Salt-stress and CTD phosphatase-like 4 mediate switching of snRNA to mRNA transcription in Arabidopsis thaliana [CPL4(Oto)]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE98045"
     },
     {
-      "accession": "GSE213647",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Homo sapiens",
+      "accession": "GSE98046",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Mitochondrial SHMT2 is a crucial therapeutic target in dedifferentiated thyroid cancer",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE213647"
+      "score": 7,
+      "title": "Salt-stress and CTD phosphatase-like 4 mediate switching of snRNA to mRNA transcription in Arabidopsis thaliana [im-nc]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE98046"
     },
     {
-      "accession": "GSE214016",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Apostichopus japonicus",
+      "accession": "GSE98047",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Gene expression profile at single cell level of nervous system in sea cucumber.",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE214016"
+      "score": 7,
+      "title": "Salt-stress and CTD phosphatase-like 4 mediate switching of snRNA to mRNA transcription in Arabidopsis thaliana",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE98047"
     },
     {
-      "accession": "GSE223765",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Homo sapiens",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Mitochondrial SHMT2 is a crucial therapeutic target in dedifferentiated thyroid cancer (2nd study)",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE223765"
-    },
-    {
-      "accession": "GSE225118",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Setaria viridis; Zea mays; Arabidopsis thaliana; Sorghum bicolor",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "A pan-grass transcriptome reveals patterns of cellular divergence in crops",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE225118"
-    },
-    {
-      "accession": "GSE230431",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Homo sapiens",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "GPATCH4 regulates rRNA and snRNA 2’-O-methylation in both DHX15-dependent and -independent manners [CRAC]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE230431"
-    },
-    {
-      "accession": "GSE230432",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Homo sapiens",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "GPATCH4 regulates rRNA and snRNA 2’-O-methylation in both DHX15-dependent and -independent manners [small RNA-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE230432"
-    },
-    {
-      "accession": "GSE230637",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Homo sapiens",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "GPATCH4 regulates rRNA and snRNA 2’-O-methylation in both DHX15-dependent and -independent manners [ChIP-Seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE230637"
-    },
-    {
-      "accession": "GSE232237",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Homo sapiens",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Gene expression profile at single cell level of thyroid cells from thyroid cancer tissues",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE232237"
-    },
-    {
-      "accession": "GSE234191",
+      "accession": "GSE11217",
       "matched_queries": "plant_single_cell_gds",
       "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Bulk RNA-sequencing of calli harvested 7 and 12 days after incubation on callus-inducing medium",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE234191"
+      "title": "Altered gene expression changes in Arabidopsis leaf tissues and protoplasts in response to Plum pox virus infection",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE11217"
     },
     {
-      "accession": "GSE235021",
+      "accession": "GSE112671",
       "matched_queries": "plant_single_cell_gds",
       "organism": "Mus musculus",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Ovarian transcriptome sequencing (scRNA-seq and RNA-seq) of 6 and 9-month-old mice fed black rice, white brown rice and polished rice",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE235021"
+      "title": "Single cell RNA-seq analysis in dermis of SM22rtTA; tetO-Cre; R26-Tomato (SM22-Tomato, control) and SM22rtTA; tetO-Cre; R26-SmoM2/Tomato (SM22-SmoM2/Tomato, forced Hh activation in wound dermis) at 3 days after complete reepithelialization",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE112671"
     },
     {
-      "accession": "GSE245410",
+      "accession": "GSE114615",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Molecular Mechanisms Driving Switch Behavior in Xylem Cell Differentiation",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE114615"
+    },
+    {
+      "accession": "GSE115297",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Mus musculus",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single cell sequencing of Tomato+ cells in bones from Prrx1-CreERT;Tomato mice with the treatment of Tamoxifen for 3 days",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE115297"
+    },
+    {
+      "accession": "GSE115298",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Mus musculus",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single cell sequencing of Tomato+ cells in Inguinal White Fat from Prrx1-CreERT;Tomato mice with the treatment of Tamoxifen for 3 days",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE115298"
+    },
+    {
+      "accession": "GSE115299",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Mus musculus",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single cell sequencing of Tomato+ cells in skin from Prrx1-CreERT;Tomato mice with the treatment of Tamoxifen for 3 days",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE115299"
+    },
+    {
+      "accession": "GSE116614",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "High-throughput single cell transcriptome profiling of plant tissue",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE116614"
+    },
+    {
+      "accession": "GSE118136",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Cell-type specific transcriptome and histone modification dynamics during in situ cellular reprogramming in the Arabidopsis stomatal lineage [ChIP-Seq]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE118136"
+    },
+    {
+      "accession": "GSE118137",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Cell-type specific transcriptome and histone modification dynamics during in situ cellular reprogramming in the Arabidopsis stomatal lineage [RNA-Seq]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE118137"
+    },
+    {
+      "accession": "GSE122687",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "High-throughput single-cell transcriptome profiling of plant cell types",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE122687"
+    },
+    {
+      "accession": "GSE123109",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Oryza sativa Japonica Group",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single-cell three dimensional genome structures of rice egg, sperm, and unicellular zygote",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE123109"
+    },
+    {
+      "accession": "GSE123164",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Zea mays",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single-cell type transcriptome analysis of maize roothair",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE123164"
+    },
+    {
+      "accession": "GSE123818",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Spatiotemporal Developmental Trajectories in the Arabidopsis Root Revealed Using High-Throughput Single Cell RNA Sequencing",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE123818"
+    },
+    {
+      "accession": "GSE132904",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Mus musculus",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single cell sequencing of Tomato+ cells in hindlimb muscles from Prrx1-CreERT;Tomato mice with the treatment of Tamoxifen for 3 days",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE132904"
+    },
+    {
+      "accession": "GSE140778",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "blank sample; Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Cellular trajectory analysis links tissue maturation to cellular specialization in the plant meristem",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE140778"
+    },
+    {
+      "accession": "GSE140977",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Cellular trajectory analysis links tissue maturation to cellular specialization in the plant meristem II",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE140977"
+    },
+    {
+      "accession": "GSE141730",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Vascular transcription factors control epidermal responses to limiting phosphate conditions",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE141730"
+    },
+    {
+      "accession": "GSE142259",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Cellular trajectory analysis links tissue maturation to cellular specialization in the plant meristem [protophloem sieve element cells]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE142259"
+    },
+    {
+      "accession": "GSE142613",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Photoperiod-mediated Chromatin Accessibility in the Single Cell Types of Leaf Phloem and Epidermis in Arabidopsis",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE142613"
+    },
+    {
+      "accession": "GSE146033",
       "matched_queries": "plant_single_cell_gds",
       "organism": "Oryza sativa",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "A single-cell multiomics atlas of rice",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE245410"
+      "title": "Single-cell transcriptomic analysis of rice root tips [bulk RNA-seq]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE146033"
     },
     {
-      "accession": "GSE248470",
+      "accession": "GSE146035",
       "matched_queries": "plant_single_cell_gds",
-      "organism": "Gossypium hirsutum",
+      "organism": "Oryza sativa",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "D53 is a dual-function transcription repressor of strigolactone signaling in cotton.",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE248470"
-    },
-    {
-      "accession": "GSE253665",
-      "matched_queries": "medicinal_secondary_metabolism_single_cell;plant_single_cell_gds",
-      "organism": "Bombyx mandarina; Bombyx mori",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Deciphering the molecular mechanism of flight loss in mulberry silkworm through the integration of single-cell and spatial transcriptomics [stRNA-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE253665"
-    },
-    {
-      "accession": "GSE253666",
-      "matched_queries": "medicinal_secondary_metabolism_single_cell;plant_single_cell_gds",
-      "organism": "Bombyx mandarina; Bombyx mori",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Deciphering the molecular mechanism of flight loss in mulberry silkworm through the integration of single-cell and spatial transcriptomics [B_scRNA-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE253666"
-    },
-    {
-      "accession": "GSE253667",
-      "matched_queries": "medicinal_secondary_metabolism_single_cell;plant_single_cell_gds",
-      "organism": "Helicoverpa armigera",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Deciphering the molecular mechanism of flight loss in mulberry silkworm through the integration of single-cell and spatial transcriptomics [H_scRNA-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE253667"
-    },
-    {
-      "accession": "GSE256014",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Zea mays; Homo sapiens; Mus musculus",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Single cell-RNA datasets from cell lines and dissociated mouse and maize tissues",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE256014"
-    },
-    {
-      "accession": "GSE259425",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Mus musculus",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "miR-203 facilitates timely cell fate transitions via epigenetic modulation during early embryogenesis (CUT&RUN)",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE259425"
-    },
-    {
-      "accession": "GSE259426",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Mus musculus",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "miR-203 facilitates timely cell fate transitions via epigenetic modulation during early embryogenesis (RNA-Seq)",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE259426"
-    },
-    {
-      "accession": "GSE259427",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Mus musculus",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "miR-203 facilitates timely cell fate transitions via epigenetic modulation during early embryogenesis (scRNAseq)",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE259427"
-    },
-    {
-      "accession": "GSE266007",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Zea mays",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "WUSCHEL-dependent cis-regulation in maize inflorescence development at single-cell resolution",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE266007"
-    },
-    {
-      "accession": "GSE269623",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Arabidopsis thaliana",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Glutathione accelerates the cell cycle and cellular reprogramming in plant regeneration [bulk RNA-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE269623"
-    },
-    {
-      "accession": "GSE273478",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Zea mays",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "The genetic architecture of cell-type-specific cis-regulation [ATAC-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE273478"
-    },
-    {
-      "accession": "GSE275410",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Zea mays",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "The genetic architecture of single-cell chromatin accessibility in maize",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE275410"
-    },
-    {
-      "accession": "GSE275693",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Arabidopsis thaliana",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "An antagonistic epigenetic mechanism regulating gene expression in pollen revealed through single-nucleus multiomics [ChIP-Seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE275693"
+      "title": "Single-cell transcriptomic analysis of rice root tips",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE146035"
     }
   ],
   "new_review_candidates": [
@@ -1027,6 +1199,16 @@
       "url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA939009"
     },
     {
+      "accession": "GSE212404",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Solanum lycopersicum",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 7,
+      "title": "Protoplast data: suberized exodermis is required for tomato drought tolerance",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE212404"
+    },
+    {
       "accession": "GSE289042",
       "matched_queries": "plant_single_cell_gds",
       "organism": "Arabidopsis thaliana",
@@ -1038,7 +1220,7 @@
     },
     {
       "accession": "GSE290214",
-      "matched_queries": "plant_single_cell_gds",
+      "matched_queries": "medicinal_secondary_metabolism_single_cell;plant_single_cell_gds",
       "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
@@ -1057,8 +1239,438 @@
       "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE295131"
     },
     {
-      "accession": "GSE172277",
+      "accession": "GSE90142",
+      "matched_queries": "plant_single_cell_gds;woody_legume_cereal_single_cell_gds",
+      "organism": "Glycine max",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 7,
+      "title": "Divergent cytosine DNA methylation patterns in single-cell, soybean root hairs (MethylC-seq)",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE90142"
+    },
+    {
+      "accession": "GSE98045",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 7,
+      "title": "Salt-stress and CTD phosphatase-like 4 mediate switching of snRNA to mRNA transcription in Arabidopsis thaliana [CPL4(Oto)]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE98045"
+    },
+    {
+      "accession": "GSE98046",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 7,
+      "title": "Salt-stress and CTD phosphatase-like 4 mediate switching of snRNA to mRNA transcription in Arabidopsis thaliana [im-nc]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE98046"
+    },
+    {
+      "accession": "GSE98047",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 7,
+      "title": "Salt-stress and CTD phosphatase-like 4 mediate switching of snRNA to mRNA transcription in Arabidopsis thaliana",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE98047"
+    },
+    {
+      "accession": "GSE11217",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Altered gene expression changes in Arabidopsis leaf tissues and protoplasts in response to Plum pox virus infection",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE11217"
+    },
+    {
+      "accession": "GSE112671",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Mus musculus",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single cell RNA-seq analysis in dermis of SM22rtTA; tetO-Cre; R26-Tomato (SM22-Tomato, control) and SM22rtTA; tetO-Cre; R26-SmoM2/Tomato (SM22-SmoM2/Tomato, forced Hh activation in wound dermis) at 3 days after complete reepithelialization",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE112671"
+    },
+    {
+      "accession": "GSE114615",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Molecular Mechanisms Driving Switch Behavior in Xylem Cell Differentiation",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE114615"
+    },
+    {
+      "accession": "GSE115297",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Mus musculus",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single cell sequencing of Tomato+ cells in bones from Prrx1-CreERT;Tomato mice with the treatment of Tamoxifen for 3 days",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE115297"
+    },
+    {
+      "accession": "GSE115298",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Mus musculus",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single cell sequencing of Tomato+ cells in Inguinal White Fat from Prrx1-CreERT;Tomato mice with the treatment of Tamoxifen for 3 days",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE115298"
+    },
+    {
+      "accession": "GSE115299",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Mus musculus",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single cell sequencing of Tomato+ cells in skin from Prrx1-CreERT;Tomato mice with the treatment of Tamoxifen for 3 days",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE115299"
+    },
+    {
+      "accession": "GSE116614",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "High-throughput single cell transcriptome profiling of plant tissue",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE116614"
+    },
+    {
+      "accession": "GSE118136",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Cell-type specific transcriptome and histone modification dynamics during in situ cellular reprogramming in the Arabidopsis stomatal lineage [ChIP-Seq]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE118136"
+    },
+    {
+      "accession": "GSE118137",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Cell-type specific transcriptome and histone modification dynamics during in situ cellular reprogramming in the Arabidopsis stomatal lineage [RNA-Seq]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE118137"
+    },
+    {
+      "accession": "GSE122687",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "High-throughput single-cell transcriptome profiling of plant cell types",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE122687"
+    },
+    {
+      "accession": "GSE123109",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Oryza sativa Japonica Group",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single-cell three dimensional genome structures of rice egg, sperm, and unicellular zygote",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE123109"
+    },
+    {
+      "accession": "GSE123164",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Zea mays",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single-cell type transcriptome analysis of maize roothair",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE123164"
+    },
+    {
+      "accession": "GSE123818",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Spatiotemporal Developmental Trajectories in the Arabidopsis Root Revealed Using High-Throughput Single Cell RNA Sequencing",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE123818"
+    },
+    {
+      "accession": "GSE132904",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Mus musculus",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single cell sequencing of Tomato+ cells in hindlimb muscles from Prrx1-CreERT;Tomato mice with the treatment of Tamoxifen for 3 days",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE132904"
+    },
+    {
+      "accession": "GSE140778",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "blank sample; Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Cellular trajectory analysis links tissue maturation to cellular specialization in the plant meristem",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE140778"
+    },
+    {
+      "accession": "GSE140977",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Cellular trajectory analysis links tissue maturation to cellular specialization in the plant meristem II",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE140977"
+    },
+    {
+      "accession": "GSE141730",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Vascular transcription factors control epidermal responses to limiting phosphate conditions",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE141730"
+    },
+    {
+      "accession": "GSE142259",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Cellular trajectory analysis links tissue maturation to cellular specialization in the plant meristem [protophloem sieve element cells]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE142259"
+    },
+    {
+      "accession": "GSE142613",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Photoperiod-mediated Chromatin Accessibility in the Single Cell Types of Leaf Phloem and Epidermis in Arabidopsis",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE142613"
+    },
+    {
+      "accession": "GSE146033",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Oryza sativa",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single-cell transcriptomic analysis of rice root tips [bulk RNA-seq]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE146033"
+    },
+    {
+      "accession": "GSE146035",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Oryza sativa",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single-cell transcriptomic analysis of rice root tips",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE146035"
+    },
+    {
+      "accession": "GSE147289",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single-Cell RNA-seq analysis of cell lineages in De Novo Root Regeneration",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE147289"
+    },
+    {
+      "accession": "GSE149198",
       "matched_queries": "woody_legume_cereal_single_cell_gds",
+      "organism": "Homo sapiens",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "H3.3G34W promotes growth and impedes differentiation of osteoblast-like mesenchymal progenitors in Giant Cell Tumour of Bone [ChIP-Seq]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE149198"
+    },
+    {
+      "accession": "GSE149201",
+      "matched_queries": "woody_legume_cereal_single_cell_gds",
+      "organism": "Homo sapiens",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "H3.3G34W promotes growth and impedes differentiation of osteoblast-like mesenchymal progenitors in giant cell tumour of bone [scRNA-Seq and snRNA-Seq]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE149201"
+    },
+    {
+      "accession": "GSE149209",
+      "matched_queries": "woody_legume_cereal_single_cell_gds",
+      "organism": "Homo sapiens",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "H3.3G34W promotes growth and impedes differentiation of osteoblast-like mesenchymal progenitors in Giant Cell Tumour of Bone [RNA-Seq]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE149209"
+    },
+    {
+      "accession": "GSE155178",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana; Zea mays",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "A cis-regulatory atlas of maize single cells",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155178"
+    },
+    {
+      "accession": "GSE156990",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "RNA-seq analysis of callus of Arabidopsis WT and wox5-1 wox7-1",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE156990"
+    },
+    {
+      "accession": "GSE156991",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single-cell RNA-seq analysis of Arabidopsis hypocotyl callus",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE156991"
+    },
+    {
+      "accession": "GSE157145",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Transcriptional and imprinting complexity in Arabidopsis seeds at single-nucleus resolution",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE157145"
+    },
+    {
+      "accession": "GSE157759",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Zea mays",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single cell sequencing reveals phloem loading occurs via the abaxial bundle sheath cells in maize leaves",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE157759"
+    },
+    {
+      "accession": "GSE158761",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "A single cell view of the transcriptome during lateral root initiation",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE158761"
+    },
+    {
+      "accession": "GSE159055",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Solanum lycopersicum",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single cell mRNA-Seq of developing stem-borne roots in tomato",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE159055"
+    },
+    {
+      "accession": "GSE161332",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single cell RNA sequencing of Col-0 leaf cell",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE161332"
+    },
+    {
+      "accession": "GSE161411",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Whole leaf vs. Leaf protoplst bulk RNA sequencing dataset",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE161411"
+    },
+    {
+      "accession": "GSE161482",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Unique and distinct identities and functions of leaf phloem cells revealed by single cell transcriptomics",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE161482"
+    },
+    {
+      "accession": "GSE167135",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single-Cell Resolution of Lineage Trajectories in the Arabidopsis Stomatal Lineage and Developing Leaf",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE167135"
+    },
+    {
+      "accession": "GSE167958",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Mus musculus",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Single-cell mRNA sequencing of embryonic and extra-embryonic mesoderm and extra-embryonic structures in mouse embryo during gastrulation.",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE167958"
+    },
+    {
+      "accession": "GSE16868",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Zea mays",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Gene Expression between two cell layers in maize shoot apical meristem",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE16868"
+    },
+    {
+      "accession": "GSE169284",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Gene Expression Variation in Arabidopsis Embryos at Single-Nucleus Resolution",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE169284"
+    },
+    {
+      "accession": "GSE172277",
+      "matched_queries": "plant_single_cell_gds;woody_legume_cereal_single_cell_gds",
       "organism": "Zea mays",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
@@ -1068,7 +1680,7 @@
     },
     {
       "accession": "GSE173087",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
+      "matched_queries": "plant_single_cell_gds;woody_legume_cereal_single_cell_gds",
       "organism": "Zea mays",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
@@ -1077,775 +1689,335 @@
       "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE173087"
     },
     {
-      "accession": "GSE213647",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Homo sapiens",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Mitochondrial SHMT2 is a crucial therapeutic target in dedifferentiated thyroid cancer",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE213647"
-    },
-    {
-      "accession": "GSE214016",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Apostichopus japonicus",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Gene expression profile at single cell level of nervous system in sea cucumber.",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE214016"
-    },
-    {
-      "accession": "GSE223765",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Homo sapiens",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Mitochondrial SHMT2 is a crucial therapeutic target in dedifferentiated thyroid cancer (2nd study)",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE223765"
-    },
-    {
-      "accession": "GSE225118",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Setaria viridis; Zea mays; Arabidopsis thaliana; Sorghum bicolor",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "A pan-grass transcriptome reveals patterns of cellular divergence in crops",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE225118"
-    },
-    {
-      "accession": "GSE230431",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Homo sapiens",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "GPATCH4 regulates rRNA and snRNA 2’-O-methylation in both DHX15-dependent and -independent manners [CRAC]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE230431"
-    },
-    {
-      "accession": "GSE230432",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Homo sapiens",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "GPATCH4 regulates rRNA and snRNA 2’-O-methylation in both DHX15-dependent and -independent manners [small RNA-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE230432"
-    },
-    {
-      "accession": "GSE230637",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Homo sapiens",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "GPATCH4 regulates rRNA and snRNA 2’-O-methylation in both DHX15-dependent and -independent manners [ChIP-Seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE230637"
-    },
-    {
-      "accession": "GSE232237",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Homo sapiens",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Gene expression profile at single cell level of thyroid cells from thyroid cancer tissues",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE232237"
-    },
-    {
-      "accession": "GSE234191",
+      "accession": "GSE173834",
       "matched_queries": "plant_single_cell_gds",
       "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Bulk RNA-sequencing of calli harvested 7 and 12 days after incubation on callus-inducing medium",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE234191"
+      "title": "The regulatory landscape of Arabidopsis thaliana roots at single-cell resolution",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE173834"
     },
     {
-      "accession": "GSE235021",
+      "accession": "GSE174599",
       "matched_queries": "plant_single_cell_gds",
-      "organism": "Mus musculus",
+      "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Ovarian transcriptome sequencing (scRNA-seq and RNA-seq) of 6 and 9-month-old mice fed black rice, white brown rice and polished rice",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE235021"
+      "title": "snRNA-seq of Arabidopsis thaliana flower meristems",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE174599"
     },
     {
-      "accession": "GSE245410",
+      "accession": "GSE178354",
       "matched_queries": "plant_single_cell_gds",
-      "organism": "Oryza sativa",
+      "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "A single-cell multiomics atlas of rice",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE245410"
+      "title": "RNA-seq analysis of callus of Arabidopsis WT and plt1 plt2",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE178354"
     },
     {
-      "accession": "GSE248470",
+      "accession": "GSE179820",
       "matched_queries": "plant_single_cell_gds",
-      "organism": "Gossypium hirsutum",
+      "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "D53 is a dual-function transcription repressor of strigolactone signaling in cotton.",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE248470"
+      "title": "Non-cell autonomous and spatiotemporal signaling from a tissue organizer orchestrates root vascular development",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE179820"
     },
     {
-      "accession": "GSE253665",
-      "matched_queries": "medicinal_secondary_metabolism_single_cell;plant_single_cell_gds",
-      "organism": "Bombyx mandarina; Bombyx mori",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Deciphering the molecular mechanism of flight loss in mulberry silkworm through the integration of single-cell and spatial transcriptomics [stRNA-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE253665"
-    },
-    {
-      "accession": "GSE253666",
-      "matched_queries": "medicinal_secondary_metabolism_single_cell;plant_single_cell_gds",
-      "organism": "Bombyx mandarina; Bombyx mori",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Deciphering the molecular mechanism of flight loss in mulberry silkworm through the integration of single-cell and spatial transcriptomics [B_scRNA-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE253666"
-    },
-    {
-      "accession": "GSE253667",
-      "matched_queries": "medicinal_secondary_metabolism_single_cell;plant_single_cell_gds",
-      "organism": "Helicoverpa armigera",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Deciphering the molecular mechanism of flight loss in mulberry silkworm through the integration of single-cell and spatial transcriptomics [H_scRNA-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE253667"
-    },
-    {
-      "accession": "GSE256014",
+      "accession": "GSE181178",
       "matched_queries": "plant_single_cell_gds",
-      "organism": "Zea mays; Homo sapiens; Mus musculus",
+      "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Single cell-RNA datasets from cell lines and dissociated mouse and maize tissues",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE256014"
+      "title": "A single-cell morpho-transcriptomic map of brassinosteroid action in the Arabidopsis root",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE181178"
     },
     {
-      "accession": "GSE259425",
+      "accession": "GSE182112",
       "matched_queries": "plant_single_cell_gds",
-      "organism": "Mus musculus",
+      "organism": "Physcomitrium patens",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "miR-203 facilitates timely cell fate transitions via epigenetic modulation during early embryogenesis (CUT&RUN)",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE259425"
+      "title": "The Physcomitrium patens egg cell changes the epigenetic program and utilizes homologs of Arabidopsis male genes, including BONOBOs, for cell specification",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE182112"
     },
     {
-      "accession": "GSE259426",
+      "accession": "GSE182331",
       "matched_queries": "plant_single_cell_gds",
-      "organism": "Mus musculus",
+      "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "miR-203 facilitates timely cell fate transitions via epigenetic modulation during early embryogenesis (RNA-Seq)",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE259426"
+      "title": "A single-cell transcriptomic atlas of A. thaliana seed germination",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE182331"
     },
     {
-      "accession": "GSE259427",
+      "accession": "GSE182672",
       "matched_queries": "plant_single_cell_gds",
-      "organism": "Mus musculus",
+      "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "miR-203 facilitates timely cell fate transitions via epigenetic modulation during early embryogenesis (scRNAseq)",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE259427"
+      "title": "An Arabidopsis root phloem pole cell atlas reveals PINEAPPLE genes as transitioners to autotrophy [bulk RNA-seq]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE182672"
     },
     {
-      "accession": "GSE266007",
+      "accession": "GSE183171",
       "matched_queries": "plant_single_cell_gds",
       "organism": "Zea mays",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "WUSCHEL-dependent cis-regulation in maize inflorescence development at single-cell resolution",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE266007"
+      "title": "Single cell RNA sequencing of maize root",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE183171"
     },
     {
-      "accession": "GSE269623",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Arabidopsis thaliana",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Glutathione accelerates the cell cycle and cellular reprogramming in plant regeneration [bulk RNA-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE269623"
-    },
-    {
-      "accession": "GSE273478",
+      "accession": "GSE183422",
       "matched_queries": "plant_single_cell_gds",
       "organism": "Zea mays",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "The genetic architecture of cell-type-specific cis-regulation [ATAC-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE273478"
+      "title": "Beyond the protoplast: isolating and analyzing fixed cells for plant single-cell research",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE183422"
     },
     {
-      "accession": "GSE275410",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Zea mays",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "The genetic architecture of single-cell chromatin accessibility in maize",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE275410"
-    },
-    {
-      "accession": "GSE275693",
+      "accession": "GSE184511",
       "matched_queries": "plant_single_cell_gds",
       "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "An antagonistic epigenetic mechanism regulating gene expression in pollen revealed through single-nucleus multiomics [ChIP-Seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE275693"
+      "title": "scRNA-seq or Arabidopsis leaves",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE184511"
     },
     {
-      "accession": "GSE275698",
+      "accession": "GSE185068",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Oryza sativa Japonica Group",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "A rice single cell transcriptomic atlas defines the developmental trajectories of rice floret and inflorescence meristems",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE185068"
+    },
+    {
+      "accession": "GSE189482",
       "matched_queries": "plant_single_cell_gds",
       "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Single-nucleus methylcytosine and transcriptome sequencing in pollen reveals antagonism between MBD5/6 and MBD7 in transcriptional regulation [RNA-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE275698"
+      "title": "Precise Transcript Reconstruction with End-Guided Assembly",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE189482"
     },
     {
-      "accession": "GSE275831",
+      "accession": "GSE190753",
       "matched_queries": "plant_single_cell_gds",
       "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "An antagonistic epigenetic mechanism regulating gene expression in pollen revealed through single-nucleus multiomics [snmCT-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE275831"
+      "title": "Profiling chromatin accessibility during stomatal development",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE190753"
     },
     {
-      "accession": "GSE275832",
+      "accession": "GSE192610",
       "matched_queries": "plant_single_cell_gds",
       "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "An antagonistic epigenetic mechanism regulating gene expression in pollen revealed through single-nucleus multiomics",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE275832"
+      "title": "Function of ARGONAUTE proteins in the Arabidopsis shoot apical meristem (SAM) [snRNA-seq]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE192610"
     },
     {
-      "accession": "GSE276916",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
+      "accession": "GSE193451",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
+      "score": 6,
+      "title": "Cell type-specific attenuation of brassinosteroid signaling precedes stomatal asymmetric cell division",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193451"
+    },
+    {
+      "accession": "GSE196720",
+      "matched_queries": "plant_single_cell_gds",
       "organism": "Mus musculus",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Dual Impacts of Serine/Glycine Free Diet in Enhancing Antitumor Immunity and Promoting Evasion via PD-L1 Lactylation [scRNA-Seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE276916"
+      "title": "Single cell RNA sequencing-based comparison of mouse splenic pDC, pDC-like cells, tDC, cDC1 and cDC2 at steady state and during a viral infection",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE196720"
     },
     {
-      "accession": "GSE278759",
+      "accession": "GSE198394",
       "matched_queries": "plant_single_cell_gds",
       "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Trans-generational adaptation to maternal climate through hormone transport in plants",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE278759"
+      "title": "An environmentally responsive dichotomy in cell lineages of the root",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE198394"
     },
     {
-      "accession": "GSE278833",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Arabidopsis thaliana",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Trans-generational adaptation to maternal climate through hormone transport in plants [bulk RNA-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE278833"
-    },
-    {
-      "accession": "GSE280705",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Arabidopsis thaliana",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Trans-generational adaptation to maternal climate through hormone transport in plants [scRNA-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE280705"
-    },
-    {
-      "accession": "GSE281215",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Glycine soja",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Spatiotemporal transcriptomic and metabolomic landscapes of wild soybean seed development reveal regulatory mechanisms of nutrient accumulation [scRNA-Seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE281215"
-    },
-    {
-      "accession": "GSE281380",
-      "matched_queries": "plant_single_cell_gds;woody_legume_cereal_single_cell_gds",
-      "organism": "Populus trichocarpa",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Identification of phloem-specific proteinaSEOus structure heterogeneity in sieve element of Populus trichocarpa",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE281380"
-    },
-    {
-      "accession": "GSE282999",
-      "matched_queries": "medicinal_secondary_metabolism_single_cell;plant_single_cell_gds",
-      "organism": "Gossypium hirsutum",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "scRNA-seq and scATAC-seq reveal dual transcriptional and translational regulation in fiber cells in Upland and Pima cotton",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE282999"
-    },
-    {
-      "accession": "GSE283063",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Gossypium barbadense; Gossypium hirsutum",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Single Cell Profiling of Cotton Ovules Epidermis During Early Fiber Development [scRNA-Seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE283063"
-    },
-    {
-      "accession": "GSE283428",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Oryza sativa",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Bulk RNA sequencing data of rice roots protoplasted for 2.5 hours and 3 hours, as well as rice roots grown in gel, non-compacted soil and compacted soil conditions",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE283428"
-    },
-    {
-      "accession": "GSE283509",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Oryza sativa",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Bulk RNA sequencing data of intact and digested rice root for Single-cell RNA-seq protoplasting induced gene filtering",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE283509"
-    },
-    {
-      "accession": "GSE289716",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Arabidopsis thaliana",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Longitudinal zone- and cell-type-specific immune responses sustain Arabidopsis roots against pathogen infections",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE289716"
-    },
-    {
-      "accession": "GSE289841",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Meloidogyne incognita; Solanum lycopersicum",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Developmental trajectories of giant cells induced by Meloidogyne incognita in tomato determined by single-cell RNA-sequencing",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE289841"
-    },
-    {
-      "accession": "GSE290732",
-      "matched_queries": "plant_single_cell_gds;woody_legume_cereal_single_cell_gds",
-      "organism": "Populus trichocarpa",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Deep tissue profiling of Populus stem at single nucleus level reveals uncharacterized cell types and cell-specific gene regulatory networks",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE290732"
-    },
-    {
-      "accession": "GSE293946",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Solanum lycopersicum",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Spatially organizing million callus cells identify the core-network enable tomato shoot regeneration [scRNA-Seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE293946"
-    },
-    {
-      "accession": "GSE294738",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Oryza sativa Japonica Group; Oryza sativa Indica Group",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Haploid genome activation exposes genes with a specific chromatin signature for pollen selection",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE294738"
-    },
-    {
-      "accession": "GSE295007",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Arabidopsis thaliana",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "A transcriptional atlas of early Arabidopsis seed development suggests mechanisms for inter-tissue coordination",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE295007"
-    },
-    {
-      "accession": "GSE295703",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Arabidopsis thaliana",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "scCoBench: Benchmarking single cell RNA-seq co-expression using promoter-reporter lines",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE295703"
-    },
-    {
-      "accession": "GSE297213",
+      "accession": "GSE201671",
       "matched_queries": "plant_single_cell_gds",
       "organism": "Zea mays",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "An improved nuclei isolation protocol from leaf tissue for single-cell transcriptomics",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE297213"
+      "title": "Decoding the gene regulatory network of endosperm differentiation in maize [RNA-seq]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE201671"
     },
     {
-      "accession": "GSE297576",
-      "matched_queries": "plant_single_cell_gds;woody_legume_cereal_single_cell_gds",
-      "organism": "Brachypodium distachyon; Brassica oleracea; Sorghum bicolor; Arabidopsis lyrata; Camelina sativa; Arabidopsis thaliana; Thlaspi arvense; Capsella rubella; Panicum hallii",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Recruitment, rewiring, and deep conservation in flowering plant gene regulation",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE297576"
-    },
-    {
-      "accession": "GSE300843",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Solanum lycopersicum",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Dissecting the cell-type specific role of a dominant resistance gene during viral infection [scRNA-Seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE300843"
-    },
-    {
-      "accession": "GSE303396",
-      "matched_queries": "plant_single_cell_gds",
-      "organism": "Arabidopsis thaliana",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Brassinosteroids mediate proper coordination of sepal elongation",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE303396"
-    },
-    {
-      "accession": "GSE308140",
-      "matched_queries": "plant_single_cell_gds;plant_spatial_single_cell_gds",
-      "organism": "Oryza sativa",
-      "priority": "A",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Spatiotemporal regulation of arbuscular mycorrhizal symbiosis at cellular resolution [RNA-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE308140"
-    },
-    {
-      "accession": "GSE309101",
+      "accession": "GSE201700",
       "matched_queries": "plant_single_cell_gds",
       "organism": "Zea mays",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Dynamic and cell-type specific transcriptional reprogramming underlies the floral transition in the maize shoot apical meristem",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE309101"
+      "title": "Decoding the gene regulatory network of endosperm differentiation in maize [DAP-seq]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE201700"
     },
     {
-      "accession": "GSE310956",
-      "matched_queries": "plant_single_cell_gds;woody_legume_cereal_single_cell_gds",
-      "organism": "Glycine max",
+      "accession": "GSE201776",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Mus musculus",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Single-cell multi-omic characterization of the soybean root response to cyst nematode infection",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE310956"
+      "title": "Gene expression profile at the single-cell level of Neurog3 derived tomato cells from Neurog3Cre and Neurog3Cre-FoxO1 f/f (NFKO) of the small intestine",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE201776"
     },
     {
-      "accession": "GSE316219",
-      "matched_queries": "plant_single_cell_gds;plant_spatial_single_cell_gds",
-      "organism": "Rhizophagus irregularis; Oryza sativa",
+      "accession": "GSE202257",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Mus musculus",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Spatiotemporal regulation of arbuscular mycorrhizal symbiosis at cellular resolution [MC]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE316219"
+      "title": "Trans-Seq for mammalian retinotectal circuit mapping",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE202257"
     },
     {
-      "accession": "GSE320437",
-      "matched_queries": "plant_single_cell_gds;plant_spatial_single_cell_gds",
+      "accession": "GSE202422",
+      "matched_queries": "plant_single_cell_gds",
       "organism": "Arabidopsis thaliana",
       "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Brassinosteroids mediate proper coordination of sepal elongation [Spatial Transcriptomics]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE320437"
+      "title": "Single-nucleus RNA-seq reveals that MBD5, MBD6, and SILENZIO maintain silencing in the vegetative cell of developing pollen",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE202422"
     },
     {
-      "accession": "GSE290697",
+      "accession": "GSE205703",
       "matched_queries": "plant_single_cell_gds",
-      "organism": "Petunia x hybrida",
-      "priority": "B",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 8,
-      "title": "Cell layer-specific functions of the petal identity regulator PhDEF in petunia",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE290697"
-    },
-    {
-      "accession": "GSE315448",
-      "matched_queries": "medicinal_secondary_metabolism_single_cell;plant_single_cell_gds",
-      "organism": "Crataegus pinnatifida; Crataegus scabrifolia",
-      "priority": "B",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 7,
-      "title": "Single-cell RNA-sequencing profiles reveal the developmental landscape of hawthorn leaves.",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE315448"
-    },
-    {
-      "accession": "GSM8672921",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Populus tremula x Populus alba",
-      "priority": "B",
-      "recommended_action": "plant single-cell candidate; inspect species, tissue, labels, and downloadable files",
-      "score": 7,
-      "title": "Hybrid poplar stem under severe drought condition replicate 1 snRNA-seq",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8672921"
-    },
-    {
-      "accession": "GSM8672922",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Populus tremula x Populus alba",
-      "priority": "B",
-      "recommended_action": "plant single-cell candidate; inspect species, tissue, labels, and downloadable files",
-      "score": 7,
-      "title": "Hybrid poplar stem under severe drought condition replicate 2 snRNA-seq",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8672922"
-    },
-    {
-      "accession": "GSE253891",
-      "matched_queries": "plant_single_cell_gds;plant_spatial_single_cell_gds",
-      "organism": "Cunninghamia lanceolata",
-      "priority": "B",
+      "organism": "Mus musculus",
+      "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Single-cell and spatial omics reveal progressive loss of xylem developmental complexity across seed plants",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE253891"
+      "title": "Single cell Transcriptomic analysis of CD8+ T cells from bone marrow chimeras reconstituted with CD137 wild-type or knock out bone marrow, and implanted with B16K1 melanoma.",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE205703"
     },
     {
-      "accession": "GSE256280",
+      "accession": "GSE208431",
       "matched_queries": "plant_single_cell_gds",
-      "organism": "Camellia sinensis",
-      "priority": "B",
+      "organism": "Oryza sativa Japonica Group",
+      "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Single-cell transcriptome atlas reveals developmental trajectories and a novel metabolic pathway of catechin esters in tea leaves",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE256280"
+      "title": "Single-nucleus sequencing deciphers lineage trajectories in rice pistils [bulk RNA-seq]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE208431"
     },
     {
-      "accession": "GSE267845",
+      "accession": "GSE208432",
       "matched_queries": "plant_single_cell_gds",
-      "organism": "Camellia sinensis",
-      "priority": "B",
+      "organism": "Oryza sativa Japonica Group",
+      "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Root-specific secondary metabolism at the single-cell level: a case study of theanine metabolism and regulation in the roots of tea plants (Camellia sinensis)",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE267845"
+      "title": "Single-nucleus sequencing deciphers lineage trajectories in rice pistils [snRNA-seq]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE208432"
     },
     {
-      "accession": "GSE295468",
-      "matched_queries": "plant_single_cell_gds;plant_spatial_single_cell_gds",
-      "organism": "Phragmites australis",
-      "priority": "B",
-      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
-      "score": 6,
-      "title": "Single-cell and spatial transcriptomics in Phragmites australis reveal the association of B chromosomes with plant invasiveness",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE295468"
-    },
-    {
-      "accession": "GSE308255",
+      "accession": "GSE208433",
       "matched_queries": "plant_single_cell_gds",
-      "organism": "Petunia x hybrida",
-      "priority": "B",
+      "organism": "Oryza sativa Japonica Group",
+      "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Cell layer-specific functions of the petal identity regulator PhDEF in petunia [ChIP-seq]",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE308255"
+      "title": "Single-nucleus sequencing deciphers developmental trajectories in rice pistils",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE208433"
     },
     {
-      "accession": "GSE309844",
+      "accession": "GSE210327",
       "matched_queries": "plant_single_cell_gds",
-      "organism": "Hygrophila difformis",
-      "priority": "B",
+      "organism": "Zea mays",
+      "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Single-cell transcriptomic datasets of the amphibious plant Water wisteria",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE309844"
+      "title": "Coexpression network and trans-activation analyses of maize reproductive phasiRNA loci [scRNA-seq]",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE210327"
     },
     {
-      "accession": "GSE314253",
+      "accession": "GSE212230",
       "matched_queries": "plant_single_cell_gds",
-      "organism": "Nicotiana tabacum",
-      "priority": "B",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
       "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Transcriptome comparison of tobacco cell cultures in various stages of their life cycle",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE314253"
+      "title": "Single-cell RNA-seq of brassinosteroid response in Arabidopsis roots",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE212230"
     },
     {
-      "accession": "GSM8672919",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Populus tremula x Populus alba",
-      "priority": "B",
-      "recommended_action": "plant single-cell candidate; inspect species, tissue, labels, and downloadable files",
+      "accession": "GSE212826",
+      "matched_queries": "plant_single_cell_gds",
+      "organism": "Arabidopsis thaliana",
+      "priority": "A",
+      "recommended_action": "fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists",
       "score": 6,
-      "title": "Hybrid poplar stem under well-watering condition replicate 1 snRNA-seq",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8672919"
-    },
-    {
-      "accession": "GSM8672920",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Populus tremula x Populus alba",
-      "priority": "B",
-      "recommended_action": "plant single-cell candidate; inspect species, tissue, labels, and downloadable files",
-      "score": 6,
-      "title": "Hybrid poplar stem under well-watering condition replicate 2 snRNA-seq",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8672920"
-    },
-    {
-      "accession": "GSM9313111",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Glycine max",
-      "priority": "B",
-      "recommended_action": "plant single-cell candidate; inspect species, tissue, labels, and downloadable files",
-      "score": 6,
-      "title": "5 days mock-inoculated soybean roots, rep1, snRNA",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM9313111"
-    },
-    {
-      "accession": "GSM9313112",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Glycine max",
-      "priority": "B",
-      "recommended_action": "plant single-cell candidate; inspect species, tissue, labels, and downloadable files",
-      "score": 6,
-      "title": "5 days mock-inoculated soybean roots, rep2, snRNA",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM9313112"
-    },
-    {
-      "accession": "GSM9313113",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Glycine max",
-      "priority": "B",
-      "recommended_action": "plant single-cell candidate; inspect species, tissue, labels, and downloadable files",
-      "score": 6,
-      "title": "5 days SCN-infected soybean roots, rep1, snRNA",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM9313113"
-    },
-    {
-      "accession": "GSM9313114",
-      "matched_queries": "woody_legume_cereal_single_cell_gds",
-      "organism": "Glycine max",
-      "priority": "B",
-      "recommended_action": "plant single-cell candidate; inspect species, tissue, labels, and downloadable files",
-      "score": 6,
-      "title": "5 days SCN-infected soybean roots, rep2, snRNA",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM9313114"
-    },
-    {
-      "accession": "GSM9335029",
-      "matched_queries": "asteraceae_single_cell",
-      "organism": "Stevia rebaudiana",
-      "priority": "B",
-      "recommended_action": "plant single-cell candidate; inspect species, tissue, labels, and downloadable files",
-      "score": 6,
-      "title": "Stevia rebaudiana leaf, snRNA-seq",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM9335029"
-    },
-    {
-      "accession": "PRJDB19215",
-      "matched_queries": "plant_single_cell_sra",
-      "organism": "",
-      "priority": "B",
-      "recommended_action": "plant single-cell candidate; inspect species, tissue, labels, and downloadable files",
-      "score": 6,
-      "title": "",
-      "url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJDB19215"
-    },
-    {
-      "accession": "PRJNA1337714",
-      "matched_queries": "plant_single_cell_sra",
-      "organism": "",
-      "priority": "B",
-      "recommended_action": "plant single-cell candidate; inspect species, tissue, labels, and downloadable files",
-      "score": 6,
-      "title": "",
-      "url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1337714"
-    },
-    {
-      "accession": "PRJNA1476849",
-      "matched_queries": "plant_single_cell_sra",
-      "organism": "",
-      "priority": "B",
-      "recommended_action": "plant single-cell candidate; inspect species, tissue, labels, and downloadable files",
-      "score": 6,
-      "title": "",
-      "url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1476849"
+      "title": "Gene expression profile of Arabidopsis root tip cells exposed to 2 hours of 50µM jasmonate",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE212826"
     }
   ],
   "project_dir": ".",
   "summary": {
     "corpus_dataset_count": 106,
-    "discovery_record_count": 1090,
-    "dynamic_corpus_manifest_accession_count": 61,
-    "generated_at_utc": "2026-07-25T23:57:25.052657+00:00",
-    "geo_download_ready_unknown_manifest_count": 0,
-    "geo_download_ready_unknown_manifest_queued_count": 0,
+    "discovery_record_count": 3116,
+    "dynamic_corpus_manifest_accession_count": 62,
+    "generated_at_utc": "2026-07-26T01:14:39.493653+00:00",
+    "geo_download_ready_unknown_manifest_count": 8,
+    "geo_download_ready_unknown_manifest_queued_count": 8,
     "geo_download_ready_unknown_manifest_unqueued_count": 0,
     "geo_review_count": 46,
-    "known_manifest_accession_count": 77,
-    "latest_geo_file_index": "data/public_discovery/geo_supplementary_files_20260726_055320.tsv",
-    "latest_geo_file_index_modified_utc": "2026-07-25T21:54:43.257108+00:00",
-    "latest_geo_review": "data/public_discovery/geo_supplementary_review_20260726_055320.tsv",
-    "latest_geo_review_modified_utc": "2026-07-25T21:54:43.237109+00:00",
-    "latest_ncbi_discovery": "data/public_discovery/ncbi_discovery_20260726_055211.tsv",
-    "latest_ncbi_discovery_modified_utc": "2026-07-25T21:53:20.086366+00:00",
+    "known_manifest_accession_count": 78,
+    "latest_geo_file_index": "data/public_discovery/geo_supplementary_files_20260726_083220.tsv",
+    "latest_geo_file_index_modified_utc": "2026-07-26T00:33:37.839550+00:00",
+    "latest_geo_review": "data/public_discovery/geo_supplementary_review_20260726_083220.tsv",
+    "latest_geo_review_modified_utc": "2026-07-26T00:33:37.823550+00:00",
+    "latest_ncbi_discovery": "data/public_discovery/ncbi_discovery_20260726_083015.tsv",
+    "latest_ncbi_discovery_modified_utc": "2026-07-26T00:32:19.840717+00:00",
     "manifest_dataset_count": 39,
-    "manifest_download_ready_queued_count": 9,
+    "manifest_download_ready_queued_count": 6,
     "manifest_download_ready_unqueued_count": 0,
-    "manifest_download_ready_without_corpus_count": 9,
-    "new_high_priority_candidate_count": 79,
-    "new_review_candidate_count": 100,
+    "manifest_download_ready_without_corpus_count": 6,
+    "new_high_priority_candidate_count": 184,
+    "new_review_candidate_count": 261,
     "promotion_hold_accession_count": 5,
     "public_manifest_accession_count": 35,
-    "queued_geo_job_count": 26,
+    "queued_geo_job_count": 31,
     "requires_downloader_or_manifest_followup": false,
     "requires_manual_manifest_review": true,
     "requires_queued_download_completion": true,
-    "unsupported_expression_corpus_target_count": 40
+    "unsupported_expression_corpus_target_count": 42
   }
 }

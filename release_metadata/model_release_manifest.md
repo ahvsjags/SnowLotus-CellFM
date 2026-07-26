@@ -1,6 +1,6 @@
 # SnowLotus-CellFM Model Release Manifest
 
-Generated UTC: `2026-07-25T23:59:05.360237+00:00`
+Generated UTC: `2026-07-26T01:16:17.634385+00:00`
 
 ## Summary
 
@@ -8,20 +8,20 @@ Generated UTC: `2026-07-25T23:59:05.360237+00:00`
 - Label-release candidates: `5`
 - Embedding-release candidates: `11`
 - Checkpoint load errors: `0`
-- Total checkpoint bytes: `20097413826`
+- Total checkpoint bytes: `20097414082`
 
 ## Checkpoints
 
 | Run | Kind | Status | Epoch | Stage | Bytes | Gene vocab | Fine vocab | Coarse vocab | Eval loss | Macro-F1 | SHA256 |
 | --- | --- | --- | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 | foundation_5090_mlm_public_expansion | best | embedding_release_candidate | 4 | pretrain | 586940238 | 215617 | 0 | 0 | 12.9964 |  | `3d0d832cc7f4b0c6` |
-| foundation_5090_mlm_public_expansion_continuation | best | embedding_release_candidate | 6 | pretrain | 926433358 | 379504 | 0 | 0 | 7.2026 |  | `ed90abffeb110fca` |
+| foundation_5090_mlm_public_expansion_continuation | best | embedding_release_candidate | 7 | pretrain | 926433358 | 379504 | 0 | 0 | 7.1917 |  | `00c1b0a1049c4415` |
 | foundation_5090_mlm_public_expansion_continuation | latest | embedding_release_candidate | 20 | pretrain | 2751940673 | 378714 | 0 | 0 |  |  | `b1a1b41c7d762019` |
 | foundation_5090_mlm_public_expansion_continuation_v0_3 | latest | embedding_release_candidate | 1 | pretrain | 2756811073 | 379504 | 0 | 0 |  |  | `af1dc43eac9f7cc2` |
 | foundation_5090_mlm_public_expansion_continuation_v0_3_seed47 | latest | embedding_release_candidate | 1 | pretrain | 2756811073 | 379504 | 0 | 0 |  |  | `c8cc27dedea0319d` |
 | foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8 | latest | embedding_release_candidate | 1 | pretrain | 2756811073 | 379504 | 0 | 0 |  |  | `fa4fe29bb0682107` |
-| foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm | best | embedding_release_candidate | 6 | pretrain | 926433358 | 379504 | 0 | 0 | 7.2026 |  | `ed90abffeb110fca` |
-| foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm | latest | embedding_release_candidate | 7 | pretrain | 2756812545 | 379504 | 0 | 0 |  |  | `31c8af8476185597` |
+| foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm | best | embedding_release_candidate | 7 | pretrain | 926433358 | 379504 | 0 | 0 | 7.1917 |  | `00c1b0a1049c4415` |
+| foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm | latest | embedding_release_candidate | 8 | pretrain | 2756812801 | 379504 | 0 | 0 |  |  | `cecdf7c988e5a006` |
 | foundation_5090_mlm_public_late_refresh | best | embedding_release_candidate | 4 | pretrain | 658999758 | 250325 | 0 | 0 | 12.5043 |  | `e32284d4dc3fafd5` |
 | foundation_5090_mlm_public_late_refresh_safe | best | embedding_release_candidate | 8 | pretrain | 924798222 | 378714 | 0 | 0 | 9.6529 |  | `87e235a3bc3f8317` |
 | foundation_5090_mlm_public_late_refresh_safe | latest | embedding_release_candidate | 8 | pretrain | 924801344 | 378714 | 0 | 0 |  |  | `0fc5b787c30e6569` |

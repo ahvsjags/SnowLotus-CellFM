@@ -4,7 +4,7 @@
 
 | Metric | Value |
 | --- | ---: |
-| Manifest files | 67 |
+| Manifest files | 68 |
 | Non-empty manifests | 47 |
 | Dataset manifest entries | 168 |
 | Registered dataset entries | 143 |

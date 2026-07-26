@@ -1,6 +1,6 @@
 # SnowLotus-CellFM Download Progress Audit
 
-Generated UTC: `2026-07-25T23:58:11.047494+00:00`
+Generated UTC: `2026-07-26T01:15:21.096530+00:00`
 
 ## Summary
 
@@ -8,9 +8,11 @@ Generated UTC: `2026-07-25T23:58:11.047494+00:00`
 | --- | --- |
 | complete_manifest | 42 |
 | metadata_only | 1 |
-| unsupported_for_matrix_corpus | 20 |
+| queued_pending_download | 7 |
+| raw_ready_no_manifest | 1 |
+| unsupported_for_matrix_corpus | 21 |
 
-Tracked targets: 63; manifest rows: 120; raw payload files: 299; npz files: 63; active partial control files: 0; residual control files: 0.
+Tracked targets: 72; manifest rows: 120; raw payload files: 303; npz files: 63; active partial control files: 0; residual control files: 0.
 
 ## Target State
 
@@ -47,6 +49,7 @@ Tracked targets: 63; manifest rows: 120; raw payload files: 299; npz files: 63; 
 | geo_gse222584_oryza_sativa_single_cell_sequencing_revealed_cell | dynamic_gse_manifest | - | complete_manifest | - | 1 | 2 | 1 | 0 | 332.3 MiB | 2026-07-24T22:30:46.749097+00:00 |
 | geo_gse224228 | dynamic_gse_manifest | - | unsupported_for_matrix_corpus | - | 0 | 8 | 0 | 0 | 100.6 MiB | 2026-07-25T20:45:23.288267+00:00 |
 | geo_gse224539 | dynamic_gse_manifest | - | unsupported_for_matrix_corpus | - | 0 | 6 | 0 | 0 | 159.4 MiB | 2026-07-25T20:49:56.956109+00:00 |
+| geo_gse224928 | dynamic_gse_manifest | - | unsupported_for_matrix_corpus | - | 0 | 3 | 0 | 0 | 160.9 MiB | 2026-07-26T01:12:15.844287+00:00 |
 | geo_gse226149_glycine_max_gene_expression_profile_at_single | dynamic_gse_manifest | - | complete_manifest | - | 1 | 3 | 1 | 0 | 546.2 MiB | 2026-07-25T04:56:31.987990+00:00 |
 | geo_gse226826_arabidopsis_thaliana_time_resolved_single_cell_spatial | dynamic_gse_manifest | - | complete_manifest | - | 1 | 1 | 1 | 0 | 105.7 MiB | 2026-07-25T10:51:57.076226+00:00 |
 | geo_gse232863 | dynamic_gse_manifest | - | unsupported_for_matrix_corpus | - | 0 | 2 | 0 | 0 | 745 B | 2026-07-25T16:20:43.121855+00:00 |
@@ -79,6 +82,14 @@ Tracked targets: 63; manifest rows: 120; raw payload files: 299; npz files: 63; 
 | rice_node_reproductive_stage_atlas | dynamic_gse_manifest | - | complete_manifest | - | 1 | 2 | 1 | 0 | 338.6 MiB | 2026-07-24T13:01:34.860154+00:00 |
 | geo_gse325371 | dynamic_gse_manifest | - | unsupported_for_matrix_corpus | - | 0 | 3 | 0 | 0 | 1.6 GiB | 2026-07-24T18:22:48.887449+00:00 |
 | geo_gse49607 | dynamic_gse_manifest | - | unsupported_for_matrix_corpus | - | 0 | 4 | 0 | 0 | 7.9 MiB | 2026-07-25T05:05:25.392072+00:00 |
+| geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis | geo_promotion_queue | snowcell_geo_promotion_gse155304 | raw_ready_no_manifest | - | 0 | 1 | 0 | 0 | 144 B | 2026-07-26T01:13:41.998984+00:00 |
+| geo_gse123013_arabidopsis_thaliana_single_cell_rna_sequencing_analysis | geo_promotion_queue | snowcell_geo_promotion_gse123013 | queued_pending_download | - | 0 | 0 | 0 | 0 | - | - |
+| geo_gse138526_zea_mays_high_throughput_single_cell_rna | geo_promotion_queue | snowcell_geo_promotion_gse138526 | queued_pending_download | - | 0 | 0 | 0 | 0 | - | - |
+| geo_gse181999_arabidopsis_thaliana_an_arabidopsis_root_phloem_pole | geo_promotion_queue | snowcell_geo_promotion_gse181999 | queued_pending_download | - | 0 | 0 | 0 | 0 | - | - |
+| geo_gse121619_arabidopsis_thaliana_dynamics_gene_expression_single_root | geo_promotion_queue | snowcell_geo_promotion_gse121619 | queued_pending_download | - | 0 | 0 | 0 | 0 | - | - |
+| geo_gse212403_solanum_lycopersicum_single_cell_data_suberized_exodermis | geo_promotion_queue | snowcell_geo_promotion_gse212403 | queued_pending_download | - | 0 | 0 | 0 | 0 | - | - |
+| geo_gse214130_oryza_sativa_chromatin_accessibility_map_rice_root | geo_promotion_queue | snowcell_geo_promotion_gse214130 | queued_pending_download | - | 0 | 0 | 0 | 0 | - | - |
+| geo_gse226218_gossypium_arboreum_transcriptional_landscape_cottont_roots_response | geo_promotion_queue | snowcell_geo_promotion_gse226218 | queued_pending_download | - | 0 | 0 | 0 | 0 | - | - |
 
 ## Partial/Residual Download Control Files
 

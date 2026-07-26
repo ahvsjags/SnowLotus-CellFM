@@ -1,8 +1,8 @@
 {
   "project_dir": ".",
   "summary": {
-    "manifest_count": 67,
-    "ready_manifests": 67,
+    "manifest_count": 68,
+    "ready_manifests": 68,
     "issue_manifests": 0,
     "matrix_count": 209,
     "missing_files": 0,
@@ -237,6 +237,21 @@
     },
     {
       "manifest": "data/corpus_manifest.gse224539.tsv",
+      "exists": true,
+      "readable": true,
+      "rows": 0,
+      "missing_columns": "",
+      "missing_files": 0,
+      "unreadable_files": 0,
+      "total_cells": 0,
+      "total_genes_max": 0,
+      "dataset_ids": "",
+      "species": "",
+      "status": "ready",
+      "error": ""
+    },
+    {
+      "manifest": "data/corpus_manifest.gse224928.tsv",
       "exists": true,
       "readable": true,
       "rows": 0,

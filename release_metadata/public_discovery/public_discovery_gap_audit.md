@@ -1,30 +1,30 @@
 # Public Discovery Gap Audit
 
-Generated UTC: `2026-07-25T23:57:25.052657+00:00`
+Generated UTC: `2026-07-26T01:14:39.493653+00:00`
 
 ## Inputs
 
-- Latest NCBI discovery: `data/public_discovery/ncbi_discovery_20260726_055211.tsv`
-- Latest GEO review: `data/public_discovery/geo_supplementary_review_20260726_055320.tsv`
-- Latest GEO file index: `data/public_discovery/geo_supplementary_files_20260726_055320.tsv`
+- Latest NCBI discovery: `data/public_discovery/ncbi_discovery_20260726_083015.tsv`
+- Latest GEO review: `data/public_discovery/geo_supplementary_review_20260726_083220.tsv`
+- Latest GEO file index: `data/public_discovery/geo_supplementary_files_20260726_083220.tsv`
 
 ## Summary
 
 | Metric | Value |
 | --- | --- |
-| Known manifest accessions | 77 |
+| Known manifest accessions | 78 |
 | Manifest datasets | 39 |
 | Corpus datasets | 106 |
 | Promotion hold accessions | 5 |
-| Discovery records | 1090 |
+| Discovery records | 3116 |
 | GEO review rows | 46 |
-| New review candidates | 100 |
-| New high-priority candidates | 79 |
-| GEO-ready unknown-manifest rows | 0 |
-| GEO-ready unknown-manifest already queued | 0 |
+| New review candidates | 261 |
+| New high-priority candidates | 184 |
+| GEO-ready unknown-manifest rows | 8 |
+| GEO-ready unknown-manifest already queued | 8 |
 | GEO-ready unknown-manifest still unqueued | 0 |
-| Manifest GEO-ready without corpus rows | 9 |
-| Manifest GEO-ready already queued | 9 |
+| Manifest GEO-ready without corpus rows | 6 |
+| Manifest GEO-ready already queued | 6 |
 | Manifest GEO-ready still unqueued | 0 |
 | Requires manual manifest review | True |
 | Requires downloader/manifest follow-up | False |
@@ -55,39 +55,48 @@ Generated UTC: `2026-07-25T23:57:25.052657+00:00`
 | A | 8 | PRJNA860834 |  | Snow Lotus evidence layer; use for genome/transcriptome/stress support |
 | A | 8 | PRJNA863745 |  | Snow Lotus evidence layer; use for genome/transcriptome/stress support |
 | A | 8 | PRJNA939009 |  | Snow Lotus evidence layer; use for genome/transcriptome/stress support |
+| A | 7 | GSE212404 | Protoplast data: suberized exodermis is required for tomato drought tolerance | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
 | A | 7 | GSE289042 | Drought Recovery in Plants Triggers a Cell-State Specific Immune Activation [RNA-seq] | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
 | A | 7 | GSE290214 | Stress drives plasticity in leaf aging transcriptional dynamics in Arabidopsis thaliana | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
 | A | 7 | GSE295131 | Single-Cell and Spatial Multi-Omics Reveal Mechanical Stress Driving Heterogeneous Xylem Development in Populus [LCM... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE172277 | Ground tissue circuitry regulates organ complexity in monocot roots [slices] | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE173087 | Ground tissue circuitry regulates organ complexity in monocot roots [root meristem scRNA-seq] | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE213647 | Mitochondrial SHMT2 is a crucial therapeutic target in dedifferentiated thyroid cancer | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE214016 | Gene expression profile at single cell level of nervous system in sea cucumber. | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE223765 | Mitochondrial SHMT2 is a crucial therapeutic target in dedifferentiated thyroid cancer (2nd study) | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE225118 | A pan-grass transcriptome reveals patterns of cellular divergence in crops | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE230431 | GPATCH4 regulates rRNA and snRNA 2’-O-methylation in both DHX15-dependent and -independent manners [CRAC] | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE230432 | GPATCH4 regulates rRNA and snRNA 2’-O-methylation in both DHX15-dependent and -independent manners [small RNA-seq] | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE230637 | GPATCH4 regulates rRNA and snRNA 2’-O-methylation in both DHX15-dependent and -independent manners [ChIP-Seq] | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE232237 | Gene expression profile at single cell level of thyroid cells from thyroid cancer tissues | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE234191 | Bulk RNA-sequencing of calli harvested 7 and 12 days after incubation on callus-inducing medium | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE235021 | Ovarian transcriptome sequencing (scRNA-seq and RNA-seq) of 6 and 9-month-old mice fed black rice, white brown rice a... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE245410 | A single-cell multiomics atlas of rice | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE248470 | D53 is a dual-function transcription repressor of strigolactone signaling in cotton. | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE253665 | Deciphering the molecular mechanism of flight loss in mulberry silkworm through the integration of single-cell and sp... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE253666 | Deciphering the molecular mechanism of flight loss in mulberry silkworm through the integration of single-cell and sp... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE253667 | Deciphering the molecular mechanism of flight loss in mulberry silkworm through the integration of single-cell and sp... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE256014 | Single cell-RNA datasets from cell lines and dissociated mouse and maize tissues | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE259425 | miR-203 facilitates timely cell fate transitions via epigenetic modulation during early embryogenesis (CUT&RUN) | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE259426 | miR-203 facilitates timely cell fate transitions via epigenetic modulation during early embryogenesis (RNA-Seq) | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE259427 | miR-203 facilitates timely cell fate transitions via epigenetic modulation during early embryogenesis (scRNAseq) | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE266007 | WUSCHEL-dependent cis-regulation in maize inflorescence development at single-cell resolution | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE269623 | Glutathione accelerates the cell cycle and cellular reprogramming in plant regeneration [bulk RNA-seq] | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE273478 | The genetic architecture of cell-type-specific cis-regulation [ATAC-seq] | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE275410 | The genetic architecture of single-cell chromatin accessibility in maize | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE275693 | An antagonistic epigenetic mechanism regulating gene expression in pollen revealed through single-nucleus multiomics... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 7 | GSE90142 | Divergent cytosine DNA methylation patterns in single-cell, soybean root hairs (MethylC-seq) | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 7 | GSE98045 | Salt-stress and CTD phosphatase-like 4 mediate switching of snRNA to mRNA transcription in Arabidopsis thaliana [CPL4... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 7 | GSE98046 | Salt-stress and CTD phosphatase-like 4 mediate switching of snRNA to mRNA transcription in Arabidopsis thaliana [im-nc] | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 7 | GSE98047 | Salt-stress and CTD phosphatase-like 4 mediate switching of snRNA to mRNA transcription in Arabidopsis thaliana | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE11217 | Altered gene expression changes in Arabidopsis leaf tissues and protoplasts in response to Plum pox virus infection | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE112671 | Single cell RNA-seq analysis in dermis of SM22rtTA; tetO-Cre; R26-Tomato (SM22-Tomato, control) and SM22rtTA; tetO-Cr... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE114615 | Molecular Mechanisms Driving Switch Behavior in Xylem Cell Differentiation | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE115297 | Single cell sequencing of Tomato+ cells in bones from Prrx1-CreERT;Tomato mice with the treatment of Tamoxifen for 3... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE115298 | Single cell sequencing of Tomato+ cells in Inguinal White Fat from Prrx1-CreERT;Tomato mice with the treatment of Tam... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE115299 | Single cell sequencing of Tomato+ cells in skin from Prrx1-CreERT;Tomato mice with the treatment of Tamoxifen for 3 days | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE116614 | High-throughput single cell transcriptome profiling of plant tissue | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE118136 | Cell-type specific transcriptome and histone modification dynamics during in situ cellular reprogramming in the Arabi... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE118137 | Cell-type specific transcriptome and histone modification dynamics during in situ cellular reprogramming in the Arabi... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE122687 | High-throughput single-cell transcriptome profiling of plant cell types | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE123109 | Single-cell three dimensional genome structures of rice egg, sperm, and unicellular zygote | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE123164 | Single-cell type transcriptome analysis of maize roothair | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE123818 | Spatiotemporal Developmental Trajectories in the Arabidopsis Root Revealed Using High-Throughput Single Cell RNA Sequ... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE132904 | Single cell sequencing of Tomato+ cells in hindlimb muscles from Prrx1-CreERT;Tomato mice with the treatment of Tamox... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE140778 | Cellular trajectory analysis links tissue maturation to cellular specialization in the plant meristem | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE140977 | Cellular trajectory analysis links tissue maturation to cellular specialization in the plant meristem II | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE141730 | Vascular transcription factors control epidermal responses to limiting phosphate conditions | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE142259 | Cellular trajectory analysis links tissue maturation to cellular specialization in the plant meristem [protophloem si... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE142613 | Photoperiod-mediated Chromatin Accessibility in the Single Cell Types of Leaf Phloem and Epidermis in Arabidopsis | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE146033 | Single-cell transcriptomic analysis of rice root tips [bulk RNA-seq] | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE146035 | Single-cell transcriptomic analysis of rice root tips | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
 
 ## GEO-Ready Unknown Manifest Rows
 
-None.
+| Dataset | Accession | Matrices | File Types | Queued | Action |
+| --- | --- | --- | --- | --- | --- |
+| discovered_gse155304 | GSE155304 | 3 | metadata_table:3;mtx_archive:1;seurat_rds:2 | yes | bash scripts/generated_geo_promotion_downloads/download_gse155304_geo_gse155304_arabidopsis_thaliana_single_cell_leve... |
+| discovered_gse121619 | GSE121619 | 1 | metadata_table:3;seurat_rds:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse121619_geo_gse121619_arabidopsis_thaliana_dynamics_gene_ex... |
+| discovered_gse123013 | GSE123013 | 1 | metadata_table:1;mtx_archive:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse123013_geo_gse123013_arabidopsis_thaliana_single_cell_rna_... |
+| discovered_gse138526 | GSE138526 | 1 | mtx_archive:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse138526_geo_gse138526_zea_mays_high_throughput_single_cell_... |
+| discovered_gse181999 | GSE181999 | 1 | mtx_archive:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse181999_geo_gse181999_arabidopsis_thaliana_an_arabidopsis_r... |
+| discovered_gse212403 | GSE212403 | 1 | mtx_archive:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse212403_geo_gse212403_solanum_lycopersicum_single_cell_data... |
+| discovered_gse214130 | GSE214130 | 1 | mtx_archive:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse214130_geo_gse214130_oryza_sativa_chromatin_accessibility_... |
+| discovered_gse226218 | GSE226218 | 1 | metadata_table:2;mtx_component:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse226218_geo_gse226218_gossypium_arboreum_transcriptional_la... |
 
 ## GEO-Ready Unknown Manifest Still Unqueued
 
@@ -97,15 +106,12 @@ None.
 
 | Dataset | Accession | Matrices | File Types | Queued | Action |
 | --- | --- | --- | --- | --- | --- |
-| discovered_gse303996 | GSE303996 | 17 | mtx_archive:1;seurat_rds:16 | yes | bash scripts/generated_geo_promotion_downloads/download_gse303996_geo_gse303996_arabidopsis_thaliana_histone_deacetyl... |
-| discovered_gse308672 | GSE308672 | 2 | mtx_archive:1;seurat_rds:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse308672_geo_gse308672_arabidopsis_thaliana_discrete_cell_sp... |
-| discovered_gse157757 | GSE157757 | 1 | mtx_archive:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse157757_geo_gse157757_zea_mays_single_cell_sequencing_revea... |
 | discovered_gse182507 | GSE182507 | 1 | mtx_archive:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse182507_geo_gse182507_medicago_truncatula_single_cell_rna_s... |
 | discovered_gse210881 | GSE210881 | 1 | seurat_rds:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse210881_geo_gse210881_medicago_truncatula_gene_expression_p... |
 | discovered_gse220277 | GSE220277 | 1 | mtx_archive:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse220277_geo_gse220277_arabidopsis_drought_recovery_plants_t... |
 | discovered_gse226149 | GSE226149 | 1 | mtx_archive:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse226149_geo_gse226149_glycine_max_gene_expression_profile_a... |
+| discovered_gse235495 | GSE235495 | 1 | mtx_archive:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse235495_geo_gse235495_arabidopsis_thaliana_multiome_same_ce... |
 | discovered_gse267159 | GSE267159 | 1 | mtx_archive:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse267159_geo_gse267159_populus_trichocarpa_single_cell_spati... |
-| discovered_gse283835 | GSE283835 | 1 | metadata_table:1;mtx_archive:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse283835_geo_gse283835_populus_tremula_single_nuclei_transcr... |
 
 ## Manifest GEO-Ready Still Unqueued
 
@@ -136,12 +142,12 @@ None.
 | A | 8 | PRJNA860834 |  | Snow Lotus evidence layer; use for genome/transcriptome/stress support |
 | A | 8 | PRJNA863745 |  | Snow Lotus evidence layer; use for genome/transcriptome/stress support |
 | A | 8 | PRJNA939009 |  | Snow Lotus evidence layer; use for genome/transcriptome/stress support |
+| A | 7 | GSE212404 | Protoplast data: suberized exodermis is required for tomato drought tolerance | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
 | A | 7 | GSE289042 | Drought Recovery in Plants Triggers a Cell-State Specific Immune Activation [RNA-seq] | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
 | A | 7 | GSE290214 | Stress drives plasticity in leaf aging transcriptional dynamics in Arabidopsis thaliana | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
 | A | 7 | GSE295131 | Single-Cell and Spatial Multi-Omics Reveal Mechanical Stress Driving Heterogeneous Xylem Development in Populus [LCM... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE172277 | Ground tissue circuitry regulates organ complexity in monocot roots [slices] | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE173087 | Ground tissue circuitry regulates organ complexity in monocot roots [root meristem scRNA-seq] | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE213647 | Mitochondrial SHMT2 is a crucial therapeutic target in dedifferentiated thyroid cancer | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE214016 | Gene expression profile at single cell level of nervous system in sea cucumber. | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE223765 | Mitochondrial SHMT2 is a crucial therapeutic target in dedifferentiated thyroid cancer (2nd study) | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
-| A | 6 | GSE225118 | A pan-grass transcriptome reveals patterns of cellular divergence in crops | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 7 | GSE90142 | Divergent cytosine DNA methylation patterns in single-cell, soybean root hairs (MethylC-seq) | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 7 | GSE98045 | Salt-stress and CTD phosphatase-like 4 mediate switching of snRNA to mRNA transcription in Arabidopsis thaliana [CPL4... | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 7 | GSE98046 | Salt-stress and CTD phosphatase-like 4 mediate switching of snRNA to mRNA transcription in Arabidopsis thaliana [im-nc] | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 7 | GSE98047 | Salt-stress and CTD phosphatase-like 4 mediate switching of snRNA to mRNA transcription in Arabidopsis thaliana | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |
+| A | 6 | GSE11217 | Altered gene expression changes in Arabidopsis leaf tissues and protoplasts in response to Plum pox virus infection | fetch GEO supplementary filelist; add downloader if matrix/RDS/H5 exists |

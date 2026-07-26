@@ -1,9 +1,9 @@
 {
-  "generated_utc": "2026-07-26T00:02:04.549042+00:00",
+  "generated_utc": "2026-07-26T01:18:14.944223+00:00",
   "gpu": {
     "returncode": 0,
     "stderr": "",
-    "stdout": "2026/07/26 08:02:04.672, 8 %, 30652 MiB, 32607 MiB"
+    "stdout": "2026/07/26 09:18:15.086, 70 %, 30652 MiB, 32607 MiB"
   },
   "gse226826": {
     "accession": "GSE226826",
@@ -61,7 +61,7 @@
     "lfs": {
       "returncode": 0,
       "stderr": "",
-      "stdout": "ebc95ca58f * models/SnowLotus_CellFM_best_annotation.pt\ned90abffeb * models/SnowLotus_CellFM_best_embedding.pt"
+      "stdout": "ebc95ca58f * models/SnowLotus_CellFM_best_annotation.pt\n00c1b0a104 * models/SnowLotus_CellFM_best_embedding.pt"
     },
     "release_dir": "outputs/github_release/SnowLotus-CellFM",
     "sha256": {
@@ -74,10 +74,11 @@
     "all_query": {
       "returncode": 0,
       "stderr": "",
-      "stdout": "snowcell_checkpoint_benchmark_refresh_watchdog: 1 windows (created Sun Jul 26 02:07:18 2026)\nsnowcell_editor_v03_best_release_watchdog: 1 windows (created Sun Jul 26 03:33:47 2026)\nsnowcell_editor_v03_release_metadata_watchdog: 1 windows (created Sun Jul 26 03:36:42 2026)\nsnowcell_geo_promotion_download_queue: 1 windows (created Sun Jul 26 05:58:09 2026)\nsnowcell_gse226097_lifecycle_watchdog: 1 windows (created Fri Jul 24 13:42:24 2026)\nsnowcell_late_public_refresh_queue: 1 windows (created Sat Jul 25 19:29:18 2026)\nsnowcell_mlm_public_expansion_continuation_watchdog: 1 windows (created Fri Jul 24 12:27:15 2026)\nsnowcell_mlm_public_expansion_v0_3: 1 windows (created Sat Jul 25 18:33:29 2026)\nsnowcell_mlm_public_expansion_v0_3_watchdog: 1 windows (created Sat Jul 25 18:33:29 2026)\nsnowcell_mlm_public_expansion_v0_4_after_v0_3_watchdog: 1 windows (created Sun Jul 26 01:50:52 2026)\nsnowcell_publication_package_watchdog: 1 windows (created Fri Jul 24 07:26:27 2026)\nsnowcell_publication_package_watchdog_continuation: 1 windows (created Fri Jul 24 12:33:19 2026)\nsnowcell_reviewed_geo_download_queue: 1 windows (created Sat Jul 25 04:01:48 2026)\nsnowcell_safe_mlm_watchdog: 1 windows (created Fri Jul 24 06:36:25 2026)"
+      "stdout": "snowcell_checkpoint_benchmark_refresh_watchdog: 1 windows (created Sun Jul 26 02:07:18 2026)\nsnowcell_editor_v03_best_release_watchdog: 1 windows (created Sun Jul 26 03:33:47 2026)\nsnowcell_editor_v03_release_metadata_watchdog: 1 windows (created Sun Jul 26 03:36:42 2026)\nsnowcell_geo_promotion_download_queue: 1 windows (created Sun Jul 26 08:36:58 2026)\nsnowcell_geo_promotion_gse155304: 1 windows (created Sun Jul 26 09:13:41 2026)\nsnowcell_gse226097_lifecycle_watchdog: 1 windows (created Fri Jul 24 13:42:24 2026)\nsnowcell_late_public_refresh_queue: 1 windows (created Sat Jul 25 19:29:18 2026)\nsnowcell_mlm_public_expansion_continuation_watchdog: 1 windows (created Fri Jul 24 12:27:15 2026)\nsnowcell_mlm_public_expansion_v0_3: 1 windows (created Sat Jul 25 18:33:29 2026)\nsnowcell_mlm_public_expansion_v0_3_watchdog: 1 windows (created Sat Jul 25 18:33:29 2026)\nsnowcell_mlm_public_expansion_v0_4_after_v0_3_watchdog: 1 windows (created Sun Jul 26 01:50:52 2026)\nsnowcell_publication_package_watchdog: 1 windows (created Fri Jul 24 07:26:27 2026)\nsnowcell_publication_package_watchdog_continuation: 1 windows (created Fri Jul 24 12:33:19 2026)\nsnowcell_reviewed_geo_download_queue: 1 windows (created Sat Jul 25 04:01:48 2026)\nsnowcell_safe_mlm_watchdog: 1 windows (created Fri Jul 24 06:36:25 2026)"
     },
     "interesting_sessions": [
-      "snowcell_geo_promotion_download_queue: 1 windows (created Sun Jul 26 05:58:09 2026)",
+      "snowcell_geo_promotion_download_queue: 1 windows (created Sun Jul 26 08:36:58 2026)",
+      "snowcell_geo_promotion_gse155304: 1 windows (created Sun Jul 26 09:13:41 2026)",
       "snowcell_mlm_public_expansion_continuation_watchdog: 1 windows (created Fri Jul 24 12:27:15 2026)",
       "snowcell_mlm_public_expansion_v0_3: 1 windows (created Sat Jul 25 18:33:29 2026)",
       "snowcell_mlm_public_expansion_v0_3_watchdog: 1 windows (created Sat Jul 25 18:33:29 2026)",

@@ -40,19 +40,33 @@ def best_metrics() -> tuple[int, float]:
     return min(scored, key=lambda item: item[1])
 
 
-def active_epoch() -> int:
+def active_progress() -> tuple[int, int, int]:
     progress = read_json(PROGRESS)
     try:
-        return int(progress.get("epoch") or 0)
+        epoch = int(progress.get("epoch") or 0)
     except Exception:
-        return 0
+        epoch = 0
+    try:
+        step = int(progress.get("step") or 0)
+    except Exception:
+        step = 0
+    try:
+        total = int(progress.get("total_steps") or progress.get("batches_per_epoch") or 0)
+    except Exception:
+        total = 0
+    return epoch, step, total
 
 
-def update_file(path: Path, sha: str, best_epoch: int, best_loss: float, current_epoch: int) -> bool:
+def update_file(path: Path, sha: str, best_epoch: int, best_loss: float, current_epoch: int, current_step: int, total_steps: int) -> bool:
     text = path.read_text(encoding="utf-8")
     old = text
     loss = f"{best_loss:.4f}" if best_loss == best_loss else "pending"
     active = current_epoch if current_epoch > 0 else best_epoch + 1
+    progress_text = (
+        f"epoch {active}, step {current_step} of {total_steps}"
+        if current_step > 0 and total_steps > 0
+        else f"epoch {active}"
+    )
 
     text = re.sub(
         r"(Best embedding checkpoint:.*?SHA256 `)[0-9a-f]{64}(`)",
@@ -67,6 +81,11 @@ def update_file(path: Path, sha: str, best_epoch: int, best_loss: float, current
     text = re.sub(
         r"(`SnowLotus_CellFM_best_embedding\.pt` \| [^\n]*?SHA256 `)[0-9a-f]{64}(`)",
         rf"\g<1>{sha}\2",
+        text,
+    )
+    text = re.sub(
+        r"(SnowLotus_CellFM_best_embedding\.pt` \| [^\n]*? \| v0\.3 epoch-)\d+( eval loss )[0-9.]+(; SHA256 `)[0-9a-f]{64}(`)",
+        rf"\g<1>{best_epoch}\g<2>{loss}\g<3>{sha}\g<4>",
         text,
     )
     text = re.sub(
@@ -95,6 +114,11 @@ def update_file(path: Path, sha: str, best_epoch: int, best_loss: float, current
         text,
     )
     text = re.sub(
+        r"The active v0\.3 run remains in epoch \d+(?:, step \d+ of \d+)?\.",
+        f"The active v0.3 run remains in {progress_text}.",
+        text,
+    )
+    text = re.sub(
         r"current best v0\.3 epoch-\d+ eval loss [0-9.]+, SHA256 `[0-9a-f]{64}`",
         f"current best v0.3 epoch-{best_epoch} eval loss {loss}, SHA256 `{sha}`",
         text,
@@ -111,7 +135,7 @@ def main() -> None:
         raise SystemExit(f"missing checkpoint: {CHECKPOINT}")
     sha = sha256_file(CHECKPOINT)
     best_epoch, best_loss = best_metrics()
-    current_epoch = active_epoch()
+    current_epoch, current_step, total_steps = active_progress()
     changed = []
     for filename in [
         "README.md",
@@ -120,7 +144,7 @@ def main() -> None:
         "EDITOR_HANDOFF.md",
     ]:
         path = DOCS_DIR / filename
-        if path.exists() and update_file(path, sha, best_epoch, best_loss, current_epoch):
+        if path.exists() and update_file(path, sha, best_epoch, best_loss, current_epoch, current_step, total_steps):
             changed.append(filename)
     payload = {
         "run_id": RUN_ID,
@@ -129,6 +153,8 @@ def main() -> None:
         "best_epoch": best_epoch,
         "best_eval_loss": best_loss,
         "active_epoch": current_epoch,
+        "active_step": current_step,
+        "total_steps": total_steps,
         "changed_docs": changed,
     }
     out = Path("outputs/post_training_release/editor_v0_3_current_best.json")

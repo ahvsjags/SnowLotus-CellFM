@@ -1,6 +1,6 @@
 # SnowLotus-CellFM Top-Journal Readiness Matrix
 
-Generated UTC: `2026-07-25T23:58:32.314841+00:00`
+Generated UTC: `2026-07-26T01:15:42.836223+00:00`
 
 ## Gate Matrix
 
@@ -28,7 +28,7 @@ Generated UTC: `2026-07-25T23:58:32.314841+00:00`
 
 ## Data Integrity Evidence
 
-- Manifests audited: `67`
+- Manifests audited: `68`
 - Matrix files audited: `209`
 - Missing files: `0`
 - Unreadable files: `0`
