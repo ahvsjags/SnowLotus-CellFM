@@ -1,0 +1,4 @@
+# Put explicitly assigned Matpool SSH candidate ports here, one or more per line.
+# The recovery probe will not scan ranges unless --allow-ranges is provided.
+# Keep 27683 as the known original endpoint until Matpool gives a replacement.
+27683
