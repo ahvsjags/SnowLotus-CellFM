@@ -25,7 +25,14 @@ def tcp_probe(host: str, port: int, timeout: float) -> dict[str, object]:
         with socket.create_connection((host, port), timeout=timeout):
             return {"ok": True, "error": ""}
     except OSError as exc:
-        return {"ok": False, "error": repr(exc)}
+        errno = getattr(exc, "errno", None)
+        winerror = getattr(exc, "winerror", None)
+        parts = [exc.__class__.__name__]
+        if errno is not None:
+            parts.append(f"errno={errno}")
+        if winerror is not None:
+            parts.append(f"winerror={winerror}")
+        return {"ok": False, "error": " ".join(parts)}
 
 
 def ssh_probe(alias: str, timeout: int) -> dict[str, object]:
