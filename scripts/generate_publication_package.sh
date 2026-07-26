@@ -72,7 +72,7 @@ python scripts/write_scplantdb_manifest_audit.py \
 
 python scripts/write_scplantannotate_benchmark_package.py \
   --project-dir . \
-  --input-h5ad data/plant_foundation_corpus.h5ad \
+  --input-h5ad "${SNOWCELL_SCPLANTANNOTATE_INPUT_H5AD:-data/plant_foundation_corpus_public_mlm_available.h5ad}" \
   --output-dir outputs/external_benchmarks/scplantannotate_public_sprint_input \
   --output-md outputs/publication_package/scplantannotate_benchmark_input_package.md \
   --output-json outputs/publication_package/scplantannotate_benchmark_input_package.json || true
