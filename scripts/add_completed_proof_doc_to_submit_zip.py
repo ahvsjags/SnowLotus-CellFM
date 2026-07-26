@@ -12,6 +12,8 @@ ROOT = Path(__file__).resolve().parents[1]
 PACKAGE_DIR = ROOT / "editor_package" / "current_submit_v0.3"
 ZIP_PATH = PACKAGE_DIR / "SnowLotus-CellFM_editor-v0.3_submit-now.zip"
 FILES = [
+    PACKAGE_DIR / "ARCHIVE_SHA256SUMS.txt",
+    PACKAGE_DIR / "snowlotus-cellfm-editor-v0.3-source-metadata.tar.gz",
     PACKAGE_DIR / "SnowLotus_CellFM_已完成工作校稿版_v0_4.docx",
     PACKAGE_DIR / "SnowLotus_CellFM_已完成工作校稿版_v0_4.md",
 ]
