@@ -3,10 +3,18 @@ param(
     [string]$ProjectDir = "/root/snowlotus-cellfm",
     [int]$IntervalSeconds = 60,
     [int]$MaxAttempts = 240,
-    [string]$LogPath = "D:\天山雪莲\logs\wait_and_start_remote_full_on_disk.log"
+    [string]$Root = "",
+    [string]$LogPath = ""
 )
 
 $ErrorActionPreference = "Continue"
+
+if (-not $Root) {
+    $Root = Split-Path -Parent $PSScriptRoot
+}
+if (-not $LogPath) {
+    $LogPath = Join-Path $Root "logs\wait_and_start_remote_full_on_disk.log"
+}
 
 function Write-Log {
     param([string]$Message)
@@ -33,7 +41,6 @@ function Invoke-Checked {
     }
 }
 
-$root = "D:\天山雪莲"
 $scriptFiles = @(
     "scripts/build_public_mlm_corpus_on_disk.py",
     "scripts/build_public_mlm_full_on_disk_corpus.sh",
@@ -41,11 +48,12 @@ $scriptFiles = @(
     "tests/test_on_disk_corpus_builder.py"
 )
 
-Write-Log "watcher starting alias=$Alias project=$ProjectDir attempts=$MaxAttempts interval=${IntervalSeconds}s"
+Write-Log "watcher starting alias=$Alias project=$ProjectDir root=$Root attempts=$MaxAttempts interval=${IntervalSeconds}s"
 
 for ($attempt = 1; $attempt -le $MaxAttempts; $attempt++) {
     Write-Log "attempt $attempt/${MaxAttempts}: probing SSH"
-    $probe = Start-Process -FilePath "ssh" -ArgumentList @($Alias, "hostname") -NoNewWindow -PassThru -Wait
+    $sshOptions = @("-o", "BatchMode=yes", "-o", "ConnectTimeout=10", "-o", "ServerAliveInterval=5", "-o", "ServerAliveCountMax=1")
+    $probe = Start-Process -FilePath "ssh" -ArgumentList @($sshOptions + @($Alias, "hostname")) -NoNewWindow -PassThru -Wait
     if ($probe.ExitCode -ne 0) {
         Write-Log "SSH probe failed exit=$($probe.ExitCode); sleeping ${IntervalSeconds}s"
         Start-Sleep -Seconds $IntervalSeconds
@@ -55,16 +63,16 @@ for ($attempt = 1; $attempt -le $MaxAttempts; $attempt++) {
     try {
         Write-Log "SSH is up; uploading full on-disk corpus scripts"
         foreach ($relative in $scriptFiles) {
-            $local = Join-Path $root $relative
+            $local = Join-Path $Root $relative
             if (-not (Test-Path -LiteralPath $local)) {
                 throw "missing local file: $local"
             }
             $remote = "$Alias`:$ProjectDir/$($relative -replace '\\','/')"
-            Invoke-Checked -FilePath "scp" -Arguments @($local, $remote) -Label "scp $relative"
+            Invoke-Checked -FilePath "scp" -Arguments @($sshOptions + @($local, $remote)) -Label "scp $relative"
         }
 
-        $remoteCommand = "cd '$ProjectDir' && chmod +x scripts/build_public_mlm_corpus_on_disk.py scripts/build_public_mlm_full_on_disk_corpus.sh scripts/start_public_mlm_full_on_disk_corpus_watchdog.sh && bash scripts/start_public_mlm_full_on_disk_corpus_watchdog.sh && tmux ls"
-        Invoke-Checked -FilePath "ssh" -Arguments @($Alias, $remoteCommand) -Label "start remote full on-disk corpus tmux job"
+        $remoteCommand = "cd '$ProjectDir' && mkdir -p scripts tests logs && chmod +x scripts/build_public_mlm_corpus_on_disk.py scripts/build_public_mlm_full_on_disk_corpus.sh scripts/start_public_mlm_full_on_disk_corpus_watchdog.sh && bash scripts/start_public_mlm_full_on_disk_corpus_watchdog.sh && tmux ls"
+        Invoke-Checked -FilePath "ssh" -Arguments @($sshOptions + @($Alias, $remoteCommand)) -Label "start remote full on-disk corpus tmux job"
         Write-Log "remote full on-disk corpus watcher started successfully"
         exit 0
     }
