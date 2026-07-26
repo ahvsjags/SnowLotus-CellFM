@@ -12,6 +12,13 @@ import pandas as pd
 
 MISSING_LABELS = {"", "unknown", "unknow", "unannotated", "na", "nan", "none"}
 DEFAULT_OUTPUT_DIR = Path("outputs/external_benchmarks/scplantannotate_public_sprint_input")
+FALLBACK_INPUT_H5ADS = (
+    Path("data/plant_foundation_corpus_public_mlm_available.h5ad"),
+    Path("data/plant_foundation_corpus_public_mlm_plus_latest.h5ad"),
+    Path("data/plant_foundation_corpus_public_mlm_recovered.h5ad"),
+    Path("data/plant_foundation_corpus_public_mlm.h5ad"),
+    Path("data/plant_foundation_corpus.h5ad"),
+)
 
 
 def normalize_text(value: Any) -> str:
@@ -109,6 +116,57 @@ def display_path(path: Path, root: Path) -> str:
         return path.resolve().relative_to(root.resolve()).as_posix()
     except ValueError:
         return path.as_posix()
+
+
+def resolve_input_h5ad(project_dir: Path, requested_input: Path) -> tuple[Path | None, list[str]]:
+    candidates = [requested_input, *[path for path in FALLBACK_INPUT_H5ADS if path != requested_input]]
+    checked: list[str] = []
+    for candidate in candidates:
+        root_candidate = candidate if candidate.is_absolute() else project_dir / candidate
+        checked.append(display_path(root_candidate, project_dir))
+        if root_candidate.is_file():
+            return candidate, checked
+    return None, checked
+
+
+def missing_input_payload(
+    *,
+    project_dir: Path,
+    requested_input: Path,
+    checked_inputs: list[str],
+    species: str,
+    label_key: str,
+    coarse_label_key: str,
+    dataset_name: str,
+    organism_id: str,
+    predictor_id: str,
+) -> dict[str, Any]:
+    summary = {
+        "status": "input_missing_waiting_for_corpus",
+        "counts_as_completed_metric": False,
+        "input_h5ad": "",
+        "truth_csv": "",
+        "selected_cells": 0,
+        "retained_genes": 0,
+        "class_count": 0,
+        "species": species,
+        "label_key": label_key,
+        "coarse_label_key": coarse_label_key,
+        "source_h5ad": "",
+        "requested_source_h5ad": display_path(
+            requested_input if requested_input.is_absolute() else project_dir / requested_input,
+            project_dir,
+        ),
+        "checked_inputs": checked_inputs,
+        "dataset_name": dataset_name,
+        "organism_id": organism_id,
+        "predictor_id": predictor_id,
+    }
+    commands = {
+        "authorized_submit_and_wait": "wait until a labelled h5ad corpus is present, then rerun this package writer",
+        "author_or_web_export_to_metric": "wait until truth_labels.csv is generated, then score exported scPlantAnnotate predictions",
+    }
+    return {"summary": summary, "label_counts": [], "commands": commands}
 
 
 def write_markdown(payload: dict[str, Any], output: Path) -> Path:
@@ -227,6 +285,7 @@ def build_package(
         "label_key": label_key,
         "coarse_label_key": coarse_label_key,
         "source_h5ad": str(root_input),
+        "requested_source_h5ad": str(root_input),
         "dataset_name": dataset_name,
         "organism_id": organism_id,
         "predictor_id": predictor_id,
@@ -277,21 +336,40 @@ def main() -> None:
     parser.add_argument("--output-json", required=True, type=Path)
     args = parser.parse_args()
 
-    payload = build_package(
-        project_dir=args.project_dir,
-        input_h5ad=args.input_h5ad,
-        output_dir=args.output_dir,
-        species=args.species,
-        label_key=args.label_key,
-        coarse_label_key=args.coarse_label_key,
-        species_key=args.species_key,
-        cell_id_key=args.cell_id_key,
-        max_cells=args.max_cells,
-        seed=args.seed,
-        dataset_name=args.dataset_name,
-        organism_id=args.organism_id,
-        predictor_id=args.predictor_id,
-    )
+    resolved_input, checked_inputs = resolve_input_h5ad(args.project_dir, args.input_h5ad)
+    if resolved_input is None:
+        payload = missing_input_payload(
+            project_dir=args.project_dir,
+            requested_input=args.input_h5ad,
+            checked_inputs=checked_inputs,
+            species=args.species,
+            label_key=args.label_key,
+            coarse_label_key=args.coarse_label_key,
+            dataset_name=args.dataset_name,
+            organism_id=args.organism_id,
+            predictor_id=args.predictor_id,
+        )
+    else:
+        payload = build_package(
+            project_dir=args.project_dir,
+            input_h5ad=resolved_input,
+            output_dir=args.output_dir,
+            species=args.species,
+            label_key=args.label_key,
+            coarse_label_key=args.coarse_label_key,
+            species_key=args.species_key,
+            cell_id_key=args.cell_id_key,
+            max_cells=args.max_cells,
+            seed=args.seed,
+            dataset_name=args.dataset_name,
+            organism_id=args.organism_id,
+            predictor_id=args.predictor_id,
+        )
+        payload["summary"]["requested_source_h5ad"] = display_path(
+            args.input_h5ad if args.input_h5ad.is_absolute() else args.project_dir / args.input_h5ad,
+            args.project_dir,
+        )
+        payload["summary"]["checked_inputs"] = checked_inputs
     write_markdown(payload, args.output_md)
     write_json(payload, args.output_json)
     print(args.output_md)
