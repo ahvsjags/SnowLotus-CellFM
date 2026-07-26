@@ -102,9 +102,16 @@ def main() -> None:
     parser.add_argument("--config", required=True)
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
-    result = audit_config(args.config)
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        result = audit_config(args.config)
+    except ValueError as exc:
+        result = {
+            "config": str(args.config),
+            "error": str(exc),
+            "supervised_benchmark_ready": False,
+        }
     output.write_text(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(output)
 
