@@ -30,6 +30,15 @@ $ProjectRoot = (Resolve-Path .).Path
 powershell -ExecutionPolicy Bypass -File (Join-Path $ProjectRoot "scripts\update_matpool_px1_alias.ps1") -Port <NEW_PORT>
 ```
 
+Alternatively, write the new port to the watcher hint file:
+
+```powershell
+$ProjectRoot = (Resolve-Path .).Path
+Set-Content -Encoding ascii -Path (Join-Path $ProjectRoot "config\matpool_px1_next_port.txt") -Value "<NEW_PORT>"
+```
+
+The local recovery watcher checks this file before every SSH probe. If the value is a valid port and differs from the current alias, it updates `matpool-px1-jcy` automatically before continuing.
+
 Then restart the local recovery watcher:
 
 ```powershell
