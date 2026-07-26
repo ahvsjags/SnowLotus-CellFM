@@ -5,7 +5,13 @@ param(
     [int]$MaxAttempts = 240,
     [string]$Root = "",
     [string]$LogPath = "",
-    [string]$PortHintPath = ""
+    [string]$PortHintPath = "",
+    [string]$CandidatePortsPath = "",
+    [string]$CandidateProbeReportPath = "",
+    [string]$CandidateProbeJsonPath = "",
+    [string]$HostName = "",
+    [int]$CandidateProbeMaxPorts = 64,
+    [double]$CandidateProbeTimeoutSeconds = 5.0
 )
 
 $ErrorActionPreference = "Continue"
@@ -18,6 +24,15 @@ if (-not $LogPath) {
 }
 if (-not $PortHintPath) {
     $PortHintPath = Join-Path $Root "config\matpool_px1_next_port.txt"
+}
+if (-not $CandidatePortsPath) {
+    $CandidatePortsPath = Join-Path $Root "config\matpool_px1_candidate_ports.txt"
+}
+if (-not $CandidateProbeReportPath) {
+    $CandidateProbeReportPath = Join-Path $Root "editor_package\current_submit_v0.3\matpool_candidate_port_probe.local.md"
+}
+if (-not $CandidateProbeJsonPath) {
+    $CandidateProbeJsonPath = Join-Path $Root "editor_package\current_submit_v0.3\matpool_candidate_port_probe.local.json"
 }
 
 function Write-Log {
@@ -54,6 +69,64 @@ function Get-AliasPort {
         }
     }
     return $null
+}
+
+function Get-AliasHost {
+    param([string]$AliasName)
+    $proc = & ssh -G $AliasName 2>$null
+    foreach ($line in $proc) {
+        if ($line -match '^hostname\s+(.+)$') {
+            return $Matches[1]
+        }
+    }
+    return $null
+}
+
+function Invoke-Candidate-Port-Probe {
+    if (-not (Test-Path -LiteralPath $CandidatePortsPath)) {
+        return
+    }
+    $probeScript = Join-Path $Root "scripts\probe_matpool_candidate_ports.py"
+    if (-not (Test-Path -LiteralPath $probeScript)) {
+        Write-Log "candidate ports file present but probe script missing: $probeScript"
+        return
+    }
+    $targetHost = $HostName
+    if (-not $targetHost) {
+        $targetHost = Get-AliasHost -AliasName $Alias
+    }
+    if (-not $targetHost) {
+        Write-Log "candidate port probe skipped because alias host could not be resolved"
+        return
+    }
+    $reportDir = Split-Path -Parent $CandidateProbeReportPath
+    if ($reportDir -and -not (Test-Path -LiteralPath $reportDir)) {
+        New-Item -ItemType Directory -Force -Path $reportDir | Out-Null
+    }
+    $jsonDir = Split-Path -Parent $CandidateProbeJsonPath
+    if ($jsonDir -and -not (Test-Path -LiteralPath $jsonDir)) {
+        New-Item -ItemType Directory -Force -Path $jsonDir | Out-Null
+    }
+    Write-Log "candidate port probe: host=$targetHost ports=$CandidatePortsPath hint=$PortHintPath"
+    $probeArgs = @(
+        "-X", "utf8",
+        $probeScript,
+        "--host", $targetHost,
+        "--ports-file", $CandidatePortsPath,
+        "--timeout", "$CandidateProbeTimeoutSeconds",
+        "--max-ports", "$CandidateProbeMaxPorts",
+        "--write-hint-if-open", $PortHintPath,
+        "--output-md", $CandidateProbeReportPath,
+        "--output-json", $CandidateProbeJsonPath
+    )
+    $output = & python @probeArgs 2>&1
+    $exitCode = $LASTEXITCODE
+    foreach ($line in $output) {
+        Write-Log "candidate port probe output: $line"
+    }
+    if ($exitCode -ne 0) {
+        Write-Log "candidate port probe failed exit=$exitCode"
+    }
 }
 
 function Apply-Port-Hint {
@@ -99,9 +172,10 @@ $scriptFiles = @(
     "tests/test_on_disk_corpus_builder.py"
 )
 
-Write-Log "watcher starting alias=$Alias project=$ProjectDir root=$Root portHint=$PortHintPath attempts=$MaxAttempts interval=${IntervalSeconds}s"
+Write-Log "watcher starting alias=$Alias project=$ProjectDir root=$Root portHint=$PortHintPath candidatePorts=$CandidatePortsPath attempts=$MaxAttempts interval=${IntervalSeconds}s"
 
 for ($attempt = 1; $attempt -le $MaxAttempts; $attempt++) {
+    Invoke-Candidate-Port-Probe
     Apply-Port-Hint
     Write-Log "attempt $attempt/${MaxAttempts}: probing SSH"
     $sshOptions = @("-o", "BatchMode=yes", "-o", "ConnectTimeout=10", "-o", "ServerAliveInterval=5", "-o", "ServerAliveCountMax=1")
