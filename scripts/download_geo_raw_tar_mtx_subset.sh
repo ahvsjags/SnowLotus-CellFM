@@ -11,7 +11,7 @@ tissue="${SNOWCELL_GEO_TISSUE:?set SNOWCELL_GEO_TISSUE}"
 feature_column="${SNOWCELL_GEO_FEATURE_COLUMN:-0}"
 label="${SNOWCELL_GEO_LABEL:-unannotated}"
 coarse_label="${SNOWCELL_GEO_COARSE_LABEL:-unannotated}"
-h5_sample_regex="${SNOWCELL_GEO_H5_SAMPLE_REGEX:-${SNOWCELL_GEO_SAMPLE_REGEX:-filtered_feature_bc_matrix.*\\.h5$}}"
+h5_sample_regex="${SNOWCELL_GEO_H5_SAMPLE_REGEX:-${SNOWCELL_GEO_SAMPLE_REGEX:-filtered_feature_bc_matrix\\.h5$}}"
 h5_max_files="${SNOWCELL_GEO_H5_MAX_FILES:-${SNOWCELL_GEO_MAX_FILES:-25}}"
 h5_feature_column="${SNOWCELL_GEO_H5_FEATURE_COLUMN:-id}"
 
@@ -26,8 +26,6 @@ series_bucket="${accession%???}nnn"
 raw_url="${SNOWCELL_GEO_RAW_URL:-https://ftp.ncbi.nlm.nih.gov/geo/series/${series_bucket}/${accession}/suppl/${accession}_RAW.tar}"
 raw_fallback_url="${SNOWCELL_GEO_RAW_FALLBACK_URL:-https://www.ncbi.nlm.nih.gov/geo/download/?acc=${accession}&format=file}"
 downloader="${SNOWCELL_GEO_RAW_TAR_DOWNLOADER:-aria2}"
-raw_max_bytes="${SNOWCELL_GEO_RAW_TAR_MAX_BYTES:-21474836480}"
-raw_allow_large="${SNOWCELL_GEO_RAW_TAR_ALLOW_LARGE:-0}"
 
 mkdir -p "$raw_dir" "$extract_dir" "$npz_dir" logs
 
@@ -94,77 +92,11 @@ print(manifest_output)
 PY
 }
 
-remote_content_length() {
-  python - "$1" <<'PY'
-from __future__ import annotations
-
-import sys
-import urllib.request
-
-url = sys.argv[1]
-request = urllib.request.Request(
-    url,
-    method="HEAD",
-    headers={"User-Agent": "SnowLotus-CellFM/0.1 public-data-collector"},
-)
-try:
-    with urllib.request.urlopen(request, timeout=30) as response:
-        print(response.headers.get("Content-Length", ""))
-except Exception:
-    print("")
-PY
-}
-
-curl_common_args=(
-  -L
-  --fail
-  --retry "${SNOWCELL_GEO_RAW_TAR_CURL_RETRIES:-12}"
-  --retry-all-errors
-  --connect-timeout "${SNOWCELL_GEO_RAW_TAR_CONNECT_TIMEOUT:-20}"
-  --speed-limit "${SNOWCELL_GEO_RAW_TAR_MIN_SPEED:-1024}"
-  --speed-time "${SNOWCELL_GEO_RAW_TAR_SPEED_TIME:-300}"
-  --max-time "${SNOWCELL_GEO_RAW_TAR_MAX_TIME:-86400}"
-  -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector"
-)
-
-download_with_curl_resume() {
-  local url="$1"
-  local label="$2"
-  echo "curl resume download for ${label}: ${url}"
-  curl "${curl_common_args[@]}" -C - -o "$raw_tmp" "$url"
-}
-
-download_with_curl_fresh() {
-  local url="$1"
-  local label="$2"
-  local fresh_tmp="${raw_tmp}.fresh"
-  rm -f "$fresh_tmp"
-  echo "curl fresh download for non-range ${label}: ${url}"
-  curl "${curl_common_args[@]}" -o "$fresh_tmp" "$url"
-  mv -f "$fresh_tmp" "$raw_tmp"
-}
-
-adopt_aria2_partial_for_curl() {
-  if [ -s "$raw_tar" ] && [ ! -f "${raw_tar}.aria2" ] && [ ! -s "$raw_tmp" ]; then
-    mv -f "$raw_tar" "$raw_tmp"
-  else
-    rm -f "$raw_tar"
-  fi
-  rm -f "${raw_tar}.aria2"
-}
-
 if [ -s "$raw_tar" ] && [ ! -f "${raw_tar}.aria2" ] && tar -tf "$raw_tar" >/dev/null 2>&1; then
   rm -f "$raw_tmp"
   rm -f "${raw_tar}.aria2"
   echo "exists $raw_tar"
 else
-  raw_content_length="$(remote_content_length "$raw_url" || true)"
-  if [ "$raw_allow_large" != "1" ] && [ -n "$raw_content_length" ] && [ "$raw_content_length" -gt "$raw_max_bytes" ] 2>/dev/null; then
-    rm -f "$raw_tar" "${raw_tar}.aria2" "$raw_tmp"
-    write_unsupported_report "GEO RAW tar is ${raw_content_length} bytes, which exceeds SNOWCELL_GEO_RAW_TAR_MAX_BYTES=${raw_max_bytes}. Whole-tar retrieval is deferred; use a file-level matrix member retrieval strategy or rerun with SNOWCELL_GEO_RAW_TAR_ALLOW_LARGE=1 after confirming disk/network budget."
-    echo "Deferred large GEO RAW tar: $raw_url (${raw_content_length} bytes)"
-    exit 0
-  fi
   if [ "$downloader" = "aria2" ] && command -v aria2c >/dev/null 2>&1; then
     aria2_input="${raw_dir}/${accession}_RAW.aria2_urls.txt"
     {
@@ -174,24 +106,23 @@ else
     } > "$aria2_input"
     if ! aria2c -c -j 1 \
       -x "${SNOWCELL_GEO_RAW_TAR_CONNECTIONS:-1}" -s "${SNOWCELL_GEO_RAW_TAR_SPLITS:-1}" \
-      --max-tries=12 --retry-wait=20 --timeout=120 --lowest-speed-limit="${SNOWCELL_GEO_RAW_TAR_ARIA2_LOWEST_SPEED:-1K}" \
-      --allow-overwrite=true --auto-file-renaming=false \
+      --max-tries=12 --retry-wait=20 --timeout=120 --allow-overwrite=true --auto-file-renaming=false \
       --user-agent="SnowLotus-CellFM/0.1 public-data-collector" \
       -i "$aria2_input"; then
-      echo "aria2 raw tar download failed; retrying range-capable raw URL with curl resume"
-      adopt_aria2_partial_for_curl
-      if ! download_with_curl_resume "$raw_url" "GEO raw tar URL"; then
-        echo "curl resume against raw URL failed; retrying GEO download endpoint without resume"
-        download_with_curl_fresh "$raw_fallback_url" "GEO download endpoint"
-      fi
+      echo "aria2 raw tar download failed; retrying GEO fallback download with curl resume"
+      curl -L --fail --retry 12 --retry-all-errors --connect-timeout 20 --max-time 86400 \
+        -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
+        -C - -o "$raw_tmp" "$raw_fallback_url"
       mv -f "$raw_tmp" "$raw_tar"
       rm -f "${raw_tar}.aria2"
     fi
   else
-    if ! download_with_curl_resume "$raw_url" "GEO raw tar URL"; then
-      echo "curl resume against raw URL failed; retrying GEO download endpoint without resume"
-      download_with_curl_fresh "$raw_fallback_url" "GEO download endpoint"
-    fi
+    curl -L --fail --retry 12 --retry-all-errors --connect-timeout 20 --max-time 86400 \
+      -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
+      -C - -o "$raw_tmp" "$raw_fallback_url" \
+      || curl -L --fail --retry 12 --retry-all-errors --connect-timeout 20 --max-time 86400 \
+        -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
+        -C - -o "$raw_tmp" "$raw_url"
     mv -f "$raw_tmp" "$raw_tar"
     rm -f "${raw_tar}.aria2"
   fi
@@ -202,143 +133,18 @@ mkdir -p "$extract_dir"
 tar -xf "$raw_tar" -C "$extract_dir"
 
 gzip_validation_log="${raw_dir}/${accession}_gzip_validation_error.log"
-gzip_quarantine_report="${raw_dir}/${accession}_gzip_quarantine.json"
 if find "$extract_dir" -type f -iname '*.gz' -print -quit | grep -q .; then
-  python - "$extract_dir" "$raw_dir" "$gzip_validation_log" "$gzip_quarantine_report" <<'PY'
-from __future__ import annotations
-
-import json
-import shutil
-import subprocess
-import sys
-from pathlib import Path
-
-extract_dir = Path(sys.argv[1])
-raw_dir = Path(sys.argv[2])
-log_path = Path(sys.argv[3])
-report_path = Path(sys.argv[4])
-quarantine_dir = raw_dir / "quarantined_gzip_members"
-
-suffixes = [
-    "_matrix.mtx.gz",
-    "_features.tsv.gz",
-    "_genes.tsv.gz",
-    "_barcodes.tsv.gz",
-]
-
-
-def sample_prefix(path: Path) -> str | None:
-    for suffix in suffixes:
-        if path.name.endswith(suffix):
-            return path.name[: -len(suffix)]
-    return None
-
-
-corrupt: list[dict[str, str]] = []
-for path in sorted(extract_dir.rglob("*.gz")):
-    result = subprocess.run(["gzip", "-t", str(path)], capture_output=True, text=True)
-    if result.returncode:
-        corrupt.append(
-            {
-                "path": path.relative_to(extract_dir).as_posix(),
-                "stderr": result.stderr.strip(),
-                "sample_prefix": sample_prefix(path) or "",
-            }
-        )
-
-if not corrupt:
-    log_path.unlink(missing_ok=True)
-    report_path.unlink(missing_ok=True)
-    raise SystemExit(0)
-
-log_path.write_text("\n".join(item["stderr"] for item in corrupt if item["stderr"]) + "\n", encoding="utf-8")
-
-quarantined: list[str] = []
-for item in corrupt:
-    bad_path = extract_dir / item["path"]
-    prefix = item["sample_prefix"]
-    if prefix:
-        candidates = sorted(bad_path.parent.glob(f"{prefix}_*"))
-    else:
-        candidates = [bad_path]
-    for source in candidates:
-        if not source.exists() or not source.is_file():
-            continue
-        rel = source.relative_to(extract_dir)
-        target = quarantine_dir / rel
-        target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.move(str(source), str(target))
-        quarantined.append(rel.as_posix())
-
-payload = {
-    "status": "partial_gzip_member_quarantine",
-    "corrupt_members": corrupt,
-    "quarantined_files": quarantined,
-}
-report_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-print(f"Quarantined {len(quarantined)} files with corrupt gzip members; continuing with valid samples")
-PY
+  if ! find "$extract_dir" -type f -iname '*.gz' -print0 | xargs -0 gzip -t > "$gzip_validation_log" 2>&1; then
+    corrupt_target="${raw_tar}.corrupt.$(date +%Y%m%d_%H%M%S)"
+    mv -f "$raw_tar" "$corrupt_target"
+    rm -f "${raw_tar}.aria2"
+    rm -rf "$extract_dir"
+    echo "Extracted gzip member validation failed; moved corrupt RAW tar to $corrupt_target" >&2
+    cat "$gzip_validation_log" >&2
+    exit 75
+  fi
+  rm -f "$gzip_validation_log"
 fi
-
-python - "$extract_dir" "${raw_dir}/${accession}_flat_mtx_triplets.json" <<'PY'
-from __future__ import annotations
-
-import json
-import shutil
-import sys
-from collections import defaultdict
-from pathlib import Path
-
-extract_dir = Path(sys.argv[1])
-report_path = Path(sys.argv[2])
-
-role_suffixes = {
-    "matrix": ["_matrix.mtx.gz", "_matrix.mtx"],
-    "features": ["_features.tsv.gz", "_features.tsv", "_genes.tsv.gz", "_genes.tsv"],
-    "barcodes": ["_barcodes.tsv.gz", "_barcodes.tsv"],
-}
-
-
-def split_role(path: Path) -> tuple[str, str] | None:
-    for role, suffixes in role_suffixes.items():
-        for suffix in suffixes:
-            if path.name.endswith(suffix):
-                return path.name[: -len(suffix)], role
-    return None
-
-
-organized: list[dict[str, str]] = []
-for parent in [extract_dir, *sorted(path for path in extract_dir.rglob("*") if path.is_dir())]:
-    groups: dict[str, dict[str, list[Path]]] = defaultdict(lambda: defaultdict(list))
-    for path in sorted(parent.iterdir()):
-        if not path.is_file():
-            continue
-        parsed = split_role(path)
-        if not parsed:
-            continue
-        prefix, role = parsed
-        groups[prefix][role].append(path)
-    for prefix, roles in groups.items():
-        if not {"matrix", "features", "barcodes"}.issubset(roles):
-            continue
-        target_dir = parent / prefix
-        if parent.name == prefix:
-            continue
-        target_dir.mkdir(exist_ok=True)
-        for paths in roles.values():
-            for source in paths:
-                target = target_dir / source.name
-                if source.resolve() == target.resolve():
-                    continue
-                shutil.move(str(source), str(target))
-                organized.append({"source": source.relative_to(extract_dir).as_posix(), "target": target.relative_to(extract_dir).as_posix()})
-
-if organized:
-    report_path.write_text(json.dumps({"status": "organized_flat_mtx_triplets", "files": organized}, indent=2) + "\n", encoding="utf-8")
-    print(f"Organized {len(organized)} flat MTX triplet files into sample directories")
-else:
-    report_path.unlink(missing_ok=True)
-PY
 
 mtx_count="$(find "$extract_dir" -type f \( -iname '*matrix*.mtx*' -o -iname '*.mtx*' \) | wc -l | tr -d ' ')"
 if [ "$mtx_count" = "0" ]; then
