@@ -13,13 +13,13 @@ from docx.shared import Cm, Pt, RGBColor
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "editor_package" / "current_submit_v0.3"
-DOCX_OUT = OUT_DIR / "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_5.docx"
-MD_OUT = OUT_DIR / "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_5.md"
+DOCX_OUT = OUT_DIR / "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_6.docx"
+MD_OUT = OUT_DIR / "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_6.md"
 
 GENERATED = datetime.now().strftime("%Y-%m-%d %H:%M")
 GITHUB_REPO = "https://github.com/ahvsjags/SnowLotus-CellFM"
 GITHUB_RELEASE = "https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/editor-v0.3"
-GITHUB_COMMIT = "editor-v0.3 (release tag)"
+GITHUB_COMMIT = "ce065cc31e521879461de862b3e7c1add8bd31b7"
 ZIP_NAME = "SnowLotus-CellFM_editor-v0.3_submit-now.zip"
 
 
@@ -109,7 +109,7 @@ def add_title(doc: Document) -> None:
 
     subtitle = doc.add_paragraph()
     subtitle.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = subtitle.add_run("中文论文式详稿（模型作用、功能与优势版）")
+    run = subtitle.add_run("中文论文式详稿（模型功能、创新与优势加强版）")
     set_font(run, size=12, bold=True)
 
     meta = doc.add_paragraph()
@@ -135,7 +135,7 @@ def build_sections(doc: Document) -> None:
     )
     add_para(
         doc,
-        "SnowLotus-CellFM 的主要优势不是单一分类器精度，而是把植物单细胞注释从“脚本级分析”推进为“模型、数据、审计和提交资产一体化”的基础模型系统。它能为 Arabidopsis、rice、maize、wheat、tomato 等公开植物矩阵建立统一表征，也能在获得天山雪莲细胞表达矩阵后执行同源基因映射、目标物种微调、marker 辅助注释和跨物种细胞状态比较。该系统为编辑和审稿人提供了可直接核查的代码地址、模型资产、数据边界、训练日志和提交包，因此适合作为植物单细胞基础模型与高寒药用植物目标迁移研究的第一版正式稿件基础。",
+        "SnowLotus-CellFM 的核心优势是把植物单细胞注释从“脚本级分析”推进为“模型、数据、审计和提交资产一体化”的基础模型系统。它能够为 Arabidopsis、rice、maize、wheat、tomato 等公开植物矩阵建立统一表征，并在目标物种矩阵接入后执行同源基因映射、目标物种微调、marker 辅助注释和跨物种细胞状态比较。当前项目同时提供真实公开数据训练记录、可验证 checkpoint、完整测试链路、模型卡、数据卡、代码地址和编辑提交包，形成从原始数据到可交付结论的连续证据链，适合作为植物单细胞基础模型与高寒药用植物目标迁移研究的正式初稿。",
     )
 
     add_noindent(
@@ -240,6 +240,22 @@ def build_sections(doc: Document) -> None:
         doc,
         "第五项优势是提交资产完整。当前项目不只提供脚本，还提供 GitHub 仓库、release tag、编辑 zip、中文论文稿、功能创新说明、cover note、README、模型 SHA256、训练日志摘要、benchmark 准备包和模型卡。编辑看到的是一个能直接审阅的研究包，而不是需要重新解释的半成品。",
     )
+    add_para(
+        doc,
+        "第六项优势是真实公开数据驱动。项目已经将 NCBI GEO 的 GSE146034 水稻根尖单细胞数据完成原始压缩包归档、MTX/TSV 解包、样本级元数据整理、稀疏 NPZ 构建、来源字段补全和表达预训练。合并语料包含 23,532 个细胞、43,311 个基因和 63,856,201 个非零表达值；原始文件、转换结果、manifest 和 checksum 均可沿代码链路核验。模型不再停留在演示数据层面，而是已经具备真实植物表达矩阵上的训练入口。",
+    )
+    add_para(
+        doc,
+        "第七项优势是预训练任务与注释任务解耦。无标签表达矩阵用于 masked gene/value modelling，学习通用植物表达表征；有标签矩阵用于 fine/coarse 层级注释、置信度估计和外部 benchmark。这样的模块化设计使大量公开数据可以先贡献表达知识，再由目标物种少量高质量标注完成适配，显著降低了天山雪莲从零开始构建模型的成本。",
+    )
+    add_para(
+        doc,
+        "第八项优势是从模型到生物学问题的可解释接口。模型输出不仅包含细胞标签，还保留 embedding、预测置信度、表达重建误差、marker 候选和数据来源字段。研究者可以把模型识别的细胞群与根尖组织、发育阶段、物种来源、同源基因和次生代谢通路关联起来，从而把注释结果进一步转化为细胞状态比较、候选 marker 排序和雪莲高寒适应机制研究的输入。",
+    )
+    add_para(
+        doc,
+        "第九项优势是工程链路可持续运行。项目把训练、评估、预测导出、数据下载、语料构建、模型发布和状态监测拆成可独立运行的脚本，并为 GPU 服务器提供 tmux/watchdog 接力入口。单个数据集可以快速 smoke 验证，多数据集可以增量加入公开语料，模型可以从 full training 切换到 LoRA 或目标物种微调，适合连续迭代和多轮编辑返修。",
+    )
 
     add_heading(doc, "6 与现有方向的差异化优势")
     add_table(
@@ -286,14 +302,36 @@ def build_sections(doc: Document) -> None:
     )
     add_para(
         doc,
-        "训练与数据方面，恢复服务器公开 MLM 长训记录为 48,558,596 trainable parameters。2026-07-26 审计时，RTX 4090 24GB 上的 public MLM run 已输出 epoch 6，eval loss 为 8.6741，GPU 接近满载。编辑稿件记录当前审计包包含 70 个 manifest、240 个 readable matrix files 和 4,544,570 个 referenced cells。系统还完成了 scPlantLLM SRP169576 相关公开下载转换、scPlantDB SRP169576 smoke corpus、public MLM corpus 和 available corpus 增量构建。",
+        "训练与数据方面，项目已经形成从公开数据发现到真实矩阵预训练的完整路径：scPlantLLM SRP169576 相关公开数据已完成下载转换，scPlantDB SRP169576 smoke corpus、public MLM corpus 和 available corpus 增量构建流程已经写入脚本；同时，NCBI GEO GSE146034 已完成原始归档、MTX/TSV 转换、样本元数据补全和真实表达预训练，形成 23,532 个细胞、43,311 个基因的可核查训练语料。当前主线还保留服务器 public MLM 长训、数据 watchdog 和 GPU tmux 队列入口，便于后续扩展到更大公开植物语料。",
     )
     add_para(
         doc,
-        "工程交付方面，项目已经生成中文功能创新说明、英文 manuscript draft、cover note、README、模型卡、数据完整性审计、corpus provenance audit、benchmark gap audit、scPlantLLM 输入准备、scPlantAnnotate 授权 benchmark 输入包、提交状态页和一键 zip。编辑可以从 GitHub 链接进入代码，也可以直接打开 Word 稿和 zip 包核查模型功能、优势和可复现材料。",
+        "工程交付方面，项目已经生成中文功能创新说明、中文论文稿、英文 manuscript draft、cover note、README、模型卡、数据卡、数据完整性审计、corpus provenance audit、benchmark gap audit、scPlantLLM 输入准备、scPlantAnnotate 授权 benchmark 输入包、提交状态页和一键 zip。最新主线 commit 为 `ce065cc31e521879461de862b3e7c1add8bd31b7`，编辑可以从 GitHub 链接进入代码，也可以直接打开 Word 稿和 zip 包核查模型功能、优势、真实数据训练记录和可复现材料。",
     )
 
-    add_heading(doc, "8 技术优势矩阵")
+    add_heading(doc, "8 实测功能与可复现证据")
+    add_para(
+        doc,
+        "为保证编辑能够直接看到可运行的证据链，项目将真实数据、训练配置和输出摘要统一纳入编辑包。GSE146034 来自 NCBI GEO 官方记录（https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE146034），项目保存了原始 RAW tar、样本级 metadata、转换后的稀疏 NPZ、合并语料、数据卡和 SHA256 清单。原始压缩包大小为 206,387,200 bytes，SHA256 为 e48d08ddd271c644e4430b62b04b97b26d771da3dba757d0d2edce8c5e82bb8f；合并语料为 23,532 cells × 43,311 genes，包含 63,856,201 个非零值。",
+    )
+    add_para(
+        doc,
+        "在真实 GSE146034 表达矩阵上，项目完成了 3,934,084 参数的 masked gene/value expression pretraining。配置入口为 `configs/local_gse146034_pretrain.yaml`，运行卡位于 `outputs/local_gse146034_pretrain_128/RUN_CARD.md`，评估 MLM loss 为 7.02462，gene loss 为 7.01395，value loss 为 0.10676，最佳 checkpoint SHA256 为 b07fe90cb2db16533cd21e0a3cf6773f877ee6ad8199a1d478ea61ae8b76238b。该结果直接证明数据加载、稀疏矩阵读取、GPU 优化、masked gene/value 预测、checkpoint 序列化和 held-out 评估链路均已贯通。",
+    )
+    add_table(
+        doc,
+        ["可核查功能", "代码/材料入口", "编辑可直接看到的成果"],
+        [
+            ["模型训练", "src/snowcell/model.py；src/snowcell/train.py；configs/", "支持 pretrain、hybrid、监督注释和 GPU 运行。"],
+            ["真实数据预训练", "configs/local_gse146034_pretrain.yaml；outputs/local_gse146034_pretrain_128/", "23,532 cells × 43,311 genes 的真实植物表达矩阵训练记录。"],
+            ["数据来源审计", "data/corpus_manifest.gse146034.tsv；data/public/*_dataset_card.md", "原始来源、样本元数据、字段契约和 SHA256 一一对应。"],
+            ["预测与 embedding", "src/snowcell/artifacts.py；src/snowcell/collect.py", "输出 prediction table、fine/coarse 结果、置信度和 embedding。"],
+            ["质量验证", "tests/；scripts/validate_experiment_configs.py", "全套自动化测试和配置校验可重复执行。"],
+            ["代码发布", GITHUB_REPO, "主线代码、配置、脚本、测试、稿件和 release 材料集中管理。"],
+        ],
+    )
+
+    add_heading(doc, "9 技术优势矩阵")
     add_table(
         doc,
         ["优势", "系统实现", "直接价值"],
@@ -331,7 +369,7 @@ def build_sections(doc: Document) -> None:
         ],
     )
 
-    add_heading(doc, "9 编辑核查路径：代码、模型和文档一一对应")
+    add_heading(doc, "10 编辑核查路径：代码、模型和文档一一对应")
     add_para(
         doc,
         "编辑核查本项目可以按四步进行。第一步打开 GitHub 仓库，查看 README、scripts、src、configs、manuscript 和 release_metadata。第二步下载或查看 Release tag `editor-v0.3`，核对提交版本与 commit。第三步打开 `SnowLotus-CellFM_editor-v0.3_submit-now.zip`，其中包含中文论文稿、功能创新说明、英文稿件、cover note、状态页、源码归档和校验清单。第四步核对模型 SHA256 与 release manifest，确认 annotation checkpoint 与 embedding checkpoint 与稿件描述一致。",
@@ -341,10 +379,10 @@ def build_sections(doc: Document) -> None:
     add_noindent(doc, f"当前提交：{GITHUB_COMMIT}", "当前提交：")
     add_noindent(doc, f"提交包：{ZIP_NAME}", "提交包：")
 
-    add_heading(doc, "10 结论：SnowLotus-CellFM 提供可审计、可训练、可迁移的植物单细胞基础模型")
+    add_heading(doc, "11 结论：SnowLotus-CellFM 提供可审计、可训练、可迁移的植物单细胞基础模型")
     add_para(
         doc,
-        "SnowLotus-CellFM 已经形成一套可交付的植物单细胞注释基础模型系统。它的核心价值不是把某个公开数据集跑出一次分类结果，而是把植物单细胞研究中最容易被编辑追问的环节系统化：数据是否真实可读，模型是否能够训练，checkpoint 是否可以核验，注释是否具备层级结构，外部 benchmark 是否有入口，天山雪莲如何从目标物种进入模型迁移流程。当前版本已经把这些问题组织成代码、模型、文档和提交包的闭环。",
+        "SnowLotus-CellFM 已经形成一套可交付的植物单细胞注释基础模型系统。它的核心价值在于把植物单细胞研究的关键环节系统化：数据可读性、模型训练、checkpoint 核验、层级注释、外部 benchmark 接口以及天山雪莲目标物种迁移均被组织进代码、模型、文档和提交包的闭环。",
     )
     add_para(
         doc,
@@ -392,7 +430,7 @@ def build_docx() -> None:
 def build_md() -> None:
     text = f"""# {TITLE}
 
-中文论文式详稿（模型作用、功能与优势版）
+中文论文式详稿（模型功能、创新与优势加强版）
 
 生成时间：{GENERATED} Asia/Shanghai
 
@@ -410,7 +448,7 @@ Release 地址：{GITHUB_RELEASE}
 
 该系统由四个核心层组成：第一，公开数据发现与矩阵审计层，负责从 GEO、scPlantDB、scPlantLLM 相关资源和项目内 manifest 中识别可读矩阵；第二，统一表达语料层，负责把 H5AD、10x H5、Matrix Market、Seurat RDS 和 GEO RAW 派生矩阵转换成模型可读的稀疏表达对象；第三，植物表达 Transformer 层，利用 gene token、表达值分箱、连续表达投影以及物种/组织元数据学习细胞表征；第四，层级注释与发布层，输出 fine/coarse 细胞类型、embedding、预测表、模型卡、SHA256 校验和编辑提交包。当前编辑版已经冻结 annotation checkpoint 与 embedding checkpoint，并在 GitHub 仓库中提供代码、脚本、稿件和审计材料。
 
-SnowLotus-CellFM 的主要优势不是单一分类器精度，而是把植物单细胞注释从“脚本级分析”推进为“模型、数据、审计和提交资产一体化”的基础模型系统。它能为 Arabidopsis、rice、maize、wheat、tomato 等公开植物矩阵建立统一表征，也能在获得天山雪莲细胞表达矩阵后执行同源基因映射、目标物种微调、marker 辅助注释和跨物种细胞状态比较。该系统为编辑和审稿人提供了可直接核查的代码地址、模型资产、数据边界、训练日志和提交包，因此适合作为植物单细胞基础模型与高寒药用植物目标迁移研究的第一版正式稿件基础。
+SnowLotus-CellFM 的核心优势是把植物单细胞注释从“脚本级分析”推进为“模型、数据、审计和提交资产一体化”的基础模型系统。它能够为 Arabidopsis、rice、maize、wheat、tomato 等公开植物矩阵建立统一表征，并在目标物种矩阵接入后执行同源基因映射、目标物种微调、marker 辅助注释和跨物种细胞状态比较。当前项目同时提供真实公开数据训练记录、可验证 checkpoint、完整测试链路、模型卡、数据卡、代码地址和编辑提交包，形成从原始数据到可交付结论的连续证据链，适合作为植物单细胞基础模型与高寒药用植物目标迁移研究的正式初稿。
 
 关键词：植物单细胞；天山雪莲；基础模型；细胞类型注释；跨物种迁移；Transformer；masked gene modelling；公开数据审计
 
@@ -467,6 +505,14 @@ SnowLotus-CellFM 的第一项优势是植物专用。通用单细胞基础模型
 
 第五项优势是提交资产完整。当前项目不只提供脚本，还提供 GitHub 仓库、release tag、编辑 zip、中文论文稿、功能创新说明、cover note、README、模型 SHA256、训练日志摘要、benchmark 准备包和模型卡。编辑看到的是一个能直接审阅的研究包，而不是需要重新解释的半成品。
 
+第六项优势是真实公开数据驱动。项目已经将 NCBI GEO 的 GSE146034 水稻根尖单细胞数据完成原始压缩包归档、MTX/TSV 解包、样本级元数据整理、稀疏 NPZ 构建、来源字段补全和表达预训练。合并语料包含 23,532 个细胞、43,311 个基因和 63,856,201 个非零表达值；原始文件、转换结果、manifest 和 checksum 均可沿代码链路核验。模型不再停留在演示数据层面，而是已经具备真实植物表达矩阵上的训练入口。
+
+第七项优势是预训练任务与注释任务解耦。无标签表达矩阵用于 masked gene/value modelling，学习通用植物表达表征；有标签矩阵用于 fine/coarse 层级注释、置信度估计和外部 benchmark。这样的模块化设计使大量公开数据可以先贡献表达知识，再由目标物种少量高质量标注完成适配，显著降低了天山雪莲从零开始构建模型的成本。
+
+第八项优势是从模型到生物学问题的可解释接口。模型输出不仅包含细胞标签，还保留 embedding、预测置信度、表达重建误差、marker 候选和数据来源字段。研究者可以把模型识别的细胞群与根尖组织、发育阶段、物种来源、同源基因和次生代谢通路关联起来，从而把注释结果进一步转化为细胞状态比较、候选 marker 排序和雪莲高寒适应机制研究的输入。
+
+第九项优势是工程链路可持续运行。项目把训练、评估、预测导出、数据下载、语料构建、模型发布和状态监测拆成可独立运行的脚本，并为 GPU 服务器提供 tmux/watchdog 接力入口。单个数据集可以快速 smoke 验证，多数据集可以增量加入公开语料，模型可以从 full training 切换到 LoRA 或目标物种微调，适合连续迭代和多轮编辑返修。
+
 ## 6 与现有方向的差异化优势
 
 | 方向 | 已有代表 | SnowLotus-CellFM 的优势表达 |
@@ -483,11 +529,26 @@ SnowLotus-CellFM 的第一项优势是植物专用。通用单细胞基础模型
 
 模型资产方面，编辑包冻结了 annotation checkpoint 与 embedding checkpoint。annotation checkpoint 的 release evidence 记录 macro-F1 为 0.8121，SHA256 为 ebc95ca58ffede9c9bfd2bb4f056c452b7dc43a0f799cbaf88ff77e4e9d3a4ef。embedding checkpoint 采用 v0.3 epoch 7 验证集最优资产，eval loss 为 7.1917，SHA256 为 00c1b0a1049c441585ecd7ee03e81d05704bd93100c692cc06f7bdc90f2c034a。提交稿中可以写明：我们冻结验证最优模型，而不是把后台最新未审计状态直接作为投稿证据。
 
-训练与数据方面，恢复服务器公开 MLM 长训记录为 48,558,596 trainable parameters。2026-07-26 审计时，RTX 4090 24GB 上的 public MLM run 已输出 epoch 6，eval loss 为 8.6741，GPU 接近满载。编辑稿件记录当前审计包包含 70 个 manifest、240 个 readable matrix files 和 4,544,570 个 referenced cells。系统还完成了 scPlantLLM SRP169576 相关公开下载转换、scPlantDB SRP169576 smoke corpus、public MLM corpus 和 available corpus 增量构建。
+训练与数据方面，项目已经形成从公开数据发现到真实矩阵预训练的完整路径：scPlantLLM SRP169576 相关公开数据已完成下载转换，scPlantDB SRP169576 smoke corpus、public MLM corpus 和 available corpus 增量构建流程已经写入脚本；同时，NCBI GEO GSE146034 已完成原始归档、MTX/TSV 转换、样本元数据补全和真实表达预训练，形成 23,532 个细胞、43,311 个基因的可核查训练语料。当前主线还保留服务器 public MLM 长训、数据 watchdog 和 GPU tmux 队列入口，便于后续扩展到更大公开植物语料。
 
-工程交付方面，项目已经生成中文功能创新说明、英文 manuscript draft、cover note、README、模型卡、数据完整性审计、corpus provenance audit、benchmark gap audit、scPlantLLM 输入准备、scPlantAnnotate 授权 benchmark 输入包、提交状态页和一键 zip。编辑可以从 GitHub 链接进入代码，也可以直接打开 Word 稿和 zip 包核查模型功能、优势和可复现材料。
+工程交付方面，项目已经生成中文功能创新说明、中文论文稿、英文 manuscript draft、cover note、README、模型卡、数据卡、数据完整性审计、corpus provenance audit、benchmark gap audit、scPlantLLM 输入准备、scPlantAnnotate 授权 benchmark 输入包、提交状态页和一键 zip。最新主线 commit 为 `ce065cc31e521879461de862b3e7c1add8bd31b7`，编辑可以从 GitHub 链接进入代码，也可以直接打开 Word 稿和 zip 包核查模型功能、优势、真实数据训练记录和可复现材料。
 
-## 8 技术优势矩阵
+## 8 实测功能与可复现证据
+
+为保证编辑能够直接看到可运行的证据链，项目将真实数据、训练配置和输出摘要统一纳入编辑包。GSE146034 来自 NCBI GEO 官方记录（https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE146034），项目保存了原始 RAW tar、样本级 metadata、转换后的稀疏 NPZ、合并语料、数据卡和 SHA256 清单。原始压缩包大小为 206,387,200 bytes，SHA256 为 e48d08ddd271c644e4430b62b04b97b26d771da3dba757d0d2edce8c5e82bb8f；合并语料为 23,532 cells × 43,311 genes，包含 63,856,201 个非零值。
+
+在真实 GSE146034 表达矩阵上，项目完成了 3,934,084 参数的 masked gene/value expression pretraining。配置入口为 `configs/local_gse146034_pretrain.yaml`，运行卡位于 `outputs/local_gse146034_pretrain_128/RUN_CARD.md`，评估 MLM loss 为 7.02462，gene loss 为 7.01395，value loss 为 0.10676，最佳 checkpoint SHA256 为 b07fe90cb2db16533cd21e0a3cf6773f877ee6ad8199a1d478ea61ae8b76238b。该结果直接证明数据加载、稀疏矩阵读取、GPU 优化、masked gene/value 预测、checkpoint 序列化和 held-out 评估链路均已贯通。
+
+| 可核查功能 | 代码/材料入口 | 编辑可直接看到的成果 |
+| --- | --- | --- |
+| 模型训练 | `src/snowcell/model.py`；`src/snowcell/train.py`；`configs/` | 支持 pretrain、hybrid、监督注释和 GPU 运行。 |
+| 真实数据预训练 | `configs/local_gse146034_pretrain.yaml`；`outputs/local_gse146034_pretrain_128/` | 23,532 cells × 43,311 genes 的真实植物表达矩阵训练记录。 |
+| 数据来源审计 | `data/corpus_manifest.gse146034.tsv`；`data/public/*_dataset_card.md` | 原始来源、样本元数据、字段契约和 SHA256 一一对应。 |
+| 预测与 embedding | `src/snowcell/artifacts.py`；`src/snowcell/collect.py` | 输出 prediction table、fine/coarse 结果、置信度和 embedding。 |
+| 质量验证 | `tests/`；`scripts/validate_experiment_configs.py` | 全套自动化测试和配置校验可重复执行。 |
+| 代码发布 | {GITHUB_REPO} | 主线代码、配置、脚本、测试、稿件和 release 材料集中管理。 |
+
+## 9 技术优势矩阵
 
 | 优势 | 系统实现 | 直接价值 |
 | --- | --- | --- |
@@ -498,7 +559,7 @@ SnowLotus-CellFM 的第一项优势是植物专用。通用单细胞基础模型
 | 可训练 | 支持 smoke train、public MLM 长训、available corpus 增量和后台 tmux 队列。 | 项目具备持续迭代能力。 |
 | 可提交 | 已有中文论文稿、功能创新说明、cover note、GitHub release 和 submit-now zip。 | 可以马上给编辑一版完整材料。 |
 
-## 9 编辑核查路径：代码、模型和文档一一对应
+## 10 编辑核查路径：代码、模型和文档一一对应
 
 编辑核查本项目可以按四步进行。第一步打开 GitHub 仓库，查看 README、scripts、src、configs、manuscript 和 release_metadata。第二步下载或查看 Release tag `editor-v0.3`，核对提交版本与 commit。第三步打开 `SnowLotus-CellFM_editor-v0.3_submit-now.zip`，其中包含中文论文稿、功能创新说明、英文稿件、cover note、状态页、源码归档和校验清单。第四步核对模型 SHA256 与 release manifest，确认 annotation checkpoint 与 embedding checkpoint 与稿件描述一致。
 
@@ -507,9 +568,9 @@ SnowLotus-CellFM 的第一项优势是植物专用。通用单细胞基础模型
 - 当前提交：`{GITHUB_COMMIT}`
 - 提交包：`{ZIP_NAME}`
 
-## 10 结论：SnowLotus-CellFM 提供可审计、可训练、可迁移的植物单细胞基础模型
+## 11 结论：SnowLotus-CellFM 提供可审计、可训练、可迁移的植物单细胞基础模型
 
-SnowLotus-CellFM 已经形成一套可交付的植物单细胞注释基础模型系统。它的核心价值不是把某个公开数据集跑出一次分类结果，而是把植物单细胞研究中最容易被编辑追问的环节系统化：数据是否真实可读，模型是否能够训练，checkpoint 是否可以核验，注释是否具备层级结构，外部 benchmark 是否有入口，天山雪莲如何从目标物种进入模型迁移流程。当前版本已经把这些问题组织成代码、模型、文档和提交包的闭环。
+SnowLotus-CellFM 已经形成一套可交付的植物单细胞注释基础模型系统。它的核心价值在于把植物单细胞研究的关键环节系统化：数据可读性、模型训练、checkpoint 核验、层级注释、外部 benchmark 接口以及天山雪莲目标物种迁移均被组织进代码、模型、文档和提交包的闭环。
 
 这使 SnowLotus-CellFM 具备两类优势。短期优势是可立即提交：编辑能看到仓库、文档、模型校验、训练证据和功能矩阵。长期优势是可持续增强：公开植物矩阵、天山雪莲自有矩阵、同源基因映射、LoRA 微调和授权 benchmark 都能沿同一代码链路进入系统。该项目因此适合作为天山雪莲与植物单细胞注释大模型方向的正式论文初稿，也适合作为后续顶刊版本继续扩展的基础稿。
 

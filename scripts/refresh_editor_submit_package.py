@@ -45,6 +45,8 @@ PACKAGE_FILES = [
     "SnowLotus_CellFM_已完成工作校稿版_v0_4.md",
     "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_5.docx",
     "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_5.md",
+    "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_6.docx",
+    "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_6.md",
     "snowlotus-cellfm-editor-v0.3-source-metadata.tar.gz",
     "snowlotus-cellfm-editor-v0.3-manuscript.tar.gz",
 ]

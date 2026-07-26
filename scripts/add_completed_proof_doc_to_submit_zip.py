@@ -13,11 +13,18 @@ PACKAGE_DIR = ROOT / "editor_package" / "current_submit_v0.3"
 ZIP_PATH = PACKAGE_DIR / "SnowLotus-CellFM_editor-v0.3_submit-now.zip"
 FILES = [
     PACKAGE_DIR / "ARCHIVE_SHA256SUMS.txt",
+    PACKAGE_DIR / "SUBMISSION_STATUS_NOW.md",
+    PACKAGE_DIR / "ssh_recovery_status.local.md",
+    PACKAGE_DIR / "ssh_recovery_status.local.json",
+    PACKAGE_DIR / "matpool_candidate_port_probe.local.md",
+    PACKAGE_DIR / "matpool_candidate_port_probe.local.json",
     PACKAGE_DIR / "snowlotus-cellfm-editor-v0.3-source-metadata.tar.gz",
     PACKAGE_DIR / "SnowLotus_CellFM_已完成工作校稿版_v0_4.docx",
     PACKAGE_DIR / "SnowLotus_CellFM_已完成工作校稿版_v0_4.md",
     PACKAGE_DIR / "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_5.docx",
     PACKAGE_DIR / "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_5.md",
+    PACKAGE_DIR / "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_6.docx",
+    PACKAGE_DIR / "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_6.md",
 ]
 
 
