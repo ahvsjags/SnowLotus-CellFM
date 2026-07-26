@@ -1,3 +1,10 @@
+param(
+  [string]$Alias = "matpool-px1-jcy",
+  [string]$HostName = "px1-jcy.matpool.com",
+  [int]$Port = 27683,
+  [string]$User = "root"
+)
+
 $ErrorActionPreference = "Stop"
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
@@ -23,10 +30,10 @@ Copy-Item -LiteralPath $path -Destination $backup
 $text = Get-Content -Raw -Encoding UTF8 -LiteralPath $path
 
 $replacement = @"
-Host matpool-px1-jcy px1-jcy.matpool.com
-  HostName px1-jcy.matpool.com
-  Port 27683
-  User root
+Host $Alias $HostName
+  HostName $HostName
+  Port $Port
+  User $User
   PreferredAuthentications publickey,password,keyboard-interactive
   BatchMode yes
   PubkeyAuthentication yes
@@ -39,11 +46,17 @@ Host matpool-px1-jcy px1-jcy.matpool.com
 
 "@
 
-$pattern = '(?ms)^Host matpool-px1-jcy[^\r\n]*\r?\n.*?(?=^Host |\z)'
+$pattern = "(?ms)^Host $([regex]::Escape($Alias))[^\r\n]*\r?\n.*?(?=^Host |\z)"
+$match = [regex]::Match($text, $pattern)
+if (-not $match.Success) {
+  throw "$Alias block not found"
+}
 $updated = [regex]::Replace($text, $pattern, $replacement, 1)
 if ($updated -eq $text) {
-  throw "matpool-px1-jcy block not found or unchanged"
+  Write-Output "$Alias already up to date: $User@$HostName`:$Port"
+  exit 0
 }
 
 Set-Content -LiteralPath $path -Encoding UTF8 -Value $updated
-Write-Output $backup
+Write-Output "Updated $Alias -> $User@$HostName`:$Port"
+Write-Output "Backup: $backup"
