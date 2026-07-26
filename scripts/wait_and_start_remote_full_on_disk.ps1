@@ -198,6 +198,7 @@ $scriptFiles = @(
     "data/public/GSE146035_bulk_rpm/GSM4363196_9311RPM.txt.gz",
     "data/public/GSE146035_bulk_rpm/GSM4363198_Nip_RPM.txt.gz",
     "configs/local_gse146034_smoke.yaml",
+    "configs/local_gse146034_pretrain.yaml",
     "tests/test_on_disk_corpus_builder.py"
 )
 
