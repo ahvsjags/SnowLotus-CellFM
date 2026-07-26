@@ -27,7 +27,8 @@ The two per-sample sparse NPZ files are listed in
 ``data/corpus_manifest.gse146034_samples.tsv``. The merged corpus is
 ``data/plant_foundation_corpus_gse146034.npz`` with 23,532 cells, 43,311 genes,
 and 63,856,201 non-zero entries before the standard gene-feature truncation
-used by the smoke configuration.
+used by the smoke configuration. Its current SHA256 is
+``e263db433f3485796cd16618431cf6bee504263ebc3f256631ef567dfc61347b``.
 
 Sample-level provenance is in
 ``data/public/GSE146034_sample_metadata.tsv`` and has been injected into the
