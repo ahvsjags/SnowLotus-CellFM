@@ -30,8 +30,11 @@ mkdir -p "$raw_dir" "$download_dir" "$npz_dir" logs
 if [ -s "$raw_tar" ] && [ ! -f "${raw_tar}.aria2" ] && tar -tf "$raw_tar" >/dev/null 2>&1; then
   echo "exists $raw_tar"
 else
-  if [ ! -s "$raw_tar" ] && [ -s "$raw_tmp" ]; then
-    mv -f "$raw_tmp" "$raw_tar"
+  if [ -s "$raw_tmp" ] && { [ ! -s "$raw_tar" ] || ! tar -tf "$raw_tar" >/dev/null 2>&1; }; then
+    if [ ! -s "$raw_tar" ] || [ "$(stat -c %s "$raw_tmp")" -gt "$(stat -c %s "$raw_tar" 2>/dev/null || echo 0)" ]; then
+      mv -f "$raw_tmp" "$raw_tar"
+      rm -f "${raw_tar}.aria2"
+    fi
   fi
   if [ "$downloader" = "aria2" ] && command -v aria2c >/dev/null 2>&1; then
     aria2_input="${raw_dir}/${accession}_RAW.aria2_urls.txt"
