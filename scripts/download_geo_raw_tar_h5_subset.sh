@@ -30,10 +30,17 @@ mkdir -p "$raw_dir" "$download_dir" "$npz_dir" logs
 if [ -s "$raw_tar" ] && [ ! -f "${raw_tar}.aria2" ] && tar -tf "$raw_tar" >/dev/null 2>&1; then
   echo "exists $raw_tar"
 else
+  if [ ! -s "$raw_tar" ] && [ -s "$raw_tmp" ]; then
+    mv -f "$raw_tmp" "$raw_tar"
+  fi
   if [ "$downloader" = "aria2" ] && command -v aria2c >/dev/null 2>&1; then
     aria2_input="${raw_dir}/${accession}_RAW.aria2_urls.txt"
     {
-      printf "%s\n" "$raw_url"
+      if [ "$raw_fallback_url" != "$raw_url" ]; then
+        printf "%s\t%s\n" "$raw_url" "$raw_fallback_url"
+      else
+        printf "%s\n" "$raw_url"
+      fi
       printf "  dir=%s\n" "$raw_dir"
       printf "  out=%s\n" "${accession}_RAW.tar"
     } > "$aria2_input"
@@ -43,10 +50,10 @@ else
       --user-agent="SnowLotus-CellFM/0.1 public-data-collector" \
       -i "$aria2_input"
   else
-    curl -L --fail --retry 12 --retry-all-errors --connect-timeout 20 --max-time 86400 \
+    curl -L --fail --http1.1 --retry 12 --retry-all-errors --connect-timeout 20 --max-time 86400 \
       -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
-      -o "$raw_tmp" "$raw_fallback_url" \
-      || curl -L --fail --retry 12 --retry-all-errors --connect-timeout 20 --max-time 86400 \
+      -C - -o "$raw_tmp" "$raw_fallback_url" \
+      || curl -L --fail --http1.1 --retry 12 --retry-all-errors --connect-timeout 20 --max-time 86400 \
         -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
         -C - -o "$raw_tmp" "$raw_url"
     mv -f "$raw_tmp" "$raw_tar"
