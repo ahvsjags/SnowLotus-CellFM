@@ -23,8 +23,48 @@ optional_public_manifests=(
   data/corpus_manifest.gse270342.tsv
 )
 
+manifest_matrix_ready() {
+  local manifest="$1"
+  python - "$manifest" <<'PY'
+import csv
+import sys
+from pathlib import Path
+
+manifest = Path(sys.argv[1])
+root = Path(".")
+if not manifest.exists() or manifest.stat().st_size == 0:
+    raise SystemExit(1)
+with manifest.open("r", encoding="utf-8", newline="") as handle:
+    rows = list(csv.DictReader(handle, delimiter="\t"))
+if not rows:
+    raise SystemExit(1)
+missing = []
+for row in rows:
+    value = row.get("path", "")
+    if not value:
+        missing.append("<empty>")
+        continue
+    path = Path(value)
+    if not path.is_absolute():
+        path = root / path
+    if not path.is_file():
+        missing.append(value)
+if missing:
+    print("missing matrix paths: " + ";".join(missing[:8]))
+    raise SystemExit(1)
+raise SystemExit(0)
+PY
+}
+
 collect_public_extra_manifests() {
-  find data -maxdepth 1 -type f \( -name "corpus_manifest.gse*.tsv" -o -name "corpus_manifest.scplantdb*.tsv" \) ! -name "*.available.tsv" | sort | tr '\n' ' '
+  local manifest
+  while IFS= read -r manifest; do
+    if manifest_matrix_ready "$manifest" >/dev/null 2>&1; then
+      printf "%s " "$manifest"
+    else
+      echo "[$(date)] skipping non-ready extra manifest: $manifest" >&2
+    fi
+  done < <(find data -maxdepth 1 -type f \( -name "corpus_manifest.gse*.tsv" -o -name "corpus_manifest.scplantdb*.tsv" \) ! -name "*.available.tsv" | sort)
 }
 
 build_full_public_mlm_corpus() {
@@ -52,7 +92,7 @@ exit_if_continuation_exists() {
 echo "[$(date)] SnowCell public MLM queue started"
 bash scripts/ensure_public_data_jobs.sh || true
 
-while [ ! -s "$gse_manifest" ]; do
+while ! manifest_matrix_ready "$gse_manifest"; do
   bash scripts/ensure_public_data_jobs.sh || true
   bash scripts/convert_gse268881_available.sh || true
   bash scripts/build_available_public_mlm_corpus.sh || true
@@ -70,7 +110,7 @@ while [ ! -s "$gse_manifest" ]; do
     echo "[$(date)] waiting for GSE268881 subset conversion: $gse_manifest"
   else
     echo "[$(date)] GSE268881 session is not running; restarting downloader/converter"
-    bash scripts/download_gse268881_subset.sh
+    bash scripts/download_gse268881_subset.sh || true
   fi
   sleep "$poll_seconds"
 done
