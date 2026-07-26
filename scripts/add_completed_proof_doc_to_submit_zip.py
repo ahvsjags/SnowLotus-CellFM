@@ -16,6 +16,8 @@ FILES = [
     PACKAGE_DIR / "snowlotus-cellfm-editor-v0.3-source-metadata.tar.gz",
     PACKAGE_DIR / "SnowLotus_CellFM_已完成工作校稿版_v0_4.docx",
     PACKAGE_DIR / "SnowLotus_CellFM_已完成工作校稿版_v0_4.md",
+    PACKAGE_DIR / "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_5.docx",
+    PACKAGE_DIR / "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_5.md",
 ]
 
 
