@@ -39,6 +39,24 @@ Set-Content -Encoding ascii -Path (Join-Path $ProjectRoot "config\matpool_px1_ne
 
 The local recovery watcher checks this file before every SSH probe. If the value is a valid port and differs from the current alias, it updates `matpool-px1-jcy` automatically before continuing.
 
+If Matpool shows several candidate ports or the UI changed while the server is coming back, write only those explicit candidates to:
+
+```powershell
+$ProjectRoot = (Resolve-Path .).Path
+Set-Content -Encoding ascii -Path (Join-Path $ProjectRoot "config\matpool_px1_candidate_ports.txt") -Value @(
+  "27683",
+  "<NEW_PORT>"
+)
+python -X utf8 (Join-Path $ProjectRoot "scripts\probe_matpool_candidate_ports.py") `
+  --host px1-jcy.matpool.com `
+  --ports-file (Join-Path $ProjectRoot "config\matpool_px1_candidate_ports.txt") `
+  --write-hint-if-open (Join-Path $ProjectRoot "config\matpool_px1_next_port.txt") `
+  --output-md (Join-Path $ProjectRoot "editor_package\current_submit_v0.3\matpool_candidate_port_probe.local.md") `
+  --output-json (Join-Path $ProjectRoot "editor_package\current_submit_v0.3\matpool_candidate_port_probe.local.json")
+```
+
+The probe only checks ports listed in the candidate file. It does not scan ranges unless `--allow-ranges` is explicitly provided.
+
 Then restart the local recovery watcher:
 
 ```powershell
