@@ -79,7 +79,7 @@ if [ -s "$aria2_input" ]; then
   else
     while IFS= read -r filename; do
       [ -n "$filename" ] || continue
-      curl -L --fail --retry 5 --connect-timeout 20 --max-time 7200 \
+      curl -L --fail --http1.1 --retry 5 --retry-all-errors --connect-timeout 20 --max-time 7200 -C - \
         -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
         -o "$download_dir/$filename" "$(geo_sample_url "$filename")"
     done < "$download_list"
