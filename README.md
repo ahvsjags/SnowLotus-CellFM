@@ -19,7 +19,7 @@ The repository is currently private. Grant editor/reviewer access or switch it t
 - Best annotation checkpoint: `foundation_5090_pretrain/best.pt`, macro-F1 evidence 0.8121 in the release manifest
 - Best embedding checkpoint: `foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm/best.pt`, SHA256 `00c1b0a1049c441585ecd7ee03e81d05704bd93100c692cc06f7bdc90f2c034a`
 - Current best evidence: v0.3 epoch-7 evaluation loss 7.1917 after vocabulary-aware warm-start from the completed v0.2 continuation; v0.3 epoch-9 training is still running and will be superseded only after passing the same audit gates
-- Recovered-host public MLM training has emitted epoch-3 validation loss 8.8806 on the reconstructed public MLM corpus while additional GEO/scPlantDB data queues continue in tmux
+- Recovered-host public MLM training has emitted epoch-4 validation loss 8.7691 on the reconstructed public MLM corpus while additional GEO/scPlantDB data queues continue in tmux
 - Newly promoted public matrices after v0.2 include GSE226826, GSE240098 and GSE240102; the next plus-corpus continuation is queued behind active training on the recovered GPU host
 
 ## What Is Included
