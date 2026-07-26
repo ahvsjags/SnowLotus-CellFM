@@ -1,0 +1,7 @@
+sample_id	geo_accession	title	assay	cultivar	stage	tissue_source	cell_source	series_ids	sra_accession	source_url
+GSM4363196	GSM4363196	93-11 bulk RNA rep.1	bulk RNA	93-11 (Indica)	3-day-old	5mm root tip	protoplast bulk RNA	GSE146033;GSE146035	SRX7814220	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4363196
+GSM4363197	GSM4363197	93-11 bulk RNA rep.2	bulk RNA	93-11 (Indica)	3-day-old	5mm root tip	protoplast bulk RNA	GSE146033;GSE146035	SRX7814221	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4363197
+GSM4363198	GSM4363198	Nip bulk RNA rep.1	bulk RNA	Nipponbare (Nip; Japonica)	3-day-old	5mm root tip	protoplast bulk RNA	GSE146033;GSE146035	SRX7814222	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4363198
+GSM4363199	GSM4363199	Nip bulk RNA rep.2	bulk RNA	Nipponbare (Nip; Japonica)	3-day-old	5mm root tip	protoplast bulk RNA	GSE146033;GSE146035	SRX7814223	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4363199
+GSM4363200_9311	GSM4363200	93-11_scRNA-seq	scRNA-seq	93-11 (Indica)	3-day-old	5mm root tip	protoplast	GSE146034;GSE146035	SRX7814224	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4363200
+GSM4363201_Nip	GSM4363201	Nip_scRNA-seq	scRNA-seq	Nipponbare (Nip; Japonica)	3-day-old	5mm root tip	protoplast	GSE146034;GSE146035	SRX7814225	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4363201
