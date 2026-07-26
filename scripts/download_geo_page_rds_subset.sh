@@ -16,7 +16,6 @@ mtx_dir="data/public/${accession}_mtx"
 npz_dir="data/public/${accession}_npz"
 url_list="data/public/${accession}_page_download_urls.tsv"
 manifest_output="data/corpus_manifest.${accession,,}.tsv"
-r_libs_compat="${SNOWCELL_R_LIBS_COMPAT:-/usr/lib/R/site-library:/usr/lib/R/library:/usr/local/lib/R/site-library}"
 
 mkdir -p "$download_dir" "$mtx_dir" "$npz_dir" logs
 
@@ -51,25 +50,12 @@ should_add_geo_fallback() {
   esac
 }
 
-verify_download() {
-  local path="$1"
-  [ -s "$path" ] || return 1
-  case "$path" in
-    *.gz)
-      gzip -t "$path" >/dev/null 2>&1
-      ;;
-    *)
-      return 0
-      ;;
-  esac
-}
-
 aria2_input="data/public/${accession}_page_aria2_urls.txt"
 : > "$aria2_input"
 while IFS=$'\t' read -r url filename; do
   [ -n "$url" ] || continue
   target="$download_dir/$filename"
-  if ! verify_download "$target" || [ -f "${target}.aria2" ]; then
+  if [ ! -s "$target" ] || [ -f "${target}.aria2" ]; then
     fallback_url=""
     if should_add_geo_fallback "$url"; then
       fallback_url="$(geo_download_fallback_url "$filename")"
@@ -90,55 +76,35 @@ done < "$url_list"
 curl_download_with_fallback() {
   local url="$1"
   local filename="$2"
-  local target="$download_dir/$filename"
-  local tmp="${target}.curltmp"
   local fallback_url=""
   if should_add_geo_fallback "$url"; then
     fallback_url="$(geo_download_fallback_url "$filename")"
   fi
-  rm -f "$tmp"
-  if curl --http1.1 -L --fail --retry 24 --retry-all-errors --connect-timeout 20 --max-time 14400 \
+  if curl -L --fail --retry 5 --connect-timeout 20 --max-time 14400 \
     -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
-    -o "$tmp" "$url" && verify_download "$tmp"; then
-    mv "$tmp" "$target"
-    rm -f "${target}.aria2"
+    -o "$download_dir/$filename" "$url"; then
     return 0
   fi
-  rm -f "$tmp"
   if [ -n "$fallback_url" ] && [ "$fallback_url" != "$url" ]; then
-    if curl --http1.1 -L --fail --retry 24 --retry-all-errors --connect-timeout 20 --max-time 14400 \
+    curl -L --fail --retry 5 --connect-timeout 20 --max-time 14400 \
       -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
-      -o "$tmp" "$fallback_url" && verify_download "$tmp"; then
-      mv "$tmp" "$target"
-      rm -f "${target}.aria2"
-      return 0
-    fi
+      -o "$download_dir/$filename" "$fallback_url"
   fi
-  rm -f "$tmp"
-  return 1
 }
 
 if [ -s "$aria2_input" ]; then
   if command -v aria2c >/dev/null 2>&1; then
-    if ! aria2c -c -j "${SNOWCELL_GEO_PARALLEL_JOBS:-1}" \
+    aria2c -c -j "${SNOWCELL_GEO_PARALLEL_JOBS:-1}" \
       -x "${SNOWCELL_GEO_CONNECTIONS:-1}" -s "${SNOWCELL_GEO_SPLITS:-1}" \
       --max-tries=8 --retry-wait=10 --timeout=60 \
       --user-agent="SnowLotus-CellFM/0.1 public-data-collector" \
-      -i "$aria2_input"; then
-      echo "aria2 reported failure; validating partial outputs and falling back to curl where needed." >&2
-    fi
+      -i "$aria2_input"
+  else
+    while IFS=$'\t' read -r url filename; do
+      [ -n "$url" ] || continue
+      curl_download_with_fallback "$url" "$filename"
+    done < "$url_list"
   fi
-  while IFS=$'\t' read -r url filename; do
-    [ -n "$url" ] || continue
-    target="$download_dir/$filename"
-    if verify_download "$target"; then
-      rm -f "${target}.aria2"
-      echo "verified $target"
-      continue
-    fi
-    rm -f "$target" "${target}.aria2"
-    curl_download_with_fallback "$url" "$filename"
-  done < "$url_list"
 fi
 
 if ! command -v Rscript >/dev/null 2>&1; then
@@ -146,10 +112,7 @@ if ! command -v Rscript >/dev/null 2>&1; then
   exit 2
 fi
 
-if ! env R_LIBS="$r_libs_compat" Rscript scripts/export_seurat_rds_to_mtx.R "$download_dir" "$mtx_dir"; then
-  echo "Seurat RDS export failed; trying direct expression slot export." >&2
-  env R_LIBS="$r_libs_compat" Rscript scripts/export_seurat_rds_expression_slot_to_mtx.R "$download_dir" "$mtx_dir"
-fi
+Rscript scripts/export_seurat_rds_to_mtx.R "$download_dir" "$mtx_dir"
 python scripts/build_npz_from_seurat_export.py \
   --export-dir "$mtx_dir" \
   --output-dir "$npz_dir" \
