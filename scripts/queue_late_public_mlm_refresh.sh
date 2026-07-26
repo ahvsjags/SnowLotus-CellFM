@@ -39,8 +39,48 @@ training_process_tokens=(
   "configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml"
 )
 
+manifest_matrix_ready() {
+  local manifest="$1"
+  python - "$manifest" <<'PY'
+import csv
+import sys
+from pathlib import Path
+
+manifest = Path(sys.argv[1])
+root = Path(".")
+if not manifest.exists() or manifest.stat().st_size == 0:
+    raise SystemExit(1)
+with manifest.open("r", encoding="utf-8", newline="") as handle:
+    rows = list(csv.DictReader(handle, delimiter="\t"))
+if not rows:
+    raise SystemExit(1)
+missing = []
+for row in rows:
+    value = row.get("path", "")
+    if not value:
+        missing.append("<empty>")
+        continue
+    path = Path(value)
+    if not path.is_absolute():
+        path = root / path
+    if not path.is_file():
+        missing.append(value)
+if missing:
+    print("missing matrix paths: " + ";".join(missing[:8]))
+    raise SystemExit(1)
+raise SystemExit(0)
+PY
+}
+
 collect_public_extra_manifests() {
-  find data -maxdepth 1 -type f \( -name "corpus_manifest.gse*.tsv" -o -name "corpus_manifest.scplantdb*.tsv" \) ! -name "*.available.tsv" | sort | tr '\n' ' '
+  local manifest
+  while IFS= read -r manifest; do
+    if manifest_matrix_ready "$manifest" >/dev/null 2>&1; then
+      printf "%s " "$manifest"
+    else
+      echo "[$(date)] skipping non-ready extra manifest: $manifest" >&2
+    fi
+  done < <(find data -maxdepth 1 -type f \( -name "corpus_manifest.gse*.tsv" -o -name "corpus_manifest.scplantdb*.tsv" \) ! -name "*.available.tsv" | sort)
 }
 
 has_running_training_session() {
@@ -72,7 +112,7 @@ has_running_training_session() {
 has_new_optional_manifest() {
   local manifest
   while IFS= read -r manifest; do
-    if [ -s "$manifest" ] && { [ ! -s "$mlm_corpus" ] || [ "$manifest" -nt "$mlm_corpus" ]; }; then
+    if manifest_matrix_ready "$manifest" >/dev/null 2>&1 && { [ ! -s "$mlm_corpus" ] || [ "$manifest" -nt "$mlm_corpus" ]; }; then
       return 0
     fi
   done < <(find data -maxdepth 1 -type f \( -name "corpus_manifest.gse*.tsv" -o -name "corpus_manifest.scplantdb*.tsv" \) ! -name "*.available.tsv" | sort)
@@ -112,11 +152,25 @@ def accession_from_manifest(manifest: str) -> str:
     return name.removeprefix("corpus_manifest.").removesuffix(".tsv").upper()
 
 
-def manifest_rows(path: Path) -> int:
-    if not path.exists():
-        return 0
+def manifest_ready(path: Path) -> bool:
+    if not path.exists() or path.stat().st_size == 0:
+        return False
     with path.open("r", encoding="utf-8", newline="") as handle:
-        return sum(1 for _ in csv.DictReader(handle, delimiter="\t"))
+        rows = list(csv.DictReader(handle, delimiter="\t"))
+    if not rows:
+        return False
+    missing = []
+    for row in rows:
+        value = row.get("path", "")
+        if not value:
+            missing.append(value)
+            continue
+        matrix = Path(value)
+        if not matrix.is_absolute():
+            matrix = root / matrix
+        if not matrix.is_file():
+            missing.append(value)
+    return not missing
 
 
 def unsupported_report(manifest: str) -> bool:
@@ -142,7 +196,7 @@ for script in queue_scripts:
     if not script.exists():
         continue
     for _session, manifest, _command, _log_path in job_re.findall(script.read_text(encoding="utf-8")):
-        if manifest_rows(root / manifest) > 0 or unsupported_report(manifest):
+        if manifest_ready(root / manifest) or unsupported_report(manifest):
             continue
         pending.append(manifest)
 
@@ -185,7 +239,7 @@ mkdir -p "$(dirname "$late_resume_config")"
 
 while true; do
   bash scripts/ensure_public_data_jobs.sh || true
-  if [ ! -s "$gse_manifest" ]; then
+  if ! manifest_matrix_ready "$gse_manifest" >/dev/null 2>&1; then
     echo "[$(date)] waiting for base public manifest before late refresh: $gse_manifest"
     sleep "$poll_seconds"
     continue
