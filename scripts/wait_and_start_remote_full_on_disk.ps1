@@ -180,12 +180,19 @@ $scriptFiles = @(
     "scripts/build_public_mlm_corpus_on_disk.py",
     "scripts/build_public_mlm_full_on_disk_corpus.sh",
     "scripts/start_public_mlm_full_on_disk_corpus_watchdog.sh",
+    "scripts/ensure_public_data_jobs.sh",
+    "scripts/queue_public_data_watchdog.sh",
+    "scripts/start_public_data_watchdog.sh",
     "scripts/start_public_mlm_continuation_training.sh",
     "scripts/watch_public_mlm_continuation.sh",
     "scripts/start_public_mlm_continuation_watchdog.sh",
     "scripts/watch_publication_package_refresh.sh",
     "scripts/start_public_mlm_continuation_package_watchdog.sh",
     "scripts/collect_remote_training_state.sh",
+    "scripts/enrich_npz_metadata.py",
+    "data/public/GSE146034_sample_metadata.tsv",
+    "data/public/GSE146034_dataset_card.md",
+    "configs/local_gse146034_smoke.yaml",
     "tests/test_on_disk_corpus_builder.py"
 )
 
@@ -216,7 +223,7 @@ for ($attempt = 1; $attempt -le $MaxAttempts; $attempt++) {
             Invoke-Checked -FilePath "scp" -Arguments @($sshOptions + @($local, $remote)) -Label "scp $relative"
         }
 
-        $remoteCommand = "cd '$ProjectDir' && mkdir -p scripts tests logs outputs/recovery_audit && chmod +x scripts/build_public_mlm_corpus_on_disk.py scripts/build_public_mlm_full_on_disk_corpus.sh scripts/start_public_mlm_full_on_disk_corpus_watchdog.sh scripts/start_public_mlm_continuation_training.sh scripts/watch_public_mlm_continuation.sh scripts/start_public_mlm_continuation_watchdog.sh scripts/watch_publication_package_refresh.sh scripts/start_public_mlm_continuation_package_watchdog.sh scripts/collect_remote_training_state.sh && bash scripts/start_public_mlm_full_on_disk_corpus_watchdog.sh && bash scripts/start_public_mlm_continuation_watchdog.sh && bash scripts/start_public_mlm_continuation_package_watchdog.sh && bash scripts/collect_remote_training_state.sh && tmux ls"
+        $remoteCommand = "cd '$ProjectDir' && mkdir -p scripts tests logs outputs/recovery_audit data/public configs && chmod +x scripts/build_public_mlm_corpus_on_disk.py scripts/build_public_mlm_full_on_disk_corpus.sh scripts/start_public_mlm_full_on_disk_corpus_watchdog.sh scripts/ensure_public_data_jobs.sh scripts/queue_public_data_watchdog.sh scripts/start_public_data_watchdog.sh scripts/start_public_mlm_continuation_training.sh scripts/watch_public_mlm_continuation.sh scripts/start_public_mlm_continuation_watchdog.sh scripts/watch_publication_package_refresh.sh scripts/start_public_mlm_continuation_package_watchdog.sh scripts/collect_remote_training_state.sh && bash scripts/start_public_data_watchdog.sh && bash scripts/start_public_mlm_full_on_disk_corpus_watchdog.sh && bash scripts/start_public_mlm_continuation_watchdog.sh && bash scripts/start_public_mlm_continuation_package_watchdog.sh && bash scripts/collect_remote_training_state.sh && tmux ls"
         Invoke-Checked -FilePath "ssh" -Arguments @($sshOptions + @($Alias, $remoteCommand)) -Label "start remote full on-disk corpus tmux job"
         $packageDir = Join-Path $Root "editor_package\current_submit_v0.3"
         if (-not (Test-Path -LiteralPath $packageDir)) {
