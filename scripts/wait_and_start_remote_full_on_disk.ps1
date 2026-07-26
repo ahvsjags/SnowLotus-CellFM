@@ -45,6 +45,7 @@ $scriptFiles = @(
     "scripts/build_public_mlm_corpus_on_disk.py",
     "scripts/build_public_mlm_full_on_disk_corpus.sh",
     "scripts/start_public_mlm_full_on_disk_corpus_watchdog.sh",
+    "scripts/collect_remote_training_state.sh",
     "tests/test_on_disk_corpus_builder.py"
 )
 
@@ -62,6 +63,8 @@ for ($attempt = 1; $attempt -le $MaxAttempts; $attempt++) {
 
     try {
         Write-Log "SSH is up; uploading full on-disk corpus scripts"
+        $prepareCommand = "cd '$ProjectDir' && mkdir -p scripts tests logs outputs/recovery_audit"
+        Invoke-Checked -FilePath "ssh" -Arguments @($sshOptions + @($Alias, $prepareCommand)) -Label "prepare remote directories"
         foreach ($relative in $scriptFiles) {
             $local = Join-Path $Root $relative
             if (-not (Test-Path -LiteralPath $local)) {
@@ -71,8 +74,19 @@ for ($attempt = 1; $attempt -le $MaxAttempts; $attempt++) {
             Invoke-Checked -FilePath "scp" -Arguments @($sshOptions + @($local, $remote)) -Label "scp $relative"
         }
 
-        $remoteCommand = "cd '$ProjectDir' && mkdir -p scripts tests logs && chmod +x scripts/build_public_mlm_corpus_on_disk.py scripts/build_public_mlm_full_on_disk_corpus.sh scripts/start_public_mlm_full_on_disk_corpus_watchdog.sh && bash scripts/start_public_mlm_full_on_disk_corpus_watchdog.sh && tmux ls"
+        $remoteCommand = "cd '$ProjectDir' && mkdir -p scripts tests logs outputs/recovery_audit && chmod +x scripts/build_public_mlm_corpus_on_disk.py scripts/build_public_mlm_full_on_disk_corpus.sh scripts/start_public_mlm_full_on_disk_corpus_watchdog.sh scripts/collect_remote_training_state.sh && bash scripts/start_public_mlm_full_on_disk_corpus_watchdog.sh && bash scripts/collect_remote_training_state.sh && tmux ls"
         Invoke-Checked -FilePath "ssh" -Arguments @($sshOptions + @($Alias, $remoteCommand)) -Label "start remote full on-disk corpus tmux job"
+        $packageDir = Join-Path $Root "editor_package\current_submit_v0.3"
+        if (-not (Test-Path -LiteralPath $packageDir)) {
+            New-Item -ItemType Directory -Force -Path $packageDir | Out-Null
+        }
+        try {
+            Invoke-Checked -FilePath "scp" -Arguments @($sshOptions + @("$Alias`:$ProjectDir/outputs/recovery_audit/remote_training_state_latest.json", (Join-Path $packageDir "remote_training_state.after_recovery.json"))) -Label "fetch remote training state json"
+            Invoke-Checked -FilePath "scp" -Arguments @($sshOptions + @("$Alias`:$ProjectDir/outputs/recovery_audit/remote_training_state_latest.md", (Join-Path $packageDir "remote_training_state.after_recovery.md"))) -Label "fetch remote training state md"
+        }
+        catch {
+            Write-Log "remote audit fetch failed after startup: $($_.Exception.Message)"
+        }
         Write-Log "remote full on-disk corpus watcher started successfully"
         exit 0
     }
