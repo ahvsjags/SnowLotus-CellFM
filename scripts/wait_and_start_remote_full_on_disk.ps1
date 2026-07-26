@@ -146,6 +146,18 @@ function Apply-Port-Hint {
         Write-Log "ignoring out-of-range port hint in ${PortHintPath}: $raw"
         return
     }
+    $validationOptions = @(
+        "-o", "BatchMode=yes",
+        "-o", "ConnectTimeout=10",
+        "-o", "ServerAliveInterval=5",
+        "-o", "ServerAliveCountMax=1",
+        "-o", "Port=$nextPort"
+    )
+    $validation = Start-Process -FilePath "ssh" -ArgumentList @($validationOptions + @($Alias, "test -d '$ProjectDir'")) -NoNewWindow -PassThru -Wait
+    if ($validation.ExitCode -ne 0) {
+        Write-Log "rejecting port hint ${nextPort}: SSH/project validation failed exit=$($validation.ExitCode)"
+        return
+    }
     $currentPort = Get-AliasPort -AliasName $Alias
     if ($currentPort -eq $nextPort) {
         return
