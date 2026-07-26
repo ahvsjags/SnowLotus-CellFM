@@ -192,6 +192,11 @@ $scriptFiles = @(
     "scripts/enrich_npz_metadata.py",
     "data/public/GSE146034_sample_metadata.tsv",
     "data/public/GSE146034_dataset_card.md",
+    "data/public/GSE146035_family.soft.gz",
+    "data/public/GSE146035_sample_metadata.tsv",
+    "data/public/GSE146035_dataset_card.md",
+    "data/public/GSE146035_bulk_rpm/GSM4363196_9311RPM.txt.gz",
+    "data/public/GSE146035_bulk_rpm/GSM4363198_Nip_RPM.txt.gz",
     "configs/local_gse146034_smoke.yaml",
     "tests/test_on_disk_corpus_builder.py"
 )
