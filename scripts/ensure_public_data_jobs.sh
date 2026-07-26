@@ -3,12 +3,15 @@ set -euo pipefail
 
 cd /root/snowlotus-cellfm
 mkdir -p logs
+if [ -f .venv/bin/activate ]; then
+  source .venv/bin/activate
+fi
 
 start_job() {
   local session="$1"
   local done_file="$2"
   local command="$3"
-  if [ -s "$done_file" ]; then
+  if manifest_matrix_ready "$done_file"; then
     echo "[$(date)] public data job complete: $done_file"
     return 0
   fi
@@ -16,8 +19,51 @@ start_job() {
     echo "[$(date)] public data job running: $session"
     return 0
   fi
+  if [ -s "$done_file" ]; then
+    echo "[$(date)] public data manifest exists but matrix files are missing; restarting: $done_file"
+  fi
   echo "[$(date)] starting public data job: $session"
-  tmux new-session -d -s "$session" "$command"
+  if tmux new-session -d -s "$session" "$command"; then
+    return 0
+  fi
+  if tmux has-session -t "$session" 2>/dev/null; then
+    echo "[$(date)] public data job started by another queue: $session"
+    return 0
+  fi
+  return 1
+}
+
+manifest_matrix_ready() {
+  local manifest="$1"
+  python - "$manifest" <<'PY'
+import csv
+import sys
+from pathlib import Path
+
+manifest = Path(sys.argv[1])
+root = Path(".")
+if not manifest.exists() or manifest.stat().st_size == 0:
+    raise SystemExit(1)
+with manifest.open("r", encoding="utf-8", newline="") as handle:
+    rows = list(csv.DictReader(handle, delimiter="\t"))
+if not rows:
+    raise SystemExit(1)
+missing = []
+for row in rows:
+    value = row.get("path", "")
+    if not value:
+        missing.append("<empty>")
+        continue
+    path = Path(value)
+    if not path.is_absolute():
+        path = root / path
+    if not path.is_file():
+        missing.append(value)
+if missing:
+    print("missing matrix paths: " + ";".join(missing[:8]))
+    raise SystemExit(1)
+raise SystemExit(0)
+PY
 }
 
 if [ "${SNOWCELL_ENSURE_GSE268881:-1}" = "1" ]; then
