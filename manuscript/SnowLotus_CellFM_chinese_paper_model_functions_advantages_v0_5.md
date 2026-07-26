@@ -2,13 +2,13 @@
 
 中文论文式详稿（模型作用、功能与优势版）
 
-生成时间：2026-07-27 01:22 Asia/Shanghai
+生成时间：2026-07-27 01:32 Asia/Shanghai
 
 代码地址：https://github.com/ahvsjags/SnowLotus-CellFM
 
 Release 地址：https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/editor-v0.3
 
-当前 GitHub commit：`60e683a84068e5ad5f2ff6ce6f9f4a5bbc6bbdec`
+当前 GitHub commit：`editor-v0.3 (release tag)`
 
 编辑提交包：`SnowLotus-CellFM_editor-v0.3_submit-now.zip`
 
@@ -26,7 +26,7 @@ SnowLotus-CellFM 的主要优势不是单一分类器精度，而是把植物单
 
 - GitHub 仓库：https://github.com/ahvsjags/SnowLotus-CellFM
 - Release tag：https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/editor-v0.3
-- 当前提交：`60e683a84068e5ad5f2ff6ce6f9f4a5bbc6bbdec`
+- 当前提交：`editor-v0.3 (release tag)`
 - 提交包：`SnowLotus-CellFM_editor-v0.3_submit-now.zip`
 
 ## 1 引言：植物单细胞研究需要可审计的基础模型
@@ -87,7 +87,7 @@ SnowLotus-CellFM 的第一项优势是植物专用。通用单细胞基础模型
 
 ## 7 已完成实现：代码、模型、数据和提交材料形成闭环
 
-当前版本已经完成代码仓库与提交包整理。代码地址为 GitHub 仓库：https://github.com/ahvsjags/SnowLotus-CellFM。Release tag 为：https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/editor-v0.3。最新同步 commit 为：`60e683a84068e5ad5f2ff6ce6f9f4a5bbc6bbdec`。提交包文件为：`SnowLotus-CellFM_editor-v0.3_submit-now.zip`。仓库中包含 src、configs、scripts、tests、manuscript、release_metadata 和 models 等目录，覆盖模型训练、语料构建、预测导出、数据审计和编辑材料生成。
+当前版本已经完成代码仓库与提交包整理。代码地址为 GitHub 仓库：https://github.com/ahvsjags/SnowLotus-CellFM。Release tag 为：https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/editor-v0.3。最新同步 commit 为：`editor-v0.3 (release tag)`。提交包文件为：`SnowLotus-CellFM_editor-v0.3_submit-now.zip`。仓库中包含 src、configs、scripts、tests、manuscript、release_metadata 和 models 等目录，覆盖模型训练、语料构建、预测导出、数据审计和编辑材料生成。
 
 模型资产方面，编辑包冻结了 annotation checkpoint 与 embedding checkpoint。annotation checkpoint 的 release evidence 记录 macro-F1 为 0.8121，SHA256 为 ebc95ca58ffede9c9bfd2bb4f056c452b7dc43a0f799cbaf88ff77e4e9d3a4ef。embedding checkpoint 采用 v0.3 epoch 7 验证集最优资产，eval loss 为 7.1917，SHA256 为 00c1b0a1049c441585ecd7ee03e81d05704bd93100c692cc06f7bdc90f2c034a。提交稿中可以写明：我们冻结验证最优模型，而不是把后台最新未审计状态直接作为投稿证据。
 
@@ -112,7 +112,7 @@ SnowLotus-CellFM 的第一项优势是植物专用。通用单细胞基础模型
 
 - 代码仓库：https://github.com/ahvsjags/SnowLotus-CellFM
 - Release tag：https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/editor-v0.3
-- 当前提交：`60e683a84068e5ad5f2ff6ce6f9f4a5bbc6bbdec`
+- 当前提交：`editor-v0.3 (release tag)`
 - 提交包：`SnowLotus-CellFM_editor-v0.3_submit-now.zip`
 
 ## 10 结论：SnowLotus-CellFM 提供可审计、可训练、可迁移的植物单细胞基础模型
