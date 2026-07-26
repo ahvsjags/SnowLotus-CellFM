@@ -2,7 +2,7 @@
 
 中文论文式详稿（模型作用、功能与优势版）
 
-生成时间：2026-07-27 01:15 Asia/Shanghai
+生成时间：2026-07-27 01:22 Asia/Shanghai
 
 代码地址：https://github.com/ahvsjags/SnowLotus-CellFM
 
@@ -123,8 +123,8 @@ SnowLotus-CellFM 已经形成一套可交付的植物单细胞注释基础模型
 
 ## 参考文献
 
-- Cui H. et al. scGPT: toward building a foundation model for single-cell multi-omics using generative AI. Nature Methods, 2024.
-- Hao M. et al. Large-scale foundation model on single-cell transcriptomics. Nature Methods, 2024.
-- Chen S. et al. scPlant: A versatile framework for single-cell transcriptomic data analysis in plants. Plant Communications, 2023.
-- Cao G. et al. scPlantLLM: A Foundation Model for Exploring Single-cell Expression Atlases in Plants. Genomics, Proteomics & Bioinformatics, 2025.
-- Lu C. et al. scPlantAnnotate: an accurate and robust transformer-based model for plant cell type annotation. Journal of Advanced Research, 2026.
+- Cui H. et al. scGPT: toward building a foundation model for single-cell multi-omics using generative AI. Nature Methods 21, 1470-1480, 2024. DOI: 10.1038/s41592-024-02201-0.
+- Hao M. et al. Large-scale foundation model on single-cell transcriptomics. Nature Methods 21, 1481-1491, 2024. DOI: 10.1038/s41592-024-02305-7.
+- Cao S. et al. scPlant: A versatile framework for single-cell transcriptomic data analysis in plants. Plant Communications 4, 100631, 2023. DOI: 10.1016/j.xplc.2023.100631.
+- Cao G. et al. scPlantLLM: A Foundation Model for Exploring Single-cell Expression Atlases in Plants. Genomics, Proteomics & Bioinformatics 23, qzaf024, 2025. DOI: 10.1093/gpbjnl/qzaf024.
+- Lu C. et al. scPlantAnnotate: an accurate and robust transformer-based model for plant cell type annotation. Journal of Advanced Research, 2026. DOI: 10.1016/j.jare.2026.01.035.
