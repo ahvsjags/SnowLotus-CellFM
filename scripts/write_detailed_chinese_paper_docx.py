@@ -19,7 +19,7 @@ MD_OUT = OUT_DIR / "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0
 GENERATED = datetime.now().strftime("%Y-%m-%d %H:%M")
 GITHUB_REPO = "https://github.com/ahvsjags/SnowLotus-CellFM"
 GITHUB_RELEASE = "https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/editor-v0.3"
-GITHUB_COMMIT = "60e683a84068e5ad5f2ff6ce6f9f4a5bbc6bbdec"
+GITHUB_COMMIT = "editor-v0.3 (release tag)"
 ZIP_NAME = "SnowLotus-CellFM_editor-v0.3_submit-now.zip"
 
 
@@ -74,6 +74,7 @@ def add_bullet(doc: Document, text: str) -> None:
 def shade_cell(cell, fill: str) -> None:
     tc_pr = cell._tc.get_or_add_tcPr()
     shd = OxmlElement("w:shd")
+    shd.set(qn("w:val"), "clear")
     shd.set(qn("w:fill"), fill)
     tc_pr.append(shd)
 
@@ -364,6 +365,11 @@ def build_sections(doc: Document) -> None:
 
 def build_docx() -> None:
     doc = Document()
+    zoom = doc.settings._element.find(qn("w:zoom"))
+    if zoom is None:
+        zoom = OxmlElement("w:zoom")
+        doc.settings._element.append(zoom)
+    zoom.set(qn("w:percent"), "100")
     section = doc.sections[0]
     section.top_margin = Cm(2.0)
     section.bottom_margin = Cm(2.0)
