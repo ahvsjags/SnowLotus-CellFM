@@ -1,6 +1,6 @@
 # SnowLotus-CellFM editor-v0.3 model release notes
 
-Generated 2026-07-26 03:03 UTC
+Generated 2026-07-26 03:38 UTC
 
 ## Release Purpose
 
@@ -13,12 +13,12 @@ This release freezes the best current SnowLotus-CellFM assets for an urgent edit
 | `SnowLotus_CellFM_best_annotation.pt` | `outputs/foundation_5090_pretrain/best.pt` | Immediate annotation and label-transfer demonstrations | Macro-F1 0.8121; SHA256 `ebc95ca58ffede9c9bfd2bb4f056c452b7dc43a0f799cbaf88ff77e4e9d3a4ef` |
 | `SnowLotus_CellFM_best_embedding.pt` | `outputs/foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm/best.pt` | Plant expression representation and downstream transfer experiments | v0.3 epoch-7 eval loss 7.1917; SHA256 `00c1b0a1049c441585ecd7ee03e81d05704bd93100c692cc06f7bdc90f2c034a` |
 
-The active v0.3 run remains in epoch 9, step 14000 of 56022. The release uses the validation-best audited checkpoint rather than the latest in-progress state.
+The active v0.3 run remains in epoch 9, step 32250 of 56022. The release uses the validation-best audited checkpoint rather than the latest in-progress state.
 
 ## Corpus and Integrity Evidence
 
-- Data-integrity audit: 69 manifest files and 210 referenced matrix files.
-- Readable-cell evidence: 4,072,521 referenced cells across readable matrices.
+- Data-integrity audit: 70 manifest files and 240 referenced matrix files.
+- Readable-cell evidence: 4,544,570 referenced cells across readable matrices.
 - Matrix integrity: 0 missing files and 0 unreadable files.
 - Public-data recovery since the previous snapshot includes GSE226826, GSE240098 and GSE240102.
 - Oversized or incompatible GEO records are retained as unsupported or deferred reports rather than silently promoted.

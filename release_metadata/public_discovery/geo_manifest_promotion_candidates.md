@@ -1,6 +1,6 @@
 # GEO Manifest Promotion Candidates
 
-Generated UTC: `2026-07-26T03:05:05.344852+00:00`
+Generated UTC: `2026-07-26T03:36:41.559369+00:00`
 
 ## Summary
 

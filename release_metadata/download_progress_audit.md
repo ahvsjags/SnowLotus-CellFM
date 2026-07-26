@@ -1,6 +1,6 @@
 # SnowLotus-CellFM Download Progress Audit
 
-Generated UTC: `2026-07-26T03:11:54.687389+00:00`
+Generated UTC: `2026-07-26T03:37:35.503281+00:00`
 
 ## Summary
 
@@ -36,7 +36,7 @@ Tracked targets: 72; manifest rows: 121; raw payload files: 306; npz files: 64; 
 | arabidopsis_scrna_method_benchmark | public_data_target | - | complete_manifest | manifest_ready | 1 | 1 | 1 | 0 | 1.9 GiB | 2026-07-23T19:40:50.141762+00:00 |
 | marchantia_spore_asymmetry_single_cell | public_data_target | - | unsupported_for_matrix_corpus | unsupported_for_matrix_corpus | 0 | 3 | 0 | 0 | 9.5 MiB | 2026-07-23T19:52:18.223897+00:00 |
 | geo_gse149217 | dynamic_gse_manifest | - | unsupported_for_matrix_corpus | - | 0 | 2 | 0 | 0 | 846 B | 2026-07-24T20:19:37.206588+00:00 |
-| geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis | dynamic_gse_manifest | - | complete_manifest | - | 1 | 3 | 1 | 0 | 623.4 MiB | 2026-07-26T03:11:54.543291+00:00 |
+| geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis | dynamic_gse_manifest | - | complete_manifest | - | 1 | 3 | 1 | 0 | 623.4 MiB | 2026-07-26T03:37:35.280069+00:00 |
 | geo_gse157757_zea_mays_single_cell_sequencing_reveals_phloem | dynamic_gse_manifest | - | complete_manifest | - | 1 | 3 | 1 | 0 | 116.8 MiB | 2026-07-25T19:44:23.675823+00:00 |
 | geo_gse157758 | dynamic_gse_manifest | - | unsupported_for_matrix_corpus | - | 0 | 4 | 0 | 0 | 10.4 MiB | 2026-07-25T19:48:54.611755+00:00 |
 | geo_gse180121_liriodendron_chinense_single_cell_transcriptomics_unveils_xylem | dynamic_gse_manifest | - | complete_manifest | - | 3 | 7 | 3 | 0 | 856.9 MiB | 2026-07-25T20:15:46.411305+00:00 |

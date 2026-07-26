@@ -5,7 +5,7 @@
     "active_partial_file_count": 0,
     "complete_manifest_count": 43,
     "downloading_partial_count": 0,
-    "generated_at_utc": "2026-07-26T03:11:54.687389+00:00",
+    "generated_at_utc": "2026-07-26T03:37:35.503281+00:00",
     "manifest_row_count": 121,
     "npz_file_count": 64,
     "partial_file_count": 0,
@@ -1277,7 +1277,7 @@
       "available_manifest": null,
       "dataset_id": "geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis",
       "download_status": "complete_manifest",
-      "latest_modified_utc": "2026-07-26T03:11:54.543291+00:00",
+      "latest_modified_utc": "2026-07-26T03:37:35.280069+00:00",
       "log_path": null,
       "manifest": {
         "bytes": 274,
@@ -1312,7 +1312,7 @@
       "public_manifest_status": null,
       "queue_session": null,
       "raw_files": {
-        "bytes": 700987238,
+        "bytes": 749897574,
         "examples": [
           "data/public/GSE155304_raw_tar/GSE155304_RAW.aria2_urls.txt",
           "data/public/GSE155304_raw_tar/GSE155304_RAW.tar.download",
@@ -1324,7 +1324,7 @@
           "modified_utc": "2026-07-26T02:46:14.398566+00:00",
           "path": "data/public/GSE155304_rds/GSE155304_rnaseq_integration.rds.gz"
         },
-        "latest_modified_utc": "2026-07-26T03:11:54.543291+00:00",
+        "latest_modified_utc": "2026-07-26T03:37:35.280069+00:00",
         "partial_file_count": 0,
         "partial_files": [],
         "partial_payloads": [],

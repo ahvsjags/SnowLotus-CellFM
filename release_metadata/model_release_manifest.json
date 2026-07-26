@@ -193,12 +193,12 @@
       "path": "outputs/foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm/latest.pt",
       "release_note": "Pretraining checkpoint: embeddings/MLM evidence, not label annotation.",
       "run_id": "foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm",
-      "sha256": "7e163ba6a26186cbb8d11a58810dc9535192691bf1d2cdfdfc78ef71697b3a57",
+      "sha256": "98f5fc668c3ca0418d6d57f06f7110da8824ae565dc67c48572121683b02505a",
       "species_vocab_size": 12,
       "stage": "pretrain",
       "status": "embedding_release_candidate",
       "tissue_vocab_size": 7,
-      "train_loss": 8.492762697159478
+      "train_loss": 8.49254924816774
     },
     {
       "bytes": 658999758,
@@ -402,7 +402,7 @@
     }
   ],
   "errors": [],
-  "generated_at_utc": "2026-07-26T03:07:12.484773+00:00",
+  "generated_at_utc": "2026-07-26T03:39:03.375421+00:00",
   "project_dir": ".",
   "summary": {
     "checkpoint_count": 16,

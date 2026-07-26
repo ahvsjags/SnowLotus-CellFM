@@ -1,20 +1,20 @@
 # SnowLotus-CellFM live editor status panel
 
-- Generated UTC: `2026-07-26T03:12:32.737937+00:00`
+- Generated UTC: `2026-07-26T03:39:09.141984+00:00`
 - Project directory: `/root/snowlotus-cellfm`
 
 ## RTX 5090 training
 
 - Run ID: `foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm`
-- Status: `training`
+- Status: `latest_checkpoint_saved`
 - Epoch: `9`
-- Step: `18250/56022`
-- Epoch progress: `32.58%`
-- Optimizer updates: `25917`
-- Running loss: `8.491976653347276`
+- Step: `32328/56022`
+- Epoch progress: `57.71%`
+- Optimizer updates: `26700`
+- Running loss: `8.492827356289412`
 - Best evaluated epoch: `7`
 - Best eval loss: `7.19169863483362`
-- GPU: `2026/07/26 11:12:32.877, 81 %, 30652 MiB, 32607 MiB`
+- GPU: `2026/07/26 11:39:09.287, 90 %, 30652 MiB, 32607 MiB`
 
 ## Public data promotion
 
