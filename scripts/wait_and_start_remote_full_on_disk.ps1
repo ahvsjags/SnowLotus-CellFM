@@ -217,7 +217,7 @@ for ($attempt = 1; $attempt -le $MaxAttempts; $attempt++) {
 
     try {
         Write-Log "SSH is up; uploading full on-disk corpus scripts"
-        $prepareCommand = "cd '$ProjectDir' && mkdir -p scripts tests logs outputs/recovery_audit"
+        $prepareCommand = "cd '$ProjectDir' && mkdir -p scripts tests logs outputs/recovery_audit data/public/GSE146035_bulk_rpm configs"
         Invoke-Checked -FilePath "ssh" -Arguments @($sshOptions + @($Alias, $prepareCommand)) -Label "prepare remote directories"
         foreach ($relative in $scriptFiles) {
             $local = Join-Path $Root $relative
