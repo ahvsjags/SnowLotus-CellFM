@@ -1,0 +1,20 @@
+Subject: Request for Saussurea involucrata single-cell transcriptomics data
+
+Dear Professor / Corresponding Author,
+
+I am developing SnowLotus-CellFM, a plant single-cell foundation model for cross-species cell-type annotation and Snow Lotus transfer analysis. Your study, "Sustainable Cultivation of Rare and Endangered Medicinal Plant Multicellular Spheroids Producing Bioactive Therapeutics for Alcohol-Related Liver Disease Therapy" (10.1002/adhm.202504623), is directly relevant because it reports Saussurea involucrata single-cell transcriptomics.
+
+Could you share, under your preferred data-use terms, the reusable single-cell data needed for reproducible analysis?
+
+Requested materials:
+- processed AnnData .h5ad or equivalent sparse matrix;
+- raw or filtered count matrix files;
+- per-cell metadata with cell type, sample, tissue, condition, batch, and QC fields;
+- gene metadata and genome annotation version;
+- raw FASTQ files or a repository accession if available;
+- citation, license, and model-training/benchmarking permission terms.
+
+We will validate the files with an auditable h5ad contract, cite the study, and keep claims limited to the permissions and evidence available.
+
+Best regards,
+SnowLotus-CellFM project team
