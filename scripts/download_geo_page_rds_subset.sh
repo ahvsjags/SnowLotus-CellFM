@@ -80,13 +80,13 @@ curl_download_with_fallback() {
   if should_add_geo_fallback "$url"; then
     fallback_url="$(geo_download_fallback_url "$filename")"
   fi
-  if curl -L --fail --retry 5 --connect-timeout 20 --max-time 14400 \
+  if curl -L --fail --http1.1 --retry 5 --retry-all-errors --connect-timeout 20 --max-time 14400 -C - \
     -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
     -o "$download_dir/$filename" "$url"; then
     return 0
   fi
   if [ -n "$fallback_url" ] && [ "$fallback_url" != "$url" ]; then
-    curl -L --fail --retry 5 --connect-timeout 20 --max-time 14400 \
+    curl -L --fail --http1.1 --retry 5 --retry-all-errors --connect-timeout 20 --max-time 14400 -C - \
       -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
       -o "$download_dir/$filename" "$fallback_url"
   fi
