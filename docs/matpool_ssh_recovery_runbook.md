@@ -68,6 +68,20 @@ powershell -ExecutionPolicy Bypass -File (Join-Path $ProjectRoot "scripts\wait_a
 
 The recovery watcher uploads the full on-disk corpus scripts, starts the remote tmux job, runs `scripts/collect_remote_training_state.sh`, and fetches `remote_training_state.after_recovery.md/json` into the submit package.
 
+## Refresh the editor package after a status change
+
+Use this one-shot helper after restarting the watcher, changing a candidate port file, or syncing a new GitHub commit:
+
+```powershell
+$ProjectRoot = (Resolve-Path .).Path
+python -X utf8 (Join-Path $ProjectRoot "scripts\refresh_editor_submit_package.py") `
+  --root $ProjectRoot `
+  --watcher-pid <WATCHER_PID> `
+  --github-commit <CURRENT_GITHUB_COMMIT>
+```
+
+The helper refreshes `ssh_recovery_status.local.md/json`, `ARCHIVE_SHA256SUMS.txt`, `SUBMISSION_STATUS_NOW.md`, and `SnowLotus-CellFM_editor-v0.3_submit-now.zip` with its `.sha256` sidecar.
+
 ## Remote job expected after recovery
 
 - tmux session: `snowcell_public_mlm_full_on_disk_corpus`
