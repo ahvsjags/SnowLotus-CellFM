@@ -41,6 +41,10 @@ PACKAGE_FILES = [
     "SnowLotus_CellFM_中文功能创新说明_v0_1.md",
     "editor_cover_note_v0_3.docx",
     "editor_cover_note_v0_3.md",
+    "SnowLotus_CellFM_已完成工作校稿版_v0_4.docx",
+    "SnowLotus_CellFM_已完成工作校稿版_v0_4.md",
+    "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_5.docx",
+    "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_5.md",
     "snowlotus-cellfm-editor-v0.3-source-metadata.tar.gz",
     "snowlotus-cellfm-editor-v0.3-manuscript.tar.gz",
 ]
@@ -171,11 +175,17 @@ def update_status_page(
         count=1,
     )
     if watcher_pid:
-        text = replace_once(
-            text,
+        text, watcher_count = re.subn(
             r"It is currently running locally as PID `[^`]+`",
             f"It is currently running locally as PID `{watcher_pid}`",
+            text,
+            count=1,
+            flags=re.MULTILINE,
         )
+        if watcher_count == 0:
+            # Older status pages identify the watcher only in the audit line.
+            # Keep refresh idempotent when that optional sentence is absent.
+            pass
     if attempt_count:
         if ssh.get("ok") is True:
             audit_line = (
