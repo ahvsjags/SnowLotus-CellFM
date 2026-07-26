@@ -4,7 +4,8 @@ param(
     [int]$IntervalSeconds = 60,
     [int]$MaxAttempts = 240,
     [string]$Root = "",
-    [string]$LogPath = ""
+    [string]$LogPath = "",
+    [string]$PortHintPath = ""
 )
 
 $ErrorActionPreference = "Continue"
@@ -14,6 +15,9 @@ if (-not $Root) {
 }
 if (-not $LogPath) {
     $LogPath = Join-Path $Root "logs\wait_and_start_remote_full_on_disk.log"
+}
+if (-not $PortHintPath) {
+    $PortHintPath = Join-Path $Root "config\matpool_px1_next_port.txt"
 }
 
 function Write-Log {
@@ -41,6 +45,52 @@ function Invoke-Checked {
     }
 }
 
+function Get-AliasPort {
+    param([string]$AliasName)
+    $proc = & ssh -G $AliasName 2>$null
+    foreach ($line in $proc) {
+        if ($line -match '^port\s+(\d+)$') {
+            return [int]$Matches[1]
+        }
+    }
+    return $null
+}
+
+function Apply-Port-Hint {
+    if (-not (Test-Path -LiteralPath $PortHintPath)) {
+        return
+    }
+    $raw = (Get-Content -Raw -LiteralPath $PortHintPath).Trim()
+    if (-not $raw) {
+        return
+    }
+    if ($raw -notmatch '^\d{1,5}$') {
+        Write-Log "ignoring invalid port hint in ${PortHintPath}: $raw"
+        return
+    }
+    $nextPort = [int]$raw
+    if ($nextPort -lt 1 -or $nextPort -gt 65535) {
+        Write-Log "ignoring out-of-range port hint in ${PortHintPath}: $raw"
+        return
+    }
+    $currentPort = Get-AliasPort -AliasName $Alias
+    if ($currentPort -eq $nextPort) {
+        return
+    }
+    $updater = Join-Path $Root "scripts\update_matpool_px1_alias.ps1"
+    if (-not (Test-Path -LiteralPath $updater)) {
+        Write-Log "port hint present but updater missing: $updater"
+        return
+    }
+    Write-Log "applying port hint: $Alias port $currentPort -> $nextPort"
+    $proc = Start-Process -FilePath "powershell" -ArgumentList @("-NoProfile", "-ExecutionPolicy", "Bypass", "-File", $updater, "-Alias", $Alias, "-Port", "$nextPort") -NoNewWindow -PassThru -Wait
+    if ($proc.ExitCode -ne 0) {
+        Write-Log "port hint update failed exit=$($proc.ExitCode)"
+    } else {
+        Write-Log "port hint update completed for $Alias -> $nextPort"
+    }
+}
+
 $scriptFiles = @(
     "scripts/build_public_mlm_corpus_on_disk.py",
     "scripts/build_public_mlm_full_on_disk_corpus.sh",
@@ -49,9 +99,10 @@ $scriptFiles = @(
     "tests/test_on_disk_corpus_builder.py"
 )
 
-Write-Log "watcher starting alias=$Alias project=$ProjectDir root=$Root attempts=$MaxAttempts interval=${IntervalSeconds}s"
+Write-Log "watcher starting alias=$Alias project=$ProjectDir root=$Root portHint=$PortHintPath attempts=$MaxAttempts interval=${IntervalSeconds}s"
 
 for ($attempt = 1; $attempt -le $MaxAttempts; $attempt++) {
+    Apply-Port-Hint
     Write-Log "attempt $attempt/${MaxAttempts}: probing SSH"
     $sshOptions = @("-o", "BatchMode=yes", "-o", "ConnectTimeout=10", "-o", "ServerAliveInterval=5", "-o", "ServerAliveCountMax=1")
     $probe = Start-Process -FilePath "ssh" -ArgumentList @($sshOptions + @($Alias, "hostname")) -NoNewWindow -PassThru -Wait
