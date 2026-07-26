@@ -161,7 +161,7 @@
       "fine_macro_f1": null,
       "fine_vocab_size": 0,
       "gene_vocab_size": 379504,
-      "history_epochs": 7,
+      "history_epochs": 8,
       "model_d_model": 512,
       "model_heads": 8,
       "model_layers": 10,
@@ -176,8 +176,8 @@
       "train_loss": 8.501176519823927
     },
     {
-      "bytes": 2756812801,
-      "checkpoint_epoch": 8,
+      "bytes": 2756812993,
+      "checkpoint_epoch": 9,
       "checkpoint_kind": "latest",
       "coarse_macro_f1": null,
       "coarse_vocab_size": 0,
@@ -186,19 +186,19 @@
       "fine_macro_f1": null,
       "fine_vocab_size": 0,
       "gene_vocab_size": 379504,
-      "history_epochs": 7,
+      "history_epochs": 8,
       "model_d_model": 512,
       "model_heads": 8,
       "model_layers": 10,
       "path": "outputs/foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm/latest.pt",
       "release_note": "Pretraining checkpoint: embeddings/MLM evidence, not label annotation.",
       "run_id": "foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm",
-      "sha256": "bc5ad41551eb24735eb7427be804a8f039b1517107e8483c737d9cef8124d059",
+      "sha256": "7e163ba6a26186cbb8d11a58810dc9535192691bf1d2cdfdfc78ef71697b3a57",
       "species_vocab_size": 12,
       "stage": "pretrain",
       "status": "embedding_release_candidate",
       "tissue_vocab_size": 7,
-      "train_loss": 8.495559967729088
+      "train_loss": 8.492762697159478
     },
     {
       "bytes": 658999758,
@@ -402,13 +402,13 @@
     }
   ],
   "errors": [],
-  "generated_at_utc": "2026-07-26T01:53:45.713814+00:00",
+  "generated_at_utc": "2026-07-26T03:07:12.484773+00:00",
   "project_dir": ".",
   "summary": {
     "checkpoint_count": 16,
     "embedding_release_candidate_count": 11,
     "error_count": 0,
     "label_release_candidate_count": 5,
-    "total_checkpoint_bytes": 20097414082
+    "total_checkpoint_bytes": 20097414274
   }
 }

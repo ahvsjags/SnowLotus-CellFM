@@ -1,18 +1,18 @@
 # SnowLotus-CellFM Download Progress Audit
 
-Generated UTC: `2026-07-26T02:08:38.350896+00:00`
+Generated UTC: `2026-07-26T03:11:54.687389+00:00`
 
 ## Summary
 
 | Status | Targets |
 | --- | --- |
-| complete_manifest | 42 |
-| downloading_partial | 1 |
+| complete_manifest | 43 |
 | metadata_only | 1 |
-| queued_pending_download | 7 |
+| queued_pending_download | 6 |
+| raw_ready_no_manifest | 1 |
 | unsupported_for_matrix_corpus | 21 |
 
-Tracked targets: 72; manifest rows: 120; raw payload files: 305; npz files: 63; active partial control files: 1; residual control files: 0.
+Tracked targets: 72; manifest rows: 121; raw payload files: 306; npz files: 64; active partial control files: 0; residual control files: 0.
 
 ## Target State
 
@@ -36,6 +36,7 @@ Tracked targets: 72; manifest rows: 120; raw payload files: 305; npz files: 63; 
 | arabidopsis_scrna_method_benchmark | public_data_target | - | complete_manifest | manifest_ready | 1 | 1 | 1 | 0 | 1.9 GiB | 2026-07-23T19:40:50.141762+00:00 |
 | marchantia_spore_asymmetry_single_cell | public_data_target | - | unsupported_for_matrix_corpus | unsupported_for_matrix_corpus | 0 | 3 | 0 | 0 | 9.5 MiB | 2026-07-23T19:52:18.223897+00:00 |
 | geo_gse149217 | dynamic_gse_manifest | - | unsupported_for_matrix_corpus | - | 0 | 2 | 0 | 0 | 846 B | 2026-07-24T20:19:37.206588+00:00 |
+| geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis | dynamic_gse_manifest | - | complete_manifest | - | 1 | 3 | 1 | 0 | 623.4 MiB | 2026-07-26T03:11:54.543291+00:00 |
 | geo_gse157757_zea_mays_single_cell_sequencing_reveals_phloem | dynamic_gse_manifest | - | complete_manifest | - | 1 | 3 | 1 | 0 | 116.8 MiB | 2026-07-25T19:44:23.675823+00:00 |
 | geo_gse157758 | dynamic_gse_manifest | - | unsupported_for_matrix_corpus | - | 0 | 4 | 0 | 0 | 10.4 MiB | 2026-07-25T19:48:54.611755+00:00 |
 | geo_gse180121_liriodendron_chinense_single_cell_transcriptomics_unveils_xylem | dynamic_gse_manifest | - | complete_manifest | - | 3 | 7 | 3 | 0 | 856.9 MiB | 2026-07-25T20:15:46.411305+00:00 |
@@ -82,8 +83,7 @@ Tracked targets: 72; manifest rows: 120; raw payload files: 305; npz files: 63; 
 | rice_node_reproductive_stage_atlas | dynamic_gse_manifest | - | complete_manifest | - | 1 | 2 | 1 | 0 | 338.6 MiB | 2026-07-24T13:01:34.860154+00:00 |
 | geo_gse325371 | dynamic_gse_manifest | - | unsupported_for_matrix_corpus | - | 0 | 3 | 0 | 0 | 1.6 GiB | 2026-07-24T18:22:48.887449+00:00 |
 | geo_gse49607 | dynamic_gse_manifest | - | unsupported_for_matrix_corpus | - | 0 | 4 | 0 | 0 | 7.9 MiB | 2026-07-25T05:05:25.392072+00:00 |
-| geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis | geo_promotion_queue | snowcell_geo_promotion_gse155304 | downloading_partial | - | 0 | 3 | 0 | 1 | 623.4 MiB | 2026-07-26T02:08:37.344681+00:00 |
-| geo_gse123013_arabidopsis_thaliana_single_cell_rna_sequencing_analysis | geo_promotion_queue | snowcell_geo_promotion_gse123013 | queued_pending_download | - | 0 | 0 | 0 | 0 | - | - |
+| geo_gse123013_arabidopsis_thaliana_single_cell_rna_sequencing_analysis | geo_promotion_queue | snowcell_geo_promotion_gse123013 | raw_ready_no_manifest | - | 0 | 1 | 0 | 0 | 144 B | 2026-07-26T02:55:02.058593+00:00 |
 | geo_gse138526_zea_mays_high_throughput_single_cell_rna | geo_promotion_queue | snowcell_geo_promotion_gse138526 | queued_pending_download | - | 0 | 0 | 0 | 0 | - | - |
 | geo_gse181999_arabidopsis_thaliana_an_arabidopsis_root_phloem_pole | geo_promotion_queue | snowcell_geo_promotion_gse181999 | queued_pending_download | - | 0 | 0 | 0 | 0 | - | - |
 | geo_gse121619_arabidopsis_thaliana_dynamics_gene_expression_single_root | geo_promotion_queue | snowcell_geo_promotion_gse121619 | queued_pending_download | - | 0 | 0 | 0 | 0 | - | - |
@@ -93,8 +93,4 @@ Tracked targets: 72; manifest rows: 120; raw payload files: 305; npz files: 63; 
 
 ## Partial/Residual Download Control Files
 
-### geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis
-
-| Download status | Partial control file | Control bytes | Payload file | Payload bytes |
-| --- | --- | --- | --- | --- |
-| downloading_partial | data/public/GSE155304_rds/GSE155304_rnaseq_integration.rds.gz.aria2 | 156 | data/public/GSE155304_rds/GSE155304_rnaseq_integration.rds.gz | 653694678 |
+No `.aria2` partial download control files were found.

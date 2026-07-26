@@ -1,23 +1,6 @@
 {
   "geo_download_ready_unknown_manifest": [
     {
-      "accession": "GSE155304",
-      "dataset_id": "discovered_gse155304",
-      "file_type_counts": "metadata_table:3;mtx_archive:1;seurat_rds:2",
-      "matrix_file_count": 3,
-      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155304",
-      "priority": "A",
-      "queue_job": {
-        "command": "bash scripts/generated_geo_promotion_downloads/download_gse155304_geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis.sh",
-        "log_path": "logs/geo_promotion_gse155304.log",
-        "manifest": "data/corpus_manifest.gse155304.tsv",
-        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
-        "session": "snowcell_geo_promotion_gse155304"
-      },
-      "queued_download": true,
-      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
-    },
-    {
       "accession": "GSE121619",
       "dataset_id": "discovered_gse121619",
       "file_type_counts": "metadata_table:3;seurat_rds:1",
@@ -138,23 +121,6 @@
     }
   ],
   "geo_download_ready_unknown_manifest_queued": [
-    {
-      "accession": "GSE155304",
-      "dataset_id": "discovered_gse155304",
-      "file_type_counts": "metadata_table:3;mtx_archive:1;seurat_rds:2",
-      "matrix_file_count": 3,
-      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155304",
-      "priority": "A",
-      "queue_job": {
-        "command": "bash scripts/generated_geo_promotion_downloads/download_gse155304_geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis.sh",
-        "log_path": "logs/geo_promotion_gse155304.log",
-        "manifest": "data/corpus_manifest.gse155304.tsv",
-        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
-        "session": "snowcell_geo_promotion_gse155304"
-      },
-      "queued_download": true,
-      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
-    },
     {
       "accession": "GSE121619",
       "dataset_id": "discovered_gse121619",
@@ -278,6 +244,23 @@
   "geo_download_ready_unknown_manifest_unqueued": [],
   "manifest_download_ready_queued": [
     {
+      "accession": "GSE155304",
+      "dataset_id": "discovered_gse155304",
+      "file_type_counts": "metadata_table:3;mtx_archive:1;seurat_rds:2",
+      "matrix_file_count": 3,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155304",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse155304_geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis.sh",
+        "log_path": "logs/geo_promotion_gse155304.log",
+        "manifest": "data/corpus_manifest.gse155304.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse155304"
+      },
+      "queued_download": true,
+      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
+    },
+    {
       "accession": "GSE182507",
       "dataset_id": "discovered_gse182507",
       "file_type_counts": "mtx_archive:1",
@@ -382,6 +365,23 @@
   ],
   "manifest_download_ready_unqueued": [],
   "manifest_download_ready_without_corpus": [
+    {
+      "accession": "GSE155304",
+      "dataset_id": "discovered_gse155304",
+      "file_type_counts": "metadata_table:3;mtx_archive:1;seurat_rds:2",
+      "matrix_file_count": 3,
+      "page_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155304",
+      "priority": "A",
+      "queue_job": {
+        "command": "bash scripts/generated_geo_promotion_downloads/download_gse155304_geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis.sh",
+        "log_path": "logs/geo_promotion_gse155304.log",
+        "manifest": "data/corpus_manifest.gse155304.tsv",
+        "queue_script": "scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh",
+        "session": "snowcell_geo_promotion_gse155304"
+      },
+      "queued_download": true,
+      "recommended_action": "download MTX/10x archive; convert with geo_mtx_tar_to_npz.py or geo_10x_to_npz.py"
+    },
     {
       "accession": "GSE182507",
       "dataset_id": "discovered_gse182507",
@@ -1991,15 +1991,15 @@
   ],
   "project_dir": ".",
   "summary": {
-    "corpus_dataset_count": 106,
+    "corpus_dataset_count": 107,
     "discovery_record_count": 3116,
-    "dynamic_corpus_manifest_accession_count": 62,
-    "generated_at_utc": "2026-07-26T02:08:40.324804+00:00",
-    "geo_download_ready_unknown_manifest_count": 8,
-    "geo_download_ready_unknown_manifest_queued_count": 8,
+    "dynamic_corpus_manifest_accession_count": 63,
+    "generated_at_utc": "2026-07-26T03:11:12.417642+00:00",
+    "geo_download_ready_unknown_manifest_count": 7,
+    "geo_download_ready_unknown_manifest_queued_count": 7,
     "geo_download_ready_unknown_manifest_unqueued_count": 0,
     "geo_review_count": 46,
-    "known_manifest_accession_count": 78,
+    "known_manifest_accession_count": 79,
     "latest_geo_file_index": "data/public_discovery/geo_supplementary_files_20260726_083220.tsv",
     "latest_geo_file_index_modified_utc": "2026-07-26T00:33:37.839550+00:00",
     "latest_geo_review": "data/public_discovery/geo_supplementary_review_20260726_083220.tsv",
@@ -2007,9 +2007,9 @@
     "latest_ncbi_discovery": "data/public_discovery/ncbi_discovery_20260726_083015.tsv",
     "latest_ncbi_discovery_modified_utc": "2026-07-26T00:32:19.840717+00:00",
     "manifest_dataset_count": 39,
-    "manifest_download_ready_queued_count": 6,
+    "manifest_download_ready_queued_count": 7,
     "manifest_download_ready_unqueued_count": 0,
-    "manifest_download_ready_without_corpus_count": 6,
+    "manifest_download_ready_without_corpus_count": 7,
     "new_high_priority_candidate_count": 184,
     "new_review_candidate_count": 261,
     "promotion_hold_accession_count": 5,

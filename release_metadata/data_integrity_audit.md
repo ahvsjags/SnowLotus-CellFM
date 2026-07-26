@@ -1,12 +1,12 @@
 # SnowLotus-CellFM Data Integrity Audit
 
-- Manifest files audited: `68`
-- Ready manifests: `68`
+- Manifest files audited: `70`
+- Ready manifests: `70`
 - Manifests with issues: `0`
-- Matrix files referenced: `209`
+- Matrix files referenced: `240`
 - Missing matrix files: `0`
 - Unreadable matrix files: `0`
-- Total referenced cells across readable matrices: `4054536`
+- Total referenced cells across readable matrices: `4544570`
 
 ## Manifest Status
 
@@ -15,6 +15,7 @@
 | data/corpus_manifest.gse146034.tsv | 1 | ready | 0 | 0 | 12564 | rice_root_tip_atlas |
 | data/corpus_manifest.gse149217.tsv | 0 | ready | 0 | 0 | 0 |  |
 | data/corpus_manifest.gse152766.tsv | 2 | ready | 0 | 0 | 21196 | arabidopsis_root_atlas |
+| data/corpus_manifest.gse155304.tsv | 1 | ready | 0 | 0 | 17985 | geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis |
 | data/corpus_manifest.gse157757.tsv | 1 | ready | 0 | 0 | 7340 | geo_gse157757_zea_mays_single_cell_sequencing_reveals_phloem |
 | data/corpus_manifest.gse157758.tsv | 0 | ready | 0 | 0 | 0 |  |
 | data/corpus_manifest.gse180121.tsv | 3 | ready | 0 | 0 | 21984 | geo_gse180121_liriodendron_chinense_single_cell_transcriptomics_unveils_xylem |
@@ -80,6 +81,7 @@
 | data/corpus_manifest_public_mlm.tsv | 29 | ready | 0 | 0 | 454064 | arabidopsis_lateral_root_founder_atlas;arabidopsis_lifecycle_spatial_atlas;arabidopsis_root_atlas;arabidopsis_scrna_method_benchmark;arabidopsis_secondary_root_dev_atlas;brassicaceae_multi_species_root_atlas;cotton_glandular_terpenoid_atlas;maize_easy_multiome_seedling;rice_leaf_stress_snuc_atlas;rice_root_tip_atlas;rice_soil_stress_root_atlas;scplantllm_srp169576_SRX5025979_seurat0;scplantllm_srp169576_SRX5025980_seurat0;scplantllm_srp169576_SRX5025981_seurat0;scplantllm_srp169576_SRX5025982_seurat0;scplantllm_srp169576_SRX5025983_seurat0;scplantllm_srp169576_SRX5025984_seurat0;scplantllm_srp169576_SRX5025985_seurat0;scplantllm_srp169576_SRX5025986_seurat0;scplantllm_srp169576_SRX5025987_seurat0;scplantllm_srp169576_SRX5025988_seurat0;stevia_leaf_secondary_metabolism_snuc;tomato_mycorrhiza_snuc_atlas;wheat_soil_root_atlas |
 | data/corpus_manifest_public_mlm_available.tsv | 22 | ready | 0 | 0 | 163311 | arabidopsis_lifecycle_spatial_atlas;arabidopsis_root_atlas;arabidopsis_secondary_root_dev_atlas;brassicaceae_multi_species_root_atlas;rice_root_tip_atlas;rice_soil_stress_root_atlas;scplantllm_srp169576_SRX5025979_seurat0;scplantllm_srp169576_SRX5025980_seurat0;scplantllm_srp169576_SRX5025981_seurat0;scplantllm_srp169576_SRX5025982_seurat0;scplantllm_srp169576_SRX5025983_seurat0;scplantllm_srp169576_SRX5025984_seurat0;scplantllm_srp169576_SRX5025985_seurat0;scplantllm_srp169576_SRX5025986_seurat0;scplantllm_srp169576_SRX5025987_seurat0;scplantllm_srp169576_SRX5025988_seurat0;wheat_soil_root_atlas |
 | data/corpus_manifest_public_mlm_next.tsv | 28 | ready | 0 | 0 | 419759 | arabidopsis_lateral_root_founder_atlas;arabidopsis_root_atlas;arabidopsis_scrna_method_benchmark;arabidopsis_secondary_root_dev_atlas;brassicaceae_multi_species_root_atlas;cotton_glandular_terpenoid_atlas;maize_easy_multiome_seedling;rice_leaf_stress_snuc_atlas;rice_root_tip_atlas;rice_soil_stress_root_atlas;scplantllm_srp169576_SRX5025979_seurat0;scplantllm_srp169576_SRX5025980_seurat0;scplantllm_srp169576_SRX5025981_seurat0;scplantllm_srp169576_SRX5025982_seurat0;scplantllm_srp169576_SRX5025983_seurat0;scplantllm_srp169576_SRX5025984_seurat0;scplantllm_srp169576_SRX5025985_seurat0;scplantllm_srp169576_SRX5025986_seurat0;scplantllm_srp169576_SRX5025987_seurat0;scplantllm_srp169576_SRX5025988_seurat0;stevia_leaf_secondary_metabolism_snuc;tomato_mycorrhiza_snuc_atlas;wheat_soil_root_atlas |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | 30 | ready | 0 | 0 | 472049 | arabidopsis_lateral_root_founder_atlas;arabidopsis_lifecycle_spatial_atlas;arabidopsis_root_atlas;arabidopsis_scrna_method_benchmark;arabidopsis_secondary_root_dev_atlas;brassicaceae_multi_species_root_atlas;cotton_glandular_terpenoid_atlas;geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis;maize_easy_multiome_seedling;rice_leaf_stress_snuc_atlas;rice_root_tip_atlas;rice_soil_stress_root_atlas;scplantllm_srp169576_SRX5025979_seurat0;scplantllm_srp169576_SRX5025980_seurat0;scplantllm_srp169576_SRX5025981_seurat0;scplantllm_srp169576_SRX5025982_seurat0;scplantllm_srp169576_SRX5025983_seurat0;scplantllm_srp169576_SRX5025984_seurat0;scplantllm_srp169576_SRX5025985_seurat0;scplantllm_srp169576_SRX5025986_seurat0;scplantllm_srp169576_SRX5025987_seurat0;scplantllm_srp169576_SRX5025988_seurat0;stevia_leaf_secondary_metabolism_snuc;tomato_mycorrhiza_snuc_atlas;wheat_soil_root_atlas |
 
 ## Matrix Issues
 

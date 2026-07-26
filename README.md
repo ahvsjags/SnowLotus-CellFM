@@ -18,7 +18,7 @@ The repository is currently private. Grant editor/reviewer access or switch it t
 - Matrix integrity: 0 missing files and 0 unreadable files in the audited snapshot
 - Best annotation checkpoint: `foundation_5090_pretrain/best.pt`, macro-F1 evidence 0.8121 in the release manifest
 - Best embedding checkpoint: `foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm/best.pt`, SHA256 `00c1b0a1049c441585ecd7ee03e81d05704bd93100c692cc06f7bdc90f2c034a`
-- Current best evidence: v0.3 epoch-7 evaluation loss 7.1917 after vocabulary-aware warm-start from the completed v0.2 continuation; v0.3 epoch-8 training is still running and will be superseded only after passing the same audit gates
+- Current best evidence: v0.3 epoch-7 evaluation loss 7.1917 after vocabulary-aware warm-start from the completed v0.2 continuation; v0.3 epoch-9 training is still running and will be superseded only after passing the same audit gates
 - Newly promoted public matrices after v0.2 include GSE226826, GSE240098 and GSE240102; the v0.4 plus-corpus continuation is queued behind active v0.3 training on the RTX 5090 server
 
 ## What Is Included

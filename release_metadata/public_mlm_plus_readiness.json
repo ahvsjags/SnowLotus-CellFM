@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-26T02:08:39.791173+00:00",
+  "generated_at_utc": "2026-07-26T03:11:11.913901+00:00",
   "active_manifest": "data/corpus_manifest_public_mlm.tsv",
   "active_manifest_exists": true,
   "active_manifest_rows": 29,
@@ -7,22 +7,28 @@
   "active_corpus_exists": true,
   "active_corpus_modified_utc": "2026-07-24T09:36:33.139659+00:00",
   "plus_manifest": "data/corpus_manifest_public_mlm_plus_latest.tsv",
-  "plus_manifest_exists": false,
-  "plus_manifest_rows": 0,
+  "plus_manifest_exists": true,
+  "plus_manifest_rows": 30,
   "plus_corpus": "data/plant_foundation_corpus_public_mlm_plus_latest.h5ad",
-  "plus_corpus_exists": false,
-  "plus_corpus_modified_utc": null,
+  "plus_corpus_exists": true,
+  "plus_corpus_modified_utc": "2026-07-26T03:10:06.112930+00:00",
   "v03_progress": {
-    "checkpoint": "latest.pt",
-    "epoch": 8,
-    "optimizer_updates": 24050,
-    "status": "latest_checkpoint_saved",
-    "step": 40662,
-    "timestamp_utc": "2026-07-26T02:08:34.707514+00:00",
-    "train_batches_per_epoch": 56022,
-    "train_loss": 8.496189498237628,
-    "train_mlm_gene_loss": 8.495945311291571,
-    "train_mlm_value_loss": 0.0012209397743851481
+    "epoch": 9,
+    "latest_batch_losses": {
+      "loss": 8.069132804870605,
+      "mlm_gene_loss": 8.068881034851074,
+      "mlm_value_loss": 0.001260093878954649
+    },
+    "optimizer_updates": 25876,
+    "running_train_losses": {
+      "loss": 8.491923346955435,
+      "mlm_gene_loss": 8.491681146240234,
+      "mlm_value_loss": 0.0012109967070398852
+    },
+    "status": "training",
+    "step": 17500,
+    "timestamp_utc": "2026-07-26T03:10:51.215372+00:00",
+    "train_batches_per_epoch": 56022
   },
   "v03_best_exists": true,
   "v04_config_exists": true,
@@ -32,10 +38,10 @@
     "14042 tmux new-session -d -s snowcell_foundation_long cd /root/snowlotus-cellfm; source .venv/bin/activate; { snowcell baseline-centroid --config configs/foundation_5090_pretrain.yaml --output outputs/foundation_5090_pretrain/centroid_baseline.json; snowcell train --config configs/foundation_5090_pretrain.yaml --device cuda; bash scripts/generate_publication_package.sh; } 2>&1 | tee logs/foundation_long_20260723_150323.log",
     "452723 bash -c cd '/root/snowlotus-cellfm' && source .venv/bin/activate 2>/dev/null || true; snowcell train --config 'configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml' --device 'cuda' 2>&1 | tee 'logs/mlm_public_expansion_v0_3_20260725_183329.log'; bash scripts/generate_publication_package.sh 2>&1 | tee -a 'logs/mlm_public_expansion_v0_3_20260725_183329.log'",
     "452726 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda",
-    "760290 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda",
-    "760291 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda",
-    "760292 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda",
-    "760293 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda"
+    "786040 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda",
+    "786041 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda",
+    "786042 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda",
+    "786043 /root/snowlotus-cellfm/.venv/bin/python /root/snowlotus-cellfm/.venv/bin/snowcell train --config configs/generated/foundation_5090_mlm_public_expansion_continuation_v0_3.yaml --device cuda"
   ],
   "manifest_readiness": [
     {
@@ -43,390 +49,399 @@
       "rows": 1,
       "dataset_ids": "rice_root_tip_atlas",
       "missing_from_active_manifest": 0,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 0,
       "newer_than_active_corpus": false,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse152766.tsv",
       "rows": 2,
       "dataset_ids": "arabidopsis_root_atlas",
       "missing_from_active_manifest": 0,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 0,
       "newer_than_active_corpus": false,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
+    },
+    {
+      "manifest": "data/corpus_manifest.gse155304.tsv",
+      "rows": 1,
+      "dataset_ids": "geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis",
+      "missing_from_active_manifest": 1,
+      "missing_from_plus_manifest": 0,
+      "newer_than_active_corpus": true,
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse157757.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse157757_zea_mays_single_cell_sequencing_reveals_phloem",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse180121.tsv",
       "rows": 3,
       "dataset_ids": "geo_gse180121_liriodendron_chinense_single_cell_transcriptomics_unveils_xylem",
       "missing_from_active_manifest": 3,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 3,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse182507.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse182507_medicago_truncatula_single_cell_rna_sequencing_medicago",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse190649.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse190649_populus_tremula_single_nuclei_transcriptomic_populus_tremula",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse201640.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse201640_zea_mays_decoding_gene_regulatory_network_endosperm",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse201931.tsv",
       "rows": 2,
       "dataset_ids": "geo_gse201931_solanum_lycopersicum_high_throughput_single_cell_transcriptome",
       "missing_from_active_manifest": 2,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 2,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse210881.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse210881_medicago_truncatula_gene_expression_profile_at_single",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse220277.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse220277_arabidopsis_drought_recovery_plants_triggers_a",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse222584.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse222584_oryza_sativa_single_cell_sequencing_revealed_cell",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse226097.tsv",
       "rows": 1,
       "dataset_ids": "arabidopsis_lifecycle_spatial_atlas",
       "missing_from_active_manifest": 0,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 0,
       "newer_than_active_corpus": false,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse226149.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse226149_glycine_max_gene_expression_profile_at_single",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse226826.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse226826_arabidopsis_thaliana_time_resolved_single_cell_spatial",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse234192.tsv",
       "rows": 1,
       "dataset_ids": "arabidopsis_callus_regeneration_scrna",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse235495.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse235495_arabidopsis_thaliana_multiome_same_cell_revealed_impact",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse240098.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse240098_medicago_truncatula_spatial_co_transcriptomics_reveals_discrete",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse240102.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse240102_medicago_truncatula_spatial_co_transcriptomics_reveals_discrete",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse241573.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse241573_arabidopsis_thaliana_synthetic_deconvolution_an_auxin_dependent",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse243174.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse243174_glycine_max_single_cell_multiomic_profiling_soybean",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse243419.tsv",
       "rows": 1,
       "dataset_ids": "cotton_glandular_terpenoid_atlas",
       "missing_from_active_manifest": 0,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 0,
       "newer_than_active_corpus": false,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse251706.tsv",
       "rows": 1,
       "dataset_ids": "rice_soil_stress_root_atlas",
       "missing_from_active_manifest": 0,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 0,
       "newer_than_active_corpus": false,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse261441.tsv",
       "rows": 4,
       "dataset_ids": "geo_gse261441_arabidopsis_thaliana_a_single_nuclei_transcriptome_census",
       "missing_from_active_manifest": 4,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 4,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse267159.tsv",
       "rows": 12,
       "dataset_ids": "geo_gse267159_populus_trichocarpa_single_cell_spatial_multi_omics",
       "missing_from_active_manifest": 12,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 12,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse268881.tsv",
       "rows": 5,
       "dataset_ids": "brassicaceae_multi_species_root_atlas",
       "missing_from_active_manifest": 0,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 0,
       "newer_than_active_corpus": false,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse269624.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse269624_arabidopsis_thaliana_glutathione_accelerates_cell_cycle_cellular",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse270140.tsv",
       "rows": 1,
       "dataset_ids": "arabidopsis_secondary_root_dev_atlas",
       "missing_from_active_manifest": 0,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 0,
       "newer_than_active_corpus": false,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse270342.tsv",
       "rows": 1,
       "dataset_ids": "wheat_soil_root_atlas",
       "missing_from_active_manifest": 0,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 0,
       "newer_than_active_corpus": false,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse273722.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse273722_camellia_sinensis_transcriptional_landscape_camellia_sinensis_roots",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse273875.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse273875_oryza_sativa_a_single_cell_multiomics_atlas",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse275409.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse275409_zea_mays_genetic_architecture_cell_type_specific",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse283835.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse283835_populus_tremula_single_nuclei_transcriptomic_bulk_rna",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse300264.tsv",
       "rows": 1,
       "dataset_ids": "arabidopsis_scrna_method_benchmark",
       "missing_from_active_manifest": 0,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 0,
       "newer_than_active_corpus": false,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse302041.tsv",
       "rows": 1,
       "dataset_ids": "arabidopsis_lateral_root_founder_atlas",
       "missing_from_active_manifest": 0,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 0,
       "newer_than_active_corpus": false,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse303996.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse303996_arabidopsis_thaliana_histone_deacetylases_cell_cycle_regulators",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse308672.tsv",
       "rows": 1,
       "dataset_ids": "geo_gse308672_arabidopsis_thaliana_discrete_cell_specific_hypoxic_responses",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse308757.tsv",
       "rows": 1,
       "dataset_ids": "rice_node_reproductive_stage_atlas",
       "missing_from_active_manifest": 1,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 1,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse311951.tsv",
       "rows": 1,
       "dataset_ids": "stevia_leaf_secondary_metabolism_snuc",
       "missing_from_active_manifest": 0,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 0,
       "newer_than_active_corpus": false,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse313726.tsv",
       "rows": 1,
       "dataset_ids": "rice_leaf_stress_snuc_atlas",
       "missing_from_active_manifest": 0,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 0,
       "newer_than_active_corpus": false,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse314252.tsv",
       "rows": 1,
       "dataset_ids": "tomato_mycorrhiza_snuc_atlas",
       "missing_from_active_manifest": 0,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 0,
       "newer_than_active_corpus": false,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.gse338572.tsv",
       "rows": 1,
       "dataset_ids": "maize_easy_multiome_seedling",
       "missing_from_active_manifest": 0,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 0,
       "newer_than_active_corpus": false,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     },
     {
       "manifest": "data/corpus_manifest.scplantdb.tsv",
       "rows": 52,
       "dataset_ids": "scplantdb_CRA002977_1;scplantdb_CRA002977_2;scplantdb_CRA004476;scplantdb_CRA004848;scplantdb_CRA006988;scplantdb_CRA007122;scplantdb_CRA008788;scplantdb_CRA009614;scplantdb_DRP009643;scplantdb_ERP132245;scplantdb_SRP148288;scplantdb_SRP164771;scplantdb_SRP166333;scplantdb_SRP169576;scplantdb_SRP171040;scplantdb_SRP173393;scplantdb_SRP182008;scplantdb_SRP224648;scplantdb_SRP235541;scplantdb_SRP241596;scplantdb_SRP247828_1;scplantdb_SRP247828_2;scplantdb_SRP247828_3;scplantdb_SRP250946;scplantdb_SRP253497;scplantdb_SRP272727_23_26;scplantdb_SRP273996;scplantdb_SRP279055;scplantdb_SRP280069;scplantdb_SRP281914;scplantdb_SRP285040;scplantdb_SRP285817;scplantdb_SRP286275;scplantdb_SRP286427;scplantdb_SRP292306;scplantdb_SRP307169;scplantdb_SRP307440;scplantdb_SRP309176;scplantdb_SRP320285;scplantdb_SRP330542;scplantdb_SRP332285;scplantdb_SRP335180;scplantdb_SRP335448;scplantdb_SRP338044;scplantdb_SRP339472;scplantdb_SRP354482;scplantdb_SRP374045;scplantdb_SRP386976;scplantdb_SRP390780;scplantdb_SRP398011;scplantdb_SRP406470;scplantdb_SRP424189",
       "missing_from_active_manifest": 52,
-      "missing_from_plus_manifest": null,
+      "missing_from_plus_manifest": 52,
       "newer_than_active_corpus": true,
-      "newer_than_plus_corpus": null
+      "newer_than_plus_corpus": false
     }
   ],
   "summary": {
-    "completed_manifest_count": 42,
-    "completed_manifest_rows": 115,
-    "manifests_with_rows_missing_from_active": 28,
-    "rows_missing_from_active": 96,
-    "manifests_with_rows_missing_from_plus": null,
-    "rows_missing_from_plus": null,
-    "v03_status": "latest_checkpoint_saved",
-    "v03_epoch": 8,
-    "v03_step": 40662,
+    "completed_manifest_count": 43,
+    "completed_manifest_rows": 116,
+    "manifests_with_rows_missing_from_active": 29,
+    "rows_missing_from_active": 97,
+    "manifests_with_rows_missing_from_plus": 28,
+    "rows_missing_from_plus": 96,
+    "v03_status": "training",
+    "v03_epoch": 9,
+    "v03_step": 17500,
     "v03_train_batches_per_epoch": 56022,
     "active_training_process_count": 7
   }

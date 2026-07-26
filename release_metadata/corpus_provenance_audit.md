@@ -4,16 +4,16 @@
 
 | Metric | Value |
 | --- | ---: |
-| Manifest files | 68 |
-| Non-empty manifests | 47 |
-| Dataset manifest entries | 168 |
-| Registered dataset entries | 143 |
-| Unregistered dataset entries | 25 |
-| Matrix rows | 209 |
-| Existing matrix rows | 209 |
+| Manifest files | 70 |
+| Non-empty manifests | 49 |
+| Dataset manifest entries | 194 |
+| Registered dataset entries | 167 |
+| Unregistered dataset entries | 27 |
+| Matrix rows | 240 |
+| Existing matrix rows | 240 |
 | Missing matrix rows | 0 |
-| Total matrix bytes | 19.9 GiB |
-| Source accession count | 93 |
+| Total matrix bytes | 21.6 GiB |
+| Source accession count | 94 |
 
 ## Dataset Entries
 
@@ -21,6 +21,7 @@
 | --- | --- | --- | ---: | ---: | ---: | --- | --- | --- |
 | data/corpus_manifest.gse146034.tsv | rice_root_tip_atlas | Oryza sativa | 1 | 1 | 0 | registered | GSE146034 | ready_registered_source |
 | data/corpus_manifest.gse152766.tsv | arabidopsis_root_atlas | Arabidopsis_thaliana | 2 | 2 | 0 | registered | GSE152766 | ready_registered_source |
+| data/corpus_manifest.gse155304.tsv | geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis | Arabidopsis thaliana | 1 | 1 | 0 | unregistered | GSE155304 | ready_unregistered_source |
 | data/corpus_manifest.gse157757.tsv | geo_gse157757_zea_mays_single_cell_sequencing_reveals_phloem | Zea mays | 1 | 1 | 0 | unregistered | GSE157757 | ready_unregistered_source |
 | data/corpus_manifest.gse180121.tsv | geo_gse180121_liriodendron_chinense_single_cell_transcriptomics_unveils_xylem | Liriodendron chinense; Populus trichocarpa; Eucalyptus grandis; Trochodendron aralioides | 3 | 3 | 0 | unregistered | GSE180121 | ready_unregistered_source |
 | data/corpus_manifest.gse182507.tsv | geo_gse182507_medicago_truncatula_single_cell_rna_sequencing_medicago | Medicago truncatula | 1 | 1 | 0 | unregistered | GSE182507 | ready_unregistered_source |
@@ -187,3 +188,28 @@
 | data/corpus_manifest_public_mlm_next.tsv | stevia_leaf_secondary_metabolism_snuc | Stevia rebaudiana | 1 | 1 | 0 | registered | GSE311951 | ready_registered_source |
 | data/corpus_manifest_public_mlm_next.tsv | tomato_mycorrhiza_snuc_atlas | Solanum lycopersicum | 1 | 1 | 0 | registered | GSE314252 | ready_registered_source |
 | data/corpus_manifest_public_mlm_next.tsv | wheat_soil_root_atlas | Triticum aestivum | 1 | 1 | 0 | registered | GSE270342 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | arabidopsis_lateral_root_founder_atlas | Arabidopsis thaliana | 1 | 1 | 0 | registered | GSE302041 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | arabidopsis_lifecycle_spatial_atlas | Arabidopsis_thaliana | 1 | 1 | 0 | registered | GSE226097 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | arabidopsis_root_atlas | Arabidopsis_thaliana | 2 | 2 | 0 | registered | GSE152766 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | arabidopsis_scrna_method_benchmark | Arabidopsis thaliana | 1 | 1 | 0 | registered | GSE300264 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | arabidopsis_secondary_root_dev_atlas | Arabidopsis thaliana | 1 | 1 | 0 | registered | GSE270140 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | brassicaceae_multi_species_root_atlas | Arabidopsis thaliana;Camelina sativa;Eutrema salsugineum;Schrenkiella parvula;Sisymbrium irio | 5 | 5 | 0 | registered | GSE268881;PRJNA1113801 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | cotton_glandular_terpenoid_atlas | Gossypium hirsutum | 1 | 1 | 0 | registered | GSE243419 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis | Arabidopsis thaliana | 1 | 1 | 0 | unregistered | GSE155304 | ready_unregistered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | maize_easy_multiome_seedling | Zea mays | 1 | 1 | 0 | registered | GSE338572 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | rice_leaf_stress_snuc_atlas | Oryza sativa | 1 | 1 | 0 | registered | GSE313726 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | rice_root_tip_atlas | Oryza sativa | 1 | 1 | 0 | registered | GSE146034 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | rice_soil_stress_root_atlas | Oryza sativa | 1 | 1 | 0 | registered | GSE251706;PRJNA1055099 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | scplantllm_srp169576_SRX5025979_seurat0 | Arabidopsis_thaliana | 1 | 1 | 0 | registered | SRP169576;SRX5025979 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | scplantllm_srp169576_SRX5025980_seurat0 | Arabidopsis_thaliana | 1 | 1 | 0 | registered | SRP169576;SRX5025980 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | scplantllm_srp169576_SRX5025981_seurat0 | Arabidopsis_thaliana | 1 | 1 | 0 | registered | SRP169576;SRX5025981 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | scplantllm_srp169576_SRX5025982_seurat0 | Arabidopsis_thaliana | 1 | 1 | 0 | registered | SRP169576;SRX5025982 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | scplantllm_srp169576_SRX5025983_seurat0 | Arabidopsis_thaliana | 1 | 1 | 0 | registered | SRP169576;SRX5025983 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | scplantllm_srp169576_SRX5025984_seurat0 | Arabidopsis_thaliana | 1 | 1 | 0 | registered | SRP169576;SRX5025984 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | scplantllm_srp169576_SRX5025985_seurat0 | Arabidopsis_thaliana | 1 | 1 | 0 | registered | SRP169576;SRX5025985 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | scplantllm_srp169576_SRX5025986_seurat0 | Arabidopsis_thaliana | 1 | 1 | 0 | registered | SRP169576;SRX5025986 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | scplantllm_srp169576_SRX5025987_seurat0 | Arabidopsis_thaliana | 1 | 1 | 0 | registered | SRP169576;SRX5025987 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | scplantllm_srp169576_SRX5025988_seurat0 | Arabidopsis_thaliana | 1 | 1 | 0 | registered | SRP169576;SRX5025988 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | stevia_leaf_secondary_metabolism_snuc | Stevia rebaudiana | 1 | 1 | 0 | registered | GSE311951 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | tomato_mycorrhiza_snuc_atlas | Solanum lycopersicum | 1 | 1 | 0 | registered | GSE314252 | ready_registered_source |
+| data/corpus_manifest_public_mlm_plus_latest.tsv | wheat_soil_root_atlas | Triticum aestivum | 1 | 1 | 0 | registered | GSE270342 | ready_registered_source |

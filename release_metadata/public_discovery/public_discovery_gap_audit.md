@@ -1,6 +1,6 @@
 # Public Discovery Gap Audit
 
-Generated UTC: `2026-07-26T02:08:40.324804+00:00`
+Generated UTC: `2026-07-26T03:11:12.417642+00:00`
 
 ## Inputs
 
@@ -12,19 +12,19 @@ Generated UTC: `2026-07-26T02:08:40.324804+00:00`
 
 | Metric | Value |
 | --- | --- |
-| Known manifest accessions | 78 |
+| Known manifest accessions | 79 |
 | Manifest datasets | 39 |
-| Corpus datasets | 106 |
+| Corpus datasets | 107 |
 | Promotion hold accessions | 5 |
 | Discovery records | 3116 |
 | GEO review rows | 46 |
 | New review candidates | 261 |
 | New high-priority candidates | 184 |
-| GEO-ready unknown-manifest rows | 8 |
-| GEO-ready unknown-manifest already queued | 8 |
+| GEO-ready unknown-manifest rows | 7 |
+| GEO-ready unknown-manifest already queued | 7 |
 | GEO-ready unknown-manifest still unqueued | 0 |
-| Manifest GEO-ready without corpus rows | 6 |
-| Manifest GEO-ready already queued | 6 |
+| Manifest GEO-ready without corpus rows | 7 |
+| Manifest GEO-ready already queued | 7 |
 | Manifest GEO-ready still unqueued | 0 |
 | Requires manual manifest review | True |
 | Requires downloader/manifest follow-up | False |
@@ -89,7 +89,6 @@ Generated UTC: `2026-07-26T02:08:40.324804+00:00`
 
 | Dataset | Accession | Matrices | File Types | Queued | Action |
 | --- | --- | --- | --- | --- | --- |
-| discovered_gse155304 | GSE155304 | 3 | metadata_table:3;mtx_archive:1;seurat_rds:2 | yes | bash scripts/generated_geo_promotion_downloads/download_gse155304_geo_gse155304_arabidopsis_thaliana_single_cell_leve... |
 | discovered_gse121619 | GSE121619 | 1 | metadata_table:3;seurat_rds:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse121619_geo_gse121619_arabidopsis_thaliana_dynamics_gene_ex... |
 | discovered_gse123013 | GSE123013 | 1 | metadata_table:1;mtx_archive:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse123013_geo_gse123013_arabidopsis_thaliana_single_cell_rna_... |
 | discovered_gse138526 | GSE138526 | 1 | mtx_archive:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse138526_geo_gse138526_zea_mays_high_throughput_single_cell_... |
@@ -106,6 +105,7 @@ None.
 
 | Dataset | Accession | Matrices | File Types | Queued | Action |
 | --- | --- | --- | --- | --- | --- |
+| discovered_gse155304 | GSE155304 | 3 | metadata_table:3;mtx_archive:1;seurat_rds:2 | yes | bash scripts/generated_geo_promotion_downloads/download_gse155304_geo_gse155304_arabidopsis_thaliana_single_cell_leve... |
 | discovered_gse182507 | GSE182507 | 1 | mtx_archive:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse182507_geo_gse182507_medicago_truncatula_single_cell_rna_s... |
 | discovered_gse210881 | GSE210881 | 1 | seurat_rds:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse210881_geo_gse210881_medicago_truncatula_gene_expression_p... |
 | discovered_gse220277 | GSE220277 | 1 | mtx_archive:1 | yes | bash scripts/generated_geo_promotion_downloads/download_gse220277_geo_gse220277_arabidopsis_drought_recovery_plants_t... |

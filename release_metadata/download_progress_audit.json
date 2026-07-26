@@ -2,20 +2,20 @@
   "project_dir": ".",
   "status_summary_path": "outputs/publication_package/status_summary.json",
   "summary": {
-    "active_partial_file_count": 1,
-    "complete_manifest_count": 42,
-    "downloading_partial_count": 1,
-    "generated_at_utc": "2026-07-26T02:08:38.350896+00:00",
-    "manifest_row_count": 120,
-    "npz_file_count": 63,
-    "partial_file_count": 1,
-    "raw_file_count": 305,
+    "active_partial_file_count": 0,
+    "complete_manifest_count": 43,
+    "downloading_partial_count": 0,
+    "generated_at_utc": "2026-07-26T03:11:54.687389+00:00",
+    "manifest_row_count": 121,
+    "npz_file_count": 64,
+    "partial_file_count": 0,
+    "raw_file_count": 306,
     "residual_partial_file_count": 0,
     "status_counts": {
-      "complete_manifest": 42,
-      "downloading_partial": 1,
+      "complete_manifest": 43,
       "metadata_only": 1,
-      "queued_pending_download": 7,
+      "queued_pending_download": 6,
+      "raw_ready_no_manifest": 1,
       "unsupported_for_matrix_corpus": 21
     },
     "target_count": 72,
@@ -1265,6 +1265,81 @@
             "path": "data/public/GSE149217_raw_tar/unsupported_single_cell_matrix.json"
           }
         ]
+      },
+      "residual_partial_file_count": 0,
+      "source": "dynamic_gse_manifest",
+      "source_url": null,
+      "status_summary_stage": null
+    },
+    {
+      "accession": null,
+      "active_partial_file_count": 0,
+      "available_manifest": null,
+      "dataset_id": "geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis",
+      "download_status": "complete_manifest",
+      "latest_modified_utc": "2026-07-26T03:11:54.543291+00:00",
+      "log_path": null,
+      "manifest": {
+        "bytes": 274,
+        "exists": true,
+        "modified_utc": "2026-07-26T02:53:21.276116+00:00",
+        "path": "data/corpus_manifest.gse155304.tsv",
+        "rows": 1
+      },
+      "manifest_rows": 1,
+      "npz_files": {
+        "bytes": 95781389,
+        "examples": [
+          "data/public/GSE155304_npz/GSE155304_rnaseq_integration.npz"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 95781389,
+          "modified_utc": "2026-07-26T02:53:21.148118+00:00",
+          "path": "data/public/GSE155304_npz/GSE155304_rnaseq_integration.npz"
+        },
+        "latest_modified_utc": "2026-07-26T02:53:21.148118+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": "data/public/GSE155304_npz/*.npz",
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
+      },
+      "partial_file_count": 0,
+      "priority": null,
+      "public_manifest_status": null,
+      "queue_session": null,
+      "raw_files": {
+        "bytes": 700987238,
+        "examples": [
+          "data/public/GSE155304_raw_tar/GSE155304_RAW.aria2_urls.txt",
+          "data/public/GSE155304_raw_tar/GSE155304_RAW.tar.download",
+          "data/public/GSE155304_rds/GSE155304_rnaseq_integration.rds.gz"
+        ],
+        "file_count": 3,
+        "largest_file": {
+          "bytes": 653694678,
+          "modified_utc": "2026-07-26T02:46:14.398566+00:00",
+          "path": "data/public/GSE155304_rds/GSE155304_rnaseq_integration.rds.gz"
+        },
+        "latest_modified_utc": "2026-07-26T03:11:54.543291+00:00",
+        "partial_file_count": 0,
+        "partial_files": [],
+        "partial_payloads": [],
+        "pattern": [
+          "data/public/GSE155304_10x/*",
+          "data/public/GSE155304_h5/*",
+          "data/public/GSE155304_h5ad/*",
+          "data/public/GSE155304_mtx_tar/*",
+          "data/public/GSE155304_mtx_components/*",
+          "data/public/GSE155304_raw_tar/*",
+          "data/public/GSE155304_rds/*"
+        ],
+        "unsupported_payloads": [],
+        "unsupported_report_count": 0,
+        "unsupported_reports": []
       },
       "residual_partial_file_count": 0,
       "source": "dynamic_gse_manifest",
@@ -5194,93 +5269,12 @@
       "status_summary_stage": null
     },
     {
-      "accession": "GSE155304",
-      "active_partial_file_count": 1,
-      "available_manifest": null,
-      "dataset_id": "geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis",
-      "download_status": "downloading_partial",
-      "latest_modified_utc": "2026-07-26T02:08:37.344681+00:00",
-      "log_path": "logs/geo_promotion_gse155304.log",
-      "manifest": {
-        "bytes": 0,
-        "exists": false,
-        "modified_utc": null,
-        "path": "data/corpus_manifest.gse155304.tsv",
-        "rows": 0
-      },
-      "manifest_rows": 0,
-      "npz_files": {
-        "bytes": 0,
-        "examples": [],
-        "file_count": 0,
-        "largest_file": null,
-        "latest_modified_utc": null,
-        "partial_file_count": 0,
-        "partial_files": [],
-        "partial_payloads": [],
-        "pattern": "data/public/GSE155304_npz/*.npz",
-        "unsupported_payloads": [],
-        "unsupported_report_count": 0,
-        "unsupported_reports": []
-      },
-      "partial_file_count": 1,
-      "priority": null,
-      "public_manifest_status": null,
-      "queue_session": "snowcell_geo_promotion_gse155304",
-      "raw_files": {
-        "bytes": 1211053926,
-        "examples": [
-          "data/public/GSE155304_raw_tar/GSE155304_RAW.aria2_urls.txt",
-          "data/public/GSE155304_raw_tar/GSE155304_RAW.tar.download",
-          "data/public/GSE155304_rds/GSE155304_rnaseq_integration.rds.gz"
-        ],
-        "file_count": 3,
-        "largest_file": {
-          "bytes": 653694678,
-          "modified_utc": "2026-07-26T02:08:37.340681+00:00",
-          "path": "data/public/GSE155304_rds/GSE155304_rnaseq_integration.rds.gz"
-        },
-        "latest_modified_utc": "2026-07-26T02:08:37.344681+00:00",
-        "partial_file_count": 1,
-        "partial_files": [
-          {
-            "bytes": 156,
-            "modified_utc": "2026-07-26T02:08:37.344681+00:00",
-            "path": "data/public/GSE155304_rds/GSE155304_rnaseq_integration.rds.gz.aria2"
-          }
-        ],
-        "partial_payloads": [
-          {
-            "bytes": 653694678,
-            "modified_utc": "2026-07-26T02:08:37.340681+00:00",
-            "path": "data/public/GSE155304_rds/GSE155304_rnaseq_integration.rds.gz"
-          }
-        ],
-        "pattern": [
-          "data/public/GSE155304_10x/*",
-          "data/public/GSE155304_h5/*",
-          "data/public/GSE155304_h5ad/*",
-          "data/public/GSE155304_mtx_tar/*",
-          "data/public/GSE155304_mtx_components/*",
-          "data/public/GSE155304_raw_tar/*",
-          "data/public/GSE155304_rds/*"
-        ],
-        "unsupported_payloads": [],
-        "unsupported_report_count": 0,
-        "unsupported_reports": []
-      },
-      "residual_partial_file_count": 0,
-      "source": "geo_promotion_queue",
-      "source_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155304",
-      "status_summary_stage": null
-    },
-    {
       "accession": "GSE123013",
       "active_partial_file_count": 0,
       "available_manifest": null,
       "dataset_id": "geo_gse123013_arabidopsis_thaliana_single_cell_rna_sequencing_analysis",
-      "download_status": "queued_pending_download",
-      "latest_modified_utc": null,
+      "download_status": "raw_ready_no_manifest",
+      "latest_modified_utc": "2026-07-26T02:55:02.058593+00:00",
       "log_path": "logs/geo_promotion_gse123013.log",
       "manifest": {
         "bytes": 0,
@@ -5309,11 +5303,17 @@
       "public_manifest_status": null,
       "queue_session": "snowcell_geo_promotion_gse123013",
       "raw_files": {
-        "bytes": 0,
-        "examples": [],
-        "file_count": 0,
-        "largest_file": null,
-        "latest_modified_utc": null,
+        "bytes": 144,
+        "examples": [
+          "data/public/GSE123013_raw_tar/GSE123013_RAW.aria2_urls.txt"
+        ],
+        "file_count": 1,
+        "largest_file": {
+          "bytes": 144,
+          "modified_utc": "2026-07-26T02:55:02.058593+00:00",
+          "path": "data/public/GSE123013_raw_tar/GSE123013_RAW.aria2_urls.txt"
+        },
+        "latest_modified_utc": "2026-07-26T02:55:02.058593+00:00",
         "partial_file_count": 0,
         "partial_files": [],
         "partial_payloads": [],

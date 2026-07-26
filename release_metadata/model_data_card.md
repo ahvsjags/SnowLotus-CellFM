@@ -1,6 +1,6 @@
 # SnowLotus-CellFM Model and Data Card
 
-- Generated UTC: `2026-07-26T02:09:03.210804+00:00`
+- Generated UTC: `2026-07-26T03:12:33.197836+00:00`
 - Project directory: `.`
 - Model family: Transformer-based expression foundation model with MLM-style pretraining and hierarchical labels.
 - Intended use: Plant single-cell and single-nucleus foundation annotation, public cross-species pretraining, and Snow Lotus transfer once primary Saussurea data are available.
@@ -54,6 +54,7 @@
 
 | manifest | dataset_ids | rows_missing_from_public_mlm_manifest |
 | --- | --- | --- |
+| data/corpus_manifest.gse155304.tsv | geo_gse155304_arabidopsis_thaliana_single_cell_level_analysis_arabidopsis | 1 |
 | data/corpus_manifest.gse157757.tsv | geo_gse157757_zea_mays_single_cell_sequencing_reveals_phloem | 1 |
 | data/corpus_manifest.gse180121.tsv | geo_gse180121_liriodendron_chinense_single_cell_transcriptomics_unveils_xylem | 3 |
 | data/corpus_manifest.gse182507.tsv | geo_gse182507_medicago_truncatula_single_cell_rna_sequencing_medicago | 1 |

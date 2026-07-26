@@ -16,6 +16,7 @@ mtx_dir="data/public/${accession}_mtx"
 npz_dir="data/public/${accession}_npz"
 url_list="data/public/${accession}_page_download_urls.tsv"
 manifest_output="data/corpus_manifest.${accession,,}.tsv"
+r_libs_compat="${SNOWCELL_R_LIBS_COMPAT:-/usr/lib/R/site-library:/usr/lib/R/library:/usr/local/lib/R/site-library}"
 
 mkdir -p "$download_dir" "$mtx_dir" "$npz_dir" logs
 
@@ -145,9 +146,9 @@ if ! command -v Rscript >/dev/null 2>&1; then
   exit 2
 fi
 
-if ! Rscript scripts/export_seurat_rds_to_mtx.R "$download_dir" "$mtx_dir"; then
+if ! env R_LIBS="$r_libs_compat" Rscript scripts/export_seurat_rds_to_mtx.R "$download_dir" "$mtx_dir"; then
   echo "Seurat RDS export failed; trying direct expression slot export." >&2
-  Rscript scripts/export_seurat_rds_expression_slot_to_mtx.R "$download_dir" "$mtx_dir"
+  env R_LIBS="$r_libs_compat" Rscript scripts/export_seurat_rds_expression_slot_to_mtx.R "$download_dir" "$mtx_dir"
 fi
 python scripts/build_npz_from_seurat_export.py \
   --export-dir "$mtx_dir" \
