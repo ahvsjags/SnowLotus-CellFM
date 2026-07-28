@@ -92,17 +92,32 @@ class SnowLotusHandler(BaseHTTPRequestHandler):
             if not data_path.exists():
                 raise FileNotFoundError(data_path)
             adapter, used_fallback = state["registry"].resolve(request.get("species"))
+            ortholog_map = request.get("ortholog_map")
+            ortholog_path = None
+            if ortholog_map:
+                ortholog_path = Path(str(ortholog_map)).expanduser()
+                if not ortholog_path.is_absolute():
+                    ortholog_path = state["project_root"] / ortholog_path
+                ortholog_path = ortholog_path.resolve()
+                try:
+                    ortholog_path.relative_to(state["project_root"])
+                except ValueError as exc:
+                    raise ValueError("ortholog_map must be under the project root") from exc
+                if not ortholog_path.exists():
+                    raise FileNotFoundError(ortholog_path)
             result = annotate_to_bundle(
                 checkpoint_path=state["checkpoint_path"],
                 data_path=data_path,
                 output_dir=output_dir,
                 layer=request.get("layer"),
+                ortholog_map=ortholog_path,
                 batch_size=int(request.get("batch_size", 128)),
                 device=state["device"],
             )
             selection = {
                 "requested_species": request.get("species", ""),
                 "used_fallback": used_fallback,
+                "ortholog_map": str(ortholog_path) if ortholog_path else None,
                 "adapter": adapter.to_dict(),
             }
             output_dir.mkdir(parents=True, exist_ok=True)
@@ -125,6 +140,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--port", type=int, default=8000)
     parser.add_argument("--device", default="auto")
     parser.add_argument("--data-root", default=None, help="Restrict annotation inputs to this directory")
+    parser.add_argument("--project-root", default=".", help="Root for ortholog maps and release metadata")
     parser.add_argument(
         "--adapter-registry",
         default="release_metadata/plant_species_adapters.json",
@@ -143,6 +159,7 @@ def main() -> None:
         "checkpoint_path": checkpoint_path,
         "device": device,
         "data_root": Path(args.data_root).expanduser().resolve() if args.data_root else None,
+        "project_root": Path(args.project_root).expanduser().resolve(),
         "registry": registry,
         "metadata": {
             "status": "ok",
@@ -171,7 +188,7 @@ def main() -> None:
                 "species_adapter_resolution",
             ],
             "input_formats": [".h5ad", ".npz"],
-            "gene_transfer_policy": "exact gene identifiers first, then configured ortholog map during preprocessing or fine-tuning",
+            "gene_transfer_policy": "exact gene identifiers first, then request-level or configured ortholog map with mapping statistics",
             "routes": ["GET /health", "GET /metadata", "GET /capabilities", "GET /adapters", "POST /annotate"],
             "adapter_count": len(registry.adapters),
         },

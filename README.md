@@ -24,7 +24,7 @@ The repository is currently private. Grant editor/reviewer access or switch it t
 - General-plant model card: `release_metadata/plant_general_model_card.md`
 - Species adapter registry: `release_metadata/plant_species_adapters.json`
 - Species coverage table: `release_metadata/plant_general_corpus_species.tsv`
-- Runtime API exposes `/capabilities` and `/adapters`, and resolves a species adapter on every `/annotate` request
+- Runtime API exposes `/capabilities` and `/adapters`, resolves a species adapter on every `/annotate` request, and accepts an optional ortholog TSV for novel plant species
 
 ## What Is Included
 

@@ -15,6 +15,7 @@ exec python -X utf8 scripts/serve_snowlotus.py \
   --checkpoint "$CHECKPOINT" \
   --data-root "$DATA_ROOT" \
   --adapter-registry "$ADAPTER_REGISTRY" \
+  --project-root "$PROJECT_DIR" \
   --host "$HOST" \
   --port "$PORT" \
   --device "$DEVICE"
