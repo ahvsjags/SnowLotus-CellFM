@@ -70,7 +70,8 @@ def iter_features(handle: TextIO):
         if line.startswith("ORIGIN"):
             if current_key is not None:
                 yield from flush()
-            return
+            in_features = False
+            continue
         if not in_features:
             continue
 
@@ -146,11 +147,14 @@ def build_catalog(input_path: Path, output_path: Path, summary_path: Path) -> di
     summary = {
         "source": str(input_path),
         "output": str(output_path),
+        "status": "gene_features_parsed" if rows else "no_gene_or_cds_features_in_source",
         "records": rows,
         "feature_counts": dict(sorted(counts.items())),
         "records_with_gene_name_or_synonym": genes_with_names,
         "records_with_locus_tag": genes_with_locus,
     }
+    if not rows:
+        summary["warning"] = "The public assembly GenBank archive contains assembly/source records but no gene or CDS feature rows."
     summary_path.write_text(json.dumps(summary, ensure_ascii=True, indent=2) + "\n", encoding="utf-8")
     return summary
 
