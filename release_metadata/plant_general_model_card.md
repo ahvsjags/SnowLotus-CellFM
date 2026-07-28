@@ -1,8 +1,8 @@
 # Plant-CellFM General Plant Model Card
 
-- Generated UTC: `2026-07-28T18:26:15.589701+00:00`
+- Generated UTC: `2026-07-28T18:37:38.379270+00:00`
 - Model scope: **plant_general**
-- Model name: `Plant-CellFM (SnowLotus-CellFM general-plant release)`
+- Model name: `Plant-CellFM (general plant foundation model)`
 - Snow Lotus is an adapter and case study; the backbone is designed for cross-species plant expression data.
 - Registered adapters: **20**, including the universal fallback for newly added plant species.
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Small HTTP service for reproducible SnowLotus-CellFM inference.
+"""Small HTTP service for reproducible Plant-CellFM inference.
 
 The service intentionally accepts server-side dataset paths instead of file
 uploads. This keeps large single-cell matrices out of request bodies and
@@ -33,8 +33,8 @@ def _json_bytes(payload: dict[str, Any]) -> bytes:
     return json.dumps(payload, ensure_ascii=False, indent=2).encode("utf-8")
 
 
-class SnowLotusHandler(BaseHTTPRequestHandler):
-    server_version = "SnowLotusCellFM/0.1"
+class PlantCellFMHandler(BaseHTTPRequestHandler):
+    server_version = "PlantCellFM/0.1"
 
     def _send(self, status: int, payload: dict[str, Any]) -> None:
         body = _json_bytes(payload)
@@ -52,7 +52,7 @@ class SnowLotusHandler(BaseHTTPRequestHandler):
                 200,
                 {
                     "status": "ok",
-                    "service": "SnowLotus-CellFM",
+                    "service": "Plant-CellFM",
                     "model_scope": "plant_general",
                     "adapter_count": len(state["registry"].adapters),
                     "device": str(state["device"]),
@@ -134,7 +134,7 @@ class SnowLotusHandler(BaseHTTPRequestHandler):
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Serve Plant-CellFM general plant inference")
+    parser = argparse.ArgumentParser(description="Serve Plant-CellFM general-plant inference")
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8000)
@@ -163,7 +163,7 @@ def main() -> None:
         "registry": registry,
         "metadata": {
             "status": "ok",
-            "service": "SnowLotus-CellFM",
+            "service": "Plant-CellFM",
             "model_scope": "plant_general",
             "model_name": "Plant-CellFM",
             "adapter_registry": str(Path(args.adapter_registry).expanduser().resolve()),
@@ -193,7 +193,7 @@ def main() -> None:
             "adapter_count": len(registry.adapters),
         },
     }
-    server = ThreadingHTTPServer((args.host, args.port), SnowLotusHandler)
+    server = ThreadingHTTPServer((args.host, args.port), PlantCellFMHandler)
     server.state = state  # type: ignore[attr-defined]
     print(json.dumps(state["metadata"], ensure_ascii=False, indent=2), flush=True)
     print(f"Serving on http://{args.host}:{args.port}", flush=True)

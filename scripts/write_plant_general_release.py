@@ -149,7 +149,7 @@ def build_payload(root: Path) -> dict[str, Any]:
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "project": "SnowLotus-CellFM",
         "model_scope": "plant_general",
-        "model_name": "Plant-CellFM (SnowLotus-CellFM general-plant release)",
+        "model_name": "Plant-CellFM (general plant foundation model)",
         "scope_statement": (
             "A cross-species plant single-cell and single-nucleus expression backbone. "
             "Snow Lotus is a target-species adapter and case study, not the boundary of the model."

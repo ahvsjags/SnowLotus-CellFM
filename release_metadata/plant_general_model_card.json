@@ -1,9 +1,9 @@
 {
   "schema_version": "plant-general-release-v1",
-  "generated_at_utc": "2026-07-28T18:26:15.589701+00:00",
+  "generated_at_utc": "2026-07-28T18:37:38.379270+00:00",
   "project": "SnowLotus-CellFM",
   "model_scope": "plant_general",
-  "model_name": "Plant-CellFM (SnowLotus-CellFM general-plant release)",
+  "model_name": "Plant-CellFM (general plant foundation model)",
   "scope_statement": "A cross-species plant single-cell and single-nucleus expression backbone. Snow Lotus is a target-species adapter and case study, not the boundary of the model.",
   "species_policy": {
     "coverage": "all plant species represented by the audited public corpus",

@@ -1,6 +1,8 @@
-# Remote Joint Pipeline Run Card
+# Plant-CellFM Remote Joint Pipeline Run Card
 
 Run date: 2026-07-28
+
+Model scope: `plant_general`; the Snow Lotus adapter is one species path within the general plant model.
 
 ## Server
 
@@ -39,7 +41,7 @@ Run date: 2026-07-28
 - Final label model independent test fine accuracy: `0.727962`.
 - Final label model independent test fine macro-F1: `0.725557`.
 - Full GSE pretraining test MLM loss: `6.818127`.
-- Inference service: `http://127.0.0.1:8000`.
+- Inference service: `http://127.0.0.1:8000` (`Plant-CellFM`, `plant_general`).
 - Service health and metadata checks passed.
 - CRA002977_1 service smoke bundle: `10947` cells, `256`-dimensional embeddings.
 - Full GSE146034 pretraining embedding bundle: `23532` cells, `256`-dimensional embeddings.

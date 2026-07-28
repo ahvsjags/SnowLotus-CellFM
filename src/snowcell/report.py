@@ -79,7 +79,7 @@ def generate_markdown_report(
     manifest = _read_text(project / "data" / "public_dataset_manifest.tsv")
     strategy = _read_text(project / "docs" / "top_journal_strategy.md")
     lines = [
-        "# SnowLotus-CellFM Publication Readiness Report",
+        "# Plant-CellFM Publication Readiness Report",
         "",
         "## Run Metrics",
         "",
