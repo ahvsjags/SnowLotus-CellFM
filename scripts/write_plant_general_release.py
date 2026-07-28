@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 from collections import defaultdict
 from datetime import datetime, timezone
@@ -99,6 +100,26 @@ def collect_catalog_species(root: Path, selected_species: list[dict[str, Any]]) 
     return sorted(values)
 
 
+def optional_v1_asset(root: Path) -> list[dict[str, Any]]:
+    checkpoint = root / "outputs" / "plant_general_foundation_public_plants_v1_4090" / "best.pt"
+    if not checkpoint.is_file():
+        return []
+    manifest = read_tsv(root / "data" / "corpus_manifest_public_plants_v1.tsv")
+    datasets = {clean(row.get("dataset_id", "")) for row in manifest if row.get("dataset_id")}
+    species = {canonical_species(row.get("species", "")) for row in manifest if row.get("species")}
+    digest = hashlib.sha256(checkpoint.read_bytes()).hexdigest()
+    return [
+        {
+            "role": "joint_plant_backbone_public_plants_v1",
+            "path": checkpoint.relative_to(root).as_posix(),
+            "manifest_rows": len(manifest),
+            "datasets": len(datasets),
+            "species": len(species),
+            "sha256": digest,
+        }
+    ]
+
+
 def build_adapters(species: list[str], species_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     by_species = {item["species"]: item for item in species_rows}
     adapters = [
@@ -144,6 +165,32 @@ def build_payload(root: Path) -> dict[str, Any]:
     catalog = read_tsv(root / "data" / "public_dataset_manifest.tsv")
     catalog_species = collect_catalog_species(root, species)
     adapters = build_adapters(catalog_species, species)
+    trained_assets = [
+        {
+            "role": "joint_plant_backbone",
+            "path": "outputs/remote_joint_scplantdb_pretrain_4090/best.pt",
+            "cells": 272732,
+            "source_genes": 209405,
+            "training_gene_vocabulary": 60000,
+            "sha256": "7300ba74d41e664c240cc35b4ae1de2a8402923260ac485c3975969312fed117",
+        },
+        {
+            "role": "full_rice_cross_species_pretraining",
+            "path": "outputs/remote_gse146034_full_pretrain_4090/best.pt",
+            "cells": 23532,
+            "genes": 43311,
+            "nonzero_entries": 63856201,
+            "sha256": "e0bfed95591959e7120e5dec1ed5ce8b59721aae845cb9cbe7166991e0831329",
+        },
+        {
+            "role": "operational_annotation_head",
+            "path": "outputs/remote_srp169576_joint_init_hybrid_4090/best.pt",
+            "independent_test_fine_accuracy": 0.7279620268770806,
+            "independent_test_fine_macro_f1": 0.725556710508996,
+            "sha256": "3d2ba3d4c15d29140b04a24227d496fd92b58ef1fd730fe20127eeb66681d8fd",
+        },
+    ]
+    trained_assets.extend(optional_v1_asset(root))
     return {
         "schema_version": "plant-general-release-v1",
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -171,31 +218,7 @@ def build_payload(root: Path) -> dict[str, Any]:
             "species-specific adapter fine-tuning via LoRA or supervised learning for every requested plant species",
             "Snow Lotus reference-genome and primary-data adapter as one member of the all-plant system",
         ],
-        "trained_assets": [
-            {
-                "role": "joint_plant_backbone",
-                "path": "outputs/remote_joint_scplantdb_pretrain_4090/best.pt",
-                "cells": 272732,
-                "source_genes": 209405,
-                "training_gene_vocabulary": 60000,
-                "sha256": "7300ba74d41e664c240cc35b4ae1de2a8402923260ac485c3975969312fed117",
-            },
-            {
-                "role": "full_rice_cross_species_pretraining",
-                "path": "outputs/remote_gse146034_full_pretrain_4090/best.pt",
-                "cells": 23532,
-                "genes": 43311,
-                "nonzero_entries": 63856201,
-                "sha256": "e0bfed95591959e7120e5dec1ed5ce8b59721aae845cb9cbe7166991e0831329",
-            },
-            {
-                "role": "operational_annotation_head",
-                "path": "outputs/remote_srp169576_joint_init_hybrid_4090/best.pt",
-                "independent_test_fine_accuracy": 0.7279620268770806,
-                "independent_test_fine_macro_f1": 0.725556710508996,
-                "sha256": "3d2ba3d4c15d29140b04a24227d496fd92b58ef1fd730fe20127eeb66681d8fd",
-            },
-        ],
+        "trained_assets": trained_assets,
         "corpus_snapshot": {
             "selected_manifest": selected_manifest,
             "manifest_rows": len(rows),
