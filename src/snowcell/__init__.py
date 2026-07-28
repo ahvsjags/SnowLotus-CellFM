@@ -1,4 +1,4 @@
-"""SnowLotus-CellFM: plant single-cell annotation foundation model."""
+"""Plant-CellFM: general plant single-cell annotation foundation model."""
 
 from .config import ExperimentConfig
 from .model import ModelConfig, SnowCellModel

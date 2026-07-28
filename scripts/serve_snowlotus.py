@@ -19,6 +19,7 @@ from urllib.parse import urlparse
 import torch
 
 from snowcell.artifacts import load_checkpoint
+from snowcell.adapters import load_registry
 from snowcell.train import annotate_to_bundle
 
 
@@ -52,12 +53,20 @@ class SnowLotusHandler(BaseHTTPRequestHandler):
                 {
                     "status": "ok",
                     "service": "SnowLotus-CellFM",
+                    "model_scope": "plant_general",
+                    "adapter_count": len(state["registry"].adapters),
                     "device": str(state["device"]),
                 },
             )
             return
         if route == "/metadata":
             self._send(200, state["metadata"])
+            return
+        if route == "/capabilities":
+            self._send(200, state["capabilities"])
+            return
+        if route == "/adapters":
+            self._send(200, state["registry"].to_dict())
             return
         self._send(404, {"error": "unknown route"})
 
@@ -82,6 +91,7 @@ class SnowLotusHandler(BaseHTTPRequestHandler):
                     raise ValueError(f"data_path must be under {data_root}") from exc
             if not data_path.exists():
                 raise FileNotFoundError(data_path)
+            adapter, used_fallback = state["registry"].resolve(request.get("species"))
             result = annotate_to_bundle(
                 checkpoint_path=state["checkpoint_path"],
                 data_path=data_path,
@@ -90,7 +100,17 @@ class SnowLotusHandler(BaseHTTPRequestHandler):
                 batch_size=int(request.get("batch_size", 128)),
                 device=state["device"],
             )
-            self._send(200, {"status": "ok", **result})
+            selection = {
+                "requested_species": request.get("species", ""),
+                "used_fallback": used_fallback,
+                "adapter": adapter.to_dict(),
+            }
+            output_dir.mkdir(parents=True, exist_ok=True)
+            (output_dir / "adapter_selection.json").write_text(
+                json.dumps(selection, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            self._send(200, {"status": "ok", "adapter": selection, **result})
         except Exception as exc:  # return actionable JSON to a CLI caller
             self._send(400, {"status": "error", "error": f"{type(exc).__name__}: {exc}"})
 
@@ -99,12 +119,17 @@ class SnowLotusHandler(BaseHTTPRequestHandler):
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Serve SnowLotus-CellFM inference")
+    parser = argparse.ArgumentParser(description="Serve Plant-CellFM general plant inference")
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8000)
     parser.add_argument("--device", default="auto")
     parser.add_argument("--data-root", default=None, help="Restrict annotation inputs to this directory")
+    parser.add_argument(
+        "--adapter-registry",
+        default="release_metadata/plant_species_adapters.json",
+        help="JSON registry containing one adapter entry per registered plant species",
+    )
     return parser
 
 
@@ -113,13 +138,20 @@ def main() -> None:
     checkpoint_path = Path(args.checkpoint).expanduser().resolve()
     checkpoint = load_checkpoint(checkpoint_path, map_location="cpu")
     device = _device(args.device)
+    registry = load_registry(args.adapter_registry)
     state = {
         "checkpoint_path": checkpoint_path,
         "device": device,
         "data_root": Path(args.data_root).expanduser().resolve() if args.data_root else None,
+        "registry": registry,
         "metadata": {
             "status": "ok",
             "service": "SnowLotus-CellFM",
+            "model_scope": "plant_general",
+            "model_name": "Plant-CellFM",
+            "adapter_registry": str(Path(args.adapter_registry).expanduser().resolve()),
+            "adapter_count": len(registry.adapters),
+            "snow_lotus_role": "one species adapter among the registered plant adapters",
             "checkpoint": str(checkpoint_path),
             "model_config": checkpoint.get("model_config", {}),
             "checkpoint_epoch": checkpoint.get("epoch"),
@@ -127,6 +159,21 @@ def main() -> None:
             "gene_vocab_size": len(checkpoint.get("gene_vocab", [])),
             "fine_vocab_size": len(checkpoint.get("fine_vocab", [])),
             "coarse_vocab_size": len(checkpoint.get("coarse_vocab", [])),
+        },
+        "capabilities": {
+            "status": "ok",
+            "model_scope": "plant_general",
+            "tasks": [
+                "cross_species_embedding",
+                "masked_expression_features",
+                "hierarchical_cell_annotation",
+                "marker_candidate_discovery",
+                "species_adapter_resolution",
+            ],
+            "input_formats": [".h5ad", ".npz"],
+            "gene_transfer_policy": "exact gene identifiers first, then configured ortholog map during preprocessing or fine-tuning",
+            "routes": ["GET /health", "GET /metadata", "GET /capabilities", "GET /adapters", "POST /annotate"],
+            "adapter_count": len(registry.adapters),
         },
     }
     server = ThreadingHTTPServer((args.host, args.port), SnowLotusHandler)

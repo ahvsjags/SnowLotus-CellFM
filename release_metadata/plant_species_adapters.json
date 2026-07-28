@@ -1,0 +1,446 @@
+{
+  "schema_version": "plant-species-adapters-v1",
+  "model_scope": "plant_general",
+  "fallback_adapter": "plant_universal",
+  "adapters": [
+    {
+      "adapter_id": "plant_universal",
+      "species": "__unregistered_plant__",
+      "aliases": [
+        "unknown plant",
+        "new plant species",
+        "any plant"
+      ],
+      "status": "universal_fallback",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": "general backbone; provide a species gene map for best transfer"
+    },
+    {
+      "adapter_id": "plant_arabidopsis_thaliana",
+      "species": "Arabidopsis thaliana",
+      "aliases": [
+        "Arabidopsis thaliana"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 18,
+        "datasets": 17
+      }
+    },
+    {
+      "adapter_id": "plant_brassicaceae",
+      "species": "Brassicaceae",
+      "aliases": [
+        "Brassicaceae"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 0,
+        "datasets": 0
+      }
+    },
+    {
+      "adapter_id": "plant_camelina_sativa",
+      "species": "Camelina sativa",
+      "aliases": [
+        "Camelina sativa"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 1,
+        "datasets": 1
+      }
+    },
+    {
+      "adapter_id": "plant_catharanthus_roseus",
+      "species": "Catharanthus roseus",
+      "aliases": [
+        "Catharanthus roseus"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 0,
+        "datasets": 0
+      }
+    },
+    {
+      "adapter_id": "plant_eutrema_salsugineum",
+      "species": "Eutrema salsugineum",
+      "aliases": [
+        "Eutrema salsugineum"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 1,
+        "datasets": 1
+      }
+    },
+    {
+      "adapter_id": "plant_gossypium_hirsutum",
+      "species": "Gossypium hirsutum",
+      "aliases": [
+        "Gossypium hirsutum"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 1,
+        "datasets": 1
+      }
+    },
+    {
+      "adapter_id": "plant_marchantia_polymorpha",
+      "species": "Marchantia polymorpha",
+      "aliases": [
+        "Marchantia polymorpha"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 0,
+        "datasets": 0
+      }
+    },
+    {
+      "adapter_id": "plant_oryza_sativa",
+      "species": "Oryza sativa",
+      "aliases": [
+        "Oryza sativa"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 3,
+        "datasets": 3
+      }
+    },
+    {
+      "adapter_id": "plant_oryza_sativa_japonica_group",
+      "species": "Oryza sativa Japonica Group",
+      "aliases": [
+        "Oryza sativa Japonica Group"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 0,
+        "datasets": 0
+      }
+    },
+    {
+      "adapter_id": "plant_saussurea_hypsipeta",
+      "species": "Saussurea hypsipeta",
+      "aliases": [
+        "Saussurea hypsipeta"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 0,
+        "datasets": 0
+      }
+    },
+    {
+      "adapter_id": "plant_saussurea_involucrata",
+      "species": "Saussurea involucrata",
+      "aliases": [
+        "Saussurea involucrata"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 0,
+        "datasets": 0
+      }
+    },
+    {
+      "adapter_id": "plant_saussurea_lyrata",
+      "species": "Saussurea lyrata",
+      "aliases": [
+        "Saussurea lyrata"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 0,
+        "datasets": 0
+      }
+    },
+    {
+      "adapter_id": "plant_saussurea_medusa",
+      "species": "Saussurea medusa",
+      "aliases": [
+        "Saussurea medusa"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 0,
+        "datasets": 0
+      }
+    },
+    {
+      "adapter_id": "plant_schrenkiella_parvula",
+      "species": "Schrenkiella parvula",
+      "aliases": [
+        "Schrenkiella parvula"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 1,
+        "datasets": 1
+      }
+    },
+    {
+      "adapter_id": "plant_sisymbrium_irio",
+      "species": "Sisymbrium irio",
+      "aliases": [
+        "Sisymbrium irio"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 1,
+        "datasets": 1
+      }
+    },
+    {
+      "adapter_id": "plant_solanum_lycopersicum",
+      "species": "Solanum lycopersicum",
+      "aliases": [
+        "Solanum lycopersicum"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 1,
+        "datasets": 1
+      }
+    },
+    {
+      "adapter_id": "plant_stevia_rebaudiana",
+      "species": "Stevia rebaudiana",
+      "aliases": [
+        "Stevia rebaudiana"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 1,
+        "datasets": 1
+      }
+    },
+    {
+      "adapter_id": "plant_triticum_aestivum",
+      "species": "Triticum aestivum",
+      "aliases": [
+        "Triticum aestivum"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 1,
+        "datasets": 1
+      }
+    },
+    {
+      "adapter_id": "plant_zea_mays",
+      "species": "Zea mays",
+      "aliases": [
+        "Zea mays"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 1,
+        "datasets": 1
+      }
+    }
+  ]
+}

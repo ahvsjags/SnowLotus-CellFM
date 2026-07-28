@@ -7,6 +7,7 @@ from pathlib import Path
 import torch
 
 from .corpus import build_corpus
+from .adapters import load_registry
 from .baselines import run_centroid_baseline
 from .markers import run_marker_candidates
 from .report import generate_markdown_report
@@ -22,7 +23,7 @@ def _device(value: str) -> torch.device:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="snowcell",
-        description="SnowLotus-CellFM plant single-cell annotation foundation model",
+        description="Plant-CellFM general plant single-cell annotation foundation model",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -33,7 +34,7 @@ def build_parser() -> argparse.ArgumentParser:
     demo.add_argument("--samples", type=int, default=12)
     demo.add_argument("--seed", type=int, default=7)
 
-    train = subparsers.add_parser("train", help="Train or fine-tune SnowLotus-CellFM")
+    train = subparsers.add_parser("train", help="Train or fine-tune the general plant model")
     train.add_argument("--config", required=True, help="Path to a YAML experiment config")
     train.add_argument("--device", default="auto", help="auto, cpu, cuda, or cuda:N")
 
@@ -76,6 +77,17 @@ def build_parser() -> argparse.ArgumentParser:
     markers.add_argument("--label-key")
     markers.add_argument("--top-n", type=int, default=25)
     markers.add_argument("--min-cells", type=int, default=20)
+
+    adapter = subparsers.add_parser(
+        "adapter-info",
+        help="Resolve the species adapter used by the general plant model",
+    )
+    adapter.add_argument("--species", required=True)
+    adapter.add_argument(
+        "--registry",
+        default="release_metadata/plant_species_adapters.json",
+        help="JSON species-adapter registry",
+    )
 
     return parser
 
@@ -131,6 +143,21 @@ def main(argv: list[str] | None = None) -> None:
                 top_n=args.top_n,
                 min_cells=args.min_cells,
                 summary_output=args.summary_output,
+            )
+        )
+        return
+    if args.command == "adapter-info":
+        registry = load_registry(args.registry)
+        adapter, used_fallback = registry.resolve(args.species)
+        print(
+            json.dumps(
+                {
+                    "requested_species": args.species,
+                    "used_fallback": used_fallback,
+                    "adapter": adapter.to_dict(),
+                },
+                ensure_ascii=False,
+                indent=2,
             )
         )
         return

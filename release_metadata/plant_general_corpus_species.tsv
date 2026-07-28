@@ -1,0 +1,12 @@
+species	datasets	manifest_rows	tissues
+Arabidopsis thaliana	17	18	multi_organ;root;secondary_root
+Oryza sativa	3	3	leaf;root;root_tip
+Camelina sativa	1	1	root
+Eutrema salsugineum	1	1	root
+Gossypium hirsutum	1	1	leaf_glandular_cells
+Schrenkiella parvula	1	1	root
+Sisymbrium irio	1	1	root
+Solanum lycopersicum	1	1	root
+Stevia rebaudiana	1	1	leaf
+Triticum aestivum	1	1	root
+Zea mays	1	1	seedling
