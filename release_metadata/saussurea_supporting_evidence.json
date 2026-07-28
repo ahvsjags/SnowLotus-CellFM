@@ -9,13 +9,13 @@
     "source_url": "https://www.ncbi.nlm.nih.gov/sra/SRX156202%5Baccn%5D",
     "role": "Snow lotus gene vocabulary, ortholog mapping, and secondary-metabolism context when no public scRNA exists.",
     "status": "download_candidate",
-    "runinfo_files": "",
-    "run_count": 0,
-    "scientific_names": "",
-    "library_strategies": "",
-    "library_sources": "",
-    "total_size_mb": 0.0,
-    "source_page_present": false
+    "runinfo_files": "data/public/sra_runinfo/PRJNA169171.runinfo.csv;data/public/sra_runinfo/SRR516284.runinfo.csv;data/public/sra_runinfo/SRX156202.runinfo.csv",
+    "run_count": 3,
+    "scientific_names": "Saussurea involucrata",
+    "library_strategies": "RNA-Seq",
+    "library_sources": "TRANSCRIPTOMIC",
+    "total_size_mb": 1074.0,
+    "source_page_present": true
   },
   {
     "dataset_id": "saussurea_genome_reference",
@@ -27,13 +27,13 @@
     "source_url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA991078",
     "role": "Genome-backed Snow Lotus gene vocabulary, ortholog mapping, and marker naming reference.",
     "status": "download_candidate",
-    "runinfo_files": "",
+    "runinfo_files": "data/public/sra_runinfo/PRJNA991078.runinfo.csv",
     "run_count": 0,
     "scientific_names": "",
     "library_strategies": "",
     "library_sources": "",
     "total_size_mb": 0.0,
-    "source_page_present": false
+    "source_page_present": true
   },
   {
     "dataset_id": "saussurea_low_pressure",
@@ -45,13 +45,13 @@
     "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11941927/",
     "role": "High-altitude/low-pressure adaptation evidence for top-journal biological validation.",
     "status": "download_candidate",
-    "runinfo_files": "",
-    "run_count": 0,
-    "scientific_names": "",
-    "library_strategies": "",
-    "library_sources": "",
-    "total_size_mb": 0.0,
-    "source_page_present": false
+    "runinfo_files": "data/public/sra_runinfo/PRJNA1218246.runinfo.csv",
+    "run_count": 6,
+    "scientific_names": "Saussurea involucrata",
+    "library_strategies": "RNA-Seq",
+    "library_sources": "TRANSCRIPTOMIC",
+    "total_size_mb": 12858.0,
+    "source_page_present": true
   },
   {
     "dataset_id": "saussurea_low_temperature",
@@ -63,13 +63,13 @@
     "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12470158/",
     "role": "Low-temperature stress transcriptome evidence for dehydrins, cold response genes, and Snow Lotus alpine adaptation marker prioritization.",
     "status": "download_candidate",
-    "runinfo_files": "",
-    "run_count": 0,
-    "scientific_names": "",
-    "library_strategies": "",
-    "library_sources": "",
-    "total_size_mb": 0.0,
-    "source_page_present": false
+    "runinfo_files": "data/public/sra_runinfo/PRJNA1033840.runinfo.csv",
+    "run_count": 9,
+    "scientific_names": "Saussurea involucrata",
+    "library_strategies": "RNA-Seq",
+    "library_sources": "TRANSCRIPTOMIC",
+    "total_size_mb": 41107.0,
+    "source_page_present": true
   },
   {
     "dataset_id": "saussurea_raw_sequence_reads",
@@ -81,13 +81,13 @@
     "source_url": "https://www.omicsdi.org/dataset/project/PRJNA387384",
     "role": "Additional public Snow Lotus sequence archive discovered in NCBI/ENA aggregation; keep as secondary accession evidence after runinfo validation.",
     "status": "discovery_candidate",
-    "runinfo_files": "",
+    "runinfo_files": "data/public/sra_runinfo/PRJNA387384.runinfo.csv",
     "run_count": 0,
     "scientific_names": "",
     "library_strategies": "",
     "library_sources": "",
     "total_size_mb": 0.0,
-    "source_page_present": false
+    "source_page_present": true
   },
   {
     "dataset_id": "saussurea_medusa_wgs",
@@ -99,13 +99,13 @@
     "source_url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1278884",
     "role": "Discovered NCBI/SRA Saussurea medusa HiFi genome sequencing; close-genus evidence for ortholog and alpine adaptation context.",
     "status": "discovery_candidate",
-    "runinfo_files": "",
-    "run_count": 0,
-    "scientific_names": "",
-    "library_strategies": "",
-    "library_sources": "",
-    "total_size_mb": 0.0,
-    "source_page_present": false
+    "runinfo_files": "data/public/sra_runinfo/PRJNA1278884.runinfo.csv",
+    "run_count": 14,
+    "scientific_names": "Saussurea medusa",
+    "library_strategies": "RNA-Seq;WGS",
+    "library_sources": "GENOMIC;TRANSCRIPTOMIC",
+    "total_size_mb": 94669.0,
+    "source_page_present": true
   },
   {
     "dataset_id": "saussurea_hypsipeta_leaf_rna",
@@ -117,13 +117,13 @@
     "source_url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1293189",
     "role": "Discovered NCBI/SRA Saussurea hypsipeta leaf RNA-seq; close-genus expression evidence for vocabulary and stress/metabolism context.",
     "status": "discovery_candidate",
-    "runinfo_files": "",
-    "run_count": 0,
-    "scientific_names": "",
-    "library_strategies": "",
-    "library_sources": "",
-    "total_size_mb": 0.0,
-    "source_page_present": false
+    "runinfo_files": "data/public/sra_runinfo/PRJNA1293189.runinfo.csv",
+    "run_count": 16,
+    "scientific_names": "Saussurea hypsipeta",
+    "library_strategies": "Hi-C;RNA-Seq;WGS",
+    "library_sources": "GENOMIC;TRANSCRIPTOMIC",
+    "total_size_mb": 316518.0,
+    "source_page_present": true
   },
   {
     "dataset_id": "saussurea_lyrata_hic",
@@ -135,13 +135,13 @@
     "source_url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1355060",
     "role": "Discovered NCBI/SRA Saussurea lyrata Hi-C genome data; close-genus genome-structure support for ortholog mapping context.",
     "status": "discovery_candidate",
-    "runinfo_files": "",
-    "run_count": 0,
-    "scientific_names": "",
-    "library_strategies": "",
-    "library_sources": "",
-    "total_size_mb": 0.0,
-    "source_page_present": false
+    "runinfo_files": "data/public/sra_runinfo/PRJNA1355060.runinfo.csv",
+    "run_count": 3,
+    "scientific_names": "Saussurea lyrata",
+    "library_strategies": "Hi-C;RNA-Seq;WGS",
+    "library_sources": "GENOMIC;TRANSCRIPTOMIC",
+    "total_size_mb": 61530.0,
+    "source_page_present": true
   },
   {
     "dataset_id": "saussurea_multicellular_spheroid_single_cell_report",
@@ -159,6 +159,6 @@
     "library_strategies": "",
     "library_sources": "",
     "total_size_mb": 0.0,
-    "source_page_present": false
+    "source_page_present": true
   }
 ]
