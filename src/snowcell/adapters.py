@@ -63,6 +63,7 @@ class PlantAdapterRegistry:
         self.fallback_adapter = fallback_adapter
         self._by_id = {item.adapter_id: item for item in self.adapters}
         self._by_name: dict[str, PlantAdapter] = {}
+        self._runtime_adapters: dict[str, PlantAdapter] = {}
         for item in self.adapters:
             for name in (item.species, *item.aliases):
                 key = normalize_species(name)
@@ -79,17 +80,51 @@ class PlantAdapterRegistry:
         key = normalize_species(species or "")
         if key and key in self._by_name:
             return self._by_name[key], False
+        if key:
+            adapter = self._runtime_adapters.get(key)
+            if adapter is None:
+                display_name = re.sub(r"[_\s]+", " ", str(species).strip())
+                adapter = PlantAdapter(
+                    adapter_id=f"plant_runtime_{key.replace(' ', '_')}",
+                    species=display_name,
+                    aliases=(display_name,),
+                    status="general_backbone_ready_runtime",
+                    transfer_mode="exact_gene_ids_then_ortholog_map",
+                    gene_id_namespace="dataset_defined",
+                    ortholog_map=None,
+                    supervised_head=None,
+                    tasks=(
+                        "embedding",
+                        "mlm",
+                        "annotation_transfer",
+                        "marker_candidates",
+                    ),
+                    evidence={
+                        "coverage": "all_plant_species",
+                        "source": "runtime_dynamic_adapter",
+                        "manifest_rows": 0,
+                        "datasets": 0,
+                    },
+                )
+                self._runtime_adapters[key] = adapter
+            return adapter, False
         if self.fallback_adapter not in self._by_id:
             raise KeyError(f"fallback adapter not found: {self.fallback_adapter}")
         return self._by_id[self.fallback_adapter], True
 
     def get(self, adapter_id: str) -> PlantAdapter:
+        for adapter in self._runtime_adapters.values():
+            if adapter.adapter_id == adapter_id:
+                return adapter
         return self._by_id[adapter_id]
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "fallback_adapter": self.fallback_adapter,
             "adapter_count": len(self.adapters),
+            "known_adapter_count": len(self.adapters),
+            "scope": "all_plants",
+            "dynamic_adapter_resolution": True,
             "adapters": [item.to_dict() for item in self.adapters],
         }
 

@@ -1,15 +1,16 @@
 {
   "schema_version": "plant-general-release-v1",
-  "generated_at_utc": "2026-07-28T18:41:25.301883+00:00",
+  "generated_at_utc": "2026-07-28T19:07:11.484292+00:00",
   "project": "SnowLotus-CellFM",
   "model_scope": "plant_general",
   "model_name": "Plant-CellFM (general plant foundation model)",
   "scope_statement": "A cross-species plant single-cell and single-nucleus expression backbone. Snow Lotus is a target-species adapter and case study, not the boundary of the model.",
   "species_policy": {
-    "coverage": "all plant species represented by the audited public corpus",
-    "transfer": "new species can be added through exact gene identifiers or an ortholog map",
+    "coverage": "all plant species through known public adapters plus runtime dynamic adapters",
+    "transfer": "any new species can be added through exact gene identifiers or an ortholog map",
     "snow_lotus_role": "Saussurea involucrata adapter, reference-genome alignment and downstream validation",
-    "catalog_species_count": 19
+    "catalog_species_count": 19,
+    "runtime_dynamic_adapter": true
   },
   "capabilities": [
     "masked-expression pretraining",
@@ -17,8 +18,9 @@
     "hierarchical cell-state annotation",
     "marker-candidate discovery",
     "gene-vocabulary transfer with ortholog mapping",
-    "species-specific adapter fine-tuning via LoRA or supervised learning for every registered plant species",
-    "Snow Lotus reference-genome and primary-data adapter as one member of the full species registry"
+    "runtime dynamic adapter materialization for any plant species",
+    "species-specific adapter fine-tuning via LoRA or supervised learning for every requested plant species",
+    "Snow Lotus reference-genome and primary-data adapter as one member of the all-plant system"
   ],
   "trained_assets": [
     {
@@ -630,6 +632,7 @@
       "GET /adapters",
       "POST /annotate"
     ],
+    "adapter_resolution": "dynamic_all_plants",
     "modes": {
       "embedding": "general plant backbone checkpoint",
       "annotation": "optional supervised annotation checkpoint"

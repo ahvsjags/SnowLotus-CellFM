@@ -1,6 +1,6 @@
 # Plant-CellFM / SnowLotus-CellFM
 
-Plant-CellFM is the general-plant scope of SnowLotus-CellFM: a cross-species foundation model for plant single-cell and single-nucleus expression modelling. It provides a general expression backbone, a species-adapter registry for every plant species currently represented in the audited public catalog, and a universal fallback path for a newly added plant. *Saussurea involucrata* (Snow Lotus) is one adapter and validation case, not the model boundary.
+Plant-CellFM is the general-plant scope of SnowLotus-CellFM: a cross-species foundation model for plant single-cell and single-nucleus expression modelling. It provides a general expression backbone, known adapters for audited public datasets, and runtime dynamic adapters for any plant species supplied at inference time. *Saussurea involucrata* (Snow Lotus) is one adapter and validation case, not the model boundary.
 
 This snapshot is designed for rapid editorial review: it separates validated model and corpus evidence from data-promotion work that is still running on the recovered Matpool GPU host. The current replacement host exposes an RTX 4090 with 24 GB VRAM, not the originally expected 5090. The `editor-v0.3` package promotes the current best public-expansion embedding checkpoint for immediate submission while the longer continuation and public-data queues remain active in the background.
 
@@ -22,7 +22,7 @@ The repository is currently private. Grant editor/reviewer access or switch it t
 - Recovered-host public MLM training has emitted epoch-6 validation loss 8.6741 on the reconstructed public MLM corpus while additional GEO/scPlantDB data queues continue in tmux
 - Newly promoted public matrices after v0.2 include GSE226826, GSE240098 and GSE240102; the next plus-corpus continuation is queued behind active training on the recovered GPU host
 - General-plant model card: `release_metadata/plant_general_model_card.md`
-- Species adapter registry: `release_metadata/plant_species_adapters.json`
+- Species adapter registry: `release_metadata/plant_species_adapters.json` with dynamic resolution for all plant species
 - Species coverage table: `release_metadata/plant_general_corpus_species.tsv`
 - Runtime API exposes `/capabilities` and `/adapters`, resolves a species adapter on every `/annotate` request, and accepts an optional ortholog TSV for novel plant species
 
@@ -30,7 +30,7 @@ The repository is currently private. Grant editor/reviewer access or switch it t
 
 - A Python package for plant expression tokenization, masked-modelling training, checkpoint evaluation and prediction.
 - Public-corpus manifests and audits that distinguish readable cell-by-gene matrices from unsupported public records.
-- A plant species-adapter registry with exact-gene and ortholog-map transfer policies, plus a universal fallback for newly added species.
+- A plant species-adapter registry with exact-gene and ortholog-map transfer policies, plus a runtime dynamic adapter for every newly supplied plant species.
 - Two frozen checkpoint assets for immediate editorial inspection and reproducibility checks.
 - Manuscript, cover note, model card, release manifest, data-integrity audit, corpus-provenance audit and benchmark-gap audit.
 - Chinese function/innovation brief for rapid editorial communication: `SnowLotus_CellFM_中文功能创新说明_v0_1.docx`.
@@ -40,7 +40,7 @@ The repository is currently private. Grant editor/reviewer access or switch it t
 
 This release supports the claim that Plant-CellFM is a reproducible, auditable cross-species plant expression foundation-model scaffold with traceable checkpoints, a callable species-adapter layer and benchmark evidence across public plant matrices.
 
-The adapter registry is designed to cover every plant species promoted into the public catalog. Species without a direct public matrix resolve to `plant_universal` and can enter through exact gene identifiers, an ortholog map, and species-specific fine-tuning. Public discovery identified transcriptomic, genomic and literature support for *S. involucrata*; the Snow Lotus branch adds reference-genome and future primary single-cell adaptation assets without narrowing the general plant model.
+The adapter registry records known species promoted into the public catalog and dynamically materializes a dedicated adapter record for any other plant name at request time. Each runtime adapter uses the general backbone, exact gene identifiers first, an ortholog map when supplied, and the same fine-tuning/annotation interfaces. The universal fallback is reserved for requests without a species name. Public discovery identified transcriptomic, genomic and literature support for *S. involucrata*; the Snow Lotus branch adds reference-genome and future primary single-cell adaptation assets without narrowing the general plant model.
 
 ## Quick Start
 

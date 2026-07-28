@@ -155,10 +155,11 @@ def build_payload(root: Path) -> dict[str, Any]:
             "Snow Lotus is a target-species adapter and case study, not the boundary of the model."
         ),
         "species_policy": {
-            "coverage": "all plant species represented by the audited public corpus",
-            "transfer": "new species can be added through exact gene identifiers or an ortholog map",
+            "coverage": "all plant species through known public adapters plus runtime dynamic adapters",
+            "transfer": "any new species can be added through exact gene identifiers or an ortholog map",
             "snow_lotus_role": "Saussurea involucrata adapter, reference-genome alignment and downstream validation",
             "catalog_species_count": len(catalog_species),
+            "runtime_dynamic_adapter": True,
         },
         "capabilities": [
             "masked-expression pretraining",
@@ -166,8 +167,9 @@ def build_payload(root: Path) -> dict[str, Any]:
             "hierarchical cell-state annotation",
             "marker-candidate discovery",
             "gene-vocabulary transfer with ortholog mapping",
-            "species-specific adapter fine-tuning via LoRA or supervised learning for every registered plant species",
-            "Snow Lotus reference-genome and primary-data adapter as one member of the full species registry",
+            "runtime dynamic adapter materialization for any plant species",
+            "species-specific adapter fine-tuning via LoRA or supervised learning for every requested plant species",
+            "Snow Lotus reference-genome and primary-data adapter as one member of the all-plant system",
         ],
         "trained_assets": [
             {
@@ -213,6 +215,7 @@ def build_payload(root: Path) -> dict[str, Any]:
             "gene_id_order": "gene identifiers are matched to the checkpoint vocabulary; use data.ortholog_map for novel species during training or offline preprocessing",
             "outputs": ["cell annotations", "256-dimensional embeddings", "bundle metadata"],
             "service_routes": ["GET /health", "GET /metadata", "GET /capabilities", "GET /adapters", "POST /annotate"],
+            "adapter_resolution": "dynamic_all_plants",
             "modes": {
                 "embedding": "general plant backbone checkpoint",
                 "annotation": "optional supervised annotation checkpoint",
@@ -248,7 +251,7 @@ def write_markdown(payload: dict[str, Any], output: Path) -> None:
         f"- Model scope: **{payload['model_scope']}**",
         f"- Model name: `{payload['model_name']}`",
         "- Snow Lotus is an adapter and case study; the backbone is designed for cross-species plant expression data.",
-        f"- Registered adapters: **{len(payload['species_adapters'])}**, including the universal fallback for newly added plant species.",
+        f"- Known adapters: **{len(payload['species_adapters'])}**; runtime dynamic adapters are materialized for any additional plant species.",
         "",
         "## Scope and Functions",
         "",
@@ -289,6 +292,7 @@ def write_markdown(payload: dict[str, Any], output: Path) -> None:
             "2. For species-specific identifiers, provide a source-to-target ortholog map and retain mapping confidence.",
             "3. Run the general backbone for embeddings and MLM features, then attach a task- or species-specific head when labels are available.",
             "4. The Snow Lotus branch adds reference-genome, gene-catalog and future primary single-cell adaptation assets without narrowing the general model.",
+            "5. A request containing a new plant name creates a runtime adapter with its own adapter identifier while reusing the general backbone. The universal fallback is reserved for requests without a species name.",
             "The runtime uses the joint scPlantDB checkpoint as the primary general-plant backbone. The supervised checkpoint is an optional annotation head, not the definition of the plant scope.",
             "",
             "## Reproducibility",
@@ -324,6 +328,8 @@ def main() -> None:
                 "schema_version": "plant-species-adapters-v1",
                 "model_scope": payload["model_scope"],
                 "fallback_adapter": "plant_universal",
+                "scope": "all_plants",
+                "dynamic_adapter_resolution": True,
                 "adapters": payload["species_adapters"],
             },
             ensure_ascii=False,

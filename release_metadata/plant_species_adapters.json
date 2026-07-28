@@ -2,6 +2,8 @@
   "schema_version": "plant-species-adapters-v1",
   "model_scope": "plant_general",
   "fallback_adapter": "plant_universal",
+  "scope": "all_plants",
+  "dynamic_adapter_resolution": true,
   "adapters": [
     {
       "adapter_id": "plant_universal",

@@ -11,7 +11,7 @@ def test_species_normalization_collapses_common_names() -> None:
     assert normalize_species("  Oryza   sativa ") == "oryza sativa"
 
 
-def test_registry_resolves_registered_and_fallback_species(tmp_path: Path) -> None:
+def test_registry_resolves_registered_and_runtime_species(tmp_path: Path) -> None:
     registry_path = tmp_path / "adapters.json"
     registry_path.write_text(
         json.dumps(
@@ -41,6 +41,11 @@ def test_registry_resolves_registered_and_fallback_species(tmp_path: Path) -> No
     assert registered.adapter_id == "plant_arabidopsis_thaliana"
     assert used_fallback is False
 
-    fallback, used_fallback = registry.resolve("A newly sequenced crop")
+    runtime, used_fallback = registry.resolve("A newly sequenced crop")
+    assert runtime.adapter_id == "plant_runtime_a_newly_sequenced_crop"
+    assert runtime.status == "general_backbone_ready_runtime"
+    assert used_fallback is False
+
+    fallback, used_fallback = registry.resolve(None)
     assert fallback.adapter_id == "plant_universal"
     assert used_fallback is True

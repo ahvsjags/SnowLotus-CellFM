@@ -9,10 +9,15 @@ ADAPTER_REGISTRY=${ADAPTER_REGISTRY:-$PROJECT_DIR/release_metadata/plant_species
 HOST=${HOST:-127.0.0.1}
 PORT=${PORT:-8000}
 DEVICE=${DEVICE:-cuda}
+PYTHON_BIN=${PYTHON_BIN:-/root/miniconda3/envs/myconda/bin/python}
+
+if [ ! -x "$PYTHON_BIN" ]; then
+  PYTHON_BIN=python
+fi
 
 cd "$PROJECT_DIR"
 export PYTHONPATH=src
-exec python -X utf8 scripts/serve_snowlotus.py \
+exec "$PYTHON_BIN" -X utf8 scripts/serve_snowlotus.py \
   --backbone-checkpoint "$BACKBONE_CHECKPOINT" \
   --annotation-checkpoint "$ANNOTATION_CHECKPOINT" \
   --data-root "$DATA_ROOT" \

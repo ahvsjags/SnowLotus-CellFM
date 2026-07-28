@@ -1,10 +1,10 @@
 # Plant-CellFM General Plant Model Card
 
-- Generated UTC: `2026-07-28T18:41:25.301883+00:00`
+- Generated UTC: `2026-07-28T19:07:11.484292+00:00`
 - Model scope: **plant_general**
 - Model name: `Plant-CellFM (general plant foundation model)`
 - Snow Lotus is an adapter and case study; the backbone is designed for cross-species plant expression data.
-- Registered adapters: **20**, including the universal fallback for newly added plant species.
+- Known adapters: **20**; runtime dynamic adapters are materialized for any additional plant species.
 
 ## Scope and Functions
 
@@ -15,8 +15,9 @@ A cross-species plant single-cell and single-nucleus expression backbone. Snow L
 - hierarchical cell-state annotation
 - marker-candidate discovery
 - gene-vocabulary transfer with ortholog mapping
-- species-specific adapter fine-tuning via LoRA or supervised learning for every registered plant species
-- Snow Lotus reference-genome and primary-data adapter as one member of the full species registry
+- runtime dynamic adapter materialization for any plant species
+- species-specific adapter fine-tuning via LoRA or supervised learning for every requested plant species
+- Snow Lotus reference-genome and primary-data adapter as one member of the all-plant system
 
 ## Verified Backbone Assets
 
@@ -53,6 +54,7 @@ A cross-species plant single-cell and single-nucleus expression backbone. Snow L
 2. For species-specific identifiers, provide a source-to-target ortholog map and retain mapping confidence.
 3. Run the general backbone for embeddings and MLM features, then attach a task- or species-specific head when labels are available.
 4. The Snow Lotus branch adds reference-genome, gene-catalog and future primary single-cell adaptation assets without narrowing the general model.
+5. A request containing a new plant name creates a runtime adapter with its own adapter identifier while reusing the general backbone. The universal fallback is reserved for requests without a species name.
 The runtime uses the joint scPlantDB checkpoint as the primary general-plant backbone. The supervised checkpoint is an optional annotation head, not the definition of the plant scope.
 
 ## Reproducibility

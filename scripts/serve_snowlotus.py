@@ -55,6 +55,8 @@ class PlantCellFMHandler(BaseHTTPRequestHandler):
                     "service": "Plant-CellFM",
                     "model_scope": "plant_general",
                     "adapter_count": len(state["registry"].adapters),
+                    "known_adapter_count": len(state["registry"].adapters),
+                    "adapter_resolution": "dynamic_all_plants",
                     "device": str(state["device"]),
                 },
             )
@@ -155,7 +157,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--adapter-registry",
         default="release_metadata/plant_species_adapters.json",
-        help="JSON registry containing one adapter entry per registered plant species",
+        help="JSON registry containing known plant adapters; unknown species receive runtime adapters",
     )
     return parser
 
@@ -197,7 +199,10 @@ def main() -> None:
             "model_name": "Plant-CellFM",
             "adapter_registry": str(Path(args.adapter_registry).expanduser().resolve()),
             "adapter_count": len(registry.adapters),
-            "snow_lotus_role": "one species adapter among the registered plant adapters",
+            "known_adapter_count": len(registry.adapters),
+            "adapter_resolution": "dynamic_all_plants",
+            "runtime_adapter_policy": "materialize_a_species_adapter_for_any_named_plant",
+            "snow_lotus_role": "one species adapter among all plant species",
             "primary_checkpoint_role": "backbone",
             "backbone_checkpoint": str(backbone_path),
             "annotation_checkpoint": str(annotation_path) if annotation_path else None,
@@ -218,6 +223,7 @@ def main() -> None:
                 "hierarchical_cell_annotation" if annotation_checkpoint is not None else "embedding_only_until_head_attached",
                 "marker_candidate_discovery",
                 "species_adapter_resolution",
+                "runtime_dynamic_adapter_for_any_plant_species",
             ],
             "input_formats": [".h5ad", ".npz"],
             "gene_transfer_policy": "exact gene identifiers first, then request-level or configured ortholog map with mapping statistics",
@@ -227,6 +233,8 @@ def main() -> None:
                 "annotation": "uses the supervised annotation checkpoint when configured",
             },
             "adapter_count": len(registry.adapters),
+            "known_adapter_count": len(registry.adapters),
+            "adapter_resolution": "dynamic_all_plants",
         },
     }
     server = ThreadingHTTPServer((args.host, args.port), PlantCellFMHandler)
