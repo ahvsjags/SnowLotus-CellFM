@@ -13,14 +13,30 @@ from docx.shared import Cm, Pt, RGBColor
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "editor_package" / "current_submit_v0.3"
-DOCX_OUT = OUT_DIR / "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_6.docx"
-MD_OUT = OUT_DIR / "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_6.md"
+DOCX_OUT = OUT_DIR / "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_12.docx"
+MD_OUT = OUT_DIR / "SnowLotus_CellFM_中文论文稿_模型功能优势详版_v0_12.md"
 
 GENERATED = datetime.now().strftime("%Y-%m-%d %H:%M")
 GITHUB_REPO = "https://github.com/ahvsjags/SnowLotus-CellFM"
 GITHUB_RELEASE = "https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/editor-v0.3"
-GITHUB_COMMIT = "main branch（latest synchronized source; inspect repository history）"
+GITHUB_COMMIT = "7b0a0fcb228bda875bae9f2249789a1efe41f3b4"
+GITHUB_MODEL = "https://github.com/ahvsjags/SnowLotus-CellFM/blob/main/models/SnowLotus_CellFM_GSE146034_pretrain_8e_512_best.pt"
+GITHUB_MODEL_SHA256 = "743c0150bd801f66e1e4c6420fda2433781dcc50a495ef9bd368cc2e26620975"
+GITHUB_ANNOTATION_MODEL = "https://github.com/ahvsjags/SnowLotus-CellFM/blob/main/models/SnowLotus_CellFM_SRP169576_annotation_1024_best.pt"
+GITHUB_ANNOTATION_MODEL_SHA256 = "e16564fa0a1aa74dd19ca007d9aedbe89a12fc7d1051b761c15d39705a3386fc"
+GITHUB_RUN_CARD = "https://github.com/ahvsjags/SnowLotus-CellFM/blob/main/release_metadata/SRP169576_annotation_1024_hybrid_run_card.md"
+REMOTE_HYBRID_CONFIG = "/mnt/snowlotus_cellfm/configs/remote_srp169576_hybrid_4090.yaml"
+REMOTE_HYBRID_CHECKPOINT = "/mnt/snowlotus_cellfm/outputs/remote_srp169576_hybrid_4090/best.pt"
+REMOTE_HYBRID_SHA256 = "da9e96db4ec276a6551e4feefc59a4fa6262e4cde62f36c3530378f5936c0adf"
+REMOTE_CRA_CONFIG = "/mnt/snowlotus_cellfm/configs/remote_cra0029771_pretrain_4090.yaml"
+REMOTE_CRA_CHECKPOINT = "/mnt/snowlotus_cellfm/outputs/remote_cra0029771_pretrain_4090/best.pt"
+REMOTE_CRA_SHA256 = "43ee624492c59334c87bc7afaa6af40ae1cbebc8f7f5005aeb68218b07d28651"
 ZIP_NAME = "SnowLotus-CellFM_editor-v0.3_submit-now.zip"
+GITHUB_README = f"{GITHUB_REPO}/blob/main/README.md"
+GITHUB_MODEL_CODE = f"{GITHUB_REPO}/blob/main/src/snowcell/model.py"
+GITHUB_TRAIN_CODE = f"{GITHUB_REPO}/blob/main/src/snowcell/train.py"
+GITHUB_CONFIG = f"{GITHUB_REPO}/blob/main/configs/local_gse146034_pretrain_8e.yaml"
+GITHUB_TESTS = f"{GITHUB_REPO}/tree/main/tests"
 
 
 TITLE = "SnowLotus-CellFM：面向天山雪莲目标迁移的植物单细胞注释基础模型"
@@ -109,7 +125,7 @@ def add_title(doc: Document) -> None:
 
     subtitle = doc.add_paragraph()
     subtitle.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = subtitle.add_run("中文论文式详稿（模型功能、创新与优势加强版）")
+    run = subtitle.add_run("中文学术研究稿（模型方法、实验结果与应用价值）")
     set_font(run, size=12, bold=True)
 
     meta = doc.add_paragraph()
@@ -121,21 +137,30 @@ def add_title(doc: Document) -> None:
 def build_sections(doc: Document) -> None:
     add_noindent(doc, f"代码地址：{GITHUB_REPO}", "代码地址：")
     add_noindent(doc, f"Release 地址：{GITHUB_RELEASE}", "Release 地址：")
-    add_noindent(doc, f"当前 GitHub commit：{GITHUB_COMMIT}", "当前 GitHub commit：")
-    add_noindent(doc, f"编辑提交包：{ZIP_NAME}", "编辑提交包：")
+    add_noindent(doc, f"代码版本：{GITHUB_COMMIT}", "代码版本：")
+    add_noindent(doc, f"最新真实数据预训练模型：{GITHUB_MODEL}", "最新真实数据预训练模型：")
+    add_noindent(doc, f"最新监督注释模型：{GITHUB_ANNOTATION_MODEL}", "最新监督注释模型：")
+    add_noindent(doc, f"监督模型 run card：{GITHUB_RUN_CARD}", "监督模型 run card：")
+    add_noindent(doc, f"服务器最新 hybrid checkpoint：{REMOTE_HYBRID_CHECKPOINT}；SHA256：{REMOTE_HYBRID_SHA256}", "服务器最新 hybrid checkpoint：")
+    add_noindent(doc, f"服务器 CRA002977_1 预训练 checkpoint：{REMOTE_CRA_CHECKPOINT}；SHA256：{REMOTE_CRA_SHA256}", "服务器 CRA002977_1 预训练 checkpoint：")
+    add_noindent(
+        doc,
+        f"核心源码索引：README {GITHUB_README}；模型 {GITHUB_MODEL_CODE}；训练 {GITHUB_TRAIN_CODE}；配置 {GITHUB_CONFIG}；测试 {GITHUB_TESTS}",
+        "核心源码索引：",
+    )
 
     add_heading(doc, "摘要")
     add_para(
         doc,
-        "植物单细胞和单核转录组正在把植物发育、逆境响应和药用植物资源研究推进到细胞状态分辨率，但公开数据的格式差异、标签粒度差异和跨物种迁移困难，使许多研究仍停留在单数据集注释或人工 marker 判读层面。SnowLotus-CellFM 面向这一问题构建了一套植物单细胞注释基础模型工程，目标是把公开植物单细胞矩阵转化为可审计、可训练、可复用的跨物种表达表征，并为天山雪莲等高寒药用植物提供目标物种迁移入口。",
+        "植物单细胞和单核转录组正在把植物发育、逆境响应和药用植物资源研究推进到细胞状态分辨率。随着多物种、多组织和多处理公开矩阵持续积累，植物研究亟需一套能够统一表达表征、细胞注释、跨物种迁移和成果发布的基础模型体系。SnowLotus-CellFM 面向这一建设机会，构建了植物单细胞注释基础模型工程，将公开植物单细胞矩阵转化为可审计、可训练、可复用的跨物种表达表征，并为天山雪莲等高寒药用植物提供标准化目标物种迁移入口。",
     )
     add_para(
         doc,
-        "该系统由四个核心层组成：第一，公开数据发现与矩阵审计层，负责从 GEO、scPlantDB、scPlantLLM 相关资源和项目内 manifest 中识别可读矩阵；第二，统一表达语料层，负责把 H5AD、10x H5、Matrix Market、Seurat RDS 和 GEO RAW 派生矩阵转换成模型可读的稀疏表达对象；第三，植物表达 Transformer 层，利用 gene token、表达值分箱、连续表达投影以及物种/组织元数据学习细胞表征；第四，层级注释与发布层，输出 fine/coarse 细胞类型、embedding、预测表、模型卡、SHA256 校验和编辑提交包。当前编辑版已经冻结 annotation checkpoint 与 embedding checkpoint，并在 GitHub 仓库中提供代码、脚本、稿件和审计材料。",
+        "该系统由四个核心层组成：第一，公开数据发现与矩阵审计层，负责从 GEO、scPlantDB、scPlantLLM 相关资源和项目内 manifest 中识别可读矩阵；第二，统一表达语料层，负责把 H5AD、10x H5、Matrix Market、Seurat RDS 和 GEO RAW 派生矩阵转换成模型可读的稀疏表达对象；第三，植物表达 Transformer 层，利用 gene token、表达值分箱、连续表达投影以及物种/组织元数据学习细胞表征；第四，层级注释与模型复现层，输出 fine/coarse 细胞类型、embedding、预测表、模型卡和 SHA256 校验文件。当前研究版本已经冻结 annotation checkpoint 与 embedding checkpoint，并在 GitHub 仓库中提供代码、脚本、稿件和审计材料。",
     )
     add_para(
         doc,
-        "SnowLotus-CellFM 的核心优势是把植物单细胞注释从“脚本级分析”推进为“模型、数据、审计和提交资产一体化”的基础模型系统。它能够为 Arabidopsis、rice、maize、wheat、tomato 等公开植物矩阵建立统一表征，并在目标物种矩阵接入后执行同源基因映射、目标物种微调、marker 辅助注释和跨物种细胞状态比较。当前项目同时提供真实公开数据训练记录、可验证 checkpoint、完整测试链路、模型卡、数据卡、代码地址和编辑提交包，形成从原始数据到可交付结论的连续证据链，适合作为植物单细胞基础模型与高寒药用植物目标迁移研究的正式初稿。",
+        "SnowLotus-CellFM 的核心优势是把植物单细胞注释从“脚本级分析”推进为“模型、数据、审计和复现资产一体化”的基础模型系统。它能够为 Arabidopsis、rice、maize、wheat、tomato 等公开植物矩阵建立统一表征，并在目标物种矩阵接入后执行同源基因映射、目标物种微调、marker 辅助注释和跨物种细胞状态比较。当前项目同时提供真实公开数据训练记录、可验证 checkpoint、完整测试链路、模型卡、数据卡和代码地址，形成从原始数据到模型结论的连续证据链，为植物单细胞基础模型与高寒药用植物目标迁移研究提供可复用的方法基础。",
     )
 
     add_noindent(
@@ -144,34 +169,34 @@ def build_sections(doc: Document) -> None:
         "关键词：",
     )
 
-    add_heading(doc, "1 引言：植物单细胞研究需要可审计的基础模型")
+    add_heading(doc, "1 引言：植物单细胞研究的基础模型建设价值")
     add_para(
         doc,
         "植物单细胞转录组研究已经从少数模式植物扩展到多组织、多物种和多胁迫场景。根尖、叶片、维管组织、花器官、愈伤组织、盐胁迫和共生体系中的单细胞矩阵不断增加，使研究者能够在细胞状态层面解释发育轨迹、环境适应和代谢调控。天山雪莲作为高寒药用植物，具有极端环境适应和药用代谢价值，天然适合成为植物单细胞基础模型的目标迁移对象：模型先从公开植物矩阵学习通用表达结构，再把这种结构迁移到雪莲细胞表达矩阵、同源基因集合和 marker 验证体系中。",
     )
     add_para(
         doc,
-        "现有植物单细胞分析存在三个结构性难题。第一，数据记录分散在 H5AD、10x H5、Matrix Market、Seurat RDS、GEO supplementary tar 和网页附件中，很多记录看似可用，实际缺少直接可读的 cell-by-gene 矩阵。第二，植物公开数据的标签粒度不统一，同一细胞群在不同研究中可能被标成细胞类型、组织区域、发育阶段或处理状态。第三，跨物种迁移不能简单依赖人类或动物单细胞模型，因为植物基因家族扩张、组织结构、细胞壁相关表达和物种特异性调控都需要植物专门的表示学习框架。",
+        "植物公开数据天然呈现多格式、多标签、多物种和多组织特征：数据记录覆盖 H5AD、10x H5、Matrix Market、Seurat RDS、GEO supplementary tar 等载体；细胞标签同时包含细胞类型、组织区域、发育阶段和处理状态；植物基因家族扩张、细胞壁相关表达及物种特异性调控则要求模型具备植物专门的表示学习能力。SnowLotus-CellFM 将这些研究资源转化为统一的矩阵契约、标签体系和跨物种建模接口，为植物表达知识的规模化积累提供工程基础。",
     )
     add_para(
         doc,
-        "SnowLotus-CellFM 将这些问题转化为一个可执行的工程闭环。它不把“收集更多数据”作为笼统口号，而是先建立矩阵级审计规则，确认哪些文件真实可读；不把“注释模型”限制为单次监督分类，而是使用 masked gene modelling 训练表达表征；不把“天山雪莲”写成已经完成的图谱，而是把它放入目标物种迁移路径：代码、h5ad contract、同源基因映射、marker 输出和微调脚本都围绕未来雪莲矩阵接入而准备。这样的写法既有野心，也能让编辑看到证据链。",
+        "SnowLotus-CellFM 将上述建设需求组织为可执行的工程闭环：先建立矩阵级审计规则，再使用 masked gene modelling 训练表达表征，并将天山雪莲纳入目标物种迁移路径。代码、h5ad contract、同源基因映射、marker 输出和微调脚本共同构成雪莲矩阵的标准接入接口，使公开植物知识可以沿统一流程进入目标物种研究。",
     )
 
     add_heading(doc, "2 系统定位：SnowLotus-CellFM 是植物表达基础模型 scaffold")
     add_para(
         doc,
-        "SnowLotus-CellFM 的核心定位是“植物表达基础模型 scaffold”。这里的 scaffold 包含两层含义：一是模型层，它提供可训练、可微调、可导出 embedding 的 Transformer 表达模型；二是研究工程层，它提供公开数据发现、矩阵转换、审计报告、benchmark 输入包、模型卡、release manifest 和编辑提交包。编辑拿到的不只是一个 checkpoint，而是一套能解释模型从哪里来、用什么训练、如何验证、如何复现的研究系统。",
+        "SnowLotus-CellFM 的核心定位是“植物表达基础模型 scaffold”。这里的 scaffold 包含两层含义：一是模型层，它提供可训练、可微调、可导出 embedding 的 Transformer 表达模型；二是研究工程层，它提供公开数据发现、矩阵转换、审计报告、benchmark 输入包、模型卡和 release manifest。该框架不只保存单一 checkpoint，还系统记录模型来源、训练配置、验证方法和复现路径，从而形成可独立核验的研究系统。",
     )
     add_para(
         doc,
-        "这一定位与通用单细胞基础模型相互呼应。scGPT 和 scFoundation 证明了大规模单细胞转录组预训练可以服务于细胞类型注释、扰动预测、batch integration、embedding 和基因网络分析。植物领域中，scPlantLLM 和 scPlantAnnotate 进一步说明植物 scRNA-seq 需要专门模型和专门评估。SnowLotus-CellFM 顺着这一方向推进，但把重点放在“面向植物公开矩阵的可审计训练系统”和“天山雪莲目标迁移入口”上，使模型不仅能跑，还能向编辑解释每一项证据。",
+        "这一定位与通用单细胞基础模型相互呼应。scGPT 和 scFoundation 证明了大规模单细胞转录组预训练可以服务于细胞类型注释、扰动预测、batch integration、embedding 和基因网络分析。植物领域中，scPlantLLM 和 scPlantAnnotate 进一步说明植物 scRNA-seq 需要专门模型和专门评估。SnowLotus-CellFM 顺着这一方向推进，但把重点放在“面向植物公开矩阵的可审计训练系统”和“天山雪莲目标迁移入口”上，使模型的训练过程、功能边界和验证证据能够被系统复核。",
     )
 
     add_heading(doc, "3 模型架构：四层流水线把植物表达矩阵变成可迁移表征")
     add_para(
         doc,
-        "SnowLotus-CellFM 采用从数据到模型再到提交资产的四层架构。第一层是数据发现与审计层。系统使用 manifest 记录每个矩阵的路径、物种、组织、标签字段、样本字段和数据来源，并检查文件是否存在、是否可读、obs 字段是否满足训练和评估需要。这个层的作用是把“看起来有数据”的 accession 转化为“确实可训练”的矩阵证据。",
+        "SnowLotus-CellFM 采用从数据到模型再到研究证据的四层架构。第一层是数据发现与审计层。系统使用 manifest 记录每个矩阵的路径、物种、组织、标签字段、样本字段和数据来源，并检查文件是否存在、是否可读、obs 字段是否满足训练和评估需要。这个层的作用是把“看起来有数据”的 accession 转化为“确实可训练”的矩阵证据。",
     )
     add_para(
         doc,
@@ -183,13 +208,13 @@ def build_sections(doc: Document) -> None:
     )
     add_para(
         doc,
-        "第四层是层级注释与发布层。模型输出 fine cell type、coarse cell type、confidence、embedding 和预测表。系统同时生成模型卡、数据卡、training curve summary、benchmark gap audit、release manifest 和 SHA256 校验文件。这个层把模型结果转化为编辑可以打开、审稿人可以追溯、开发者可以复现的材料。",
+        "第四层是层级注释与研究复现层。模型输出 fine cell type、coarse cell type、confidence、embedding 和预测表。系统同时生成模型卡、数据卡、training curve summary、benchmark gap audit、release manifest 和 SHA256 校验文件。这个层将模型结果与数据来源、训练配置和评估产物建立对应关系，使预测结论具备可追溯、可复现的证据结构。",
     )
 
-    add_heading(doc, "4 模型作用：SnowLotus-CellFM 解决四类实际问题")
+    add_heading(doc, "4 模型作用：SnowLotus-CellFM 形成四类实际价值")
     add_table(
         doc,
-        ["作用", "具体功能", "对编辑最有说服力的表述"],
+        ["作用", "具体功能", "研究价值"],
         [
             [
                 "植物细胞类型注释",
@@ -204,29 +229,29 @@ def build_sections(doc: Document) -> None:
             [
                 "天山雪莲目标迁移",
                 "雪莲矩阵接入后可执行 h5ad contract 检查、同源映射、embedding 导出、LoRA/微调和 marker 验证。",
-                "雪莲不是口号，而是被写成可执行的数据接入和模型迁移流程。",
+                "雪莲被纳入标准化数据接入、同源映射和模型迁移流程，形成可持续扩展的目标物种入口。",
             ],
             [
                 "公开数据筛选与审计",
-                "自动区分可读矩阵、缺失矩阵、不兼容记录和待下载记录。",
-                "系统能防止论文虚增数据规模，让编辑看到真实数据边界。",
+                "自动将来源记录映射为可读矩阵、待转化记录和可追溯清单。",
+                "系统让数据来源、矩阵状态和训练入口一一对应，增强研究透明度与可核验性。",
             ],
             [
                 "模型发布与复现",
-                "冻结 checkpoint、SHA256、模型卡、README、代码地址和提交包。",
+                "冻结 checkpoint、SHA256、模型卡、README、代码地址和复现索引。",
                 "每个结果都能回到代码、配置、数据 manifest 和模型文件。",
             ],
         ],
     )
 
-    add_heading(doc, "5 功能优势：从单点模型到可提交研究系统")
+    add_heading(doc, "5 功能优势：从单点模型到可复现研究系统")
     add_para(
         doc,
         "SnowLotus-CellFM 的第一项优势是植物专用。通用单细胞基础模型通常围绕人类或动物细胞图谱建立，其基因空间、组织体系和下游任务并不天然贴合植物。SnowLotus-CellFM 从设计上把 species、tissue、dataset、sample、fine label 和 coarse label 放进训练契约，使模型从一开始就面向植物跨物种、跨组织和跨数据来源任务。",
     )
     add_para(
         doc,
-        "第二项优势是矩阵级审计。很多单细胞项目在论文中报告 accession 数量，但没有说明每条记录是否真正转化为可训练矩阵。SnowLotus-CellFM 把 manifest readiness、matrix path readiness、missing path report 和 unsupported report 都纳入代码链路。编辑可以核查哪些数据已经进入模型，哪些数据仍作为候选证据保留。这种审计能力本身就是该项目的技术贡献。",
+        "第二项优势是矩阵级审计。SnowLotus-CellFM 将 manifest readiness、matrix path readiness、missing path report 和 unsupported report 纳入代码链路，把 accession、文件路径、矩阵形态和训练状态组织为可追溯记录。研究者可以直接核查数据来源、可读矩阵和模型输入之间的对应关系，这种审计能力增强了研究透明度、技术可信度和证据强度。",
     )
     add_para(
         doc,
@@ -238,11 +263,11 @@ def build_sections(doc: Document) -> None:
     )
     add_para(
         doc,
-        "第五项优势是提交资产完整。当前项目不只提供脚本，还提供 GitHub 仓库、release tag、编辑 zip、中文论文稿、功能创新说明、cover note、README、模型 SHA256、训练日志摘要、benchmark 准备包和模型卡。编辑看到的是一个能直接审阅的研究包，而不是需要重新解释的半成品。",
+        "第五项优势是多层级可追溯性。模型参数、训练配置、数据来源、评估指标和校验值通过统一版本索引建立对应关系，使研究者能够从表达矩阵追踪到训练目标、预测结果和细胞类型评价，而不需要依赖单一分析脚本或人工记录。",
     )
     add_para(
         doc,
-        "第六项优势是真实公开数据驱动。项目已经将 NCBI GEO 的 GSE146034 水稻根尖单细胞数据完成原始压缩包归档、MTX/TSV 解包、样本级元数据整理、稀疏 NPZ 构建、来源字段补全和表达预训练。合并语料包含 23,532 个细胞、43,311 个基因和 63,856,201 个非零表达值；原始文件、转换结果、manifest 和 checksum 均可沿代码链路核验。模型不再停留在演示数据层面，而是已经具备真实植物表达矩阵上的训练入口。",
+        "第六项优势是真实公开数据驱动。项目已经将 NCBI GEO 的 GSE146034 水稻根尖单细胞数据完成原始压缩包归档、MTX/TSV 解包、样本级元数据整理、稀疏 NPZ 构建、来源字段补全和表达预训练。合并语料包含 23,532 个细胞、43,311 个基因和 63,856,201 个非零表达值；原始文件、转换结果、manifest 和 checksum 均可沿代码链路核验。模型已经建立真实植物表达矩阵上的训练入口，并具备由公开数据持续扩充表达知识的能力。",
     )
     add_para(
         doc,
@@ -254,139 +279,160 @@ def build_sections(doc: Document) -> None:
     )
     add_para(
         doc,
-        "第九项优势是工程链路可持续运行。项目把训练、评估、预测导出、数据下载、语料构建、模型发布和状态监测拆成可独立运行的脚本，并为 GPU 服务器提供 tmux/watchdog 接力入口。单个数据集可以快速 smoke 验证，多数据集可以增量加入公开语料，模型可以从 full training 切换到 LoRA 或目标物种微调，适合连续迭代和多轮编辑返修。",
+        "第九项优势是工程链路可持续运行。项目把训练、评估、预测导出、数据下载、语料构建、模型发布和状态监测拆成可独立运行的脚本，并为 GPU 服务器提供 tmux/watchdog 接力入口。单个数据集可以快速 smoke 验证，多数据集可以增量加入公开语料，模型可以从 full training 切换到 LoRA 或目标物种微调，适合持续迭代和多轮实验比较。",
     )
 
-    add_heading(doc, "6 与现有方向的差异化优势")
+    add_heading(doc, "6 与现有方向的关系及方法学定位")
     add_table(
         doc,
-        ["方向", "已有代表", "SnowLotus-CellFM 的优势表达"],
+        ["方向", "代表性路线", "本研究的方法学定位"],
         [
             [
                 "通用单细胞基础模型",
                 "scGPT、scFoundation 等证明 transformer 预训练适用于大规模单细胞任务。",
-                "SnowLotus-CellFM 把基础模型路线落到植物表达矩阵，并将植物物种、组织和层级标签写入训练与审计流程。",
+                "SnowLotus-CellFM 将 gene-token 表征学习、表达值建模和植物物种/组织元数据结合，形成面向植物表达矩阵的基础模型框架。",
             ],
             [
                 "植物单细胞工具箱",
                 "scPlant 提供端到端植物单细胞分析框架。",
-                "SnowLotus-CellFM 不只做分析流程，还训练可冻结、可迁移、可发布的表达模型资产。",
+                "SnowLotus-CellFM 将分析流程中的矩阵治理与表达表征学习分离，使模型能够在公开矩阵上预训练并在标注数据上执行监督适配。",
             ],
             [
                 "植物单细胞大模型",
                 "scPlantLLM 使用植物 scRNA-seq 和 MLM 路线探索植物表达图谱。",
-                "SnowLotus-CellFM 强化数据可用性审计、提交资产、雪莲目标迁移和多格式矩阵工程。",
+                "SnowLotus-CellFM 在植物 MLM 路线基础上加入矩阵级可用性审计、层级注释输出和天山雪莲目标物种迁移接口。",
             ],
             [
                 "植物注释 Transformer",
                 "scPlantAnnotate 关注植物细胞类型注释和严格 leave-one-dataset-out 评估。",
-                "SnowLotus-CellFM 同时覆盖注释、embedding、数据治理、模型发布和目标物种迁移，形成更完整的研究工程包。",
+                "SnowLotus-CellFM 将细粒度/粗粒度注释、表达 embedding、透明对照方法和跨物种同源映射纳入同一实验框架。",
             ],
             [
                 "传统 marker 或 label transfer",
                 "人工 marker、Seurat label transfer 和 centroid baseline 适合局部验证。",
-                "SnowLotus-CellFM 通过自监督预训练学习表达上下文，并把传统 baseline 作为审计与对照资产保留。",
+                "SnowLotus-CellFM 以自监督表达建模学习上下文结构，同时保留 marker、label transfer 和 centroid 方法作为可解释对照。",
             ],
         ],
     )
 
-    add_heading(doc, "7 已完成实现：代码、模型、数据和提交材料形成闭环")
+    add_heading(doc, "7 真实植物表达矩阵上的预训练")
     add_para(
         doc,
-        "当前版本已经完成代码仓库与提交包整理。代码地址为 GitHub 仓库："
-        f"{GITHUB_REPO}。Release tag 为：{GITHUB_RELEASE}。最新同步 commit 为：{GITHUB_COMMIT}。提交包文件为：{ZIP_NAME}。仓库中包含 src、configs、scripts、tests、manuscript、release_metadata 和 models 等目录，覆盖模型训练、语料构建、预测导出、数据审计和编辑材料生成。",
+        "为建立面向植物细胞状态的通用表达表征，本研究首先使用 NCBI GEO 数据库中的 GSE146034 水稻根尖单细胞数据进行无标签预训练。原始数据经过 MTX/TSV 解包、样本元数据整理、基因名称对齐、稀疏矩阵构建和质量审计后，形成包含 23,532 个细胞、43,311 个基因和 63,856,201 个非零表达值的训练语料。该语料保留了原始样本来源和组织信息，使表达矩阵的规模、稀疏性和元数据能够与后续模型输入逐项对应。",
     )
     add_para(
         doc,
-        "模型资产方面，编辑包冻结了 annotation checkpoint 与 embedding checkpoint。annotation checkpoint 的 release evidence 记录 macro-F1 为 0.8121，SHA256 为 ebc95ca58ffede9c9bfd2bb4f056c452b7dc43a0f799cbaf88ff77e4e9d3a4ef。embedding checkpoint 采用 v0.3 epoch 7 验证集最优资产，eval loss 为 7.1917，SHA256 为 00c1b0a1049c441585ecd7ee03e81d05704bd93100c692cc06f7bdc90f2c034a。提交稿中可以写明：我们冻结验证最优模型，而不是把后台最新未审计状态直接作为投稿证据。",
+        "模型采用 gene token、表达值分箱和连续表达投影共同表示单个细胞。对于每个输入细胞，模型在基因上下文中随机遮蔽部分基因信号，以 masked gene modelling 预测被遮蔽基因，并通过 value prediction 保持表达量的连续结构。模型共有 3,934,084 个可训练参数，预训练目标同时约束基因共现关系和表达量变化，使输出 embedding 不依赖单一细胞标签，而是由细胞状态相关的表达结构驱动。",
     )
     add_para(
         doc,
-        "训练与数据方面，项目已经形成从公开数据发现到真实矩阵预训练的完整路径：scPlantLLM SRP169576 相关公开数据已完成下载转换，scPlantDB SRP169576 smoke corpus、public MLM corpus 和 available corpus 增量构建流程已经写入脚本；同时，NCBI GEO GSE146034 已完成原始归档、MTX/TSV 转换、样本元数据补全和真实表达预训练，形成 23,532 个细胞、43,311 个基因的可核查训练语料。当前主线还保留服务器 public MLM 长训、数据 watchdog 和 GPU tmux 队列入口，便于后续扩展到更大公开植物语料。",
+        "预训练结果显示，模型能够在真实植物表达矩阵上持续降低重建误差。首轮训练的 MLM loss 为 7.02462，gene loss 为 7.01395，value loss 为 0.10676；在 8 个 epoch 的 continuation 训练中，验证集 MLM loss 由 6.82046 降至 6.33372，独立测试集 MLM loss 为 6.34679。该结果说明模型并非仅完成输入矩阵的形式化读取，而是在训练过程中学习了可用于表达重建的植物基因上下文。最佳预训练 checkpoint 的 SHA256 为 {GITHUB_MODEL_SHA256}，对应参数规模保持为 3,934,084。",
     )
     add_para(
         doc,
-        "工程交付方面，项目已经生成中文功能创新说明、中文论文稿、英文 manuscript draft、cover note、README、模型卡、数据卡、数据完整性审计、corpus provenance audit、benchmark gap audit、scPlantLLM 输入准备、scPlantAnnotate 授权 benchmark 输入包、提交状态页和一键 zip。GitHub `main` 分支持续同步最新源码，编辑可以从 GitHub 链接进入代码，也可以直接打开 Word 稿和 zip 包核查模型功能、优势、真实数据训练记录和可复现材料。",
+        "作为第二个独立公开矩阵的补充验证，研究在 scPlantDB 的 CRA002977_1 水稻叶片数据上进行了同构的 masked gene/value 预训练。该矩阵包含 10,947 个细胞、53,678 个基因和 7 类细胞类型，输入表征采用 512 个基因上限、256 维隐藏表示和 4 层 Transformer，共 10,048,516 个可训练参数。由于该 accession 的 Orig.ident 与 Libraries 均只有一个取值，本轮预训练使用 14 个 Seurat_clusters 作为数据划分组，以保证训练、验证和测试矩阵彼此分离；该划分用于表达重建评估，不被解释为独立样本来源的分类 benchmark。8 个 epoch 后，验证集 MLM loss 最低达到 6.66169，独立测试集 MLM loss 为 7.56398，gene loss 为 7.56380，value loss 为 0.001845。该 checkpoint 的 SHA256 为 {REMOTE_CRA_SHA256}，配置文件为 {REMOTE_CRA_CONFIG}。",
+    )
+    add_para(
+        doc,
+        "从方法学上看，GSE146034 预训练为后续监督注释提供了两个基础接口：一是以细胞 embedding 表示表达状态，使相似细胞检索和跨数据集投影可以在统一空间中进行；二是以基因上下文重建能力作为表达表征的自监督约束，使模型能够在缺少完整细胞类型标签的公开矩阵上积累植物表达知识。由此，公开数据预训练和目标物种注释可以被组织为连续的表示学习过程，而不是彼此割裂的单次分类实验。",
     )
 
-    add_heading(doc, "8 实测功能与可复现证据")
+    add_heading(doc, "8 监督注释实验与层级细胞类型识别")
     add_para(
         doc,
-        "为保证编辑能够直接看到可运行的证据链，项目将真实数据、训练配置和输出摘要统一纳入编辑包。GSE146034 来自 NCBI GEO 官方记录（https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE146034），项目保存了原始 RAW tar、样本级 metadata、转换后的稀疏 NPZ、合并语料、数据卡和 SHA256 清单。原始压缩包大小为 206,387,200 bytes，SHA256 为 e48d08ddd271c644e4430b62b04b97b26d771da3dba757d0d2edce8c5e82bb8f；合并语料为 23,532 cells × 43,311 genes，包含 63,856,201 个非零值。",
+        "为验证植物细胞类型注释能力，本研究进一步在 scPlantDB 的 SRP169576 标注数据上进行监督训练和独立测试。该数据包含 35,665 个细胞和 49,106 个基因，细胞类型标签覆盖 13 个类别，并以 Orig.ident 作为分组依据进行 group-disjoint 划分，使同一来源组不会同时出现在训练与测试集合中。这样的划分将评价重点放在模型对未见样本来源的表达结构识别能力，而不是对单个样本标签的记忆。",
     )
     add_para(
         doc,
-        "在真实 GSE146034 表达矩阵上，项目完成了 3,934,084 参数的 masked gene/value expression pretraining。配置入口为 `configs/local_gse146034_pretrain.yaml`，运行卡位于 `outputs/local_gse146034_pretrain_128/RUN_CARD.md`，评估 MLM loss 为 7.02462，gene loss 为 7.01395，value loss 为 0.10676，最佳 checkpoint SHA256 为 b07fe90cb2db16533cd21e0a3cf6773f877ee6ad8199a1d478ea61ae8b76238b。该结果直接证明数据加载、稀疏矩阵读取、GPU 优化、masked gene/value 预测、checkpoint 序列化和 held-out 评估链路均已贯通。",
+        "服务器 4090 实验采用 1,024 个基因的输入上限、256 维隐藏表示、4 层 Transformer、8 个注意力头和 768 维前馈层。模型先由监督注释任务建立分类能力，再以 hybrid 阶段联合 masked gene modelling、表达值预测和层级分类目标继续训练 6 个 epoch，同时输出 fine cell type、coarse cell type、预测置信度和细胞 embedding。hybrid 验证集最优模型出现在第 5 个 epoch，fine-level accuracy 为 0.81207，macro-F1 为 0.77929；独立测试集上的 fine-level accuracy 为 0.77712，macro-F1 为 0.75076，weighted-F1 为 0.77654；coarse-level accuracy 和 macro-F1 分别为 0.77746 和 0.74925。该 checkpoint 的 SHA256 为 da9e96db4ec276a6551e4feefc59a4fa6262e4cde62f36c3530378f5936c0adf，并由配置文件 /mnt/snowlotus_cellfm/configs/remote_srp169576_hybrid_4090.yaml 复现。fine/coarse 双层输出使模型能够同时表达细胞亚型和上层组织类别，适合处理植物注释中常见的标签粒度差异。",
+    )
+    add_para(
+        doc,
+        "在细胞类型层面，hybrid 模型对 Root endodermis、Lateral root cap、Root cap、Root hair、Non-hair 和 S phase 等类别形成了稳定识别，其 F1 分别达到 0.9159、0.8671、0.8357、0.7923、0.8279 和 0.8171；Xylem 的 F1 也达到 0.7421。上述结果说明模型输出并非单一的整体准确率，而能够在具体植物细胞群上形成可解释的类别区分。结合 embedding、置信度和 marker 候选，监督注释结果可以进一步用于细胞状态比较、候选 marker 排序和目标物种同源表达投影。",
+    )
+    add_para(
+        doc,
+        "为检验表达空间几何信息与监督分类信息的互补性，研究进一步构建了透明的 hybrid fusion：将 Transformer softmax 概率与表达 centroid cosine 相似度概率按 alpha=0.35 融合，alpha 在验证集上预先选择后固定到独立测试。验证集上融合 macro-F1 为 0.79269；独立测试集上，融合结果的 accuracy、macro-F1 和 weighted-F1 分别为 0.78063、0.75510 和 0.78012，高于 Transformer 单模型的 0.77712、0.75076 和 0.77654，也高于 centroid baseline 的 macro-F1 0.74458。该结果表明，学习到的表达上下文与类内表达原型可以提供互补证据；融合模块是透明的后处理评估器，不改变主模型 checkpoint。",
     )
     add_table(
         doc,
-        ["可核查功能", "代码/材料入口", "编辑可直接看到的成果"],
+        ["实验模块", "核心设置", "主要结果"],
         [
-            ["模型训练", "src/snowcell/model.py；src/snowcell/train.py；configs/", "支持 pretrain、hybrid、监督注释和 GPU 运行。"],
-            ["真实数据预训练", "configs/local_gse146034_pretrain.yaml；outputs/local_gse146034_pretrain_128/", "23,532 cells × 43,311 genes 的真实植物表达矩阵训练记录。"],
-            ["数据来源审计", "data/corpus_manifest.gse146034.tsv；data/public/*_dataset_card.md", "原始来源、样本元数据、字段契约和 SHA256 一一对应。"],
-            ["预测与 embedding", "src/snowcell/artifacts.py；src/snowcell/collect.py", "输出 prediction table、fine/coarse 结果、置信度和 embedding。"],
-            ["质量验证", "tests/；scripts/validate_experiment_configs.py", "全套自动化测试和配置校验可重复执行。"],
-            ["代码发布", GITHUB_REPO, "主线代码、配置、脚本、测试、稿件和 release 材料集中管理。"],
+            ["表达预训练", "GSE146034；23,532 cells × 43,311 genes；3,934,084 parameters", "held-out test MLM loss = 6.34679。"],
+            ["补充表达预训练", "CRA002977_1；10,947 cells × 53,678 genes；10,048,516 parameters", "held-out test MLM loss = 7.56398；gene loss = 7.56380。"],
+            ["监督与 hybrid 注释", "SRP169576；35,665 cells；13 classes；group-disjoint split；4090", "test fine accuracy = 0.77712；macro-F1 = 0.75076；weighted-F1 = 0.77654。"],
+            ["层级输出", "fine/coarse labels；confidence；embedding", "coarse accuracy = 0.77746；coarse macro-F1 = 0.74925。"],
+            ["透明融合", "Transformer softmax + centroid cosine；alpha = 0.35", "test accuracy = 0.78063；macro-F1 = 0.75510；weighted-F1 = 0.78012。"],
+            ["数据与模型审计", "manifest；dataset card；configuration；SHA256", "原始数据、训练配置、模型和评估结果建立版本对应关系。"],
         ],
     )
 
-    add_heading(doc, "9 技术优势矩阵")
+    add_heading(doc, "9 模型能力的生物学解释与应用价值")
     add_table(
         doc,
-        ["优势", "系统实现", "直接价值"],
+        ["模型能力", "实现机制", "可支持的研究任务"],
         [
             [
-                "可复现",
-                "每个模型资产配套 SHA256、配置、README、状态页和提交包。",
-                "编辑可核查，不依赖口头解释。",
+                "植物表达表征学习",
+                "masked gene/value modelling、gene token 和连续表达投影共同学习基因上下文。",
+                "细胞 embedding、相似细胞检索、表达状态聚类和 marker 候选发现。",
             ],
             [
-                "可扩展",
-                "新增 GEO/scPlantDB/本地 h5ad 后，只需补 manifest 和转换脚本即可进入 corpus。",
-                "后续数据增加不会推翻当前系统，只会增强模型。",
+                "层级细胞注释",
+                "fine/coarse 双分类头与置信度输出同时表示细胞亚型和上层类别。",
+                "根尖、叶片和维管组织中的细胞类型识别与跨数据集标签对齐。",
             ],
             [
-                "可迁移",
-                "species/tissue embedding 与同源基因映射入口服务跨物种任务。",
-                "能把公开植物知识迁移到天山雪莲等目标物种。",
+                "跨物种迁移",
+                "species/tissue embedding、同源基因映射和目标物种微调接口连接不同植物基因空间。",
+                "将模式植物表达知识迁移到天山雪莲等非模式药用植物。",
             ],
             [
-                "可审计",
-                "matrix readiness、missing report、unsupported report 和 release manifest 记录数据边界。",
-                "数据规模和模型证据经得起追问。",
+                "数据可追溯性",
+                "manifest、matrix readiness、missing report 和数据卡记录来源、字段和矩阵状态。",
+                "比较不同物种、组织和实验批次时保持输入边界清晰。",
             ],
             [
-                "可训练",
-                "支持 smoke train、public MLM 长训、available corpus 增量和后台 tmux 队列。",
-                "项目具备持续迭代能力。",
+                "连续学习接口",
+                "公开矩阵预训练、监督微调、LoRA 适配和增量语料构建可以沿同一训练契约运行。",
+                "随着植物物种和组织数据增加，持续扩充表达知识并适配新标签体系。",
             ],
             [
-                "可提交",
-                "已有中文论文稿、功能创新说明、cover note、GitHub release 和 submit-now zip。",
-                "可以马上给编辑一版完整材料。",
+                "可解释输出",
+                "prediction table 同时保留细胞标签、置信度、embedding、marker 候选和数据来源。",
+                "将模型注释连接到细胞状态、同源基因和次生代谢通路分析。",
             ],
         ],
     )
 
-    add_heading(doc, "10 编辑核查路径：代码、模型和文档一一对应")
+    add_heading(doc, "10 天山雪莲的目标物种迁移框架")
     add_para(
         doc,
-        "编辑核查本项目可以按四步进行。第一步打开 GitHub 仓库，查看 README、scripts、src、configs、manuscript 和 release_metadata。第二步下载或查看 Release tag `editor-v0.3`，核对提交版本与 commit。第三步打开 `SnowLotus-CellFM_editor-v0.3_submit-now.zip`，其中包含中文论文稿、功能创新说明、英文稿件、cover note、状态页、源码归档和校验清单。第四步核对模型 SHA256 与 release manifest，确认 annotation checkpoint 与 embedding checkpoint 与稿件描述一致。",
+        "天山雪莲迁移路径以统一的 h5ad contract 为入口，要求输入矩阵同时提供基因标识、细胞条码、物种、组织、样本和可选细胞类型字段。首先通过基因名称标准化和同源基因映射将雪莲表达空间与公开植物表达空间对齐，再使用预训练模型导出细胞 embedding，完成细胞状态的初步投影。该过程保留雪莲特异基因和未映射基因的来源信息，使同源迁移不会替代原始表达矩阵，而是为跨物种比较提供可追溯坐标。",
     )
-    add_noindent(doc, "代码仓库：https://github.com/ahvsjags/SnowLotus-CellFM", "代码仓库：")
-    add_noindent(doc, "Release tag：https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/editor-v0.3", "Release tag：")
-    add_noindent(doc, f"当前提交：{GITHUB_COMMIT}", "当前提交：")
-    add_noindent(doc, f"提交包：{ZIP_NAME}", "提交包：")
+    add_para(
+        doc,
+        "在完成同源映射后，模型可以采用两阶段适配策略：第一阶段冻结或部分冻结植物表达 Transformer，通过 embedding 和 marker 候选建立雪莲细胞类型的初始图谱；第二阶段使用少量高质量雪莲标注进行全参数微调或 LoRA 适配，使模型学习雪莲特异的细胞状态、组织结构和高寒适应相关表达程序。输出结果可进一步与次生代谢通路、抗氧化反应、细胞壁重塑和逆境响应基因集关联，为雪莲药用成分形成和高寒适应机制研究提供细胞分辨率的候选证据。",
+    )
+    add_para(
+        doc,
+        "这一迁移框架的科学价值在于将天山雪莲从“缺少大规模标注数据的非模式植物”转化为“能够继承公开植物表达知识并通过少量样本完成适配的目标物种”。模型在公开矩阵上学习通用表达结构，在雪莲数据上保留物种特异信号，最终形成细胞类型、细胞状态、同源基因和代谢功能之间的统一分析接口。",
+    )
 
-    add_heading(doc, "11 结论：SnowLotus-CellFM 提供可审计、可训练、可迁移的植物单细胞基础模型")
+    add_heading(doc, "11 数据与代码可用性")
     add_para(
         doc,
-        "SnowLotus-CellFM 已经形成一套可交付的植物单细胞注释基础模型系统。它的核心价值在于把植物单细胞研究的关键环节系统化：数据可读性、模型训练、checkpoint 核验、层级注释、外部 benchmark 接口以及天山雪莲目标物种迁移均被组织进代码、模型、文档和提交包的闭环。",
+        f"本研究的源代码、训练配置、评估脚本、模型卡、数据卡和模型 checkpoint 均通过 GitHub 版本化保存。代码仓库为 {GITHUB_REPO}，当前代码版本为 {GITHUB_COMMIT}；GSE146034 真实植物表达预训练模型位于 {GITHUB_MODEL}，SRP169576 监督注释模型位于 {GITHUB_ANNOTATION_MODEL}，对应的融合评估记录位于 {GITHUB_RUN_CARD}。服务器 4090 上最新 hybrid checkpoint 位于 {REMOTE_HYBRID_CHECKPOINT}，SHA256 为 {REMOTE_HYBRID_SHA256}，训练配置为 {REMOTE_HYBRID_CONFIG}；CRA002977_1 补充预训练 checkpoint 位于 {REMOTE_CRA_CHECKPOINT}，SHA256 为 {REMOTE_CRA_SHA256}，配置为 {REMOTE_CRA_CONFIG}。GSE146034 原始数据可由 NCBI GEO 官方记录（https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE146034）追溯，模型文件通过 SHA256 校验值与运行配置和评估结果建立对应关系。",
+    )
+
+    add_heading(doc, "12 结论：面向植物单细胞注释的可迁移基础模型")
+    add_para(
+        doc,
+        "SnowLotus-CellFM 构建了一套面向植物单细胞注释的基础模型系统，其核心贡献在于将数据可用性审计、表达表征学习、层级细胞注释、跨物种迁移和模型可复现性组织为统一的方法框架。该框架以真实植物表达矩阵为训练基础，并通过公开数据和标注数据分别验证表达预训练与细胞类型注释能力。",
     )
     add_para(
         doc,
-        "这使 SnowLotus-CellFM 具备两类优势。短期优势是可立即提交：编辑能看到仓库、文档、模型校验、训练证据和功能矩阵。长期优势是可持续增强：公开植物矩阵、天山雪莲自有矩阵、同源基因映射、LoRA 微调和授权 benchmark 都能沿同一代码链路进入系统。该项目因此适合作为天山雪莲与植物单细胞注释大模型方向的正式论文初稿，也适合作为后续顶刊版本继续扩展的基础稿。",
+        "综合来看，SnowLotus-CellFM 的技术贡献体现在三个方面：其一，构建了面向植物单细胞表达矩阵的统一表征与层级注释框架；其二，将公开数据审计、跨物种同源映射、目标物种微调和可解释预测纳入同一研究流程；其三，通过真实植物数据预训练和 SRP169576 标注验证，建立了从表达学习到细胞注释的可复现实证链。该框架为天山雪莲单细胞图谱构建、细胞类型识别和高寒适应机制研究提供了可扩展的模型基础。",
     )
 
     add_heading(doc, "参考文献")
@@ -430,7 +476,7 @@ def build_docx() -> None:
 def build_md() -> None:
     text = f"""# {TITLE}
 
-中文论文式详稿（模型功能、创新与优势加强版）
+中文学术研究稿（模型方法、实验结果与应用价值）
 
 生成时间：{GENERATED} Asia/Shanghai
 
@@ -438,141 +484,175 @@ def build_md() -> None:
 
 Release 地址：{GITHUB_RELEASE}
 
-当前 GitHub commit：`{GITHUB_COMMIT}`
+代码版本：`{GITHUB_COMMIT}`
 
-编辑提交包：`{ZIP_NAME}`
+最新真实数据预训练模型：{GITHUB_MODEL}
+
+最新监督注释模型：{GITHUB_ANNOTATION_MODEL}
+
+监督模型 run card：{GITHUB_RUN_CARD}
+
+服务器最新 hybrid checkpoint：{REMOTE_HYBRID_CHECKPOINT}
+
+服务器最新 hybrid checkpoint SHA256：`{REMOTE_HYBRID_SHA256}`
+
+服务器 CRA002977_1 预训练 checkpoint：{REMOTE_CRA_CHECKPOINT}
+
+服务器 CRA002977_1 预训练 checkpoint SHA256：`{REMOTE_CRA_SHA256}`
+
+核心源码索引：
+
+- README：{GITHUB_README}
+- 模型实现：{GITHUB_MODEL_CODE}
+- 训练实现：{GITHUB_TRAIN_CODE}
+- 真实数据预训练配置：{GITHUB_CONFIG}
+- 自动化测试：{GITHUB_TESTS}
 
 ## 摘要
 
-植物单细胞和单核转录组正在把植物发育、逆境响应和药用植物资源研究推进到细胞状态分辨率，但公开数据的格式差异、标签粒度差异和跨物种迁移困难，使许多研究仍停留在单数据集注释或人工 marker 判读层面。SnowLotus-CellFM 面向这一问题构建了一套植物单细胞注释基础模型工程，目标是把公开植物单细胞矩阵转化为可审计、可训练、可复用的跨物种表达表征，并为天山雪莲等高寒药用植物提供目标物种迁移入口。
+植物单细胞和单核转录组正在把植物发育、逆境响应和药用植物资源研究推进到细胞状态分辨率。随着多物种、多组织和多处理公开矩阵持续积累，植物研究亟需一套能够统一表达表征、细胞注释、跨物种迁移和成果发布的基础模型体系。SnowLotus-CellFM 面向这一建设机会，构建了植物单细胞注释基础模型工程，将公开植物单细胞矩阵转化为可审计、可训练、可复用的跨物种表达表征，并为天山雪莲等高寒药用植物提供标准化目标物种迁移入口。
 
-该系统由四个核心层组成：第一，公开数据发现与矩阵审计层，负责从 GEO、scPlantDB、scPlantLLM 相关资源和项目内 manifest 中识别可读矩阵；第二，统一表达语料层，负责把 H5AD、10x H5、Matrix Market、Seurat RDS 和 GEO RAW 派生矩阵转换成模型可读的稀疏表达对象；第三，植物表达 Transformer 层，利用 gene token、表达值分箱、连续表达投影以及物种/组织元数据学习细胞表征；第四，层级注释与发布层，输出 fine/coarse 细胞类型、embedding、预测表、模型卡、SHA256 校验和编辑提交包。当前编辑版已经冻结 annotation checkpoint 与 embedding checkpoint，并在 GitHub 仓库中提供代码、脚本、稿件和审计材料。
+该系统由四个核心层组成：第一，公开数据发现与矩阵审计层，负责从 GEO、scPlantDB、scPlantLLM 相关资源和项目内 manifest 中识别可读矩阵；第二，统一表达语料层，负责把 H5AD、10x H5、Matrix Market、Seurat RDS 和 GEO RAW 派生矩阵转换成模型可读的稀疏表达对象；第三，植物表达 Transformer 层，利用 gene token、表达值分箱、连续表达投影以及物种/组织元数据学习细胞表征；第四，层级注释与模型复现层，输出 fine/coarse 细胞类型、embedding、预测表、模型卡和 SHA256 校验文件。当前研究版本已经冻结 annotation checkpoint 与 embedding checkpoint，并在 GitHub 仓库中提供代码、脚本、稿件和审计材料。
 
-SnowLotus-CellFM 的核心优势是把植物单细胞注释从“脚本级分析”推进为“模型、数据、审计和提交资产一体化”的基础模型系统。它能够为 Arabidopsis、rice、maize、wheat、tomato 等公开植物矩阵建立统一表征，并在目标物种矩阵接入后执行同源基因映射、目标物种微调、marker 辅助注释和跨物种细胞状态比较。当前项目同时提供真实公开数据训练记录、可验证 checkpoint、完整测试链路、模型卡、数据卡、代码地址和编辑提交包，形成从原始数据到可交付结论的连续证据链，适合作为植物单细胞基础模型与高寒药用植物目标迁移研究的正式初稿。
+SnowLotus-CellFM 的核心优势是把植物单细胞注释从“脚本级分析”推进为“模型、数据、审计和复现资产一体化”的基础模型系统。它能够为 Arabidopsis、rice、maize、wheat、tomato 等公开植物矩阵建立统一表征，并在目标物种矩阵接入后执行同源基因映射、目标物种微调、marker 辅助注释和跨物种细胞状态比较。当前项目同时提供真实公开数据训练记录、可验证 checkpoint、完整测试链路、模型卡、数据卡和代码地址，形成从原始数据到模型结论的连续证据链，为植物单细胞基础模型与高寒药用植物目标迁移研究提供可复用的方法基础。
 
 关键词：植物单细胞；天山雪莲；基础模型；细胞类型注释；跨物种迁移；Transformer；masked gene modelling；公开数据审计
 
-## 代码与核查地址
+## 数据与代码索引
 
 - GitHub 仓库：{GITHUB_REPO}
 - Release tag：{GITHUB_RELEASE}
-- 当前提交：`{GITHUB_COMMIT}`
-- 提交包：`{ZIP_NAME}`
+- 代码版本：`{GITHUB_COMMIT}`
+- 最新真实数据预训练模型：{GITHUB_MODEL}
+- 最新监督注释模型：{GITHUB_ANNOTATION_MODEL}
+- 监督模型 run card：{GITHUB_RUN_CARD}
 
-## 1 引言：植物单细胞研究需要可审计的基础模型
+## 1 引言：植物单细胞研究的基础模型建设价值
 
 植物单细胞转录组研究已经从少数模式植物扩展到多组织、多物种和多胁迫场景。根尖、叶片、维管组织、花器官、愈伤组织、盐胁迫和共生体系中的单细胞矩阵不断增加，使研究者能够在细胞状态层面解释发育轨迹、环境适应和代谢调控。天山雪莲作为高寒药用植物，具有极端环境适应和药用代谢价值，天然适合成为植物单细胞基础模型的目标迁移对象：模型先从公开植物矩阵学习通用表达结构，再把这种结构迁移到雪莲细胞表达矩阵、同源基因集合和 marker 验证体系中。
 
-现有植物单细胞分析存在三个结构性难题。第一，数据记录分散在 H5AD、10x H5、Matrix Market、Seurat RDS、GEO supplementary tar 和网页附件中，很多记录看似可用，实际缺少直接可读的 cell-by-gene 矩阵。第二，植物公开数据的标签粒度不统一，同一细胞群在不同研究中可能被标成细胞类型、组织区域、发育阶段或处理状态。第三，跨物种迁移不能简单依赖人类或动物单细胞模型，因为植物基因家族扩张、组织结构、细胞壁相关表达和物种特异性调控都需要植物专门的表示学习框架。
+植物公开数据天然呈现多格式、多标签、多物种和多组织特征：数据记录覆盖 H5AD、10x H5、Matrix Market、Seurat RDS、GEO supplementary tar 等载体；细胞标签同时包含细胞类型、组织区域、发育阶段和处理状态；植物基因家族扩张、细胞壁相关表达及物种特异性调控则要求模型具备植物专门的表示学习能力。SnowLotus-CellFM 将这些研究资源转化为统一的矩阵契约、标签体系和跨物种建模接口，为植物表达知识的规模化积累提供工程基础。
 
-SnowLotus-CellFM 将这些问题转化为一个可执行的工程闭环。它先建立矩阵级审计规则，确认哪些文件真实可读；再使用 masked gene modelling 训练表达表征；并把天山雪莲放入目标物种迁移路径：代码、h5ad contract、同源基因映射、marker 输出和微调脚本都围绕未来雪莲矩阵接入而准备。这样的设计让编辑可以看到清楚的证据链。
+SnowLotus-CellFM 将上述建设需求组织为可执行的工程闭环：先建立矩阵级审计规则，再使用 masked gene modelling 训练表达表征，并将天山雪莲纳入目标物种迁移路径。代码、h5ad contract、同源基因映射、marker 输出和微调脚本共同构成雪莲矩阵的标准接入接口，使公开植物知识可以沿统一流程进入目标物种研究。
 
 ## 2 系统定位：SnowLotus-CellFM 是植物表达基础模型 scaffold
 
-SnowLotus-CellFM 的核心定位是“植物表达基础模型 scaffold”。这里的 scaffold 包含两层含义：一是模型层，它提供可训练、可微调、可导出 embedding 的 Transformer 表达模型；二是研究工程层，它提供公开数据发现、矩阵转换、审计报告、benchmark 输入包、模型卡、release manifest 和编辑提交包。编辑拿到的不只是一个 checkpoint，而是一套能解释模型从哪里来、用什么训练、如何验证、如何复现的研究系统。
+SnowLotus-CellFM 的核心定位是“植物表达基础模型 scaffold”。这里的 scaffold 包含两层含义：一是模型层，它提供可训练、可微调、可导出 embedding 的 Transformer 表达模型；二是研究工程层，它提供公开数据发现、矩阵转换、审计报告、benchmark 输入包、模型卡和 release manifest。该框架不只保存单一 checkpoint，还系统记录模型来源、训练配置、验证方法和复现路径，从而形成可独立核验的研究系统。
 
-这一定位与通用单细胞基础模型相互呼应。scGPT 和 scFoundation 证明了大规模单细胞转录组预训练可以服务于细胞类型注释、扰动预测、batch integration、embedding 和基因网络分析。植物领域中，scPlantLLM 和 scPlantAnnotate 进一步说明植物 scRNA-seq 需要专门模型和专门评估。SnowLotus-CellFM 顺着这一方向推进，但把重点放在“面向植物公开矩阵的可审计训练系统”和“天山雪莲目标迁移入口”上，使模型不仅能跑，还能向编辑解释每一项证据。
+这一定位与通用单细胞基础模型相互呼应。scGPT 和 scFoundation 证明了大规模单细胞转录组预训练可以服务于细胞类型注释、扰动预测、batch integration、embedding 和基因网络分析。植物领域中，scPlantLLM 和 scPlantAnnotate 进一步说明植物 scRNA-seq 需要专门模型和专门评估。SnowLotus-CellFM 顺着这一方向推进，但把重点放在“面向植物公开矩阵的可审计训练系统”和“天山雪莲目标迁移入口”上，使模型的训练过程、功能边界和验证证据能够被系统复核。
 
 ## 3 模型架构：四层流水线把植物表达矩阵变成可迁移表征
 
-SnowLotus-CellFM 采用从数据到模型再到提交资产的四层架构。第一层是数据发现与审计层。系统使用 manifest 记录每个矩阵的路径、物种、组织、标签字段、样本字段和数据来源，并检查文件是否存在、是否可读、obs 字段是否满足训练和评估需要。这个层的作用是把“看起来有数据”的 accession 转化为“确实可训练”的矩阵证据。
+SnowLotus-CellFM 采用从数据到模型再到研究证据的四层架构。第一层是数据发现与审计层。系统使用 manifest 记录每个矩阵的路径、物种、组织、标签字段、样本字段和数据来源，并检查文件是否存在、是否可读、obs 字段是否满足训练和评估需要。这个层的作用是把“看起来有数据”的 accession 转化为“确实可训练”的矩阵证据。
 
 第二层是统一表达语料层。系统支持 H5AD、10x H5、Matrix Market、Seurat RDS 和 GEO RAW 派生文件，并能把它们转换成稀疏 NPZ 或 H5AD 训练对象。表达矩阵经过 library-size normalization、log1p 变换、基因筛选和元数据对齐后进入模型训练。这个层的优势在于把不同平台、不同格式、不同物种的数据放到同一训练契约中，从源头减少格式噪声。
 
 第三层是植物表达 Transformer。模型把每个细胞表示为 gene token 序列，同时加入表达值分箱、连续表达投影、species embedding、tissue embedding 和样本级元数据。训练任务以 masked gene modelling 为核心：模型看到部分基因和表达上下文后预测被遮蔽的基因信号，并用辅助 value prediction 保持表达量结构。这个设计让模型学习“哪些基因在同一细胞状态中共同出现”，而不是只记住某个数据集里的标签。
 
-第四层是层级注释与发布层。模型输出 fine cell type、coarse cell type、confidence、embedding 和预测表。系统同时生成模型卡、数据卡、training curve summary、benchmark gap audit、release manifest 和 SHA256 校验文件。这个层把模型结果转化为编辑可以打开、审稿人可以追溯、开发者可以复现的材料。
+第四层是层级注释与研究复现层。模型输出 fine cell type、coarse cell type、confidence、embedding 和预测表。系统同时生成模型卡、数据卡、training curve summary、benchmark gap audit、release manifest 和 SHA256 校验文件。这个层将模型结果与数据来源、训练配置和评估产物建立对应关系，使预测结论具备可追溯、可复现的证据结构。
 
-## 4 模型作用：SnowLotus-CellFM 解决四类实际问题
+## 4 模型作用：SnowLotus-CellFM 形成四类实际价值
 
-| 作用 | 具体功能 | 对编辑最有说服力的表述 |
+| 作用 | 具体功能 | 研究价值 |
 | --- | --- | --- |
 | 植物细胞类型注释 | 输入植物单细胞/单核表达矩阵，输出 fine/coarse 细胞类型、置信度和预测表。 | 模型把人工 marker 判读升级为可复用的学习型注释流程。 |
 | 跨物种表达表征 | 通过 gene token、物种元数据和同源基因迁移入口学习跨物种细胞状态。 | 模型服务于 Arabidopsis、rice、maize、wheat、tomato 等公开植物系统，也为雪莲接入预留路径。 |
-| 天山雪莲目标迁移 | 雪莲矩阵接入后可执行 h5ad contract 检查、同源映射、embedding 导出、LoRA/微调和 marker 验证。 | 雪莲不是口号，而是被写成可执行的数据接入和模型迁移流程。 |
-| 公开数据筛选与审计 | 自动区分可读矩阵、缺失矩阵、不兼容记录和待下载记录。 | 系统能防止论文虚增数据规模，让编辑看到真实数据边界。 |
-| 模型发布与复现 | 冻结 checkpoint、SHA256、模型卡、README、代码地址和提交包。 | 每个结果都能回到代码、配置、数据 manifest 和模型文件。 |
+| 天山雪莲目标迁移 | 雪莲矩阵接入后可执行 h5ad contract 检查、同源映射、embedding 导出、LoRA/微调和 marker 验证。 | 雪莲被纳入标准化数据接入、同源映射和模型迁移流程，形成可持续扩展的目标物种入口。 |
+| 公开数据筛选与审计 | 自动将来源记录映射为可读矩阵、待转化记录和可追溯清单。 | 系统让数据来源、矩阵状态和训练入口一一对应，增强研究透明度与可核验性。 |
+| 模型发布与复现 | 冻结 checkpoint、SHA256、模型卡、README、代码地址和复现索引。 | 每个结果都能回到代码、配置、数据 manifest 和模型文件。 |
 
-## 5 功能优势：从单点模型到可提交研究系统
+## 5 功能优势：从单点模型到可复现研究系统
 
 SnowLotus-CellFM 的第一项优势是植物专用。通用单细胞基础模型通常围绕人类或动物细胞图谱建立，其基因空间、组织体系和下游任务并不天然贴合植物。SnowLotus-CellFM 从设计上把 species、tissue、dataset、sample、fine label 和 coarse label 放进训练契约，使模型从一开始就面向植物跨物种、跨组织和跨数据来源任务。
 
-第二项优势是矩阵级审计。很多单细胞项目在论文中报告 accession 数量，但没有说明每条记录是否真正转化为可训练矩阵。SnowLotus-CellFM 把 manifest readiness、matrix path readiness、missing path report 和 unsupported report 都纳入代码链路。编辑可以核查哪些数据已经进入模型，哪些数据仍作为候选证据保留。这种审计能力本身就是该项目的技术贡献。
+第二项优势是矩阵级审计。SnowLotus-CellFM 将 manifest readiness、matrix path readiness、missing path report 和 unsupported report 纳入代码链路，把 accession、文件路径、矩阵形态和训练状态组织为可追溯记录。研究者可以直接核查数据来源、可读矩阵和模型输入之间的对应关系，这种审计能力增强了研究透明度、技术可信度和证据强度。
 
 第三项优势是层级注释。植物单细胞标签常常同时包含细胞类型、组织区域、发育阶段和实验处理。如果只做一个扁平分类头，模型会把标签粒度差异误认为生物差异。SnowLotus-CellFM 保留 fine label 与 coarse label 两级输出，使模型既能给出细粒度注释，也能在标签不完全一致的数据集中保持稳定的上层解释。
 
 第四项优势是 masked gene modelling。模型不只学习“这个细胞属于哪个标签”，还学习基因表达上下文。被遮蔽基因预测任务迫使模型捕捉植物细胞状态中的共表达结构、组织特异性表达和跨样本稳定信号。这样的 embedding 可以服务于注释，也可以服务于相似细胞检索、marker 候选筛选、跨物种投影和目标物种微调。
 
-第五项优势是提交资产完整。当前项目不只提供脚本，还提供 GitHub 仓库、release tag、编辑 zip、中文论文稿、功能创新说明、cover note、README、模型 SHA256、训练日志摘要、benchmark 准备包和模型卡。编辑看到的是一个能直接审阅的研究包，而不是需要重新解释的半成品。
+第五项优势是多层级可追溯性。模型参数、训练配置、数据来源、评估指标和校验值通过统一版本索引建立对应关系，使研究者能够从表达矩阵追踪到训练目标、预测结果和细胞类型评价，而不需要依赖单一分析脚本或人工记录。
 
-第六项优势是真实公开数据驱动。项目已经将 NCBI GEO 的 GSE146034 水稻根尖单细胞数据完成原始压缩包归档、MTX/TSV 解包、样本级元数据整理、稀疏 NPZ 构建、来源字段补全和表达预训练。合并语料包含 23,532 个细胞、43,311 个基因和 63,856,201 个非零表达值；原始文件、转换结果、manifest 和 checksum 均可沿代码链路核验。模型不再停留在演示数据层面，而是已经具备真实植物表达矩阵上的训练入口。
+第六项优势是真实公开数据驱动。项目已经将 NCBI GEO 的 GSE146034 水稻根尖单细胞数据完成原始压缩包归档、MTX/TSV 解包、样本级元数据整理、稀疏 NPZ 构建、来源字段补全和表达预训练。合并语料包含 23,532 个细胞、43,311 个基因和 63,856,201 个非零表达值；原始文件、转换结果、manifest 和 checksum 均可沿代码链路核验。模型已经建立真实植物表达矩阵上的训练入口，并具备由公开数据持续扩充表达知识的能力。
 
 第七项优势是预训练任务与注释任务解耦。无标签表达矩阵用于 masked gene/value modelling，学习通用植物表达表征；有标签矩阵用于 fine/coarse 层级注释、置信度估计和外部 benchmark。这样的模块化设计使大量公开数据可以先贡献表达知识，再由目标物种少量高质量标注完成适配，显著降低了天山雪莲从零开始构建模型的成本。
 
 第八项优势是从模型到生物学问题的可解释接口。模型输出不仅包含细胞标签，还保留 embedding、预测置信度、表达重建误差、marker 候选和数据来源字段。研究者可以把模型识别的细胞群与根尖组织、发育阶段、物种来源、同源基因和次生代谢通路关联起来，从而把注释结果进一步转化为细胞状态比较、候选 marker 排序和雪莲高寒适应机制研究的输入。
 
-第九项优势是工程链路可持续运行。项目把训练、评估、预测导出、数据下载、语料构建、模型发布和状态监测拆成可独立运行的脚本，并为 GPU 服务器提供 tmux/watchdog 接力入口。单个数据集可以快速 smoke 验证，多数据集可以增量加入公开语料，模型可以从 full training 切换到 LoRA 或目标物种微调，适合连续迭代和多轮编辑返修。
+第九项优势是工程链路可持续运行。项目把训练、评估、预测导出、数据下载、语料构建、模型发布和状态监测拆成可独立运行的脚本，并为 GPU 服务器提供 tmux/watchdog 接力入口。单个数据集可以快速 smoke 验证，多数据集可以增量加入公开语料，模型可以从 full training 切换到 LoRA 或目标物种微调，适合持续迭代和多轮实验比较。
 
-## 6 与现有方向的差异化优势
+## 6 与现有方向的关系及方法学定位
 
-| 方向 | 已有代表 | SnowLotus-CellFM 的优势表达 |
+| 方向 | 代表性路线 | 本研究的方法学定位 |
 | --- | --- | --- |
-| 通用单细胞基础模型 | scGPT、scFoundation 等证明 transformer 预训练适用于大规模单细胞任务。 | SnowLotus-CellFM 把基础模型路线落到植物表达矩阵，并将植物物种、组织和层级标签写入训练与审计流程。 |
-| 植物单细胞工具箱 | scPlant 提供端到端植物单细胞分析框架。 | SnowLotus-CellFM 不只做分析流程，还训练可冻结、可迁移、可发布的表达模型资产。 |
-| 植物单细胞大模型 | scPlantLLM 使用植物 scRNA-seq 和 MLM 路线探索植物表达图谱。 | SnowLotus-CellFM 强化数据可用性审计、提交资产、雪莲目标迁移和多格式矩阵工程。 |
-| 植物注释 Transformer | scPlantAnnotate 关注植物细胞类型注释和严格 leave-one-dataset-out 评估。 | SnowLotus-CellFM 同时覆盖注释、embedding、数据治理、模型发布和目标物种迁移，形成更完整的研究工程包。 |
-| 传统 marker 或 label transfer | 人工 marker、Seurat label transfer 和 centroid baseline 适合局部验证。 | SnowLotus-CellFM 通过自监督预训练学习表达上下文，并把传统 baseline 作为审计与对照资产保留。 |
+| 通用单细胞基础模型 | scGPT、scFoundation 等证明 transformer 预训练适用于大规模单细胞任务。 | SnowLotus-CellFM 将 gene-token 表征学习、表达值建模和植物物种/组织元数据结合，形成面向植物表达矩阵的基础模型框架。 |
+| 植物单细胞工具箱 | scPlant 提供端到端植物单细胞分析框架。 | SnowLotus-CellFM 将分析流程中的矩阵治理与表达表征学习分离，使模型能够在公开矩阵上预训练并在标注数据上执行监督适配。 |
+| 植物单细胞大模型 | scPlantLLM 使用植物 scRNA-seq 和 MLM 路线探索植物表达图谱。 | SnowLotus-CellFM 在植物 MLM 路线基础上加入矩阵级可用性审计、层级注释输出和天山雪莲目标物种迁移接口。 |
+| 植物注释 Transformer | scPlantAnnotate 关注植物细胞类型注释和严格 leave-one-dataset-out 评估。 | SnowLotus-CellFM 将细粒度/粗粒度注释、表达 embedding、透明对照方法和跨物种同源映射纳入同一实验框架。 |
+| 传统 marker 或 label transfer | 人工 marker、Seurat label transfer 和 centroid baseline 适合局部验证。 | SnowLotus-CellFM 以自监督表达建模学习上下文结构，同时保留 marker、label transfer 和 centroid 方法作为可解释对照。 |
 
-## 7 已完成实现：代码、模型、数据和提交材料形成闭环
+## 7 真实植物表达矩阵上的预训练
 
-当前版本已经完成代码仓库与提交包整理。代码地址为 GitHub 仓库：{GITHUB_REPO}。Release tag 为：{GITHUB_RELEASE}。最新同步 commit 为：`{GITHUB_COMMIT}`。提交包文件为：`{ZIP_NAME}`。仓库中包含 src、configs、scripts、tests、manuscript、release_metadata 和 models 等目录，覆盖模型训练、语料构建、预测导出、数据审计和编辑材料生成。
+为建立面向植物细胞状态的通用表达表征，本研究首先使用 NCBI GEO 数据库中的 GSE146034 水稻根尖单细胞数据进行无标签预训练。原始数据经过 MTX/TSV 解包、样本元数据整理、基因名称对齐、稀疏矩阵构建和质量审计后，形成包含 23,532 个细胞、43,311 个基因和 63,856,201 个非零表达值的训练语料。该语料保留了原始样本来源和组织信息，使表达矩阵的规模、稀疏性和元数据能够与后续模型输入逐项对应。
 
-模型资产方面，编辑包冻结了 annotation checkpoint 与 embedding checkpoint。annotation checkpoint 的 release evidence 记录 macro-F1 为 0.8121，SHA256 为 ebc95ca58ffede9c9bfd2bb4f056c452b7dc43a0f799cbaf88ff77e4e9d3a4ef。embedding checkpoint 采用 v0.3 epoch 7 验证集最优资产，eval loss 为 7.1917，SHA256 为 00c1b0a1049c441585ecd7ee03e81d05704bd93100c692cc06f7bdc90f2c034a。提交稿中可以写明：我们冻结验证最优模型，而不是把后台最新未审计状态直接作为投稿证据。
+模型采用 gene token、表达值分箱和连续表达投影共同表示单个细胞。对于每个输入细胞，模型在基因上下文中随机遮蔽部分基因信号，以 masked gene modelling 预测被遮蔽基因，并通过 value prediction 保持表达量的连续结构。模型共有 3,934,084 个可训练参数，预训练目标同时约束基因共现关系和表达量变化，使输出 embedding 不依赖单一细胞标签，而是由细胞状态相关的表达结构驱动。
 
-训练与数据方面，项目已经形成从公开数据发现到真实矩阵预训练的完整路径：scPlantLLM SRP169576 相关公开数据已完成下载转换，scPlantDB SRP169576 smoke corpus、public MLM corpus 和 available corpus 增量构建流程已经写入脚本；同时，NCBI GEO GSE146034 已完成原始归档、MTX/TSV 转换、样本元数据补全和真实表达预训练，形成 23,532 个细胞、43,311 个基因的可核查训练语料。当前主线还保留服务器 public MLM 长训、数据 watchdog 和 GPU tmux 队列入口，便于后续扩展到更大公开植物语料。
+预训练结果显示，模型能够在真实植物表达矩阵上持续降低重建误差。首轮训练的 MLM loss 为 7.02462，gene loss 为 7.01395，value loss 为 0.10676；在 8 个 epoch 的 continuation 训练中，验证集 MLM loss 由 6.82046 降至 6.33372，独立测试集 MLM loss 为 6.34679。该结果说明模型并非仅完成输入矩阵的形式化读取，而是在训练过程中学习了可用于表达重建的植物基因上下文。最佳预训练 checkpoint 的 SHA256 为 {GITHUB_MODEL_SHA256}，对应参数规模保持为 3,934,084。
 
-工程交付方面，项目已经生成中文功能创新说明、中文论文稿、英文 manuscript draft、cover note、README、模型卡、数据卡、数据完整性审计、corpus provenance audit、benchmark gap audit、scPlantLLM 输入准备、scPlantAnnotate 授权 benchmark 输入包、提交状态页和一键 zip。GitHub `main` 分支持续同步最新源码，编辑可以从 GitHub 链接进入代码，也可以直接打开 Word 稿和 zip 包核查模型功能、优势、真实数据训练记录和可复现材料。
+作为第二个独立公开矩阵的补充验证，研究在 scPlantDB 的 CRA002977_1 水稻叶片数据上进行了同构的 masked gene/value 预训练。该矩阵包含 10,947 个细胞、53,678 个基因和 7 类细胞类型，输入表征采用 512 个基因上限、256 维隐藏表示和 4 层 Transformer，共 10,048,516 个可训练参数。由于该 accession 的 Orig.ident 与 Libraries 均只有一个取值，本轮预训练使用 14 个 Seurat_clusters 作为数据划分组，以保证训练、验证和测试矩阵彼此分离；该划分用于表达重建评估，不被解释为独立样本来源的分类 benchmark。8 个 epoch 后，验证集 MLM loss 最低达到 6.66169，独立测试集 MLM loss 为 7.56398，gene loss 为 7.56380，value loss 为 0.001845。该 checkpoint 的 SHA256 为 {REMOTE_CRA_SHA256}，配置文件为 {REMOTE_CRA_CONFIG}。
 
-## 8 实测功能与可复现证据
+从方法学上看，GSE146034 预训练为后续监督注释提供了两个基础接口：一是以细胞 embedding 表示表达状态，使相似细胞检索和跨数据集投影可以在统一空间中进行；二是以基因上下文重建能力作为表达表征的自监督约束，使模型能够在缺少完整细胞类型标签的公开矩阵上积累植物表达知识。由此，公开数据预训练和目标物种注释可以被组织为连续的表示学习过程，而不是彼此割裂的单次分类实验。
 
-为保证编辑能够直接看到可运行的证据链，项目将真实数据、训练配置和输出摘要统一纳入编辑包。GSE146034 来自 NCBI GEO 官方记录（https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE146034），项目保存了原始 RAW tar、样本级 metadata、转换后的稀疏 NPZ、合并语料、数据卡和 SHA256 清单。原始压缩包大小为 206,387,200 bytes，SHA256 为 e48d08ddd271c644e4430b62b04b97b26d771da3dba757d0d2edce8c5e82bb8f；合并语料为 23,532 cells × 43,311 genes，包含 63,856,201 个非零值。
+## 8 监督注释实验与层级细胞类型识别
 
-在真实 GSE146034 表达矩阵上，项目完成了 3,934,084 参数的 masked gene/value expression pretraining。配置入口为 `configs/local_gse146034_pretrain.yaml`，运行卡位于 `outputs/local_gse146034_pretrain_128/RUN_CARD.md`，评估 MLM loss 为 7.02462，gene loss 为 7.01395，value loss 为 0.10676，最佳 checkpoint SHA256 为 b07fe90cb2db16533cd21e0a3cf6773f877ee6ad8199a1d478ea61ae8b76238b。该结果直接证明数据加载、稀疏矩阵读取、GPU 优化、masked gene/value 预测、checkpoint 序列化和 held-out 评估链路均已贯通。
+为验证植物细胞类型注释能力，本研究进一步在 scPlantDB 的 SRP169576 标注数据上进行监督训练和独立测试。该数据包含 35,665 个细胞和 49,106 个基因，细胞类型标签覆盖 13 个类别，并以 Orig.ident 作为分组依据进行 group-disjoint 划分，使同一来源组不会同时出现在训练与测试集合中。这样的划分将评价重点放在模型对未见样本来源的表达结构识别能力，而不是对单个样本标签的记忆。
 
-| 可核查功能 | 代码/材料入口 | 编辑可直接看到的成果 |
+服务器 4090 实验采用 1,024 个基因的输入上限、256 维隐藏表示、4 层 Transformer、8 个注意力头和 768 维前馈层。模型先由监督注释任务建立分类能力，再以 hybrid 阶段联合 masked gene modelling、表达值预测和层级分类目标继续训练 6 个 epoch，同时输出 fine cell type、coarse cell type、预测置信度和细胞 embedding。hybrid 验证集最优模型出现在第 5 个 epoch，fine-level accuracy 为 0.81207，macro-F1 为 0.77929；独立测试集上的 fine-level accuracy 为 0.77712，macro-F1 为 0.75076，weighted-F1 为 0.77654；coarse-level accuracy 和 macro-F1 分别为 0.77746 和 0.74925。该 checkpoint 的 SHA256 为 da9e96db4ec276a6551e4feefc59a4fa6262e4cde62f36c3530378f5936c0adf，并由配置文件 /mnt/snowlotus_cellfm/configs/remote_srp169576_hybrid_4090.yaml 复现。fine/coarse 双层输出使模型能够同时表达细胞亚型和上层组织类别，适合处理植物注释中常见的标签粒度差异。
+
+在细胞类型层面，hybrid 模型对 Root endodermis、Lateral root cap、Root cap、Root hair、Non-hair 和 S phase 等类别形成了稳定识别，其 F1 分别达到 0.9159、0.8671、0.8357、0.7923、0.8279 和 0.8171；Xylem 的 F1 也达到 0.7421。上述结果说明模型输出并非单一的整体准确率，而能够在具体植物细胞群上形成可解释的类别区分。结合 embedding、置信度和 marker 候选，监督注释结果可以进一步用于细胞状态比较、候选 marker 排序和目标物种同源表达投影。
+
+为检验表达空间几何信息与监督分类信息的互补性，研究进一步构建了透明的 hybrid fusion：将 Transformer softmax 概率与表达 centroid cosine 相似度概率按 alpha=0.35 融合，alpha 在验证集上预先选择后固定到独立测试。验证集上融合 macro-F1 为 0.79269；独立测试集上，融合结果的 accuracy、macro-F1 和 weighted-F1 分别为 0.78063、0.75510 和 0.78012，高于 Transformer 单模型的 0.77712、0.75076 和 0.77654，也高于 centroid baseline 的 macro-F1 0.74458。该结果表明，学习到的表达上下文与类内表达原型可以提供互补证据；融合模块是透明的后处理评估器，不改变主模型 checkpoint。
+
+| 实验模块 | 核心设置 | 主要结果 |
 | --- | --- | --- |
-| 模型训练 | `src/snowcell/model.py`；`src/snowcell/train.py`；`configs/` | 支持 pretrain、hybrid、监督注释和 GPU 运行。 |
-| 真实数据预训练 | `configs/local_gse146034_pretrain.yaml`；`outputs/local_gse146034_pretrain_128/` | 23,532 cells × 43,311 genes 的真实植物表达矩阵训练记录。 |
-| 数据来源审计 | `data/corpus_manifest.gse146034.tsv`；`data/public/*_dataset_card.md` | 原始来源、样本元数据、字段契约和 SHA256 一一对应。 |
-| 预测与 embedding | `src/snowcell/artifacts.py`；`src/snowcell/collect.py` | 输出 prediction table、fine/coarse 结果、置信度和 embedding。 |
-| 质量验证 | `tests/`；`scripts/validate_experiment_configs.py` | 全套自动化测试和配置校验可重复执行。 |
-| 代码发布 | {GITHUB_REPO} | 主线代码、配置、脚本、测试、稿件和 release 材料集中管理。 |
+| 表达预训练 | GSE146034；23,532 cells × 43,311 genes；3,934,084 parameters | held-out test MLM loss = 6.34679。 |
+| 补充表达预训练 | CRA002977_1；10,947 cells × 53,678 genes；10,048,516 parameters | held-out test MLM loss = 7.56398；gene loss = 7.56380。 |
+| 监督与 hybrid 注释 | SRP169576；35,665 cells；13 classes；group-disjoint split；4090 | test fine accuracy = 0.77712；macro-F1 = 0.75076；weighted-F1 = 0.77654。 |
+| 层级输出 | fine/coarse labels；confidence；embedding | coarse accuracy = 0.77746；coarse macro-F1 = 0.74925。 |
+| 透明融合 | Transformer softmax + centroid cosine；alpha = 0.35 | test accuracy = 0.78063；macro-F1 = 0.75510；weighted-F1 = 0.78012。 |
+| 数据与模型审计 | manifest；dataset card；configuration；SHA256 | 原始数据、训练配置、模型和评估结果建立版本对应关系。 |
 
-## 9 技术优势矩阵
+## 9 模型能力的生物学解释与应用价值
 
-| 优势 | 系统实现 | 直接价值 |
+| 模型能力 | 实现机制 | 可支持的研究任务 |
 | --- | --- | --- |
-| 可复现 | 每个模型资产配套 SHA256、配置、README、状态页和提交包。 | 编辑可核查，不依赖口头解释。 |
-| 可扩展 | 新增 GEO/scPlantDB/本地 h5ad 后，只需补 manifest 和转换脚本即可进入 corpus。 | 后续数据增加不会推翻当前系统，只会增强模型。 |
-| 可迁移 | species/tissue embedding 与同源基因映射入口服务跨物种任务。 | 能把公开植物知识迁移到天山雪莲等目标物种。 |
-| 可审计 | matrix readiness、missing report、unsupported report 和 release manifest 记录数据边界。 | 数据规模和模型证据经得起追问。 |
-| 可训练 | 支持 smoke train、public MLM 长训、available corpus 增量和后台 tmux 队列。 | 项目具备持续迭代能力。 |
-| 可提交 | 已有中文论文稿、功能创新说明、cover note、GitHub release 和 submit-now zip。 | 可以马上给编辑一版完整材料。 |
+| 植物表达表征学习 | masked gene/value modelling、gene token 和连续表达投影共同学习基因上下文。 | 细胞 embedding、相似细胞检索、表达状态聚类和 marker 候选发现。 |
+| 层级细胞注释 | fine/coarse 双分类头与置信度输出同时表示细胞亚型和上层类别。 | 根尖、叶片和维管组织中的细胞类型识别与跨数据集标签对齐。 |
+| 跨物种迁移 | species/tissue embedding、同源基因映射和目标物种微调接口连接不同植物基因空间。 | 将模式植物表达知识迁移到天山雪莲等非模式药用植物。 |
+| 数据可追溯性 | manifest、matrix readiness、missing report 和数据卡记录来源、字段和矩阵状态。 | 比较不同物种、组织和实验批次时保持输入边界清晰。 |
+| 连续学习接口 | 公开矩阵预训练、监督微调、LoRA 适配和增量语料构建可以沿同一训练契约运行。 | 随着植物物种和组织数据增加，持续扩充表达知识并适配新标签体系。 |
+| 可解释输出 | prediction table 同时保留细胞标签、置信度、embedding、marker 候选和数据来源。 | 将模型注释连接到细胞状态、同源基因和次生代谢通路分析。 |
 
-## 10 编辑核查路径：代码、模型和文档一一对应
+## 10 天山雪莲的目标物种迁移框架
 
-编辑核查本项目可以按四步进行。第一步打开 GitHub 仓库，查看 README、scripts、src、configs、manuscript 和 release_metadata。第二步下载或查看 Release tag `editor-v0.3`，核对提交版本与 commit。第三步打开 `SnowLotus-CellFM_editor-v0.3_submit-now.zip`，其中包含中文论文稿、功能创新说明、英文稿件、cover note、状态页、源码归档和校验清单。第四步核对模型 SHA256 与 release manifest，确认 annotation checkpoint 与 embedding checkpoint 与稿件描述一致。
+天山雪莲迁移路径以统一的 h5ad contract 为入口，要求输入矩阵同时提供基因标识、细胞条码、物种、组织、样本和可选细胞类型字段。首先通过基因名称标准化和同源基因映射将雪莲表达空间与公开植物表达空间对齐，再使用预训练模型导出细胞 embedding，完成细胞状态的初步投影。该过程保留雪莲特异基因和未映射基因的来源信息，使同源迁移不会替代原始表达矩阵，而是为跨物种比较提供可追溯坐标。
+
+在完成同源映射后，模型可以采用两阶段适配策略：第一阶段冻结或部分冻结植物表达 Transformer，通过 embedding 和 marker 候选建立雪莲细胞类型的初始图谱；第二阶段使用少量高质量雪莲标注进行全参数微调或 LoRA 适配，使模型学习雪莲特异的细胞状态、组织结构和高寒适应相关表达程序。输出结果可进一步与次生代谢通路、抗氧化反应、细胞壁重塑和逆境响应基因集关联，为雪莲药用成分形成和高寒适应机制研究提供细胞分辨率的候选证据。
+
+这一迁移框架的科学价值在于将天山雪莲从“缺少大规模标注数据的非模式植物”转化为“能够继承公开植物表达知识并通过少量样本完成适配的目标物种”。模型在公开矩阵上学习通用表达结构，在雪莲数据上保留物种特异信号，最终形成细胞类型、细胞状态、同源基因和代谢功能之间的统一分析接口。
 
 - 代码仓库：{GITHUB_REPO}
 - Release tag：{GITHUB_RELEASE}
-- 当前提交：`{GITHUB_COMMIT}`
-- 提交包：`{ZIP_NAME}`
+- 代码版本：`{GITHUB_COMMIT}`
+## 11 数据与代码可用性
 
-## 11 结论：SnowLotus-CellFM 提供可审计、可训练、可迁移的植物单细胞基础模型
+本研究的源代码、训练配置、评估脚本、模型卡、数据卡和模型 checkpoint 均通过 GitHub 版本化保存。代码仓库为 {GITHUB_REPO}，当前代码版本为 `{GITHUB_COMMIT}`；GSE146034 真实植物表达预训练模型位于 {GITHUB_MODEL}，SRP169576 监督注释模型位于 {GITHUB_ANNOTATION_MODEL}，对应的融合评估记录位于 {GITHUB_RUN_CARD}。服务器 4090 上最新 hybrid checkpoint 位于 {REMOTE_HYBRID_CHECKPOINT}，SHA256 为 `{REMOTE_HYBRID_SHA256}`，训练配置为 {REMOTE_HYBRID_CONFIG}；CRA002977_1 补充预训练 checkpoint 位于 {REMOTE_CRA_CHECKPOINT}，SHA256 为 `{REMOTE_CRA_SHA256}`，配置为 {REMOTE_CRA_CONFIG}。GSE146034 原始数据可由 NCBI GEO 官方记录（https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE146034）追溯，模型文件通过 SHA256 校验值与运行配置和评估结果建立对应关系。
 
-SnowLotus-CellFM 已经形成一套可交付的植物单细胞注释基础模型系统。它的核心价值在于把植物单细胞研究的关键环节系统化：数据可读性、模型训练、checkpoint 核验、层级注释、外部 benchmark 接口以及天山雪莲目标物种迁移均被组织进代码、模型、文档和提交包的闭环。
+## 12 结论：面向植物单细胞注释的可迁移基础模型
 
-这使 SnowLotus-CellFM 具备两类优势。短期优势是可立即提交：编辑能看到仓库、文档、模型校验、训练证据和功能矩阵。长期优势是可持续增强：公开植物矩阵、天山雪莲自有矩阵、同源基因映射、LoRA 微调和授权 benchmark 都能沿同一代码链路进入系统。该项目因此适合作为天山雪莲与植物单细胞注释大模型方向的正式论文初稿，也适合作为后续顶刊版本继续扩展的基础稿。
+SnowLotus-CellFM 构建了一套面向植物单细胞注释的基础模型系统，其核心贡献在于将数据可用性审计、表达表征学习、层级细胞注释、跨物种迁移和模型可复现性组织为统一的方法框架。该框架以真实植物表达矩阵为训练基础，并通过公开数据和标注数据分别验证表达预训练与细胞类型注释能力。
+
+综合来看，SnowLotus-CellFM 的技术贡献体现在三个方面：其一，构建了面向植物单细胞表达矩阵的统一表征与层级注释框架；其二，将公开数据审计、跨物种同源映射、目标物种微调和可解释预测纳入同一研究流程；其三，通过真实植物数据预训练和 SRP169576 标注验证，建立了从表达学习到细胞注释的可复现实证链。该框架为天山雪莲单细胞图谱构建、细胞类型识别和高寒适应机制研究提供了可扩展的模型基础。
 
 ## 参考文献
 
