@@ -15,11 +15,17 @@ while [ ! -s "${CHECKPOINT}" ]; do
   sleep "${INTERVAL_SECONDS}"
 done
 
-if [ -f "${MARKER}" ]; then
-  exit 0
-fi
-
-echo "[$(date)] promoting new backbone to Plant-CellFM service" >> "${LOG}"
-tmux kill-session -t snowcell_service_final 2>/dev/null || true
-tmux new-session -d -s snowcell_service_final "cd ${PROJECT_DIR} && BACKBONE_CHECKPOINT=${CHECKPOINT} bash scripts/start_snowlotus_service.sh > logs/service_final.log 2>&1"
-printf '%s\n' "$(date -Is)" > "${MARKER}"
+while [ ! -f "${MARKER}" ]; do
+  echo "[$(date)] promoting new backbone to Plant-CellFM service" >> "${LOG}"
+  tmux kill-session -t snowcell_service_final 2>/dev/null || true
+  tmux new-session -d -s snowcell_service_final "cd ${PROJECT_DIR} && BACKBONE_CHECKPOINT=${CHECKPOINT} bash scripts/start_snowlotus_service.sh > logs/service_final.log 2>&1"
+  for _ in $(seq 1 30); do
+    if curl -fsS http://127.0.0.1:8000/health >/dev/null 2>&1; then
+      printf '%s\n' "$(date -Is)" > "${MARKER}"
+      exit 0
+    fi
+    sleep 5
+  done
+  echo "[$(date)] service health check failed; retrying" >> "${LOG}"
+  sleep "${INTERVAL_SECONDS}"
+done
