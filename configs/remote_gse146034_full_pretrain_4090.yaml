@@ -1,0 +1,43 @@
+data:
+  path: data/plant_foundation_corpus_gse146034_full.npz
+  label_key: cell_type
+  coarse_label_key: cell_type_coarse
+  group_key: cell_id
+  species_key: species
+  tissue_key: tissue
+  max_genes: 512
+  min_genes_per_cell: 5
+  min_cells_per_gene: 3
+  validation_fraction: 0.15
+  test_fraction: 0.15
+
+architecture:
+  d_model: 256
+  n_layers: 4
+  n_heads: 8
+  ffn_dim: 768
+  dropout: 0.10
+  value_bins: 64
+
+train:
+  stage: pretrain
+  seed: 20260728
+  epochs: 8
+  batch_size: 32
+  eval_batch_size: 64
+  learning_rate: 0.0005
+  weight_decay: 0.02
+  warmup_fraction: 0.10
+  gradient_accumulation_steps: 1
+  mixed_precision: bf16
+  tuning_mode: full
+  mlm_loss_weight: 1.0
+  value_loss_weight: 0.10
+  mask_ratio: 0.15
+  early_stopping_patience: 3
+  max_train_batches_per_epoch: 512
+  max_eval_batches: 128
+
+output:
+  directory: outputs/remote_gse146034_full_pretrain_4090
+  save_every_epochs: 1

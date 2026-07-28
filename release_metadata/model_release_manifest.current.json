@@ -51,6 +51,31 @@
       "train_loss": 6.834768636215136
     },
     {
+      "bytes": 43223624,
+      "checkpoint_epoch": 8,
+      "checkpoint_kind": "best",
+      "coarse_macro_f1": null,
+      "coarse_vocab_size": 0,
+      "config": "outputs/remote_gse146034_full_pretrain_4090/config.resolved.json",
+      "eval_loss": 6.809713414737156,
+      "fine_macro_f1": null,
+      "fine_vocab_size": 0,
+      "gene_vocab_size": 27337,
+      "history_epochs": 8,
+      "model_d_model": 256,
+      "model_heads": 8,
+      "model_layers": 4,
+      "path": "outputs/remote_gse146034_full_pretrain_4090/best.pt",
+      "release_note": "Pretraining checkpoint: embeddings/MLM evidence, not label annotation.",
+      "run_id": "remote_gse146034_full_pretrain_4090",
+      "sha256": "e0bfed95591959e7120e5dec1ed5ce8b59721aae845cb9cbe7166991e0831329",
+      "species_vocab_size": 2,
+      "stage": "pretrain",
+      "status": "embedding_release_candidate",
+      "tissue_vocab_size": 1,
+      "train_loss": 6.8212132984772325
+    },
+    {
       "bytes": 40085960,
       "checkpoint_epoch": 7,
       "checkpoint_kind": "best",
@@ -152,13 +177,13 @@
     }
   ],
   "errors": [],
-  "generated_at_utc": "2026-07-28T13:27:31.439056+00:00",
+  "generated_at_utc": "2026-07-28T16:21:54.719092+00:00",
   "project_dir": ".",
   "summary": {
-    "checkpoint_count": 6,
-    "embedding_release_candidate_count": 3,
+    "checkpoint_count": 7,
+    "embedding_release_candidate_count": 4,
     "error_count": 0,
     "label_release_candidate_count": 3,
-    "total_checkpoint_bytes": 305159920
+    "total_checkpoint_bytes": 348383544
   }
 }
