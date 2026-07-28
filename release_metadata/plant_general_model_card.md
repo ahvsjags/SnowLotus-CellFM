@@ -1,6 +1,6 @@
 # Plant-CellFM General Plant Model Card
 
-- Generated UTC: `2026-07-28T18:37:38.379270+00:00`
+- Generated UTC: `2026-07-28T18:41:25.301883+00:00`
 - Model scope: **plant_general**
 - Model name: `Plant-CellFM (general plant foundation model)`
 - Snow Lotus is an adapter and case study; the backbone is designed for cross-species plant expression data.
@@ -53,6 +53,7 @@ A cross-species plant single-cell and single-nucleus expression backbone. Snow L
 2. For species-specific identifiers, provide a source-to-target ortholog map and retain mapping confidence.
 3. Run the general backbone for embeddings and MLM features, then attach a task- or species-specific head when labels are available.
 4. The Snow Lotus branch adds reference-genome, gene-catalog and future primary single-cell adaptation assets without narrowing the general model.
+The runtime uses the joint scPlantDB checkpoint as the primary general-plant backbone. The supervised checkpoint is an optional annotation head, not the definition of the plant scope.
 
 ## Reproducibility
 

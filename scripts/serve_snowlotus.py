@@ -105,8 +105,15 @@ class PlantCellFMHandler(BaseHTTPRequestHandler):
                     raise ValueError("ortholog_map must be under the project root") from exc
                 if not ortholog_path.exists():
                     raise FileNotFoundError(ortholog_path)
+            mode = str(request.get("mode", "annotation")).lower()
+            if mode not in {"embedding", "annotation"}:
+                raise ValueError("mode must be embedding or annotation")
+            role = "backbone" if mode == "embedding" else "annotation"
+            selected_checkpoint = state["checkpoints"].get(role)
+            if selected_checkpoint is None:
+                raise ValueError(f"{role} checkpoint is not configured")
             result = annotate_to_bundle(
-                checkpoint_path=state["checkpoint_path"],
+                checkpoint_path=selected_checkpoint["path"],
                 data_path=data_path,
                 output_dir=output_dir,
                 layer=request.get("layer"),
@@ -116,6 +123,8 @@ class PlantCellFMHandler(BaseHTTPRequestHandler):
             )
             selection = {
                 "requested_species": request.get("species", ""),
+                "mode": mode,
+                "checkpoint_role": role,
                 "used_fallback": used_fallback,
                 "ortholog_map": str(ortholog_path) if ortholog_path else None,
                 "adapter": adapter.to_dict(),
@@ -135,7 +144,9 @@ class PlantCellFMHandler(BaseHTTPRequestHandler):
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Serve Plant-CellFM general-plant inference")
-    parser.add_argument("--checkpoint", required=True)
+    parser.add_argument("--checkpoint", default=None, help="Legacy single-checkpoint alias")
+    parser.add_argument("--backbone-checkpoint", default=None, help="General plant MLM backbone checkpoint")
+    parser.add_argument("--annotation-checkpoint", default=None, help="Optional supervised annotation checkpoint")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8000)
     parser.add_argument("--device", default="auto")
@@ -151,12 +162,30 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main() -> None:
     args = build_parser().parse_args()
-    checkpoint_path = Path(args.checkpoint).expanduser().resolve()
-    checkpoint = load_checkpoint(checkpoint_path, map_location="cpu")
+    backbone_value = args.backbone_checkpoint or args.checkpoint
+    if not backbone_value:
+        raise SystemExit("one of --backbone-checkpoint or --checkpoint is required")
+    backbone_path = Path(backbone_value).expanduser().resolve()
+    annotation_path = (
+        Path(args.annotation_checkpoint).expanduser().resolve()
+        if args.annotation_checkpoint
+        else None
+    )
+    backbone_checkpoint = load_checkpoint(backbone_path, map_location="cpu")
+    annotation_checkpoint = (
+        load_checkpoint(annotation_path, map_location="cpu") if annotation_path else None
+    )
     device = _device(args.device)
     registry = load_registry(args.adapter_registry)
     state = {
-        "checkpoint_path": checkpoint_path,
+        "checkpoints": {
+            "backbone": {"path": backbone_path, "payload": backbone_checkpoint},
+            "annotation": (
+                {"path": annotation_path, "payload": annotation_checkpoint}
+                if annotation_path and annotation_checkpoint is not None
+                else None
+            ),
+        },
         "device": device,
         "data_root": Path(args.data_root).expanduser().resolve() if args.data_root else None,
         "project_root": Path(args.project_root).expanduser().resolve(),
@@ -169,13 +198,16 @@ def main() -> None:
             "adapter_registry": str(Path(args.adapter_registry).expanduser().resolve()),
             "adapter_count": len(registry.adapters),
             "snow_lotus_role": "one species adapter among the registered plant adapters",
-            "checkpoint": str(checkpoint_path),
-            "model_config": checkpoint.get("model_config", {}),
-            "checkpoint_epoch": checkpoint.get("epoch"),
-            "checkpoint_metrics": checkpoint.get("metrics", {}),
-            "gene_vocab_size": len(checkpoint.get("gene_vocab", [])),
-            "fine_vocab_size": len(checkpoint.get("fine_vocab", [])),
-            "coarse_vocab_size": len(checkpoint.get("coarse_vocab", [])),
+            "primary_checkpoint_role": "backbone",
+            "backbone_checkpoint": str(backbone_path),
+            "annotation_checkpoint": str(annotation_path) if annotation_path else None,
+            "model_config": backbone_checkpoint.get("model_config", {}),
+            "checkpoint_epoch": backbone_checkpoint.get("epoch"),
+            "checkpoint_metrics": backbone_checkpoint.get("metrics", {}),
+            "gene_vocab_size": len(backbone_checkpoint.get("gene_vocab", [])),
+            "fine_vocab_size": len(backbone_checkpoint.get("fine_vocab", [])),
+            "coarse_vocab_size": len(backbone_checkpoint.get("coarse_vocab", [])),
+            "annotation_head_available": annotation_checkpoint is not None,
         },
         "capabilities": {
             "status": "ok",
@@ -183,13 +215,17 @@ def main() -> None:
             "tasks": [
                 "cross_species_embedding",
                 "masked_expression_features",
-                "hierarchical_cell_annotation",
+                "hierarchical_cell_annotation" if annotation_checkpoint is not None else "embedding_only_until_head_attached",
                 "marker_candidate_discovery",
                 "species_adapter_resolution",
             ],
             "input_formats": [".h5ad", ".npz"],
             "gene_transfer_policy": "exact gene identifiers first, then request-level or configured ortholog map with mapping statistics",
             "routes": ["GET /health", "GET /metadata", "GET /capabilities", "GET /adapters", "POST /annotate"],
+            "modes": {
+                "embedding": "uses the general plant backbone checkpoint",
+                "annotation": "uses the supervised annotation checkpoint when configured",
+            },
             "adapter_count": len(registry.adapters),
         },
     }

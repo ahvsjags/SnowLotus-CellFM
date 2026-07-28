@@ -212,7 +212,12 @@ def build_payload(root: Path) -> dict[str, Any]:
             "required_expression_axis": "cells x genes",
             "gene_id_order": "gene identifiers are matched to the checkpoint vocabulary; use data.ortholog_map for novel species during training or offline preprocessing",
             "outputs": ["cell annotations", "256-dimensional embeddings", "bundle metadata"],
-            "service_routes": ["GET /health", "GET /metadata", "GET /capabilities", "POST /annotate"],
+            "service_routes": ["GET /health", "GET /metadata", "GET /capabilities", "GET /adapters", "POST /annotate"],
+            "modes": {
+                "embedding": "general plant backbone checkpoint",
+                "annotation": "optional supervised annotation checkpoint",
+            },
+            "primary_checkpoint": "outputs/remote_joint_scplantdb_pretrain_4090/best.pt",
         },
         "reproducibility": {
             "gpu": "NVIDIA GeForce RTX 4090 24 GB",
@@ -284,6 +289,7 @@ def write_markdown(payload: dict[str, Any], output: Path) -> None:
             "2. For species-specific identifiers, provide a source-to-target ortholog map and retain mapping confidence.",
             "3. Run the general backbone for embeddings and MLM features, then attach a task- or species-specific head when labels are available.",
             "4. The Snow Lotus branch adds reference-genome, gene-catalog and future primary single-cell adaptation assets without narrowing the general model.",
+            "The runtime uses the joint scPlantDB checkpoint as the primary general-plant backbone. The supervised checkpoint is an optional annotation head, not the definition of the plant scope.",
             "",
             "## Reproducibility",
             "",

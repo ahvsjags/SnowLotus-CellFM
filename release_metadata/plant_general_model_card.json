@@ -1,6 +1,6 @@
 {
   "schema_version": "plant-general-release-v1",
-  "generated_at_utc": "2026-07-28T18:37:38.379270+00:00",
+  "generated_at_utc": "2026-07-28T18:41:25.301883+00:00",
   "project": "SnowLotus-CellFM",
   "model_scope": "plant_general",
   "model_name": "Plant-CellFM (general plant foundation model)",
@@ -627,8 +627,14 @@
       "GET /health",
       "GET /metadata",
       "GET /capabilities",
+      "GET /adapters",
       "POST /annotate"
-    ]
+    ],
+    "modes": {
+      "embedding": "general plant backbone checkpoint",
+      "annotation": "optional supervised annotation checkpoint"
+    },
+    "primary_checkpoint": "outputs/remote_joint_scplantdb_pretrain_4090/best.pt"
   },
   "reproducibility": {
     "gpu": "NVIDIA GeForce RTX 4090 24 GB",
