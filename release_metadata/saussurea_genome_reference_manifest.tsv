@@ -1,0 +1,7 @@
+asset_dir=/mnt/snowlotus_cellfm/data/public/saussurea_genome_reference
+assembly=GCA_033807775.1
+taxon=Saussurea_involucrata
+status=latest
+source_root=https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/033/807/775/GCA_033807775.1_ASM3380777v1/
+feature_count=43311_protein_coding_genes
+annotation_files=not_present_in_assembly_directory
