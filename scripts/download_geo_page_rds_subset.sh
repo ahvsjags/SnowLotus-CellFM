@@ -112,7 +112,12 @@ if ! command -v Rscript >/dev/null 2>&1; then
   exit 2
 fi
 
-Rscript scripts/export_seurat_rds_to_mtx.R "$download_dir" "$mtx_dir"
+if ! Rscript scripts/export_seurat_rds_to_mtx.R "$download_dir" "$mtx_dir"; then
+  echo "Seurat RDS export failed; trying direct expression slot export." >&2
+  rm -rf "$mtx_dir"
+  mkdir -p "$mtx_dir"
+  Rscript scripts/export_seurat_rds_expression_slot_to_mtx.R "$download_dir" "$mtx_dir"
+fi
 python scripts/build_npz_from_seurat_export.py \
   --export-dir "$mtx_dir" \
   --output-dir "$npz_dir" \

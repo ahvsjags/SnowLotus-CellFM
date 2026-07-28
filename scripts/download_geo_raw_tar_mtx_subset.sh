@@ -26,8 +26,30 @@ series_bucket="${accession%???}nnn"
 raw_url="${SNOWCELL_GEO_RAW_URL:-https://ftp.ncbi.nlm.nih.gov/geo/series/${series_bucket}/${accession}/suppl/${accession}_RAW.tar}"
 raw_fallback_url="${SNOWCELL_GEO_RAW_FALLBACK_URL:-https://www.ncbi.nlm.nih.gov/geo/download/?acc=${accession}&format=file}"
 downloader="${SNOWCELL_GEO_RAW_TAR_DOWNLOADER:-aria2}"
+aria2_lowest_speed="${SNOWCELL_GEO_RAW_TAR_ARIA2_LOWEST_SPEED:-1K}"
+partial_gzip_member_quarantine="${raw_dir}/partial_gzip_member_quarantine"
+quarantined_gzip_members=()
+organized_flat_mtx_triplets="${extract_dir}/organized_flat_mtx_triplets"
 
 mkdir -p "$raw_dir" "$extract_dir" "$npz_dir" logs
+
+download_with_curl_resume() {
+  local url="$1"
+  local label="$2"
+  echo "Downloading $label with curl resume"
+  curl -L --fail --http1.1 --retry 12 --retry-all-errors --connect-timeout 20 --max-time 86400 \
+    -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
+    -C - -o "$raw_tmp" "$url"
+}
+
+download_with_curl_fresh() {
+  local url="$1"
+  local label="$2"
+  echo "Downloading $label with a fresh curl request"
+  curl -L --fail --http1.1 --retry 12 --retry-all-errors --connect-timeout 20 --max-time 86400 \
+    -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
+    -o "$raw_tmp" "$url"
+}
 
 write_unsupported_report() {
   local reason="$1"
@@ -116,23 +138,21 @@ else
     } > "$aria2_input"
     if ! aria2c -c -j 1 \
       -x "${SNOWCELL_GEO_RAW_TAR_CONNECTIONS:-1}" -s "${SNOWCELL_GEO_RAW_TAR_SPLITS:-1}" \
+      --lowest-speed-limit="$aria2_lowest_speed" \
       --max-tries=12 --retry-wait=20 --timeout=120 --allow-overwrite=true --auto-file-renaming=false \
       --user-agent="SnowLotus-CellFM/0.1 public-data-collector" \
       -i "$aria2_input"; then
-      echo "aria2 raw tar download failed; retrying GEO fallback download with curl resume"
-      curl -L --fail --http1.1 --retry 12 --retry-all-errors --connect-timeout 20 --max-time 86400 \
-        -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
-        -C - -o "$raw_tmp" "$raw_fallback_url"
+      echo "aria2 raw tar download failed; retrying range-capable raw URL with curl resume"
+      if ! download_with_curl_resume "$raw_url" "GEO raw tar URL"; then
+        download_with_curl_fresh "$raw_fallback_url" "GEO download endpoint"
+      fi
       mv -f "$raw_tmp" "$raw_tar"
       rm -f "${raw_tar}.aria2"
     fi
   else
-    curl -L --fail --http1.1 --retry 12 --retry-all-errors --connect-timeout 20 --max-time 86400 \
-      -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
-      -C - -o "$raw_tmp" "$raw_fallback_url" \
-      || curl -L --fail --http1.1 --retry 12 --retry-all-errors --connect-timeout 20 --max-time 86400 \
-        -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
-        -C - -o "$raw_tmp" "$raw_url"
+    if ! download_with_curl_resume "$raw_url" "GEO raw tar URL"; then
+      download_with_curl_fresh "$raw_fallback_url" "GEO download endpoint"
+    fi
     mv -f "$raw_tmp" "$raw_tar"
     rm -f "${raw_tar}.aria2"
   fi
@@ -155,6 +175,40 @@ if find "$extract_dir" -type f -iname '*.gz' -print -quit | grep -q .; then
   fi
   rm -f "$gzip_validation_log"
 fi
+
+# GEO archives sometimes flatten multiple 10x triplets into one directory.
+# Re-home each complete triplet so the converter can preserve sample identity.
+python - "$extract_dir" <<'PY'
+from __future__ import annotations
+
+import shutil
+import sys
+from pathlib import Path
+
+root = Path(sys.argv[1])
+organized = []
+for matrix in sorted(root.glob("*_matrix.mtx*")):
+    if matrix.name.endswith("_matrix.mtx.gz"):
+        prefix = matrix.name[: -len("_matrix.mtx.gz")]
+        matrix_name = matrix.name
+    elif matrix.name.endswith("_matrix.mtx"):
+        prefix = matrix.name[: -len("_matrix.mtx")]
+        matrix_name = matrix.name
+    else:
+        continue
+    barcode = root / f"{prefix}_barcodes.tsv.gz"
+    feature = root / f"{prefix}_features.tsv.gz"
+    if not feature.exists():
+        feature = root / f"{prefix}_genes.tsv.gz"
+    if not barcode.exists() or not feature.exists():
+        continue
+    sample_dir = root / prefix
+    sample_dir.mkdir(exist_ok=True)
+    for source in [matrix, barcode, feature]:
+        shutil.move(str(source), str(sample_dir / source.name))
+    organized.append(prefix)
+print(f"Organized {len(organized)} flat MTX triplet files into sample directories")
+PY
 
 mtx_count="$(find "$extract_dir" -type f \( -iname '*matrix*.mtx*' -o -iname '*.mtx*' \) | wc -l | tr -d ' ')"
 if [ "$mtx_count" = "0" ]; then
