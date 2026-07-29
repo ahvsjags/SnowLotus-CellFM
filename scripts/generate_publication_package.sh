@@ -12,6 +12,7 @@ mkdir -p outputs/publication_package/strict_benchmarks
 mkdir -p outputs/publication_package/public_discovery
 mkdir -p outputs/publication_package/benchmarks
 mkdir -p outputs/publication_package/data_audits
+mkdir -p outputs/publication_package/runtime_smoke
 
 PYTHONPATH=src /root/miniconda3/envs/myconda/bin/python -m snowcell.cli report \
   --project-dir . \
@@ -371,6 +372,7 @@ find outputs/benchmarks -maxdepth 1 -type f -name '*.json' \
   -print > outputs/publication_package/benchmark_index.txt 2>/dev/null || true
 cp -f outputs/data_audits/gse268881_integrity.* outputs/publication_package/data_audits/ 2>/dev/null || true
 cp -f outputs/data_audits/gse268881_refresh_complete.marker outputs/publication_package/data_audits/ 2>/dev/null || true
+cp -f outputs/api_smoke_annotation_drp/annotation_metadata.json outputs/api_smoke_annotation_drp/adapter_selection.json outputs/api_smoke_annotation_drp/predictions.csv outputs/publication_package/runtime_smoke/ 2>/dev/null || true
 
 if [ "${SNOWCELL_WRITE_ARTIFACT_CHECKSUMS:-1}" = "1" ]; then
   python scripts/write_artifact_checksums.py \
