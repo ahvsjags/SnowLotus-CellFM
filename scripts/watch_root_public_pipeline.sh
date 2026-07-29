@@ -4,7 +4,7 @@ set -euo pipefail
 PROJECT_DIR="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 ROOT_STAGE="${SNOWCELL_PUBLIC_DATA_STAGE_ROOT:-/root/snowlotus_public_data_stage}"
 STAGE_PROJECT="${SNOWCELL_PUBLIC_DATA_STAGE_PROJECT:-/root/snowlotus_public_data_stage_project}"
-SEED_ROOT="${SNOWCELL_V3_SEED_ROOT:-/root/snowlotus_public_plants_v3_seed}"
+SEED_ROOT="${SNOWCELL_V3_SEED_ROOT:-/root/snowlotus_public_plants_v3_seed_fixed}"
 LOG="${ROOT_STAGE}/logs/root_pipeline_watchdog.log"
 mkdir -p "${ROOT_STAGE}/logs"
 mkdir -p "${SEED_ROOT}"

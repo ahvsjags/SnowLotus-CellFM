@@ -2,12 +2,13 @@
 set -euo pipefail
 
 PROJECT_DIR="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
-SEED_ROOT="${SNOWCELL_V3_SEED_ROOT:-/root/snowlotus_public_plants_v3_seed}"
-SEED_TRAIN="/root/snowlotus_cellfm_v3_seed_4090"
+SEED_ROOT="${SNOWCELL_V3_SEED_ROOT:-/root/snowlotus_public_plants_v3_seed_fixed}"
+SEED_TRAIN="/root/snowlotus_cellfm_v3_seed_fixed_4090"
 PYTHON_BIN="${SNOWCELL_PYTHON_BIN:-/root/miniconda3/envs/myconda/bin/python}"
 export PATH="$(dirname "${PYTHON_BIN}"):${PATH}"
 LOG_DIR="${SEED_ROOT}/logs"
 mkdir -p "${SEED_ROOT}" "${SEED_TRAIN}" "${LOG_DIR}"
+cd "${PROJECT_DIR}"
 
 log() {
   printf '[%s] %s\n' "$(date -Is)" "$*" | tee -a "${LOG_DIR}/pipeline.log"

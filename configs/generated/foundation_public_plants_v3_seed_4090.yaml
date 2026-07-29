@@ -1,5 +1,5 @@
 data:
-  path: /root/snowlotus_public_plants_v3_seed/plant_foundation_corpus_public_plants_v3_seed.h5ad
+  path: /root/snowlotus_public_plants_v3_seed_fixed/plant_foundation_corpus_public_plants_v3_seed.h5ad
   layer: null
   label_key: cell_type
   coarse_label_key: cell_type_coarse
@@ -54,5 +54,5 @@ train:
   compile_model: false
 
 output:
-  directory: /root/snowlotus_cellfm_v3_seed_4090
+  directory: /root/snowlotus_cellfm_v3_seed_fixed_4090
   save_every_epochs: 1
