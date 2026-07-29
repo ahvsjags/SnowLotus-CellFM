@@ -21,7 +21,7 @@ if [ -s "$pid_file" ]; then
   rm -f "$pid_file"
 fi
 
-nohup /bin/bash -c "cd '$project_dir'; export PATH='/root/miniconda3/envs/myconda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'; PYTHONPATH=src '$python_bin' -m snowcell.cli train --config '$config' --device cuda; PYTHONPATH=src '$python_bin' scripts/benchmark_public_plants_v1.py --project-dir '$project_dir' --data data/plant_foundation_corpus_public_plants_v1.h5ad --manifest data/corpus_manifest_public_plants_v1.tsv --max-cells-per-dataset 256 --batch-size 64 --device cuda --output outputs/benchmarks/public_plants_v1_continuation_5090.json || true; bash scripts/generate_publication_package.sh || true" \
+nohup /bin/bash -c "cd '$project_dir'; export PATH='/root/miniconda3/envs/myconda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'; PYTHONPATH=src '$python_bin' -m snowcell.cli train --config '$config' --device cuda; PYTHONPATH=src '$python_bin' scripts/benchmark_public_plants_v1.py --project-dir '$project_dir' --data data/plant_foundation_corpus_public_plants_v1.h5ad --manifest data/corpus_manifest_public_plants_v1.tsv --checkpoint '$output_dir/best.pt' --max-cells-per-dataset 256 --batch-size 64 --device cuda --output outputs/benchmarks/public_plants_v1_continuation_5090.json || true; bash scripts/generate_publication_package.sh || true; touch '$output_dir/training_complete.marker'" \
   >> "$session_log" 2>&1 < /dev/null &
 
 pid="$!"
