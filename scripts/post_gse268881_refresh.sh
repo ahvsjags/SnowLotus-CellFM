@@ -24,5 +24,25 @@ python scripts/audit_data_integrity.py \
   --output-json outputs/data_audits/gse268881_integrity.json \
   --output-tsv outputs/data_audits/gse268881_integrity.tsv
 
+gse_corpus="data/plant_gse268881_subset.h5ad"
+if [ ! -s "${gse_corpus}" ]; then
+  PYTHONPATH="${PROJECT_DIR}/src" \
+    /root/miniconda3/envs/myconda/bin/python -m snowcell.cli build-corpus \
+    --manifest "${manifest}" \
+    --output "${gse_corpus}" \
+    2>&1 | tee -a logs/gse268881_subset_corpus_build.log
+fi
+
+PYTHONPATH="${PROJECT_DIR}/src" \
+  /root/miniconda3/envs/myconda/bin/python scripts/benchmark_public_plants_v1.py \
+  --project-dir "${PROJECT_DIR}" \
+  --data "${gse_corpus}" \
+  --manifest "${manifest}" \
+  --max-cells-per-dataset 256 \
+  --batch-size 64 \
+  --device cuda \
+  --output outputs/benchmarks/gse268881_cross_species.json \
+  2>&1 | tee -a logs/gse268881_subset_benchmark.log
+
 printf '%s\n' "$(date -Iseconds)" > "${marker}"
 echo "GSE268881 refresh is ready: ${marker}"
