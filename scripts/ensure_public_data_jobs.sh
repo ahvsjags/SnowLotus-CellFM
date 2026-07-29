@@ -9,6 +9,11 @@ if [ -f .venv/bin/activate ]; then
   source .venv/bin/activate
 fi
 
+if ! bash scripts/check_disk_budget.sh "${PROJECT_DIR}"; then
+  echo "[$(date)] public data queue paused by disk budget"
+  exit 0
+fi
+
 start_job() {
   local session="$1"
   local done_file="$2"

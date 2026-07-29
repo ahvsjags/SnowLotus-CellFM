@@ -5,6 +5,11 @@ cd "$(dirname "$0")/../.."
 source .venv/bin/activate 2>/dev/null || true
 mkdir -p logs
 
+if ! bash scripts/check_disk_budget.sh "${PWD}"; then
+  echo "[$(date)] generated GEO promotion queue paused by disk budget"
+  exit 0
+fi
+
 poll_seconds="${SNOWCELL_GEO_PROMOTION_QUEUE_POLL_SECONDS:-120}"
 large_raw_scan_interval="${SNOWCELL_GEO_RAW_TAR_SCAN_INTERVAL_SECONDS:-1800}"
 last_large_raw_scan=0

@@ -15,6 +15,11 @@ cd "$project_dir"
 source .venv/bin/activate 2>/dev/null || true
 mkdir -p logs data/public_discovery outputs/publication_package
 
+if ! bash scripts/check_disk_budget.sh "${project_dir}"; then
+  echo "[$(date)] scPlantDB queue paused by disk budget"
+  exit 0
+fi
+
 manifest_rows() {
   if [ -s "$manifest" ]; then
     tail -n +2 "$manifest" | wc -l

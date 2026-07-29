@@ -5,6 +5,11 @@ cd /mnt/snowlotus_cellfm
 source .venv/bin/activate 2>/dev/null || true
 mkdir -p logs
 
+if ! bash scripts/check_disk_budget.sh "${PWD}"; then
+  echo "[$(date)] reviewed GEO queue paused by disk budget"
+  exit 0
+fi
+
 poll_seconds="${SNOWCELL_REVIEWED_GEO_QUEUE_POLL_SECONDS:-900}"
 
 jobs=(
