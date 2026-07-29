@@ -251,6 +251,7 @@ cp -f scripts/watch_safe_mlm_refresh.sh outputs/publication_package/scripts/ 2>/
 cp -f scripts/watch_publication_package_refresh.sh outputs/publication_package/scripts/ 2>/dev/null || true
 cp -f scripts/start_publication_package_watchdog.sh outputs/publication_package/scripts/ 2>/dev/null || true
 cp -f scripts/queue_reviewed_geo_downloads.sh outputs/publication_package/scripts/ 2>/dev/null || true
+cp -f scripts/check_disk_budget.sh outputs/publication_package/scripts/ 2>/dev/null || true
 cp -f scripts/start_public_queues.sh outputs/publication_package/scripts/ 2>/dev/null || true
 cp -f scripts/start_reviewed_geo_queue.sh outputs/publication_package/scripts/ 2>/dev/null || true
 cp -f scripts/restart_geo_promotion_worker.sh outputs/publication_package/scripts/ 2>/dev/null || true
