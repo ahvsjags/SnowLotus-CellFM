@@ -42,6 +42,7 @@ PY
 then
   curl -L --fail --retry 5 --retry-delay 5 --connect-timeout 20 \
     --max-time "${SNOWCELL_ROOT_GEO_MAX_TIME:-7200}" -C - \
+    -e "https://www.ncbi.nlm.nih.gov/geo/" \
     -A "SnowLotus-CellFM/0.1 public-data-collector" \
     -o "${h5_path}" "${url}"
 fi
