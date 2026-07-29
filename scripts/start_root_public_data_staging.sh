@@ -29,18 +29,21 @@ h5_path="${stage_root}/data/public/${accession}_h5/${filename}"
 
 download_full_file() {
   local full_tmp="${h5_path}.full_download"
-  rm -f "${full_tmp}"
+  local attempt_tmp="${full_tmp}.attempt"
+  # Keep the previous partial and the current attempt separate so a watchdog
+  # restart never destroys the only local copy of a large public file.
+  rm -f "${attempt_tmp}"
   curl -L --fail --http1.1 --retry 12 --retry-all-errors --retry-delay 10 \
     --connect-timeout 20 \
     --max-time "${SNOWCELL_ROOT_GEO_MAX_TIME:-86400}" \
     -e "https://www.ncbi.nlm.nih.gov/geo/" \
     -A "SnowLotus-CellFM/0.1 public-data-collector" \
-    -o "${full_tmp}" "${url}"
-  if [ -n "${expected_bytes}" ] && [ "$(wc -c < "${full_tmp}")" -ne "${expected_bytes}" ]; then
-    echo "full GEO download has unexpected size: expected=${expected_bytes} received=$(wc -c < "${full_tmp}")" >&2
-    rm -f "${full_tmp}"
+    -o "${attempt_tmp}" "${url}"
+  if [ -n "${expected_bytes}" ] && [ "$(wc -c < "${attempt_tmp}")" -ne "${expected_bytes}" ]; then
+    echo "full GEO download has unexpected size: expected=${expected_bytes} received=$(wc -c < "${attempt_tmp}")" >&2
     return 1
   fi
+  mv -f "${attempt_tmp}" "${full_tmp}"
   mv -f "${full_tmp}" "${h5_path}"
 }
 

@@ -8,6 +8,7 @@ SEED_ROOT="${SNOWCELL_V3_SEED_ROOT:-/root/snowlotus_public_plants_v3_seed_fixed}
 LOG="${ROOT_STAGE}/logs/root_pipeline_watchdog.log"
 mkdir -p "${ROOT_STAGE}/logs"
 mkdir -p "${SEED_ROOT}"
+mkdir -p "${STAGE_PROJECT}/logs"
 
 log() {
   printf '[%s] %s\n' "$(date -Is)" "$*" | tee -a "${LOG}"
@@ -21,7 +22,12 @@ ensure_session() {
     return 0
   fi
   if tmux has-session -t "${session}" 2>/dev/null; then
-    return 0
+    local pane_dead
+    pane_dead="$(tmux list-panes -t "${session}" -F '#{pane_dead}' 2>/dev/null | head -n 1 || true)"
+    if [ "${pane_dead}" = "0" ]; then
+      return 0
+    fi
+    tmux kill-session -t "${session}" 2>/dev/null || true
   fi
   log "restarting missing session ${session}"
   tmux new-session -d -s "${session}" "${command}" || true
