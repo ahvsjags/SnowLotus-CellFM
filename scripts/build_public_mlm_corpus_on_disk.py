@@ -71,6 +71,12 @@ def parse_args() -> argparse.Namespace:
         default="outputs/publication_package/public_mlm_full_on_disk_manifest_summary.json",
     )
     parser.add_argument("--max-loaded-elems", type=int, default=25_000_000)
+    parser.add_argument(
+        "--concat-mode",
+        choices=("memory", "on_disk"),
+        default="memory",
+        help="Concatenation backend. Memory mode keeps sparse matrices in RAM and avoids Zarr sync contention.",
+    )
     parser.add_argument("--reuse-shards", action="store_true")
     parser.add_argument("--keep-shards", action="store_true")
     parser.add_argument("--skip-errors", action="store_true")
@@ -286,7 +292,12 @@ def build_shards(
     return shard_paths, shard_stats, errors
 
 
-def concat_shards(shards: list[Path], output: Path, max_loaded_elems: int) -> None:
+def concat_shards(
+    shards: list[Path],
+    output: Path,
+    max_loaded_elems: int,
+    concat_mode: str = "memory",
+) -> None:
     import anndata as ad
 
     if not shards:
@@ -295,13 +306,39 @@ def concat_shards(shards: list[Path], output: Path, max_loaded_elems: int) -> No
     tmp_output = output.with_name(f".{output.name}.tmp.{os.getpid()}")
     if tmp_output.exists():
         tmp_output.unlink()
-    ad.experimental.concat_on_disk(
-        [path.as_posix() for path in shards],
-        tmp_output.as_posix(),
-        join="outer",
-        merge="same",
-        max_loaded_elems=max_loaded_elems,
-    )
+    if concat_mode == "memory":
+        # The sparse corpus fits comfortably in server RAM; this avoids the
+        # Zarr synchronization bottleneck in concat_on_disk for heterogeneous gene sets.
+        print(f"loading {len(shards)} sparse shards for in-memory concat", flush=True)
+        adatas = []
+        keys = []
+        for index, path in enumerate(shards, start=1):
+            print(f"[concat {index}/{len(shards)}] load {path}", flush=True)
+            adatas.append(ad.read_h5ad(path.as_posix(), backed=None))
+            keys.append(f"shard_{index:04d}")
+        combined = ad.concat(
+            adatas,
+            axis=0,
+            join="outer",
+            merge="same",
+            fill_value=0,
+            label="source_shard",
+            keys=keys,
+            index_unique=":",
+        )
+        print(
+            f"writing concatenated sparse corpus cells={combined.n_obs} genes={combined.n_vars}",
+            flush=True,
+        )
+        combined.write_h5ad(tmp_output.as_posix(), compression="gzip")
+    else:
+        ad.experimental.concat_on_disk(
+            [path.as_posix() for path in shards],
+            tmp_output.as_posix(),
+            join="outer",
+            merge="same",
+            max_loaded_elems=max_loaded_elems,
+        )
     tmp_output.replace(output)
 
 
@@ -386,7 +423,12 @@ def main() -> int:
             reuse=args.reuse_shards,
             skip_errors=args.skip_errors,
         )
-        concat_shards(shards, output, max_loaded_elems=args.max_loaded_elems)
+        concat_shards(
+            shards,
+            output,
+            max_loaded_elems=args.max_loaded_elems,
+            concat_mode=args.concat_mode,
+        )
         if not args.keep_shards:
             shutil.rmtree(work_dir / "shards", ignore_errors=True)
 
