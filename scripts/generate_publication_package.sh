@@ -339,6 +339,7 @@ cp -f scripts/write_saussurea_public_data_discovery.py outputs/publication_packa
 cp -f scripts/write_saussurea_data_request_package.py outputs/publication_package/scripts/ 2>/dev/null || true
 cp -f scripts/write_benchmark_gap_audit.py outputs/publication_package/scripts/ 2>/dev/null || true
 cp -f scripts/compare_all_plant_checkpoint_benchmarks.py outputs/publication_package/scripts/ 2>/dev/null || true
+cp -f scripts/serve_snowlotus.py outputs/publication_package/scripts/ 2>/dev/null || true
 cp -f scripts/write_external_tool_environment.py outputs/publication_package/scripts/ 2>/dev/null || true
 cp -f scripts/write_download_progress_audit.py outputs/publication_package/scripts/ 2>/dev/null || true
 cp -f scripts/write_public_discovery_gap_audit.py outputs/publication_package/scripts/ 2>/dev/null || true
