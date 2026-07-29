@@ -8,7 +8,7 @@ cd "${STAGE_PROJECT}"
 raw_dir="${STAGE_PROJECT}/data/public/GSE243419_raw_tar"
 raw_tmp="${raw_dir}/GSE243419_RAW.tar.download"
 mkdir -p "${raw_dir}"
-python "${PROJECT_DIR}/scripts/parallel_geo_range_resume.py" \
+/root/miniconda3/envs/myconda/bin/python "${PROJECT_DIR}/scripts/parallel_geo_range_resume.py" \
   --url "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243419/suppl/GSE243419_RAW.tar" \
   --output "${raw_tmp}" --expected-bytes 150824960 --workers 8
 mv -f "${raw_tmp}" "${raw_dir}/GSE243419_RAW.tar"
