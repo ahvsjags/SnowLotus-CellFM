@@ -38,7 +38,7 @@ train:
   max_grad_norm: 1.0
   mixed_precision: bf16
   tuning_mode: full
-  init_checkpoint: /root/snowlotus_cellfm_v4_4090/best.pt
+  init_checkpoint: /root/snowlotus_cellfm_v3_extended_4090/best.pt
   resume_checkpoint: null
   label_smoothing: 0.05
   coarse_loss_weight: 0.35
