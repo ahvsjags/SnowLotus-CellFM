@@ -148,6 +148,30 @@ def optional_v1_benchmark(root: Path) -> list[dict[str, Any]]:
     ]
 
 
+def optional_annotation_asset(root: Path) -> list[dict[str, Any]]:
+    checkpoint = root / "outputs" / "plant_general_annotation_public_plants_v1_cell_split_4090" / "best.pt"
+    if not checkpoint.is_file():
+        return []
+    metrics_path = checkpoint.parent / "test_metrics.json"
+    metrics: dict[str, Any] = {}
+    if metrics_path.is_file():
+        try:
+            metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            metrics = {}
+    return [
+        {
+            "role": "all_plant_annotation_head_public_plants_v1_cell_split",
+            "path": checkpoint.relative_to(root).as_posix(),
+            "test_fine_accuracy": metrics.get("fine_accuracy"),
+            "test_fine_macro_f1": metrics.get("fine_macro_f1"),
+            "test_coarse_accuracy": metrics.get("coarse_accuracy"),
+            "test_coarse_macro_f1": metrics.get("coarse_macro_f1"),
+            "sha256": hashlib.sha256(checkpoint.read_bytes()).hexdigest(),
+        }
+    ]
+
+
 def build_adapters(species: list[str], species_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     by_species = {item["species"]: item for item in species_rows}
     adapters = [
@@ -219,6 +243,7 @@ def build_payload(root: Path) -> dict[str, Any]:
         },
     ]
     trained_assets.extend(optional_v1_asset(root))
+    trained_assets.extend(optional_annotation_asset(root))
     return {
         "schema_version": "plant-general-release-v1",
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
