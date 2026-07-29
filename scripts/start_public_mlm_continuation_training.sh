@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-project_dir="${SNOWCELL_PROJECT_DIR:-/root/snowlotus-cellfm}"
+project_dir="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 session="${SNOWCELL_MLM_CONTINUATION_SESSION:-snowcell_mlm_public_expansion_continuation}"
 base_config="${SNOWCELL_MLM_CONTINUATION_CONFIG:-configs/generated/foundation_5090_mlm_public_expansion_continuation.yaml}"
 output_dir="${SNOWCELL_MLM_CONTINUATION_OUTPUT_DIR:-outputs/foundation_5090_mlm_public_expansion_continuation}"

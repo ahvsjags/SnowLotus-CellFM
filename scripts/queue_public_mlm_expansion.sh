@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /root/snowlotus-cellfm
+project_dir="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
+cd "$project_dir"
 source .venv/bin/activate 2>/dev/null || true
 mkdir -p logs outputs
 
@@ -123,7 +124,7 @@ while ! manifest_matrix_ready "$gse_manifest"; do
       stamp="$(date +%Y%m%d_%H%M%S)"
       echo "[$(date)] launching available public MLM expansion in tmux: $available_mlm_session"
       tmux new-session -d -s "$available_mlm_session" \
-        "cd /root/snowlotus-cellfm && source .venv/bin/activate 2>/dev/null || true; snowcell train --config configs/foundation_5090_mlm_public_available_expansion.yaml --device cuda 2>&1 | tee logs/mlm_public_available_expansion_${stamp}.log; bash scripts/run_strict_benchmark_audits.sh; bash scripts/generate_publication_package.sh"
+        "cd '$project_dir' && source .venv/bin/activate 2>/dev/null || true; snowcell train --config configs/foundation_5090_mlm_public_available_expansion.yaml --device cuda 2>&1 | tee logs/mlm_public_available_expansion_${stamp}.log; bash scripts/run_strict_benchmark_audits.sh; bash scripts/generate_publication_package.sh"
     fi
   fi
   if tmux has-session -t snowcell_gse268881_subset 2>/dev/null; then
@@ -183,6 +184,6 @@ fi
 stamp="$(date +%Y%m%d_%H%M%S)"
 echo "[$(date)] launching public MLM expansion in tmux: $mlm_session"
 tmux new-session -d -s "$mlm_session" \
-  "cd /root/snowlotus-cellfm && source .venv/bin/activate 2>/dev/null || true; snowcell train --config configs/foundation_5090_mlm_public_expansion.yaml --device cuda 2>&1 | tee logs/mlm_public_expansion_${stamp}.log; bash scripts/run_strict_benchmark_audits.sh; bash scripts/generate_publication_package.sh"
+  "cd '$project_dir' && source .venv/bin/activate 2>/dev/null || true; snowcell train --config configs/foundation_5090_mlm_public_expansion.yaml --device cuda 2>&1 | tee logs/mlm_public_expansion_${stamp}.log; bash scripts/run_strict_benchmark_audits.sh; bash scripts/generate_publication_package.sh"
 
 echo "[$(date)] launched $mlm_session"
