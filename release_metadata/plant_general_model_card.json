@@ -1,6 +1,6 @@
 {
   "schema_version": "plant-general-release-v1",
-  "generated_at_utc": "2026-07-29T04:25:11.347690+00:00",
+  "generated_at_utc": "2026-07-29T09:04:15.639141+00:00",
   "project": "SnowLotus-CellFM",
   "model_scope": "plant_general",
   "model_name": "Plant-CellFM (general plant foundation model)",
@@ -53,6 +53,88 @@
       "datasets": 19,
       "species": 13,
       "sha256": "c3bea25a80b05585cb5930c04420a0ef2bf77f5f3d7abc0db1d161192ee93f80"
+    },
+    {
+      "role": "all_plant_annotation_head_public_plants_v1_cell_split",
+      "path": "outputs/plant_general_annotation_public_plants_v1_cell_split_4090/best.pt",
+      "test_fine_accuracy": 0.3759765625,
+      "test_fine_macro_f1": 0.29283734321768556,
+      "test_coarse_accuracy": 0.38623046875,
+      "test_coarse_macro_f1": 0.3007575543721608,
+      "sha256": "97f5f0e5d0847a7dbb4759759414ce07135e78ca6ff60f3ac36942e577f18fcb"
+    }
+  ],
+  "benchmarks": [
+    {
+      "name": "public_plants_v1_cross_species",
+      "path": "outputs/benchmarks/public_plants_v1_cross_species.json",
+      "checkpoint_sha256": "c3bea25a80b05585cb5930c04420a0ef2bf77f5f3d7abc0db1d161192ee93f80",
+      "selected_cells": 4864,
+      "datasets": 19,
+      "species": 14,
+      "embedding": {
+        "dimension": 256,
+        "nan_count": 0,
+        "infinite_count": 0,
+        "mean_l2_norm": 21.02394676208496,
+        "std_l2_norm": 0.515172004699707
+      },
+      "protocols": {
+        "leave_dataset_out_fine": {
+          "groups_seen": 19,
+          "groups_attempted": 19,
+          "groups_with_evaluable_cells": 14,
+          "n_evaluable": 3146,
+          "accuracy": 0.029561347743165926,
+          "macro_f1": 0.009377133693602163,
+          "coverage": 0.9228335584869676
+        },
+        "leave_dataset_out_coarse": {
+          "groups_seen": 19,
+          "groups_attempted": 19,
+          "groups_with_evaluable_cells": 14,
+          "n_evaluable": 3148,
+          "accuracy": 0.027318932655654382,
+          "macro_f1": 0.008793926289727458,
+          "coverage": 0.9152438055908514
+        },
+        "leave_sample_out_fine": {
+          "groups_seen": 56,
+          "groups_attempted": 49,
+          "groups_with_evaluable_cells": 48,
+          "n_evaluable": 4497,
+          "accuracy": 0.10851678897042473,
+          "macro_f1": 0.05312626132848596,
+          "coverage": 0.991857074423646
+        },
+        "leave_sample_out_coarse": {
+          "groups_seen": 56,
+          "groups_attempted": 49,
+          "groups_with_evaluable_cells": 48,
+          "n_evaluable": 4477,
+          "accuracy": 0.11793611793611794,
+          "macro_f1": 0.0643503783612768,
+          "coverage": 0.9879622249391838
+        },
+        "leave_species_out_fine": {
+          "groups_seen": 14,
+          "groups_attempted": 14,
+          "groups_with_evaluable_cells": 11,
+          "n_evaluable": 2970,
+          "accuracy": 0.0872053872053872,
+          "macro_f1": 0.037071278344155835,
+          "coverage": 0.8107681729675578
+        },
+        "leave_species_out_coarse": {
+          "groups_seen": 14,
+          "groups_attempted": 14,
+          "groups_with_evaluable_cells": 11,
+          "n_evaluable": 2972,
+          "accuracy": 0.0851278600269179,
+          "macro_f1": 0.03997958881271549,
+          "coverage": 0.8019547563237495
+        }
+      }
     }
   ],
   "corpus_snapshot": {

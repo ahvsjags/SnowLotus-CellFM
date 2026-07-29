@@ -1,6 +1,6 @@
 # Plant-CellFM General Plant Model Card
 
-- Generated UTC: `2026-07-29T04:25:11.347690+00:00`
+- Generated UTC: `2026-07-29T09:04:15.639141+00:00`
 - Model scope: **plant_general**
 - Model name: `Plant-CellFM (general plant foundation model)`
 - Snow Lotus is an adapter and case study; the backbone is designed for cross-species plant expression data.
@@ -27,6 +27,7 @@ A cross-species plant single-cell and single-nucleus expression backbone. Snow L
 | full_rice_cross_species_pretraining | `outputs/remote_gse146034_full_pretrain_4090/best.pt` | cells=23532, genes=43311, nonzero_entries=63856201 | `e0bfed95591959e7120e5dec1ed5ce8b59721aae845cb9cbe7166991e0831329` |
 | operational_annotation_head | `outputs/remote_srp169576_joint_init_hybrid_4090/best.pt` | independent_test_fine_accuracy=0.7279620268770806, independent_test_fine_macro_f1=0.725556710508996 | `3d2ba3d4c15d29140b04a24227d496fd92b58ef1fd730fe20127eeb66681d8fd` |
 | joint_plant_backbone_public_plants_v1 | `outputs/plant_general_foundation_public_plants_v1_4090/best.pt` | manifest_rows=24, datasets=19, species=13 | `c3bea25a80b05585cb5930c04420a0ef2bf77f5f3d7abc0db1d161192ee93f80` |
+| all_plant_annotation_head_public_plants_v1_cell_split | `outputs/plant_general_annotation_public_plants_v1_cell_split_4090/best.pt` | test_fine_accuracy=0.3759765625, test_fine_macro_f1=0.29283734321768556, test_coarse_accuracy=0.38623046875, test_coarse_macro_f1=0.3007575543721608 | `97f5f0e5d0847a7dbb4759759414ce07135e78ca6ff60f3ac36942e577f18fcb` |
 
 ## Corpus Coverage
 
@@ -50,6 +51,16 @@ A cross-species plant single-cell and single-nucleus expression backbone. Snow L
 | Stevia rebaudiana | 1 | 1 | leaf |
 | Triticum aestivum | 1 | 1 | root |
 | Zea mays | 1 | 1 | seedling |
+
+## Verified Cross-Species Benchmark
+
+- `public_plants_v1_cross_species`: `4864` sampled cells, `19` datasets, `14` species; evidence `outputs/benchmarks/public_plants_v1_cross_species.json`; checkpoint SHA256 `c3bea25a80b05585cb5930c04420a0ef2bf77f5f3d7abc0db1d161192ee93f80`.
+  - `leave_dataset_out_fine`: n_evaluable=3146, accuracy=0.029561347743165926, macro_f1=0.009377133693602163, coverage=0.9228335584869676
+  - `leave_dataset_out_coarse`: n_evaluable=3148, accuracy=0.027318932655654382, macro_f1=0.008793926289727458, coverage=0.9152438055908514
+  - `leave_sample_out_fine`: n_evaluable=4497, accuracy=0.10851678897042473, macro_f1=0.05312626132848596, coverage=0.991857074423646
+  - `leave_sample_out_coarse`: n_evaluable=4477, accuracy=0.11793611793611794, macro_f1=0.0643503783612768, coverage=0.9879622249391838
+  - `leave_species_out_fine`: n_evaluable=2970, accuracy=0.0872053872053872, macro_f1=0.037071278344155835, coverage=0.8107681729675578
+  - `leave_species_out_coarse`: n_evaluable=2972, accuracy=0.0851278600269179, macro_f1=0.03997958881271549, coverage=0.8019547563237495
 
 ## Cross-Species Transfer Contract
 
