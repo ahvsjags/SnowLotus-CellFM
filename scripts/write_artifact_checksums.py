@@ -85,6 +85,7 @@ DEFAULT_PATTERNS = [
     "outputs/publication_package/root_staging/**/*.tsv",
     "outputs/publication_package/root_staging/**/*.sha256",
     "outputs/publication_package/root_staging/**/*.npz",
+    "outputs/publication_package/root_staging/**/*.h5",
     "outputs/publication_package/external_tool_environment.md",
     "outputs/publication_package/external_tool_environment.json",
     "outputs/publication_package/scplantllm_input_readiness.md",
