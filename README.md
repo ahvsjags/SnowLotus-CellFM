@@ -2,7 +2,7 @@
 
 Plant-CellFM is the general-plant scope of SnowLotus-CellFM: a cross-species foundation model for plant single-cell and single-nucleus expression modelling. It provides a general expression backbone, known adapters for audited public datasets, and runtime dynamic adapters for any plant species supplied at inference time. *Saussurea involucrata* (Snow Lotus) is one adapter and validation case, not the model boundary.
 
-This project is being run end-to-end on the recovered Matpool RTX 4090 host. The validated checkpoints remain available as baselines while the supervised public-plant data queue builds a new `public_plants_v1` corpus and automatically starts a fresh general-backbone continuation when the corpus is complete.
+This project is being run end-to-end on the Matpool RTX 4090 host. The completed `public_plants_v1` release combines 24 manifest rows from 19 public datasets spanning 13 plant species and is served as the current general-plant backbone. The supervised annotation head remains available alongside the general backbone through the same service contract.
 
 GitHub repository: https://github.com/ahvsjags/SnowLotus-CellFM
 
@@ -14,16 +14,17 @@ The repository is currently private. Grant editor/reviewer access or switch it t
 
 - Release scope: `plant_general`
 - Runtime host: NVIDIA RTX 4090, 24 GB VRAM
-- Primary validated backbone: `outputs/remote_joint_scplantdb_pretrain_4090/best.pt`
+- Primary validated backbone: `outputs/plant_general_foundation_public_plants_v1_4090/best.pt` (epoch 4; validation MLM loss 13.6896)
 - Validated annotation head: `outputs/remote_srp169576_joint_init_hybrid_4090/best.pt`
-- Active continuation corpus: `data/plant_foundation_corpus_public_plants_v1.h5ad`
-- Active continuation config: `configs/plant_general_foundation_public_plants_v1_4090.yaml`
+- Completed all-plant corpus: `data/plant_foundation_corpus_public_plants_v1.h5ad` (on-disk Zarr store)
+- Reproducible training config: `configs/plant_general_foundation_public_plants_v1_4090.yaml`
 - Active data supervisor: `scripts/supervise_plant_public_data_queue.sh`
 - Active training watchdog: `scripts/start_plant_general_v1_training_watchdog.sh`
 - General-plant model card: `release_metadata/plant_general_model_card.md`
 - Species adapter registry: `release_metadata/plant_species_adapters.json` with dynamic resolution for all plant species
 - Species coverage table: `release_metadata/plant_general_corpus_species.tsv`
 - Runtime API exposes `/capabilities` and `/adapters`, resolves a species adapter on every `/annotate` request, and accepts an optional ortholog TSV for novel plant species
+- Verified service state: CUDA-backed Plant-CellFM with dynamic adapter resolution for named species; `Musa acuminata` embedding and `Arabidopsis thaliana` annotation smoke tests both completed successfully.
 
 ## What Is Included
 
@@ -85,7 +86,7 @@ models/                      Git LFS or GitHub Release checkpoint assets
 
 ## Submission Note
 
-The repository distinguishes completed baseline evidence from the active full-plant continuation. New GEO datasets are promoted only after conversion, manifest validation and corpus inclusion; the new checkpoint is released only after training and cross-species evaluation finish.
+The repository distinguishes completed baseline evidence from the current all-plant release. New GEO datasets are promoted only after conversion, manifest validation and corpus inclusion; each new checkpoint is released with its training history, SHA256 digest and service metadata.
 
 ## Citation
 
