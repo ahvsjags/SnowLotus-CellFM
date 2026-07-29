@@ -7,6 +7,7 @@ STAGE_PROJECT="${SNOWCELL_PUBLIC_DATA_STAGE_PROJECT:-/root/snowlotus_public_data
 SEED_ROOT="${SNOWCELL_V3_SEED_ROOT:-/root/snowlotus_public_plants_v3_seed}"
 LOG="${ROOT_STAGE}/logs/root_pipeline_watchdog.log"
 mkdir -p "${ROOT_STAGE}/logs"
+mkdir -p "${SEED_ROOT}"
 
 log() {
   printf '[%s] %s\n' "$(date -Is)" "$*" | tee -a "${LOG}"
