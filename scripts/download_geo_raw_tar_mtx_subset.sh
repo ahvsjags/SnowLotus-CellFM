@@ -21,6 +21,7 @@ h5_dir="data/public/${accession}_h5"
 npz_dir="data/public/${accession}_npz"
 raw_tar="${raw_dir}/${accession}_RAW.tar"
 raw_tmp="${raw_tar}.download"
+raw_expected_bytes="${SNOWCELL_GEO_RAW_EXPECTED_BYTES:-}"
 manifest_output="data/corpus_manifest.${accession,,}.tsv"
 series_bucket="${accession%???}nnn"
 raw_url="${SNOWCELL_GEO_RAW_URL:-https://ftp.ncbi.nlm.nih.gov/geo/series/${series_bucket}/${accession}/suppl/${accession}_RAW.tar}"
@@ -114,12 +115,18 @@ print(manifest_output)
 PY
 }
 
+raw_tar_complete=false
 if [ -s "$raw_tar" ] && [ ! -f "${raw_tar}.aria2" ] && tar -tf "$raw_tar" >/dev/null 2>&1; then
+  if [ -z "$raw_expected_bytes" ] || [ "$(stat -c %s "$raw_tar")" -ge "$raw_expected_bytes" ]; then
+    raw_tar_complete=true
+  fi
+fi
+if [ "$raw_tar_complete" = true ]; then
   rm -f "$raw_tmp"
   rm -f "${raw_tar}.aria2"
   echo "exists $raw_tar"
 else
-  if [ -s "$raw_tar" ] && ! tar -tf "$raw_tar" >/dev/null 2>&1; then
+  if [ -s "$raw_tar" ] && { ! tar -tf "$raw_tar" >/dev/null 2>&1 || { [ -n "$raw_expected_bytes" ] && [ "$(stat -c %s "$raw_tar")" -lt "$raw_expected_bytes" ]; }; }; then
     if [ ! -s "$raw_tmp" ] || [ "$(stat -c %s "$raw_tar")" -gt "$(stat -c %s "$raw_tmp")" ]; then
       mv -f "$raw_tar" "$raw_tmp"
     fi

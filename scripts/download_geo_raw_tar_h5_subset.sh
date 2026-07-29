@@ -17,6 +17,7 @@ download_dir="data/public/${accession}_h5"
 npz_dir="data/public/${accession}_npz"
 raw_tar="${raw_dir}/${accession}_RAW.tar"
 raw_tmp="${raw_tar}.download"
+raw_expected_bytes="${SNOWCELL_GEO_RAW_EXPECTED_BYTES:-}"
 tar_list="${raw_dir}/${accession}_RAW.members.txt"
 selected_members="${raw_dir}/${accession}_RAW.selected_h5.txt"
 manifest_output="data/corpus_manifest.${accession,,}.tsv"
@@ -27,10 +28,16 @@ downloader="${SNOWCELL_GEO_RAW_TAR_DOWNLOADER:-aria2}"
 
 mkdir -p "$raw_dir" "$download_dir" "$npz_dir" logs
 
+raw_tar_complete=false
 if [ -s "$raw_tar" ] && [ ! -f "${raw_tar}.aria2" ] && tar -tf "$raw_tar" >/dev/null 2>&1; then
+  if [ -z "$raw_expected_bytes" ] || [ "$(stat -c %s "$raw_tar")" -ge "$raw_expected_bytes" ]; then
+    raw_tar_complete=true
+  fi
+fi
+if [ "$raw_tar_complete" = true ]; then
   echo "exists $raw_tar"
 else
-  if [ -s "$raw_tar" ] && ! tar -tf "$raw_tar" >/dev/null 2>&1; then
+  if [ -s "$raw_tar" ] && { ! tar -tf "$raw_tar" >/dev/null 2>&1 || { [ -n "$raw_expected_bytes" ] && [ "$(stat -c %s "$raw_tar")" -lt "$raw_expected_bytes" ]; }; }; then
     if [ ! -s "$raw_tmp" ] || [ "$(stat -c %s "$raw_tar")" -gt "$(stat -c %s "$raw_tmp")" ]; then
       mv -f "$raw_tar" "$raw_tmp"
     fi
