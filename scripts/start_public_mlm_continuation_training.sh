@@ -110,7 +110,7 @@ stamp="$(date +%Y%m%d_%H%M%S)"
 log_path="$log_dir/mlm_public_expansion_continuation_${stamp}.log"
 
 tmux new-session -d -s "$session" \
-  "cd '$project_dir' && source .venv/bin/activate 2>/dev/null || true; snowcell train --config '$config_to_run' --device '$device' 2>&1 | tee '$log_path'; bash scripts/run_strict_benchmark_audits.sh 2>&1 | tee -a '$log_path'; bash scripts/generate_publication_package.sh 2>&1 | tee -a '$log_path'; touch '$final_marker'"
+  "cd '$project_dir' && source .venv/bin/activate 2>/dev/null || true; PYTHONPATH=src /root/miniconda3/envs/myconda/bin/python -m snowcell.cli train --config '$config_to_run' --device '$device' 2>&1 | tee '$log_path'; bash scripts/run_strict_benchmark_audits.sh 2>&1 | tee -a '$log_path'; bash scripts/generate_publication_package.sh 2>&1 | tee -a '$log_path'; touch '$final_marker'"
 
 echo "started public MLM continuation: $session"
 echo "log: $log_path"

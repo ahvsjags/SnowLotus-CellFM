@@ -25,7 +25,7 @@ optional_public_manifests=(
 )
 
 list_running_training_processes() {
-  ps -eo pid,args 2>/dev/null | grep -F "snowcell train" | grep -F -- "--config" | grep -v grep || true
+  ps -eo pid,args 2>/dev/null | grep -F "snowcell.cli train" | grep -F -- "--config" | grep -v grep || true
 }
 
 has_running_training_process() {
@@ -124,7 +124,7 @@ while ! manifest_matrix_ready "$gse_manifest"; do
       stamp="$(date +%Y%m%d_%H%M%S)"
       echo "[$(date)] launching available public MLM expansion in tmux: $available_mlm_session"
       tmux new-session -d -s "$available_mlm_session" \
-        "cd '$project_dir' && source .venv/bin/activate 2>/dev/null || true; snowcell train --config configs/foundation_5090_mlm_public_available_expansion.yaml --device cuda 2>&1 | tee logs/mlm_public_available_expansion_${stamp}.log; bash scripts/run_strict_benchmark_audits.sh; bash scripts/generate_publication_package.sh"
+        "cd '$project_dir' && source .venv/bin/activate 2>/dev/null || true; PYTHONPATH=src /root/miniconda3/envs/myconda/bin/python -m snowcell.cli train --config configs/foundation_5090_mlm_public_available_expansion.yaml --device cuda 2>&1 | tee logs/mlm_public_available_expansion_${stamp}.log; bash scripts/run_strict_benchmark_audits.sh; bash scripts/generate_publication_package.sh"
     fi
   fi
   if tmux has-session -t snowcell_gse268881_subset 2>/dev/null; then
@@ -184,6 +184,6 @@ fi
 stamp="$(date +%Y%m%d_%H%M%S)"
 echo "[$(date)] launching public MLM expansion in tmux: $mlm_session"
 tmux new-session -d -s "$mlm_session" \
-  "cd '$project_dir' && source .venv/bin/activate 2>/dev/null || true; snowcell train --config configs/foundation_5090_mlm_public_expansion.yaml --device cuda 2>&1 | tee logs/mlm_public_expansion_${stamp}.log; bash scripts/run_strict_benchmark_audits.sh; bash scripts/generate_publication_package.sh"
+  "cd '$project_dir' && source .venv/bin/activate 2>/dev/null || true; PYTHONPATH=src /root/miniconda3/envs/myconda/bin/python -m snowcell.cli train --config configs/foundation_5090_mlm_public_expansion.yaml --device cuda 2>&1 | tee logs/mlm_public_expansion_${stamp}.log; bash scripts/run_strict_benchmark_audits.sh; bash scripts/generate_publication_package.sh"
 
 echo "[$(date)] launched $mlm_session"
