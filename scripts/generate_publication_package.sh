@@ -10,6 +10,7 @@ mkdir -p outputs/publication_package/scripts
 mkdir -p outputs/publication_package/scripts/generated_geo_promotion_downloads
 mkdir -p outputs/publication_package/strict_benchmarks
 mkdir -p outputs/publication_package/public_discovery
+mkdir -p outputs/publication_package/benchmarks
 
 PYTHONPATH=src /root/miniconda3/envs/myconda/bin/python -m snowcell.cli report \
   --project-dir . \
@@ -363,6 +364,9 @@ find outputs/detailed_evaluations -maxdepth 2 -type f \( -name '*.json' -o -name
 cp -f outputs/strict_benchmarks/*.json outputs/publication_package/strict_benchmarks/ 2>/dev/null || true
 cp -f outputs/strict_benchmarks/*.tsv outputs/publication_package/strict_benchmarks/ 2>/dev/null || true
 cp -f configs/generated/*.yaml outputs/publication_package/strict_benchmarks/ 2>/dev/null || true
+cp -f outputs/benchmarks/*.json outputs/publication_package/benchmarks/ 2>/dev/null || true
+find outputs/benchmarks -maxdepth 1 -type f -name '*.json' \
+  -print > outputs/publication_package/benchmark_index.txt 2>/dev/null || true
 
 if [ "${SNOWCELL_WRITE_ARTIFACT_CHECKSUMS:-1}" = "1" ]; then
   python scripts/write_artifact_checksums.py \
