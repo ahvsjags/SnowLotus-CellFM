@@ -112,6 +112,20 @@ with h5py.File(path, "r"):
     pass
 PY
 then
+  complete_attempt="${h5_path}.full_download.attempt"
+  if [ -n "${expected_bytes}" ] && [ -s "${complete_attempt}" ] \
+    && [ "$(wc -c < "${complete_attempt}")" -eq "${expected_bytes}" ] \
+    && python - "${complete_attempt}" <<'PY'
+import sys
+import h5py
+
+with h5py.File(sys.argv[1], "r"):
+    pass
+PY
+  then
+    mv -f "${complete_attempt}" "${h5_path}.full_download"
+    mv -f "${h5_path}.full_download" "${h5_path}"
+  fi
   if [ -n "${expected_bytes}" ] && [ -s "${h5_path}" ]; then
     current_bytes="$(wc -c < "${h5_path}")"
     download_ftp_ranges "${current_bytes}" || download_full_file
