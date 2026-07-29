@@ -119,10 +119,9 @@ if [ -s "$raw_tar" ] && [ ! -f "${raw_tar}.aria2" ] && tar -tf "$raw_tar" >/dev/
   rm -f "${raw_tar}.aria2"
   echo "exists $raw_tar"
 else
-  if [ -s "$raw_tmp" ] && { [ ! -s "$raw_tar" ] || ! tar -tf "$raw_tar" >/dev/null 2>&1; }; then
-    if [ ! -s "$raw_tar" ] || [ "$(stat -c %s "$raw_tmp")" -gt "$(stat -c %s "$raw_tar" 2>/dev/null || echo 0)" ]; then
-      mv -f "$raw_tmp" "$raw_tar"
-      rm -f "${raw_tar}.aria2"
+  if [ -s "$raw_tar" ] && ! tar -tf "$raw_tar" >/dev/null 2>&1; then
+    if [ ! -s "$raw_tmp" ] || [ "$(stat -c %s "$raw_tar")" -gt "$(stat -c %s "$raw_tmp")" ]; then
+      mv -f "$raw_tar" "$raw_tmp"
     fi
   fi
   if [ "$downloader" = "aria2" ] && command -v aria2c >/dev/null 2>&1; then
