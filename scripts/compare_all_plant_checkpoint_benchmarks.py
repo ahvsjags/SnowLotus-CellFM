@@ -29,15 +29,27 @@ def record_key(protocol: str, label: str) -> str:
     return f"{protocol}_{label}"
 
 
+def aggregate_metrics(payload: dict[str, Any], key: str) -> dict[str, float]:
+    block = payload.get("protocols", {}).get(key, {})
+    records = [record for record in block.get("records", []) if record.get("status") == "ok"]
+    total_test = sum(float(record.get("n_test", 0)) for record in records)
+    total_evaluable = sum(float(record.get("n_evaluable", 0)) for record in records)
+    if not records or total_evaluable <= 0:
+        return {}
+    result = {
+        "accuracy": sum(float(record.get("n_evaluable", 0)) * float(record.get("accuracy", 0.0)) for record in records) / total_evaluable,
+        "macro_f1": sum(float(record.get("n_evaluable", 0)) * float(record.get("macro_f1", 0.0)) for record in records) / total_evaluable,
+        "coverage": total_evaluable / total_test if total_test else 0.0,
+    }
+    return result
+
+
 def summarize(payload: dict[str, Any]) -> dict[str, Any]:
     result: dict[str, Any] = {}
     for protocol in PROTOCOLS:
         result[protocol] = {}
         for label in ("fine", "coarse"):
-            metrics = payload.get(record_key(protocol, label), {})
-            result[protocol][label] = {
-                metric: metrics.get(metric) for metric in METRICS if metric in metrics
-            }
+            result[protocol][label] = aggregate_metrics(payload, record_key(protocol, label))
     return result
 
 
@@ -76,8 +88,8 @@ def main() -> int:
     for protocol in PROTOCOLS:
         comparison["delta"][protocol] = {}
         for label in ("fine", "coarse"):
-            base_metrics = baseline.get(record_key(protocol, label), {})
-            cand_metrics = candidate.get(record_key(protocol, label), {})
+            base_metrics = comparison["baseline"]["summary"][protocol][label]
+            cand_metrics = comparison["candidate"]["summary"][protocol][label]
             comparison["delta"][protocol][label] = {
                 metric: (
                     float(cand_metrics[metric]) - float(base_metrics[metric])
@@ -103,8 +115,8 @@ def main() -> int:
     ]
     for protocol in PROTOCOLS:
         for label in ("fine", "coarse"):
-            base = baseline.get(record_key(protocol, label), {}).get("accuracy")
-            cand = candidate.get(record_key(protocol, label), {}).get("accuracy")
+            base = comparison["baseline"]["summary"][protocol][label].get("accuracy")
+            cand = comparison["candidate"]["summary"][protocol][label].get("accuracy")
             delta = comparison["delta"][protocol][label]["accuracy"]
             fmt = lambda value: "NA" if value is None else f"{float(value):.4f}"
             lines.append(f"| {protocol} | {label} | {fmt(base)} | {fmt(cand)} | {fmt(delta)} |")
