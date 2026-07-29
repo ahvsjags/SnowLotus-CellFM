@@ -3,6 +3,8 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 source .venv/bin/activate 2>/dev/null || true
+PYTHON_BIN="${SNOWCELL_PYTHON_BIN:-/root/miniconda3/envs/myconda/bin/python}"
+export PATH="$(dirname "${PYTHON_BIN}"):${PATH}"
 
 accession="${SNOWCELL_GEO_ACCESSION:?set SNOWCELL_GEO_ACCESSION}"
 dataset_id="${SNOWCELL_GEO_DATASET_ID:?set SNOWCELL_GEO_DATASET_ID}"
@@ -75,7 +77,7 @@ write_unsupported_report() {
   local reason="$1"
   local error_file="${2:-}"
   local unsupported_report="${raw_dir}/unsupported_single_cell_matrix.json"
-  python - "$extract_dir" "$manifest_output" "$unsupported_report" "$accession" "$dataset_id" "$species" "$tissue" "$reason" "$error_file" <<'PY'
+"${PYTHON_BIN}" - "$extract_dir" "$manifest_output" "$unsupported_report" "$accession" "$dataset_id" "$species" "$tissue" "$reason" "$error_file" <<'PY'
 from __future__ import annotations
 
 import csv
@@ -203,7 +205,7 @@ fi
 
 # GEO archives sometimes flatten multiple 10x triplets into one directory.
 # Re-home each complete triplet so the converter can preserve sample identity.
-python - "$extract_dir" <<'PY'
+"${PYTHON_BIN}" - "$extract_dir" <<'PY'
 from __future__ import annotations
 
 import shutil
@@ -243,7 +245,7 @@ if [ "$mtx_count" = "0" ]; then
   if [ "$h5_count" != "0" ]; then
     rm -rf "$h5_dir"
     mkdir -p "$h5_dir"
-    python - "$h5_list" "$h5_dir" "$h5_sample_regex" "$h5_max_files" <<'PY'
+    "${PYTHON_BIN}" - "$h5_list" "$h5_dir" "$h5_sample_regex" "$h5_max_files" <<'PY'
 from __future__ import annotations
 
 import re
@@ -276,7 +278,7 @@ for source in selected:
     print(source)
 PY
     h5_conversion_log="${raw_dir}/${accession}_h5_conversion_error.log"
-    if ! python scripts/tenx_h5_to_npz.py \
+    if ! "${PYTHON_BIN}" scripts/tenx_h5_to_npz.py \
       --input-dir "$h5_dir" \
       --output-dir "$npz_dir" \
       --dataset-id "$dataset_id" \
@@ -311,7 +313,7 @@ if [ "$feature_count" = "0" ]; then
 fi
 
 conversion_log="${raw_dir}/${accession}_conversion_error.log"
-if ! python scripts/geo_mtx_tar_to_npz.py \
+if ! "${PYTHON_BIN}" scripts/geo_mtx_tar_to_npz.py \
   --input-dir "$extract_dir" \
   --output-dir "$npz_dir" \
   --dataset-id "$dataset_id" \
