@@ -1,0 +1,17 @@
+[Unit]
+Description=SnowLotus-CellFM public data and training pipeline watchdog
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/mnt/snowlotus_cellfm
+Environment=SNOWCELL_WATCHDOG_POLL_SECONDS=300
+ExecStart=/bin/bash /mnt/snowlotus_cellfm/scripts/watch_root_public_pipeline.sh
+Restart=always
+RestartSec=15
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
