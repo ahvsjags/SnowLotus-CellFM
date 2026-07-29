@@ -1,10 +1,10 @@
 # Plant-CellFM General Plant Model Card
 
-- Generated UTC: `2026-07-28T19:07:11.484292+00:00`
+- Generated UTC: `2026-07-29T04:25:11.347690+00:00`
 - Model scope: **plant_general**
 - Model name: `Plant-CellFM (general plant foundation model)`
 - Snow Lotus is an adapter and case study; the backbone is designed for cross-species plant expression data.
-- Known adapters: **20**; runtime dynamic adapters are materialized for any additional plant species.
+- Known adapters: **21**; runtime dynamic adapters are materialized for any additional plant species.
 
 ## Scope and Functions
 
@@ -26,23 +26,26 @@ A cross-species plant single-cell and single-nucleus expression backbone. Snow L
 | joint_plant_backbone | `outputs/remote_joint_scplantdb_pretrain_4090/best.pt` | cells=272732, source_genes=209405, training_gene_vocabulary=60000 | `7300ba74d41e664c240cc35b4ae1de2a8402923260ac485c3975969312fed117` |
 | full_rice_cross_species_pretraining | `outputs/remote_gse146034_full_pretrain_4090/best.pt` | cells=23532, genes=43311, nonzero_entries=63856201 | `e0bfed95591959e7120e5dec1ed5ce8b59721aae845cb9cbe7166991e0831329` |
 | operational_annotation_head | `outputs/remote_srp169576_joint_init_hybrid_4090/best.pt` | independent_test_fine_accuracy=0.7279620268770806, independent_test_fine_macro_f1=0.725556710508996 | `3d2ba3d4c15d29140b04a24227d496fd92b58ef1fd730fe20127eeb66681d8fd` |
+| joint_plant_backbone_public_plants_v1 | `outputs/plant_general_foundation_public_plants_v1_4090/best.pt` | manifest_rows=24, datasets=19, species=13 | `c3bea25a80b05585cb5930c04420a0ef2bf77f5f3d7abc0db1d161192ee93f80` |
 
 ## Corpus Coverage
 
-- Selected manifest: `data/corpus_manifest_public_mlm_plus_latest.tsv`
-- Manifest rows: **30**
-- Unique datasets: **25**
-- Unique species in selected manifest: **11**
+- Selected manifest: `union(corpus_manifest*.tsv)`
+- Manifest rows: **26**
+- Unique datasets: **21**
+- Unique species in selected manifest: **13**
 
 | Species | Datasets | Manifest rows | Tissues |
 | --- | ---: | ---: | --- |
-| Arabidopsis thaliana | 17 | 18 | multi_organ, root, secondary_root |
+| Arabidopsis thaliana | 9 | 10 | Rosette leaf, True leaf, Vegetative shoot apex, Whole root, root, secondary_root |
 | Oryza sativa | 3 | 3 | leaf, root, root_tip |
-| Camelina sativa | 1 | 1 | root |
-| Eutrema salsugineum | 1 | 1 | root |
-| Gossypium hirsutum | 1 | 1 | leaf_glandular_cells |
-| Schrenkiella parvula | 1 | 1 | root |
-| Sisymbrium irio | 1 | 1 | root |
+| Gossypium hirsutum | 1 | 3 | leaf_glandular_cells |
+| 9311 | 1 | 1 | unknown_tissue |
+| Brassica rapa | 1 | 1 | Rosette leaf |
+| Catharanthus roseus | 1 | 1 | Leaf |
+| Fragaria vesca | 1 | 1 | True leaf |
+| Gossypium bickii | 1 | 1 | Cotyledon |
+| Nip | 1 | 1 | unknown_tissue |
 | Solanum lycopersicum | 1 | 1 | root |
 | Stevia rebaudiana | 1 | 1 | leaf |
 | Triticum aestivum | 1 | 1 | root |

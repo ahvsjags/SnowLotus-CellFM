@@ -27,6 +27,28 @@
       "evidence": "general backbone; provide a species gene map for best transfer"
     },
     {
+      "adapter_id": "plant_9311",
+      "species": "9311",
+      "aliases": [
+        "9311"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 1,
+        "datasets": 1
+      }
+    },
+    {
       "adapter_id": "plant_arabidopsis_thaliana",
       "species": "Arabidopsis thaliana",
       "aliases": [
@@ -44,8 +66,30 @@
         "marker_candidates"
       ],
       "evidence": {
-        "manifest_rows": 18,
-        "datasets": 17
+        "manifest_rows": 10,
+        "datasets": 9
+      }
+    },
+    {
+      "adapter_id": "plant_brassica_rapa",
+      "species": "Brassica rapa",
+      "aliases": [
+        "Brassica rapa"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 1,
+        "datasets": 1
       }
     },
     {
@@ -71,10 +115,10 @@
       }
     },
     {
-      "adapter_id": "plant_camelina_sativa",
-      "species": "Camelina sativa",
+      "adapter_id": "plant_catharanthus_roseus",
+      "species": "Catharanthus roseus",
       "aliases": [
-        "Camelina sativa"
+        "Catharanthus roseus"
       ],
       "status": "general_backbone_ready",
       "transfer_mode": "exact_gene_ids_then_ortholog_map",
@@ -93,10 +137,10 @@
       }
     },
     {
-      "adapter_id": "plant_catharanthus_roseus",
-      "species": "Catharanthus roseus",
+      "adapter_id": "plant_fragaria_vesca",
+      "species": "Fragaria vesca",
       "aliases": [
-        "Catharanthus roseus"
+        "Fragaria vesca"
       ],
       "status": "general_backbone_ready",
       "transfer_mode": "exact_gene_ids_then_ortholog_map",
@@ -110,15 +154,15 @@
         "marker_candidates"
       ],
       "evidence": {
-        "manifest_rows": 0,
-        "datasets": 0
+        "manifest_rows": 1,
+        "datasets": 1
       }
     },
     {
-      "adapter_id": "plant_eutrema_salsugineum",
-      "species": "Eutrema salsugineum",
+      "adapter_id": "plant_gossypium_bickii",
+      "species": "Gossypium bickii",
       "aliases": [
-        "Eutrema salsugineum"
+        "Gossypium bickii"
       ],
       "status": "general_backbone_ready",
       "transfer_mode": "exact_gene_ids_then_ortholog_map",
@@ -154,7 +198,7 @@
         "marker_candidates"
       ],
       "evidence": {
-        "manifest_rows": 1,
+        "manifest_rows": 3,
         "datasets": 1
       }
     },
@@ -178,6 +222,28 @@
       "evidence": {
         "manifest_rows": 0,
         "datasets": 0
+      }
+    },
+    {
+      "adapter_id": "plant_nip",
+      "species": "Nip",
+      "aliases": [
+        "Nip"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 1,
+        "datasets": 1
       }
     },
     {
@@ -310,50 +376,6 @@
       "evidence": {
         "manifest_rows": 0,
         "datasets": 0
-      }
-    },
-    {
-      "adapter_id": "plant_schrenkiella_parvula",
-      "species": "Schrenkiella parvula",
-      "aliases": [
-        "Schrenkiella parvula"
-      ],
-      "status": "general_backbone_ready",
-      "transfer_mode": "exact_gene_ids_then_ortholog_map",
-      "gene_id_namespace": "dataset_defined",
-      "ortholog_map": null,
-      "supervised_head": null,
-      "tasks": [
-        "embedding",
-        "mlm",
-        "annotation_transfer",
-        "marker_candidates"
-      ],
-      "evidence": {
-        "manifest_rows": 1,
-        "datasets": 1
-      }
-    },
-    {
-      "adapter_id": "plant_sisymbrium_irio",
-      "species": "Sisymbrium irio",
-      "aliases": [
-        "Sisymbrium irio"
-      ],
-      "status": "general_backbone_ready",
-      "transfer_mode": "exact_gene_ids_then_ortholog_map",
-      "gene_id_namespace": "dataset_defined",
-      "ortholog_map": null,
-      "supervised_head": null,
-      "tasks": [
-        "embedding",
-        "mlm",
-        "annotation_transfer",
-        "marker_candidates"
-      ],
-      "evidence": {
-        "manifest_rows": 1,
-        "datasets": 1
       }
     },
     {

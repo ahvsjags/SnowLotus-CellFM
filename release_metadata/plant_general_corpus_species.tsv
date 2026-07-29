@@ -1,11 +1,13 @@
 species	datasets	manifest_rows	tissues
-Arabidopsis thaliana	17	18	multi_organ;root;secondary_root
+Arabidopsis thaliana	9	10	Rosette leaf;True leaf;Vegetative shoot apex;Whole root;root;secondary_root
 Oryza sativa	3	3	leaf;root;root_tip
-Camelina sativa	1	1	root
-Eutrema salsugineum	1	1	root
-Gossypium hirsutum	1	1	leaf_glandular_cells
-Schrenkiella parvula	1	1	root
-Sisymbrium irio	1	1	root
+Gossypium hirsutum	1	3	leaf_glandular_cells
+9311	1	1	unknown_tissue
+Brassica rapa	1	1	Rosette leaf
+Catharanthus roseus	1	1	Leaf
+Fragaria vesca	1	1	True leaf
+Gossypium bickii	1	1	Cotyledon
+Nip	1	1	unknown_tissue
 Solanum lycopersicum	1	1	root
 Stevia rebaudiana	1	1	leaf
 Triticum aestivum	1	1	root
