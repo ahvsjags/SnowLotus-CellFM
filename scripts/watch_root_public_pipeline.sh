@@ -4,6 +4,7 @@ set -euo pipefail
 PROJECT_DIR="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 ROOT_STAGE="${SNOWCELL_PUBLIC_DATA_STAGE_ROOT:-/root/snowlotus_public_data_stage}"
 STAGE_PROJECT="${SNOWCELL_PUBLIC_DATA_STAGE_PROJECT:-/root/snowlotus_public_data_stage_project}"
+SEED_ROOT="${SNOWCELL_V3_SEED_ROOT:-/root/snowlotus_public_plants_v3_seed}"
 LOG="${ROOT_STAGE}/logs/root_pipeline_watchdog.log"
 mkdir -p "${ROOT_STAGE}/logs"
 
@@ -38,5 +39,9 @@ while true; do
     snowcell_root_v3_pipeline \
     "${ROOT_STAGE}/../snowlotus_public_plants_v3/public_plants_v3_summary.json" \
     "bash ${PROJECT_DIR}/scripts/run_root_v3_public_pipeline.sh > /root/snowlotus_public_plants_v3/pipeline_tmux.log 2>&1"
+  ensure_session \
+    snowcell_root_v3_seed_pipeline \
+    "${SEED_ROOT}/public_plants_v3_seed_summary.json" \
+    "bash ${PROJECT_DIR}/scripts/run_v3_seed_public_pipeline.sh > ${SEED_ROOT}/pipeline_tmux.log 2>&1"
   sleep "${SNOWCELL_WATCHDOG_POLL_SECONDS:-300}"
 done
