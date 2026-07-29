@@ -177,6 +177,9 @@ def main() -> None:
     annotation_checkpoint = (
         load_checkpoint(annotation_path, map_location="cpu") if annotation_path else None
     )
+    annotation_model_config = annotation_checkpoint.get("model_config", {}) if annotation_checkpoint else {}
+    annotation_fine_vocab = annotation_checkpoint.get("fine_vocab", []) if annotation_checkpoint else []
+    annotation_coarse_vocab = annotation_checkpoint.get("coarse_vocab", []) if annotation_checkpoint else []
     device = _device(args.device)
     registry = load_registry(args.adapter_registry)
     state = {
@@ -207,11 +210,17 @@ def main() -> None:
             "backbone_checkpoint": str(backbone_path),
             "annotation_checkpoint": str(annotation_path) if annotation_path else None,
             "model_config": backbone_checkpoint.get("model_config", {}),
+            "backbone_model_config": backbone_checkpoint.get("model_config", {}),
+            "annotation_model_config": annotation_model_config,
             "checkpoint_epoch": backbone_checkpoint.get("epoch"),
             "checkpoint_metrics": backbone_checkpoint.get("metrics", {}),
+            "annotation_checkpoint_epoch": annotation_checkpoint.get("epoch") if annotation_checkpoint else None,
+            "annotation_checkpoint_metrics": annotation_checkpoint.get("metrics", {}) if annotation_checkpoint else {},
             "gene_vocab_size": len(backbone_checkpoint.get("gene_vocab", [])),
             "fine_vocab_size": len(backbone_checkpoint.get("fine_vocab", [])),
             "coarse_vocab_size": len(backbone_checkpoint.get("coarse_vocab", [])),
+            "annotation_fine_vocab_size": len(annotation_fine_vocab),
+            "annotation_coarse_vocab_size": len(annotation_coarse_vocab),
             "annotation_head_available": annotation_checkpoint is not None,
         },
         "capabilities": {
