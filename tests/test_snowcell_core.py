@@ -4244,7 +4244,7 @@ def test_geo_raw_tar_mtx_script_marks_quant_sf_as_unsupported() -> None:
     assert "--auto-file-renaming=false" in script
     assert "aria2 raw tar download failed; retrying range-capable raw URL with curl resume" in script
     assert 'download_with_curl_resume "$raw_url" "GEO raw tar URL"' in script
-    assert 'download_with_curl_fresh "$raw_fallback_url" "GEO download endpoint"' in script
+    assert 'download_with_curl_fresh_to "$fresh_tmp" "$raw_fallback_url" "GEO download endpoint"' in script
     assert '[ ! -f "${raw_tar}.aria2" ]' in script
     assert "partial_gzip_member_quarantine" in script
     assert "quarantined_gzip_members" in script
