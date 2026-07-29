@@ -29,11 +29,11 @@ while true; do
   ensure_session \
     snowcell_root_gse243419 \
     "${STAGE_PROJECT}/data/corpus_manifest.gse243419.tsv" \
-    "bash ${PROJECT_DIR}/scripts/parallel_gse243419_stage.sh > ${STAGE_PROJECT}/logs/gse243419.log 2>&1"
+    "cd ${STAGE_PROJECT} && bash scripts/download_gse243419_cotton_glandular_mtx_subset.sh > logs/gse243419.log 2>&1"
   ensure_session \
     snowcell_root_gse270140 \
     "${ROOT_STAGE}/data/corpus_manifest.gse270140.tsv" \
-    "bash ${PROJECT_DIR}/scripts/parallel_gse270140_stage.sh > ${ROOT_STAGE}/logs/gse270140_root.log 2>&1"
+    "bash ${PROJECT_DIR}/scripts/start_root_gse270140_staging.sh > ${ROOT_STAGE}/logs/gse270140_root.log 2>&1"
   ensure_session \
     snowcell_root_v3_pipeline \
     "${ROOT_STAGE}/../snowlotus_public_plants_v3/public_plants_v3_summary.json" \
