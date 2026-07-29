@@ -32,13 +32,33 @@ download_full_file() {
   local attempt_tmp="${full_tmp}.attempt"
   # Keep the previous partial and the current attempt separate so a watchdog
   # restart never destroys the only local copy of a large public file.
-  rm -f "${attempt_tmp}"
-  curl -4 -L --fail --http1.1 --retry 12 --retry-all-errors --retry-delay 10 \
-    --connect-timeout 20 \
-    --max-time "${SNOWCELL_ROOT_GEO_MAX_TIME:-86400}" \
-    -e "https://www.ncbi.nlm.nih.gov/geo/" \
-    -A "SnowLotus-CellFM/0.1 public-data-collector" \
-    -o "${attempt_tmp}" "${url}"
+  local curl_status=0
+  if [ -s "${attempt_tmp}" ]; then
+    curl -4 -L --fail --http1.1 --retry 12 --retry-all-errors --retry-delay 10 \
+      --connect-timeout 20 \
+      --max-time "${SNOWCELL_ROOT_GEO_MAX_TIME:-86400}" \
+      -e "https://www.ncbi.nlm.nih.gov/geo/" \
+      -A "SnowLotus-CellFM/0.1 public-data-collector" \
+      -C - -o "${attempt_tmp}" "${url}" || curl_status=$?
+  else
+    curl -4 -L --fail --http1.1 --retry 12 --retry-all-errors --retry-delay 10 \
+      --connect-timeout 20 \
+      --max-time "${SNOWCELL_ROOT_GEO_MAX_TIME:-86400}" \
+      -e "https://www.ncbi.nlm.nih.gov/geo/" \
+      -A "SnowLotus-CellFM/0.1 public-data-collector" \
+      -o "${attempt_tmp}" "${url}" || curl_status=$?
+  fi
+  if [ "${curl_status}" -ne 0 ]; then
+    # Preserve a failed resume attempt for postmortem, then retry from a
+    # fresh file so a server-side Range policy cannot poison the next run.
+    mv -f "${attempt_tmp}" "${attempt_tmp}.resume_failed.$(date +%s)" 2>/dev/null || true
+    curl -4 -L --fail --http1.1 --retry 12 --retry-all-errors --retry-delay 10 \
+      --connect-timeout 20 \
+      --max-time "${SNOWCELL_ROOT_GEO_MAX_TIME:-86400}" \
+      -e "https://www.ncbi.nlm.nih.gov/geo/" \
+      -A "SnowLotus-CellFM/0.1 public-data-collector" \
+      -o "${attempt_tmp}" "${url}"
+  fi
   if [ -n "${expected_bytes}" ] && [ "$(wc -c < "${attempt_tmp}")" -ne "${expected_bytes}" ]; then
     echo "full GEO download has unexpected size: expected=${expected_bytes} received=$(wc -c < "${attempt_tmp}")" >&2
     return 1
@@ -50,6 +70,7 @@ download_full_file() {
 download_ftp_ranges() {
   local current_bytes="$1"
   local remainder_path="${h5_path}.remainder"
+  mkdir -p "$(dirname "${remainder_path}")"
   while [ "${current_bytes}" -lt "${expected_bytes}" ]; do
     local end_bytes=$((current_bytes + chunk_bytes - 1))
     if [ "${end_bytes}" -ge "${expected_bytes}" ]; then
