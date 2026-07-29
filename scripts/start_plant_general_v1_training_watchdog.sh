@@ -12,6 +12,7 @@ INTERVAL_SECONDS="${SNOWCELL_TRAIN_WAIT_INTERVAL_SECONDS:-120}"
 cd "${PROJECT_DIR}"
 mkdir -p "$(dirname "${LOG}")"
 export PYTHONPATH="${PROJECT_DIR}/src:${PYTHONPATH:-}"
+export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:True}"
 
 while [ ! -s "${CORPUS}" ]; do
   echo "[$(date)] waiting for completed corpus: ${CORPUS}" >> "${LOG}"

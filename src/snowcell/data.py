@@ -81,6 +81,8 @@ def load_matrix(path: str | Path, config: DataConfig) -> MatrixData:
     if suffix == ".npz":
         return _load_npz_sparse_aware(data_path)
     if suffix == ".h5ad":
+        if data_path.is_dir() and (data_path / "zarr.json").is_file():
+            return _load_zarr(data_path, config)
         return _load_h5ad(data_path, config)
     raise ValueError(f"不支持的数据格式 {suffix}；当前支持 .npz 和 .h5ad")
 
@@ -146,6 +148,24 @@ def _load_h5ad(path: Path, config: DataConfig) -> MatrixData:
         raise ImportError("读取 .h5ad 需要安装: pip install -e .[singlecell]") from exc
 
     adata = ad.read_h5ad(path, backed=None)
+    X = adata.layers[config.layer] if config.layer else adata.X
+    if sparse.issparse(X):
+        X = X.tocsr().astype(np.float32)
+    else:
+        X = np.asarray(X, dtype=np.float32)
+    genes = _string_array(adata.var_names)
+    obs = {column: _string_array(adata.obs[column].values) for column in adata.obs.columns}
+    obs.setdefault(config.cell_id_key, _string_array(adata.obs_names))
+    return MatrixData(X=X, genes=genes, obs=obs)
+
+
+def _load_zarr(path: Path, config: DataConfig) -> MatrixData:
+    try:
+        import anndata as ad
+    except ImportError as exc:
+        raise ImportError("reading Zarr single-cell corpora requires anndata") from exc
+
+    adata = ad.read_zarr(path.as_posix())
     X = adata.layers[config.layer] if config.layer else adata.X
     if sparse.issparse(X):
         X = X.tocsr().astype(np.float32)

@@ -822,7 +822,17 @@ def train_from_config(config_path: str | Path, device: torch.device | None = Non
             best_metric = score
             best_epoch = epoch
             bad_epochs = 0
-            save_checkpoint(output_dir / "best.pt", make_checkpoint(epoch_metrics, epoch))
+            best_path = output_dir / "best.pt"
+            best_payload = make_checkpoint(epoch_metrics, epoch)
+            save_checkpoint(best_path, best_payload)
+            saved_best = load_checkpoint(best_path, map_location="cpu")
+            saved_metrics = saved_best.get("metrics", {})
+            if int(saved_best.get("epoch", -1)) != epoch or saved_metrics.get("eval_loss") != epoch_metrics.get("eval_loss"):
+                raise RuntimeError(
+                    "best checkpoint verification failed: "
+                    f"expected epoch={epoch}, eval_loss={epoch_metrics.get('eval_loss')}; "
+                    f"saved epoch={saved_best.get('epoch')}, eval_loss={saved_metrics.get('eval_loss')}"
+                )
         else:
             bad_epochs += 1
 

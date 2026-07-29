@@ -23,12 +23,12 @@ train:
   stage: pretrain
   seed: 20260729
   epochs: 8
-  batch_size: 32
-  eval_batch_size: 64
+  batch_size: 8
+  eval_batch_size: 16
   learning_rate: 0.0005
   weight_decay: 0.02
   warmup_fraction: 0.10
-  gradient_accumulation_steps: 1
+  gradient_accumulation_steps: 4
   mixed_precision: bf16
   tuning_mode: full
   mlm_loss_weight: 1.0
