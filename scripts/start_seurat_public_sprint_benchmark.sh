@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-project_dir="${1:-/root/snowlotus-cellfm}"
+project_dir="${1:-/mnt/snowlotus_cellfm}"
 config="${SNOWCELL_SEURAT_CONFIG:-configs/foundation_5090_public_sprint.yaml}"
 name="${SNOWCELL_SEURAT_BENCHMARK_NAME:-seurat_public_sprint}"
 session="${SNOWCELL_SEURAT_SESSION:-snowcell_seurat_public_sprint}"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_DIR="${PROJECT_DIR:-/root/snowlotus-cellfm}"
+PROJECT_DIR="${PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 RUN_ID="${SNOWCELL_EDITOR_V03_RUN_ID:-foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm}"
 CHECKPOINT="${SNOWCELL_EDITOR_V03_CHECKPOINT:-outputs/${RUN_ID}/best.pt}"
 RELEASE_MODEL="${SNOWCELL_EDITOR_V03_RELEASE_MODEL:-outputs/github_release/SnowLotus-CellFM/models/SnowLotus_CellFM_best_embedding.pt}"

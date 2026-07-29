@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-project_dir="${1:-/root/snowlotus-cellfm}"
+project_dir="${1:-/mnt/snowlotus_cellfm}"
 session="${SNOWCELL_PUBLIC_DISCOVERY_SESSION:-snowcell_public_discovery_refresh}"
 retmax="${SNOWCELL_NCBI_DISCOVERY_RETMAX:-200}"
 stamp="$(date +%Y%m%d_%H%M%S)"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-project_dir="${1:-/root/snowlotus-cellfm}"
+project_dir="${1:-/mnt/snowlotus_cellfm}"
 session="${SNOWCELL_SAUSSUREA_METADATA_SESSION:-snowcell_saussurea_metadata}"
 stamp="$(date +%Y%m%d_%H%M%S)"
 log_path="${project_dir}/logs/saussurea_metadata_${stamp}.log"

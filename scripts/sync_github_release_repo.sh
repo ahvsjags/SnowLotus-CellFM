@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_DIR="${PROJECT_DIR:-/root/snowlotus-cellfm}"
+PROJECT_DIR="${PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 DOCS_DIR="${DOCS_DIR:-${PROJECT_DIR}/github_release_docs}"
 RELEASE_DIR="${RELEASE_DIR:-${PROJECT_DIR}/outputs/github_release/SnowLotus-CellFM}"
 ARCHIVE_DIR="${ARCHIVE_DIR:-${PROJECT_DIR}/outputs/github_release_archives}"

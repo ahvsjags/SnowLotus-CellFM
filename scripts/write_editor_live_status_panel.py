@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Any
 
 
-PROJECT_DEFAULT = Path("/root/snowlotus-cellfm")
+PROJECT_DEFAULT = Path("/mnt/snowlotus_cellfm")
 V03_RUN_ID = "foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm"
 TRAIN_PROGRESS = Path("outputs") / V03_RUN_ID / "progress_latest.json"
 TRAIN_HISTORY = Path("outputs") / V03_RUN_ID / "history.json"

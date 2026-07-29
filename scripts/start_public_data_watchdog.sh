@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-project_dir="${SNOWCELL_PROJECT_DIR:-/root/snowlotus-cellfm}"
+project_dir="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 session="${SNOWCELL_PUBLIC_DATA_WATCHDOG_SESSION:-snowcell_public_data_watchdog}"
 log_path="${SNOWCELL_PUBLIC_DATA_WATCHDOG_LOG:-${project_dir}/logs/public_data_watchdog.log}"
 poll_seconds="${SNOWCELL_PUBLIC_DATA_WATCHDOG_POLL_SECONDS:-180}"

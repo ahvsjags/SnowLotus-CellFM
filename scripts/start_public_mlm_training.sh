@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-project_dir="${SNOWCELL_PROJECT_DIR:-/root/snowlotus-cellfm}"
+project_dir="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 session="${SNOWCELL_MLM_SESSION:-snowcell_mlm_public_expansion}"
 config="${SNOWCELL_MLM_CONFIG:-configs/foundation_5090_mlm_public_expansion.yaml}"
 stamp="$(date +%Y%m%d_%H%M%S)"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /root/snowlotus-cellfm
+cd /mnt/snowlotus_cellfm
 
 echo "== date =="
 date

@@ -19,6 +19,6 @@ if tmux has-session -t "$session" 2>/dev/null; then
 fi
 
 tmux new-session -d -s "$session" \
-  "cd /root/snowlotus-cellfm && bash scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh >> '$log_path' 2>&1"
+  "cd /mnt/snowlotus_cellfm && bash scripts/generated_geo_promotion_downloads/queue_geo_promotion_downloads.sh >> '$log_path' 2>&1"
 echo "GEO promotion queue started: $session"
 echo "log: $log_path"

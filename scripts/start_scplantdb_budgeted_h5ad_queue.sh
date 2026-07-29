@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-project_dir="${SNOWCELL_PROJECT_DIR:-/root/snowlotus-cellfm}"
+project_dir="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 session="${SNOWCELL_SCPLANTDB_QUEUE_SESSION:-snowcell_scplantdb_budgeted_h5ad_queue}"
 log_path="${SNOWCELL_SCPLANTDB_QUEUE_LOG:-${project_dir}/logs/scplantdb_budgeted_h5ad_queue.log}"
 max_bytes="${SNOWCELL_SCPLANTDB_MAX_BYTES:-500000000}"

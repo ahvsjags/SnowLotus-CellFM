@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /root/snowlotus-cellfm
+cd /mnt/snowlotus_cellfm
 source .venv/bin/activate 2>/dev/null || true
 mkdir -p logs
 
@@ -188,7 +188,7 @@ while true; do
     fi
     echo "[$(date)] starting reviewed GEO job: $session"
     tmux new-session -d -s "$session" \
-      "cd /root/snowlotus-cellfm && source .venv/bin/activate 2>/dev/null || true; $command 2>&1 | tee -a $log_file; bash scripts/generate_publication_package.sh || true"
+      "cd /mnt/snowlotus_cellfm && source .venv/bin/activate 2>/dev/null || true; $command 2>&1 | tee -a $log_file; bash scripts/generate_publication_package.sh || true"
     launched=1
     break
   done

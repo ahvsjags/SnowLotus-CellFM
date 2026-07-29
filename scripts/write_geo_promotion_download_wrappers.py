@@ -386,7 +386,7 @@ while true; do
     fi
     echo "[$(date)] starting promotion GEO job: $session"
     tmux new-session -d -s "$session" \\
-      "cd /root/snowlotus-cellfm && source .venv/bin/activate 2>/dev/null || true; $command 2>&1 | tee -a $log_file; bash scripts/generate_publication_package.sh || true"
+      "cd /mnt/snowlotus_cellfm && source .venv/bin/activate 2>/dev/null || true; $command 2>&1 | tee -a $log_file; bash scripts/generate_publication_package.sh || true"
     launched=1
     break
   done
@@ -426,7 +426,7 @@ if tmux has-session -t "$session" 2>/dev/null; then
 fi
 
 tmux new-session -d -s "$session" \\
-  "cd /root/snowlotus-cellfm && bash {queue_script.as_posix()} >> '$log_path' 2>&1"
+  "cd /mnt/snowlotus_cellfm && bash {queue_script.as_posix()} >> '$log_path' 2>&1"
 echo "GEO promotion queue started: $session"
 echo "log: $log_path"
 """

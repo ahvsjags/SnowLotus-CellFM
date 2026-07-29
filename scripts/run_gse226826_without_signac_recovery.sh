@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_DIR="${PROJECT_DIR:-/root/snowlotus-cellfm}"
+PROJECT_DIR="${PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 cd "${PROJECT_DIR}"
 
 mkdir -p logs

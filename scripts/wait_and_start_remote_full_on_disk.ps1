@@ -1,6 +1,6 @@
 param(
     [string]$Alias = "matpool-px1-jcy",
-    [string]$ProjectDir = "/root/snowlotus-cellfm",
+    [string]$ProjectDir = "/mnt/snowlotus_cellfm",
     [int]$IntervalSeconds = 60,
     [int]$MaxAttempts = 240,
     [string]$Root = "",

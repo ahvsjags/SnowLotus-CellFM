@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-PROJECT = Path("/root/snowlotus-cellfm")
+PROJECT = Path("/mnt/snowlotus_cellfm")
 DOCS = PROJECT / "github_release_docs"
 PKG = PROJECT / "outputs/publication_package"
 RUN_ID = "foundation_5090_mlm_public_expansion_v0_4_plus_latest_seed48_b8_vocabwarm"

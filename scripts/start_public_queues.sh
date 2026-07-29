@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-project_dir="${SNOWCELL_PROJECT_DIR:-/root/snowlotus-cellfm}"
+project_dir="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 public_session="${SNOWCELL_PUBLIC_QUEUE_SESSION:-snowcell_public_mlm_queue}"
 late_session="${SNOWCELL_LATE_QUEUE_SESSION:-snowcell_late_public_refresh_queue}"
 scplantdb_session="${SNOWCELL_SCPLANTDB_QUEUE_SESSION:-snowcell_scplantdb_budgeted_h5ad_queue}"

@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-PROJECT = Path("/root/snowlotus-cellfm")
+PROJECT = Path("/mnt/snowlotus_cellfm")
 WRAPPER_DIR = PROJECT / "scripts/generated_geo_promotion_downloads"
 DEFAULT_THRESHOLD = 5 * 1024**3
 

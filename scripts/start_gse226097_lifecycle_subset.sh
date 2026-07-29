@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-project_dir="${SNOWCELL_PROJECT_DIR:-/root/snowlotus-cellfm}"
+project_dir="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 session="${SNOWCELL_GSE226097_SESSION:-snowcell_gse226097_arabidopsis_lifecycle_subset}"
 log_path="${project_dir}/logs/gse226097_arabidopsis_lifecycle_subset.log"
 

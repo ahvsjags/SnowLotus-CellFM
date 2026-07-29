@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-project_dir="${SNOWCELL_PROJECT_DIR:-/root/snowlotus-cellfm}"
+project_dir="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 max_bytes="${SNOWCELL_SCPLANTDB_MAX_BYTES:-500000000}"
 max_total_bytes="${SNOWCELL_SCPLANTDB_MAX_TOTAL_BYTES:-3000000000}"
 max_datasets="${SNOWCELL_SCPLANTDB_MAX_DATASETS:-32}"

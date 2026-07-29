@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "${SNOWCELL_PROJECT_DIR:-/root/snowlotus-cellfm}"
+cd "${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 source .venv/bin/activate 2>/dev/null || true
 
 checkpoint="${SNOWCELL_PUBLIC_SAFE_INIT_CHECKPOINT:-outputs/foundation_5090_public_safe_init/best.pt}"

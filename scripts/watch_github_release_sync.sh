@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_DIR="${PROJECT_DIR:-/root/snowlotus-cellfm}"
+PROJECT_DIR="${PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 INTERVAL_SECONDS="${SNOWCELL_RELEASE_SYNC_INTERVAL_SECONDS:-3600}"
 LOCK_DIR="${PROJECT_DIR}/outputs/github_release_sync.lock"
 

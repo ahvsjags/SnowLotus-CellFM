@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "${SNOWCELL_PROJECT_DIR:-/root/snowlotus-cellfm}"
+cd "${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 source .venv/bin/activate 2>/dev/null || true
 
 session="${SNOWCELL_SAFE_MLM_SESSION:-snowcell_mlm_public_late_refresh_safe}"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /root/snowlotus-cellfm
+cd /mnt/snowlotus_cellfm
 session="${SNOWCELL_REVIEWED_GEO_QUEUE_SESSION:-snowcell_reviewed_geo_download_queue}"
 log_path="${SNOWCELL_REVIEWED_GEO_QUEUE_LOG:-logs/reviewed_geo_download_queue.log}"
 
@@ -13,6 +13,6 @@ if tmux has-session -t "$session" 2>/dev/null; then
 fi
 
 tmux new-session -d -s "$session" \
-  "cd /root/snowlotus-cellfm && bash scripts/queue_reviewed_geo_downloads.sh >> '$log_path' 2>&1"
+  "cd /mnt/snowlotus_cellfm && bash scripts/queue_reviewed_geo_downloads.sh >> '$log_path' 2>&1"
 echo "reviewed GEO queue started: $session"
 echo "log: $log_path"

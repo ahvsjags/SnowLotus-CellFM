@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-project_dir="${SNOWCELL_PROJECT_DIR:-/root/snowlotus-cellfm}"
+project_dir="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 session="${SNOWCELL_MLM_V0_3_WATCHDOG_SESSION:-snowcell_mlm_public_expansion_v0_3_watchdog}"
 
 cd "$project_dir"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_DIR="${PROJECT_DIR:-/root/snowlotus-cellfm}"
+PROJECT_DIR="${PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 SESSION="${SNOWCELL_EDITOR_V03_RELEASE_SESSION:-snowcell_editor_v03_best_release_watchdog}"
 LOG="${PROJECT_DIR}/logs/editor_v03_best_release_watchdog.log"
 

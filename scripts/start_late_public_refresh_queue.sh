@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_DIR="${PROJECT_DIR:-/root/snowlotus-cellfm}"
+PROJECT_DIR="${PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 SESSION="${SNOWCELL_LATE_REFRESH_QUEUE_SESSION:-snowcell_late_public_refresh_queue}"
 
 cd "${PROJECT_DIR}"

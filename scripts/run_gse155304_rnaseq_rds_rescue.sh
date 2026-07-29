@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /root/snowlotus-cellfm
+cd /mnt/snowlotus_cellfm
 source .venv/bin/activate 2>/dev/null || true
 
 export SNOWCELL_GEO_ACCESSION=GSE155304

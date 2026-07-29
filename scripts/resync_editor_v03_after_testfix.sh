@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT=/root/snowlotus-cellfm
+PROJECT=/mnt/snowlotus_cellfm
 RELEASE_LABEL=editor-v0.3
 RUN_ID=foundation_5090_mlm_public_expansion_continuation_v0_3_seed47_b8_vocabwarm
 EMBEDDING=outputs/${RUN_ID}/best.pt

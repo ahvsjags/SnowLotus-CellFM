@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-PROJECT = Path("/root/snowlotus-cellfm")
+PROJECT = Path("/mnt/snowlotus_cellfm")
 ACCESSION = "GSE262840"
 DATASET_ID = "geo_gse262840_arabidopsis_thaliana_single_cell_rna_seq_data"
 RAW_DIR = PROJECT / "data/public/GSE262840_raw_tar"

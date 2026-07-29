@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_DIR="${PROJECT_DIR:-/root/snowlotus-cellfm}"
+PROJECT_DIR="${PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 SESSION="${SNOWCELL_BENCHMARK_REFRESH_SESSION:-snowcell_checkpoint_benchmark_refresh_watchdog}"
 LOG="${PROJECT_DIR}/logs/checkpoint_benchmark_refresh_watchdog.log"
 

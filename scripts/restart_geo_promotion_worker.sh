@@ -6,7 +6,7 @@ if [ "$#" -lt 1 ]; then
   exit 2
 fi
 
-PROJECT_DIR="${PROJECT_DIR:-/root/snowlotus-cellfm}"
+PROJECT_DIR="${PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 accession_upper="$(printf '%s' "$1" | tr '[:lower:]' '[:upper:]')"
 accession_lower="$(printf '%s' "$accession_upper" | tr '[:upper:]' '[:lower:]')"
 session="${SNOWCELL_GEO_PROMOTION_SESSION:-snowcell_geo_promotion_${accession_lower}}"

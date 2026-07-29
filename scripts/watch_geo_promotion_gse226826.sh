@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_DIR="${PROJECT_DIR:-/root/snowlotus-cellfm}"
+PROJECT_DIR="${PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 ACCESSION="${SNOWCELL_GEO_ACCESSION:-GSE226826}"
 DOWNLOAD_SESSION="${SNOWCELL_GSE226826_SESSION:-snowcell_geo_promotion_gse226826}"
 WRAPPER="${SNOWCELL_GSE226826_WRAPPER:-scripts/generated_geo_promotion_downloads/download_gse226826_geo_gse226826_arabidopsis_thaliana_time_resolved_single_cell_spatial.sh}"
