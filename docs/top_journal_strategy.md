@@ -107,14 +107,14 @@ SnowLotus-CellFM 不是普通细胞注释器，而是面向植物跨物种单细
 安装依赖：
 
 ```bash
-cd /root/snowlotus-cellfm
+cd /mnt/snowlotus_cellfm
 bash scripts/install_server_dependencies.sh
 ```
 
 后台全流程：
 
 ```bash
-cd /root/snowlotus-cellfm
+cd /mnt/snowlotus_cellfm
 tmux new -s snowlotus_top
 bash scripts/top_journal_pipeline.sh 2>&1 | tee logs/top_journal_pipeline.log
 ```
@@ -122,7 +122,7 @@ bash scripts/top_journal_pipeline.sh 2>&1 | tee logs/top_journal_pipeline.log
 公开数据和 public MLM 自动接力：
 
 ```bash
-cd /root/snowlotus-cellfm
+cd /mnt/snowlotus_cellfm
 bash scripts/ensure_public_data_jobs.sh
 bash scripts/queue_public_mlm_expansion.sh
 ```

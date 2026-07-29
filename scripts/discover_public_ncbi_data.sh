@@ -3,6 +3,7 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 source .venv/bin/activate 2>/dev/null || true
+export PATH="/root/miniconda3/envs/myconda/bin:$PATH"
 
 mkdir -p data/public_discovery logs
 stamp="$(date +%Y%m%d_%H%M%S)"

@@ -64,7 +64,7 @@ Then restart the local recovery watcher:
 
 ```powershell
 Get-Process powershell | Where-Object { $_.Path -like '*powershell*' }
-powershell -ExecutionPolicy Bypass -File (Join-Path $ProjectRoot "scripts\wait_and_start_remote_full_on_disk.ps1") -Alias matpool-px1-jcy -ProjectDir /root/snowlotus-cellfm
+powershell -ExecutionPolicy Bypass -File (Join-Path $ProjectRoot "scripts\wait_and_start_remote_full_on_disk.ps1") -Alias matpool-px1-jcy -ProjectDir /mnt/snowlotus_cellfm
 ```
 
 The recovery watcher uploads the full on-disk corpus scripts, starts the remote tmux job, runs `scripts/collect_remote_training_state.sh`, and fetches `remote_training_state.after_recovery.md/json` into the submit package.
@@ -86,6 +86,6 @@ The helper refreshes `ssh_recovery_status.local.md/json`, `ARCHIVE_SHA256SUMS.tx
 ## Remote job expected after recovery
 
 - tmux session: `snowcell_public_mlm_full_on_disk_corpus`
-- remote log: `/root/snowlotus-cellfm/logs/public_mlm_full_on_disk_corpus.log`
-- remote audit: `/root/snowlotus-cellfm/outputs/recovery_audit/remote_training_state_latest.md`
+- remote log: `/mnt/snowlotus_cellfm/logs/public_mlm_full_on_disk_corpus.log`
+- remote audit: `/mnt/snowlotus_cellfm/outputs/recovery_audit/remote_training_state_latest.md`
 - local fetched audit: `$ProjectRoot\editor_package\current_submit_v0.3\remote_training_state.after_recovery.md`
