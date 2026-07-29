@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /root/snowlotus-cellfm
+PROJECT_DIR="${PROJECT_DIR:-/mnt/snowlotus_cellfm}"
+cd "${PROJECT_DIR}"
 source .venv/bin/activate 2>/dev/null || true
 mkdir -p logs
 
