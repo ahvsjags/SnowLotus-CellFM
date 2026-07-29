@@ -30,14 +30,15 @@ train:
   epochs: 8
   batch_size: 8
   eval_batch_size: 16
-  learning_rate: 0.00003
-  head_learning_rate: 0.00005
+  learning_rate: 0.00001
+  head_learning_rate: 0.00002
   weight_decay: 0.02
   warmup_fraction: 0.10
   gradient_accumulation_steps: 4
   max_grad_norm: 1.0
   mixed_precision: bf16
-  tuning_mode: full
+  tuning_mode: last_n
+  train_last_n_layers: 1
   init_checkpoint: /root/snowlotus_cellfm_v3_extended_4090/best.pt
   resume_checkpoint: null
   label_smoothing: 0.05
