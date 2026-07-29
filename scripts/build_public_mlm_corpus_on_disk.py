@@ -334,17 +334,25 @@ def write_summary(
     if output.exists() and not dry_run:
         import anndata as ad
 
-        adata = ad.read_h5ad(output, backed="r")
+        if output.is_dir() and (output / "zarr.json").is_file():
+            adata = ad.read_zarr(output.as_posix())
+            corpus_bytes = sum(
+                path.stat().st_size for path in output.rglob("*") if path.is_file()
+            )
+        else:
+            adata = ad.read_h5ad(output, backed="r")
+            corpus_bytes = output.stat().st_size
         try:
             payload.update(
                 {
-                    "corpus_bytes": int(output.stat().st_size),
+                    "corpus_bytes": int(corpus_bytes),
                     "n_obs": int(adata.n_obs),
                     "n_vars": int(adata.n_vars),
                 }
             )
         finally:
-            adata.file.close()
+            if getattr(adata, "file", None) is not None:
+                adata.file.close()
     summary_output.parent.mkdir(parents=True, exist_ok=True)
     summary_output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 
