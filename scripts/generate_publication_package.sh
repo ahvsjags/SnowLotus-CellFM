@@ -2,6 +2,7 @@
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
+export PATH="/root/miniconda3/envs/myconda/bin:$PATH"
 source .venv/bin/activate 2>/dev/null || true
 
 mkdir -p outputs/publication_package
@@ -10,7 +11,7 @@ mkdir -p outputs/publication_package/scripts/generated_geo_promotion_downloads
 mkdir -p outputs/publication_package/strict_benchmarks
 mkdir -p outputs/publication_package/public_discovery
 
-snowcell report \
+PYTHONPATH=src /root/miniconda3/envs/myconda/bin/python -m snowcell.cli report \
   --project-dir . \
   --output outputs/publication_package/publication_readiness_report.md || true
 
