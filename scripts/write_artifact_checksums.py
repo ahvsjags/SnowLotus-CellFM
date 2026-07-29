@@ -98,6 +98,7 @@ DEFAULT_PATTERNS = [
     "outputs/publication_package/benchmarks/interim_gpu/**/*.json",
     "outputs/publication_package/benchmarks/interim_gpu/**/*.md",
     "outputs/publication_package/benchmarks/interim_gpu/**/*.tsv",
+    "outputs/publication_package/checkpoints/**/*.pt",
     "outputs/publication_package/strict_benchmarks/foundation_public_plants_stage2_4090*",
     "outputs/publication_package/strict_benchmarks/v2/**/*.json",
     "outputs/publication_package/strict_benchmarks/v2_lora/**/*.json",
