@@ -2,6 +2,7 @@
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
+export PATH="/root/miniconda3/envs/myconda/bin:$PATH"
 source .venv/bin/activate 2>/dev/null || true
 
 available_corpus="data/plant_foundation_corpus_public_mlm_available.h5ad"

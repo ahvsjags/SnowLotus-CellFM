@@ -3,6 +3,7 @@ set -euo pipefail
 
 PROJECT_DIR="${PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 cd "${PROJECT_DIR}"
+export PATH="/root/miniconda3/envs/myconda/bin:$PATH"
 mkdir -p logs
 if [ -f .venv/bin/activate ]; then
   source .venv/bin/activate

@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /root/snowlotus-cellfm
+project_dir="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
+cd "$project_dir"
+export PATH="/root/miniconda3/envs/myconda/bin:$PATH"
 source .venv/bin/activate 2>/dev/null || true
 
 mkdir -p configs/generated outputs/strict_benchmarks
@@ -24,7 +26,7 @@ payload = json.load(open(sys.argv[1], encoding="utf-8"))
 raise SystemExit(0 if payload.get("supervised_benchmark_ready") else 1)
 PY
   then
-    snowcell baseline-centroid --config "$config" --output "$baseline"
+    PYTHONPATH=src /root/miniconda3/envs/myconda/bin/python -m snowcell.cli baseline-centroid --config "$config" --output "$baseline"
   else
     echo "Skipping centroid baseline for $name; split audit says supervised_benchmark_ready=false"
   fi
@@ -34,7 +36,7 @@ if [ -s "data/plant_foundation_corpus.h5ad" ]; then
   run_audit_and_optional_baseline \
     public_sprint_group_random \
     "$base_config"
-  snowcell marker-candidates \
+  PYTHONPATH=src /root/miniconda3/envs/myconda/bin/python -m snowcell.cli marker-candidates \
     --config "$base_config" \
     --output outputs/strict_benchmarks/public_sprint.marker_candidates.tsv \
     --summary-output outputs/strict_benchmarks/public_sprint.marker_candidates.json \
