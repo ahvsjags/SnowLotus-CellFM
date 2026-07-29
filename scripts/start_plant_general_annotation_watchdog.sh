@@ -2,10 +2,10 @@
 set -euo pipefail
 
 PROJECT_DIR="${PROJECT_DIR:-/mnt/snowlotus_cellfm}"
-CONFIG="${PROJECT_DIR}/configs/plant_general_annotation_public_plants_v1_4090.yaml"
-CORPUS="${PROJECT_DIR}/data/plant_foundation_corpus_public_plants_v1.h5ad"
-OUTPUT="${PROJECT_DIR}/outputs/plant_general_annotation_public_plants_v1_4090"
-LOG="${PROJECT_DIR}/logs/plant_general_annotation_public_plants_v1_4090.log"
+CONFIG="${CONFIG:-${PROJECT_DIR}/configs/plant_general_annotation_public_plants_v1_4090.yaml}"
+CORPUS="${CORPUS:-${PROJECT_DIR}/data/plant_foundation_corpus_public_plants_v1.h5ad}"
+OUTPUT="${OUTPUT:-${PROJECT_DIR}/outputs/plant_general_annotation_public_plants_v1_4090}"
+LOG="${LOG:-${PROJECT_DIR}/logs/plant_general_annotation_public_plants_v1_4090.log}"
 PYTHON_BIN="${PYTHON_BIN:-/root/miniconda3/envs/myconda/bin/python}"
 
 cd "${PROJECT_DIR}"

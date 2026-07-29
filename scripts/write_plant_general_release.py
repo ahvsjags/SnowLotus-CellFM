@@ -120,6 +120,34 @@ def optional_v1_asset(root: Path) -> list[dict[str, Any]]:
     ]
 
 
+def optional_v1_benchmark(root: Path) -> list[dict[str, Any]]:
+    path = root / "outputs" / "benchmarks" / "public_plants_v1_cross_species.json"
+    if not path.is_file():
+        return []
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return []
+    protocols = {}
+    for name, metrics in payload.get("protocols", {}).items():
+        protocols[name] = {
+            key: value for key, value in metrics.items() if key != "records"
+        }
+    selection = payload.get("selection", {})
+    return [
+        {
+            "name": "public_plants_v1_cross_species",
+            "path": path.relative_to(root).as_posix(),
+            "checkpoint_sha256": payload.get("checkpoint_sha256"),
+            "selected_cells": selection.get("selected_cells"),
+            "datasets": selection.get("datasets"),
+            "species": selection.get("species"),
+            "embedding": payload.get("embedding", {}),
+            "protocols": protocols,
+        }
+    ]
+
+
 def build_adapters(species: list[str], species_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     by_species = {item["species"]: item for item in species_rows}
     adapters = [
@@ -219,6 +247,7 @@ def build_payload(root: Path) -> dict[str, Any]:
             "Snow Lotus reference-genome and primary-data adapter as one member of the all-plant system",
         ],
         "trained_assets": trained_assets,
+        "benchmarks": optional_v1_benchmark(root),
         "corpus_snapshot": {
             "selected_manifest": selected_manifest,
             "manifest_rows": len(rows),
@@ -306,6 +335,25 @@ def write_markdown(payload: dict[str, Any], output: Path) -> None:
     )
     for item in snapshot["species"]:
         lines.append(f"| {item['species']} | {item['datasets']} | {item['manifest_rows']} | {', '.join(item['tissues'])} |")
+    if payload.get("benchmarks"):
+        lines.extend(
+            [
+                "",
+                "## Verified Cross-Species Benchmark",
+                "",
+            ]
+        )
+        for benchmark in payload["benchmarks"]:
+            lines.append(
+                f"- `{benchmark['name']}`: `{benchmark['selected_cells']}` sampled cells, "
+                f"`{benchmark['datasets']}` datasets, `{benchmark['species']}` species; "
+                f"evidence `{benchmark['path']}`; checkpoint SHA256 `{benchmark['checkpoint_sha256']}`."
+            )
+            for name, metrics in benchmark["protocols"].items():
+                compact = ", ".join(
+                    f"{key}={value}" for key, value in metrics.items() if key in {"accuracy", "macro_f1", "coverage", "n_evaluable"}
+                )
+                lines.append(f"  - `{name}`: {compact}")
     lines.extend(
         [
             "",
