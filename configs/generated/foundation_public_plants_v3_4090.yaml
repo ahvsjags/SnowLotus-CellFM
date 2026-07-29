@@ -1,0 +1,58 @@
+data:
+  path: /root/snowlotus_public_plants_v3/plant_foundation_corpus_public_plants_v3.h5ad
+  layer: null
+  label_key: cell_type
+  coarse_label_key: cell_type_coarse
+  group_key: dataset_id
+  species_key: species
+  tissue_key: tissue
+  cell_id_key: cell_id
+  normalize_total: 10000.0
+  log1p: true
+  max_genes: 512
+  min_genes_per_cell: 5
+  min_cells_per_gene: 3
+  validation_fraction: 0.10
+  test_fraction: 0.10
+
+architecture:
+  d_model: 256
+  n_layers: 4
+  n_heads: 8
+  ffn_dim: 768
+  dropout: 0.10
+  value_bins: 32
+  gradient_checkpointing: false
+
+train:
+  stage: hybrid
+  seed: 20260802
+  epochs: 2
+  batch_size: 8
+  eval_batch_size: 16
+  learning_rate: 0.00005
+  head_learning_rate: 0.0001
+  weight_decay: 0.02
+  warmup_fraction: 0.10
+  gradient_accumulation_steps: 4
+  max_grad_norm: 1.0
+  mixed_precision: bf16
+  tuning_mode: full
+  init_checkpoint: /mnt/snowlotus_cellfm/outputs/plant_general_public_plants_continuation_5090/best.pt
+  resume_checkpoint: null
+  label_smoothing: 0.05
+  coarse_loss_weight: 0.35
+  hierarchy_loss_weight: 0.10
+  mlm_loss_weight: 0.35
+  value_loss_weight: 0.10
+  mask_ratio: 0.15
+  class_balance: true
+  early_stopping_patience: 1
+  max_train_batches_per_epoch: 4096
+  max_eval_batches: 256
+  num_workers: 0
+  compile_model: false
+
+output:
+  directory: /root/snowlotus_cellfm_v3_4090
+  save_every_epochs: 1
