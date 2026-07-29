@@ -5,10 +5,12 @@ PROJECT_DIR="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 ROOT_STAGE="${SNOWCELL_PUBLIC_DATA_STAGE_ROOT:-/root/snowlotus_public_data_stage}"
 STAGE_PROJECT="${SNOWCELL_PUBLIC_DATA_STAGE_PROJECT:-/root/snowlotus_public_data_stage_project}"
 SEED_ROOT="${SNOWCELL_V3_SEED_ROOT:-/root/snowlotus_public_plants_v3_seed_fixed}"
+INTERIM_ROOT="${SNOWCELL_INTERIM_TRAIN_ROOT:-/root/snowlotus_cellfm_interim_gpu_4090}"
 LOG="${ROOT_STAGE}/logs/root_pipeline_watchdog.log"
 mkdir -p "${ROOT_STAGE}/logs"
 mkdir -p "${SEED_ROOT}"
 mkdir -p "${STAGE_PROJECT}/logs"
+mkdir -p "${INTERIM_ROOT}"
 
 log() {
   printf '[%s] %s\n' "$(date -Is)" "$*" | tee -a "${LOG}"
@@ -50,5 +52,9 @@ while true; do
     snowcell_root_v3_seed_pipeline \
     "${SEED_ROOT}/public_plants_v3_seed_summary.json" \
     "bash ${PROJECT_DIR}/scripts/run_v3_seed_public_pipeline.sh > ${SEED_ROOT}/pipeline_tmux.log 2>&1"
+  ensure_session \
+    snowcell_interim_gpu_train \
+    "${INTERIM_ROOT}/test_metrics.json" \
+    "cd ${PROJECT_DIR} && PYTHONPATH=src /root/miniconda3/envs/myconda/bin/python -u -X utf8 -m snowcell.cli train --config configs/generated/foundation_public_plants_interim_gpu_4090.yaml --device cuda > ${INTERIM_ROOT}/train.log 2>&1"
   sleep "${SNOWCELL_WATCHDOG_POLL_SECONDS:-300}"
 done
