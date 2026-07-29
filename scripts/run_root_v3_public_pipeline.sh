@@ -33,22 +33,26 @@ cp -a "${STAGE_PROJECT}/data/public/GSE243419_npz/." "${ROOT_STAGE}/data/public/
 cp -f "${STAGE_PROJECT}/data/corpus_manifest.gse243419.tsv" "${ROOT_STAGE}/data/corpus_manifest.gse243419.tsv"
 
 extra_manifest="${V3_ROOT}/corpus_manifest_v3_extra.tsv"
-python - "${ROOT_STAGE}" "${STAGE_PROJECT}" "${extra_manifest}" <<'PY'
+python - "${PROJECT_DIR}" "${ROOT_STAGE}" "${STAGE_PROJECT}" "${extra_manifest}" <<'PY'
 import csv
 import sys
 from pathlib import Path
 
-root_stage = Path(sys.argv[1])
-stage_project = Path(sys.argv[2])
-output = Path(sys.argv[3])
+project_dir = Path(sys.argv[1])
+root_stage = Path(sys.argv[2])
+stage_project = Path(sys.argv[3])
+output = Path(sys.argv[4])
 sources = [
     (root_stage / "data/corpus_manifest.gse270140.tsv", root_stage),
     (root_stage / "data/corpus_manifest.gse243419.tsv", root_stage),
+    (project_dir / "data/corpus_manifest.gse268881.available.tsv", project_dir),
 ]
 columns = ["path", "dataset_id", "species", "tissue", "layer", "label_key", "coarse_label_key", "sample_key"]
 rows = []
 seen = set()
 for manifest, base in sources:
+    if not manifest.is_file():
+        continue
     with manifest.open("r", encoding="utf-8", newline="") as handle:
         for row in csv.DictReader(handle, delimiter="\t"):
             path = Path(row.get("path", ""))
