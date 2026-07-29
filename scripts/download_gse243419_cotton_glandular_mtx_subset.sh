@@ -8,5 +8,6 @@ export SNOWCELL_GEO_TISSUE=leaf_glandular_cells
 export SNOWCELL_GEO_FEATURE_COLUMN="${SNOWCELL_GSE243419_FEATURE_COLUMN:-0}"
 export SNOWCELL_GEO_LABEL="${SNOWCELL_GSE243419_LABEL:-unannotated_leaf_glandular}"
 export SNOWCELL_GEO_COARSE_LABEL="${SNOWCELL_GSE243419_COARSE_LABEL:-secretory_or_epidermal}"
+export SNOWCELL_GEO_RAW_TAR_DOWNLOADER="${SNOWCELL_GEO_RAW_TAR_DOWNLOADER:-curl}"
 
 bash "$(dirname "$0")/download_geo_raw_tar_mtx_subset.sh"
