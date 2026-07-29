@@ -4,14 +4,15 @@ set -euo pipefail
 PROJECT_DIR="${PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 CHECKPOINT="${CHECKPOINT:-${PROJECT_DIR}/outputs/plant_general_annotation_public_plants_v1_sample_split_4090/best.pt}"
 MARKER="${MARKER:-${PROJECT_DIR}/outputs/plant_general_annotation_public_plants_v1_sample_split_4090/service_promoted.marker}"
+DONE_MARKER="${DONE_MARKER:-${PROJECT_DIR}/outputs/plant_general_annotation_public_plants_v1_sample_split_4090/training_complete.marker}"
 LOG="${LOG:-${PROJECT_DIR}/logs/plant_general_annotation_service_promotion.log}"
 INTERVAL_SECONDS="${SNOWCELL_SERVICE_WAIT_INTERVAL_SECONDS:-120}"
 
 cd "${PROJECT_DIR}"
 mkdir -p "$(dirname "${LOG}")"
 
-while [ ! -s "${CHECKPOINT}" ]; do
-  echo "[$(date)] waiting for all-plant annotation head: ${CHECKPOINT}" >> "${LOG}"
+while [ ! -s "${CHECKPOINT}" ] || [ ! -s "${DONE_MARKER}" ]; do
+  echo "[$(date)] waiting for completed all-plant annotation head: ${CHECKPOINT}" >> "${LOG}"
   sleep "${INTERVAL_SECONDS}"
 done
 
