@@ -62,7 +62,21 @@ def metric(metrics: dict[str, Any], key: str) -> float | None:
     return float(value) if isinstance(value, int | float) else None
 
 
-def checkpoint_status(fine_vocab_size: int, coarse_vocab_size: int, stage: str) -> tuple[str, str]:
+def checkpoint_status(
+    fine_vocab_size: int,
+    coarse_vocab_size: int,
+    stage: str,
+    metrics: dict[str, Any] | None = None,
+) -> tuple[str, str]:
+    metrics = metrics or {}
+    if (
+        stage == "hybrid"
+        and metric(metrics, "fine_accuracy") == 0.0
+        and metric(metrics, "coarse_accuracy") == 0.0
+        and metric(metrics, "fine_macro_f1") == 0.0
+        and metric(metrics, "coarse_macro_f1") == 0.0
+    ):
+        return "embedding_release_candidate", "Hybrid continuation used as the embedding backbone; annotation uses a separate validated head."
     if fine_vocab_size > 1 and coarse_vocab_size > 1:
         return "label_release_candidate", "Supervised labels available for annotation."
     if stage == "pretrain":
@@ -85,7 +99,7 @@ def summarize_checkpoint(root: Path, path: Path) -> CheckpointRecord:
     fine_vocab_size = len(payload.get("fine_vocab") or [])
     coarse_vocab_size = len(payload.get("coarse_vocab") or [])
     stage = str(train_config.get("stage") or "")
-    status, release_note = checkpoint_status(fine_vocab_size, coarse_vocab_size, stage)
+    status, release_note = checkpoint_status(fine_vocab_size, coarse_vocab_size, stage, metrics)
     return CheckpointRecord(
         run_id=run_dir.name,
         checkpoint_kind=path.stem,
