@@ -5,6 +5,7 @@ PROJECT_DIR="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 V5_ROOT="${SNOWCELL_V5_ROOT:-/root/snowlotus_public_plants_v5}"
 V7_ROOT="${SNOWCELL_V7_ROOT:-/root/snowlotus_public_plants_v7}"
 PYTHON_BIN="${SNOWCELL_PYTHON_BIN:-/root/miniconda3/envs/myconda/bin/python}"
+MAX_LOADED_ELEMS="${SNOWCELL_V7_MAX_LOADED_ELEMS:-100000000}"
 MANIFEST="${V7_ROOT}/corpus_manifest_public_plants_v7.tsv"
 SUMMARY="${V7_ROOT}/v7_manifest_audit.json"
 CORPUS="${V7_ROOT}/plant_foundation_corpus_public_plants_v7.h5ad"
@@ -35,6 +36,8 @@ if [ ! -s "${V7_ROOT}/public_plants_v7_summary.json" ] || [ ! -d "${CORPUS}" ]; 
     --output "${CORPUS}" \
     --work-dir "${V7_ROOT}/work" \
     --summary-output "${V7_ROOT}/public_plants_v7_summary.json" \
+    --max-loaded-elems "${MAX_LOADED_ELEMS}" \
+    --reuse-shards \
     > "${V7_ROOT}/build_v7.log" 2>&1
 fi
 
