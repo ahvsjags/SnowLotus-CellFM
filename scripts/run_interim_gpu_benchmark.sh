@@ -20,4 +20,5 @@ exec "${PYTHON_BIN}" -u scripts/benchmark_public_plants_v1.py \
   --output "${TRAIN_DIR}/interim_cross_species_benchmark.json" \
   --max-cells-per-dataset 256 \
   --batch-size 64 \
-  --device cuda
+  --device cuda \
+  >> "${TRAIN_DIR}/benchmark.log" 2>&1
