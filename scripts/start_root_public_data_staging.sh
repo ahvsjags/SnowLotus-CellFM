@@ -26,6 +26,23 @@ sample_bucket="${sample_accession%???}nnn"
 url="https://ftp.ncbi.nlm.nih.gov/geo/samples/${sample_bucket}/${sample_accession}/suppl/${filename}"
 h5_path="${stage_root}/data/public/${accession}_h5/${filename}"
 
+download_full_file() {
+  local full_tmp="${h5_path}.full_download"
+  rm -f "${full_tmp}"
+  curl -L --fail --retry 12 --retry-all-errors --retry-delay 10 \
+    --connect-timeout 20 \
+    --max-time "${SNOWCELL_ROOT_GEO_MAX_TIME:-86400}" \
+    -e "https://www.ncbi.nlm.nih.gov/geo/" \
+    -A "SnowLotus-CellFM/0.1 public-data-collector" \
+    -o "${full_tmp}" "${url}"
+  if [ -n "${expected_bytes}" ] && [ "$(wc -c < "${full_tmp}")" -ne "${expected_bytes}" ]; then
+    echo "full GEO download has unexpected size: expected=${expected_bytes} received=$(wc -c < "${full_tmp}")" >&2
+    rm -f "${full_tmp}"
+    return 1
+  fi
+  mv -f "${full_tmp}" "${h5_path}"
+}
+
 if [ ! -s "${h5_path}" ] || ! python - "${h5_path}" <<'PY'
 import sys
 from pathlib import Path
@@ -50,12 +67,17 @@ then
       if [ "${end_bytes}" -ge "${expected_bytes}" ]; then
         end_bytes=$((expected_bytes - 1))
       fi
-      curl -L --fail --retry 5 --retry-delay 5 --connect-timeout 20 \
+      if ! curl -L --fail --retry 5 --retry-all-errors --retry-delay 5 --connect-timeout 20 \
         --max-time "${SNOWCELL_ROOT_GEO_MAX_TIME:-7200}" \
         -r "${current_bytes}-${end_bytes}" \
         -e "https://www.ncbi.nlm.nih.gov/geo/" \
         -A "SnowLotus-CellFM/0.1 public-data-collector" \
-        -o "${remainder_path}" "${url}"
+        -o "${remainder_path}" "${url}"; then
+        echo "GEO Range request rejected; switching to full-file download" >&2
+        download_full_file
+        current_bytes="${expected_bytes}"
+        break
+      fi
       expected_chunk_bytes=$((end_bytes - current_bytes + 1))
       received_chunk_bytes="$(wc -c < "${remainder_path}")"
       if [ "${received_chunk_bytes}" -ne "${expected_chunk_bytes}" ]; then
@@ -67,11 +89,7 @@ then
       current_bytes="$(wc -c < "${h5_path}")"
     done
   else
-    curl -L --fail --retry 5 --retry-delay 5 --connect-timeout 20 \
-      --max-time "${SNOWCELL_ROOT_GEO_MAX_TIME:-7200}" \
-      -e "https://www.ncbi.nlm.nih.gov/geo/" \
-      -A "SnowLotus-CellFM/0.1 public-data-collector" \
-      -o "${h5_path}" "${url}"
+    download_full_file
   fi
 fi
 
