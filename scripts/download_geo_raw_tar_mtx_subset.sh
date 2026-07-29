@@ -47,9 +47,28 @@ download_with_curl_fresh() {
   local url="$1"
   local label="$2"
   echo "Downloading $label with a fresh curl request"
-  curl -L --fail --http1.1 --retry 12 --retry-all-errors --connect-timeout 20 --max-time 86400 \
+  curl -4 -L --fail --http1.1 --retry 12 --retry-all-errors --connect-timeout 20 --max-time 86400 \
     -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
     -o "$raw_tmp" "$url"
+}
+
+download_with_curl_fresh_to() {
+  local output="$1"
+  local url="$2"
+  local label="$3"
+  echo "Downloading $label to ${output} with a fresh IPv4 curl request"
+  curl -4 -L --fail --http1.1 --retry 12 --retry-all-errors --connect-timeout 20 --max-time 86400 \
+    -H "User-Agent: SnowLotus-CellFM/0.1 public-data-collector" \
+    -o "$output" "$url"
+}
+
+download_fresh_fallback() {
+  local fresh_tmp="${raw_tmp}.fresh"
+  rm -f "$fresh_tmp"
+  if ! download_with_curl_fresh_to "$fresh_tmp" "$raw_url" "GEO raw tar URL"; then
+    download_with_curl_fresh_to "$fresh_tmp" "$raw_fallback_url" "GEO download endpoint"
+  fi
+  mv -f "$fresh_tmp" "$raw_tmp"
 }
 
 write_unsupported_report() {
@@ -150,14 +169,14 @@ else
       -i "$aria2_input"; then
       echo "aria2 raw tar download failed; retrying range-capable raw URL with curl resume"
       if ! download_with_curl_resume "$raw_url" "GEO raw tar URL"; then
-        download_with_curl_fresh "$raw_fallback_url" "GEO download endpoint"
+        download_fresh_fallback
       fi
       mv -f "$raw_tmp" "$raw_tar"
       rm -f "${raw_tar}.aria2"
     fi
   else
     if ! download_with_curl_resume "$raw_url" "GEO raw tar URL"; then
-      download_with_curl_fresh "$raw_fallback_url" "GEO download endpoint"
+      download_fresh_fallback
     fi
     mv -f "$raw_tmp" "$raw_tar"
     rm -f "${raw_tar}.aria2"

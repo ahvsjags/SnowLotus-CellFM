@@ -33,7 +33,7 @@ download_full_file() {
   # Keep the previous partial and the current attempt separate so a watchdog
   # restart never destroys the only local copy of a large public file.
   rm -f "${attempt_tmp}"
-  curl -L --fail --http1.1 --retry 12 --retry-all-errors --retry-delay 10 \
+  curl -4 -L --fail --http1.1 --retry 12 --retry-all-errors --retry-delay 10 \
     --connect-timeout 20 \
     --max-time "${SNOWCELL_ROOT_GEO_MAX_TIME:-86400}" \
     -e "https://www.ncbi.nlm.nih.gov/geo/" \
@@ -57,7 +57,7 @@ download_ftp_ranges() {
     fi
     rm -f "${remainder_path}"
     local curl_status=0
-    curl --ftp-pasv --fail \
+    curl -4 --ftp-pasv --fail \
       --connect-timeout 20 --max-time "${SNOWCELL_ROOT_GEO_MAX_TIME:-7200}" \
       -r "${current_bytes}-${end_bytes}" \
       -o "${remainder_path}" "${ftp_url}" || curl_status=$?
