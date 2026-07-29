@@ -10,6 +10,6 @@ raw_tmp="${raw_dir}/GSE243419_RAW.tar.download"
 mkdir -p "${raw_dir}"
 /root/miniconda3/envs/myconda/bin/python "${PROJECT_DIR}/scripts/parallel_geo_range_resume.py" \
   --url "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243419/suppl/GSE243419_RAW.tar" \
-  --output "${raw_tmp}" --expected-bytes 150824960 --workers 8
+  --output "${raw_tmp}" --expected-bytes 150824960 --chunk-bytes 2000000 --workers 2
 mv -f "${raw_tmp}" "${raw_dir}/GSE243419_RAW.tar"
 exec bash scripts/download_gse243419_cotton_glandular_mtx_subset.sh
