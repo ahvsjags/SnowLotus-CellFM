@@ -100,8 +100,16 @@ def collect_catalog_species(root: Path, selected_species: list[dict[str, Any]]) 
     return sorted(values)
 
 
+def active_backbone_path(root: Path) -> Path:
+    candidates = [
+        root / "outputs" / "plant_general_public_plants_continuation_5090" / "best.pt",
+        root / "outputs" / "plant_general_foundation_public_plants_v1_4090" / "best.pt",
+    ]
+    return next((path for path in candidates if path.is_file()), candidates[-1])
+
+
 def optional_v1_asset(root: Path) -> list[dict[str, Any]]:
-    checkpoint = root / "outputs" / "plant_general_foundation_public_plants_v1_4090" / "best.pt"
+    checkpoint = active_backbone_path(root)
     if not checkpoint.is_file():
         return []
     manifest = read_tsv(root / "data" / "corpus_manifest_public_plants_v1.tsv")
@@ -110,7 +118,7 @@ def optional_v1_asset(root: Path) -> list[dict[str, Any]]:
     digest = hashlib.sha256(checkpoint.read_bytes()).hexdigest()
     return [
         {
-            "role": "joint_plant_backbone_public_plants_v1",
+            "role": "active_joint_plant_backbone",
             "path": checkpoint.relative_to(root).as_posix(),
             "manifest_rows": len(manifest),
             "datasets": len(datasets),
@@ -121,8 +129,12 @@ def optional_v1_asset(root: Path) -> list[dict[str, Any]]:
 
 
 def optional_v1_benchmark(root: Path) -> list[dict[str, Any]]:
-    path = root / "outputs" / "benchmarks" / "public_plants_v1_cross_species.json"
-    if not path.is_file():
+    paths = [
+        root / "outputs" / "benchmarks" / "public_plants_v1_continuation_checkpoint.json",
+        root / "outputs" / "benchmarks" / "public_plants_v1_cross_species.json",
+    ]
+    path = next((candidate for candidate in paths if candidate.is_file()), None)
+    if path is None:
         return []
     try:
         payload = json.loads(path.read_text(encoding="utf-8"))
@@ -136,7 +148,7 @@ def optional_v1_benchmark(root: Path) -> list[dict[str, Any]]:
     selection = payload.get("selection", {})
     return [
         {
-            "name": "public_plants_v1_cross_species",
+            "name": path.stem,
             "path": path.relative_to(root).as_posix(),
             "checkpoint_sha256": payload.get("checkpoint_sha256"),
             "selected_cells": selection.get("selected_cells"),
@@ -217,15 +229,19 @@ def build_payload(root: Path) -> dict[str, Any]:
     catalog = read_tsv(root / "data" / "public_dataset_manifest.tsv")
     catalog_species = collect_catalog_species(root, species)
     adapters = build_adapters(catalog_species, species)
-    trained_assets = [
-        {
-            "role": "joint_plant_backbone",
-            "path": "outputs/remote_joint_scplantdb_pretrain_4090/best.pt",
-            "cells": 272732,
-            "source_genes": 209405,
-            "training_gene_vocabulary": 60000,
-            "sha256": "7300ba74d41e664c240cc35b4ae1de2a8402923260ac485c3975969312fed117",
-        },
+    trained_assets = optional_v1_asset(root)
+    if not trained_assets:
+        trained_assets = [
+            {
+                "role": "joint_plant_backbone_historical",
+                "path": "outputs/remote_joint_scplantdb_pretrain_4090/best.pt",
+                "cells": 272732,
+                "source_genes": 209405,
+                "training_gene_vocabulary": 60000,
+                "sha256": "7300ba74d41e664c240cc35b4ae1de2a8402923260ac485c3975969312fed117",
+            },
+        ]
+    trained_assets.extend([
         {
             "role": "full_rice_cross_species_pretraining",
             "path": "outputs/remote_gse146034_full_pretrain_4090/best.pt",
@@ -241,9 +257,9 @@ def build_payload(root: Path) -> dict[str, Any]:
             "independent_test_fine_macro_f1": 0.725556710508996,
             "sha256": "3d2ba3d4c15d29140b04a24227d496fd92b58ef1fd730fe20127eeb66681d8fd",
         },
-    ]
-    trained_assets.extend(optional_v1_asset(root))
+    ])
     trained_assets.extend(optional_annotation_asset(root))
+    primary_checkpoint = active_backbone_path(root)
     return {
         "schema_version": "plant-general-release-v1",
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -297,10 +313,10 @@ def build_payload(root: Path) -> dict[str, Any]:
                 "embedding": "general plant backbone checkpoint",
                 "annotation": "optional supervised annotation checkpoint",
             },
-            "primary_checkpoint": "outputs/remote_joint_scplantdb_pretrain_4090/best.pt",
+            "primary_checkpoint": primary_checkpoint.relative_to(root).as_posix(),
         },
         "reproducibility": {
-            "gpu": "NVIDIA GeForce RTX 4090 24 GB",
+            "gpu": "NVIDIA GeForce RTX 5090 for the active continuation; RTX 4090 for historical baselines",
             "runtime": "conda environment myconda",
             "remote_project": "/mnt/snowlotus_cellfm",
             "github": "https://github.com/ahvsjags/SnowLotus-CellFM",

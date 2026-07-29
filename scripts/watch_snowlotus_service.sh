@@ -3,7 +3,7 @@ set -euo pipefail
 
 PROJECT_DIR="${PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 PYTHON_BIN="${PYTHON_BIN:-/root/miniconda3/envs/myconda/bin/python}"
-BACKBONE_CHECKPOINT="${BACKBONE_CHECKPOINT:-${PROJECT_DIR}/outputs/plant_general_foundation_public_plants_v1_4090/best.pt}"
+BACKBONE_CHECKPOINT="${BACKBONE_CHECKPOINT:-${PROJECT_DIR}/outputs/plant_general_public_plants_continuation_5090/best.pt}"
 ANNOTATION_CHECKPOINT="${ANNOTATION_CHECKPOINT:-${PROJECT_DIR}/outputs/plant_general_annotation_public_plants_v1_cell_split_4090/best.pt}"
 DATA_ROOT="${DATA_ROOT:-${PROJECT_DIR}/data/public/scPlantDB_h5ad}"
 ADAPTER_REGISTRY="${ADAPTER_REGISTRY:-${PROJECT_DIR}/release_metadata/plant_species_adapters.json}"
