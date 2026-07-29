@@ -10,6 +10,7 @@ dataset_id="${SNOWCELL_ROOT_GEO_DATASET_ID:-wheat_soil_root_atlas}"
 species="${SNOWCELL_ROOT_GEO_SPECIES:-Triticum aestivum}"
 tissue="${SNOWCELL_ROOT_GEO_TISSUE:-root}"
 expected_bytes="${SNOWCELL_ROOT_GEO_EXPECTED_BYTES:-}"
+chunk_bytes="${SNOWCELL_ROOT_GEO_CHUNK_BYTES:-1000000}"
 
 export PATH="/root/miniconda3/envs/myconda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH}"
 mkdir -p "${stage_root}/data/public/${accession}_h5" \
@@ -44,16 +45,27 @@ then
   if [ -n "${expected_bytes}" ] && [ -s "${h5_path}" ]; then
     current_bytes="$(wc -c < "${h5_path}")"
     remainder_path="${h5_path}.remainder"
-    if [ "${current_bytes}" -lt "${expected_bytes}" ]; then
+    while [ "${current_bytes}" -lt "${expected_bytes}" ]; do
+      end_bytes=$((current_bytes + chunk_bytes - 1))
+      if [ "${end_bytes}" -ge "${expected_bytes}" ]; then
+        end_bytes=$((expected_bytes - 1))
+      fi
       curl -L --fail --retry 5 --retry-delay 5 --connect-timeout 20 \
         --max-time "${SNOWCELL_ROOT_GEO_MAX_TIME:-7200}" \
-        -r "${current_bytes}-$((expected_bytes - 1))" \
+        -r "${current_bytes}-${end_bytes}" \
         -e "https://www.ncbi.nlm.nih.gov/geo/" \
         -A "SnowLotus-CellFM/0.1 public-data-collector" \
         -o "${remainder_path}" "${url}"
+      expected_chunk_bytes=$((end_bytes - current_bytes + 1))
+      received_chunk_bytes="$(wc -c < "${remainder_path}")"
+      if [ "${received_chunk_bytes}" -ne "${expected_chunk_bytes}" ]; then
+        echo "short GEO range: expected=${expected_chunk_bytes} received=${received_chunk_bytes}" >&2
+        exit 1
+      fi
       cat "${remainder_path}" >> "${h5_path}"
       rm -f "${remainder_path}"
-    fi
+      current_bytes="$(wc -c < "${h5_path}")"
+    done
   else
     curl -L --fail --retry 5 --retry-delay 5 --connect-timeout 20 \
       --max-time "${SNOWCELL_ROOT_GEO_MAX_TIME:-7200}" \
