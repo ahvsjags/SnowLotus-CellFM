@@ -248,6 +248,13 @@ def main() -> None:
     species_values = np.asarray(
         obs.get("species", np.repeat("unknown_species", inference.matrix.n_cells)), dtype=str
     )
+    sample_values_raw = np.asarray(
+        obs.get("sample_id", np.repeat("unknown_sample", inference.matrix.n_cells)), dtype=str
+    )
+    sample_values = np.asarray(
+        [f"{dataset}::{sample}" for dataset, sample in zip(dataset_values, sample_values_raw, strict=True)],
+        dtype=str,
+    )
     fine_values = np.asarray(
         obs.get(config.data.label_key, np.repeat("", inference.matrix.n_cells)), dtype=str
     )
@@ -269,6 +276,7 @@ def main() -> None:
     embeddings = encode_embeddings(model, dataset, device, args.batch_size)
     selected_datasets = dataset_values[selected]
     selected_species = species_values[selected]
+    selected_samples = sample_values[selected]
     selected_fine = fine_values[selected]
     selected_coarse = coarse_values[selected]
     norm = np.linalg.norm(embeddings, axis=1)
@@ -287,6 +295,7 @@ def main() -> None:
             "selected_cells": int(len(selected)),
             "datasets": int(len(set(selected_datasets.tolist()))),
             "species": int(len(set(selected_species.tolist()))),
+            "samples": int(len(set(selected_samples.tolist()))),
         },
         "embedding": {
             "dimension": int(embeddings.shape[1]),
@@ -301,6 +310,12 @@ def main() -> None:
             ),
             "leave_dataset_out_coarse": run_leaveout_protocol(
                 embeddings, selected_datasets, selected_coarse, args.min_test_cells
+            ),
+            "leave_sample_out_fine": run_leaveout_protocol(
+                embeddings, selected_samples, selected_fine, args.min_test_cells
+            ),
+            "leave_sample_out_coarse": run_leaveout_protocol(
+                embeddings, selected_samples, selected_coarse, args.min_test_cells
             ),
             "leave_species_out_fine": run_leaveout_protocol(
                 embeddings, selected_species, selected_fine, args.min_test_cells
