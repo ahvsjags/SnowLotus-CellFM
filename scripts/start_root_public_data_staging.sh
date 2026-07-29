@@ -54,7 +54,7 @@ download_ftp_ranges() {
     fi
     rm -f "${remainder_path}"
     local curl_status=0
-    curl --ftp-pasv --fail --retry 3 --retry-all-errors --retry-delay 5 \
+    curl --ftp-pasv --fail \
       --connect-timeout 20 --max-time "${SNOWCELL_ROOT_GEO_MAX_TIME:-7200}" \
       -r "${current_bytes}-${end_bytes}" \
       -o "${remainder_path}" "${ftp_url}" || curl_status=$?
