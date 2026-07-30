@@ -3,10 +3,10 @@ set -euo pipefail
 
 PROJECT_DIR="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
 PYTHON_BIN="${SNOWCELL_PYTHON_BIN:-/root/miniconda3/envs/myconda/bin/python}"
-CHECKPOINT="${SNOWCELL_SERVICE_CHECKPOINT:-/root/snowlotus_cellfm_v8_lora_shared_4090/best.pt}"
-DATA_ROOT="${SNOWCELL_SERVICE_DATA_ROOT:-/root/snowlotus_public_plants_v8}"
+CHECKPOINT="${SNOWCELL_SERVICE_CHECKPOINT:-/root/snowlotus_cellfm_v9_lora_shared_4090/best.pt}"
+DATA_ROOT="${SNOWCELL_SERVICE_DATA_ROOT:-/root/snowlotus_public_plants_v9}"
 PORT="${SNOWCELL_SERVICE_PORT:-8000}"
-LOG="${SNOWCELL_SERVICE_LOG:-/root/snowlotus_cellfm_v8_lora_shared_4090/service_watchdog.log}"
+LOG="${SNOWCELL_SERVICE_LOG:-/root/snowlotus_cellfm_v9_lora_shared_4090/service_watchdog.log}"
 
 mkdir -p "$(dirname "${LOG}")"
 while true; do
