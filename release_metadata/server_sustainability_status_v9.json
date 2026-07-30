@@ -1,6 +1,6 @@
 {
   "schema_version": "plant_cellfm_server_sustainability_status_v1",
-  "generated_at": "2026-07-30T16:57:17+08:00",
+  "generated_at": "2026-07-30T17:07:00+08:00",
   "git": {
     "branch": "agent/remote-pipeline-20260728",
     "local_head": "3a6273e7b871cb4265e55c3300d59242a1d29e48",
@@ -32,6 +32,20 @@
     "addendum_package": "/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090/addendum_methods_panel",
     "addendum_checksum_file": "addendum_sha256sums.txt",
     "addendum_checksum_status": "OK"
+  },
+  "runtime_smoke_test": {
+    "route": "POST /annotate",
+    "status": "ok",
+    "data_path": "/root/snowlotus_public_plants_v9/v9_benchmark_subset_256_shared_genes.h5ad",
+    "output_dir": "/mnt/snowlotus_cellfm/outputs/runtime_smoke_v9_annotation_20260730_1659",
+    "species": "Arabidopsis thaliana",
+    "resolved_adapter": "plant_arabidopsis_thaliana",
+    "used_fallback": false,
+    "mode": "annotation",
+    "n_cells": 3964,
+    "embedding_shape": [3964, 256],
+    "predictions_line_count": 3965,
+    "evidence_file": "release_metadata/api_runtime_smoke_v9.md"
   },
   "stable_submission_scope": [
     "Plant-CellFM v9 general plant single-cell expression foundation model",

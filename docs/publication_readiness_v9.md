@@ -15,6 +15,7 @@ This file records the evidence behind the frozen v9 candidate. It is an engineer
 9. **Biological case study.** The Arabidopsis root case study reports 260 marker-candidate rows across 13 cell states, including 10 root cell-identity labels, and links adapter resolution to marker discovery.
 10. **Integrated stable manuscript.** The repository now contains `manuscript/Plant_CellFM_v9_完整主文_稳健方法版_v1.md` and `.docx`, plus `release_metadata/v9_submission_stability_audit.md`, to keep cross-species claims, comparator status, the Arabidopsis biology case and the Snow Lotus scope in one reviewer-facing narrative.
 11. **Submission index.** `SUBMISSION_INDEX_v9.md` is the current entry point and separates v9 submission claims from historical Snow Lotus-centered drafts and early hardware-planning files.
+12. **Live runtime smoke test.** `release_metadata/api_runtime_smoke_v9.md` records a successful `POST /annotate` call on the deployed service, resolving the Arabidopsis adapter and writing predictions plus 3964 x 256 embeddings.
 
 ## Frozen Results
 

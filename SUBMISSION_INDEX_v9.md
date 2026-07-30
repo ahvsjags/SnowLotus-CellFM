@@ -22,6 +22,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Model card | `release_metadata/plant_cellfm_v9_model_card.md` |
 | Stability audit | `release_metadata/v9_submission_stability_audit.md` |
 | Server sustainability audit | `release_metadata/server_sustainability_status_v9.md` |
+| Live API runtime smoke test | `release_metadata/api_runtime_smoke_v9.md` |
 | External benchmark panel | `release_metadata/external_benchmark_panel_v9.md` |
 | Arabidopsis root biology case | `release_metadata/plant_biology_case_study_v9.md` |
 | v9 benchmark comparison | `release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json` |

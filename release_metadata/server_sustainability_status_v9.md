@@ -1,6 +1,6 @@
 # Plant-CellFM v9 Server Sustainability Status
 
-Generated: 2026-07-30 16:57 Asia/Shanghai
+Generated: 2026-07-30 17:07 Asia/Shanghai
 
 ## Git And Repository State
 
@@ -35,6 +35,15 @@ NVIDIA GeForce RTX 4090, 24564 MiB, 1 MiB used, 0% utilization
 ```
 
 The GPU is available but idle. This is acceptable for the frozen v9 submission package because the current task is release stabilization rather than continuing an unbounded v10 expansion run.
+
+## Runtime Annotation Smoke Test
+
+The live `POST /annotate` route passed an end-to-end smoke test on 2026-07-30. The request used `/root/snowlotus_public_plants_v9/v9_benchmark_subset_256_shared_genes.h5ad`, species `Arabidopsis thaliana`, annotation mode and batch size 64. The service resolved `plant_arabidopsis_thaliana` without fallback and wrote predictions, embeddings, metadata and adapter-selection artifacts to `/mnt/snowlotus_cellfm/outputs/runtime_smoke_v9_annotation_20260730_1659`.
+
+- Cells annotated: `3964`
+- Embedding shape: `3964 x 256`
+- Prediction rows: `3965`, including header
+- Evidence file: `release_metadata/api_runtime_smoke_v9.md`
 
 ## Server Package
 

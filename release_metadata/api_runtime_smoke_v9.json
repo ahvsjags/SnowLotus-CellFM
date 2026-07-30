@@ -1,0 +1,73 @@
+{
+  "schema_version": "plant_cellfm_api_runtime_smoke_v1",
+  "generated_at": "2026-07-30T17:04:00+08:00",
+  "service": {
+    "base_url": "http://127.0.0.1:8000",
+    "route": "POST /annotate",
+    "health_status": "ok",
+    "model_scope": "plant_general",
+    "adapter_resolution": "dynamic_all_plants",
+    "device": "cuda"
+  },
+  "request": {
+    "data_path": "/root/snowlotus_public_plants_v9/v9_benchmark_subset_256_shared_genes.h5ad",
+    "output_dir": "/mnt/snowlotus_cellfm/outputs/runtime_smoke_v9_annotation_20260730_1659",
+    "species": "Arabidopsis thaliana",
+    "mode": "annotation",
+    "batch_size": 64
+  },
+  "response": {
+    "status": "ok",
+    "requested_species": "Arabidopsis thaliana",
+    "adapter_id": "plant_arabidopsis_thaliana",
+    "used_fallback": false,
+    "checkpoint_role": "annotation",
+    "n_cells": 3964,
+    "embedding_dim": 256,
+    "embedding_shape": [3964, 256]
+  },
+  "output_files": {
+    "adapter_selection_json": {
+      "path": "/mnt/snowlotus_cellfm/outputs/runtime_smoke_v9_annotation_20260730_1659/adapter_selection.json",
+      "sha256": "3bb69352537daf04b86e2835d4f66f05c14e1498bb59a07904aa642e9c3d014f"
+    },
+    "annotation_metadata_json": {
+      "path": "/mnt/snowlotus_cellfm/outputs/runtime_smoke_v9_annotation_20260730_1659/annotation_metadata.json",
+      "sha256": "62d86701e35dd9153b2e69b8c760d6ef6298789509c14e5c51e6c82cf973b876"
+    },
+    "embeddings_npy": {
+      "path": "/mnt/snowlotus_cellfm/outputs/runtime_smoke_v9_annotation_20260730_1659/embeddings.npy",
+      "sha256": "f1d7df09756da9322a45fb270aa110f92a457ff160e90c002ed5cf2a7c2dd013"
+    },
+    "predictions_csv": {
+      "path": "/mnt/snowlotus_cellfm/outputs/runtime_smoke_v9_annotation_20260730_1659/predictions.csv",
+      "sha256": "878b413e372cc07f6cb5d84d628528ed66c3438acd22d5bc99c0f61e16b057bb",
+      "line_count": 3965,
+      "cell_records": 3964
+    }
+  },
+  "first_prediction_rows": [
+    {
+      "cell_index": 0,
+      "fine_label": "Leaf pavement cell",
+      "fine_confidence": 0.954526,
+      "coarse_label": "Leaf pavement cell",
+      "coarse_confidence": 0.953002
+    },
+    {
+      "cell_index": 1,
+      "fine_label": "Xylem",
+      "fine_confidence": 0.513961,
+      "coarse_label": "Xylem",
+      "coarse_confidence": 0.491332
+    },
+    {
+      "cell_index": 2,
+      "fine_label": "Phloem parenchyma",
+      "fine_confidence": 0.791759,
+      "coarse_label": "Phloem parenchyma",
+      "coarse_confidence": 0.792273
+    }
+  ],
+  "evidence_status": "end_to_end_annotation_route_passed"
+}
