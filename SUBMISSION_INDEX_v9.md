@@ -26,6 +26,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Peer-review preflight | `release_metadata/publication_peer_review_preflight_v9.md` |
 | Publication target readiness matrix | `release_metadata/top_journal_readiness_matrix.md` |
 | Server sustainability audit | `release_metadata/server_sustainability_status_v9.md` |
+| GitHub sync recovery note | `GITHUB_SYNC_RECOVERY.md` inside the final editor zip |
 | Watchdog recovery audit | `release_metadata/watchdog_recovery_status_v9.md` |
 | Editor issue closure | `release_metadata/v9_editor_issue_closure.md` |
 | Live API runtime smoke test | `release_metadata/api_runtime_smoke_v9.md` |

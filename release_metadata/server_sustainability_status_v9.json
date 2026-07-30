@@ -1,12 +1,15 @@
 {
   "schema_version": "plant_cellfm_server_sustainability_status_v1",
-  "generated_at": "2026-07-30T17:16:00+08:00",
+  "generated_at": "2026-07-30T20:12:00+08:00",
   "git": {
     "branch": "agent/remote-pipeline-20260728",
     "head_verification_command": "git rev-parse HEAD origin/agent/remote-pipeline-20260728",
     "github_branch_url": "https://github.com/ahvsjags/SnowLotus-CellFM/tree/agent/remote-pipeline-20260728",
     "https_backend_fix": "repo-local http.sslBackend=openssl",
-    "previous_blocker": "Windows Schannel SEC_E_NO_CREDENTIALS during GitHub HTTPS fetch/push"
+    "current_push_blocker": "workstation gh token is invalid; latest local/server package may be ahead of the public GitHub branch until authentication is refreshed",
+    "previous_transport_blocker": "Windows Schannel SEC_E_NO_CREDENTIALS during GitHub HTTPS fetch",
+    "package_recovery_note": "GITHUB_SYNC_RECOVERY.md inside the final editor zip",
+    "server_recovery_artifact_dir": "/mnt/snowlotus_cellfm/outputs/editor_submission_v9"
   },
   "server": {
     "host_alias": "matpool-px1-jcy",
@@ -29,6 +32,7 @@
   "packages": {
     "main_package": "/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090",
     "addendum_package": "/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090/addendum_methods_panel",
+    "final_editor_package": "/mnt/snowlotus_cellfm/outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.zip",
     "addendum_checksum_file": "addendum_sha256sums.txt",
     "addendum_checksum_status": "OK"
   },

@@ -189,6 +189,7 @@ def package_readme(git_head: str, generated_at: str) -> str:
             "9. `release_metadata/species_ontology_coverage_audit_v9.md`",
             "10. `release_metadata/species_ontology_label_benchmark_v9.md`",
             "11. `release_metadata/server_sustainability_status_v9.md`",
+            "12. `GITHUB_SYNC_RECOVERY.md`",
             "",
             "## Claim Boundary",
             "",
@@ -197,6 +198,10 @@ def package_readme(git_head: str, generated_at: str) -> str:
             "It does not claim universal high-accuracy zero-shot annotation for every plant species, a completed Snow Lotus single-cell atlas, or final scPlantLLM/scPlantAnnotate numeric superiority without executable third-party metric evidence.",
             "",
             "Cross-species generalization is reported with the normalized leave-species-out metrics, `release_metadata/species_holdout_failure_audit_v9.md`, `release_metadata/species_ontology_coverage_audit_v9.md` and `release_metadata/species_ontology_label_benchmark_v9.md`, which separate open-set label absence, known-label transfer errors, ontology-actionable labels, ontology-label benchmark accuracy and per-species revision targets.",
+            "",
+            "## GitHub Sync State",
+            "",
+            "If the public GitHub branch is behind this package, use `GITHUB_SYNC_RECOVERY.md` inside this zip. The recovery note records the local source commit, observed origin head and the server-side bundle/patch paths.",
             "",
         ]
     )
@@ -212,6 +217,52 @@ def model_asset_pointer() -> str:
             "",
             "Server path used by the live CUDA service:",
             "/root/snowlotus_cellfm_v9_lora_shared_4090/best.pt",
+            "",
+        ]
+    )
+
+
+def github_sync_recovery(git_head: str, origin_head: str, generated_at: str) -> str:
+    short_head = git_head[:7] if git_head != "unknown" else "unknown"
+    short_origin = origin_head[:7] if origin_head != "unknown" else "unknown"
+    bundle_name = f"Plant_CellFM_{short_head}_from_{short_origin}.bundle"
+    patch_name = f"Plant_CellFM_{short_head}_from_{short_origin}.patch"
+    changed_files_name = f"Plant_CellFM_changed_files_{short_head}.tar"
+    return "\n".join(
+        [
+            "# Plant-CellFM v9 GitHub Sync Recovery",
+            "",
+            f"Generated UTC: `{generated_at}`",
+            "",
+            f"Packaged source commit: `{git_head}`",
+            "",
+            f"Observed origin branch head: `{origin_head}`",
+            "",
+            "The workstation GitHub CLI authentication was invalid during packaging, so the public branch may lag behind the package source commit. This recovery note is included so the exact packaged state can still be reconstructed from the server artifacts.",
+            "",
+            "## Server Artifacts",
+            "",
+            "- Final editor zip: `/mnt/snowlotus_cellfm/outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.zip`",
+            "- Final editor zip SHA256: recorded in `Plant_CellFM_v9_editor_submission_final.zip.sha256` and `.status.json`",
+            f"- Changed-files tar, if generated for this commit: `/mnt/snowlotus_cellfm/outputs/editor_submission_v9/{changed_files_name}`",
+            f"- Git bundle, if generated for this commit range: `/mnt/snowlotus_cellfm/outputs/editor_submission_v9/{bundle_name}`",
+            f"- Binary patch, if generated for this commit range: `/mnt/snowlotus_cellfm/outputs/editor_submission_v9/{patch_name}`",
+            "",
+            "## Recovery Commands",
+            "",
+            "From a clone that contains the observed origin branch head:",
+            "",
+            "```bash",
+            f"git bundle verify {bundle_name}",
+            f"git fetch {bundle_name} HEAD:{short_head}_recovery",
+            f"git checkout {short_head}_recovery",
+            "```",
+            "",
+            "If the bundle is unavailable but the binary patch is present, start from the observed origin head, apply the patch and verify the package status JSON before pushing.",
+            "",
+            "## Claim Boundary",
+            "",
+            "The GitHub sync lag does not change the model evidence in the zip: the package contains the final manuscript, model card, benchmark files, ontology-label species benchmark, server health evidence and recovery metadata for the packaged source commit.",
             "",
         ]
     )
@@ -261,6 +312,7 @@ def build_package(output_dir: Path, package_name: str) -> dict[str, Any]:
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(entry["source"], destination)
     write_manifest_files(staging, entries, git_head, generated_at)
+    write_text(staging / "GITHUB_SYNC_RECOVERY.md", github_sync_recovery(git_head, origin_head, generated_at))
 
     zip_path = output_dir / f"{package_name}.zip"
     if zip_path.exists():
@@ -300,6 +352,7 @@ def build_package(output_dir: Path, package_name: str) -> dict[str, Any]:
             "release_metadata/species_ontology_coverage_audit_v9.md",
             "release_metadata/species_ontology_label_benchmark_v9.md",
             "release_metadata/server_sustainability_status_v9.md",
+            "GITHUB_SYNC_RECOVERY.md",
         ],
     }
     write_text(output_dir / f"{package_name}.status.json", json.dumps(status, ensure_ascii=False, indent=2) + "\n")

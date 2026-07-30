@@ -1,15 +1,16 @@
 # Plant-CellFM v9 Server Sustainability Status
 
-Generated: 2026-07-30 17:16 Asia/Shanghai
+Generated: 2026-07-30 20:12 Asia/Shanghai
 
 ## Git And Repository State
 
 - Local branch: `agent/remote-pipeline-20260728`
 - Current local and GitHub branch heads should be verified with `git rev-parse HEAD origin/agent/remote-pipeline-20260728`.
 - GitHub branch URL: `https://github.com/ahvsjags/SnowLotus-CellFM/tree/agent/remote-pipeline-20260728`
-- GitHub TLS fix: repository-local `http.sslBackend=openssl`
+- GitHub fetch transport: repository-local `http.sslBackend=openssl`
+- Current GitHub push blocker: workstation `gh` token is invalid; latest local/server package may be ahead of the public branch until GitHub authentication is refreshed.
 
-The earlier Windows Git blocker was caused by the default Schannel TLS backend returning `SEC_E_NO_CREDENTIALS`. Fetch and push now work when the repository uses OpenSSL as the Git HTTPS backend.
+The earlier Windows Git transport blocker was caused by the default Schannel TLS backend returning `SEC_E_NO_CREDENTIALS`. Fetch works when the repository uses OpenSSL as the Git HTTPS backend. Push is currently gated by GitHub authentication, not by SSH access to the Matpool server. The final editor zip therefore includes `GITHUB_SYNC_RECOVERY.md`, and the server keeps bundle/patch/tar recovery artifacts under `/mnt/snowlotus_cellfm/outputs/editor_submission_v9/`.
 
 ## Remote Service State
 
@@ -57,10 +58,11 @@ The server also passed a controlled process-recovery test. A tmux session named 
 
 - Main package: `/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090`
 - Addendum package: `/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090/addendum_methods_panel`
+- Final editor package: `/mnt/snowlotus_cellfm/outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.zip`
 - Addendum checksum file: `addendum_sha256sums.txt`
 - Latest addendum checksum verification: `OK`
 
-The addendum package now contains `SUBMISSION_INDEX_v9.md`, the updated `README.md`, the v9 development plan, publication readiness audit, integrated Chinese manuscript, model card, external benchmark panel, Arabidopsis root case, Seurat benchmark JSON, v9/v3 benchmark JSON and generation scripts.
+The addendum package now contains `SUBMISSION_INDEX_v9.md`, the updated `README.md`, the v9 development plan, publication readiness audit, integrated Chinese manuscript, model card, external benchmark panel, Arabidopsis root case, Seurat benchmark JSON, v9/v3 benchmark JSON, species ontology coverage audit, ontology-label species benchmark and generation scripts.
 
 ## Current Publishable Scope
 
