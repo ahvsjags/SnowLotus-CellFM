@@ -33,11 +33,18 @@ echo "[$(date)] scPlantDB budgeted H5AD queue started"
 echo "[$(date)] budgets: max_bytes=${max_bytes} max_total_bytes=${max_total_bytes} max_datasets=${max_datasets} min_cells=${min_cells}"
 echo "[$(date)] manifest rows before: ${before_rows}"
 
-python scripts/extract_scplantdb_catalog.py \
-  --chunks-dir data/public/source_pages/scplantdb_chunks \
-  --output-tsv data/public_discovery/scplantdb_dataset_catalog.tsv \
-  --output-json data/public_discovery/scplantdb_dataset_catalog.json \
-  --output-md data/public_discovery/scplantdb_acquisition_catalog.md
+if find data/public/source_pages/scplantdb_chunks -type f -name "*.js" -print -quit 2>/dev/null | grep -q .; then
+  python scripts/extract_scplantdb_catalog.py \
+    --chunks-dir data/public/source_pages/scplantdb_chunks \
+    --output-tsv data/public_discovery/scplantdb_dataset_catalog.tsv \
+    --output-json data/public_discovery/scplantdb_dataset_catalog.json \
+    --output-md data/public_discovery/scplantdb_acquisition_catalog.md
+elif [ -s data/public_discovery/scplantdb_dataset_catalog.tsv ]; then
+  echo "[$(date)] reusing existing scPlantDB catalog because cached frontend chunks are unavailable"
+else
+  echo "[$(date)] missing scPlantDB frontend chunks and existing catalog; cannot select datasets" >&2
+  exit 2
+fi
 
 python scripts/probe_scplantdb_h5ad_sizes.py \
   --catalog-tsv data/public_discovery/scplantdb_dataset_catalog.tsv \

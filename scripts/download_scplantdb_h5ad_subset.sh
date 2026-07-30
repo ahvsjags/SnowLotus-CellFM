@@ -16,11 +16,18 @@ manifest="${SNOWCELL_SCPLANTDB_MANIFEST:-data/corpus_manifest.scplantdb.tsv}"
 
 mkdir -p "$(dirname "$catalog_tsv")" "$gz_dir" "$h5ad_dir" "$(dirname "$manifest")"
 
-python scripts/extract_scplantdb_catalog.py \
-  --chunks-dir "$chunks_dir" \
-  --output-tsv "$catalog_tsv" \
-  --output-json "$catalog_json" \
-  --output-md "$catalog_md"
+if find "$chunks_dir" -type f -name "*.js" -print -quit 2>/dev/null | grep -q .; then
+  python scripts/extract_scplantdb_catalog.py \
+    --chunks-dir "$chunks_dir" \
+    --output-tsv "$catalog_tsv" \
+    --output-json "$catalog_json" \
+    --output-md "$catalog_md"
+elif [ -s "$catalog_tsv" ]; then
+  echo "[$(date)] reusing existing scPlantDB catalog because cached frontend chunks are unavailable"
+else
+  echo "[$(date)] missing scPlantDB frontend chunks and existing catalog" >&2
+  exit 2
+fi
 
 if [ -n "$datasets_file" ] && [ -s "$datasets_file" ]; then
   datasets="$(python - "$datasets_file" <<'PY'

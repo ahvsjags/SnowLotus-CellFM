@@ -15,7 +15,7 @@ copy_if_exists() {
   local item="$1"
   if [ -e "${source_dir}/${item}" ]; then
     mkdir -p "${stage_dir}/$(dirname "$item")"
-    tar -C "$source_dir" -cf - "$item" | tar -C "$stage_dir" -xf -
+    tar -C "$source_dir" --ignore-failed-read --warning=no-file-changed -cf - "$item" | tar -C "$stage_dir" -xf -
   fi
 }
 
