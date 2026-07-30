@@ -33,6 +33,7 @@
     "main_package": "/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090",
     "addendum_package": "/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090/addendum_methods_panel",
     "final_editor_package": "/mnt/snowlotus_cellfm/outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.zip",
+    "server_release_verifier": "scripts/verify_v9_server_release.py",
     "addendum_checksum_file": "addendum_sha256sums.txt",
     "addendum_checksum_status": "OK"
   },

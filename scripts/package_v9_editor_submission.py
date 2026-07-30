@@ -104,6 +104,7 @@ ASSET_PATHS = [
     "scripts/write_species_holdout_failure_audit_v9.py",
     "scripts/write_species_ontology_coverage_audit_v9.py",
     "scripts/run_species_ontology_label_benchmark_v9.py",
+    "scripts/verify_v9_server_release.py",
     "scripts/package_v9_editor_submission.py",
 ]
 
@@ -189,7 +190,8 @@ def package_readme(git_head: str, generated_at: str) -> str:
             "9. `release_metadata/species_ontology_coverage_audit_v9.md`",
             "10. `release_metadata/species_ontology_label_benchmark_v9.md`",
             "11. `release_metadata/server_sustainability_status_v9.md`",
-            "12. `GITHUB_SYNC_RECOVERY.md`",
+            "12. `scripts/verify_v9_server_release.py`",
+            "13. `GITHUB_SYNC_RECOVERY.md`",
             "",
             "## Claim Boundary",
             "",
@@ -202,6 +204,16 @@ def package_readme(git_head: str, generated_at: str) -> str:
             "## GitHub Sync State",
             "",
             "If the public GitHub branch is behind this package, use `GITHUB_SYNC_RECOVERY.md` inside this zip. The recovery note records the local source commit, observed origin head and the server-side bundle/patch paths.",
+            "",
+            "## Server Verification",
+            "",
+            "The zip includes `scripts/verify_v9_server_release.py`. On the Matpool server, run it from `/mnt/snowlotus_cellfm` to regenerate the latest machine-readable and reviewer-readable release verification reports:",
+            "",
+            "```bash",
+            "/root/miniconda3/envs/myconda/bin/python scripts/verify_v9_server_release.py --output-json release_metadata/server_release_verification_v9.json --output-md release_metadata/server_release_verification_v9.md",
+            "```",
+            "",
+            "The verifier checks the final zip SHA256, critical zip entries, recovery note, root evidence files, addendum recovery note, live `/health`, CUDA device, RTX 4090 visibility and watchdog tmux session.",
             "",
         ]
     )
@@ -352,6 +364,7 @@ def build_package(output_dir: Path, package_name: str) -> dict[str, Any]:
             "release_metadata/species_ontology_coverage_audit_v9.md",
             "release_metadata/species_ontology_label_benchmark_v9.md",
             "release_metadata/server_sustainability_status_v9.md",
+            "scripts/verify_v9_server_release.py",
             "GITHUB_SYNC_RECOVERY.md",
         ],
     }

@@ -59,6 +59,7 @@ The server also passed a controlled process-recovery test. A tmux session named 
 - Main package: `/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090`
 - Addendum package: `/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090/addendum_methods_panel`
 - Final editor package: `/mnt/snowlotus_cellfm/outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.zip`
+- Server release verifier: `scripts/verify_v9_server_release.py`
 - Addendum checksum file: `addendum_sha256sums.txt`
 - Latest addendum checksum verification: `OK`
 
