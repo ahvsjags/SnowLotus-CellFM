@@ -74,12 +74,14 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `release_metadata/server_sustainability_status_v9.md`
 - `release_metadata/watchdog_recovery_status_v9.md`
 - `release_metadata/v9_editor_issue_closure.md`
+- `release_metadata/final_editor_submission_package_recipe_v9.md`
 - `release_metadata/api_runtime_smoke_v9.md`
 - `manuscript/Plant_CellFM_v9_完整主文_稳健方法版_v1.md`
 - `manuscript/Plant_CellFM_v9_final_submission_zh_v1.md`
 - `manuscript/Plant_CellFM_v9_final_submission_zh_v1.docx`
 - `docs/publication_readiness_v9.md`
 - `scripts/package_v9_release.sh`
+- `scripts/package_v9_editor_submission.py`
 - `tests/`
 
 The local regression suite passes with `PYTHONPATH=src pytest -q`. The release package also includes a SHA256 manifest that was verified on the server.

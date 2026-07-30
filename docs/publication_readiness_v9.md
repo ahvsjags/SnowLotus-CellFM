@@ -20,6 +20,7 @@ This file records the evidence behind the frozen v9 candidate. It is an engineer
 14. **Editor issue closure.** `release_metadata/v9_editor_issue_closure.md` records the current safe resolution of the main editor-facing concerns: strict cross-species wording, third-party comparator boundaries, Arabidopsis case scope, Snow Lotus scope, RTX 4090 hardware statement and server/GitHub reproducibility.
 15. **Submission manuscript refresh.** `manuscript/Plant_CellFM_v9_final_submission_zh_v1.md` and `.docx` provide an ASCII-path copy of the integrated Chinese manuscript, now including live API runtime evidence, watchdog recovery evidence and the updated stability matrix.
 16. **Arabidopsis literature anchor.** `release_metadata/arabidopsis_root_literature_anchor_v9.md` aligns the root case labels with established Arabidopsis root atlas categories and canonical marker examples while preserving the claim boundary that model markers are computational candidates.
+17. **Final editor package recipe.** `scripts/package_v9_editor_submission.py` and `release_metadata/final_editor_submission_package_recipe_v9.md` generate a compact editor-facing zip with the final Word manuscript, model card, benchmark evidence, server evidence, Arabidopsis case evidence and model asset pointer.
 
 ## Frozen Results
 
