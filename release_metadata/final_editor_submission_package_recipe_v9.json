@@ -1,6 +1,6 @@
 {
   "schema_version": "plant_cellfm_v9_final_editor_submission_package_recipe_v1",
-  "generated_at": "2026-07-30T18:27:00+08:00",
+  "generated_at": "2026-07-30T18:45:00+08:00",
   "command": "python scripts/package_v9_editor_submission.py",
   "default_output_dir": "outputs/editor_submission_v9",
   "default_zip": "outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.zip",
@@ -10,6 +10,7 @@
   "peer_review_preflight": "release_metadata/publication_peer_review_preflight_v9.md",
   "arabidopsis_root_figure_package": "release_metadata/arabidopsis_root_case_figure_v9.md",
   "species_holdout_failure_audit": "release_metadata/species_holdout_failure_audit_v9.md",
+  "publication_target_readiness_matrix": "release_metadata/top_journal_readiness_matrix.md",
   "checkpoint_asset": "https://github.com/ahvsjags/SnowLotus-CellFM/releases/download/v0.9.0-plant-general-lora/SnowLotus-CellFM-v9-lora-4090-best.pt",
   "checkpoint_sha256": "9a98dbc799c062981c1dd895034300b7385e1ecddad88d8d98cff5d1c6962c93",
   "claim_boundary": [

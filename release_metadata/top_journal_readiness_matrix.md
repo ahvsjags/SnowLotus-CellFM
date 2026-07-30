@@ -1,120 +1,85 @@
-# SnowLotus-CellFM Top-Journal Readiness Matrix
+# Plant-CellFM v9 Publication Target Readiness Matrix
 
-Generated UTC: `2026-07-26T03:38:27.631673+00:00`
+Generated: 2026-07-30 Asia/Shanghai
 
-## Gate Matrix
+This matrix is a current-state submission audit for the frozen v9 package. It replaces earlier 5090/SnowLotus-centered planning language. The current model card uses NVIDIA GeForce RTX 4090, 24 GB VRAM, and the current scientific scope is Plant-CellFM as a plant-general single-cell annotation foundation model with an all-plant adapter layer.
 
-| ID | Requirement | Status | Evidence / Missing item |
+## Readiness Summary
+
+| Target tier | Current status | Submission stance |
+| --- | --- | --- |
+| Plant-focused methods/resource journal | READY | Strongest current path. Submit as a plant single-cell method/resource with public corpus, adapter framework, benchmark evidence and Arabidopsis root case. |
+| Genome Biology / genomics computational-method target | NEAR_READY_WITH_MAJOR_REVISION_RISK | Plausible if framed around reproducible genomics resource and strict benchmark; stronger official third-party comparator would improve the case. |
+| Communications Biology / broad biology target | POSSIBLE_WITH_CONSERVATIVE_FRAMING | Usable if the manuscript emphasizes concrete plant biology utility and avoids universal high-accuracy claims. |
+| Nature Methods | STRETCH_NOT_YET_FULLY_CLOSED | Needs stronger method novelty, official third-party model benchmarks and broader biological validation before being a robust target. |
+| Nature Plants | STRETCH_AFTER_BIOLOGY_VALIDATION | Needs stronger independent plant biological discovery or validation beyond the current computational case. |
+
+## Current Gate Matrix
+
+| Gate | Status | Evidence | Interpretation |
 | --- | --- | --- | --- |
-| ssh_5090 | Stable SSH alias can execute tasks on the RTX 5090 server | READY | `publication_gates.ssh_remote_execution=true` |
-| base_training | GPU training artifacts and traceable histories exist | READY | `publication_gates.gpu_training_active_or_artifacts_present=true` |
-| public_data | Public plant single-cell data are ingested into manifests/corpora | READY | `publication_gates.public_data_ingested=true` |
-| data_integrity | Referenced matrix files pass integrity audit | READY | `publication_gates.referenced_matrices_readable=true` |
-| strict_split | Strict split audits are reproducible | READY | `publication_gates.strict_split_audit_present=true` |
-| baseline_metric | At least one reproducible baseline benchmark metric exists | READY | `publication_gates.baseline_benchmark_metric_present=true` |
-| external_tools | External tool comparisons are present | PARTIAL | Metric benchmarks present for `scplantllm, seurat`; missing `scplantannotate`. |
-| snow_lotus_scrna | Snow Lotus scRNA/snRNA data exist for fine-tuning and validation | MISSING | Still missing data/saussurea_involucrata.h5ad |
+| SSH and server execution | READY | `ssh matpool-px1-jcy`; server package under `/mnt/snowlotus_cellfm` | Remote execution and package synchronization are working. |
+| GPU/CUDA service | READY | `release_metadata/api_runtime_smoke_v9.md`; service health reports `device=cuda` | The frozen model is served as a callable CUDA service. |
+| Hardware statement | READY | `release_metadata/plant_cellfm_v9_model_card.md` | Current submission uses RTX 4090, not historical 5090 planning. |
+| GitHub synchronization | READY | branch `agent/remote-pipeline-20260728`; final package manifest source commit `eed1005dec5d7d747b66afaa21e01505b096a381` | Repository, package and server evidence are aligned. |
+| Public plant corpus | READY_FOR_V9 | `release_metadata/v9_data_card.md` | Supports plant-general framing for the frozen v9 candidate. |
+| Frozen model asset | READY | GitHub release asset and SHA256 in model card | Checkpoint is externally addressable and checksum-pinned. |
+| v9-v3 strict benchmark | READY | `release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json` | Fair same-subset comparison exists. |
+| Species-holdout interpretation | READY_WITH_OPEN_SET_BOUNDARY | `release_metadata/species_holdout_failure_audit_v9.md` | Low leave-species result is decomposed into label coverage and transfer errors; do not claim universal high accuracy. |
+| Seurat comparator | READY | `release_metadata/external_benchmarks/seurat_v9_subset.json` | Traditional label transfer baseline is complete. |
+| scPlantLLM comparator | INPUT_READY_METRIC_MISSING | `release_metadata/scplantllm_input_readiness.md`; `release_metadata/scplantllm_preprocess_probe_readiness.md` | Keep as auditable entry point until official checkout/weights are available. |
+| scPlantAnnotate comparator | ACCESS_LIMITED | `release_metadata/scplantannotate_access_audit.md` | Official route is reachable, but anonymous scriptable benchmark execution is not available. |
+| Arabidopsis root biological case | READY_COMPUTATIONAL_CASE | `release_metadata/plant_biology_case_study_v9.md`; `release_metadata/arabidopsis_root_case_figure_v9.md` | Demonstrates adapter resolution and marker-candidate mining on public data. |
+| Snow Lotus atlas claim | NOT_READY_BY_DESIGN | `release_metadata/saussurea_h5ad_contract.md`; `docs/saussurea_evidence_plan.md` | Snow Lotus remains a target-species entry point until a reusable single-cell matrix is supplied. |
+| Final editor package | READY | `outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.zip` | Zip package is checksum-verified on the server and includes 64 assets. |
 
-## Current Training Evidence
+## Headline Evidence
 
-- `outputs/smoke`: checkpoint, epoch=3, fine_macro_f1=0.0476, coarse_macro_f1=0.1250
-- `outputs/foundation_5090_public_sprint`: checkpoint, epoch=3, fine_macro_f1=0.2602, coarse_macro_f1=0.2285
-- `outputs/foundation_5090_public_safe_init`: checkpoint, epoch=12, fine_macro_f1=0.7523, coarse_macro_f1=0.7526
-- `outputs/foundation_5090_pretrain`: checkpoint, epoch=24, fine_macro_f1=0.7983, coarse_macro_f1=0.7955
-- `outputs/foundation_5090_mlm_public_expansion`: checkpoint, epoch=12
-- `outputs/foundation_5090_mlm_public_expansion_continuation`: checkpoint, epoch=20
-- `outputs/foundation_5090_mlm_public_late_refresh`: checkpoint, epoch=10
-- `outputs/foundation_5090_mlm_public_late_refresh_safe`: checkpoint, epoch=8
+| Evidence item | Frozen v9 value |
+| --- | --- |
+| GitHub branch | `https://github.com/ahvsjags/SnowLotus-CellFM/tree/agent/remote-pipeline-20260728` |
+| Final source commit | `eed1005dec5d7d747b66afaa21e01505b096a381` |
+| Final package SHA256 | `75ae45ee6e0f9a3b085953ec071d36e4fa05b4020742cb72cc7cd03b1c9c416c` |
+| Adapter count | 24 catalog adapters plus runtime all-plant adapter materialization |
+| Leave-dataset-out all-cell accuracy | 0.4490, v3 baseline 0.2021 |
+| Leave-sample-out all-cell accuracy | 0.6200, v3 baseline 0.4155 |
+| Normalized leave-species-out all-cell accuracy | 0.2354, v3 baseline 0.1912 |
+| Normalized leave-species-out coverage | 0.5590 |
+| Normalized leave-species-out known-label accuracy | 0.4210 |
+| Seurat frozen-subset fine accuracy | 0.2207 |
+| Arabidopsis root case | 260 marker candidates, 13 cell states, 10 root identity states |
 
-## Data Integrity Evidence
+## Venue-Specific Decision Rules
 
-- Manifests audited: `70`
-- Matrix files audited: `240`
-- Missing files: `0`
-- Unreadable files: `0`
-- Total readable cells: `4544570`
+| Venue path | Submit now? | What to emphasize | What must not be overclaimed |
+| --- | --- | --- | --- |
+| Plant Communications or similar plant resource venue | Yes | Plant utility, public corpus, adapter resolution, root marker case, reproducibility | Do not present Snow Lotus as a completed atlas. |
+| Genome Biology | Yes, with major-revision risk | Genomics resource, benchmark transparency, public-data workflow, open implementation | Do not claim scPlantLLM/scPlantAnnotate superiority without official metrics. |
+| Communications Biology | Yes, if framed conservatively | Biological utility and technically sound computational method | Do not lead with top-tier AI novelty if biological advance is limited. |
+| Nature Methods | Presubmission inquiry only | New reusable method, detailed software usability, validation and benchmark comparison | Do not submit as universal plant annotator without stronger validation. |
+| Nature Plants | Later revision | Plant biological insight, independent species/tissue case and validation | Do not rely only on computational Arabidopsis public-data case. |
 
-## Benchmark Readiness Evidence
+## Required Upgrades For A Higher-Tier Revision
 
-- Baseline metric artifacts: `2`
-- Split audit artifacts: `6`
-- Supervised-ready split audits: `2`
-- Marker candidate artifact present: `True`
-- External benchmark files: `4`
-- External metric benchmark files: `3`
-- External metric methods present: `scplantllm, seurat`
-- External metric methods missing: `scplantannotate`
+| Priority | Upgrade | Acceptance evidence |
+| --- | --- | --- |
+| P1 | Complete one official third-party foundation-model comparator, preferably scPlantLLM. | Frozen metric JSON, exact official checkout/weights, input manifest, command log and reproducible environment file. |
+| P1 | Add one independent non-Arabidopsis biological case. | Separate public dataset or new matrix, adapter record, marker table, literature anchor and figure panel. |
+| P1 | Improve species-holdout ontology coverage. | Label ontology mapping table and before/after coverage plus all-cell accuracy audit. |
+| P2 | Add English manuscript package. | English `.docx` or `.tex`, figure captions, supplement index and data/code availability statement. |
+| P2 | Add model usability supplement. | Installation guide, API example, expected input contract, output schema and minimal demo data. |
+| P3 | Add Snow Lotus single-cell matrix if available. | `data/saussurea_involucrata.h5ad` with required obs fields, raw/processed deposition and validation markers. |
 
-## Public Data Targets
+## Claim Boundary For Editors
 
-| Dataset | Stage | Manifest rows | Raw files | NPZ files |
-| --- | --- | ---: | ---: | ---: |
-| scplantdb_global | manifest_ready | 52 | 104 | 0 |
-| brassicaceae_multi_species_root_atlas | manifest_ready | 5 | 15 | 5 |
-| arabidopsis_root_atlas | manifest_ready | 2 | 1 | 2 |
-| rice_root_tip_atlas | manifest_ready | 1 | 2 | 1 |
-| arabidopsis_lifecycle_spatial_atlas | manifest_ready | 1 | 1 | 1 |
-| cotton_glandular_terpenoid_atlas | manifest_ready | 1 | 2 | 1 |
-| rice_soil_stress_root_atlas | manifest_ready | 1 | 1 | 1 |
-| wheat_soil_root_atlas | manifest_ready | 1 | 1 | 1 |
-| arabidopsis_secondary_root_dev_atlas | manifest_ready | 1 | 4 | 1 |
-| maize_easy_multiome_seedling | manifest_ready | 1 | 1 | 1 |
-| rice_leaf_stress_snuc_atlas | manifest_ready | 1 | 1 | 1 |
-| brassicaceae_regulatory_multiome | not_started_or_metadata_only | 0 | 0 | 0 |
-| stevia_leaf_secondary_metabolism_snuc | manifest_ready | 1 | 2 | 1 |
-| arabidopsis_lateral_root_founder_atlas | manifest_ready | 1 | 1 | 1 |
-| tomato_mycorrhiza_snuc_atlas | manifest_ready | 1 | 1 | 1 |
-| arabidopsis_scrna_method_benchmark | manifest_ready | 1 | 1 | 1 |
-| marchantia_spore_asymmetry_single_cell | unsupported_for_matrix_corpus | 0 | 3 | 0 |
+Submission-safe claim: Plant-CellFM v9 is a reproducible plant-general single-cell expression foundation-model and adapter framework with a frozen RTX 4090 LoRA checkpoint, strict v9-v3 benchmark, completed Seurat and centroid baselines, species-holdout failure audit, Arabidopsis root computational biology case, GitHub release and live CUDA service evidence.
 
-## Strict Benchmark Evidence
+Unsafe claim: Plant-CellFM v9 universally annotates every plant species at high accuracy, completes a Snow Lotus single-cell atlas, or has already beaten scPlantLLM/scPlantAnnotate in official executable benchmarks.
 
-- `outputs/strict_benchmarks/leaveout_brassicaceae_dataset.split_audit.json`: split_audit, supervised_ready=False
-- `outputs/strict_benchmarks/leaveout_brassicaceae_dataset_available.split_audit.json`: split_audit, supervised_ready=False
-- `outputs/strict_benchmarks/leaveout_eutrema_species.split_audit.json`: split_audit, supervised_ready=False
-- `outputs/strict_benchmarks/leaveout_srp169576_sample.centroid_baseline.json`: baseline, supervised_ready=None, fine_test_macro_f1=0.4873
-- `outputs/strict_benchmarks/leaveout_srp169576_sample.split_audit.json`: split_audit, supervised_ready=True
-- `outputs/strict_benchmarks/public_sprint.marker_candidates.json`: split_audit, supervised_ready=None
-- `outputs/strict_benchmarks/public_sprint_group_random.centroid_baseline.json`: baseline, supervised_ready=None, fine_test_macro_f1=0.7125
-- `outputs/strict_benchmarks/public_sprint_group_random.split_audit.json`: split_audit, supervised_ready=True
+## Source Scope Pages Checked
 
-## External Benchmark Evidence
-
-- `outputs/external_benchmarks/scplantannotate_authenticated_benchmark_plan.json`: scplantannotate_authenticated_or_exported, metric=False, test_cells=None
-- `outputs/external_benchmarks/scplantllm_embedding_centroid_probe.json`: scplantllm_frozen_embedding_nearest_centroid_probe, metric=True, test_cells=None
-- `outputs/external_benchmarks/scplantllm_embedding_centroid_probe_128.json`: scplantllm_frozen_embedding_nearest_centroid_probe, metric=True, test_cells=None
-- `outputs/external_benchmarks/seurat_public_sprint.json`: seurat_label_transfer, metric=True, test_cells=3637, fine_test_macro_f1=0.7395, coarse_test_macro_f1=0.7395
-
-## Saussurea Supporting Transcriptome Evidence
-
-- `saussurea_bulk_transcriptome`: status=download_candidate, accession=PRJNA169171 / SRR516284, runs=3, strategies=RNA-Seq, total_size_mb=1074.0, source_page=True
-- `saussurea_genome_reference`: status=download_candidate, accession=PRJNA991078, runs=0, strategies=unknown, total_size_mb=0.0, source_page=True
-- `saussurea_low_pressure`: status=download_candidate, accession=PRJNA1218246, runs=6, strategies=RNA-Seq, total_size_mb=12858.0, source_page=True
-- `saussurea_low_temperature`: status=download_candidate, accession=PRJNA1033840, runs=9, strategies=RNA-Seq, total_size_mb=41107.0, source_page=True
-- `saussurea_raw_sequence_reads`: status=discovery_candidate, accession=PRJNA387384, runs=0, strategies=unknown, total_size_mb=0.0, source_page=True
-- `saussurea_medusa_wgs`: status=discovery_candidate, accession=PRJNA1278884, runs=14, strategies=RNA-Seq;WGS, total_size_mb=94669.0, source_page=True
-- `saussurea_hypsipeta_leaf_rna`: status=discovery_candidate, accession=PRJNA1293189, runs=16, strategies=Hi-C;RNA-Seq;WGS, total_size_mb=316518.0, source_page=True
-- `saussurea_lyrata_hic`: status=discovery_candidate, accession=PRJNA1355060, runs=3, strategies=Hi-C;RNA-Seq;WGS, total_size_mb=61530.0, source_page=True
-- `saussurea_multicellular_spheroid_single_cell_report`: status=literature_request_candidate, accession=PMID:41668397 / DOI:10.1002/adhm.202504623, runs=0, strategies=unknown, total_size_mb=0.0, source_page=True
-- `saussurea_discovered_prjna1121965`: status=discovered_runinfo_candidate, accession=PRJNA1121965, runs=66, strategies=RNA-Seq, total_size_mb=250565.0, source_page=True
-- `saussurea_discovered_prjna1181600`: status=discovered_runinfo_candidate, accession=PRJNA1181600, runs=1, strategies=WGS, total_size_mb=761.0, source_page=True
-- `saussurea_discovered_prjna1259734`: status=discovered_runinfo_candidate, accession=PRJNA1259734, runs=48, strategies=RNA-Seq, total_size_mb=728.0, source_page=True
-- `saussurea_discovered_prjna383290`: status=discovered_runinfo_candidate, accession=PRJNA383290, runs=1, strategies=RNA-Seq, total_size_mb=8196.0, source_page=True
-- `saussurea_discovered_prjna554516`: status=discovered_runinfo_candidate, accession=PRJNA554516, runs=1, strategies=RNA-Seq, total_size_mb=3492.0, source_page=True
-- `saussurea_discovered_prjna635206`: status=discovered_runinfo_candidate, accession=PRJNA635206, runs=1, strategies=RNA-Seq, total_size_mb=3016.0, source_page=True
-- `saussurea_discovered_prjna635243`: status=discovered_runinfo_candidate, accession=PRJNA635243, runs=1, strategies=RNA-Seq, total_size_mb=3193.0, source_page=True
-- `saussurea_discovered_prjna690192`: status=discovered_runinfo_candidate, accession=PRJNA690192, runs=2, strategies=WGS, total_size_mb=1409.0, source_page=True
-- `saussurea_discovered_prjna707512`: status=discovered_runinfo_candidate, accession=PRJNA707512, runs=1, strategies=RNA-Seq, total_size_mb=1459.0, source_page=True
-- `saussurea_discovered_prjna721598`: status=discovered_runinfo_candidate, accession=PRJNA721598, runs=1, strategies=WGS, total_size_mb=1658.0, source_page=True
-- `saussurea_discovered_prjna723196`: status=discovered_runinfo_candidate, accession=PRJNA723196, runs=5, strategies=RNA-Seq, total_size_mb=21446.0, source_page=True
-- `saussurea_discovered_prjna728186`: status=discovered_runinfo_candidate, accession=PRJNA728186, runs=1, strategies=WGS, total_size_mb=589.0, source_page=True
-- `saussurea_discovered_prjna782224`: status=discovered_runinfo_candidate, accession=PRJNA782224, runs=1, strategies=WGS, total_size_mb=1310.0, source_page=True
-- `saussurea_discovered_prjna854342`: status=discovered_runinfo_candidate, accession=PRJNA854342, runs=1, strategies=WGS, total_size_mb=1492.0, source_page=True
-- `saussurea_discovered_prjna860834`: status=discovered_runinfo_candidate, accession=PRJNA860834, runs=33, strategies=RNA-Seq, total_size_mb=187323.0, source_page=True
-
-## Remaining Hard Gaps
-
-- Add real `data/saussurea_involucrata.h5ad` with required cell, sample, tissue, species, batch, and label metadata.
-- Finish pending public downloads/conversions and rebuild the public MLM corpus.
-- Run comparable Seurat, scPlantLLM, and scPlantAnnotate benchmarks.
-- Produce marker/regulator validation tables and independent biological validation evidence.
+- Nature Methods aims and scope: https://www.nature.com/nmeth/submission-guidelines/about/aims
+- Genome Biology journal page: https://link.springer.com/journal/13059
+- Plant Communications journal page: https://www.sciencedirect.com/journal/plant-communications
+- Communications Biology aims and scope: https://www.nature.com/commsbio/aims
+- Nature Plants aims and scope: https://www.nature.com/nplants/aims

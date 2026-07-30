@@ -24,6 +24,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Model card | `release_metadata/plant_cellfm_v9_model_card.md` |
 | Stability audit | `release_metadata/v9_submission_stability_audit.md` |
 | Peer-review preflight | `release_metadata/publication_peer_review_preflight_v9.md` |
+| Publication target readiness matrix | `release_metadata/top_journal_readiness_matrix.md` |
 | Server sustainability audit | `release_metadata/server_sustainability_status_v9.md` |
 | Watchdog recovery audit | `release_metadata/watchdog_recovery_status_v9.md` |
 | Editor issue closure | `release_metadata/v9_editor_issue_closure.md` |
@@ -35,6 +36,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Arabidopsis root figure package | `release_metadata/arabidopsis_root_case_figure_v9.md` |
 | Species-holdout failure audit | `release_metadata/species_holdout_failure_audit_v9.md` |
 | v9 benchmark comparison | `release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json` |
+| Current publication strategy | `docs/top_journal_strategy.md` |
 | Development plan matching this submission | `docs/development_plan.md` |
 
 ## Stable Claims
@@ -48,6 +50,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 7. The Arabidopsis root case demonstrates adapter resolution, hierarchical annotation and marker-candidate mining on public data.
 8. The Arabidopsis root figure package provides SVG/PDF/PNG/TIFF exports plus source data for a figure-ready biological case.
 9. The species-holdout failure audit decomposes the strict normalized leave-species-out result into label-coverage gaps, known-label errors and per-species revision targets.
+10. The publication target readiness matrix ranks the current package as strongest for plant-focused method/resource submission, plausible for genomics computational-method submission with major-revision risk, and stretch for top general methods venues until stronger third-party and biological validation evidence is added.
 
 ## Claims Not Used In The Current Submission
 

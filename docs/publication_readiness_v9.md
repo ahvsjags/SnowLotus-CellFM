@@ -24,6 +24,7 @@ This file records the evidence behind the frozen v9 candidate. It is an engineer
 18. **Peer-review preflight.** `release_metadata/publication_peer_review_preflight_v9.md` records a strict reviewer-style audit of venue fit, current strengths, claim boundaries and remaining hard evidence needed for higher-tier revision.
 19. **Figure-ready biology case.** `release_metadata/arabidopsis_root_case_figure_v9.md` and `figures/plant_cellfm_v9_arabidopsis_root_case/` provide a four-panel Arabidopsis root adapter and marker-candidate figure with SVG/PDF/PNG/TIFF exports and source data.
 20. **Species-holdout failure audit.** `release_metadata/species_holdout_failure_audit_v9.md` decomposes the normalized leave-species-out result into per-species coverage, open-set label absence and known-label transfer errors.
+21. **Publication target readiness matrix.** `release_metadata/top_journal_readiness_matrix.md` and `docs/top_journal_strategy.md` replace earlier SnowLotus-centered top-journal planning with the current Plant-CellFM v9 / RTX 4090 submission tiering, claim boundaries and higher-tier upgrade requirements.
 
 ## Frozen Results
 

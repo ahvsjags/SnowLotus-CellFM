@@ -1,0 +1,111 @@
+{
+  "schema_version": "plant_cellfm_v9_publication_target_readiness_v1",
+  "generated_at": "2026-07-30T18:45:00+08:00",
+  "current_scope": "Plant-CellFM plant-general single-cell annotation foundation model with all-plant adapter layer",
+  "hardware_statement": "NVIDIA GeForce RTX 4090, 24 GB VRAM",
+  "source_commit": "eed1005dec5d7d747b66afaa21e01505b096a381",
+  "package_sha256": "75ae45ee6e0f9a3b085953ec071d36e4fa05b4020742cb72cc7cd03b1c9c416c",
+  "target_tiers": [
+    {
+      "target": "Plant-focused methods/resource journal",
+      "status": "READY",
+      "submission_stance": "Strongest current path"
+    },
+    {
+      "target": "Genome Biology / genomics computational-method target",
+      "status": "NEAR_READY_WITH_MAJOR_REVISION_RISK",
+      "submission_stance": "Plausible with conservative method/resource framing"
+    },
+    {
+      "target": "Communications Biology / broad biology target",
+      "status": "POSSIBLE_WITH_CONSERVATIVE_FRAMING",
+      "submission_stance": "Possible if biological utility is emphasized"
+    },
+    {
+      "target": "Nature Methods",
+      "status": "STRETCH_NOT_YET_FULLY_CLOSED",
+      "submission_stance": "Presubmission inquiry only until stronger validation and comparator closure"
+    },
+    {
+      "target": "Nature Plants",
+      "status": "STRETCH_AFTER_BIOLOGY_VALIDATION",
+      "submission_stance": "Later revision after independent plant biological validation"
+    }
+  ],
+  "gates": [
+    {
+      "gate": "ssh_and_server_execution",
+      "status": "READY",
+      "evidence": "ssh matpool-px1-jcy and /mnt/snowlotus_cellfm server package"
+    },
+    {
+      "gate": "gpu_cuda_service",
+      "status": "READY",
+      "evidence": "release_metadata/api_runtime_smoke_v9.md"
+    },
+    {
+      "gate": "v9_v3_strict_benchmark",
+      "status": "READY",
+      "evidence": "release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json"
+    },
+    {
+      "gate": "species_holdout_interpretation",
+      "status": "READY_WITH_OPEN_SET_BOUNDARY",
+      "evidence": "release_metadata/species_holdout_failure_audit_v9.md"
+    },
+    {
+      "gate": "seurat_comparator",
+      "status": "READY",
+      "evidence": "release_metadata/external_benchmarks/seurat_v9_subset.json"
+    },
+    {
+      "gate": "scplantllm_comparator",
+      "status": "INPUT_READY_METRIC_MISSING",
+      "evidence": "release_metadata/scplantllm_input_readiness.md"
+    },
+    {
+      "gate": "scplantannotate_comparator",
+      "status": "ACCESS_LIMITED",
+      "evidence": "release_metadata/scplantannotate_access_audit.md"
+    },
+    {
+      "gate": "arabidopsis_root_case",
+      "status": "READY_COMPUTATIONAL_CASE",
+      "evidence": "release_metadata/plant_biology_case_study_v9.md"
+    },
+    {
+      "gate": "snow_lotus_atlas_claim",
+      "status": "NOT_READY_BY_DESIGN",
+      "evidence": "release_metadata/saussurea_h5ad_contract.md"
+    }
+  ],
+  "headline_metrics": {
+    "leave_dataset_out_all_cell_accuracy": 0.449,
+    "leave_dataset_out_v3_all_cell_accuracy": 0.2021,
+    "leave_sample_out_all_cell_accuracy": 0.62,
+    "leave_sample_out_v3_all_cell_accuracy": 0.4155,
+    "leave_species_out_all_cell_accuracy": 0.2354,
+    "leave_species_out_v3_all_cell_accuracy": 0.1912,
+    "leave_species_out_coverage": 0.559,
+    "leave_species_out_known_label_accuracy": 0.421,
+    "seurat_frozen_subset_fine_accuracy": 0.2207,
+    "arabidopsis_root_marker_candidates": 260,
+    "arabidopsis_root_cell_states": 13,
+    "arabidopsis_root_identity_states": 10
+  },
+  "higher_tier_required_upgrades": [
+    "Complete one official third-party foundation-model comparator run, preferably scPlantLLM.",
+    "Add one independent non-Arabidopsis biological case.",
+    "Improve species-holdout ontology coverage with before/after audit.",
+    "Add English manuscript package and supplement index.",
+    "Add model usability supplement.",
+    "Add Snow Lotus single-cell matrix only if a reusable matrix becomes available."
+  ],
+  "source_scope_pages": [
+    "https://www.nature.com/nmeth/submission-guidelines/about/aims",
+    "https://link.springer.com/journal/13059",
+    "https://www.sciencedirect.com/journal/plant-communications",
+    "https://www.nature.com/commsbio/aims",
+    "https://www.nature.com/nplants/aims"
+  ]
+}

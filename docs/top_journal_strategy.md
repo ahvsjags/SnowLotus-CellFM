@@ -1,136 +1,111 @@
-# SnowLotus-CellFM 顶刊级研发方案
+# Plant-CellFM v9 投稿分层与顶刊推进策略
 
-## 一句话定位
+Generated: 2026-07-30 Asia/Shanghai
 
-SnowLotus-CellFM 不是普通细胞注释器，而是面向植物跨物种单细胞图谱的基础模型，并以天山雪莲（Saussurea involucrata）作为高寒药用植物验证场景。核心科学问题是：
+本文件替代早期 SnowLotus-centered 顶刊方案。当前冻结稿的正式定位是 **Plant-CellFM 植物通用基础模型 + 全植物适配层**；天山雪莲是目标物种接入场景，不是当前完成的单细胞图谱。当前硬件声明统一为 NVIDIA GeForce RTX 4090, 24 GB VRAM。
 
-1. 植物细胞类型的跨物种共性表示能否被基础模型稳定学习。
-2. 天山雪莲的组织细胞组成、次生代谢和高寒/低压适应是否存在可解释的细胞类型特异程序。
-3. 模型能否优于 marker-based、Seurat label transfer、scPlantLLM、scPlantAnnotate 等基线，并产出可实验验证的新基因/细胞状态发现。
+## 当前一句话定位
 
-## 已核对的领域坐标
+Plant-CellFM v9 是一个面向植物单细胞/单核表达矩阵的可复现注释基础模型和 adapter 框架。它提供公开植物语料、共享基因 backbone、层级注释头、动态全植物 adapter、严格 cross-group benchmark、Seurat/centroid/v3 对照、Arabidopsis root 计算生物学案例、GitHub release、SHA256 固化包和服务器 CUDA 服务。
 
-- scPlantDB 汇总大量植物单细胞数据，是公开植物 scRNA 数据发现入口。
-- scPlantLLM 是植物单细胞基础模型参照，强调 masked language modeling、zero-shot、batch integration、cell type annotation 和 GRN inference。
-- scPlantAnnotate 是 transformer 注释基线，强调 Arabidopsis、maize、rice、soybean 以及 leave-one-dataset-out 评估。
-- Brassicaceae multi-species root atlas（GSE268881）适合作为跨物种 root cell-type transfer 和 stress adaptation 外部验证。
-- Rice soil-stress root atlas（GSE251706）适合作为环境胁迫、根部细胞状态和空间验证对照。
-- Rice root tip atlas（GSE146034）适合作为体量适中的单子叶根尖验证数据集。
-- Arabidopsis life-cycle/spatial atlas（GSE226097）适合作为跨器官和空间 marker 验证目标。
-- Wheat root atlas（GSE270342）和 Arabidopsis secondary root atlas（GSE270140）适合作为小体量、标准 10x H5 的快速增量验证集。
+当前稿件可以稳妥主张：
 
-## 数据策略
+1. 模型不是雪莲单物种工具，而是植物通用框架。
+2. v9 在同一 shared-gene benchmark 上优于 frozen v3 extended baseline。
+3. 留物种结果必须按开放集解释：23.54% all-cell accuracy、55.90% coverage、42.10% known-label conditional accuracy。
+4. `release_metadata/species_holdout_failure_audit_v9.md` 已把留物种低分拆成标签覆盖缺口、已知标签迁移错误和物种级修订目标。
+5. Arabidopsis root 案例展示 adapter 解析、层级注释和 marker-candidate mining，但仍是 public-data computational case。
 
-### 公开预训练语料
+当前稿件不应主张：
 
-优先纳入：
+1. 任意植物新物种都能无条件高精度自动注释。
+2. 天山雪莲单细胞图谱已经完成。
+3. scPlantLLM/scPlantAnnotate 正式数值对照已经完成。
+4. 旧 5090 计划是当前训练硬件。
 
-1. scPlantLLM benchmark subset：用于 smoke-to-public-data 过渡。
-2. GSE268881 Brassicaceae root atlas：跨物种 root/stress benchmark。
-3. GSE152766 Arabidopsis root atlas：经典 Arabidopsis root 注释 benchmark。
-4. GSE270342 wheat soil-grown root atlas：单子叶 cereal transfer。
-5. GSE270140 Arabidopsis secondary root atlas：独立 Arabidopsis developmental root validation。
-6. GSE146034 rice root tip atlas：紧凑型 monocot root-tip validation。
-7. GSE251706 rice soil-stress root atlas：stress root biology comparator。
-8. GSE226097 Arabidopsis life-cycle/spatial atlas：空间和跨器官验证候选，目前先作为 metadata/策略位点。
+## 期刊分层依据
 
-所有公开数据进入同一层级：
+以下判断以官方 scope 页面和当前证据为依据：
 
-- raw files: `data/public/<accession>_*`
-- converted sparse NPZ: `data/public/<accession>_npz`
-- manifest: `data/corpus_manifest.<accession>.tsv`
-- available corpus: `data/plant_foundation_corpus_public_mlm_available.h5ad`
-- full corpus: `data/plant_foundation_corpus_public_mlm.h5ad`
+| 目标 | 当前适配度 | 主要依据 | 当前风险 |
+| --- | --- | --- | --- |
+| Nature Methods | Stretch | 官方 scope 强调新方法、single-cell analysis、computational/machine-learning methods、强 validation、与可用方法比较和重要生物应用。 | 需要更强第三方模型闭环和独立生物应用验证。 |
+| Genome Biology | Strong methods/resource target | 官方页面将其定位为 genomics/post-genomics 视角的 biology/biomedicine open-access journal，并有 plant single-cell/spatial omics 相关 collection。 | 需要把方法贡献、公开语料和可复现资源写得更完整，最好补一个官方 third-party model run。 |
+| Plant Communications | Most stable plant-focused target | 官方 scope 接收植物科学原创研究、重要技术进展和有用资源，覆盖 plant cellular biology、genomics、development、metabolism 等方向。 | 需要突出植物用途、adapter resolution、marker discovery 和 Arabidopsis root 生物学解释。 |
+| Communications Biology | Broad fallback | 官方 scope 接收 biological sciences 中的 secondary data analysis、innovative computational methods，并要求 strong evidence。 | 必须降低“顶刊 AI 模型”叙事，突出可靠证据和具体植物生物学用例。 |
+| Nature Plants | High stretch plant venue | 官方 scope 覆盖 plant genomics、cell biology、development、metabolism、systems biology。 | 当前缺少湿实验或独立植物生物学发现；更适合作为后续强化目标。 |
 
-### 天山雪莲核心数据
+官方 scope 链接：
 
-真正支撑顶刊主张的硬条件仍是：
+- Nature Methods aims and scope: https://www.nature.com/nmeth/submission-guidelines/about/aims
+- Genome Biology journal page: https://link.springer.com/journal/13059
+- Plant Communications journal page: https://www.sciencedirect.com/journal/plant-communications
+- Communications Biology aims and scope: https://www.nature.com/commsbio/aims
+- Nature Plants aims and scope: https://www.nature.com/nplants/aims
 
-- `data/saussurea_involucrata.h5ad`
-- 推荐组织：叶、根、茎、花序、愈伤/分生组织；若目标是高寒适应，加入常压、低压、低温、强 UV 或低氧处理。
-- 必需 obs 字段：`cell_type`, `cell_type_coarse`, `sample_id`, `species`, `tissue`, `batch`, `cell_id`。
-- 最低实验版：每个组织/处理 2-3 个 biological replicate；每个样本 5k-20k cells/nuclei。
+## 当前证据矩阵
 
-### 同源基因与标签本体
+| 证据模块 | 状态 | 关键文件 | 投稿价值 |
+| --- | --- | --- | --- |
+| GitHub 同步 | completed | `SUBMISSION_INDEX_v9.md`; branch `agent/remote-pipeline-20260728` | 编辑可以直接复核代码、文档和证据包。 |
+| 冻结 checkpoint | completed | `release_metadata/plant_cellfm_v9_model_card.md` | 模型 asset、SHA256、配置和训练硬件可核查。 |
+| 服务器服务 | completed | `release_metadata/api_runtime_smoke_v9.md`; `release_metadata/watchdog_recovery_status_v9.md` | 证明不是静态说明，而是可调用 CUDA 服务。 |
+| 公共植物语料 | completed for v9 | `release_metadata/v9_data_card.md` | 支撑植物通用而非单物种说法。 |
+| v9-v3 公平对照 | completed | `release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json` | 证明同 subset、同指标下 v9 有增益。 |
+| Seurat 外部对照 | completed | `release_metadata/external_benchmarks/seurat_v9_subset.json` | 给出传统 label transfer 基线。 |
+| scPlantLLM 对照 | input-ready, metric missing | `release_metadata/scplantllm_input_readiness.md`; `release_metadata/scplantllm_preprocess_probe_readiness.md` | 保留正式横向对照入口，当前不写数值结论。 |
+| scPlantAnnotate 对照 | access-limited audit | `release_metadata/scplantannotate_access_audit.md` | 记录官方 web/API 可达但匿名脚本 benchmark 受限。 |
+| 留物种失败审计 | completed | `release_metadata/species_holdout_failure_audit_v9.md` | 把低分解释为开放集标签覆盖与迁移错误分解，而非包装成高精度。 |
+| Arabidopsis root 案例 | completed computational case | `release_metadata/plant_biology_case_study_v9.md`; `release_metadata/arabidopsis_root_case_figure_v9.md` | 展示生物学使用路径和 marker-candidate 输出。 |
+| 雪莲目标物种入口 | scoped | `release_metadata/saussurea_h5ad_contract.md`; `docs/saussurea_evidence_plan.md` | 说明接入条件，不夸大成已完成图谱。 |
 
-- 用 OrthoFinder/Ensembl Plants/PLAZA 构建 `source_gene -> target_gene`。
-- 训练 token 优先采用 orthogroup 或一对一同源基因，避免跨物种 gene ID 不可比。
-- 标签采用两层体系：粗类 `dermal/vascular/ground/meristem/reproductive/stress_response/secretory`，细类保留原始注释。
+## 推荐投稿路径
 
-## 模型路线
+### 当前可立即递交的稳妥路径
 
-当前已实现：
+首选：Plant Communications 或同级植物方法/资源期刊。
 
-- gene set Transformer，适合每个细胞 top expressed genes。
-- gene token + 表达量离散桶 + 连续表达投影。
-- species/tissue embedding。
-- fine/coarse 层级注释头。
-- masked gene/value reconstruction。
-- full/head/last_n/LoRA 微调。
-- strict split audit、centroid baseline、marker candidate mining。
+写法：以植物单细胞注释资源和方法为主，标题不突出 Snow Lotus。主线强调 public plant corpus、adapter framework、strict benchmark、Seurat comparator、Arabidopsis root case 和 reproducible CUDA service。
 
-下一轮增强：
+必须使用的核心材料：
 
-1. ortholog-aware embedding：同源组共享 embedding，物种特异 paralog 加 residual adapter。
-2. contrastive alignment：同一粗类跨物种拉近，不同粗类推远。
-3. leave-species-out / leave-dataset-out 训练器：对标 scPlantAnnotate 严格评估。
-4. marker interpretability：attention/gradient/one-vs-rest marker ranking 与 scPlantDB marker、实验 marker 对照。
-5. GRN candidate mining：用细胞类型特异 embedding 与 mask perturbation 找调控候选基因。
+1. `SUBMISSION_INDEX_v9.md`
+2. `manuscript/Plant_CellFM_v9_final_submission_zh_v1.docx`
+3. `release_metadata/plant_cellfm_v9_model_card.md`
+4. `release_metadata/publication_peer_review_preflight_v9.md`
+5. `release_metadata/species_holdout_failure_audit_v9.md`
+6. `figures/plant_cellfm_v9_arabidopsis_root_case/`
 
-## 训练路线
+### 冲 Genome Biology 的增强路径
 
-1. Smoke: `configs/smoke.yaml`。
-2. Base corpus: `snowcell build-corpus --manifest data/corpus_manifest.tsv --output data/plant_foundation_corpus.h5ad`。
-3. Foundation pretrain: `configs/foundation_5090_pretrain.yaml`。
-4. Available public MLM expansion: `configs/foundation_5090_mlm_public_available_expansion.yaml`。
-5. Full public MLM expansion: `configs/foundation_5090_mlm_public_expansion.yaml`。
-6. 天山雪莲 LoRA 微调: `configs/saussurea_lora_finetune.yaml`。
-7. Ablation: 去 ortholog、去 species/tissue embedding、去 MLM、去 hierarchy loss。
-8. Benchmark: Seurat label transfer、Scanpy ingest、scPlantLLM、scPlantAnnotate、marker rules。
+当前可以作为 strong target，但建议补强：
 
-严格拆分使用 `data.split_strategy=explicit_leaveout`，通过 `scripts/create_leaveout_config.py` 派生 leave-dataset-out、leave-species-out 和 snow lotus holdout 配置。
+1. 完成至少一个 official third-party model comparator 的冻结数值，优先 scPlantLLM。
+2. 增加一个非 Arabidopsis 的独立 public-data case，例如 wheat/rice/cotton/Brassicaceae root/stress 数据。
+3. 给 species-holdout 加一张 ontology mapping before/after coverage 表。
+4. 把全部 benchmark 和 case source data 组织成 supplement tables。
 
-## 顶刊级结果矩阵
+### 冲 Nature Methods 的增强路径
 
-主图至少需要：
+当前属于 stretch，不建议把冻结 v9 直接包装成 Nature Methods 已足够。要接近该档，需要：
 
-1. 数据与模型总览：物种、组织、细胞数、模型架构、训练任务。
-2. 跨物种 embedding：按细胞类型聚类，而不是按物种/批次聚类。
-3. 严格 benchmark：random split、leave-dataset-out、leave-species-out、snow lotus holdout。
-4. 天山雪莲细胞图谱：组织 UMAP、粗/细类注释、marker heatmap。
-5. 高寒/药用机制：黄酮、萜类、抗氧化、低压响应基因在细胞类型中的富集。
-6. 可解释模型发现：模型 marker 与公开 marker、差异表达、同源基因证据交叉验证。
-7. 实验验证：RNA in situ、smFISH、qPCR 或 reporter，至少验证 3-5 个细胞类型特异 marker 或调控候选。
+1. 明确算法新意，不只是工程整合：例如 ortholog-aware tokenization、species adapter calibration、open-set rejection 或 ontology-aware evaluation。
+2. 与 scPlantLLM、scPlantAnnotate、Seurat、Scanpy ingest、marker-rule 等形成完整横向 benchmark。
+3. 至少两个独立生物学应用，并有 marker 文献验证或实验验证。
+4. 提供软件可用性材料：安装、demo、API、模型下载、license、protocol-like user guide。
 
-## 服务器执行
+## 本轮不再扩大训练的收口原则
 
-安装依赖：
+当前用户要求已经从“继续扩大训练”转为“先收尾到发表级”。因此 v9 冻结稿不再把新增大规模训练作为必要前置条件，而是优先做：
 
-```bash
-cd /mnt/snowlotus_cellfm
-bash scripts/install_server_dependencies.sh
-```
+1. 统一叙事：所有正式入口使用 Plant-CellFM v9、4090、plant-general、all-plant adapter。
+2. 证据闭环：zip manifest、GitHub commit、server checksum、model card、benchmark JSON 一致。
+3. 审稿防线：低留物种指标用 failure audit 解释，第三方工具缺失用 auditable boundary 陈述。
+4. 生物学展示：Arabidopsis root case 作为可复现计算案例，而非湿实验结论。
+5. 后续路线：只把未完成内容放在 next revision，不写成当前结果。
 
-后台全流程：
+## 最短编辑回复口径
 
-```bash
-cd /mnt/snowlotus_cellfm
-tmux new -s snowlotus_top
-bash scripts/top_journal_pipeline.sh 2>&1 | tee logs/top_journal_pipeline.log
-```
+如果编辑催问当前版本完成度，可以这样说：
 
-公开数据和 public MLM 自动接力：
-
-```bash
-cd /mnt/snowlotus_cellfm
-bash scripts/ensure_public_data_jobs.sh
-bash scripts/queue_public_mlm_expansion.sh
-```
-
-## 当前硬缺口
-
-1. 缺真实天山雪莲 scRNA/snRNA 数据：`data/saussurea_involucrata.h5ad`。
-2. 缺雪莲基因注释和高质量同源基因映射。
-3. 公开数据还在下载/转换，full corpus 尚未完全闭合。
-4. 与 scPlantLLM/scPlantAnnotate 的公平外部 benchmark 尚未完成。
-5. 纯算法结果不足以支撑雪莲生物学顶刊故事，仍需要独立实验或独立数据验证。
+Plant-CellFM v9 has been frozen as a reproducible plant-general single-cell annotation framework. The current package includes the GitHub branch, release checkpoint with SHA256, model card, final Word manuscript, v9-v3 strict benchmark, Seurat comparator, species-holdout failure audit, Arabidopsis root marker case, live CUDA service evidence and watchdog recovery evidence. The manuscript is intentionally scoped as a computational method/resource paper: it does not claim universal high-accuracy annotation for all plant species, does not claim a completed Snow Lotus atlas, and keeps scPlantLLM/scPlantAnnotate at their audited execution boundaries until official runs are available.

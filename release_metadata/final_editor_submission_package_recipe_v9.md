@@ -1,6 +1,6 @@
 # Plant-CellFM v9 Final Editor Submission Package Recipe
 
-Generated: 2026-07-30 18:27 Asia/Shanghai
+Generated: 2026-07-30 18:45 Asia/Shanghai
 
 This file records how to regenerate the final editor-facing Plant-CellFM v9 submission package from the repository. The generated archive itself is kept under `outputs/` and on the Matpool server rather than committed to the source tree.
 
@@ -20,10 +20,11 @@ python scripts/package_v9_editor_submission.py
 - Peer-review preflight: `release_metadata/publication_peer_review_preflight_v9.md`
 - Arabidopsis root figure package: `release_metadata/arabidopsis_root_case_figure_v9.md`
 - Species holdout failure audit: `release_metadata/species_holdout_failure_audit_v9.md`
+- Publication target readiness matrix: `release_metadata/top_journal_readiness_matrix.md`
 
 ## Package Scope
 
-The package contains the current v9 submission index, final Chinese Word manuscript with ASCII file path, README, publication readiness audit, final package recipe, model card, data card, release notes, editor issue closure, stability audit, server sustainability audit, live API smoke evidence, watchdog recovery evidence, external benchmark panel, Seurat baseline result, centroid baselines, v9-v3 benchmark JSON, species holdout failure audit, Arabidopsis root case, Arabidopsis root literature anchor, adapter registry, scPlantLLM/scPlantAnnotate audit files and model asset pointer.
+The package contains the current v9 submission index, final Chinese Word manuscript with ASCII file path, README, publication readiness audit, publication target readiness matrix, final package recipe, model card, data card, release notes, editor issue closure, stability audit, server sustainability audit, live API smoke evidence, watchdog recovery evidence, external benchmark panel, Seurat baseline result, centroid baselines, v9-v3 benchmark JSON, species holdout failure audit, Arabidopsis root case, Arabidopsis root literature anchor, adapter registry, scPlantLLM/scPlantAnnotate audit files and model asset pointer.
 
 The package intentionally does not duplicate the large checkpoint. It records the GitHub release asset and SHA256:
 

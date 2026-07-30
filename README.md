@@ -74,6 +74,7 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `release_metadata/third_party_comparator_sources_v9.md`
 - `release_metadata/v9_submission_stability_audit.md`
 - `release_metadata/publication_peer_review_preflight_v9.md`
+- `release_metadata/top_journal_readiness_matrix.md`
 - `release_metadata/server_sustainability_status_v9.md`
 - `release_metadata/watchdog_recovery_status_v9.md`
 - `release_metadata/v9_editor_issue_closure.md`
@@ -83,6 +84,7 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `manuscript/Plant_CellFM_v9_final_submission_zh_v1.md`
 - `manuscript/Plant_CellFM_v9_final_submission_zh_v1.docx`
 - `docs/publication_readiness_v9.md`
+- `docs/top_journal_strategy.md`
 - `scripts/package_v9_release.sh`
 - `scripts/package_v9_editor_submission.py`
 - `tests/`
