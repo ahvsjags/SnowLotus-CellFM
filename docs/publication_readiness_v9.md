@@ -31,7 +31,8 @@ This file records the evidence behind the frozen v9 candidate. It is an engineer
 25. **Open-set calibration and selective annotation.** `release_metadata/open_set_calibration_v9.md` adds a confidence-aware layer to the frozen leave-species evidence. The API annotation head reaches 96.64% selective accuracy on the top 30% confidence cells and 92.81% on the top 40%, while low-confidence and open-set-like cells are routed to review.
 26. **Third-party benchmark contract.** `release_metadata/third_party_benchmark_contract_v10.md` converts scPlantLLM/scPlantAnnotate from loose missing comparators into official-source execution contracts with input packages, runner commands, missing artifacts and metric-closure rules.
 27. **Multi-species scPlantDB biology case.** `release_metadata/multispecies_scplantdb_case_v10.md` adds a second public-data biology case spanning 31,503 cells, 210,485 genes, 4 species, 4 tissues and 96 marker-candidate records.
-28. **Submission scorecard.** `release_metadata/submission_scorecard_v11.md` records that all fixable evidence-readiness dimensions are now 90+, while raw leave-species accuracy, official third-party metrics and wet-lab validation remain honestly non-inflated.
+28. **Species-transfer calibration layer.** `release_metadata/cross_species_classifier_benchmark_v10.md` and `release_metadata/algorithm_innovation_v10.md` add a measured STC layer on frozen v9 embeddings. Under the same leave-species split and without held-out species labels for training, `knn_cosine_k9` improves exact-label all-cell accuracy from 23.64% to 30.10%, known-label accuracy from 42.28% to 53.84% and known-label macro-F1 from 0.1922 to 0.2663.
+29. **Submission scorecard.** `release_metadata/submission_scorecard_v11.md` records that all fixable evidence-readiness dimensions are now 90+, while raw leave-species accuracy, official third-party metrics and wet-lab validation remain honestly non-inflated. The same scorecard separately records real leave-species classifier calibration performance as 74/100, cross-species true performance as 70/100 and algorithmic innovation as 86/100.
 
 ## Frozen Results
 
@@ -50,6 +51,8 @@ The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 
 `release_metadata/species_ontology_label_benchmark_v9.md` converts that audit into an embedding-based protocol. It aligns all 3,964 runtime-smoke predictions to H5AD obs labels with zero missing IDs. Exact-label recomputation gives 55.90% coverage and 23.64% all-cell accuracy, matching the frozen 55.90% and 23.54% benchmark closely. The ontology-actionable protocol excludes 1,640 unknown or unannotated cells, keeps 2,324 actionable cells, increases ontology-label coverage to 74.44%, and reports 14.97% actionable all-cell accuracy, 20.12% known-label accuracy and 0.1395 known-label macro-F1. This is a stricter diagnostic of remaining cross-species representation error after label harmonization.
 
 `release_metadata/open_set_calibration_v9.md` adds the practical use layer for this weak raw metric. It keeps the strict leave-species all-cell result as the controlling benchmark, but shows that the deployed API annotation head reaches 66.25% exact-label accuracy on all 3,964 runtime-smoke cells and 96.64% / 92.81% selective accuracy when accepting only the top 30% / 40% confidence cells. This supports a safe workflow: high-confidence cells can be auto-annotated, while low-confidence cells are routed to manual review, ontology harmonization or species-adapter calibration.
+
+`release_metadata/cross_species_classifier_benchmark_v10.md` adds a true classifier-calibration improvement rather than another diagnostic. On the same 3,964 frozen runtime-smoke embeddings, the STC `knn_cosine_k9` layer raises exact-label all-cell accuracy from the centroid baseline 23.64% to 30.10%, known-label accuracy from 42.28% to 53.84%, and known-label macro-F1 from 0.1922 to 0.2663. Coverage remains 55.90%, so this result improves the real leave-species classifier layer but still does not justify a universal high-accuracy claim for all plants.
 
 ## Publication Positioning
 
@@ -71,7 +74,8 @@ The strongest current manuscript framing is a computational method/resource pape
 | Species ontology coverage audit | completed | 106-label mapping table, 45.26% actionable ontology coverage and 34.91% unknown/unannotated diagnosis |
 | Ontology-label species benchmark | completed | 3,964 aligned embeddings, 74.44% actionable coverage and 14.97% actionable all-cell accuracy |
 | Open-set calibration audit | completed | API top-30 selective accuracy 96.64%, top-40 selective accuracy 92.81%, exact max-similarity top-10 rejected-error capture 92.63% |
-| Submission scorecard | completed | all fixable evidence-readiness dimensions 90+ with raw metrics kept non-inflated |
+| STC species-transfer calibration | completed | frozen leave-species all-cell 23.64% -> 30.10%, known-label 42.28% -> 53.84%, macro-F1 0.1922 -> 0.2663 |
+| Submission scorecard | completed | all fixable evidence-readiness dimensions 90+ with raw metrics kept non-inflated; algorithmic innovation now 86/100 |
 
 ## Journal Fit
 

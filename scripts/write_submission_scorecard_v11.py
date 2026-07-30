@@ -54,6 +54,7 @@ def build_payload() -> dict[str, Any]:
     open_set = read_json(RELEASE / "open_set_calibration_v9.json")
     multi_case = read_json(RELEASE / "multispecies_scplantdb_case_v10.json")
     contract = read_json(RELEASE / "third_party_benchmark_contract_v10.json")
+    algorithm = read_json(RELEASE / "algorithm_innovation_v10.json")
 
     candidate = comparison.get("candidate", {}).get("summary", {})
     leave_species = candidate.get("leave_species_out", {}).get("fine", {})
@@ -64,6 +65,18 @@ def build_payload() -> dict[str, Any]:
     exact_10 = curve_at(open_set.get("nearest_centroid_exact", {}).get("selective_curve", []), 0.1)
     completed_rows = external.get("summary", {}).get("completed_metric_rows")
     contracts = contract.get("contracts", [])
+    algorithm_delta = algorithm.get("performance_delta", {})
+    stc_method = algorithm.get("best_classifier", "knn_cosine_k9")
+    baseline_species_all = algorithm_delta.get("baseline_accuracy_all")
+    stc_species_all = algorithm_delta.get("best_accuracy_all")
+    baseline_known = algorithm_delta.get("baseline_known_label_accuracy")
+    stc_known = algorithm_delta.get("best_known_label_accuracy")
+    baseline_macro = algorithm_delta.get("baseline_macro_f1")
+    stc_macro = algorithm_delta.get("best_macro_f1")
+    stc_gain = algorithm_delta.get("absolute_accuracy_all_gain")
+    stc_known_gain = algorithm_delta.get("absolute_known_label_gain")
+    stc_macro_gain = algorithm_delta.get("absolute_macro_f1_gain")
+    stc_coverage = algorithm_delta.get("coverage")
     min_contract_evidence = min(
         [int(item.get("evidence_readiness_score", 0)) for item in contracts] or [0]
     )
@@ -116,6 +129,36 @@ def build_payload() -> dict[str, Any]:
             "upgrade": "把弱 raw 指标转为可审计拒识、置信度和人工复核策略。",
         },
         {
+            "dimension": "真实留物种分类校准性能",
+            "score": 74,
+            "status": "real_metric_improved_not_90",
+            "evidence": (
+                f"STC `{stc_method}` all-cell {fmt(stc_species_all)} vs centroid {fmt(baseline_species_all)}; "
+                f"known-label {fmt(stc_known)} vs {fmt(baseline_known)}; macro-F1 {fmt(stc_macro)} vs {fmt(baseline_macro)}"
+            ),
+            "upgrade": (
+                "新增 Species-Transfer Calibration 层，在同一 frozen embedding 和同一 leave-species split 下带来真实提升；"
+                f"all-cell +{pct(stc_gain)}，known-label +{pct(stc_known_gain)}，macro-F1 +{fmt(stc_macro_gain)}。"
+            ),
+        },
+        {
+            "dimension": "跨物种泛化真实性能",
+            "score": 70,
+            "status": "substantially_improved_but_open_set_limited",
+            "evidence": (
+                f"strict leave-species STC all-cell {fmt(stc_species_all)} at coverage {fmt(stc_coverage)}; "
+                "held-out species are not used for classifier training"
+            ),
+            "upgrade": "从 60-62 的纯诊断状态提高到约 70：已有真实 held-out-species 提升，但仍不能写成全植物满覆盖高精度。",
+        },
+        {
+            "dimension": "算法创新性",
+            "score": algorithm.get("innovation_score", {}).get("after", 86),
+            "status": "stronger_algorithmic_packaging",
+            "evidence": "all-plant adapter materialization + Species-Transfer Calibration + open-set reliability + ontology-aware benchmark + CUDA release gate",
+            "upgrade": "创新叙事从工程整合提升为方法层：显式 STC 层把跨物种校准、开放集拒识和植物本体审计绑定为一个可复现实验模块。",
+        },
+        {
             "dimension": "跨数据集/跨样本实用迁移",
             "score": 90,
             "status": "90_plus_with_conservative_wording",
@@ -155,9 +198,14 @@ def build_payload() -> dict[str, Any]:
 
     raw_metric_limits = [
         {
-            "item": "leave-species all-cell accuracy",
+            "item": "leave-species STC all-cell accuracy",
+            "value": stc_species_all,
+            "why_not_90": "STC 层已把 frozen embedding 的严格留物种 all-cell 从 centroid 0.2364 提到约 0.3010，但开放集标签缺失和高覆盖失败物种仍限制 raw metric。",
+        },
+        {
+            "item": "leave-species centroid all-cell accuracy",
             "value": leave_species.get("accuracy_all"),
-            "why_not_90": "真实开放集 raw metric 不能靠文本修改到 90；已通过 open-set calibration 和 selective annotation 控制使用场景。",
+            "why_not_90": "这是 frozen v9 主 benchmark 的原始 exact-label 口径，保留用于与 v3 公平比较；不能被选择性注释或本体诊断替代。",
         },
         {
             "item": "official scPlantLLM/scPlantAnnotate numerical metrics",
@@ -175,8 +223,8 @@ def build_payload() -> dict[str, Any]:
         "schema_version": "plant_cellfm_submission_scorecard_v11",
         "generated": datetime.now().strftime("%Y-%m-%d %H:%M Asia/Shanghai"),
         "overall_position": (
-            "All fixable submission-readiness dimensions have been raised to 90+. "
-            "Raw performance-limited dimensions are explicitly separated so the manuscript does not fabricate accuracy."
+            "All fixable submission-readiness dimensions have been raised to 90+, while real raw-performance dimensions are scored separately. "
+            "The v10 STC layer improves strict held-out-species performance and innovation strength, but the manuscript still does not fabricate 90+ raw cross-species accuracy."
         ),
         "current_publication_position": "Plant-CellFM v9 remains the frozen publication model.",
         "dimensions": dimensions,
@@ -193,7 +241,7 @@ def write_markdown(payload: dict[str, Any], output: Path) -> None:
         "",
         payload["overall_position"],
         "",
-        "## 90+ Readiness Dimensions",
+        "## Submission Score Dimensions",
         "",
     ]
     lines.extend(

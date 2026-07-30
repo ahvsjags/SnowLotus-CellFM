@@ -1,6 +1,6 @@
 # Plant-CellFM v9 Final Handoff Summary
 
-Generated: `2026-07-31 01:07 Asia/Shanghai`
+Generated: `2026-07-31 02:04 Asia/Shanghai`
 
 ## Position
 
@@ -43,6 +43,8 @@ Release gate command:
 - `release_metadata/release_gate_completion_audit_v9.md (generated on server/outputs)`
 - `release_metadata/server_release_verification_v9.md (generated on server/outputs)`
 - `release_metadata/species_ontology_label_benchmark_v9.md`
+- `release_metadata/cross_species_classifier_benchmark_v10.md`
+- `release_metadata/algorithm_innovation_v10.md`
 - `release_metadata/open_set_calibration_v9.md`
 - `release_metadata/third_party_benchmark_contract_v10.md`
 - `release_metadata/multispecies_scplantdb_case_v10.md`
@@ -61,6 +63,12 @@ Release gate command:
 | Normalized leave-species-out v3 all-cell accuracy | 0.1912 |
 | Normalized leave-species-out v9 coverage | 0.5590 |
 | Normalized leave-species-out v9 known-label accuracy | 0.4210 |
+| STC `knn_cosine_k9` leave-species all-cell accuracy | 0.3010 |
+| STC centroid baseline leave-species all-cell accuracy | 0.2364 |
+| STC leave-species known-label accuracy | 0.5384 |
+| STC centroid baseline known-label accuracy | 0.4228 |
+| STC leave-species macro-F1 | 0.2663 |
+| STC centroid baseline macro-F1 | 0.1922 |
 | Ontology-label actionable coverage | 74.44% |
 | Ontology-label actionable all-cell accuracy | 14.97% |
 | Ontology-label known-label accuracy | 20.12% |
@@ -79,6 +87,7 @@ Multi-species scPlantDB public-data biology case contains `31503` cells, `4` spe
 - Plant-CellFM v9 is a reproducible plant-general foundation-model and adapter framework for plant single-cell expression annotation.
 - The current release is not Snow Lotus-only; Snow Lotus is a target-species adapter entry point under the same contract.
 - The strict leave-species result should be interpreted as open-set cross-species transfer evidence, not universal high-accuracy annotation for every plant species.
+- The STC layer improves strict frozen leave-species all-cell accuracy from 23.64% to 30.10% and known-label accuracy from 42.28% to 53.84% without training on held-out species labels.
 - The open-set calibration audit supports a high-confidence auto-annotation and low-confidence review workflow.
 - The release includes completed v3, centroid and Seurat comparators; scPlantLLM/scPlantAnnotate are disclosed through official-source benchmark contracts unless official runs are added later.
 - The Arabidopsis root and multi-species scPlantDB cases are public-data computational biology demonstrations with marker candidates, not wet-lab validation.

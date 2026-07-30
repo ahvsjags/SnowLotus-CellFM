@@ -48,6 +48,8 @@ The paired species ontology coverage audit maps 106 observed fine labels to a co
 
 The ontology-label species-holdout benchmark reuses the frozen 3,964 x 256 runtime-smoke embeddings and reruns nearest-centroid transfer after ontology mapping. Exact-label recomputation matches the frozen benchmark closely. Under the ontology-actionable protocol, 1,640 unknown or unannotated cells are excluded, 2,324 cells remain actionable, ontology-label coverage is 74.44%, actionable all-cell accuracy is 14.97%, known-label accuracy is 20.12% and known-label macro-F1 is 0.1395. This provides a stricter diagnostic of remaining representation-transfer error after label harmonization.
 
+The v10 Species-Transfer Calibration (STC) benchmark adds a classifier-side improvement on the same frozen runtime-smoke embeddings and the same leave-species split. The best `knn_cosine_k9` calibrated layer improves exact-label all-cell accuracy from the centroid baseline 23.64% to 30.10%, known-label accuracy from 42.28% to 53.84%, and known-label macro-F1 from 0.1922 to 0.2663, without training on held-out species labels. Coverage remains 55.90%, so the result is reported as measured species-transfer calibration rather than a universal high-accuracy claim.
+
 ## External Comparators And Biological Case
 
 - Submission index: `SUBMISSION_INDEX_v9.md`
@@ -55,6 +57,8 @@ The ontology-label species-holdout benchmark reuses the frozen 3,964 x 256 runti
 - Species-holdout failure audit: `release_metadata/species_holdout_failure_audit_v9.md`
 - Species ontology coverage audit: `release_metadata/species_ontology_coverage_audit_v9.md`
 - Species ontology-label benchmark: `release_metadata/species_ontology_label_benchmark_v9.md`
+- Species-transfer calibration benchmark: `release_metadata/cross_species_classifier_benchmark_v10.md`
+- Algorithmic innovation note: `release_metadata/algorithm_innovation_v10.md`
 - Plant cell-state ontology mapping: `release_metadata/plant_cell_state_ontology_mapping_v9.tsv`
 - Integrated stable manuscript: `manuscript/Plant_CellFM_v9_final_submission_zh_v1.md` and `manuscript/Plant_CellFM_v9_final_submission_zh_v1.docx`
 - Submission stability audit: `release_metadata/v9_submission_stability_audit.md`

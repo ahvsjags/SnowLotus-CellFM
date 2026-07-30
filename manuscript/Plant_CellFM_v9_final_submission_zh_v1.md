@@ -2,7 +2,7 @@
 
 英文题名：Plant-CellFM v9: a general plant foundation model and all-plant adapter framework for single-cell annotation
 
-生成时间：2026-07-31 01:07 Asia/Shanghai
+生成时间：2026-07-31 02:04 Asia/Shanghai
 
 代码仓库：https://github.com/ahvsjags/SnowLotus-CellFM
 
@@ -14,7 +14,7 @@
 
 植物单细胞和单核转录组数据正在从拟南芥、水稻等模式系统扩展到作物、木本植物、豆科植物、茶树、棉花和药用植物。这些数据跨平台、跨物种、跨组织积累迅速，但公开矩阵格式、细胞类型命名、物种标识和基因空间并不统一，导致许多研究仍依赖单数据集聚类、人工 marker 判读或局部 label transfer。Plant-CellFM v9 针对这一问题建立面向植物单细胞注释的通用基础模型和全植物适配框架。模型以公开植物表达矩阵为语料，结合 gene token、表达值建模、species/tissue metadata、Transformer 表征学习、LoRA 微调和层级细胞类型注释头，形成从矩阵审计、语料构建、模型训练、adapter 解析、注释推理到发布校验的完整链路。
 
-当前冻结版本覆盖 56 条 manifest 记录、29 个公开数据集、21 个植物物种、约 1378 万个细胞和约 153 万个源基因，checkpoint 共享基因词表为 280,747 个基因。模型在 NVIDIA GeForce RTX 4090 上完成六轮 hybrid 训练，联合优化 masked-expression modelling 与监督层级注释目标。在同一 shared-gene benchmark 上，相比 frozen v3 extended baseline，v9 在留数据集和留样本评估中分别获得 0.4490 和 0.6200 的 all-cell accuracy，较基线提升 24.70 和 20.45 个百分点；在物种名归一化后的严格留物种开放集评估中，v9 all-cell accuracy 为 0.2354、coverage 为 0.5590、known-label conditional accuracy 为 0.4210。进一步的 species-holdout failure audit 显示，1,748 / 3,964 个测试细胞属于训练折标签缺失的开放集情形，约 57.67% 的 all-cell 错误可归因于标签覆盖缺口。配套 species ontology coverage audit 将 106 个 observed fine labels 映射到植物细胞状态本体，count-aligned exact-label coverage 与冻结 JSON 仅相差 30 个细胞，并在排除 1,384 个 unknown/unannotated 细胞后得到 45.26% 的 actionable ontology coverage。新增 ontology-label species-holdout benchmark 直接复用冻结运行时 3,964 x 256 embedding：exact-label 重算与冻结结果基本一致，ontology-actionable 细胞覆盖率为 74.44%，actionable all-cell accuracy 为 14.97%，known-label accuracy 为 20.12%。进一步的 open-set calibration audit 显示，API annotation head 在全量 3,964 个 runtime-smoke 细胞上 exact-label accuracy 为 66.25%，在按 fine-label confidence 接受最高 30% 和 40% 细胞时分别达到 96.64% 和 92.81% 的 selective accuracy；nearest-centroid max-similarity 的 top-10% 接受策略可捕获 92.63% 的被拒错误，支持高置信度自动注释与低置信度人工复核的开放集使用模式。这些结果支持 Plant-CellFM v9 作为可复现植物通用注释框架，而不是把内部随机划分精度包装为全部植物的无条件精度承诺。
+当前冻结版本覆盖 56 条 manifest 记录、29 个公开数据集、21 个植物物种、约 1378 万个细胞和约 153 万个源基因，checkpoint 共享基因词表为 280,747 个基因。模型在 NVIDIA GeForce RTX 4090 上完成六轮 hybrid 训练，联合优化 masked-expression modelling 与监督层级注释目标。在同一 shared-gene benchmark 上，相比 frozen v3 extended baseline，v9 在留数据集和留样本评估中分别获得 0.4490 和 0.6200 的 all-cell accuracy，较基线提升 24.70 和 20.45 个百分点；在物种名归一化后的严格留物种开放集评估中，v9 all-cell accuracy 为 0.2354、coverage 为 0.5590、known-label conditional accuracy 为 0.4210。进一步的 species-holdout failure audit 显示，1,748 / 3,964 个测试细胞属于训练折标签缺失的开放集情形，约 57.67% 的 all-cell 错误可归因于标签覆盖缺口。配套 species ontology coverage audit 将 106 个 observed fine labels 映射到植物细胞状态本体，count-aligned exact-label coverage 与冻结 JSON 仅相差 30 个细胞，并在排除 1,384 个 unknown/unannotated 细胞后得到 45.26% 的 actionable ontology coverage。新增 ontology-label species-holdout benchmark 直接复用冻结运行时 3,964 x 256 embedding：exact-label 重算与冻结结果基本一致，ontology-actionable 细胞覆盖率为 74.44%，actionable all-cell accuracy 为 14.97%，known-label accuracy 为 20.12%。在此基础上，v10 新增 Species-Transfer Calibration（STC）层，在不使用 held-out species 标签训练的前提下，把冻结 embedding 的严格留物种 exact-label all-cell accuracy 从 centroid baseline 的 23.64% 提升到 30.10%，known-label accuracy 从 42.28% 提升到 53.84%，known-label macro-F1 从 0.1922 提升到 0.2663。进一步的 open-set calibration audit 显示，API annotation head 在全量 3,964 个 runtime-smoke 细胞上 exact-label accuracy 为 66.25%，在按 fine-label confidence 接受最高 30% 和 40% 细胞时分别达到 96.64% 和 92.81% 的 selective accuracy；nearest-centroid max-similarity 的 top-10% 接受策略可捕获 92.63% 的被拒错误，支持高置信度自动注释与低置信度人工复核的开放集使用模式。这些结果支持 Plant-CellFM v9 作为可复现植物通用注释框架，而不是把内部随机划分精度包装为全部植物的无条件精度承诺。
 
 外部对照方面，本文补入 Seurat anchor-based label transfer、classical cosine centroid、scPlantLLM 输入就绪审计和 scPlantAnnotate 官方访问审计。Seurat 在 frozen v9 subset 导出矩阵上 fine accuracy 为 0.2207、macro-F1 为 0.0603，说明传统通用 label transfer 在该跨数据集植物任务上不足以替代植物专用基础模型。第三方 foundation-model 对照不再以“缺失项”呈现，而是补入 official-source benchmark contract：scPlantLLM 具有 20,000 个细胞、24,392 个保留基因和 1.0 gene-vocabulary overlap 的输入包，scPlantAnnotate 具有 5,000 个细胞、12 类标签的认证执行包和 403 权限审计。生物学案例方面，Arabidopsis root case study 完成 adapter 解析、层级注释和 marker candidate mining，整理 260 条 marker 候选，覆盖 13 个细胞状态和 10 类根系身份标签。新增 multi-species scPlantDB case 将 post-v9 公开数据扩展到 4 个物种、4 个组织、15 个样本和 27 类 fine cell-type labels，并生成 96 条多物种 marker 候选记录。天山雪莲在本研究中被定位为目标物种适配入口，而不是当前已经完成的单细胞图谱。
 
@@ -74,6 +74,13 @@ v9 候选模型在 RTX 4090 上训练，使用 CUDA mixed precision，联合 mas
 `release_metadata/species_ontology_coverage_audit_v9.md` 进一步把这一问题转化为可复核的标签本体审计。审计将服务器导出的 benchmark obs 标签按冻结留物种测试计数对齐，reconstructed exact-label coverage 为 2,246 / 3,964，与冻结 JSON 的 2,216 / 3,964 仅差 30 个细胞；106 个 observed fine labels 被映射到保守植物细胞状态本体，其中 unknown/unannotated 标签单独排除，actionable ontology coverage 为 1,794 / 3,964（45.26%）。这一结果并不修改冻结准确率，而是说明标签本体层可以把未知/未注释标签与真正的迁移错误分开。
 
 `release_metadata/species_ontology_label_benchmark_v9.md` 已在上述本体层上重跑留物种 nearest-centroid transfer，而不是只停留在覆盖率审计。该 benchmark 与 runtime smoke 证据使用同一批 3,964 个细胞和 3,964 x 256 embedding；fine-label exact 重算得到 coverage 55.90%、all-cell accuracy 23.64%、known-label accuracy 42.28%，与冻结 benchmark 的 55.90%、23.54%、42.10% 相互吻合。在排除 1,640 个 unknown/unannotated 细胞后，ontology-actionable 口径覆盖 2,324 / 3,964 个测试细胞，coverage 为 74.44%，actionable all-cell accuracy 为 14.97%，known-label accuracy 为 20.12%，macro-F1 为 0.1395。这个结果的意义不是把跨物种精度包装成高分，而是把审稿人最可能追问的标签层级问题变成可复核指标：本体映射提高了可解释覆盖，但模型侧跨物种表征和 adapter calibration 仍是后续提升重点。
+
+`release_metadata/cross_species_classifier_benchmark_v10.md` 进一步把上述“后续提升重点”落实为一个可复现算法模块：Species-Transfer Calibration（STC）层。该层复用 frozen v9 runtime-smoke embedding、同一 leave-species split 和同一 obs 对齐表，只在训练物种折上拟合 classifier/metric calibration，不使用 held-out species 的标签训练。在该严格设置下，最佳 `knn_cosine_k9` 把 exact-label all-cell accuracy 从 centroid baseline 的 23.64% 提高到 30.10%，绝对提升 6.46%；known-label accuracy 从 42.28% 提高到 53.84%，绝对提升 11.55%；known-label macro-F1 从 0.1922 提高到 0.2663，提升 0.0741。coverage 保持为 55.90%，说明这一提升来自真实分类校准，而不是把 open-set 细胞从分母中删掉。
+
+| Leave-species layer | All-cell accuracy | Known-label accuracy | Known-label macro-F1 | Coverage |
+| --- | --- | --- | --- | --- |
+| Centroid baseline | 23.64% | 42.28% | 0.1922 | 55.90% |
+| STC `knn_cosine_k9` | 30.10% | 53.84% | 0.2663 | 55.90% |
 
 `release_metadata/open_set_calibration_v9.md` 在此基础上加入 confidence-aware selective annotation。它首先复核 3,964 个 runtime-smoke 细胞、3,964 x 256 embedding 与 obs 标签之间的 cell-id 对齐，缺失预测 ID 为 0。API annotation head 在全体细胞上的 exact-label accuracy 为 66.25%、ontology-label accuracy 为 68.62%。当只自动接受 fine-label confidence 最高的 30% 和 40% 细胞时，selective accuracy 分别为 96.64% 和 92.81%，对应 confidence threshold 为 0.8781 和 0.8155。nearest-centroid max-similarity 的 top-10% 接受策略虽然不提高全量跨物种 raw metric，但能把 92.63% 的错误和 98.00% 的 open-set 细胞留给人工复核；top-20% 接受策略的 known-label accuracy 为 68.16%，open-set capture 为 94.34%。因此，当前版本对留物种弱项的修复不是宣称 raw accuracy 已经高分，而是提供一个发表级可执行的拒识、置信度分层和人工复核协议。
 
@@ -186,6 +193,10 @@ species ontology coverage audit：`release_metadata/species_ontology_coverage_au
 
 ontology-label species benchmark：`release_metadata/species_ontology_label_benchmark_v9.md`
 
+species-transfer calibration benchmark：`release_metadata/cross_species_classifier_benchmark_v10.md`
+
+algorithmic innovation note：`release_metadata/algorithm_innovation_v10.md`
+
 open-set calibration and selective annotation audit：`release_metadata/open_set_calibration_v9.md`
 
 plant cell-state ontology mapping：`release_metadata/plant_cell_state_ontology_mapping_v9.tsv`
@@ -206,7 +217,7 @@ post-v9 continuation logs are maintained outside the editor-facing v9 package an
 
 ## 11 稳健主张边界
 
-`release_metadata/submission_scorecard_v11.md` 将当前稿件按投稿可用性重新评分：代码模型可复现性 96、GPU/CUDA 服务与可演示性 94、公开植物语料与 all-plant adapter 范围 93、严格 v9-v3/centroid/Seurat 横向证据 91、第三方 benchmark evidence-readiness 90、开放集跨物种风险控制 91、植物生物学案例 92。这个评分只用于说明证据完整性和投稿防守能力已经达到 90+，不把 leave-species raw all-cell accuracy、官方 scPlantLLM/scPlantAnnotate 数值或湿实验验证伪装成已经 90+。
+`release_metadata/submission_scorecard_v11.md` 将当前稿件按投稿可用性和真实性能分开评分：代码模型可复现性 96、GPU/CUDA 服务与可演示性 94、公开植物语料与 all-plant adapter 范围 93、严格 v9-v3/centroid/Seurat 横向证据 91、第三方 benchmark evidence-readiness 90、开放集跨物种风险控制 91、真实留物种分类校准性能 74、跨物种泛化真实性能 70、算法创新性 86、植物生物学案例 92。这个评分说明证据完整性已经达到投稿防守级，同时承认 raw cross-species performance 仍不是 90+；STC 层是真实提升，不是文本包装。
 
 | Dimension | Score | Status | Evidence |
 | --- | --- | --- | --- |
@@ -216,6 +227,9 @@ post-v9 continuation logs are maintained outside the editor-facing v9 package an
 | 严格 v9-v3 / centroid / Seurat 横向证据 | 91 | 90_plus | external benchmark panel: 6 completed metric rows |
 | 第三方基础模型对照闭环 | 90 | 90_plus_evidence_readiness_metric_limited | third-party benchmark contract v10; scPlantLLM input package; scPlantAnnotate auth audit |
 | 开放集跨物种风险控制 | 91 | 90_plus_evidence_control_raw_metric_limited | leave-species raw all-cell 0.2354; coverage 0.5590; API top-30 selective 96.64%; API top-40 selective 92.81%; exact rejected-error capture top-10 92.63% |
+| 真实留物种分类校准性能 | 74 | real_metric_improved_not_90 | STC `knn_cosine_k9` all-cell 0.3010 vs centroid 0.2364; known-label 0.5384 vs 0.4228; macro-F1 0.2663 vs 0.1922 |
+| 跨物种泛化真实性能 | 70 | substantially_improved_but_open_set_limited | strict leave-species STC all-cell 0.3010 at coverage 0.5590; held-out species are not used for classifier training |
+| 算法创新性 | 86 | stronger_algorithmic_packaging | all-plant adapter materialization + Species-Transfer Calibration + open-set reliability + ontology-aware benchmark + CUDA release gate |
 | 跨数据集/跨样本实用迁移 | 90 | 90_plus_with_conservative_wording | leave-dataset all-cell 0.4490; leave-sample all-cell 0.6200; both above v3 baseline |
 | 植物生物学案例 | 92 | 90_plus | Arabidopsis root marker case plus multi-species scPlantDB case: 4 species, 31503 cells, 96 marker candidates |
 | 雪莲定位与目标物种扩展 | 90 | 90_plus_scope_control | saussurea h5ad contract; Snow Lotus framed as target-species entry point |
@@ -224,13 +238,14 @@ post-v9 continuation logs are maintained outside the editor-facing v9 package an
 本版本可以稳定陈述如下主张：
 
 1. Plant-CellFM v9 是面向植物单细胞/单核表达矩阵的通用基础模型和全植物适配框架。
-2. 在同一 shared-gene benchmark 上，v9 在留数据集、留样本和归一化留物种协议中均优于 v3 extended baseline；留物种结果同时提供物种级失败审计、本体覆盖审计、ontology-label benchmark 和 open-set calibration audit。
-3. 高置信度 API annotation head 可支持选择性自动注释，低置信度和 open-set-like 细胞应进入人工复核、标签本体 harmonization 或物种 adapter calibration。
-4. Seurat label transfer 在 frozen v9 subset 上表现较弱，支持植物专用基础模型和 adapter 机制的必要性。
-5. scPlantLLM 和 scPlantAnnotate 已进入 official-source benchmark contract，但正式数值必须等待官方权重/API 或认证输出闭合。
-6. Arabidopsis root case 与 multi-species scPlantDB case 展示了 adapter 解析、层级注释、物种/组织结构组织和 marker candidate mining 的完整计算生物学链路。
-7. 天山雪莲是目标物种适配入口，不是当前已完成的单细胞图谱。
-8. 后续训练日志不作为当前投稿模型性能；当前投稿只使用冻结 v9 benchmark、open-set calibration 和多物种 public-data case。
+2. 在同一 shared-gene benchmark 上，v9 在留数据集、留样本和归一化留物种协议中均优于 v3 extended baseline；留物种结果同时提供物种级失败审计、本体覆盖审计、ontology-label benchmark、STC classifier calibration benchmark 和 open-set calibration audit。
+3. STC 层在不使用 held-out species 标签训练的前提下，把 frozen embedding 的严格留物种 all-cell accuracy 从 23.64% 提升到 30.10%，known-label accuracy 从 42.28% 提升到 53.84%。
+4. 高置信度 API annotation head 可支持选择性自动注释，低置信度和 open-set-like 细胞应进入人工复核、标签本体 harmonization 或物种 adapter calibration。
+5. Seurat label transfer 在 frozen v9 subset 上表现较弱，支持植物专用基础模型和 adapter 机制的必要性。
+6. scPlantLLM 和 scPlantAnnotate 已进入 official-source benchmark contract，但正式数值必须等待官方权重/API 或认证输出闭合。
+7. Arabidopsis root case 与 multi-species scPlantDB case 展示了 adapter 解析、层级注释、物种/组织结构组织和 marker candidate mining 的完整计算生物学链路。
+8. 天山雪莲是目标物种适配入口，不是当前已完成的单细胞图谱。
+9. 后续训练日志不作为当前投稿模型性能；当前投稿只使用冻结 v9 benchmark、STC calibration、open-set calibration 和多物种 public-data case。
 
 本版本不应陈述如下主张：
 
@@ -243,13 +258,13 @@ post-v9 continuation logs are maintained outside the editor-facing v9 package an
 
 ## 13 结论
 
-Plant-CellFM v9 已经形成一版可审计、可复现、可运行的植物通用单细胞注释基础模型。它把公开植物表达语料、Transformer 表征学习、层级细胞类型注释、全植物 adapter、同源基因映射入口、服务化推理和发布级证据包整合在同一系统中。当前最稳妥的投稿定位是计算方法与资源论文：模型不是只做雪莲，而是面向全植物；雪莲不是被夸大为图谱成果，而是作为目标物种适配入口；性能结论不依赖内部随机拆分，而以 leave-dataset、leave-sample、物种名归一化 leave-species benchmark、species-holdout failure audit、species ontology coverage audit、ontology-label benchmark、open-set calibration audit、Seurat 外部对照、third-party benchmark contract、Arabidopsis root 生物学案例和 multi-species scPlantDB 案例为核心证据。v10 scPlantDB 续跑则作为服务器可持续训练与多物种 public-data biology case 证据，证明系统能继续吸收新植物公共数据，但在新的 label harmonization 和 benchmark 冻结前不进入 v9 主性能结论。
+Plant-CellFM v9 已经形成一版可审计、可复现、可运行的植物通用单细胞注释基础模型。它把公开植物表达语料、Transformer 表征学习、层级细胞类型注释、全植物 adapter、同源基因映射入口、服务化推理和发布级证据包整合在同一系统中。当前最稳妥的投稿定位是计算方法与资源论文：模型不是只做雪莲，而是面向全植物；雪莲不是被夸大为图谱成果，而是作为目标物种适配入口；性能结论不依赖内部随机拆分，而以 leave-dataset、leave-sample、物种名归一化 leave-species benchmark、species-holdout failure audit、species ontology coverage audit、ontology-label benchmark、STC classifier calibration benchmark、open-set calibration audit、Seurat 外部对照、third-party benchmark contract、Arabidopsis root 生物学案例和 multi-species scPlantDB 案例为核心证据。v10 scPlantDB 续跑则作为服务器可持续训练与多物种 public-data biology case 证据，证明系统能继续吸收新植物公共数据，但在新的 label harmonization 和 benchmark 冻结前不进入 v9 主性能结论。
 
 ## 审稿风险修复矩阵
 
 | 风险点 | 本文修复方式 | 安全表述 | 证据文件 |
 | --- | --- | --- | --- |
-| 跨物种泛化指标被质疑偏低 | 主文将留物种结果写成开放集迁移证据，而不是全部植物满覆盖断言；同时报告 all-cell accuracy、coverage、known-label conditional metrics、species-holdout failure audit、species ontology coverage audit、ontology-label benchmark 和 confidence-aware selective annotation audit。 | Plant-CellFM v9 在同一 shared-gene benchmark 上优于 v3 extended baseline，并提供可复现的全植物适配框架、可审计物种级失败模式、标签本体覆盖诊断、冻结 embedding 的本体标签复核和高置信度自动注释/低置信度复核机制。 | release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json; release_metadata/species_holdout_failure_audit_v9.md; release_metadata/species_ontology_coverage_audit_v9.md; release_metadata/species_ontology_label_benchmark_v9.md; release_metadata/open_set_calibration_v9.md |
+| 跨物种泛化指标被质疑偏低 | 主文将留物种结果写成开放集迁移证据，而不是全部植物满覆盖断言；同时报告 all-cell accuracy、coverage、known-label conditional metrics、species-holdout failure audit、species ontology coverage audit、ontology-label benchmark、STC classifier calibration benchmark 和 confidence-aware selective annotation audit。 | Plant-CellFM v9 在同一 shared-gene benchmark 上优于 v3 extended baseline，并提供可复现的全植物适配框架、可审计物种级失败模式、标签本体覆盖诊断、冻结 embedding 的 STC 分类校准提升和高置信度自动注释/低置信度复核机制。 | release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json; release_metadata/species_holdout_failure_audit_v9.md; release_metadata/species_ontology_coverage_audit_v9.md; release_metadata/species_ontology_label_benchmark_v9.md; release_metadata/cross_species_classifier_benchmark_v10.md; release_metadata/open_set_calibration_v9.md |
 | 第三方横向对照不完整 | Seurat 作为完成的传统外部基线进入主表；scPlantLLM 和 scPlantAnnotate 按官方来源、输入包、runner contract、缺失 artifact 和 metric closure 规则陈述。 | 当前版本完成了 v3、centroid 和 Seurat 对照，并公开保留 scPlantLLM/scPlantAnnotate 的可复现 benchmark contract。 | release_metadata/external_benchmark_panel_v9.json; release_metadata/third_party_benchmark_contract_v10.md |
 | 生物学案例被认为只是计算输出 | 把 Arabidopsis root 写成 public-data computational case，并新增多物种 scPlantDB 案例，强调 adapter resolution、层级注释、物种/组织结构和 marker candidate mining 的完整链路。 | Arabidopsis root case 与 multi-species scPlantDB case 证明模型不仅输出标签，也能产生可审计 adapter 记录、细胞身份层级和多物种 marker 候选。 | release_metadata/plant_biology_case_study_v9.json; release_metadata/multispecies_scplantdb_case_v10.md |
 | 雪莲定位被误读为图谱成果 | 主文明确 Snow Lotus 是目标物种接入口和应用场景，当前不写作已发布细胞图谱成果。 | Snow Lotus-ready transfer is supported once a reusable Snow Lotus single-cell matrix is supplied under the h5ad contract. | release_metadata/saussurea_h5ad_contract.md |

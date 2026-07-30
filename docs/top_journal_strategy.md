@@ -6,7 +6,7 @@ Generated: 2026-07-30 Asia/Shanghai
 
 ## 当前一句话定位
 
-Plant-CellFM v9 是一个面向植物单细胞/单核表达矩阵的可复现注释基础模型和 adapter 框架。它提供公开植物语料、共享基因 backbone、层级注释头、动态全植物 adapter、严格 cross-group benchmark、open-set calibration、Seurat/centroid/v3 对照、第三方 benchmark contract、Arabidopsis root 与 multi-species scPlantDB 计算生物学案例、GitHub release、SHA256 固化包和服务器 CUDA 服务。
+Plant-CellFM v9 是一个面向植物单细胞/单核表达矩阵的可复现注释基础模型和 adapter 框架。它提供公开植物语料、共享基因 backbone、层级注释头、动态全植物 adapter、严格 cross-group benchmark、Species-Transfer Calibration（STC）层、open-set calibration、Seurat/centroid/v3 对照、第三方 benchmark contract、Arabidopsis root 与 multi-species scPlantDB 计算生物学案例、GitHub release、SHA256 固化包和服务器 CUDA 服务。
 
 当前稿件可以稳妥主张：
 
@@ -14,9 +14,10 @@ Plant-CellFM v9 是一个面向植物单细胞/单核表达矩阵的可复现注
 2. v9 在同一 shared-gene benchmark 上优于 frozen v3 extended baseline。
 3. 留物种结果必须按开放集解释：23.54% all-cell accuracy、55.90% coverage、42.10% known-label conditional accuracy。
 4. `release_metadata/species_holdout_failure_audit_v9.md` 已把留物种低分拆成标签覆盖缺口、已知标签迁移错误和物种级修订目标；`release_metadata/species_ontology_coverage_audit_v9.md` 进一步给出 106 个 fine label 的植物细胞状态本体映射和 unknown/unannotated 诊断；`release_metadata/species_ontology_label_benchmark_v9.md` 已用冻结 3964 x 256 embedding 重跑 ontology-label 留物种 benchmark。
-5. `release_metadata/open_set_calibration_v9.md` 将留物种弱项转化为可执行使用规则：API fine-confidence top 30% / 40% selective accuracy 为 96.64% / 92.81%，低置信度和 open-set-like 细胞进入人工复核或 adapter calibration。
-6. `release_metadata/third_party_benchmark_contract_v10.md` 已把 scPlantLLM/scPlantAnnotate 处理为 official-source execution contract；当前不写正式数值，但输入、runner、缺失 artifact 和 metric closure 条件齐全。
-7. Arabidopsis root 与 multi-species scPlantDB 案例展示 adapter 解析、层级注释、物种/组织结构组织和 marker-candidate mining，但仍是 public-data computational case。
+5. `release_metadata/cross_species_classifier_benchmark_v10.md` 和 `release_metadata/algorithm_innovation_v10.md` 将留物种改进落实为 STC 层：同一 frozen embedding、同一 leave-species split 下，`knn_cosine_k9` 把 all-cell accuracy 从 23.64% 提升到 30.10%，known-label accuracy 从 42.28% 提升到 53.84%，macro-F1 从 0.1922 提升到 0.2663。
+6. `release_metadata/open_set_calibration_v9.md` 将留物种弱项转化为可执行使用规则：API fine-confidence top 30% / 40% selective accuracy 为 96.64% / 92.81%，低置信度和 open-set-like 细胞进入人工复核或 adapter calibration。
+7. `release_metadata/third_party_benchmark_contract_v10.md` 已把 scPlantLLM/scPlantAnnotate 处理为 official-source execution contract；当前不写正式数值，但输入、runner、缺失 artifact 和 metric closure 条件齐全。
+8. Arabidopsis root 与 multi-species scPlantDB 案例展示 adapter 解析、层级注释、物种/组织结构组织和 marker-candidate mining，但仍是 public-data computational case。
 
 当前稿件不应主张：
 
@@ -60,6 +61,7 @@ Plant-CellFM v9 是一个面向植物单细胞/单核表达矩阵的可复现注
 | 留物种失败审计 | completed | `release_metadata/species_holdout_failure_audit_v9.md` | 把低分解释为开放集标签覆盖与迁移错误分解，而非包装成高精度。 |
 | 留物种本体覆盖审计 | completed | `release_metadata/species_ontology_coverage_audit_v9.md`; `release_metadata/plant_cell_state_ontology_mapping_v9.tsv` | 给出 count-aligned exact coverage、actionable ontology coverage、unknown/unannotated 细胞占比和可重跑本体层。 |
 | 留物种本体标签 benchmark | completed diagnostic | `release_metadata/species_ontology_label_benchmark_v9.md` | 复用冻结 runtime embedding；ontology-actionable coverage 为 74.44%，actionable all-cell accuracy 为 14.97%，用于定位跨物种迁移问题而非包装高分。 |
+| STC 物种迁移校准层 | completed measured improvement | `release_metadata/cross_species_classifier_benchmark_v10.md`; `release_metadata/algorithm_innovation_v10.md` | 同一 frozen embedding 和同一 leave-species split 下，all-cell 23.64% -> 30.10%，known-label 42.28% -> 53.84%；创新性从工程整合提升为方法层。 |
 | 开放集校准/选择性注释 | completed | `release_metadata/open_set_calibration_v9.md` | API top-30/top-40 selective accuracy 为 96.64%/92.81%，为低留物种 raw metric 提供可靠使用边界。 |
 | Arabidopsis root 案例 | completed computational case | `release_metadata/plant_biology_case_study_v9.md`; `release_metadata/arabidopsis_root_case_figure_v9.md` | 展示生物学使用路径和 marker-candidate 输出。 |
 | multi-species scPlantDB 案例 | completed computational case | `release_metadata/multispecies_scplantdb_case_v10.md` | 第二个 public-data biology case：31,503 细胞、4 物种、4 组织和 96 条 marker 候选。 |
@@ -94,14 +96,14 @@ Plant-CellFM v9 是一个面向植物单细胞/单核表达矩阵的可复现注
 
 1. 完成至少一个 official third-party model comparator 的冻结数值，优先 scPlantLLM；当前 contract 已齐，缺官方权重/probe JSON。
 2. 将 multi-species scPlantDB case 加上更完整的文献 marker anchor 或独立数据复现；当前已经不是单一 Arabidopsis 案例。
-3. 基于已完成的 ontology-label species-holdout benchmark 和 open-set calibration，进入模型侧改进：species adapter calibration、open-set rejection、ortholog-aware tokenization 或独立物种复现实验。
+3. 基于已完成的 STC benchmark、ontology-label species-holdout benchmark 和 open-set calibration，继续模型侧改进：species adapter calibration、open-set rejection、ortholog-aware tokenization 或独立物种复现实验。
 4. 把全部 benchmark、open-set calibration 和 case source data 组织成 supplement tables。
 
 ### 冲 Nature Methods 的增强路径
 
 当前属于 stretch，不建议把冻结 v9 直接包装成 Nature Methods 已足够。要接近该档，需要：
 
-1. 明确算法新意，不只是工程整合：例如 ortholog-aware tokenization、species adapter calibration、open-set rejection 或 ontology-aware evaluation。
+1. 明确算法新意，不只是工程整合：当前已新增 all-plant adapter materialization + STC classifier calibration + open-set reliability + ontology-aware evaluation；下一版要进一步把 STC 前移到模型训练内部或加入 ortholog-aware tokenization。
 2. 与 scPlantLLM、scPlantAnnotate、Seurat、Scanpy ingest、marker-rule 等形成完整横向 benchmark。
 3. 至少两个独立生物学应用，并有 marker 文献验证或实验验证；当前已有 Arabidopsis root 和 multi-species scPlantDB 两个 public-data case，但湿实验验证尚未闭合。
 4. 提供软件可用性材料：安装、demo、API、模型下载、license、protocol-like user guide。

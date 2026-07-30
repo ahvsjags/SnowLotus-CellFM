@@ -36,6 +36,8 @@ The species-holdout failure audit is paired with a conservative label-ontology c
 
 The next diagnostic layer is an ontology-label leave-species benchmark using the frozen 3,964 x 256 runtime-smoke embeddings. Exact-label recomputation matches the frozen species benchmark closely, while the ontology-actionable protocol reports 2,324 actionable cells, 74.44% ontology-label coverage, 14.97% actionable all-cell accuracy and 20.12% known-label accuracy after excluding 1,640 unknown or unannotated cells. This result is intentionally reported as a stricter label-harmonized diagnostic, not as a replacement for the frozen exact-label species-holdout headline.
 
+The v10 Species-Transfer Calibration (STC) layer adds a real classifier-side improvement under the same frozen runtime-smoke embeddings and the same leave-species split. Without using held-out species labels for training, the best `knn_cosine_k9` calibrated layer improves strict exact-label all-cell accuracy from the centroid baseline 23.64% to 30.10%, known-label accuracy from 42.28% to 53.84%, and known-label macro-F1 from 0.1922 to 0.2663. Coverage remains 55.90%, so this is reported as measured classifier calibration rather than a denominator change or a universal high-accuracy claim.
+
 The open-set calibration layer converts the low raw species-holdout metric into a controlled-use protocol. The deployed API annotation head reaches 66.25% exact-label accuracy on all 3,964 runtime-smoke cells; when only the top 30% and top 40% fine-confidence cells are accepted automatically, selective accuracy rises to 96.64% and 92.81%. Lower-confidence and open-set-like cells are explicitly routed to manual review, ontology harmonization or species-adapter calibration.
 
 The extended methods panel also includes transparent non-Plant-CellFM comparators and biological case-study assets. Seurat anchor-based label transfer was run on the frozen v9 subset export with 2,940 train cells and 512 test cells, obtaining fine accuracy 0.2207 and macro-F1 0.0603. The classical cosine-centroid SRP169576 sample-holdout baseline reports fine accuracy 0.7337 and macro-F1 0.4873. The scPlantLLM and scPlantAnnotate entries are now represented by official-source benchmark contracts: scPlantLLM has a 20,000-cell input package with 24,392 retained genes and 1.0 vocabulary overlap, while scPlantAnnotate has a 5,000-cell, 12-class authenticated-input package and access audit. The Arabidopsis root case study contains 260 marker-candidate rows across 13 cell states, and the multi-species scPlantDB case adds 31,503 cells across 4 species, 4 tissues and 96 marker-candidate records.
@@ -83,6 +85,8 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `release_metadata/species_holdout_failure_audit_v9.md`
 - `release_metadata/species_ontology_coverage_audit_v9.md`
 - `release_metadata/species_ontology_label_benchmark_v9.md`
+- `release_metadata/cross_species_classifier_benchmark_v10.md`
+- `release_metadata/algorithm_innovation_v10.md`
 - `release_metadata/open_set_calibration_v9.md`
 - `release_metadata/third_party_benchmark_contract_v10.md`
 - `release_metadata/multispecies_scplantdb_case_v10.md`
@@ -110,7 +114,7 @@ The local regression suite passes with `PYTHONPATH=src pytest -q`. The release p
 
 ## Evidence Boundary
 
-This release supports the claim that Plant-CellFM is a reproducible, auditable cross-species plant expression foundation-model implementation with a callable adapter layer and measured gains over the v3 extended baseline on public plant matrices. The normalized leave-species-out result should be reported with both its 55.90% label coverage and 23.54% all-cell accuracy; the 42.10% and 0.1918 values are conditional on labels being present in the training fold. The ontology coverage audit and open-set calibration should be used as label-harmonization, selective-annotation and reviewer-triage supplements, not as replacements for the frozen benchmark. The internal held-out accuracy and the 90+ evidence-readiness scorecard should not be presented as universal accuracy for every plant species.
+This release supports the claim that Plant-CellFM is a reproducible, auditable cross-species plant expression foundation-model implementation with a callable adapter layer and measured gains over the v3 extended baseline on public plant matrices. The normalized leave-species-out result should be reported with both its 55.90% label coverage and 23.54% frozen benchmark all-cell accuracy; the v10 STC layer can additionally be reported as improving the same frozen-embedding classifier layer to 30.10% all-cell and 53.84% known-label accuracy. The ontology coverage audit and open-set calibration should be used as label-harmonization, selective-annotation and reviewer-triage supplements, not as replacements for the frozen benchmark. The internal held-out accuracy and the 90+ evidence-readiness scorecard should not be presented as universal accuracy for every plant species.
 
 ## Citation
 

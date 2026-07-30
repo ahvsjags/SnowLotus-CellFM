@@ -1,6 +1,6 @@
 # Plant-CellFM v9 English Submission Synopsis
 
-Generated: `2026-07-31 01:07 Asia/Shanghai`
+Generated: `2026-07-31 02:05 Asia/Shanghai`
 
 Repository: https://github.com/ahvsjags/SnowLotus-CellFM
 
@@ -14,7 +14,7 @@ Plant-CellFM: a reproducible foundation-model and adapter framework for plant si
 
 ## Abstract
 
-Plant single-cell and single-nucleus transcriptomic studies increasingly cover diverse species, tissues and assay formats, yet cross-study reuse is limited by heterogeneous matrix formats, non-unified cell-state names and species-specific gene identifiers. We present Plant-CellFM v9, a reproducible plant expression foundation-model and all-plant adapter framework for audited single-cell annotation. The release combines a public plant expression corpus, shared-gene Transformer representations, LoRA-based model freezing, runtime species-adapter resolution, hierarchical annotation outputs and server-side release verification. On the same shared-gene benchmark, Plant-CellFM v9 improves over the frozen v3 extended baseline in leave-dataset-out all-cell accuracy (0.4490 versus 0.2021) and leave-sample-out all-cell accuracy (0.6200 versus 0.4155). Under normalized leave-species-out evaluation, v9 reaches all-cell accuracy 0.2354, coverage 0.5590 and known-label accuracy 0.4210, supporting open-set cross-species transfer analysis rather than a universal high-accuracy claim. A plant cell-state ontology diagnostic covers 2,324 of 3,964 cells (74.44%) after excluding unknown or unannotated states. The API confidence layer reaches 96.64% and 92.81% selective accuracy when accepting the top 30% and 40% confidence cells. The release further includes 24 adapter entries, an Arabidopsis root case with 260 marker-candidate rows across 13 cell states and 10 root-identity states, and a multi-species scPlantDB case with 31,503 cells across 4 species. Plant-CellFM v9 therefore provides a traceable method and resource for plant single-cell annotation, benchmark auditing and target-species adapter transfer.
+Plant single-cell and single-nucleus transcriptomic studies increasingly cover diverse species, tissues and assay formats, yet cross-study reuse is limited by heterogeneous matrix formats, non-unified cell-state names and species-specific gene identifiers. We present Plant-CellFM v9, a reproducible plant expression foundation-model and all-plant adapter framework for audited single-cell annotation. The release combines a public plant expression corpus, shared-gene Transformer representations, LoRA-based model freezing, runtime species-adapter resolution, hierarchical annotation outputs and server-side release verification. On the same shared-gene benchmark, Plant-CellFM v9 improves over the frozen v3 extended baseline in leave-dataset-out all-cell accuracy (0.4490 versus 0.2021) and leave-sample-out all-cell accuracy (0.6200 versus 0.4155). Under normalized leave-species-out evaluation, v9 reaches all-cell accuracy 0.2354, coverage 0.5590 and known-label accuracy 0.4210, supporting open-set cross-species transfer analysis rather than a universal high-accuracy claim. A plant cell-state ontology diagnostic covers 2,324 of 3,964 cells (74.44%) after excluding unknown or unannotated states. A Species-Transfer Calibration layer improves frozen leave-species all-cell accuracy from 23.64% to 30.10% and known-label accuracy from 42.28% to 53.84% without training on held-out species labels. The API confidence layer reaches 96.64% and 92.81% selective accuracy when accepting the top 30% and 40% confidence cells. The release further includes 24 adapter entries, an Arabidopsis root case with 260 marker-candidate rows across 13 cell states and 10 root-identity states, and a multi-species scPlantDB case with 31,503 cells across 4 species. Plant-CellFM v9 therefore provides a traceable method and resource for plant single-cell annotation, benchmark auditing and target-species adapter transfer.
 
 ## Significance Statement
 
@@ -26,6 +26,7 @@ Plant single-cell atlases are expanding faster than their annotation conventions
 - All-plant adapter framework with 24 adapter entries and universal fallback resolution.
 - Strict grouped evaluation, including leave-dataset-out, leave-sample-out and normalized leave-species-out protocols.
 - v9 improves over frozen v3 in leave-dataset-out all-cell accuracy (0.4490 versus 0.2021) and leave-sample-out all-cell accuracy (0.6200 versus 0.4155).
+- Species-Transfer Calibration improves frozen leave-species all-cell accuracy from 23.64% to 30.10% and known-label accuracy from 42.28% to 53.84%.
 - Ontology-actionable benchmark separates 74.44% covered cells from unknown or unannotated states.
 - Open-set calibration reaches 96.64%/92.81% selective accuracy at top-30/top-40 confidence acceptance.
 - Arabidopsis root case provides 260 marker-candidate rows across 13 cell states.
@@ -37,7 +38,7 @@ Panel 1: Heterogeneous public plant matrices enter an audited corpus layer with 
 
 Panel 2: Shared-gene expression profiles are encoded by the Plant-CellFM representation model and frozen through a LoRA release checkpoint.
 
-Panel 3: Runtime adapter resolution selects exact species adapters when available and falls back to a plant-universal adapter for new species.
+Panel 3: Runtime adapter resolution selects exact species adapters when available and falls back to a plant-universal adapter for new species; the STC layer calibrates held-out-species transfer on frozen embeddings.
 
 Panel 4: Grouped benchmarks quantify leave-dataset, leave-sample and open-set leave-species transfer against frozen v3, centroid and Seurat comparators.
 
@@ -51,6 +52,8 @@ Panel 6: Open-set confidence calibration and the multi-species scPlantDB case sh
 - Completed formal comparisons in the current package: 5.
 - Normalized leave-species-out all-cell accuracy: 0.2354.
 - Normalized leave-species-out known-label accuracy: 0.4210.
+- STC leave-species all-cell accuracy: 30.10%, from centroid 23.64%.
+- STC leave-species known-label accuracy: 53.84%, from centroid 42.28%.
 - Ontology-label actionable all-cell accuracy: 14.97%.
 - Ontology-label known-label accuracy: 20.12%.
 - Ontology-label macro-F1: 0.1395.

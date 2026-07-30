@@ -1,6 +1,6 @@
 # Data And Code Availability
 
-Generated: `2026-07-31 01:07 Asia/Shanghai`
+Generated: `2026-07-31 02:04 Asia/Shanghai`
 
 ## Code Availability
 
@@ -36,6 +36,8 @@ Benchmark and case evidence:
 - `release_metadata/species_holdout_failure_audit_v9.md`
 - `release_metadata/species_ontology_coverage_audit_v9.md`
 - `release_metadata/species_ontology_label_benchmark_v9.md`
+- `release_metadata/cross_species_classifier_benchmark_v10.md`
+- `release_metadata/algorithm_innovation_v10.md`
 - `release_metadata/open_set_calibration_v9.md`
 - `release_metadata/third_party_benchmark_contract_v10.md`
 - `release_metadata/plant_biology_case_study_v9.md`

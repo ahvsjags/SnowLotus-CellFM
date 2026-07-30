@@ -64,6 +64,7 @@ def build_context() -> dict[str, Any]:
     case = read_json(RELEASE / "plant_biology_case_study_v9.json")
     open_set = read_json(RELEASE / "open_set_calibration_v9.json")
     multi_case = read_json(RELEASE / "multispecies_scplantdb_case_v10.json")
+    algorithm = read_json(RELEASE / "algorithm_innovation_v10.json")
     candidate = comparison["candidate"]["summary"]
     baseline = comparison["baseline"]["summary"]
     ontology_action = ontology["protocols"]["leave_species_out_ontology_actionable"]
@@ -77,6 +78,7 @@ def build_context() -> dict[str, Any]:
         "api_top30": curve_at(open_set["api_head_confidence"]["fine_confidence_curve"], 0.3),
         "api_top40": curve_at(open_set["api_head_confidence"]["fine_confidence_curve"], 0.4),
         "multi_case": multi_case,
+        "algorithm": algorithm,
     }
 
 
@@ -88,6 +90,8 @@ def cover_letter_md(ctx: dict[str, Any]) -> str:
     api_top30 = ctx["api_top30"]
     api_top40 = ctx["api_top40"]
     multi = ctx["multi_case"]
+    algorithm = ctx["algorithm"]
+    stc = algorithm["performance_delta"]
     return "\n".join(
         [
             "# Cover Letter",
@@ -108,12 +112,15 @@ def cover_letter_md(ctx: dict[str, Any]) -> str:
             "Second, the strict species-holdout result is accompanied by a failure audit, a 106-label plant cell-state ontology mapping and an ontology-label benchmark on the frozen runtime embeddings. After excluding unknown or unannotated labels, the ontology-actionable protocol covers "
             f"{ontology_action['n_test']:,} / {ontology_action['n_test_total']:,} cells ({pct(ontology_action['coverage'])}), with actionable all-cell accuracy {pct(ontology_action['accuracy_all'])}, known-label accuracy {pct(ontology_action['accuracy'])} and macro-F1 {fmt(ontology_action['macro_f1'])}. This diagnostic makes the remaining cross-species transfer problem explicit rather than hiding it behind label harmonization.",
             "",
-            "Third, the open-set calibration audit adds a practical use layer for this strict benchmark. The deployed API annotation head reaches "
+            "Third, the new Species-Transfer Calibration layer adds an explicit algorithmic improvement on the same frozen embeddings and leave-species split. Without training on held-out species labels, the calibrated "
+            f"`{algorithm['best_classifier']}` layer improves exact-label all-cell accuracy from {pct(stc['baseline_accuracy_all'])} to {pct(stc['best_accuracy_all'])}, known-label accuracy from {pct(stc['baseline_known_label_accuracy'])} to {pct(stc['best_known_label_accuracy'])}, and known-label macro-F1 from {fmt(stc['baseline_macro_f1'])} to {fmt(stc['best_macro_f1'])}. Coverage remains {pct(stc['coverage'])}, so the gain reflects classifier calibration rather than changing the denominator.",
+            "",
+            "Fourth, the open-set calibration audit adds a practical use layer for this strict benchmark. The deployed API annotation head reaches "
             f"{pct(api_top30['selective_accuracy'])} selective accuracy when automatically accepting the top 30% fine-confidence cells and {pct(api_top40['selective_accuracy'])} at the top 40% acceptance level. Lower-confidence and open-set-like cells are routed to manual review, ontology harmonization or species-adapter calibration rather than being converted directly into biological claims.",
             "",
-            "Fourth, the submission includes a completed Seurat label-transfer comparator, classical centroid baselines and a v3 comparison. scPlantLLM and scPlantAnnotate are disclosed through official-source benchmark contracts with input packages, runner commands, missing artifacts and metric-closure rules. We therefore do not claim final numerical superiority over those tools until executable official metrics are frozen.",
+            "Fifth, the submission includes a completed Seurat label-transfer comparator, classical centroid baselines and a v3 comparison. scPlantLLM and scPlantAnnotate are disclosed through official-source benchmark contracts with input packages, runner commands, missing artifacts and metric-closure rules. We therefore do not claim final numerical superiority over those tools until executable official metrics are frozen.",
             "",
-            "Fifth, the Arabidopsis root and multi-species scPlantDB cases demonstrate biological use of the model output. The Arabidopsis case contains "
+            "Sixth, the Arabidopsis root and multi-species scPlantDB cases demonstrate biological use of the model output. The Arabidopsis case contains "
             f"{marker_overview['n_marker_rows']} marker-candidate rows across {marker_overview['n_labels']} cell states and {marker_overview['root_identity_label_count']} root-identity states, linking adapter resolution, hierarchical annotation and marker-candidate mining in a public-data plant root setting.",
             f" The multi-species scPlantDB case adds {multi['corpus']['cells']:,} cells, {multi['corpus']['species']} species, {multi['corpus']['tissues']} tissues and {multi['marker_record_count']} marker-candidate records as a second public-data biology demonstration.",
             "",
@@ -155,6 +162,8 @@ def availability() -> dict[str, Any]:
                 "release_metadata/species_holdout_failure_audit_v9.md",
                 "release_metadata/species_ontology_coverage_audit_v9.md",
                 "release_metadata/species_ontology_label_benchmark_v9.md",
+                "release_metadata/cross_species_classifier_benchmark_v10.md",
+                "release_metadata/algorithm_innovation_v10.md",
                 "release_metadata/open_set_calibration_v9.md",
                 "release_metadata/third_party_benchmark_contract_v10.md",
                 "release_metadata/plant_biology_case_study_v9.md",

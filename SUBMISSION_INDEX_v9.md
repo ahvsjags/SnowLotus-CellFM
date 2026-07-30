@@ -47,6 +47,8 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Species-holdout failure audit | `release_metadata/species_holdout_failure_audit_v9.md` |
 | Species ontology coverage audit | `release_metadata/species_ontology_coverage_audit_v9.md` |
 | Species ontology-label benchmark | `release_metadata/species_ontology_label_benchmark_v9.md` |
+| Species-transfer calibration benchmark | `release_metadata/cross_species_classifier_benchmark_v10.md` |
+| Algorithmic innovation note | `release_metadata/algorithm_innovation_v10.md` |
 | Open-set calibration and selective annotation | `release_metadata/open_set_calibration_v9.md` |
 | Submission scorecard | `release_metadata/submission_scorecard_v11.md` |
 | Plant cell-state ontology mapping | `release_metadata/plant_cell_state_ontology_mapping_v9.tsv` |
@@ -69,9 +71,11 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 11. The species-holdout failure audit decomposes the strict normalized leave-species-out result into label-coverage gaps, known-label errors and per-species revision targets.
 12. The species ontology coverage audit maps 106 observed fine labels into a conservative plant cell-state ontology and separates actionable ontology coverage from unknown or unannotated labels.
 13. The ontology-label species-holdout benchmark reruns nearest-centroid evaluation on frozen v9 embeddings after ontology mapping, reporting 74.44% actionable coverage and 14.97% actionable all-cell accuracy.
-14. The submission scorecard records all fixable evidence-readiness dimensions at 90+ while explicitly not inflating raw leave-species accuracy or unfinished official third-party metrics.
-15. The publication target readiness matrix ranks the current package as strongest for plant-focused method/resource submission, plausible for genomics computational-method submission with major-revision risk, and stretch for top general methods venues until official third-party numerical closure and stronger validation are added.
-16. The English synopsis file provides an abstract, significance statement, highlights, graphical abstract text and editorial positioning that use the same claim boundaries as the full manuscript.
+14. The v10 Species-Transfer Calibration layer improves strict frozen leave-species all-cell accuracy from 23.64% to 30.10% and known-label accuracy from 42.28% to 53.84% without training on held-out species labels.
+15. The algorithmic innovation note frames the method as all-plant adapter materialization plus STC calibration, open-set reliability control, ontology-aware benchmark audit and reproducible CUDA release.
+16. The submission scorecard records all fixable evidence-readiness dimensions at 90+ while explicitly not inflating raw leave-species accuracy or unfinished official third-party metrics.
+17. The publication target readiness matrix ranks the current package as strongest for plant-focused method/resource submission, plausible for genomics computational-method submission with major-revision risk, and stretch for top general methods venues until official third-party numerical closure and stronger validation are added.
+18. The English synopsis file provides an abstract, significance statement, highlights, graphical abstract text and editorial positioning that use the same claim boundaries as the full manuscript.
 
 ## Claims Not Used In The Current Submission
 
@@ -90,6 +94,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Leave-dataset-out | 0.4490 | 0.8017 | 0.5601 | 0.3485 | 0.2021 |
 | Leave-sample-out | 0.6200 | 0.9871 | 0.6281 | 0.4902 | 0.4155 |
 | Leave-species-out, species labels normalized | 0.2354 | 0.5590 | 0.4210 | 0.1918 | 0.1912 |
+| STC `knn_cosine_k9` on frozen leave-species embeddings | 0.3010 | 0.5590 | 0.5384 | 0.2663 | centroid 0.2364 |
 | Seurat label transfer on frozen v9 subset | 0.2207 | n/a | n/a | 0.0603 | n/a |
 | Classical centroid SRP169576 sample holdout | 0.7337 | n/a | n/a | 0.4873 | n/a |
 | API confidence top-30 selective annotation | 0.9664 | 0.3000 accepted | n/a | n/a | n/a |

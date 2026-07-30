@@ -40,6 +40,8 @@ v9 候选模型在 RTX 4090 上完成六轮 hybrid 训练，联合优化 masked-
 | Leave-sample-out | 0.6200 | 0.9871 | 0.6281 | 0.4902 | 0.4155 |
 | Leave-species-out, species labels normalized | 0.2354 | 0.5590 | 0.4210 | 0.1918 | 0.1912 |
 
+新增 STC 物种迁移校准层在同一 frozen runtime embedding 和同一 leave-species split 上实现真实 classifier-side 提升：`knn_cosine_k9` 将 all-cell accuracy 从 centroid 0.2364 提高到 0.3010，known-label accuracy 从 0.4228 提高到 0.5384，known-label macro-F1 从 0.1922 提高到 0.2663。coverage 保持 0.5590，因此该结果作为真实校准增益报告，不替代 frozen v9 主 benchmark，也不写成全植物满覆盖高精度。
+
 论文主张以开放集口径为准：all-cell accuracy 把训练折未见标签计为错误，coverage 说明测试集中可被训练标签覆盖的比例，known-label 指标只解释可评估标签子集。当前稳妥结论是 Plant-CellFM v9 在同一 shared-gene benchmark 上优于 v3 extended baseline，并提供可复现的植物通用注释框架；不把内部 held-out accuracy 写成所有植物物种的无条件精度。
 
 ## 横向对照与生物学案例

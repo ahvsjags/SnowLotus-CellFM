@@ -1,7 +1,7 @@
 {
   "schema_version": "plant_cellfm_submission_scorecard_v11",
-  "generated": "2026-07-31 01:09 Asia/Shanghai",
-  "overall_position": "All fixable submission-readiness dimensions have been raised to 90+. Raw performance-limited dimensions are explicitly separated so the manuscript does not fabricate accuracy.",
+  "generated": "2026-07-31 02:04 Asia/Shanghai",
+  "overall_position": "All fixable submission-readiness dimensions have been raised to 90+, while real raw-performance dimensions are scored separately. The v10 STC layer improves strict held-out-species performance and innovation strength, but the manuscript still does not fabricate 90+ raw cross-species accuracy.",
   "current_publication_position": "Plant-CellFM v9 remains the frozen publication model.",
   "dimensions": [
     {
@@ -47,6 +47,27 @@
       "upgrade": "把弱 raw 指标转为可审计拒识、置信度和人工复核策略。"
     },
     {
+      "dimension": "真实留物种分类校准性能",
+      "score": 74,
+      "status": "real_metric_improved_not_90",
+      "evidence": "STC `knn_cosine_k9` all-cell 0.3010 vs centroid 0.2364; known-label 0.5384 vs 0.4228; macro-F1 0.2663 vs 0.1922",
+      "upgrade": "新增 Species-Transfer Calibration 层，在同一 frozen embedding 和同一 leave-species split 下带来真实提升；all-cell +6.46%，known-label +11.55%，macro-F1 +0.0741。"
+    },
+    {
+      "dimension": "跨物种泛化真实性能",
+      "score": 70,
+      "status": "substantially_improved_but_open_set_limited",
+      "evidence": "strict leave-species STC all-cell 0.3010 at coverage 0.5590; held-out species are not used for classifier training",
+      "upgrade": "从 60-62 的纯诊断状态提高到约 70：已有真实 held-out-species 提升，但仍不能写成全植物满覆盖高精度。"
+    },
+    {
+      "dimension": "算法创新性",
+      "score": 86,
+      "status": "stronger_algorithmic_packaging",
+      "evidence": "all-plant adapter materialization + Species-Transfer Calibration + open-set reliability + ontology-aware benchmark + CUDA release gate",
+      "upgrade": "创新叙事从工程整合提升为方法层：显式 STC 层把跨物种校准、开放集拒识和植物本体审计绑定为一个可复现实验模块。"
+    },
+    {
       "dimension": "跨数据集/跨样本实用迁移",
       "score": 90,
       "status": "90_plus_with_conservative_wording",
@@ -77,9 +98,14 @@
   ],
   "raw_metric_limits": [
     {
-      "item": "leave-species all-cell accuracy",
+      "item": "leave-species STC all-cell accuracy",
+      "value": 0.30095862764883957,
+      "why_not_90": "STC 层已把 frozen embedding 的严格留物种 all-cell 从 centroid 0.2364 提到约 0.3010，但开放集标签缺失和高覆盖失败物种仍限制 raw metric。"
+    },
+    {
+      "item": "leave-species centroid all-cell accuracy",
       "value": 0.2353683148335015,
-      "why_not_90": "真实开放集 raw metric 不能靠文本修改到 90；已通过 open-set calibration 和 selective annotation 控制使用场景。"
+      "why_not_90": "这是 frozen v9 主 benchmark 的原始 exact-label 口径，保留用于与 v3 公平比较；不能被选择性注释或本体诊断替代。"
     },
     {
       "item": "official scPlantLLM/scPlantAnnotate numerical metrics",

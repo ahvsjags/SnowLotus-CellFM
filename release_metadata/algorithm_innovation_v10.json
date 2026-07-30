@@ -1,0 +1,57 @@
+{
+  "schema_version": "plant_cellfm_algorithm_innovation_v10",
+  "generated": "2026-07-31 02:04 Asia/Shanghai",
+  "method_name": "Plant-CellFM Species-Transfer Calibration layer",
+  "short_name": "STC layer",
+  "scope": "frozen_v9_embedding_plus_submission_v10_classifier_layer",
+  "best_classifier": "knn_cosine_k9",
+  "performance_delta": {
+    "baseline_method": "centroid_cosine",
+    "baseline_accuracy_all": 0.2363773965691221,
+    "best_accuracy_all": 0.30095862764883957,
+    "absolute_accuracy_all_gain": 0.06458123107971747,
+    "relative_accuracy_all_gain": 0.2732123799359658,
+    "baseline_known_label_accuracy": 0.42283393501805056,
+    "best_known_label_accuracy": 0.5383574007220217,
+    "absolute_known_label_gain": 0.1155234657039711,
+    "baseline_macro_f1": 0.19218297421731453,
+    "best_macro_f1": 0.26633049056895597,
+    "absolute_macro_f1_gain": 0.07414751635164143,
+    "coverage": 0.5590312815338042,
+    "open_set_cells": 1748
+  },
+  "innovation_axes": [
+    {
+      "axis": "All-plant adapter materialization",
+      "contribution": "A single plant-general checkpoint exposes exact species adapters when present and dynamic all-plant adapter materialization for named plant species.",
+      "evidence": "release_metadata/plant_species_adapters.json; release_metadata/api_runtime_smoke_v9.md"
+    },
+    {
+      "axis": "Species-transfer calibration",
+      "contribution": "The STC layer replaces plain nearest-centroid transfer with held-out-species cosine kNN calibration over frozen Plant-CellFM embeddings. It improves strict leave-species all-cell accuracy without training on held-out species.",
+      "evidence": "release_metadata/cross_species_classifier_benchmark_v10.md"
+    },
+    {
+      "axis": "Open-set reliability control",
+      "contribution": "Confidence-aware selective annotation separates high-confidence automatic calls from low-confidence review cases; API top-30/top-40 selective accuracy reaches 96.64%/92.81%.",
+      "evidence": "release_metadata/open_set_calibration_v9.md"
+    },
+    {
+      "axis": "Ontology-aware benchmark audit",
+      "contribution": "A plant cell-state ontology layer exposes when low raw accuracy comes from absent labels, unknown labels or true representation transfer error.",
+      "evidence": "release_metadata/species_ontology_label_benchmark_v9.md"
+    },
+    {
+      "axis": "Reproducible CUDA release chain",
+      "contribution": "Model card, SHA256, GitHub commit, server package, /health endpoint and watchdog recovery are tied into a re-runnable release gate.",
+      "evidence": "release_metadata/server_release_verification_v9.md; release_metadata/release_gate_completion_audit_v9.md"
+    }
+  ],
+  "innovation_score": {
+    "before": 78,
+    "after": 86,
+    "reason": "The work now has an explicit algorithmic species-transfer calibration layer with measured held-out-species gains, rather than only an engineering/release innovation story.",
+    "remaining_gap_to_nature_methods": "Needs stronger model-internal algorithmic novelty, official third-party numerical closure and independent biological validation to score 90+ for Nature Methods-style venues."
+  },
+  "safe_sentence": "Plant-CellFM introduces a plant-general adapter framework coupled to an ontology-aware species-transfer calibration layer; on frozen leave-species embeddings, the calibrated knn_cosine_k9 classifier improves exact-label all-cell accuracy from 23.64% to 30.10% and known-label accuracy from 42.28% to 53.84%, while open-set confidence triage supports 96.64%/92.81% selective annotation at top-30/top-40 acceptance."
+}

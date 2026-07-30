@@ -21,10 +21,10 @@
       "status": "POSSIBLE_WITH_CONSERVATIVE_FRAMING",
       "submission_stance": "Possible if biological utility is emphasized"
     },
-    {
-      "target": "Nature Methods",
-      "status": "PRESUBMISSION_INQUIRY_READY_STRETCH",
-      "submission_stance": "Open-set calibration and benchmark contracts strengthen the inquiry; full submission still needs official third-party numerical closure and stronger validation"
+        {
+            "target": "Nature Methods",
+            "status": "PRESUBMISSION_INQUIRY_READY_STRETCH",
+            "submission_stance": "STC species-transfer calibration, open-set calibration and benchmark contracts strengthen the inquiry; full submission still needs official third-party numerical closure and stronger validation"
     },
     {
       "target": "Nature Plants",
@@ -53,13 +53,18 @@
       "status": "READY_WITH_OPEN_SET_BOUNDARY",
       "evidence": "release_metadata/species_holdout_failure_audit_v9.md, release_metadata/species_ontology_coverage_audit_v9.md, release_metadata/species_ontology_label_benchmark_v9.md and release_metadata/open_set_calibration_v9.md"
     },
-    {
-      "gate": "species_ontology_mapping_and_benchmark",
-      "status": "READY_DIAGNOSTIC",
-      "evidence": "release_metadata/plant_cell_state_ontology_mapping_v9.tsv and release_metadata/species_ontology_label_benchmark_v9.md"
-    },
-    {
-      "gate": "open_set_calibration_selective_annotation",
+        {
+            "gate": "species_ontology_mapping_and_benchmark",
+            "status": "READY_DIAGNOSTIC",
+            "evidence": "release_metadata/plant_cell_state_ontology_mapping_v9.tsv and release_metadata/species_ontology_label_benchmark_v9.md"
+        },
+        {
+            "gate": "species_transfer_calibration_layer",
+            "status": "READY_MEASURED_IMPROVEMENT",
+            "evidence": "release_metadata/cross_species_classifier_benchmark_v10.md and release_metadata/algorithm_innovation_v10.md"
+        },
+        {
+            "gate": "open_set_calibration_selective_annotation",
       "status": "READY_90_PLUS_EVIDENCE",
       "evidence": "release_metadata/open_set_calibration_v9.md and release_metadata/api_confidence_calibration_curve_v9.tsv"
     },
@@ -105,10 +110,16 @@
     "leave_sample_out_all_cell_accuracy": 0.62,
     "leave_sample_out_v3_all_cell_accuracy": 0.4155,
     "leave_species_out_all_cell_accuracy": 0.2354,
-    "leave_species_out_v3_all_cell_accuracy": 0.1912,
-    "leave_species_out_coverage": 0.559,
-    "leave_species_out_known_label_accuracy": 0.421,
-    "species_ontology_actionable_coverage_audit": 0.4526,
+        "leave_species_out_v3_all_cell_accuracy": 0.1912,
+        "leave_species_out_coverage": 0.559,
+        "leave_species_out_known_label_accuracy": 0.421,
+        "stc_leave_species_all_cell_accuracy": 0.301,
+        "stc_centroid_leave_species_all_cell_accuracy": 0.2364,
+        "stc_leave_species_known_label_accuracy": 0.5384,
+        "stc_centroid_leave_species_known_label_accuracy": 0.4228,
+        "stc_leave_species_macro_f1": 0.2663,
+        "stc_centroid_leave_species_macro_f1": 0.1922,
+        "species_ontology_actionable_coverage_audit": 0.4526,
     "species_ontology_unknown_or_unannotated_cells": 1384,
     "ontology_label_benchmark_actionable_coverage": 0.7444,
     "ontology_label_benchmark_actionable_all_cell_accuracy": 0.1497,
@@ -131,7 +142,7 @@
   "higher_tier_required_upgrades": [
     "Complete one official third-party foundation-model comparator run, preferably scPlantLLM; current contract is ready but metric JSON is still pending.",
     "Strengthen the independent non-Arabidopsis biology case with literature anchors, figure panel or independent validation.",
-    "Improve model-side cross-species transfer under the completed ontology/open-set layer using species adapter calibration, ortholog-aware tokenization or independent species replication.",
+        "Improve model-side cross-species transfer under the completed STC/ontology/open-set layer using model-internal species adapter calibration, ortholog-aware tokenization or independent species replication.",
     "Add English manuscript package and supplement index.",
     "Add model usability supplement.",
     "Add Snow Lotus single-cell matrix only if a reusable matrix becomes available."

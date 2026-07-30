@@ -3,9 +3,9 @@
   "items": [
     {
       "risk": "跨物种泛化指标被质疑偏低",
-      "fix": "主文将留物种结果写成开放集迁移证据，而不是全部植物满覆盖断言；同时报告 all-cell accuracy、coverage、known-label conditional metrics、species-holdout failure audit、species ontology coverage audit、ontology-label benchmark 和 confidence-aware selective annotation audit。",
-      "safe_claim": "Plant-CellFM v9 在同一 shared-gene benchmark 上优于 v3 extended baseline，并提供可复现的全植物适配框架、可审计物种级失败模式、标签本体覆盖诊断、冻结 embedding 的本体标签复核和高置信度自动注释/低置信度复核机制。",
-      "evidence": "release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json; release_metadata/species_holdout_failure_audit_v9.md; release_metadata/species_ontology_coverage_audit_v9.md; release_metadata/species_ontology_label_benchmark_v9.md; release_metadata/open_set_calibration_v9.md"
+      "fix": "主文将留物种结果写成开放集迁移证据，而不是全部植物满覆盖断言；同时报告 all-cell accuracy、coverage、known-label conditional metrics、species-holdout failure audit、species ontology coverage audit、ontology-label benchmark、STC classifier calibration benchmark 和 confidence-aware selective annotation audit。",
+      "safe_claim": "Plant-CellFM v9 在同一 shared-gene benchmark 上优于 v3 extended baseline，并提供可复现的全植物适配框架、可审计物种级失败模式、标签本体覆盖诊断、冻结 embedding 的 STC 分类校准提升和高置信度自动注释/低置信度复核机制。",
+      "evidence": "release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json; release_metadata/species_holdout_failure_audit_v9.md; release_metadata/species_ontology_coverage_audit_v9.md; release_metadata/species_ontology_label_benchmark_v9.md; release_metadata/cross_species_classifier_benchmark_v10.md; release_metadata/open_set_calibration_v9.md"
     },
     {
       "risk": "第三方横向对照不完整",

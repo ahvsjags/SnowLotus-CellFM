@@ -31,10 +31,12 @@ def build_summary() -> dict[str, Any]:
     case = read_json(RELEASE / "plant_biology_case_study_v9.json")
     open_set = read_json(RELEASE / "open_set_calibration_v9.json")
     multi_case = read_json(RELEASE / "multispecies_scplantdb_case_v10.json")
+    algorithm = read_json(RELEASE / "algorithm_innovation_v10.json")
 
     candidate = comparison["candidate"]["summary"]
     baseline = comparison["baseline"]["summary"]
     ontology_action = ontology["protocols"]["leave_species_out_ontology_actionable"]
+    stc = algorithm["performance_delta"]
 
     return {
         "schema_version": "plant_cellfm_v9_final_handoff_summary_v1",
@@ -58,6 +60,13 @@ def build_summary() -> dict[str, Any]:
             "leave_species_out_v3_all_cell_accuracy": baseline["leave_species_out"]["fine"]["accuracy_all"],
             "leave_species_out_v9_coverage": candidate["leave_species_out"]["fine"]["coverage"],
             "leave_species_out_v9_known_label_accuracy": candidate["leave_species_out"]["fine"]["accuracy"],
+            "stc_method": algorithm["best_classifier"],
+            "stc_leave_species_all_cell_accuracy": stc["best_accuracy_all"],
+            "stc_leave_species_centroid_all_cell_accuracy": stc["baseline_accuracy_all"],
+            "stc_leave_species_known_label_accuracy": stc["best_known_label_accuracy"],
+            "stc_leave_species_centroid_known_label_accuracy": stc["baseline_known_label_accuracy"],
+            "stc_leave_species_macro_f1": stc["best_macro_f1"],
+            "stc_leave_species_centroid_macro_f1": stc["baseline_macro_f1"],
             "ontology_label_actionable_coverage": ontology_action["coverage"],
             "ontology_label_actionable_all_cell_accuracy": ontology_action["accuracy_all"],
             "ontology_label_known_label_accuracy": ontology_action["accuracy"],
@@ -90,6 +99,8 @@ def build_summary() -> dict[str, Any]:
             "release_metadata/release_gate_completion_audit_v9.md (generated on server/outputs)",
             "release_metadata/server_release_verification_v9.md (generated on server/outputs)",
             "release_metadata/species_ontology_label_benchmark_v9.md",
+            "release_metadata/cross_species_classifier_benchmark_v10.md",
+            "release_metadata/algorithm_innovation_v10.md",
             "release_metadata/open_set_calibration_v9.md",
             "release_metadata/third_party_benchmark_contract_v10.md",
             "release_metadata/multispecies_scplantdb_case_v10.md",
@@ -100,6 +111,7 @@ def build_summary() -> dict[str, Any]:
             "Plant-CellFM v9 is a reproducible plant-general foundation-model and adapter framework for plant single-cell expression annotation.",
             "The current release is not Snow Lotus-only; Snow Lotus is a target-species adapter entry point under the same contract.",
             "The strict leave-species result should be interpreted as open-set cross-species transfer evidence, not universal high-accuracy annotation for every plant species.",
+            "The STC layer improves strict frozen leave-species all-cell accuracy from 23.64% to 30.10% and known-label accuracy from 42.28% to 53.84% without training on held-out species labels.",
             "The open-set calibration audit supports a high-confidence auto-annotation and low-confidence review workflow.",
             "The release includes completed v3, centroid and Seurat comparators; scPlantLLM/scPlantAnnotate are disclosed through official-source benchmark contracts unless official runs are added later.",
             "The Arabidopsis root and multi-species scPlantDB cases are public-data computational biology demonstrations with marker candidates, not wet-lab validation.",
@@ -174,6 +186,12 @@ def markdown(summary: dict[str, Any]) -> str:
             f"| Normalized leave-species-out v3 all-cell accuracy | {metrics['leave_species_out_v3_all_cell_accuracy']:.4f} |",
             f"| Normalized leave-species-out v9 coverage | {metrics['leave_species_out_v9_coverage']:.4f} |",
             f"| Normalized leave-species-out v9 known-label accuracy | {metrics['leave_species_out_v9_known_label_accuracy']:.4f} |",
+            f"| STC `{metrics['stc_method']}` leave-species all-cell accuracy | {metrics['stc_leave_species_all_cell_accuracy']:.4f} |",
+            f"| STC centroid baseline leave-species all-cell accuracy | {metrics['stc_leave_species_centroid_all_cell_accuracy']:.4f} |",
+            f"| STC leave-species known-label accuracy | {metrics['stc_leave_species_known_label_accuracy']:.4f} |",
+            f"| STC centroid baseline known-label accuracy | {metrics['stc_leave_species_centroid_known_label_accuracy']:.4f} |",
+            f"| STC leave-species macro-F1 | {metrics['stc_leave_species_macro_f1']:.4f} |",
+            f"| STC centroid baseline macro-F1 | {metrics['stc_leave_species_centroid_macro_f1']:.4f} |",
             f"| Ontology-label actionable coverage | {pct(metrics['ontology_label_actionable_coverage'])} |",
             f"| Ontology-label actionable all-cell accuracy | {pct(metrics['ontology_label_actionable_all_cell_accuracy'])} |",
             f"| Ontology-label known-label accuracy | {pct(metrics['ontology_label_known_label_accuracy'])} |",

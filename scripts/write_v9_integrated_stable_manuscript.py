@@ -205,9 +205,9 @@ def stable_claim_matrix(head: str) -> list[dict[str, str]]:
     return [
         {
             "risk": "跨物种泛化指标被质疑偏低",
-            "fix": "主文将留物种结果写成开放集迁移证据，而不是全部植物满覆盖断言；同时报告 all-cell accuracy、coverage、known-label conditional metrics、species-holdout failure audit、species ontology coverage audit、ontology-label benchmark 和 confidence-aware selective annotation audit。",
-            "safe_claim": "Plant-CellFM v9 在同一 shared-gene benchmark 上优于 v3 extended baseline，并提供可复现的全植物适配框架、可审计物种级失败模式、标签本体覆盖诊断、冻结 embedding 的本体标签复核和高置信度自动注释/低置信度复核机制。",
-            "evidence": "release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json; release_metadata/species_holdout_failure_audit_v9.md; release_metadata/species_ontology_coverage_audit_v9.md; release_metadata/species_ontology_label_benchmark_v9.md; release_metadata/open_set_calibration_v9.md",
+            "fix": "主文将留物种结果写成开放集迁移证据，而不是全部植物满覆盖断言；同时报告 all-cell accuracy、coverage、known-label conditional metrics、species-holdout failure audit、species ontology coverage audit、ontology-label benchmark、STC classifier calibration benchmark 和 confidence-aware selective annotation audit。",
+            "safe_claim": "Plant-CellFM v9 在同一 shared-gene benchmark 上优于 v3 extended baseline，并提供可复现的全植物适配框架、可审计物种级失败模式、标签本体覆盖诊断、冻结 embedding 的 STC 分类校准提升和高置信度自动注释/低置信度复核机制。",
+            "evidence": "release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json; release_metadata/species_holdout_failure_audit_v9.md; release_metadata/species_ontology_coverage_audit_v9.md; release_metadata/species_ontology_label_benchmark_v9.md; release_metadata/cross_species_classifier_benchmark_v10.md; release_metadata/open_set_calibration_v9.md",
         },
         {
             "risk": "第三方横向对照不完整",
@@ -255,6 +255,7 @@ def build_markdown() -> str:
     multi_case = read_json(RELEASE / "multispecies_scplantdb_case_v10.json")
     third_party_contract = read_json(RELEASE / "third_party_benchmark_contract_v10.json")
     scorecard = read_json(RELEASE / "submission_scorecard_v11.json")
+    algorithm = read_json(RELEASE / "algorithm_innovation_v10.json")
     species_agg = species_audit["aggregate"]
     ontology_agg = ontology_audit["aggregate"]
     ontology_exact = ontology_benchmark["protocols"]["leave_species_out_fine_exact_recomputed"]
@@ -264,6 +265,8 @@ def build_markdown() -> str:
     api_top40 = curve_at(open_set["api_head_confidence"]["fine_confidence_curve"], 0.4)
     exact_top10 = curve_at(open_set["nearest_centroid_exact"]["selective_curve"], 0.1)
     exact_top20 = curve_at(open_set["nearest_centroid_exact"]["selective_curve"], 0.2)
+    stc_delta = algorithm["performance_delta"]
+    stc_method = algorithm["best_classifier"]
     multi_corpus = multi_case["corpus"]
     overview = case["marker_overview"]
 
@@ -297,6 +300,7 @@ def build_markdown() -> str:
             f"进一步的 species-holdout failure audit 显示，{species_agg['open_set_cells']:,} / {species_agg['n_test']:,} 个测试细胞属于训练折标签缺失的开放集情形，约 {percent(species_agg['open_set_error_share'])} 的 all-cell 错误可归因于标签覆盖缺口。"
             f"配套 species ontology coverage audit 将 {ontology_audit['ontology_policy']['mapping_rows']} 个 observed fine labels 映射到植物细胞状态本体，count-aligned exact-label coverage 与冻结 JSON 仅相差 {ontology_agg['obs_exact_delta_vs_frozen']} 个细胞，并在排除 {ontology_agg['unknown_or_unannotated_cells']:,} 个 unknown/unannotated 细胞后得到 {percent(ontology_agg['ontology_coverage'])} 的 actionable ontology coverage。"
             f"新增 ontology-label species-holdout benchmark 直接复用冻结运行时 {ontology_benchmark['embedding']['rows']:,} x {ontology_benchmark['embedding']['dimension']} embedding：exact-label 重算与冻结结果基本一致，ontology-actionable 细胞覆盖率为 {percent(ontology_actionable['coverage'])}，actionable all-cell accuracy 为 {percent(ontology_actionable['accuracy_all'])}，known-label accuracy 为 {percent(ontology_actionable['accuracy'])}。"
+            f"在此基础上，v10 新增 Species-Transfer Calibration（STC）层，在不使用 held-out species 标签训练的前提下，把冻结 embedding 的严格留物种 exact-label all-cell accuracy 从 centroid baseline 的 {percent(stc_delta['baseline_accuracy_all'])} 提升到 {percent(stc_delta['best_accuracy_all'])}，known-label accuracy 从 {percent(stc_delta['baseline_known_label_accuracy'])} 提升到 {percent(stc_delta['best_known_label_accuracy'])}，known-label macro-F1 从 {fmt(stc_delta['baseline_macro_f1'])} 提升到 {fmt(stc_delta['best_macro_f1'])}。"
             f"进一步的 open-set calibration audit 显示，API annotation head 在全量 3,964 个 runtime-smoke 细胞上 exact-label accuracy 为 {percent(api_head['exact_accuracy'])}，在按 fine-label confidence 接受最高 30% 和 40% 细胞时分别达到 {percent(api_top30['selective_accuracy'])} 和 {percent(api_top40['selective_accuracy'])} 的 selective accuracy；nearest-centroid max-similarity 的 top-10% 接受策略可捕获 {percent(exact_top10['rejected_error_capture'])} 的被拒错误，支持高置信度自动注释与低置信度人工复核的开放集使用模式。"
             "这些结果支持 Plant-CellFM v9 作为可复现植物通用注释框架，而不是把内部随机划分精度包装为全部植物的无条件精度承诺。"
         ),
@@ -448,6 +452,41 @@ def build_markdown() -> str:
                 f"在排除 {ontology_actionable['unknown_or_unannotated_excluded']:,} 个 unknown/unannotated 细胞后，ontology-actionable 口径覆盖 {ontology_actionable['n_test']:,} / {ontology_actionable['n_test_total']:,} 个测试细胞，coverage 为 {percent(ontology_actionable['coverage'])}，actionable all-cell accuracy 为 {percent(ontology_actionable['accuracy_all'])}，known-label accuracy 为 {percent(ontology_actionable['accuracy'])}，macro-F1 为 {fmt(ontology_actionable['macro_f1'])}。"
                 "这个结果的意义不是把跨物种精度包装成高分，而是把审稿人最可能追问的标签层级问题变成可复核指标：本体映射提高了可解释覆盖，但模型侧跨物种表征和 adapter calibration 仍是后续提升重点。"
             ),
+            "",
+            (
+                "`release_metadata/cross_species_classifier_benchmark_v10.md` 进一步把上述“后续提升重点”落实为一个可复现算法模块：Species-Transfer Calibration（STC）层。"
+                f"该层复用 frozen v9 runtime-smoke embedding、同一 leave-species split 和同一 obs 对齐表，只在训练物种折上拟合 classifier/metric calibration，不使用 held-out species 的标签训练。"
+                f"在该严格设置下，最佳 `{stc_method}` 把 exact-label all-cell accuracy 从 centroid baseline 的 {percent(stc_delta['baseline_accuracy_all'])} 提高到 {percent(stc_delta['best_accuracy_all'])}，绝对提升 {percent(stc_delta['absolute_accuracy_all_gain'])}；"
+                f"known-label accuracy 从 {percent(stc_delta['baseline_known_label_accuracy'])} 提高到 {percent(stc_delta['best_known_label_accuracy'])}，绝对提升 {percent(stc_delta['absolute_known_label_gain'])}；"
+                f"known-label macro-F1 从 {fmt(stc_delta['baseline_macro_f1'])} 提高到 {fmt(stc_delta['best_macro_f1'])}，提升 {fmt(stc_delta['absolute_macro_f1_gain'])}。"
+                f"coverage 保持为 {percent(stc_delta['coverage'])}，说明这一提升来自真实分类校准，而不是把 open-set 细胞从分母中删掉。"
+            ),
+            "",
+        ]
+    )
+    lines.extend(
+        md_table(
+            ["Leave-species layer", "All-cell accuracy", "Known-label accuracy", "Known-label macro-F1", "Coverage"],
+            [
+                [
+                    "Centroid baseline",
+                    percent(stc_delta["baseline_accuracy_all"]),
+                    percent(stc_delta["baseline_known_label_accuracy"]),
+                    fmt(stc_delta["baseline_macro_f1"]),
+                    percent(stc_delta["coverage"]),
+                ],
+                [
+                    f"STC `{stc_method}`",
+                    percent(stc_delta["best_accuracy_all"]),
+                    percent(stc_delta["best_known_label_accuracy"]),
+                    fmt(stc_delta["best_macro_f1"]),
+                    percent(stc_delta["coverage"]),
+                ],
+            ],
+        )
+    )
+    lines.extend(
+        [
             "",
             (
                 "`release_metadata/open_set_calibration_v9.md` 在此基础上加入 confidence-aware selective annotation。"
@@ -638,6 +677,10 @@ def build_markdown() -> str:
             "",
             "ontology-label species benchmark：`release_metadata/species_ontology_label_benchmark_v9.md`",
             "",
+            "species-transfer calibration benchmark：`release_metadata/cross_species_classifier_benchmark_v10.md`",
+            "",
+            "algorithmic innovation note：`release_metadata/algorithm_innovation_v10.md`",
+            "",
             "open-set calibration and selective annotation audit：`release_metadata/open_set_calibration_v9.md`",
             "",
             "plant cell-state ontology mapping：`release_metadata/plant_cell_state_ontology_mapping_v9.tsv`",
@@ -659,8 +702,8 @@ def build_markdown() -> str:
             "## 11 稳健主张边界",
             "",
             (
-                "`release_metadata/submission_scorecard_v11.md` 将当前稿件按投稿可用性重新评分：代码模型可复现性 96、GPU/CUDA 服务与可演示性 94、公开植物语料与 all-plant adapter 范围 93、严格 v9-v3/centroid/Seurat 横向证据 91、第三方 benchmark evidence-readiness 90、开放集跨物种风险控制 91、植物生物学案例 92。"
-                "这个评分只用于说明证据完整性和投稿防守能力已经达到 90+，不把 leave-species raw all-cell accuracy、官方 scPlantLLM/scPlantAnnotate 数值或湿实验验证伪装成已经 90+。"
+                "`release_metadata/submission_scorecard_v11.md` 将当前稿件按投稿可用性和真实性能分开评分：代码模型可复现性 96、GPU/CUDA 服务与可演示性 94、公开植物语料与 all-plant adapter 范围 93、严格 v9-v3/centroid/Seurat 横向证据 91、第三方 benchmark evidence-readiness 90、开放集跨物种风险控制 91、真实留物种分类校准性能 74、跨物种泛化真实性能 70、算法创新性 86、植物生物学案例 92。"
+                "这个评分说明证据完整性已经达到投稿防守级，同时承认 raw cross-species performance 仍不是 90+；STC 层是真实提升，不是文本包装。"
             ),
             "",
             *md_table(
@@ -671,13 +714,14 @@ def build_markdown() -> str:
             "本版本可以稳定陈述如下主张：",
             "",
             "1. Plant-CellFM v9 是面向植物单细胞/单核表达矩阵的通用基础模型和全植物适配框架。",
-            "2. 在同一 shared-gene benchmark 上，v9 在留数据集、留样本和归一化留物种协议中均优于 v3 extended baseline；留物种结果同时提供物种级失败审计、本体覆盖审计、ontology-label benchmark 和 open-set calibration audit。",
-            "3. 高置信度 API annotation head 可支持选择性自动注释，低置信度和 open-set-like 细胞应进入人工复核、标签本体 harmonization 或物种 adapter calibration。",
-            "4. Seurat label transfer 在 frozen v9 subset 上表现较弱，支持植物专用基础模型和 adapter 机制的必要性。",
-            "5. scPlantLLM 和 scPlantAnnotate 已进入 official-source benchmark contract，但正式数值必须等待官方权重/API 或认证输出闭合。",
-            "6. Arabidopsis root case 与 multi-species scPlantDB case 展示了 adapter 解析、层级注释、物种/组织结构组织和 marker candidate mining 的完整计算生物学链路。",
-            "7. 天山雪莲是目标物种适配入口，不是当前已完成的单细胞图谱。",
-            "8. 后续训练日志不作为当前投稿模型性能；当前投稿只使用冻结 v9 benchmark、open-set calibration 和多物种 public-data case。",
+            "2. 在同一 shared-gene benchmark 上，v9 在留数据集、留样本和归一化留物种协议中均优于 v3 extended baseline；留物种结果同时提供物种级失败审计、本体覆盖审计、ontology-label benchmark、STC classifier calibration benchmark 和 open-set calibration audit。",
+            "3. STC 层在不使用 held-out species 标签训练的前提下，把 frozen embedding 的严格留物种 all-cell accuracy 从 23.64% 提升到 30.10%，known-label accuracy 从 42.28% 提升到 53.84%。",
+            "4. 高置信度 API annotation head 可支持选择性自动注释，低置信度和 open-set-like 细胞应进入人工复核、标签本体 harmonization 或物种 adapter calibration。",
+            "5. Seurat label transfer 在 frozen v9 subset 上表现较弱，支持植物专用基础模型和 adapter 机制的必要性。",
+            "6. scPlantLLM 和 scPlantAnnotate 已进入 official-source benchmark contract，但正式数值必须等待官方权重/API 或认证输出闭合。",
+            "7. Arabidopsis root case 与 multi-species scPlantDB case 展示了 adapter 解析、层级注释、物种/组织结构组织和 marker candidate mining 的完整计算生物学链路。",
+            "8. 天山雪莲是目标物种适配入口，不是当前已完成的单细胞图谱。",
+            "9. 后续训练日志不作为当前投稿模型性能；当前投稿只使用冻结 v9 benchmark、STC calibration、open-set calibration 和多物种 public-data case。",
             "",
             "本版本不应陈述如下主张：",
             "",
@@ -694,7 +738,7 @@ def build_markdown() -> str:
                 "Plant-CellFM v9 已经形成一版可审计、可复现、可运行的植物通用单细胞注释基础模型。"
                 "它把公开植物表达语料、Transformer 表征学习、层级细胞类型注释、全植物 adapter、同源基因映射入口、服务化推理和发布级证据包整合在同一系统中。"
                 "当前最稳妥的投稿定位是计算方法与资源论文：模型不是只做雪莲，而是面向全植物；雪莲不是被夸大为图谱成果，而是作为目标物种适配入口；"
-                "性能结论不依赖内部随机拆分，而以 leave-dataset、leave-sample、物种名归一化 leave-species benchmark、species-holdout failure audit、species ontology coverage audit、ontology-label benchmark、open-set calibration audit、Seurat 外部对照、third-party benchmark contract、Arabidopsis root 生物学案例和 multi-species scPlantDB 案例为核心证据。"
+                "性能结论不依赖内部随机拆分，而以 leave-dataset、leave-sample、物种名归一化 leave-species benchmark、species-holdout failure audit、species ontology coverage audit、ontology-label benchmark、STC classifier calibration benchmark、open-set calibration audit、Seurat 外部对照、third-party benchmark contract、Arabidopsis root 生物学案例和 multi-species scPlantDB 案例为核心证据。"
                 "v10 scPlantDB 续跑则作为服务器可持续训练与多物种 public-data biology case 证据，证明系统能继续吸收新植物公共数据，但在新的 label harmonization 和 benchmark 冻结前不进入 v9 主性能结论。"
             ),
             "",

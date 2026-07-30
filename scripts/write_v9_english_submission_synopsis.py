@@ -45,6 +45,7 @@ def build_context() -> dict[str, Any]:
     external = read_json(RELEASE / "external_benchmark_panel_v9.json")
     open_set = read_json(RELEASE / "open_set_calibration_v9.json")
     multi_case = read_json(RELEASE / "multispecies_scplantdb_case_v10.json")
+    algorithm = read_json(RELEASE / "algorithm_innovation_v10.json")
     candidate = comparison["candidate"]["summary"]
     baseline = comparison["baseline"]["summary"]
     delta = comparison["delta"]
@@ -64,6 +65,7 @@ def build_context() -> dict[str, Any]:
         "api_top30": curve_at(open_set["api_head_confidence"]["fine_confidence_curve"], 0.3),
         "api_top40": curve_at(open_set["api_head_confidence"]["fine_confidence_curve"], 0.4),
         "multi_case": multi_case,
+        "algorithm": algorithm,
     }
 
 
@@ -75,6 +77,8 @@ def abstract(ctx: dict[str, Any]) -> str:
     api_top30 = ctx["api_top30"]
     api_top40 = ctx["api_top40"]
     multi = ctx["multi_case"]
+    stc = ctx["algorithm"]["performance_delta"]
+    stc = ctx["algorithm"]["performance_delta"]
     return (
         "Plant single-cell and single-nucleus transcriptomic studies increasingly cover diverse species, "
         "tissues and assay formats, yet cross-study reuse is limited by heterogeneous matrix formats, "
@@ -93,7 +97,10 @@ def abstract(ctx: dict[str, Any]) -> str:
         f"{fmt(candidate['leave_species_out']['fine']['accuracy'])}, supporting open-set cross-species "
         "transfer analysis rather than a universal high-accuracy claim. A plant cell-state ontology diagnostic "
         f"covers {ontology['n_test']:,} of {ontology['n_test_total']:,} cells "
-        f"({pct(ontology['coverage'])}) after excluding unknown or unannotated states. The API confidence layer "
+        f"({pct(ontology['coverage'])}) after excluding unknown or unannotated states. A Species-Transfer Calibration "
+        f"layer improves frozen leave-species all-cell accuracy from {pct(stc['baseline_accuracy_all'])} to "
+        f"{pct(stc['best_accuracy_all'])} and known-label accuracy from {pct(stc['baseline_known_label_accuracy'])} "
+        f"to {pct(stc['best_known_label_accuracy'])} without training on held-out species labels. The API confidence layer "
         f"reaches {pct(api_top30['selective_accuracy'])} and {pct(api_top40['selective_accuracy'])} selective "
         "accuracy when accepting the top 30% and 40% confidence cells. The release further "
         f"includes {ctx['adapter_count']} adapter entries, an Arabidopsis root case with "
@@ -114,6 +121,7 @@ def synopsis_markdown(ctx: dict[str, Any]) -> str:
     api_top30 = ctx["api_top30"]
     api_top40 = ctx["api_top40"]
     multi = ctx["multi_case"]
+    stc = ctx["algorithm"]["performance_delta"]
     lines = [
         "# Plant-CellFM v9 English Submission Synopsis",
         "",
@@ -147,6 +155,7 @@ def synopsis_markdown(ctx: dict[str, Any]) -> str:
         f"- All-plant adapter framework with {ctx['adapter_count']} adapter entries and universal fallback resolution.",
         "- Strict grouped evaluation, including leave-dataset-out, leave-sample-out and normalized leave-species-out protocols.",
         f"- v9 improves over frozen v3 in leave-dataset-out all-cell accuracy ({fmt(candidate['leave_dataset_out']['fine']['accuracy_all'])} versus {fmt(baseline['leave_dataset_out']['fine']['accuracy_all'])}) and leave-sample-out all-cell accuracy ({fmt(candidate['leave_sample_out']['fine']['accuracy_all'])} versus {fmt(baseline['leave_sample_out']['fine']['accuracy_all'])}).",
+        f"- Species-Transfer Calibration improves frozen leave-species all-cell accuracy from {pct(stc['baseline_accuracy_all'])} to {pct(stc['best_accuracy_all'])} and known-label accuracy from {pct(stc['baseline_known_label_accuracy'])} to {pct(stc['best_known_label_accuracy'])}.",
         f"- Ontology-actionable benchmark separates {pct(ontology['coverage'])} covered cells from unknown or unannotated states.",
         f"- Open-set calibration reaches {pct(api_top30['selective_accuracy'])}/{pct(api_top40['selective_accuracy'])} selective accuracy at top-30/top-40 confidence acceptance.",
         f"- Arabidopsis root case provides {markers['n_marker_rows']} marker-candidate rows across {markers['n_labels']} cell states.",
@@ -158,7 +167,7 @@ def synopsis_markdown(ctx: dict[str, Any]) -> str:
         "",
         "Panel 2: Shared-gene expression profiles are encoded by the Plant-CellFM representation model and frozen through a LoRA release checkpoint.",
         "",
-        "Panel 3: Runtime adapter resolution selects exact species adapters when available and falls back to a plant-universal adapter for new species.",
+        "Panel 3: Runtime adapter resolution selects exact species adapters when available and falls back to a plant-universal adapter for new species; the STC layer calibrates held-out-species transfer on frozen embeddings.",
         "",
         "Panel 4: Grouped benchmarks quantify leave-dataset, leave-sample and open-set leave-species transfer against frozen v3, centroid and Seurat comparators.",
         "",
@@ -172,6 +181,8 @@ def synopsis_markdown(ctx: dict[str, Any]) -> str:
         f"- Completed formal comparisons in the current package: {external['completed_formal_comparisons']}.",
         f"- Normalized leave-species-out all-cell accuracy: {fmt(candidate['leave_species_out']['fine']['accuracy_all'])}.",
         f"- Normalized leave-species-out known-label accuracy: {fmt(candidate['leave_species_out']['fine']['accuracy'])}.",
+        f"- STC leave-species all-cell accuracy: {pct(stc['best_accuracy_all'])}, from centroid {pct(stc['baseline_accuracy_all'])}.",
+        f"- STC leave-species known-label accuracy: {pct(stc['best_known_label_accuracy'])}, from centroid {pct(stc['baseline_known_label_accuracy'])}.",
         f"- Ontology-label actionable all-cell accuracy: {pct(ontology['accuracy_all'])}.",
         f"- Ontology-label known-label accuracy: {pct(ontology['accuracy'])}.",
         f"- Ontology-label macro-F1: {fmt(ontology['macro_f1'])}.",
