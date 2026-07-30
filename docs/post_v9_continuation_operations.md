@@ -35,6 +35,29 @@ The report is written to:
 
 The report records disk state, queue tmux sessions, API health, GPU visibility, v9 package commit, v9 package SHA256, server verifier status and release gate position.
 
+## Root staging when `/mnt` is full
+
+If `/mnt` is full but `/root` has enough space, prepare a lightweight post-v9 staging workspace:
+
+```bash
+cd /mnt/snowlotus_cellfm
+bash scripts/prepare_root_continuation_staging.sh
+```
+
+Then launch a conservative scPlantDB queue from the staging workspace:
+
+```bash
+cd /root/snowlotus_cellfm_v10
+SNOWCELL_PROJECT_DIR=/root/snowlotus_cellfm_v10 \
+SNOWCELL_MIN_FREE_BYTES=10737418240 \
+SNOWCELL_SCPLANTDB_MAX_TOTAL_BYTES=2147483648 \
+SNOWCELL_SCPLANTDB_MAX_DATASETS=4 \
+SNOWCELL_SCPLANTDB_QUEUE_SESSION=snowcell_scplantdb_root_budgeted_h5ad_queue \
+bash scripts/start_scplantdb_budgeted_h5ad_queue.sh
+```
+
+This route is for public-data continuation and v10 preparation. It does not replace the frozen v9 package on `/mnt/snowlotus_cellfm`.
+
 ## Interpretation
 
 If the report says `waiting_for_disk_budget`, the continuation machinery is ready but intentionally paused. Free space must be restored before public downloads or v10 training can resume safely.

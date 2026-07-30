@@ -19,6 +19,7 @@ QUEUE_SESSIONS = [
     "snowcell_public_mlm_queue",
     "snowcell_late_public_refresh_queue",
     "snowcell_scplantdb_budgeted_h5ad_queue",
+    "snowcell_scplantdb_root_budgeted_h5ad_queue",
     "snowcell_mlm_public_expansion",
     "snowcell_mlm_public_available_expansion",
     "snowcell_mlm_public_expansion_continuation",
@@ -100,13 +101,17 @@ def build_status(min_free_bytes: int) -> dict[str, Any]:
     active_queue_sessions = [session for session in QUEUE_SESSIONS if session in sessions]
     disk_project = df_bytes(str(ROOT))
     disk_root = df_bytes("/root")
+    root_stage = Path("/root/snowlotus_cellfm_v10")
+    disk_root_stage = df_bytes(str(root_stage)) if root_stage.exists() else {}
     available = disk_project.get("available_bytes")
     disk_ok = available is not None and available >= min_free_bytes
     package_status = read_json(OUTPUTS / "Plant_CellFM_v9_editor_submission_final.status.json")
     verifier = read_json(RELEASE / "server_release_verification_v9.json")
     gate = read_json(RELEASE / "release_gate_completion_audit_v9.json")
 
-    if "snowcell_public_queues_when_space" in sessions and not disk_ok:
+    if "snowcell_scplantdb_root_budgeted_h5ad_queue" in sessions:
+        continuation_state = "root_staging_scplantdb_queue_running"
+    elif "snowcell_public_queues_when_space" in sessions and not disk_ok:
         continuation_state = "waiting_for_disk_budget"
     elif any(session in sessions for session in QUEUE_SESSIONS if session != "snowcell_public_queues_when_space"):
         continuation_state = "public_queues_running"
@@ -122,6 +127,9 @@ def build_status(min_free_bytes: int) -> dict[str, Any]:
         "min_free_bytes": min_free_bytes,
         "disk_project": disk_project,
         "disk_root": disk_root,
+        "root_stage_exists": root_stage.exists(),
+        "root_stage": str(root_stage),
+        "disk_root_stage": disk_root_stage,
         "disk_budget_ok": disk_ok,
         "tmux_sessions": sessions,
         "active_queue_sessions": active_queue_sessions,
@@ -150,6 +158,7 @@ def fmt_bytes(value: Any) -> str:
 def markdown(status: dict[str, Any]) -> str:
     disk = status["disk_project"]
     root_disk = status["disk_root"]
+    stage_disk = status.get("disk_root_stage", {})
     health = status["health"]
     lines = [
         "# Plant-CellFM v10 Continuation Status",
@@ -167,6 +176,10 @@ def markdown(status: dict[str, Any]) -> str:
         f"Project disk free: `{fmt_bytes(disk.get('available_bytes'))}` on `{disk.get('mount', '')}` ({disk.get('use_percent', '')} used)",
         "",
         f"Root disk free: `{fmt_bytes(root_disk.get('available_bytes'))}` on `{root_disk.get('mount', '')}` ({root_disk.get('use_percent', '')} used)",
+        "",
+        f"Root staging exists: `{status.get('root_stage_exists')}` at `{status.get('root_stage')}`",
+        "",
+        f"Root staging disk free: `{fmt_bytes(stage_disk.get('available_bytes'))}` on `{stage_disk.get('mount', '')}` ({stage_disk.get('use_percent', '')} used)",
         "",
         f"Health: `{health.get('status')}`; scope `{health.get('model_scope')}`; device `{health.get('device')}`; adapters `{health.get('adapter_count')}`",
         "",

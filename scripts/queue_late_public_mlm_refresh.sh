@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /mnt/snowlotus_cellfm
+project_dir="${SNOWCELL_PROJECT_DIR:-/mnt/snowlotus_cellfm}"
+cd "$project_dir"
 source .venv/bin/activate 2>/dev/null || true
 mkdir -p logs outputs
 
@@ -302,6 +303,6 @@ while true; do
   stamp="$(date +%Y%m%d_%H%M%S)"
   echo "[$(date)] launching late public MLM refresh in tmux: $late_session"
   tmux new-session -d -s "$late_session" \
-    "cd /mnt/snowlotus_cellfm && source .venv/bin/activate 2>/dev/null || true; .venv/bin/snowcell train --config '$config_to_run' --device cuda 2>&1 | tee logs/${late_log_prefix}_${stamp}.log; bash scripts/run_strict_benchmark_audits.sh; SNOWCELL_RELEASE_RUN_ID='$(basename "$late_output_dir")' SNOWCELL_RELEASE_CONFIG='$config_to_run' SNOWCELL_RELEASE_CHECKPOINT='$late_output_dir/best.pt' bash scripts/run_post_training_release_artifacts.sh || bash scripts/generate_publication_package.sh"
+    "cd '$project_dir' && source .venv/bin/activate 2>/dev/null || true; PYTHONPATH=src /root/miniconda3/envs/myconda/bin/python -m snowcell.cli train --config '$config_to_run' --device cuda 2>&1 | tee logs/${late_log_prefix}_${stamp}.log; bash scripts/run_strict_benchmark_audits.sh; SNOWCELL_RELEASE_RUN_ID='$(basename "$late_output_dir")' SNOWCELL_RELEASE_CONFIG='$config_to_run' SNOWCELL_RELEASE_CHECKPOINT='$late_output_dir/best.pt' SNOWCELL_PROJECT_DIR='$project_dir' bash scripts/run_post_training_release_artifacts.sh || bash scripts/generate_publication_package.sh"
   sleep "$poll_seconds"
 done
