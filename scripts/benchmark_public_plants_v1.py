@@ -37,6 +37,15 @@ def read_manifest(path: Path) -> dict[str, Any]:
     }
 
 
+def canonicalize_species_label(label: Any) -> str:
+    """Collapse common metadata aliases such as Arabidopsis_thaliana."""
+    return " ".join(str(label).replace("_", " ").split())
+
+
+def canonicalize_species_array(values: np.ndarray) -> np.ndarray:
+    return np.asarray([canonicalize_species_label(value) for value in values], dtype=str)
+
+
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
@@ -270,6 +279,8 @@ def main() -> None:
     species_values = np.asarray(
         obs.get("species", np.repeat("unknown_species", inference.matrix.n_cells)), dtype=str
     )
+    raw_species_values = species_values.copy()
+    species_values = canonicalize_species_array(species_values)
     sample_values_raw = np.asarray(
         obs.get("sample_id", np.repeat("unknown_sample", inference.matrix.n_cells)), dtype=str
     )
@@ -317,7 +328,9 @@ def main() -> None:
             "selected_cells": int(len(selected)),
             "datasets": int(len(set(selected_datasets.tolist()))),
             "species": int(len(set(selected_species.tolist()))),
+            "raw_species": int(len(set(raw_species_values[selected].tolist()))),
             "samples": int(len(set(selected_samples.tolist()))),
+            "species_label_normalization": "underscore_to_space_and_whitespace_collapse",
         },
         "embedding": {
             "dimension": int(embeddings.shape[1]),

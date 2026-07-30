@@ -9,7 +9,7 @@ scripts_dir = Path(__file__).resolve().parents[1] / "scripts"
 if str(scripts_dir) not in sys.path:
     sys.path.insert(0, str(scripts_dir))
 
-from benchmark_public_plants_v1 import nearest_centroid_metrics
+from benchmark_public_plants_v1 import canonicalize_species_array, nearest_centroid_metrics
 
 
 def test_benchmark_reports_open_set_errors_separately() -> None:
@@ -29,3 +29,15 @@ def test_benchmark_reports_open_set_errors_separately() -> None:
     assert metrics["accuracy"] == 1.0
     assert metrics["accuracy_all"] == 0.5
     assert metrics["n_evaluable"] == 1
+
+
+def test_species_aliases_are_canonicalized_for_holdout_groups() -> None:
+    labels = np.asarray(["Arabidopsis_thaliana", "Arabidopsis thaliana", "  Triticum   aestivum "])
+
+    normalized = canonicalize_species_array(labels)
+
+    assert normalized.tolist() == [
+        "Arabidopsis thaliana",
+        "Arabidopsis thaliana",
+        "Triticum aestivum",
+    ]

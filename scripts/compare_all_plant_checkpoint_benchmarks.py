@@ -14,7 +14,13 @@ PROTOCOLS = (
     "leave_sample_out",
     "leave_species_out",
 )
-METRICS = ("accuracy", "macro_f1", "coverage")
+METRICS = (
+    "accuracy_all",
+    "macro_f1_all_weighted_by_cells",
+    "accuracy",
+    "macro_f1",
+    "coverage",
+)
 
 
 def load(path: Path) -> dict[str, Any]:
@@ -31,17 +37,11 @@ def record_key(protocol: str, label: str) -> str:
 
 def aggregate_metrics(payload: dict[str, Any], key: str) -> dict[str, float]:
     block = payload.get("protocols", {}).get(key, {})
-    records = [record for record in block.get("records", []) if record.get("status") == "ok"]
-    total_test = sum(float(record.get("n_test", 0)) for record in records)
-    total_evaluable = sum(float(record.get("n_evaluable", 0)) for record in records)
-    if not records or total_evaluable <= 0:
-        return {}
-    result = {
-        "accuracy": sum(float(record.get("n_evaluable", 0)) * float(record.get("accuracy", 0.0)) for record in records) / total_evaluable,
-        "macro_f1": sum(float(record.get("n_evaluable", 0)) * float(record.get("macro_f1", 0.0)) for record in records) / total_evaluable,
-        "coverage": total_evaluable / total_test if total_test else 0.0,
+    return {
+        metric: float(block[metric])
+        for metric in METRICS
+        if metric in block and block[metric] is not None
     }
-    return result
 
 
 def summarize(payload: dict[str, Any]) -> dict[str, Any]:
@@ -110,16 +110,20 @@ def main() -> int:
         "",
         "This audit compares the same cross-species protocols. It does not promote a checkpoint to the annotation service by itself.",
         "",
-        "| Protocol | Label level | Baseline accuracy | Candidate accuracy | Delta |",
-        "| --- | --- | ---: | ---: | ---: |",
+        "| Protocol | Label level | Baseline all-cell acc. | Candidate all-cell acc. | Delta | Candidate coverage | Candidate known-label acc. |",
+        "| --- | --- | ---: | ---: | ---: | ---: | ---: |",
     ]
     for protocol in PROTOCOLS:
         for label in ("fine", "coarse"):
-            base = comparison["baseline"]["summary"][protocol][label].get("accuracy")
-            cand = comparison["candidate"]["summary"][protocol][label].get("accuracy")
-            delta = comparison["delta"][protocol][label]["accuracy"]
+            base = comparison["baseline"]["summary"][protocol][label].get("accuracy_all")
+            cand = comparison["candidate"]["summary"][protocol][label].get("accuracy_all")
+            delta = comparison["delta"][protocol][label]["accuracy_all"]
+            coverage = comparison["candidate"]["summary"][protocol][label].get("coverage")
+            known = comparison["candidate"]["summary"][protocol][label].get("accuracy")
             fmt = lambda value: "NA" if value is None else f"{float(value):.4f}"
-            lines.append(f"| {protocol} | {label} | {fmt(base)} | {fmt(cand)} | {fmt(delta)} |")
+            lines.append(
+                f"| {protocol} | {label} | {fmt(base)} | {fmt(cand)} | {fmt(delta)} | {fmt(coverage)} | {fmt(known)} |"
+            )
     lines.extend(
         [
             "",

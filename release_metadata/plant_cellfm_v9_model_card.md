@@ -38,9 +38,9 @@ The candidate and v3 baseline were evaluated on the same v9 shared-gene subset.
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Leave-dataset-out | 0.4490 | 0.8017 | 0.5601 | 0.3485 | 0.2021 |
 | Leave-sample-out | 0.6200 | 0.9871 | 0.6281 | 0.4902 | 0.4155 |
-| Leave-species-out | 0.3635 | 0.6882 | 0.5282 | 0.2897 | 0.1690 |
+| Leave-species-out, species labels normalized | 0.2354 | 0.5590 | 0.4210 | 0.1918 | 0.1912 |
 
-The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 and fine macro-F1 0.3833. Known-label metrics are conditional on the reference label occurring in the training fold; all-cell accuracy counts unseen labels as errors. Therefore, for cross-species generalization, the primary result is 36.35% all-cell accuracy at 68.82% coverage, while 52.82% and 0.2897 are conditional metrics.
+The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 and fine macro-F1 0.3833. Known-label metrics are conditional on the reference label occurring in the training fold; all-cell accuracy counts unseen labels as errors. Species labels are canonicalized before species holdout, so `Arabidopsis_thaliana` and `Arabidopsis thaliana` are evaluated as one species group. Therefore, for cross-species generalization, the primary normalized species-holdout result is 23.54% all-cell accuracy at 55.90% coverage, while 42.10% and 0.1918 are conditional metrics.
 
 ## Reproduction and Integrity
 

@@ -22,9 +22,9 @@ The release reports both an internal held-out test and stricter cross-group eval
 | Internal held-out test | 0.8113 | n/a | n/a | 0.3833 |
 | Leave-dataset-out | 0.4490 | 0.8017 | 0.5601 | 0.3485 |
 | Leave-sample-out | 0.6200 | 0.9871 | 0.6281 | 0.4902 |
-| Leave-species-out | 0.3635 | 0.6882 | 0.5282 | 0.2897 |
+| Leave-species-out, species labels normalized | 0.2354 | 0.5590 | 0.4210 | 0.1918 |
 
-The known-label conditional columns evaluate only test cells whose reference labels occur in the training fold. The all-cell accuracy column counts cells with unseen labels as errors, which is the appropriate open-set view for species holdout. Against the frozen v3 baseline on the same shared-gene benchmark, v9 all-cell accuracy improved by 24.70, 20.45 and 19.45 percentage points for leave-dataset, leave-sample and leave-species evaluation, respectively. All benchmark JSON, model checksums, training history and the 256-cell benchmark subset are included in the release package.
+The known-label conditional columns evaluate only test cells whose reference labels occur in the training fold. The all-cell accuracy column counts cells with unseen labels as errors, which is the appropriate open-set view for species holdout. The species-holdout protocol canonicalizes species aliases such as `Arabidopsis_thaliana` and `Arabidopsis thaliana` before splitting, reducing the selected benchmark from 9 raw species labels to 8 normalized species groups. Against the frozen v3 extended baseline on the same shared-gene benchmark, v9 all-cell accuracy improved by 24.70, 20.45 and 4.41 percentage points for leave-dataset, leave-sample and normalized leave-species evaluation, respectively. All benchmark JSON, model checksums, training history and the 256-cell benchmark subset are included in the release package.
 
 ## Repositories and Release
 
@@ -61,6 +61,7 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `release_metadata/data_integrity_audit.md`
 - `release_metadata/corpus_provenance_audit.md`
 - `release_metadata/benchmark_gap_audit.md`
+- `release_metadata/external_benchmark_status_v9.md`
 - `docs/publication_readiness_v9.md`
 - `scripts/package_v9_release.sh`
 - `tests/`
@@ -69,7 +70,7 @@ The local regression suite passes with `PYTHONPATH=src pytest -q`. The release p
 
 ## Evidence Boundary
 
-This release supports the claim that Plant-CellFM is a reproducible, auditable cross-species plant expression foundation-model implementation with a callable adapter layer and measured gains over the v3 baseline on public plant matrices. The leave-species-out result should be reported with both its 68.82% label coverage and 36.35% all-cell accuracy; the 52.82% and 0.2897 values are conditional on labels being present in the training fold. The internal held-out accuracy should not be presented as universal accuracy for every plant species.
+This release supports the claim that Plant-CellFM is a reproducible, auditable cross-species plant expression foundation-model implementation with a callable adapter layer and measured gains over the v3 extended baseline on public plant matrices. The normalized leave-species-out result should be reported with both its 55.90% label coverage and 23.54% all-cell accuracy; the 42.10% and 0.1918 values are conditional on labels being present in the training fold. The internal held-out accuracy should not be presented as universal accuracy for every plant species.
 
 ## Citation
 

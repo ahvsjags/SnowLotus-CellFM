@@ -14,7 +14,7 @@ This release freezes the v9 LoRA checkpoint for reproducible review and manuscri
 - 13.78 million cells in the built v9 corpus.
 - Leave-dataset-out: 44.90% all-cell accuracy at 80.17% coverage; 56.01% known-label conditional accuracy and macro-F1 0.3485.
 - Leave-sample-out: 62.00% all-cell accuracy at 98.71% coverage; 62.81% known-label conditional accuracy and macro-F1 0.4902.
-- Leave-species-out: 36.35% all-cell accuracy at 68.82% coverage; 52.82% known-label conditional accuracy and macro-F1 0.2897.
+- Leave-species-out with species-label normalization: 23.54% all-cell accuracy at 55.90% coverage; 42.10% known-label conditional accuracy and macro-F1 0.1918.
 - The conditional metrics are retained for comparability with the earlier benchmark, while all-cell accuracy is the primary open-set metric for species holdout.
 - Candidate embedding finite-value gate: passed.
 
