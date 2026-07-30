@@ -1,6 +1,6 @@
 # Plant-CellFM / SnowLotus-CellFM
 
-Plant-CellFM is the general-plant branch of SnowLotus-CellFM, a cross-species foundation model for plant single-cell and single-nucleus expression data. The model is not restricted to *Saussurea involucrata* (Snow Lotus): Snow Lotus is one species adapter and one biological validation case within a broader plant model.
+Plant-CellFM is the general-plant branch of SnowLotus-CellFM, a cross-species foundation model for plant single-cell and single-nucleus expression data. The model is not restricted to *Saussurea involucrata* (Snow Lotus): Snow Lotus is a target-species adapter and application scenario within a broader plant model.
 
 ## Frozen v9 Release
 
@@ -67,6 +67,8 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `release_metadata/external_benchmark_panel_v9.md`
 - `release_metadata/plant_biology_case_study_v9.md`
 - `release_metadata/third_party_comparator_sources_v9.md`
+- `release_metadata/v9_submission_stability_audit.md`
+- `manuscript/Plant_CellFM_v9_完整主文_稳健方法版_v1.md`
 - `docs/publication_readiness_v9.md`
 - `scripts/package_v9_release.sh`
 - `tests/`

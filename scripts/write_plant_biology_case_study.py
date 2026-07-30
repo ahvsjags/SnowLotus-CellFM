@@ -111,7 +111,6 @@ def summarize_markers(rows: list[dict[str, Any]], top_n: int) -> tuple[list[dict
         summaries.append(
             {
                 "label": label,
-                "source_label": raw_label,
                 "category": "root_cell_identity" if label in ROOT_CELL_TYPES else "cell_cycle_or_other",
                 "top_genes": [row.get("gene") for row in selected],
                 "top_n": len(selected),
@@ -176,7 +175,7 @@ def build_case(args: argparse.Namespace) -> dict[str, Any]:
         },
         "adapter_layer": adapter_summary(adapters_path),
         "marker_overview": {
-            "labels": marker_meta.get("labels"),
+            "labels": [display_label(str(label)) for label in marker_meta.get("labels", [])],
             "n_labels": marker_meta.get("n_labels"),
             "n_marker_rows": marker_meta.get("n_rows"),
             "root_identity_labels": [row["label"] for row in root_labels],

@@ -71,7 +71,7 @@
       "Root hair",
       "Root stele",
       "S phase",
-      "Unknow",
+      "Unknown",
       "Xylem"
     ],
     "n_labels": 13,
@@ -94,7 +94,6 @@
   "label_marker_summaries": [
     {
       "label": "Columella root cap",
-      "source_label": "Columella root cap",
       "category": "root_cell_identity",
       "top_genes": [
         "AT5G02380",
@@ -112,7 +111,6 @@
     },
     {
       "label": "G1/G0 phase",
-      "source_label": "G1/G0 phase",
       "category": "cell_cycle_or_other",
       "top_genes": [
         "ATCG00790",
@@ -130,7 +128,6 @@
     },
     {
       "label": "Lateral root cap",
-      "source_label": "Lateral root cap",
       "category": "root_cell_identity",
       "top_genes": [
         "AT1G26820",
@@ -148,7 +145,6 @@
     },
     {
       "label": "Non-hair",
-      "source_label": "Non-hair",
       "category": "root_cell_identity",
       "top_genes": [
         "AT1G65310",
@@ -166,7 +162,6 @@
     },
     {
       "label": "Phloem",
-      "source_label": "Phloem",
       "category": "root_cell_identity",
       "top_genes": [
         "AT5G04080",
@@ -184,7 +179,6 @@
     },
     {
       "label": "Root cap",
-      "source_label": "Root cap",
       "category": "root_cell_identity",
       "top_genes": [
         "AT1G54010",
@@ -202,7 +196,6 @@
     },
     {
       "label": "Root cortex",
-      "source_label": "Root cortex",
       "category": "root_cell_identity",
       "top_genes": [
         "AT1G12090",
@@ -220,7 +213,6 @@
     },
     {
       "label": "Root endodermis",
-      "source_label": "Root endodermis",
       "category": "root_cell_identity",
       "top_genes": [
         "AT3G22620",
@@ -238,7 +230,6 @@
     },
     {
       "label": "Root hair",
-      "source_label": "Root hair",
       "category": "root_cell_identity",
       "top_genes": [
         "AT3G54580",
@@ -256,7 +247,6 @@
     },
     {
       "label": "Root stele",
-      "source_label": "Root stele",
       "category": "root_cell_identity",
       "top_genes": [
         "AT4G11210",
@@ -274,7 +264,6 @@
     },
     {
       "label": "S phase",
-      "source_label": "S phase",
       "category": "cell_cycle_or_other",
       "top_genes": [
         "AT5G15200",
@@ -292,7 +281,6 @@
     },
     {
       "label": "Unknown",
-      "source_label": "Unknow",
       "category": "cell_cycle_or_other",
       "top_genes": [
         "AT2G43820",
@@ -310,7 +298,6 @@
     },
     {
       "label": "Xylem",
-      "source_label": "Xylem",
       "category": "root_cell_identity",
       "top_genes": [
         "AT5G03170",

@@ -45,6 +45,8 @@ The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 
 ## External Comparators And Biological Case
 
 - External benchmark panel: `release_metadata/external_benchmark_panel_v9.md`
+- Integrated stable manuscript: `manuscript/Plant_CellFM_v9_完整主文_稳健方法版_v1.md`
+- Submission stability audit: `release_metadata/v9_submission_stability_audit.md`
 - Seurat label transfer on the frozen v9 subset: fine accuracy 0.2207 and fine macro-F1 0.0603 on 512 test cells.
 - Classical cosine-centroid SRP169576 sample holdout: fine accuracy 0.7337 and fine macro-F1 0.4873.
 - scPlantLLM: compatible input and preprocessing are present; metric completion requires an executable official checkout and weights in the release environment.
