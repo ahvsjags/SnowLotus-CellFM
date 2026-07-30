@@ -32,15 +32,15 @@ The public corpus contains Arabidopsis, rice, tomato, soybean, maize, cotton, te
 
 ## Evaluation
 
-The candidate and v3 baseline were evaluated on the same v9 shared-gene subset.
+The candidate and v3 extended baseline were evaluated on the same v9 shared-gene subset.
 
-| Protocol | Candidate fine accuracy | Candidate macro-F1 | v3 fine accuracy | v3 macro-F1 |
-| --- | ---: | ---: | ---: | ---: |
-| Leave-dataset-out | 0.5601 | 0.3485 | 0.2520 | 0.1203 |
-| Leave-sample-out | 0.6281 | 0.4902 | 0.4210 | 0.2372 |
-| Leave-species-out | 0.5282 | 0.2897 | 0.2456 | 0.1290 |
+| Protocol | v9 all-cell accuracy | v9 coverage | v9 known-label accuracy | v9 known-label macro-F1 | v3 all-cell accuracy |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Leave-dataset-out | 0.4490 | 0.8017 | 0.5601 | 0.3485 | 0.2021 |
+| Leave-sample-out | 0.6200 | 0.9871 | 0.6281 | 0.4902 | 0.4155 |
+| Leave-species-out, species labels normalized | 0.2354 | 0.5590 | 0.4210 | 0.1918 | 0.1912 |
 
-The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 and fine macro-F1 0.3833. The leave-species-out result is the principal evidence for cross-species generalization.
+The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 and fine macro-F1 0.3833. Known-label metrics are conditional on the reference label occurring in the training fold; all-cell accuracy counts unseen labels as errors. Species labels are canonicalized before species holdout, so `Arabidopsis_thaliana` and `Arabidopsis thaliana` are evaluated as one species group. Therefore, for cross-species generalization, the primary normalized species-holdout result is 23.54% all-cell accuracy at 55.90% coverage, while 42.10% and 0.1918 are conditional metrics.
 
 ## Reproduction and Integrity
 
