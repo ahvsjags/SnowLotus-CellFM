@@ -1,10 +1,9 @@
 {
   "schema_version": "plant_cellfm_server_sustainability_status_v1",
-  "generated_at": "2026-07-30T17:07:00+08:00",
+  "generated_at": "2026-07-30T17:16:00+08:00",
   "git": {
     "branch": "agent/remote-pipeline-20260728",
-    "local_head": "3a6273e7b871cb4265e55c3300d59242a1d29e48",
-    "origin_branch_head": "3a6273e7b871cb4265e55c3300d59242a1d29e48",
+    "head_verification_command": "git rev-parse HEAD origin/agent/remote-pipeline-20260728",
     "github_branch_url": "https://github.com/ahvsjags/SnowLotus-CellFM/tree/agent/remote-pipeline-20260728",
     "https_backend_fix": "repo-local http.sslBackend=openssl",
     "previous_blocker": "Windows Schannel SEC_E_NO_CREDENTIALS during GitHub HTTPS fetch/push"
@@ -46,6 +45,17 @@
     "embedding_shape": [3964, 256],
     "predictions_line_count": 3965,
     "evidence_file": "release_metadata/api_runtime_smoke_v9.md"
+  },
+  "watchdog_recovery_test": {
+    "session": "plant_cellfm_watchdog",
+    "script": "scripts/watch_plant_cellfm_service.sh",
+    "action": "SIGTERM existing Plant-CellFM service process",
+    "old_pid": 648368,
+    "new_pid": 654567,
+    "recovered_after_seconds": 30,
+    "health_after_recovery": "ok",
+    "result": "passed",
+    "evidence_file": "release_metadata/watchdog_recovery_status_v9.md"
   },
   "stable_submission_scope": [
     "Plant-CellFM v9 general plant single-cell expression foundation model",

@@ -61,4 +61,7 @@ The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 
 - Configuration: `configs/generated/foundation_public_plants_v9_lora_4090.yaml`
 - Benchmark comparison: `/root/snowlotus_cellfm_v9_lora_shared_4090/v9_lora_vs_v3_shared_comparison.json`
 - Service: `http://127.0.0.1:8000` on the Matpool host
+- Live API smoke evidence: `release_metadata/api_runtime_smoke_v9.md`
+- Watchdog recovery evidence: `release_metadata/watchdog_recovery_status_v9.md`
+- Server sustainability evidence: `release_metadata/server_sustainability_status_v9.md`
 - Release package checksum verification: passed on the server

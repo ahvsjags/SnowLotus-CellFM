@@ -1,12 +1,11 @@
 # Plant-CellFM v9 Server Sustainability Status
 
-Generated: 2026-07-30 17:07 Asia/Shanghai
+Generated: 2026-07-30 17:16 Asia/Shanghai
 
 ## Git And Repository State
 
 - Local branch: `agent/remote-pipeline-20260728`
-- Local HEAD: `3a6273e7b871cb4265e55c3300d59242a1d29e48`
-- GitHub branch head: `3a6273e7b871cb4265e55c3300d59242a1d29e48`
+- Current local and GitHub branch heads should be verified with `git rev-parse HEAD origin/agent/remote-pipeline-20260728`.
 - GitHub branch URL: `https://github.com/ahvsjags/SnowLotus-CellFM/tree/agent/remote-pipeline-20260728`
 - GitHub TLS fix: repository-local `http.sslBackend=openssl`
 
@@ -44,6 +43,15 @@ The live `POST /annotate` route passed an end-to-end smoke test on 2026-07-30. T
 - Embedding shape: `3964 x 256`
 - Prediction rows: `3965`, including header
 - Evidence file: `release_metadata/api_runtime_smoke_v9.md`
+
+## Watchdog Recovery Test
+
+The server also passed a controlled process-recovery test. A tmux session named `plant_cellfm_watchdog` is running `scripts/watch_plant_cellfm_service.sh`. During the test, the active service process `648368` was terminated with `SIGTERM`; the watchdog restarted the service as PID `654567` and restored a healthy `/health` response after 30 seconds.
+
+- Watchdog session: `plant_cellfm_watchdog`
+- Watchdog script: `scripts/watch_plant_cellfm_service.sh`
+- Recovery result: `passed`
+- Evidence file: `release_metadata/watchdog_recovery_status_v9.md`
 
 ## Server Package
 

@@ -1,0 +1,48 @@
+{
+  "schema_version": "plant_cellfm_watchdog_recovery_status_v1",
+  "generated_at": "2026-07-30T17:16:00+08:00",
+  "watchdog": {
+    "session": "plant_cellfm_watchdog",
+    "runner": "tmux",
+    "script": "scripts/watch_plant_cellfm_service.sh",
+    "project_dir": "/mnt/snowlotus_cellfm",
+    "log": "/root/snowlotus_cellfm_v9_lora_shared_4090/service_watchdog.log",
+    "status": "running"
+  },
+  "controlled_recovery_test": {
+    "action": "SIGTERM existing Plant-CellFM service process",
+    "old_pid": 648368,
+    "new_pid": 654567,
+    "recovered_after_seconds": 30,
+    "health_after_recovery": {
+      "status": "ok",
+      "service": "Plant-CellFM",
+      "model_scope": "plant_general",
+      "adapter_count": 24,
+      "known_adapter_count": 24,
+      "adapter_resolution": "dynamic_all_plants",
+      "device": "cuda"
+    },
+    "result": "passed"
+  },
+  "post_recovery_process_tree": {
+    "watchdog_pid": 654450,
+    "service_pid": 654567,
+    "service_parent_pid": 654450,
+    "service_command_contains": [
+      "scripts/serve_snowlotus.py",
+      "--backbone-checkpoint /root/snowlotus_cellfm_v9_lora_shared_4090/best.pt",
+      "--annotation-checkpoint /root/snowlotus_cellfm_v9_lora_shared_4090/best.pt",
+      "--data-root /root/snowlotus_public_plants_v9",
+      "--adapter-registry /mnt/snowlotus_cellfm/release_metadata/plant_species_adapters.json",
+      "--device cuda"
+    ]
+  },
+  "gpu_after_recovery": {
+    "name": "NVIDIA GeForce RTX 4090",
+    "memory_total_mib": 24564,
+    "memory_used_mib": 1,
+    "utilization_percent": 0
+  },
+  "evidence_status": "watchdog_auto_recovery_passed"
+}
