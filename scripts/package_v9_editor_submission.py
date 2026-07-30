@@ -4,6 +4,7 @@ import argparse
 import csv
 import hashlib
 import json
+import os
 import shutil
 import subprocess
 import zipfile
@@ -133,6 +134,13 @@ ASSET_PATHS = [
 
 
 def run_git(args: list[str]) -> str:
+    if args == ["rev-parse", "HEAD"] and os.environ.get("SNOWCELL_PACKAGE_SOURCE_COMMIT"):
+        return os.environ["SNOWCELL_PACKAGE_SOURCE_COMMIT"]
+    if args == ["rev-parse", "origin/agent/remote-pipeline-20260728"]:
+        if os.environ.get("SNOWCELL_PACKAGE_ORIGIN_HEAD"):
+            return os.environ["SNOWCELL_PACKAGE_ORIGIN_HEAD"]
+        if os.environ.get("SNOWCELL_PACKAGE_SOURCE_COMMIT"):
+            return os.environ["SNOWCELL_PACKAGE_SOURCE_COMMIT"]
     try:
         result = subprocess.run(
             ["git", *args],
