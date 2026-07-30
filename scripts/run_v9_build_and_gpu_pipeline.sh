@@ -32,7 +32,7 @@ if [ ! -s "${V9_ROOT}/v9_manifest_audit.json" ]; then
 fi
 
 if [ ! -s "${V9_ROOT}/plant_foundation_corpus_public_plants_v9.h5ad" ]; then
-  if [ ! -d "${V9_ROOT}/work/shards" ]; then
+  if [ ! -d "${V9_ROOT}/work/shards" ] && [ -d "${V8_ROOT}/work/shards" ]; then
     cp -al "${V8_ROOT}/work/shards" "${V9_ROOT}/work/shards"
   fi
   PYTHONPATH="${PROJECT_DIR}/src" "${PYTHON_BIN}" -u \
