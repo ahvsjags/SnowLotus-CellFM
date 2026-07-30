@@ -14,17 +14,17 @@ This file records the evidence behind the frozen v9 candidate. It is an engineer
 
 ## Frozen Results
 
-| Protocol | Candidate accuracy | Candidate macro-F1 | v3 accuracy | v3 macro-F1 |
-| --- | ---: | ---: | ---: | ---: |
-| Leave-dataset-out | 0.5601 | 0.3485 | 0.2520 | 0.1203 |
-| Leave-sample-out | 0.6281 | 0.4902 | 0.4210 | 0.2372 |
-| Leave-species-out | 0.5282 | 0.2897 | 0.2456 | 0.1290 |
+| Protocol | v9 all-cell accuracy | v9 coverage | v9 known-label accuracy | v9 known-label macro-F1 | v3 all-cell accuracy |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Leave-dataset-out | 0.4490 | 0.8017 | 0.5601 | 0.3485 | 0.2021 |
+| Leave-sample-out | 0.6200 | 0.9871 | 0.6281 | 0.4902 | 0.4155 |
+| Leave-species-out, species labels normalized | 0.2354 | 0.5590 | 0.4210 | 0.1918 | 0.1912 |
 
-The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 and fine macro-F1 0.3833. The cross-group results above are the primary generalization evidence.
+The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 and fine macro-F1 0.3833. The known-label columns evaluate only cells whose reference labels occur in the training fold. The all-cell column counts an unseen reference label as an error, so the leave-species-out result is the stricter open-set estimate. The species-holdout protocol now normalizes species aliases such as `Arabidopsis_thaliana` and `Arabidopsis thaliana` before splitting, reducing the selected benchmark from 9 raw species labels to 8 normalized groups. The cross-group results above are the primary generalization evidence, and the 23.54% all-cell normalized species-holdout accuracy rather than 42.10% conditional accuracy should be used as the headline species number.
 
 ## Publication Positioning
 
-The strongest current manuscript framing is a computational method/resource paper: a plant-specific foundation model, a species-adapter transfer layer, a public corpus construction protocol and a reproducible cross-species benchmark. The paper should make the leave-species-out result and the reproducibility package central, rather than presenting the internal held-out accuracy as universal plant accuracy.
+The strongest current manuscript framing is a computational method/resource paper: a plant-specific foundation model, an all-plant adapter layer, a public corpus construction protocol and a reproducible cross-group benchmark. The paper should make the leave-dataset, leave-sample and normalized leave-species results central, rather than presenting the internal held-out accuracy as universal plant accuracy.
 
 ## Journal Fit
 
