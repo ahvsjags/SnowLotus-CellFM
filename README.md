@@ -56,8 +56,8 @@ For the frozen model, download the v9 release asset and use the packaged configu
 
 ## Reproducibility Evidence
 
-- `release_metadata/plant_general_model_card.md`
-- `release_metadata/model_data_card.md`
+- `release_metadata/plant_cellfm_v9_model_card.md`
+- `release_metadata/v9_data_card.md`
 - `release_metadata/data_integrity_audit.md`
 - `release_metadata/corpus_provenance_audit.md`
 - `release_metadata/benchmark_gap_audit.md`
