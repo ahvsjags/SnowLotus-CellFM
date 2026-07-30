@@ -71,6 +71,7 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `release_metadata/plant_biology_case_study_v9.md`
 - `release_metadata/third_party_comparator_sources_v9.md`
 - `release_metadata/v9_submission_stability_audit.md`
+- `release_metadata/server_sustainability_status_v9.md`
 - `manuscript/Plant_CellFM_v9_完整主文_稳健方法版_v1.md`
 - `docs/publication_readiness_v9.md`
 - `scripts/package_v9_release.sh`

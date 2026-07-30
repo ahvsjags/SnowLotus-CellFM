@@ -1,0 +1,52 @@
+{
+  "schema_version": "plant_cellfm_server_sustainability_status_v1",
+  "generated_at": "2026-07-30T16:57:17+08:00",
+  "git": {
+    "branch": "agent/remote-pipeline-20260728",
+    "local_head": "3a6273e7b871cb4265e55c3300d59242a1d29e48",
+    "origin_branch_head": "3a6273e7b871cb4265e55c3300d59242a1d29e48",
+    "github_branch_url": "https://github.com/ahvsjags/SnowLotus-CellFM/tree/agent/remote-pipeline-20260728",
+    "https_backend_fix": "repo-local http.sslBackend=openssl",
+    "previous_blocker": "Windows Schannel SEC_E_NO_CREDENTIALS during GitHub HTTPS fetch/push"
+  },
+  "server": {
+    "host_alias": "matpool-px1-jcy",
+    "service_health": {
+      "status": "ok",
+      "service": "Plant-CellFM",
+      "model_scope": "plant_general",
+      "adapter_count": 24,
+      "known_adapter_count": 24,
+      "adapter_resolution": "dynamic_all_plants",
+      "device": "cuda"
+    },
+    "gpu": {
+      "name": "NVIDIA GeForce RTX 4090",
+      "memory_total_mib": 24564,
+      "memory_used_mib": 1,
+      "utilization_percent": 0
+    }
+  },
+  "packages": {
+    "main_package": "/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090",
+    "addendum_package": "/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090/addendum_methods_panel",
+    "addendum_checksum_file": "addendum_sha256sums.txt",
+    "addendum_checksum_status": "OK"
+  },
+  "stable_submission_scope": [
+    "Plant-CellFM v9 general plant single-cell expression foundation model",
+    "Dynamic all-plant adapter framework with 24 known adapters plus runtime adapter materialization",
+    "Frozen v9 LoRA checkpoint trained on audited public plant matrices on RTX 4090",
+    "Strict leave-dataset, leave-sample and normalized leave-species benchmark reporting",
+    "Completed v3, centroid and Seurat comparators",
+    "Audited scPlantLLM and scPlantAnnotate execution interfaces without final metric claims",
+    "Arabidopsis root marker-candidate computational biology case",
+    "Snow Lotus target-species adapter entry point, not completed single-cell atlas"
+  ],
+  "remaining_non_blocking_gaps": [
+    "scPlantLLM final metric requires executable official checkout and weights",
+    "scPlantAnnotate final metric requires authenticated or author-supported batch execution",
+    "Wet-lab or independent biological validation would strengthen a higher-tier revision",
+    "Do not present normalized leave-species open-set result as universal high-accuracy annotation for every plant species"
+  ]
+}
