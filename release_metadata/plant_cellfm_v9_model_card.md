@@ -42,6 +42,15 @@ The candidate and v3 baseline were evaluated on the same v9 shared-gene subset.
 
 The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 and fine macro-F1 0.3833. Known-label metrics are conditional on the reference label occurring in the training fold; all-cell accuracy counts unseen labels as errors. Species labels are canonicalized before species holdout, so `Arabidopsis_thaliana` and `Arabidopsis thaliana` are evaluated as one species group. Therefore, for cross-species generalization, the primary normalized species-holdout result is 23.54% all-cell accuracy at 55.90% coverage, while 42.10% and 0.1918 are conditional metrics.
 
+## External Comparators And Biological Case
+
+- External benchmark panel: `release_metadata/external_benchmark_panel_v9.md`
+- Seurat label transfer on the frozen v9 subset: fine accuracy 0.2207 and fine macro-F1 0.0603 on 512 test cells.
+- Classical cosine-centroid SRP169576 sample holdout: fine accuracy 0.7337 and fine macro-F1 0.4873.
+- scPlantLLM: compatible input and preprocessing are present; metric completion requires an executable official checkout and weights in the release environment.
+- scPlantAnnotate: official web route is reachable, but anonymous scriptable benchmark execution is not available in the current audit.
+- Arabidopsis root case: `release_metadata/plant_biology_case_study_v9.md` records adapter resolution plus 260 marker-candidate rows across 13 cell states.
+
 ## Reproduction and Integrity
 
 - Frozen checkpoint: GitHub Release asset `SnowLotus-CellFM-v9-lora-4090-best.pt`

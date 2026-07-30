@@ -1,0 +1,11 @@
+{
+  "method": "seurat_label_transfer",
+  "input_dir": "outputs/external_benchmarks/seurat_v9_subset_split",
+  "label_key": "cell_type",
+  "coarse_label_key": "cell_type_coarse",
+  "test_cells": 512,
+  "fine_test_accuracy": 0.2207,
+  "fine_test_macro_f1": 0.0603,
+  "coarse_test_accuracy": 0.2207,
+  "coarse_test_macro_f1": 0.0603
+}

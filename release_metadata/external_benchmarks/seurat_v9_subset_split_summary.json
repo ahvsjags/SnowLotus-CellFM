@@ -1,0 +1,22 @@
+{
+  "config": "/tmp/seurat_v9_subset.yaml",
+  "output_dir": "outputs/external_benchmarks/seurat_v9_subset_split",
+  "n_genes": 149553,
+  "splits": {
+    "train": {
+      "cells": 2940,
+      "matrix": "outputs/external_benchmarks/seurat_v9_subset_split/train.mtx",
+      "metadata": "outputs/external_benchmarks/seurat_v9_subset_split/train_metadata.tsv"
+    },
+    "validation": {
+      "cells": 512,
+      "matrix": "outputs/external_benchmarks/seurat_v9_subset_split/validation.mtx",
+      "metadata": "outputs/external_benchmarks/seurat_v9_subset_split/validation_metadata.tsv"
+    },
+    "test": {
+      "cells": 512,
+      "matrix": "outputs/external_benchmarks/seurat_v9_subset_split/test.mtx",
+      "metadata": "outputs/external_benchmarks/seurat_v9_subset_split/test_metadata.tsv"
+    }
+  }
+}

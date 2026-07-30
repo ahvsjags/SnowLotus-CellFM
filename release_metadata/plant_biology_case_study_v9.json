@@ -1,0 +1,337 @@
+{
+  "schema_version": "plant-cellfm-biology-case-study-v1",
+  "case_id": "arabidopsis_root_marker_adapter_case",
+  "title": "Arabidopsis root cell-identity marker and adapter case",
+  "scope": "A complete public-plant biological case demonstrating adapter resolution, hierarchical annotation evidence and marker-candidate mining on root cell states.",
+  "evidence_files": {
+    "marker_json": "release_metadata/strict_benchmarks/public_sprint.marker_candidates.json",
+    "marker_tsv": "release_metadata/strict_benchmarks/public_sprint.marker_candidates.tsv",
+    "top_marker_tsv": "release_metadata/plant_biology_case_study_top_markers_v9.tsv",
+    "adapter_registry": "release_metadata/plant_species_adapters.json"
+  },
+  "adapter_layer": {
+    "registry": "D:/天山雪莲/tmp/SnowLotus-CellFM_git_20260727032642/release_metadata/plant_species_adapters.json",
+    "scope": "all_plants",
+    "dynamic_adapter_resolution": true,
+    "adapter_count": 24,
+    "arabidopsis_adapter": {
+      "adapter_id": "plant_arabidopsis_thaliana",
+      "species": "Arabidopsis thaliana",
+      "aliases": [
+        "Arabidopsis thaliana"
+      ],
+      "status": "general_backbone_ready",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": {
+        "manifest_rows": 12,
+        "datasets": 10
+      }
+    },
+    "fallback_adapter": {
+      "adapter_id": "plant_universal",
+      "species": "__unregistered_plant__",
+      "aliases": [
+        "unknown plant",
+        "new plant species",
+        "any plant"
+      ],
+      "status": "universal_fallback",
+      "transfer_mode": "exact_gene_ids_then_ortholog_map",
+      "gene_id_namespace": "dataset_defined",
+      "ortholog_map": null,
+      "supervised_head": null,
+      "tasks": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates"
+      ],
+      "evidence": "general backbone; provide a species gene map for best transfer"
+    }
+  },
+  "marker_overview": {
+    "labels": [
+      "Columella root cap",
+      "G1/G0 phase",
+      "Lateral root cap",
+      "Non-hair",
+      "Phloem",
+      "Root cap",
+      "Root cortex",
+      "Root endodermis",
+      "Root hair",
+      "Root stele",
+      "S phase",
+      "Unknow",
+      "Xylem"
+    ],
+    "n_labels": 13,
+    "n_marker_rows": 260,
+    "root_identity_labels": [
+      "Columella root cap",
+      "Lateral root cap",
+      "Non-hair",
+      "Phloem",
+      "Root cap",
+      "Root cortex",
+      "Root endodermis",
+      "Root hair",
+      "Root stele",
+      "Xylem"
+    ],
+    "root_identity_label_count": 10,
+    "top_n_per_label": 5
+  },
+  "label_marker_summaries": [
+    {
+      "label": "Columella root cap",
+      "source_label": "Columella root cap",
+      "category": "root_cell_identity",
+      "top_genes": [
+        "AT5G02380",
+        "AT2G04025",
+        "AT2G36950",
+        "AT3G20840",
+        "AT3G45730"
+      ],
+      "top_n": 5,
+      "median_score": 0.8489435911178589,
+      "median_log2fc": 3.296443462371826,
+      "median_detection_delta": 0.23136116564273834,
+      "n_cells_in": 1302,
+      "n_cells_out": 34363
+    },
+    {
+      "label": "G1/G0 phase",
+      "source_label": "G1/G0 phase",
+      "category": "cell_cycle_or_other",
+      "top_genes": [
+        "ATCG00790",
+        "ATCG00740",
+        "ATCG00170",
+        "ATCG00800",
+        "ATCG00770"
+      ],
+      "top_n": 5,
+      "median_score": 1.9166932106018066,
+      "median_log2fc": 3.394824743270874,
+      "median_detection_delta": 0.575178749859333,
+      "n_cells_in": 516,
+      "n_cells_out": 35149
+    },
+    {
+      "label": "Lateral root cap",
+      "source_label": "Lateral root cap",
+      "category": "root_cell_identity",
+      "top_genes": [
+        "AT1G26820",
+        "AT3G16440",
+        "AT1G15385",
+        "AT1G06090",
+        "AT5G55110"
+      ],
+      "top_n": 5,
+      "median_score": 2.8712997436523438,
+      "median_log2fc": 4.234749794006348,
+      "median_detection_delta": 0.6765936985611916,
+      "n_cells_in": 3447,
+      "n_cells_out": 32218
+    },
+    {
+      "label": "Non-hair",
+      "source_label": "Non-hair",
+      "category": "root_cell_identity",
+      "top_genes": [
+        "AT1G65310",
+        "AT4G12545",
+        "AT1G70850",
+        "AT1G14960",
+        "AT4G12550"
+      ],
+      "top_n": 5,
+      "median_score": 2.0234296321868896,
+      "median_log2fc": 3.7424912452697754,
+      "median_detection_delta": 0.6071056574583054,
+      "n_cells_in": 2654,
+      "n_cells_out": 33011
+    },
+    {
+      "label": "Phloem",
+      "source_label": "Phloem",
+      "category": "root_cell_identity",
+      "top_genes": [
+        "AT5G04080",
+        "AT1G62380",
+        "AT2G46630",
+        "AT1G79430",
+        "AT5G59090"
+      ],
+      "top_n": 5,
+      "median_score": 3.050929546356201,
+      "median_log2fc": 7.071040630340576,
+      "median_detection_delta": 0.49471594765782356,
+      "n_cells_in": 447,
+      "n_cells_out": 35218
+    },
+    {
+      "label": "Root cap",
+      "source_label": "Root cap",
+      "category": "root_cell_identity",
+      "top_genes": [
+        "AT1G54010",
+        "AT5G10130",
+        "AT1G28290",
+        "AT5G58784",
+        "AT2G43610"
+      ],
+      "top_n": 5,
+      "median_score": 2.634497880935669,
+      "median_log2fc": 3.634082555770874,
+      "median_detection_delta": 0.7297481447458267,
+      "n_cells_in": 2178,
+      "n_cells_out": 33487
+    },
+    {
+      "label": "Root cortex",
+      "source_label": "Root cortex",
+      "category": "root_cell_identity",
+      "top_genes": [
+        "AT1G12090",
+        "AT1G13930",
+        "AT1G21310",
+        "AT5G13930",
+        "AT4G30170"
+      ],
+      "top_n": 5,
+      "median_score": 1.6650350093841553,
+      "median_log2fc": 2.940925121307373,
+      "median_detection_delta": 0.5588642209768295,
+      "n_cells_in": 3013,
+      "n_cells_out": 32652
+    },
+    {
+      "label": "Root endodermis",
+      "source_label": "Root endodermis",
+      "category": "root_cell_identity",
+      "top_genes": [
+        "AT3G22620",
+        "AT3G22600",
+        "AT2G32300",
+        "AT2G28670",
+        "AT5G15290"
+      ],
+      "top_n": 5,
+      "median_score": 2.8632631301879883,
+      "median_log2fc": 4.340705871582031,
+      "median_detection_delta": 0.5930254682898521,
+      "n_cells_in": 3773,
+      "n_cells_out": 31892
+    },
+    {
+      "label": "Root hair",
+      "source_label": "Root hair",
+      "category": "root_cell_identity",
+      "top_genes": [
+        "AT3G54580",
+        "AT1G30870",
+        "AT3G09925",
+        "AT3G54590",
+        "AT3G62680"
+      ],
+      "top_n": 5,
+      "median_score": 1.6021944284439087,
+      "median_log2fc": 3.7004547119140625,
+      "median_detection_delta": 0.42686355113983154,
+      "n_cells_in": 4426,
+      "n_cells_out": 31239
+    },
+    {
+      "label": "Root stele",
+      "source_label": "Root stele",
+      "category": "root_cell_identity",
+      "top_genes": [
+        "AT4G11210",
+        "AT2G02130",
+        "AT1G12080",
+        "AT4G14130",
+        "AT3G59370"
+      ],
+      "top_n": 5,
+      "median_score": 2.0427236557006836,
+      "median_log2fc": 3.839675188064575,
+      "median_detection_delta": 0.5408523418009281,
+      "n_cells_in": 3435,
+      "n_cells_out": 32230
+    },
+    {
+      "label": "S phase",
+      "source_label": "S phase",
+      "category": "cell_cycle_or_other",
+      "top_genes": [
+        "AT5G15200",
+        "AT5G20290",
+        "AT3G60245",
+        "AT5G16130",
+        "AT4G16720"
+      ],
+      "top_n": 5,
+      "median_score": 1.8206268548965454,
+      "median_log2fc": 3.0526936054229736,
+      "median_detection_delta": 0.6051934137940407,
+      "n_cells_in": 2329,
+      "n_cells_out": 33336
+    },
+    {
+      "label": "Unknown",
+      "source_label": "Unknow",
+      "category": "cell_cycle_or_other",
+      "top_genes": [
+        "AT2G43820",
+        "AT2G29440",
+        "AT2G29450",
+        "AT1G43160",
+        "AT3G50970"
+      ],
+      "top_n": 5,
+      "median_score": 0.33946385979652405,
+      "median_log2fc": 1.2080391645431519,
+      "median_detection_delta": 0.2830488681793213,
+      "n_cells_in": 7482,
+      "n_cells_out": 28183
+    },
+    {
+      "label": "Xylem",
+      "source_label": "Xylem",
+      "category": "root_cell_identity",
+      "top_genes": [
+        "AT5G03170",
+        "AT1G20850",
+        "AT5G16490",
+        "AT1G08283",
+        "AT4G23690"
+      ],
+      "top_n": 5,
+      "median_score": 2.488999843597412,
+      "median_log2fc": 6.265928268432617,
+      "median_detection_delta": 0.46348521672189236,
+      "n_cells_in": 663,
+      "n_cells_out": 35002
+    }
+  ],
+  "biological_workflow": [
+    "Resolve the input species to the Arabidopsis adapter, with plant_universal as fallback.",
+    "Run the Plant-CellFM backbone and annotation head to obtain cell embeddings and fine/coarse labels.",
+    "Mine marker candidates per predicted or reference cell state using expression enrichment, log2 fold-change and detection-rate separation.",
+    "Review root identity labels such as root cap, cortex, endodermis, stele, phloem, xylem and root hair as a coherent plant biology case."
+  ],
+  "manuscript_claim": "The Arabidopsis root case provides a complete public-data demonstration of Plant-CellFM v9: the same plant-general model resolves a species adapter, produces annotation-ready representations and returns marker candidates for major root cell identities."
+}

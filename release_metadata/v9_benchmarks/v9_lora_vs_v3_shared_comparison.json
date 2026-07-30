@@ -1,0 +1,167 @@
+{
+  "schema_version": "plant-general-checkpoint-comparison-v1",
+  "baseline": {
+    "path": "/root/snowlotus_public_plants_v9/v3_extended_on_v9_shared_subset_cross_species_benchmark_normalized_species.json",
+    "checkpoint": "/mnt/snowlotus_cellfm/outputs/publication_package/checkpoints/v3_extended_4090/best.pt",
+    "checkpoint_sha256": "c6b476771e5d62027045fd1755dd9a27bf907ec1fd2baa38cb1cb39f89d94136",
+    "summary": {
+      "leave_dataset_out": {
+        "fine": {
+          "accuracy_all": 0.2020686175580222,
+          "macro_f1_all_weighted_by_cells": 0.08883845392804782,
+          "accuracy": 0.25204531151667714,
+          "macro_f1": 0.12025435284148982,
+          "coverage": 0.801715438950555
+        },
+        "coarse": {
+          "accuracy_all": 0.2020686175580222,
+          "macro_f1_all_weighted_by_cells": 0.08883845392804782,
+          "accuracy": 0.25204531151667714,
+          "macro_f1": 0.12025435284148982,
+          "coverage": 0.801715438950555
+        }
+      },
+      "leave_sample_out": {
+        "fine": {
+          "accuracy_all": 0.41554886394744045,
+          "macro_f1_all_weighted_by_cells": 0.23092133637705572,
+          "accuracy": 0.4209650582362729,
+          "macro_f1": 0.23724887506069578,
+          "coverage": 0.9871338625787024
+        },
+        "coarse": {
+          "accuracy_all": 0.41554886394744045,
+          "macro_f1_all_weighted_by_cells": 0.23092133637705572,
+          "accuracy": 0.4209650582362729,
+          "macro_f1": 0.23724887506069578,
+          "coverage": 0.9871338625787024
+        }
+      },
+      "leave_species_out": {
+        "fine": {
+          "accuracy_all": 0.19122098890010092,
+          "macro_f1_all_weighted_by_cells": 0.066726868325096,
+          "accuracy": 0.34205776173285196,
+          "macro_f1": 0.1535689720700766,
+          "coverage": 0.5590312815338042
+        },
+        "coarse": {
+          "accuracy_all": 0.19122098890010092,
+          "macro_f1_all_weighted_by_cells": 0.066726868325096,
+          "accuracy": 0.34205776173285196,
+          "macro_f1": 0.1535689720700766,
+          "coverage": 0.5590312815338042
+        }
+      }
+    }
+  },
+  "candidate": {
+    "path": "/root/snowlotus_cellfm_v9_lora_shared_4090/v9_lora_cross_species_benchmark_normalized_species.json",
+    "checkpoint": "/root/snowlotus_cellfm_v9_lora_shared_4090/best.pt",
+    "checkpoint_sha256": "9a98dbc799c062981c1dd895034300b7385e1ecddad88d8d98cff5d1c6962c93",
+    "summary": {
+      "leave_dataset_out": {
+        "fine": {
+          "accuracy_all": 0.44904137235116043,
+          "macro_f1_all_weighted_by_cells": 0.2695461537714853,
+          "accuracy": 0.5601006922592826,
+          "macro_f1": 0.3485260755735369,
+          "coverage": 0.801715438950555
+        },
+        "coarse": {
+          "accuracy_all": 0.44904137235116043,
+          "macro_f1_all_weighted_by_cells": 0.2695461537714853,
+          "accuracy": 0.5601006922592826,
+          "macro_f1": 0.3485260755735369,
+          "coverage": 0.801715438950555
+        }
+      },
+      "leave_sample_out": {
+        "fine": {
+          "accuracy_all": 0.6200383246646591,
+          "macro_f1_all_weighted_by_cells": 0.476955395457791,
+          "accuracy": 0.6281198003327787,
+          "macro_f1": 0.4902078145987837,
+          "coverage": 0.9871338625787024
+        },
+        "coarse": {
+          "accuracy_all": 0.6200383246646591,
+          "macro_f1_all_weighted_by_cells": 0.476955395457791,
+          "accuracy": 0.6281198003327787,
+          "macro_f1": 0.4902078145987837,
+          "coverage": 0.9871338625787024
+        }
+      },
+      "leave_species_out": {
+        "fine": {
+          "accuracy_all": 0.2353683148335015,
+          "macro_f1_all_weighted_by_cells": 0.0846356556759921,
+          "accuracy": 0.421028880866426,
+          "macro_f1": 0.191807515126701,
+          "coverage": 0.5590312815338042
+        },
+        "coarse": {
+          "accuracy_all": 0.2353683148335015,
+          "macro_f1_all_weighted_by_cells": 0.0846356556759921,
+          "accuracy": 0.421028880866426,
+          "macro_f1": 0.191807515126701,
+          "coverage": 0.5590312815338042
+        }
+      }
+    }
+  },
+  "delta": {
+    "leave_dataset_out": {
+      "fine": {
+        "accuracy_all": 0.24697275479313824,
+        "macro_f1_all_weighted_by_cells": 0.18070769984343746,
+        "accuracy": 0.30805538074260547,
+        "macro_f1": 0.22827172273204704,
+        "coverage": 0.0
+      },
+      "coarse": {
+        "accuracy_all": 0.24697275479313824,
+        "macro_f1_all_weighted_by_cells": 0.18070769984343746,
+        "accuracy": 0.30805538074260547,
+        "macro_f1": 0.22827172273204704,
+        "coverage": 0.0
+      }
+    },
+    "leave_sample_out": {
+      "fine": {
+        "accuracy_all": 0.20448946071721869,
+        "macro_f1_all_weighted_by_cells": 0.24603405908073525,
+        "accuracy": 0.2071547420965058,
+        "macro_f1": 0.2529589395380879,
+        "coverage": 0.0
+      },
+      "coarse": {
+        "accuracy_all": 0.20448946071721869,
+        "macro_f1_all_weighted_by_cells": 0.24603405908073525,
+        "accuracy": 0.2071547420965058,
+        "macro_f1": 0.2529589395380879,
+        "coverage": 0.0
+      }
+    },
+    "leave_species_out": {
+      "fine": {
+        "accuracy_all": 0.044147325933400594,
+        "macro_f1_all_weighted_by_cells": 0.0179087873508961,
+        "accuracy": 0.07897111913357402,
+        "macro_f1": 0.038238543056624386,
+        "coverage": 0.0
+      },
+      "coarse": {
+        "accuracy_all": 0.044147325933400594,
+        "macro_f1_all_weighted_by_cells": 0.0179087873508961,
+        "accuracy": 0.07897111913357402,
+        "macro_f1": 0.038238543056624386,
+        "coverage": 0.0
+      }
+    }
+  },
+  "gates": {
+    "candidate_embedding_finite": true,
+    "annotation_head_promotion": "manual_review_required"
+  }
+}
