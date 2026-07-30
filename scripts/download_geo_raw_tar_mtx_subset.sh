@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+project_root="${SNOWCELL_PROJECT_DIR:-$(cd "$(dirname "$0")/.." && pwd)}"
+cd "${project_root}"
 source .venv/bin/activate 2>/dev/null || true
 PYTHON_BIN="${SNOWCELL_PYTHON_BIN:-/root/miniconda3/envs/myconda/bin/python}"
 export PATH="$(dirname "${PYTHON_BIN}"):${PATH}"
@@ -17,14 +18,15 @@ h5_sample_regex="${SNOWCELL_GEO_H5_SAMPLE_REGEX:-${SNOWCELL_GEO_SAMPLE_REGEX:-fi
 h5_max_files="${SNOWCELL_GEO_H5_MAX_FILES:-${SNOWCELL_GEO_MAX_FILES:-25}}"
 h5_feature_column="${SNOWCELL_GEO_H5_FEATURE_COLUMN:-id}"
 
-raw_dir="data/public/${accession}_raw_tar"
-extract_dir="data/public/${accession}_mtx_extracted"
-h5_dir="data/public/${accession}_h5"
-npz_dir="data/public/${accession}_npz"
+public_data_root="${SNOWCELL_PUBLIC_DATA_ROOT:-data/public}"
+raw_dir="${public_data_root}/${accession}_raw_tar"
+extract_dir="${public_data_root}/${accession}_mtx_extracted"
+h5_dir="${public_data_root}/${accession}_h5"
+npz_dir="${public_data_root}/${accession}_npz"
 raw_tar="${raw_dir}/${accession}_RAW.tar"
 raw_tmp="${raw_tar}.download"
 raw_expected_bytes="${SNOWCELL_GEO_RAW_EXPECTED_BYTES:-}"
-manifest_output="data/corpus_manifest.${accession,,}.tsv"
+manifest_output="${SNOWCELL_GEO_MANIFEST_OUTPUT:-data/corpus_manifest.${accession,,}.tsv}"
 series_bucket="${accession%???}nnn"
 raw_url="${SNOWCELL_GEO_RAW_URL:-https://ftp.ncbi.nlm.nih.gov/geo/series/${series_bucket}/${accession}/suppl/${accession}_RAW.tar}"
 raw_fallback_url="${SNOWCELL_GEO_RAW_FALLBACK_URL:-https://www.ncbi.nlm.nih.gov/geo/download/?acc=${accession}&format=file}"
