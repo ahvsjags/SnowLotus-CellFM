@@ -3,9 +3,14 @@
   "generated_at": "2026-07-31 Asia/Shanghai",
   "formal_release": "Plant-CellFM v9",
   "formal_hardware_statement": "NVIDIA GeForce RTX 4090, 24 GB VRAM",
-  "source_commit": "35857f667bd277777e93373551a1e01707ce2c6d",
+  "source_commit": "resolved_from_generated_package_status",
   "github_branch": "https://github.com/ahvsjags/SnowLotus-CellFM/tree/agent/remote-pipeline-20260728",
-  "final_editor_zip_sha256": "f0dbad6f437557e481c5412d3a5dc21639cbe369cc39e200ccc0762ccca65500",
+  "final_editor_zip_sha256": "resolved_from_outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.status.json",
+  "authoritative_package_state_files": [
+    "outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.status.json",
+    "release_metadata/server_release_verification_v9.md",
+    "release_metadata/release_gate_completion_audit_v9.md"
+  ],
   "server_verifier_status": "pass",
   "release_gate_position": "release_ready_current_gates_pass",
   "frozen_v9_metrics": {

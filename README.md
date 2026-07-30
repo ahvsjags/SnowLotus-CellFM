@@ -22,7 +22,7 @@ Post-v9 continuation is running under the same RTX 4090 server environment but i
 - Root staging corpus: 4 scPlantDB H5AD files, 31,503 cells, 210,485 genes, 4 plant species, 4 tissues, 15 samples and 27 fine cell-type labels.
 - Training status: 2-epoch v10 scPlantDB LoRA continuation completed at `/root/snowlotus_cellfm_v10_scplantdb_lora_4090`.
 - Continuation metrics: test fine accuracy 0.0669 and coarse accuracy 0.0215; these values are diagnostic only and do not replace the v9 model.
-- Release gate: the frozen v9 package still verifies as pass at source commit `35857f667bd277777e93373551a1e01707ce2c6d` with final editor zip SHA256 `f0dbad6f437557e481c5412d3a5dc21639cbe369cc39e200ccc0762ccca65500`.
+- Release gate: the generated package status, server verifier and release-gate audit record the exact source commit and final editor zip SHA256 at packaging time. These generated files are the authority for mutable package hashes.
 
 The continuation evidence is recorded in `release_metadata/server_continuation_status_v10.md` and `release_metadata/current_publication_state_v10.md`.
 

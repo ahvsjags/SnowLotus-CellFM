@@ -12,9 +12,9 @@ The v10 scPlantDB continuation is now a real completed server run, not only a pl
 
 | Gate | Current value |
 | --- | --- |
-| Source commit | `35857f667bd277777e93373551a1e01707ce2c6d` |
+| Source commit | Resolved from the generated package status and server release-gate audit at packaging time. |
 | GitHub branch | `https://github.com/ahvsjags/SnowLotus-CellFM/tree/agent/remote-pipeline-20260728` |
-| Final editor zip SHA256 | `f0dbad6f437557e481c5412d3a5dc21639cbe369cc39e200ccc0762ccca65500` |
+| Final editor zip SHA256 | Resolved from `outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.status.json` and the server release-gate audit. |
 | Server verifier | `pass` |
 | Release gate position | `release_ready_current_gates_pass` |
 | Live service | `Plant-CellFM`, `plant_general`, `dynamic_all_plants`, `device=cuda`, 24 adapters |
