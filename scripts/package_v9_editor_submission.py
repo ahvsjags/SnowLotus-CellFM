@@ -128,6 +128,7 @@ ASSET_PATHS = [
     "scripts/queue_scplantdb_budgeted_h5ad_download.sh",
     "scripts/start_scplantdb_budgeted_h5ad_queue.sh",
     "scripts/write_server_continuation_status_v10.py",
+    "scripts/write_external_tool_environment.py",
 ]
 
 
