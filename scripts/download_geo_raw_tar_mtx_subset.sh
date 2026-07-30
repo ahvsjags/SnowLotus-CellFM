@@ -203,6 +203,17 @@ if find "$extract_dir" -type f -iname '*.gz' -print -quit | grep -q .; then
   rm -f "$gzip_validation_log"
 fi
 
+# Some GEO RAW archives contain sample-level tar.gz files inside the outer tar.
+# Expand valid nested archives before looking for Matrix Market triplets.
+while IFS= read -r -d '' nested_archive; do
+  if ! tar -tzf "$nested_archive" >/dev/null 2>&1; then
+    continue
+  fi
+  nested_target="${nested_archive%.tar.gz}"
+  mkdir -p "$nested_target"
+  tar -xzf "$nested_archive" -C "$nested_target"
+done < <(find "$extract_dir" -type f -iname '*.tar.gz' -print0)
+
 # GEO archives sometimes flatten multiple 10x triplets into one directory.
 # Re-home each complete triplet so the converter can preserve sample identity.
 "${PYTHON_BIN}" - "$extract_dir" <<'PY'
