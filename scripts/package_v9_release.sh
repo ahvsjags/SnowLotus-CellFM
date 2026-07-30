@@ -52,7 +52,7 @@ Service: http://127.0.0.1:8000
 Model scope: general plant single-cell embedding and annotation transfer
 EOF
 
-cat > "${PACKAGE}/MODEL_CARD.md" <<EOF
+cat > "${PACKAGE}/MODEL_CARD.md" <<'EOF'
 # SnowLotus-CellFM v9
 
 SnowLotus-CellFM v9 is a general plant single-cell foundation checkpoint with a shared-gene representation, hierarchical annotation heads, species-aware runtime adapters, embedding export, and annotation transfer.
