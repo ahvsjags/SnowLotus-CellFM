@@ -17,14 +17,14 @@ The current publication candidate is the v9 LoRA checkpoint trained on an audite
 
 The release reports both an internal held-out test and stricter cross-group evaluations. The latter are the appropriate evidence for cross-species generalization.
 
-| Evaluation | Fine accuracy | Fine macro-F1 |
-| --- | ---: | ---: |
-| Internal held-out test | 0.8113 | 0.3833 |
-| Leave-dataset-out | 0.5601 | 0.3485 |
-| Leave-sample-out | 0.6281 | 0.4902 |
-| Leave-species-out | 0.5282 | 0.2897 |
+| Evaluation | All-cell accuracy | Label coverage | Known-label conditional accuracy | Known-label conditional macro-F1 |
+| --- | ---: | ---: | ---: | ---: |
+| Internal held-out test | 0.8113 | n/a | n/a | 0.3833 |
+| Leave-dataset-out | 0.4490 | 0.8017 | 0.5601 | 0.3485 |
+| Leave-sample-out | 0.6200 | 0.9871 | 0.6281 | 0.4902 |
+| Leave-species-out | 0.3635 | 0.6882 | 0.5282 | 0.2897 |
 
-Against the frozen v3 baseline on the same shared-gene benchmark, fine accuracy improved by 30.81, 20.72 and 28.26 percentage points for leave-dataset, leave-sample and leave-species evaluation, respectively. All benchmark JSON, model checksums, training history and the 256-cell benchmark subset are included in the release package.
+The known-label conditional columns evaluate only test cells whose reference labels occur in the training fold. The all-cell accuracy column counts cells with unseen labels as errors, which is the appropriate open-set view for species holdout. Against the frozen v3 baseline on the same shared-gene benchmark, v9 all-cell accuracy improved by 24.70, 20.45 and 19.45 percentage points for leave-dataset, leave-sample and leave-species evaluation, respectively. All benchmark JSON, model checksums, training history and the 256-cell benchmark subset are included in the release package.
 
 ## Repositories and Release
 
@@ -69,7 +69,7 @@ The local regression suite passes with `PYTHONPATH=src pytest -q`. The release p
 
 ## Evidence Boundary
 
-This release supports the claim that Plant-CellFM is a reproducible, auditable cross-species plant expression foundation-model implementation with a callable adapter layer and measured gains over the v3 baseline on public plant matrices. The reported leave-species-out result is the principal generalization result; the internal held-out accuracy should not be presented as universal accuracy for every plant species.
+This release supports the claim that Plant-CellFM is a reproducible, auditable cross-species plant expression foundation-model implementation with a callable adapter layer and measured gains over the v3 baseline on public plant matrices. The leave-species-out result should be reported with both its 68.82% label coverage and 36.35% all-cell accuracy; the 52.82% and 0.2897 values are conditional on labels being present in the training fold. The internal held-out accuracy should not be presented as universal accuracy for every plant species.
 
 ## Citation
 

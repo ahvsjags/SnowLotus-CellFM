@@ -12,9 +12,10 @@ This release freezes the v9 LoRA checkpoint for reproducible review and manuscri
 
 - 56 manifest rows, 29 datasets and 21 plant species.
 - 13.78 million cells in the built v9 corpus.
-- Leave-dataset-out: accuracy 0.5601, macro-F1 0.3485.
-- Leave-sample-out: accuracy 0.6281, macro-F1 0.4902.
-- Leave-species-out: accuracy 0.5282, macro-F1 0.2897.
+- Leave-dataset-out: 44.90% all-cell accuracy at 80.17% coverage; 56.01% known-label conditional accuracy and macro-F1 0.3485.
+- Leave-sample-out: 62.00% all-cell accuracy at 98.71% coverage; 62.81% known-label conditional accuracy and macro-F1 0.4902.
+- Leave-species-out: 36.35% all-cell accuracy at 68.82% coverage; 52.82% known-label conditional accuracy and macro-F1 0.2897.
+- The conditional metrics are retained for comparability with the earlier benchmark, while all-cell accuracy is the primary open-set metric for species holdout.
 - Candidate embedding finite-value gate: passed.
 
 ## Integrity
