@@ -57,6 +57,10 @@ def file_exists(path: str) -> bool:
     return (ROOT / path).exists()
 
 
+def any_file_exists(paths: list[str]) -> bool:
+    return any(file_exists(path) for path in paths)
+
+
 def gate(name: str, status: str, evidence: str, interpretation: str) -> dict[str, str]:
     return {
         "gate": name,
@@ -69,8 +73,13 @@ def gate(name: str, status: str, evidence: str, interpretation: str) -> dict[str
 def build_audit() -> dict[str, Any]:
     status_path = OUTPUTS / "Plant_CellFM_v9_editor_submission_final.status.json"
     package_status = read_json(status_path)
-    verifier_path = OUTPUTS / "server_release_verification_v9.json"
-    verifier = read_json(verifier_path) if verifier_path.exists() else {}
+    verifier_paths = [
+        OUTPUTS / "server_release_verification_v9.json",
+        RELEASE / "server_release_verification_v9.json",
+    ]
+    verifier_path = next((path for path in verifier_paths if path.exists()), None)
+    verifier = read_json(verifier_path) if verifier_path else {}
+    verifier_status = str(verifier.get("overall_status", "not_available"))
     head = run_git(["rev-parse", "HEAD"])
     origin = run_git(["rev-parse", "origin/agent/remote-pipeline-20260728"])
     if head.startswith("unknown"):
@@ -105,7 +114,7 @@ def build_audit() -> dict[str, Any]:
         ),
         gate(
             "Live CUDA service",
-            "pass" if verifier.get("overall_status") == "pass" else "needs_review",
+            "pass" if verifier_status == "pass" else "needs_review",
             "`release_metadata/server_release_verification_v9.md` on server; `/health` returns `device=cuda`, `model_scope=plant_general`, `adapter_count=24`.",
             "The frozen Plant-CellFM v9 service is running and callable on CUDA.",
         ),
@@ -123,7 +132,7 @@ def build_audit() -> dict[str, Any]:
         ),
         gate(
             "Server release verifier",
-            "pass" if verifier.get("overall_status") == "pass" else "needs_review",
+            "pass" if verifier_status == "pass" else "needs_review",
             "Server-side `scripts/verify_v9_server_release.py` checks zip SHA, critical entries, recovery note, CUDA service, RTX 4090 and watchdog.",
             "The release can be rechecked without relying on chat history.",
         ),
@@ -147,8 +156,15 @@ def build_audit() -> dict[str, Any]:
         ),
         gate(
             "Third-party comparator disclosure",
-            "pass" if file_exists("release_metadata/external_benchmark_panel_v9.md") else "missing",
-            "`release_metadata/external_benchmark_panel_v9.md`; Seurat completed, scPlantLLM/scPlantAnnotate kept at audited execution boundaries.",
+            "pass"
+            if any_file_exists(
+                [
+                    "release_metadata/external_benchmark_panel_v9.md",
+                    "release_metadata/external_benchmark_panel_v9.json",
+                ]
+            )
+            else "missing",
+            "`release_metadata/external_benchmark_panel_v9.md/json`; Seurat completed, scPlantLLM/scPlantAnnotate kept at audited execution boundaries.",
             "The manuscript avoids unsupported claims over tools whose official execution is not closed.",
         ),
         gate(
@@ -165,7 +181,13 @@ def build_audit() -> dict[str, Any]:
         ),
     ]
 
-    completion_position = "release_ready_current_gates_pass" if github_gate_status == "pass" else "server_release_ready_github_push_blocked"
+    open_gate_statuses = sorted({item["status"] for item in gates if item["status"] != "pass"})
+    if not open_gate_statuses:
+        completion_position = "release_ready_current_gates_pass"
+    elif github_gate_status != "pass" and open_gate_statuses == ["blocked_external_auth"]:
+        completion_position = "server_release_ready_github_push_blocked"
+    else:
+        completion_position = "release_ready_with_review_items"
 
     return {
         "schema_version": "plant_cellfm_v9_release_gate_completion_audit_v1",
@@ -173,8 +195,10 @@ def build_audit() -> dict[str, Any]:
         "local_head": head,
         "origin_head": origin,
         "package_status": package_status,
-        "server_verifier_status": verifier.get("overall_status", "not_available"),
+        "server_verifier_path": str(verifier_path) if verifier_path else "not_available",
+        "server_verifier_status": verifier_status,
         "github_auth_status": gh_auth,
+        "open_gate_statuses": open_gate_statuses,
         "completion_position": completion_position,
         "gates": gates,
     }
@@ -209,7 +233,11 @@ def write_markdown(audit: dict[str, Any]) -> str:
         "",
         f"Final package SHA256: `{package['package_sha256']}`",
         "",
+        f"Server verifier path: `{audit['server_verifier_path']}`",
+        "",
         f"Server verifier status: `{audit['server_verifier_status']}`",
+        "",
+        f"Open gate statuses: `{', '.join(audit['open_gate_statuses']) if audit['open_gate_statuses'] else 'none'}`",
         "",
         f"Completion position: `{audit['completion_position']}`",
         "",
@@ -226,9 +254,14 @@ def write_markdown(audit: dict[str, Any]) -> str:
         lines.append(
             "The current release gates inspected by this audit are closed: the local source commit, observed GitHub branch head and package source commit are aligned, and the server verifier reports `pass`. Recovery files remain in the package as an additional reproducibility route, not as a substitute for GitHub synchronization."
         )
-    else:
+    elif audit["completion_position"] == "server_release_ready_github_push_blocked":
         lines.append(
             "The only gate not closed inside this environment is public GitHub branch synchronization. The blocker is workstation GitHub authentication or branch lag, not the Matpool SSH server or package integrity. The final zip therefore includes `GITHUB_SYNC_RECOVERY.md`, and the server stores bundle/patch/tar artifacts for reconstructing the packaged commit from the current public branch head."
+        )
+    else:
+        open_statuses = ", ".join(audit["open_gate_statuses"])
+        lines.append(
+            f"The release package is generated, but the gate audit still records review items with statuses: `{open_statuses}`. Inspect the gate matrix above before treating this package as fully closed."
         )
     lines.append("")
     return "\n".join(lines)
