@@ -125,9 +125,11 @@ ASSET_PATHS = [
     "scripts/check_disk_budget.sh",
     "scripts/start_public_queues_when_space.sh",
     "scripts/prepare_root_continuation_staging.sh",
+    "configs/generated/foundation_public_plants_v10_scplantdb_root_lora_4090.yaml",
     "scripts/download_scplantdb_h5ad_subset.sh",
     "scripts/queue_scplantdb_budgeted_h5ad_download.sh",
     "scripts/start_scplantdb_budgeted_h5ad_queue.sh",
+    "scripts/start_root_v10_scplantdb_lora_training.sh",
     "scripts/write_server_continuation_status_v10.py",
     "scripts/write_external_tool_environment.py",
 ]
