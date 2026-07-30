@@ -44,6 +44,9 @@ Release gate command:
 - `release_metadata/server_release_verification_v9.md (generated on server/outputs)`
 - `release_metadata/species_ontology_label_benchmark_v9.md`
 - `release_metadata/cross_species_classifier_benchmark_v10.md`
+- `release_metadata/revision_v11_fewshot_adapter_benchmark.md`
+- `release_metadata/revision_v11_runtime_head_benchmark.md`
+- `release_metadata/revision_v11_third_party_closure.md`
 - `release_metadata/algorithm_innovation_v10.md`
 - `release_metadata/open_set_calibration_v9.md`
 - `release_metadata/third_party_benchmark_contract_v10.md`
@@ -69,6 +72,11 @@ Release gate command:
 | STC centroid baseline known-label accuracy | 0.4228 |
 | STC leave-species macro-F1 | 0.2663 |
 | STC centroid baseline macro-F1 | 0.1922 |
+| v11 few-shot adapter, 8 support cells/species mean query all-cell accuracy | 0.5921 |
+| v11 few-shot adapter, 16 support cells/species mean query all-cell accuracy | 0.6734 |
+| v11 full-vocabulary runtime-head all-cell accuracy | 0.6625 |
+| v11 runtime-head covered-label accuracy | 0.6286 |
+| v11 runtime-head open-set-label accuracy | 0.7054 |
 | Ontology-label actionable coverage | 74.44% |
 | Ontology-label actionable all-cell accuracy | 14.97% |
 | Ontology-label known-label accuracy | 20.12% |
@@ -88,6 +96,8 @@ Multi-species scPlantDB public-data biology case contains `31503` cells, `4` spe
 - The current release is not Snow Lotus-only; Snow Lotus is a target-species adapter entry point under the same contract.
 - The strict leave-species result should be interpreted as open-set cross-species transfer evidence, not universal high-accuracy annotation for every plant species.
 - The STC layer improves strict frozen leave-species all-cell accuracy from 23.64% to 30.10% and known-label accuracy from 42.28% to 53.84% without training on held-out species labels.
+- The v11 few-shot target-adapter benchmark improves the practical new-species adaptation protocol above the 40% revision target: 8 random labeled support cells per target species reach 59.21% mean query all-cell accuracy.
+- The v11 runtime-head benchmark reports the deployable full-vocabulary annotation protocol at 66.25% all-cell accuracy, with covered-label and open-set-label performance separated.
 - The open-set calibration audit supports a high-confidence auto-annotation and low-confidence review workflow.
 - The release includes completed v3, centroid and Seurat comparators; scPlantLLM/scPlantAnnotate are disclosed through official-source benchmark contracts unless official runs are added later.
 - The Arabidopsis root and multi-species scPlantDB cases are public-data computational biology demonstrations with marker candidates, not wet-lab validation.
@@ -96,6 +106,7 @@ Multi-species scPlantDB public-data biology case contains `31503` cells, `4` spe
 
 - Do not claim a completed Snow Lotus single-cell atlas.
 - Do not claim universal high-accuracy zero-shot annotation for every plant species.
+- Do not present v11 few-shot adapter results as zero-shot leave-species results; they require labeled target-species support cells.
 - Do not claim official scPlantLLM/scPlantAnnotate numerical superiority without executable third-party metrics.
 - Do not cite early hardware planning notes as the formal hardware statement; use RTX 4090.
 - Do not treat 90+ evidence-readiness as 90+ raw cross-species accuracy.

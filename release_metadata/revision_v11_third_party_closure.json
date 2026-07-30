@@ -1,0 +1,44 @@
+{
+  "schema_version": "plant_cellfm_revision_v11_third_party_closure",
+  "generated": "2026-07-31 02:26 Asia/Shanghai",
+  "overall_status": "scplantllm_weight_download_in_progress",
+  "official_sources": {
+    "scPlantLLM_github": "https://github.com/compbioNJU/scPlantLLM",
+    "scPlantLLM_weight_lfs_oid": "baa24dc1e686b94aa08e7e7b08df17e1bb53e479416acf7f50cd032b0fabf416",
+    "scPlantLLM_paper_doi": "10.1093/gpbjnl/qzaf024",
+    "scPlantAnnotate_web": "https://scplantannotate.missouri.edu/",
+    "scPlantAnnotate_paper_doi": "10.1016/j.jare.2026.01.035"
+  },
+  "scplantllm": {
+    "weight": {
+      "path": "external/scPlantLLM/model_params/scPlantLLM_model.pth",
+      "exists": true,
+      "bytes": 2636096,
+      "expected_bytes": 431801156,
+      "sha256": "",
+      "expected_sha256": "baa24dc1e686b94aa08e7e7b08df17e1bb53e479416acf7f50cd032b0fabf416",
+      "status": "partial_or_in_progress",
+      "lfs_pointer_exists": true,
+      "lfs_pointer_text": "version https://git-lfs.github.com/spec/v1\noid sha256:baa24dc1e686b94aa08e7e7b08df17e1bb53e479416acf7f50cd032b0fabf416\nsize 431801156"
+    },
+    "probe": {
+      "path": "outputs/external_benchmarks/scplantllm_embedding_centroid_probe.json",
+      "exists": false,
+      "status": "missing_or_incomplete",
+      "accuracy": null,
+      "macro_f1": null,
+      "method": null
+    },
+    "closure_command": "/root/miniconda3/envs/myconda/bin/python scripts/run_scplantllm_embedding_centroid_probe.py --chunks-dir outputs/external_benchmarks/scplantllm_public_sprint_input/reference_preprocess/chunks --scplantllm-dir external/scPlantLLM --weight-path model_params/scPlantLLM_model.pth --device cuda --batch-size 8 --max-train 2048 --max-test 2048 --output outputs/external_benchmarks/scplantllm_embedding_centroid_probe.json"
+  },
+  "scplantannotate": {
+    "path": "outputs/external_benchmarks/scplantannotate_final_metrics.json",
+    "exists": false,
+    "status": "auth_or_export_pending",
+    "accuracy": null,
+    "macro_f1": null,
+    "username_env_present": false,
+    "password_env_present": false
+  },
+  "submission_rule": "Only completed metric JSON files with accuracy and macro-F1 are reportable as third-party numerical comparators. Official source reachability, input readiness or partial weight downloads are evidence of closure progress, not completed superiority claims."
+}

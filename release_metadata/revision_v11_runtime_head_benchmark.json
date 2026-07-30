@@ -1,0 +1,447 @@
+{
+  "schema_version": "plant_cellfm_revision_v11_runtime_head_benchmark",
+  "generated": "2026-07-31 02:42 Asia/Shanghai",
+  "input": {
+    "obs_tsv": "release_metadata/species_ontology_obs_labels_with_ids_v9.tsv",
+    "predictions_csv": "outputs/runtime_smoke_v9_annotation_20260730_1659/predictions.csv",
+    "stc_json": "release_metadata/cross_species_classifier_benchmark_v10.json",
+    "aligned_cells": 3964
+  },
+  "strict_lso_stc": {
+    "method": "knn_cosine_k9",
+    "groups": 8,
+    "n_test": 3964,
+    "n_evaluable": 2216,
+    "open_set_cells": 1748,
+    "coverage": 0.5590312815338042,
+    "accuracy_all": 0.30095862764883957,
+    "macro_f1_all_weighted_by_cells": 0.11723134198887732,
+    "accuracy": 0.5383574007220217,
+    "macro_f1": 0.26633049056895597
+  },
+  "strict_lso_label_coverage": {
+    "cells": 3964,
+    "n_evaluable": 2216,
+    "open_set_cells": 1748,
+    "coverage": 0.5590312815338042,
+    "known_label_accuracy_required_for_40pct_all_cell": 0.7155234657039712,
+    "per_species": [
+      {
+        "species": "Arabidopsis thaliana",
+        "cells": 2366,
+        "n_evaluable": 1024,
+        "open_set_cells": 1342,
+        "coverage": 0.4327979712595097
+      },
+      {
+        "species": "Brassica rapa",
+        "cells": 256,
+        "n_evaluable": 240,
+        "open_set_cells": 16,
+        "coverage": 0.9375
+      },
+      {
+        "species": "Catharanthus roseus",
+        "cells": 256,
+        "n_evaluable": 241,
+        "open_set_cells": 15,
+        "coverage": 0.94140625
+      },
+      {
+        "species": "Eutrema salsugineum",
+        "cells": 62,
+        "n_evaluable": 62,
+        "open_set_cells": 0,
+        "coverage": 1.0
+      },
+      {
+        "species": "Fragaria vesca",
+        "cells": 256,
+        "n_evaluable": 161,
+        "open_set_cells": 95,
+        "coverage": 0.62890625
+      },
+      {
+        "species": "Gossypium bickii",
+        "cells": 256,
+        "n_evaluable": 232,
+        "open_set_cells": 24,
+        "coverage": 0.90625
+      },
+      {
+        "species": "Gossypium hirsutum",
+        "cells": 256,
+        "n_evaluable": 0,
+        "open_set_cells": 256,
+        "coverage": 0.0
+      },
+      {
+        "species": "Triticum aestivum",
+        "cells": 256,
+        "n_evaluable": 256,
+        "open_set_cells": 0,
+        "coverage": 1.0
+      }
+    ]
+  },
+  "full_vocabulary_runtime_head": {
+    "cells": 3964,
+    "accuracy_all": 0.6624621594349143,
+    "coverage_decomposition": {
+      "cells": 3964,
+      "covered_cells": 2216,
+      "open_set_cells": 1748,
+      "covered_correct": 1393,
+      "open_set_correct": 1233,
+      "covered_accuracy": 0.6286101083032491,
+      "open_set_accuracy": 0.7053775743707094,
+      "covered_all_cell_contribution": 0.3514127144298688,
+      "open_set_all_cell_contribution": 0.3110494450050454,
+      "per_species": [
+        {
+          "species": "Arabidopsis thaliana",
+          "cells": 2366,
+          "covered_cells": 1024,
+          "open_set_cells": 1342,
+          "covered_accuracy": 0.740234375,
+          "open_set_accuracy": 0.8338301043219076,
+          "covered_all_cell_contribution": 0.32037193575655115,
+          "open_set_all_cell_contribution": 0.4729501267962806
+        },
+        {
+          "species": "Brassica rapa",
+          "cells": 256,
+          "covered_cells": 240,
+          "open_set_cells": 16,
+          "covered_accuracy": 0.7333333333333333,
+          "open_set_accuracy": 0.1875,
+          "covered_all_cell_contribution": 0.6875,
+          "open_set_all_cell_contribution": 0.01171875
+        },
+        {
+          "species": "Catharanthus roseus",
+          "cells": 256,
+          "covered_cells": 241,
+          "open_set_cells": 15,
+          "covered_accuracy": 0.0995850622406639,
+          "open_set_accuracy": 0.0,
+          "covered_all_cell_contribution": 0.09375,
+          "open_set_all_cell_contribution": 0.0
+        },
+        {
+          "species": "Eutrema salsugineum",
+          "cells": 62,
+          "covered_cells": 62,
+          "open_set_cells": 0,
+          "covered_accuracy": 0.9838709677419355,
+          "open_set_accuracy": null,
+          "covered_all_cell_contribution": 0.9838709677419355,
+          "open_set_all_cell_contribution": 0.0
+        },
+        {
+          "species": "Fragaria vesca",
+          "cells": 256,
+          "covered_cells": 161,
+          "open_set_cells": 95,
+          "covered_accuracy": 0.3167701863354037,
+          "open_set_accuracy": 0.9473684210526315,
+          "covered_all_cell_contribution": 0.19921875,
+          "open_set_all_cell_contribution": 0.3515625
+        },
+        {
+          "species": "Gossypium bickii",
+          "cells": 256,
+          "covered_cells": 232,
+          "open_set_cells": 24,
+          "covered_accuracy": 0.28879310344827586,
+          "open_set_accuracy": 0.875,
+          "covered_all_cell_contribution": 0.26171875,
+          "open_set_all_cell_contribution": 0.08203125
+        },
+        {
+          "species": "Gossypium hirsutum",
+          "cells": 256,
+          "covered_cells": 0,
+          "open_set_cells": 256,
+          "covered_accuracy": null,
+          "open_set_accuracy": 0.0,
+          "covered_all_cell_contribution": 0.0,
+          "open_set_all_cell_contribution": 0.0
+        },
+        {
+          "species": "Triticum aestivum",
+          "cells": 256,
+          "covered_cells": 256,
+          "open_set_cells": 0,
+          "covered_accuracy": 1.0,
+          "open_set_accuracy": null,
+          "covered_all_cell_contribution": 1.0,
+          "open_set_all_cell_contribution": 0.0
+        }
+      ]
+    },
+    "confidence_curve": [
+      {
+        "acceptance_rate": 0.3,
+        "accepted_cells": 1189,
+        "threshold": 0.8781,
+        "selective_accuracy": 0.9663582842724979,
+        "rejected_cells": 2775,
+        "rejected_error_capture": 0.9701046337817638
+      },
+      {
+        "acceptance_rate": 0.4,
+        "accepted_cells": 1586,
+        "threshold": 0.815479,
+        "selective_accuracy": 0.9281210592686002,
+        "rejected_cells": 2378,
+        "rejected_error_capture": 0.9147982062780269
+      },
+      {
+        "acceptance_rate": 0.5,
+        "accepted_cells": 1982,
+        "threshold": 0.758567,
+        "selective_accuracy": 0.8920282542885973,
+        "rejected_cells": 1982,
+        "rejected_error_capture": 0.8400597907324364
+      },
+      {
+        "acceptance_rate": 0.6,
+        "accepted_cells": 2378,
+        "threshold": 0.69526,
+        "selective_accuracy": 0.851555929352397,
+        "rejected_cells": 1586,
+        "rejected_error_capture": 0.7361733931240658
+      },
+      {
+        "acceptance_rate": 0.8,
+        "accepted_cells": 3171,
+        "threshold": 0.520279,
+        "selective_accuracy": 0.760643330179754,
+        "rejected_cells": 793,
+        "rejected_error_capture": 0.4327354260089686
+      },
+      {
+        "acceptance_rate": 1.0,
+        "accepted_cells": 3964,
+        "threshold": 0.18453,
+        "selective_accuracy": 0.6624621594349143,
+        "rejected_cells": 0,
+        "rejected_error_capture": 0.0
+      }
+    ],
+    "per_species": [
+      {
+        "species": "Arabidopsis thaliana",
+        "cells": 2366,
+        "accuracy_all": 0.7933220625528318,
+        "top_errors": [
+          {
+            "truth": "Mesophyll",
+            "prediction": "Xylem",
+            "count": 43
+          },
+          {
+            "truth": "Mesophyll",
+            "prediction": "Vascular tissue",
+            "count": 41
+          },
+          {
+            "truth": "stem cell niche",
+            "prediction": "proximal meristem",
+            "count": 32
+          },
+          {
+            "truth": "Unknow",
+            "prediction": "Root hair",
+            "count": 28
+          },
+          {
+            "truth": "Mesophyll",
+            "prediction": "Leaf pavement cell",
+            "count": 20
+          }
+        ]
+      },
+      {
+        "species": "Brassica rapa",
+        "cells": 256,
+        "accuracy_all": 0.69921875,
+        "top_errors": [
+          {
+            "truth": "Mesophyll",
+            "prediction": "Unknow",
+            "count": 45
+          },
+          {
+            "truth": "Bundle sheath",
+            "prediction": "Unknow",
+            "count": 12
+          },
+          {
+            "truth": "Vascular tissue",
+            "prediction": "Bundle sheath",
+            "count": 4
+          },
+          {
+            "truth": "Unknow",
+            "prediction": "Meristematic cell",
+            "count": 3
+          },
+          {
+            "truth": "Vascular tissue",
+            "prediction": "Leaf epidermis",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "species": "Catharanthus roseus",
+        "cells": 256,
+        "accuracy_all": 0.09375,
+        "top_errors": [
+          {
+            "truth": "Mesophyll",
+            "prediction": "Leaf epidermis",
+            "count": 109
+          },
+          {
+            "truth": "Mesophyll",
+            "prediction": "Phloem parenchyma",
+            "count": 69
+          },
+          {
+            "truth": "Idioblast cell",
+            "prediction": "Leaf epidermis",
+            "count": 14
+          },
+          {
+            "truth": "Unknow",
+            "prediction": "Leaf epidermis",
+            "count": 10
+          },
+          {
+            "truth": "Leaf epidermis",
+            "prediction": "Phloem parenchyma",
+            "count": 8
+          }
+        ]
+      },
+      {
+        "species": "Fragaria vesca",
+        "cells": 256,
+        "accuracy_all": 0.55078125,
+        "top_errors": [
+          {
+            "truth": "Mesophyll",
+            "prediction": "Hydathodes",
+            "count": 84
+          },
+          {
+            "truth": "Unknow",
+            "prediction": "Hydathodes",
+            "count": 8
+          },
+          {
+            "truth": "Mesophyll",
+            "prediction": "Xylem parenchyma",
+            "count": 8
+          },
+          {
+            "truth": "Unknow",
+            "prediction": "Xylem parenchyma",
+            "count": 6
+          },
+          {
+            "truth": "Xylem",
+            "prediction": "Xylem parenchyma",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "species": "Gossypium bickii",
+        "cells": 256,
+        "accuracy_all": 0.34375,
+        "top_errors": [
+          {
+            "truth": "Mesophyll",
+            "prediction": "Leaf epidermis",
+            "count": 52
+          },
+          {
+            "truth": "Mesophyll",
+            "prediction": "Procambium",
+            "count": 40
+          },
+          {
+            "truth": "Mesophyll",
+            "prediction": "Pigment gland",
+            "count": 35
+          },
+          {
+            "truth": "Mesophyll",
+            "prediction": "Phloem parenchyma",
+            "count": 8
+          },
+          {
+            "truth": "Xylem",
+            "prediction": "Leaf epidermis",
+            "count": 7
+          }
+        ]
+      },
+      {
+        "species": "Gossypium hirsutum",
+        "cells": 256,
+        "accuracy_all": 0.0,
+        "top_errors": [
+          {
+            "truth": "unannotated_leaf_glandular",
+            "prediction": "Phloem parenchyma",
+            "count": 219
+          },
+          {
+            "truth": "unannotated_leaf_glandular",
+            "prediction": "endodermis",
+            "count": 24
+          },
+          {
+            "truth": "unannotated_leaf_glandular",
+            "prediction": "unannotated_root",
+            "count": 12
+          },
+          {
+            "truth": "unannotated_leaf_glandular",
+            "prediction": "Leaf epidermis",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "species": "Triticum aestivum",
+        "cells": 256,
+        "accuracy_all": 1.0,
+        "top_errors": []
+      },
+      {
+        "species": "Eutrema salsugineum",
+        "cells": 62,
+        "accuracy_all": 0.9838709677419355,
+        "top_errors": [
+          {
+            "truth": "unannotated_root",
+            "prediction": "stem cell niche",
+            "count": 1
+          }
+        ]
+      }
+    ]
+  },
+  "revision_position": {
+    "strict_lso_status": "improved_to_30pct_but_not_40pct",
+    "runtime_head_status": "exceeds_40pct_all_cell",
+    "why_both_are_reported": "Strict LSO measures closed-training-label transfer; the runtime head measures the deployable full-vocabulary annotation system. They answer different reviewer questions and must not be merged."
+  },
+  "safe_revision_sentence": "For the revision, Plant-CellFM reports strict leave-species STC as the conservative transfer benchmark (0.3010 all-cell accuracy at 0.5590 coverage) and separately reports the deployable full-vocabulary runtime annotation head at 0.6625 all-cell accuracy on the same 3,964 aligned cross-species cells."
+}

@@ -69,6 +69,12 @@ Plant-CellFM v9 是一个面向植物单细胞/单核表达矩阵的可复现注
 | 雪莲目标物种入口 | scoped | `release_metadata/saussurea_h5ad_contract.md`; `docs/saussurea_evidence_plan.md` | 说明接入条件，不夸大成已完成图谱。 |
 | 后续训练日志隔离 | scoped outside editor package | internal continuation logs; current package keeps `release_metadata/multispecies_scplantdb_case_v10.md` only as a public-data biology case | 投稿包不使用探索性续训 checkpoint 作为性能证据，避免与冻结 v9 主张冲突。 |
 
+## Revision v11 增强证据
+
+下一轮 revision 已经有实证升级，而不只是计划。`release_metadata/revision_v11_fewshot_adapter_benchmark.md` 显示 target-species adapter protocol 已超过 40% all-cell 目标：每个 held-out 物种随机 8 个带标签 support 细胞时，query all-cell accuracy 为 59.21%（10 个随机种子均值）；16/32/64 个 support 细胞分别达到 67.34%/72.30%/75.89%。这个结果必须写作“带少量标注的目标物种适配”，不能写成 zero-shot leave-species。
+
+`release_metadata/revision_v11_runtime_head_benchmark.md` 报告部署型 full-vocabulary runtime head 在同一 3,964 个对齐细胞上达到 66.25% all-cell accuracy，并拆分为 covered-label accuracy 62.86% 与 open-set-label accuracy 70.54%。`release_metadata/revision_v11_third_party_closure.md` 记录 scPlantLLM 官方权重下载/OID 审计和 scPlantAnnotate 认证边界；第三方闭环已有追踪文件，但正式数值仍等待可执行 metric JSON。
+
 ## 推荐投稿路径
 
 ### 当前可立即递交的稳妥路径

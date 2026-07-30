@@ -1,0 +1,2319 @@
+{
+  "schema_version": "plant_cellfm_revision_v11_fewshot_target_adapter_benchmark",
+  "generated": "2026-07-31 02:42 Asia/Shanghai",
+  "inputs": {
+    "embeddings": "outputs/runtime_smoke_v9_annotation_20260730_1659/embeddings.npy",
+    "obs_tsv": "release_metadata/species_ontology_obs_labels_with_ids_v9.tsv",
+    "predictions_csv": "outputs/runtime_smoke_v9_annotation_20260730_1659/predictions.csv",
+    "stc_json": "release_metadata/cross_species_classifier_benchmark_v10.json",
+    "aligned_cells": 3964,
+    "species": 8,
+    "fine_labels": 40,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "protocol_boundary": "Few-shot target-species adapter calibration uses labeled support cells from the held-out species and evaluates only non-support query cells. It is a species-adaptation protocol, not a zero-shot leave-species classifier.",
+  "zero_shot_reference": {
+    "method": "knn_cosine_k9",
+    "groups": 8,
+    "n_test": 3964,
+    "n_evaluable": 2216,
+    "open_set_cells": 1748,
+    "coverage": 0.5590312815338042,
+    "accuracy_all": 0.30095862764883957,
+    "macro_f1_all_weighted_by_cells": 0.11723134198887732,
+    "accuracy": 0.5383574007220217,
+    "macro_f1": 0.26633049056895597
+  },
+  "summaries": [
+    {
+      "mode": "budgeted_random",
+      "support_value": 8,
+      "support_weight": 3,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "mean_accuracy_all_query": 0.5921282051282051,
+      "std_accuracy_all_query": 0.05519388454818828,
+      "min_accuracy_all_query": 0.49846153846153846,
+      "max_accuracy_all_query": 0.6715384615384615,
+      "mean_macro_f1_query": 0.21950524498524096,
+      "mean_support_cells": 64.0,
+      "mean_query_cells": 3900.0,
+      "representative_seed": 0,
+      "representative_per_species": [
+        {
+          "species": "Arabidopsis thaliana",
+          "test_cells": 2366,
+          "support_cells": 8,
+          "query_cells": 2358,
+          "support_labels": 6,
+          "query_labels": 29,
+          "accuracy_all_query": 0.5458015267175572,
+          "macro_f1_query": 0.1496014374860109,
+          "top_query_errors": [
+            {
+              "truth": "unannotated",
+              "prediction": "unannotated_root",
+              "count": 192
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Columella root cap",
+              "count": 60
+            },
+            {
+              "truth": "G2/M phase",
+              "prediction": "Columella root cap",
+              "count": 50
+            },
+            {
+              "truth": "Root cortex",
+              "prediction": "Phloem",
+              "count": 49
+            },
+            {
+              "truth": "stem cell niche",
+              "prediction": "proximal meristem",
+              "count": 48
+            }
+          ]
+        },
+        {
+          "species": "Brassica rapa",
+          "test_cells": 256,
+          "support_cells": 8,
+          "query_cells": 248,
+          "support_labels": 3,
+          "query_labels": 8,
+          "accuracy_all_query": 0.5967741935483871,
+          "macro_f1_query": 0.40086607381860595,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 36
+            },
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "Unknow",
+              "count": 19
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Mesophyll",
+              "count": 13
+            },
+            {
+              "truth": "Vascular tissue",
+              "prediction": "Unknow",
+              "count": 12
+            },
+            {
+              "truth": "Bundle sheath",
+              "prediction": "Unknow",
+              "count": 11
+            }
+          ]
+        },
+        {
+          "species": "Catharanthus roseus",
+          "test_cells": 256,
+          "support_cells": 8,
+          "query_cells": 248,
+          "support_labels": 4,
+          "query_labels": 7,
+          "accuracy_all_query": 0.532258064516129,
+          "macro_f1_query": 0.2169671769208125,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 60
+            },
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "Mesophyll",
+              "count": 13
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Mesophyll",
+              "count": 6
+            },
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "Unknow",
+              "count": 4
+            },
+            {
+              "truth": "Idioblast cell",
+              "prediction": "Mesophyll",
+              "count": 4
+            }
+          ]
+        },
+        {
+          "species": "Eutrema salsugineum",
+          "test_cells": 62,
+          "support_cells": 8,
+          "query_cells": 54,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 1.0,
+          "macro_f1_query": 1.0,
+          "top_query_errors": []
+        },
+        {
+          "species": "Fragaria vesca",
+          "test_cells": 256,
+          "support_cells": 8,
+          "query_cells": 248,
+          "support_labels": 2,
+          "query_labels": 8,
+          "accuracy_all_query": 0.6370967741935484,
+          "macro_f1_query": 0.24094078299685776,
+          "top_query_errors": [
+            {
+              "truth": "Hydathodes",
+              "prediction": "Mesophyll",
+              "count": 30
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Mesophyll",
+              "count": 14
+            },
+            {
+              "truth": "Adaxial epidermis",
+              "prediction": "Hydathodes",
+              "count": 13
+            },
+            {
+              "truth": "Xylem parenchyma",
+              "prediction": "Mesophyll",
+              "count": 8
+            },
+            {
+              "truth": "Abaxial epidermis",
+              "prediction": "Leaf epidermis",
+              "count": 7
+            }
+          ]
+        },
+        {
+          "species": "Gossypium bickii",
+          "test_cells": 256,
+          "support_cells": 8,
+          "query_cells": 248,
+          "support_labels": 3,
+          "query_labels": 8,
+          "accuracy_all_query": 0.6612903225806451,
+          "macro_f1_query": 0.2044835956563445,
+          "top_query_errors": [
+            {
+              "truth": "Procambium",
+              "prediction": "Mesophyll",
+              "count": 18
+            },
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "Mesophyll",
+              "count": 16
+            },
+            {
+              "truth": "Companion cell",
+              "prediction": "Leaf guard cell",
+              "count": 10
+            },
+            {
+              "truth": "Phloem parenchyma",
+              "prediction": "Leaf guard cell",
+              "count": 8
+            },
+            {
+              "truth": "Xylem",
+              "prediction": "Mesophyll",
+              "count": 6
+            }
+          ]
+        },
+        {
+          "species": "Gossypium hirsutum",
+          "test_cells": 256,
+          "support_cells": 8,
+          "query_cells": 248,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 0.9354838709677419,
+          "macro_f1_query": 0.48333333333333334,
+          "top_query_errors": [
+            {
+              "truth": "unannotated_leaf_glandular",
+              "prediction": "Mesophyll",
+              "count": 16
+            }
+          ]
+        },
+        {
+          "species": "Triticum aestivum",
+          "test_cells": 256,
+          "support_cells": 8,
+          "query_cells": 248,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 1.0,
+          "macro_f1_query": 1.0,
+          "top_query_errors": []
+        }
+      ]
+    },
+    {
+      "mode": "budgeted_random",
+      "support_value": 16,
+      "support_weight": 3,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "mean_accuracy_all_query": 0.6733646077664843,
+      "std_accuracy_all_query": 0.03552973245134992,
+      "min_accuracy_all_query": 0.5892624446181913,
+      "max_accuracy_all_query": 0.711753974459213,
+      "mean_macro_f1_query": 0.2903880527138898,
+      "mean_support_cells": 127.0,
+      "mean_query_cells": 3837.0,
+      "representative_seed": 0,
+      "representative_per_species": [
+        {
+          "species": "Arabidopsis thaliana",
+          "test_cells": 2366,
+          "support_cells": 16,
+          "query_cells": 2350,
+          "support_labels": 8,
+          "query_labels": 29,
+          "accuracy_all_query": 0.5936170212765958,
+          "macro_f1_query": 0.15891049698987528,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Xylem",
+              "count": 141
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Root hair",
+              "count": 59
+            },
+            {
+              "truth": "Vascular tissue",
+              "prediction": "Mesophyll",
+              "count": 57
+            },
+            {
+              "truth": "stem cell niche",
+              "prediction": "proximal meristem",
+              "count": 54
+            },
+            {
+              "truth": "Root cortex",
+              "prediction": "Phloem",
+              "count": 48
+            }
+          ]
+        },
+        {
+          "species": "Brassica rapa",
+          "test_cells": 256,
+          "support_cells": 16,
+          "query_cells": 240,
+          "support_labels": 5,
+          "query_labels": 8,
+          "accuracy_all_query": 0.6833333333333333,
+          "macro_f1_query": 0.5044909286757113,
+          "top_query_errors": [
+            {
+              "truth": "Unknow",
+              "prediction": "Mesophyll",
+              "count": 24
+            },
+            {
+              "truth": "Bundle sheath",
+              "prediction": "Unknow",
+              "count": 12
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 11
+            },
+            {
+              "truth": "Meristematic cell",
+              "prediction": "Unknow",
+              "count": 8
+            },
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "Unknow",
+              "count": 6
+            }
+          ]
+        },
+        {
+          "species": "Catharanthus roseus",
+          "test_cells": 256,
+          "support_cells": 16,
+          "query_cells": 240,
+          "support_labels": 5,
+          "query_labels": 7,
+          "accuracy_all_query": 0.7125,
+          "macro_f1_query": 0.17177301300266942,
+          "top_query_errors": [
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "Mesophyll",
+              "count": 23
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Mesophyll",
+              "count": 12
+            },
+            {
+              "truth": "Vascular tissue",
+              "prediction": "Mesophyll",
+              "count": 9
+            },
+            {
+              "truth": "Idioblast cell",
+              "prediction": "Mesophyll",
+              "count": 8
+            },
+            {
+              "truth": "Meristematic cell",
+              "prediction": "Mesophyll",
+              "count": 7
+            }
+          ]
+        },
+        {
+          "species": "Eutrema salsugineum",
+          "test_cells": 62,
+          "support_cells": 15,
+          "query_cells": 47,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 1.0,
+          "macro_f1_query": 1.0,
+          "top_query_errors": []
+        },
+        {
+          "species": "Fragaria vesca",
+          "test_cells": 256,
+          "support_cells": 16,
+          "query_cells": 240,
+          "support_labels": 3,
+          "query_labels": 8,
+          "accuracy_all_query": 0.5916666666666667,
+          "macro_f1_query": 0.2787788620931217,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Hydathodes",
+              "count": 28
+            },
+            {
+              "truth": "Hydathodes",
+              "prediction": "Mesophyll",
+              "count": 19
+            },
+            {
+              "truth": "Adaxial epidermis",
+              "prediction": "Hydathodes",
+              "count": 17
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Mesophyll",
+              "count": 9
+            },
+            {
+              "truth": "Abaxial epidermis",
+              "prediction": "Leaf epidermis",
+              "count": 7
+            }
+          ]
+        },
+        {
+          "species": "Gossypium bickii",
+          "test_cells": 256,
+          "support_cells": 16,
+          "query_cells": 240,
+          "support_labels": 5,
+          "query_labels": 8,
+          "accuracy_all_query": 0.7166666666666667,
+          "macro_f1_query": 0.4691614145658264,
+          "top_query_errors": [
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "Mesophyll",
+              "count": 17
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Procambium",
+              "count": 11
+            },
+            {
+              "truth": "Companion cell",
+              "prediction": "Phloem parenchyma",
+              "count": 9
+            },
+            {
+              "truth": "Xylem",
+              "prediction": "Mesophyll",
+              "count": 7
+            },
+            {
+              "truth": "Procambium",
+              "prediction": "Mesophyll",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "species": "Gossypium hirsutum",
+          "test_cells": 256,
+          "support_cells": 16,
+          "query_cells": 240,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 0.9958333333333333,
+          "macro_f1_query": 0.4989561586638831,
+          "top_query_errors": [
+            {
+              "truth": "unannotated_leaf_glandular",
+              "prediction": "unannotated_root",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "species": "Triticum aestivum",
+          "test_cells": 256,
+          "support_cells": 16,
+          "query_cells": 240,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 1.0,
+          "macro_f1_query": 1.0,
+          "top_query_errors": []
+        }
+      ]
+    },
+    {
+      "mode": "budgeted_random",
+      "support_value": 32,
+      "support_weight": 3,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "mean_accuracy_all_query": 0.723006711409396,
+      "std_accuracy_all_query": 0.015465883416090313,
+      "min_accuracy_all_query": 0.6810738255033557,
+      "max_accuracy_all_query": 0.7377181208053691,
+      "mean_macro_f1_query": 0.3647619689931273,
+      "mean_support_cells": 239.0,
+      "mean_query_cells": 3725.0,
+      "representative_seed": 0,
+      "representative_per_species": [
+        {
+          "species": "Arabidopsis thaliana",
+          "test_cells": 2366,
+          "support_cells": 32,
+          "query_cells": 2334,
+          "support_labels": 10,
+          "query_labels": 29,
+          "accuracy_all_query": 0.6739502999143102,
+          "macro_f1_query": 0.2137482929194866,
+          "top_query_errors": [
+            {
+              "truth": "stem cell niche",
+              "prediction": "proximal meristem",
+              "count": 57
+            },
+            {
+              "truth": "Vascular tissue",
+              "prediction": "Mesophyll",
+              "count": 53
+            },
+            {
+              "truth": "Root cortex",
+              "prediction": "Phloem",
+              "count": 46
+            },
+            {
+              "truth": "S phase",
+              "prediction": "G2/M phase",
+              "count": 42
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Xylem",
+              "count": 29
+            }
+          ]
+        },
+        {
+          "species": "Brassica rapa",
+          "test_cells": 256,
+          "support_cells": 32,
+          "query_cells": 224,
+          "support_labels": 6,
+          "query_labels": 8,
+          "accuracy_all_query": 0.7232142857142857,
+          "macro_f1_query": 0.5785575558237869,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 19
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Bundle sheath",
+              "count": 7
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Mesophyll",
+              "count": 6
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Bundle sheath",
+              "count": 6
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Leaf epidermis",
+              "count": 4
+            }
+          ]
+        },
+        {
+          "species": "Catharanthus roseus",
+          "test_cells": 256,
+          "support_cells": 32,
+          "query_cells": 224,
+          "support_labels": 6,
+          "query_labels": 7,
+          "accuracy_all_query": 0.7410714285714286,
+          "macro_f1_query": 0.2876339928181436,
+          "top_query_errors": [
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "Mesophyll",
+              "count": 11
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Mesophyll",
+              "count": 9
+            },
+            {
+              "truth": "Idioblast cell",
+              "prediction": "Meristematic cell",
+              "count": 7
+            },
+            {
+              "truth": "Vascular tissue",
+              "prediction": "Mesophyll",
+              "count": 6
+            },
+            {
+              "truth": "Meristematic cell",
+              "prediction": "Mesophyll",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "species": "Eutrema salsugineum",
+          "test_cells": 62,
+          "support_cells": 15,
+          "query_cells": 47,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 1.0,
+          "macro_f1_query": 1.0,
+          "top_query_errors": []
+        },
+        {
+          "species": "Fragaria vesca",
+          "test_cells": 256,
+          "support_cells": 32,
+          "query_cells": 224,
+          "support_labels": 6,
+          "query_labels": 8,
+          "accuracy_all_query": 0.6830357142857143,
+          "macro_f1_query": 0.615670508036423,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Hydathodes",
+              "count": 32
+            },
+            {
+              "truth": "Hydathodes",
+              "prediction": "Mesophyll",
+              "count": 11
+            },
+            {
+              "truth": "Xylem parenchyma",
+              "prediction": "Mesophyll",
+              "count": 7
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Mesophyll",
+              "count": 5
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "species": "Gossypium bickii",
+          "test_cells": 256,
+          "support_cells": 32,
+          "query_cells": 224,
+          "support_labels": 5,
+          "query_labels": 8,
+          "accuracy_all_query": 0.75,
+          "macro_f1_query": 0.4920085263835264,
+          "top_query_errors": [
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "Mesophyll",
+              "count": 9
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Leaf epidermis",
+              "count": 7
+            },
+            {
+              "truth": "Procambium",
+              "prediction": "Mesophyll",
+              "count": 6
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Procambium",
+              "count": 6
+            },
+            {
+              "truth": "Pigment gland",
+              "prediction": "Mesophyll",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "species": "Gossypium hirsutum",
+          "test_cells": 256,
+          "support_cells": 32,
+          "query_cells": 224,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 1.0,
+          "macro_f1_query": 1.0,
+          "top_query_errors": []
+        },
+        {
+          "species": "Triticum aestivum",
+          "test_cells": 256,
+          "support_cells": 32,
+          "query_cells": 224,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 1.0,
+          "macro_f1_query": 1.0,
+          "top_query_errors": []
+        }
+      ]
+    },
+    {
+      "mode": "budgeted_random",
+      "support_value": 64,
+      "support_weight": 3,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "mean_accuracy_all_query": 0.7588688946015425,
+      "std_accuracy_all_query": 0.016347973572391653,
+      "min_accuracy_all_query": 0.7232219365895458,
+      "max_accuracy_all_query": 0.7809197372179377,
+      "mean_macro_f1_query": 0.4619070119250499,
+      "mean_support_cells": 463.0,
+      "mean_query_cells": 3501.0,
+      "representative_seed": 0,
+      "representative_per_species": [
+        {
+          "species": "Arabidopsis thaliana",
+          "test_cells": 2366,
+          "support_cells": 64,
+          "query_cells": 2302,
+          "support_labels": 16,
+          "query_labels": 29,
+          "accuracy_all_query": 0.7267593397046047,
+          "macro_f1_query": 0.3410493041616619,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Xylem",
+              "count": 57
+            },
+            {
+              "truth": "Root cortex",
+              "prediction": "Root cap",
+              "count": 38
+            },
+            {
+              "truth": "proximal meristem",
+              "prediction": "stem cell niche",
+              "count": 37
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Root hair",
+              "count": 34
+            },
+            {
+              "truth": "S phase",
+              "prediction": "G2/M phase",
+              "count": 31
+            }
+          ]
+        },
+        {
+          "species": "Brassica rapa",
+          "test_cells": 256,
+          "support_cells": 64,
+          "query_cells": 192,
+          "support_labels": 6,
+          "query_labels": 8,
+          "accuracy_all_query": 0.734375,
+          "macro_f1_query": 0.641501420805535,
+          "top_query_errors": [
+            {
+              "truth": "Unknow",
+              "prediction": "Mesophyll",
+              "count": 12
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 10
+            },
+            {
+              "truth": "Bundle sheath",
+              "prediction": "Unknow",
+              "count": 8
+            },
+            {
+              "truth": "Vascular tissue",
+              "prediction": "Leaf epidermis",
+              "count": 4
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Bundle sheath",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "species": "Catharanthus roseus",
+          "test_cells": 256,
+          "support_cells": 64,
+          "query_cells": 192,
+          "support_labels": 6,
+          "query_labels": 7,
+          "accuracy_all_query": 0.7239583333333334,
+          "macro_f1_query": 0.3531252222143212,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Leaf epidermis",
+              "count": 10
+            },
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "Mesophyll",
+              "count": 9
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Mesophyll",
+              "count": 8
+            },
+            {
+              "truth": "Idioblast cell",
+              "prediction": "Mesophyll",
+              "count": 6
+            },
+            {
+              "truth": "Meristematic cell",
+              "prediction": "Mesophyll",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "species": "Eutrema salsugineum",
+          "test_cells": 62,
+          "support_cells": 15,
+          "query_cells": 47,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 1.0,
+          "macro_f1_query": 1.0,
+          "top_query_errors": []
+        },
+        {
+          "species": "Fragaria vesca",
+          "test_cells": 256,
+          "support_cells": 64,
+          "query_cells": 192,
+          "support_labels": 6,
+          "query_labels": 8,
+          "accuracy_all_query": 0.6302083333333334,
+          "macro_f1_query": 0.3918859649122807,
+          "top_query_errors": [
+            {
+              "truth": "Hydathodes",
+              "prediction": "Mesophyll",
+              "count": 19
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Hydathodes",
+              "count": 18
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Mesophyll",
+              "count": 10
+            },
+            {
+              "truth": "Abaxial epidermis",
+              "prediction": "Leaf epidermis",
+              "count": 6
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "species": "Gossypium bickii",
+          "test_cells": 256,
+          "support_cells": 64,
+          "query_cells": 192,
+          "support_labels": 5,
+          "query_labels": 8,
+          "accuracy_all_query": 0.7291666666666666,
+          "macro_f1_query": 0.46526482776482775,
+          "top_query_errors": [
+            {
+              "truth": "Procambium",
+              "prediction": "Mesophyll",
+              "count": 7
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Leaf epidermis",
+              "count": 7
+            },
+            {
+              "truth": "Xylem",
+              "prediction": "Mesophyll",
+              "count": 6
+            },
+            {
+              "truth": "Pigment gland",
+              "prediction": "Mesophyll",
+              "count": 5
+            },
+            {
+              "truth": "Xylem",
+              "prediction": "Leaf epidermis",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "species": "Gossypium hirsutum",
+          "test_cells": 256,
+          "support_cells": 64,
+          "query_cells": 192,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 1.0,
+          "macro_f1_query": 1.0,
+          "top_query_errors": []
+        },
+        {
+          "species": "Triticum aestivum",
+          "test_cells": 256,
+          "support_cells": 64,
+          "query_cells": 192,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 1.0,
+          "macro_f1_query": 1.0,
+          "top_query_errors": []
+        }
+      ]
+    },
+    {
+      "mode": "stratified_per_label",
+      "support_value": 1,
+      "support_weight": 1,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "mean_accuracy_all_query": 0.4566521404768008,
+      "std_accuracy_all_query": 0.028932701814238276,
+      "min_accuracy_all_query": 0.407075108946424,
+      "max_accuracy_all_query": 0.4975647269930787,
+      "mean_macro_f1_query": 0.39631350721318137,
+      "mean_support_cells": 63.0,
+      "mean_query_cells": 3901.0,
+      "representative_seed": 0,
+      "representative_per_species": [
+        {
+          "species": "Arabidopsis thaliana",
+          "test_cells": 2366,
+          "support_cells": 29,
+          "query_cells": 2337,
+          "support_labels": 29,
+          "query_labels": 28,
+          "accuracy_all_query": 0.42362002567394097,
+          "macro_f1_query": 0.2968158905128965,
+          "top_query_errors": [
+            {
+              "truth": "unannotated",
+              "prediction": "unannotated_root",
+              "count": 380
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Vascular tissue",
+              "count": 173
+            },
+            {
+              "truth": "Root cortex",
+              "prediction": "Phloem",
+              "count": 46
+            },
+            {
+              "truth": "G2/M phase",
+              "prediction": "Root cortex",
+              "count": 46
+            },
+            {
+              "truth": "proximal meristem",
+              "prediction": "unannotated_root",
+              "count": 45
+            }
+          ]
+        },
+        {
+          "species": "Brassica rapa",
+          "test_cells": 256,
+          "support_cells": 8,
+          "query_cells": 248,
+          "support_labels": 8,
+          "query_labels": 6,
+          "accuracy_all_query": 0.6451612903225806,
+          "macro_f1_query": 0.4440781907142008,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 29
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Bundle sheath",
+              "count": 15
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Bundle sheath",
+              "count": 8
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "G2/M phase",
+              "count": 5
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Leaf epidermis",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "species": "Catharanthus roseus",
+          "test_cells": 256,
+          "support_cells": 7,
+          "query_cells": 249,
+          "support_labels": 7,
+          "query_labels": 7,
+          "accuracy_all_query": 0.14859437751004015,
+          "macro_f1_query": 0.22121513951213337,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "unannotated_leaf_glandular",
+              "count": 103
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 48
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Vascular tissue",
+              "count": 12
+            },
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "unannotated_leaf_glandular",
+              "count": 10
+            },
+            {
+              "truth": "Idioblast cell",
+              "prediction": "unannotated_leaf_glandular",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "species": "Eutrema salsugineum",
+          "test_cells": 62,
+          "support_cells": 1,
+          "query_cells": 61,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 0.9836065573770492,
+          "macro_f1_query": 0.49586776859504134,
+          "top_query_errors": [
+            {
+              "truth": "unannotated_root",
+              "prediction": "Idioblast cell",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "species": "Fragaria vesca",
+          "test_cells": 256,
+          "support_cells": 8,
+          "query_cells": 248,
+          "support_labels": 8,
+          "query_labels": 8,
+          "accuracy_all_query": 0.592741935483871,
+          "macro_f1_query": 0.43097320433626884,
+          "top_query_errors": [
+            {
+              "truth": "Hydathodes",
+              "prediction": "Mesophyll",
+              "count": 53
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Hydathodes",
+              "count": 11
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 7
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Xylem parenchyma",
+              "count": 4
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Hydathodes",
+              "count": 4
+            }
+          ]
+        },
+        {
+          "species": "Gossypium bickii",
+          "test_cells": 256,
+          "support_cells": 8,
+          "query_cells": 248,
+          "support_labels": 8,
+          "query_labels": 8,
+          "accuracy_all_query": 0.5,
+          "macro_f1_query": 0.460389170330889,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Leaf epidermis",
+              "count": 39
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Xylem",
+              "count": 26
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Pigment gland",
+              "count": 8
+            },
+            {
+              "truth": "Phloem parenchyma",
+              "prediction": "Companion cell",
+              "count": 8
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Procambium",
+              "count": 7
+            }
+          ]
+        },
+        {
+          "species": "Gossypium hirsutum",
+          "test_cells": 256,
+          "support_cells": 1,
+          "query_cells": 255,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 0.07450980392156863,
+          "macro_f1_query": 0.03467153284671533,
+          "top_query_errors": [
+            {
+              "truth": "unannotated_leaf_glandular",
+              "prediction": "Mesophyll",
+              "count": 223
+            },
+            {
+              "truth": "unannotated_leaf_glandular",
+              "prediction": "unannotated_root",
+              "count": 12
+            },
+            {
+              "truth": "unannotated_leaf_glandular",
+              "prediction": "endodermis",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "species": "Triticum aestivum",
+          "test_cells": 256,
+          "support_cells": 1,
+          "query_cells": 255,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 1.0,
+          "macro_f1_query": 1.0,
+          "top_query_errors": []
+        }
+      ]
+    },
+    {
+      "mode": "stratified_per_label",
+      "support_value": 1,
+      "support_weight": 3,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "mean_accuracy_all_query": 0.5683670853627275,
+      "std_accuracy_all_query": 0.04700058553052766,
+      "min_accuracy_all_query": 0.4850038451679057,
+      "max_accuracy_all_query": 0.6626506024096386,
+      "mean_macro_f1_query": 0.47240326989477277,
+      "mean_support_cells": 63.0,
+      "mean_query_cells": 3901.0,
+      "representative_seed": 0,
+      "representative_per_species": [
+        {
+          "species": "Arabidopsis thaliana",
+          "test_cells": 2366,
+          "support_cells": 29,
+          "query_cells": 2337,
+          "support_labels": 29,
+          "query_labels": 28,
+          "accuracy_all_query": 0.5228925973470261,
+          "macro_f1_query": 0.3870895031182421,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Vascular tissue",
+              "count": 231
+            },
+            {
+              "truth": "unannotated",
+              "prediction": "unannotated_root",
+              "count": 221
+            },
+            {
+              "truth": "G2/M phase",
+              "prediction": "Root cortex",
+              "count": 46
+            },
+            {
+              "truth": "Vascular tissue",
+              "prediction": "Shoot apical meristem",
+              "count": 34
+            },
+            {
+              "truth": "S phase",
+              "prediction": "G2/M phase",
+              "count": 25
+            }
+          ]
+        },
+        {
+          "species": "Brassica rapa",
+          "test_cells": 256,
+          "support_cells": 8,
+          "query_cells": 248,
+          "support_labels": 8,
+          "query_labels": 6,
+          "accuracy_all_query": 0.4879032258064516,
+          "macro_f1_query": 0.4552353568214081,
+          "top_query_errors": [
+            {
+              "truth": "Unknow",
+              "prediction": "Bundle sheath",
+              "count": 42
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Bundle sheath",
+              "count": 22
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 20
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Mesophyll",
+              "count": 9
+            },
+            {
+              "truth": "Vascular tissue",
+              "prediction": "Mesophyll",
+              "count": 8
+            }
+          ]
+        },
+        {
+          "species": "Catharanthus roseus",
+          "test_cells": 256,
+          "support_cells": 7,
+          "query_cells": 249,
+          "support_labels": 7,
+          "query_labels": 7,
+          "accuracy_all_query": 0.1646586345381526,
+          "macro_f1_query": 0.23214447948255226,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "unannotated_leaf_glandular",
+              "count": 66
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 53
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Vascular tissue",
+              "count": 44
+            },
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "Vascular tissue",
+              "count": 7
+            },
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "unannotated_leaf_glandular",
+              "count": 6
+            }
+          ]
+        },
+        {
+          "species": "Eutrema salsugineum",
+          "test_cells": 62,
+          "support_cells": 1,
+          "query_cells": 61,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 1.0,
+          "macro_f1_query": 1.0,
+          "top_query_errors": []
+        },
+        {
+          "species": "Fragaria vesca",
+          "test_cells": 256,
+          "support_cells": 8,
+          "query_cells": 248,
+          "support_labels": 8,
+          "query_labels": 8,
+          "accuracy_all_query": 0.49193548387096775,
+          "macro_f1_query": 0.5691115511919119,
+          "top_query_errors": [
+            {
+              "truth": "Hydathodes",
+              "prediction": "Mesophyll",
+              "count": 33
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Hydathodes",
+              "count": 27
+            },
+            {
+              "truth": "Hydathodes",
+              "prediction": "Unknow",
+              "count": 21
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 20
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Xylem parenchyma",
+              "count": 7
+            }
+          ]
+        },
+        {
+          "species": "Gossypium bickii",
+          "test_cells": 256,
+          "support_cells": 8,
+          "query_cells": 248,
+          "support_labels": 8,
+          "query_labels": 8,
+          "accuracy_all_query": 0.5040322580645161,
+          "macro_f1_query": 0.3790385776824413,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Leaf epidermis",
+              "count": 29
+            },
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "Xylem",
+              "count": 16
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Phloem parenchyma",
+              "count": 12
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Pigment gland",
+              "count": 11
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Procambium",
+              "count": 10
+            }
+          ]
+        },
+        {
+          "species": "Gossypium hirsutum",
+          "test_cells": 256,
+          "support_cells": 1,
+          "query_cells": 255,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 0.6588235294117647,
+          "macro_f1_query": 0.2647754137115839,
+          "top_query_errors": [
+            {
+              "truth": "unannotated_leaf_glandular",
+              "prediction": "Mesophyll",
+              "count": 75
+            },
+            {
+              "truth": "unannotated_leaf_glandular",
+              "prediction": "unannotated_root",
+              "count": 12
+            }
+          ]
+        },
+        {
+          "species": "Triticum aestivum",
+          "test_cells": 256,
+          "support_cells": 1,
+          "query_cells": 255,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 1.0,
+          "macro_f1_query": 1.0,
+          "top_query_errors": []
+        }
+      ]
+    },
+    {
+      "mode": "stratified_per_label",
+      "support_value": 3,
+      "support_weight": 3,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "mean_accuracy_all_query": 0.6873049457815392,
+      "std_accuracy_all_query": 0.024717533842317917,
+      "min_accuracy_all_query": 0.6492991272150225,
+      "max_accuracy_all_query": 0.7204443268976461,
+      "mean_macro_f1_query": 0.5355974650619081,
+      "mean_support_cells": 183.0,
+      "mean_query_cells": 3781.0,
+      "representative_seed": 0,
+      "representative_per_species": [
+        {
+          "species": "Arabidopsis thaliana",
+          "test_cells": 2366,
+          "support_cells": 85,
+          "query_cells": 2281,
+          "support_labels": 29,
+          "query_labels": 27,
+          "accuracy_all_query": 0.6492766330556773,
+          "macro_f1_query": 0.4834160884149187,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Vascular tissue",
+              "count": 231
+            },
+            {
+              "truth": "proximal meristem",
+              "prediction": "stem cell niche",
+              "count": 68
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Xylem",
+              "count": 57
+            },
+            {
+              "truth": "G2/M phase",
+              "prediction": "S phase",
+              "count": 32
+            },
+            {
+              "truth": "S phase",
+              "prediction": "Shoot system epidermis",
+              "count": 26
+            }
+          ]
+        },
+        {
+          "species": "Brassica rapa",
+          "test_cells": 256,
+          "support_cells": 20,
+          "query_cells": 236,
+          "support_labels": 8,
+          "query_labels": 6,
+          "accuracy_all_query": 0.5847457627118644,
+          "macro_f1_query": 0.5879863792513639,
+          "top_query_errors": [
+            {
+              "truth": "Unknow",
+              "prediction": "Mesophyll",
+              "count": 44
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Bundle sheath",
+              "count": 15
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Leaf epidermis",
+              "count": 7
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Vascular tissue",
+              "count": 5
+            },
+            {
+              "truth": "Bundle sheath",
+              "prediction": "Vascular tissue",
+              "count": 4
+            }
+          ]
+        },
+        {
+          "species": "Catharanthus roseus",
+          "test_cells": 256,
+          "support_cells": 21,
+          "query_cells": 235,
+          "support_labels": 7,
+          "query_labels": 6,
+          "accuracy_all_query": 0.26382978723404255,
+          "macro_f1_query": 0.21998199872179605,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 97
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Vascular tissue",
+              "count": 16
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Leaf epidermis",
+              "count": 10
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Meristematic cell",
+              "count": 10
+            },
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "Vascular tissue",
+              "count": 9
+            }
+          ]
+        },
+        {
+          "species": "Eutrema salsugineum",
+          "test_cells": 62,
+          "support_cells": 3,
+          "query_cells": 59,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 1.0,
+          "macro_f1_query": 1.0,
+          "top_query_errors": []
+        },
+        {
+          "species": "Fragaria vesca",
+          "test_cells": 256,
+          "support_cells": 24,
+          "query_cells": 232,
+          "support_labels": 8,
+          "query_labels": 8,
+          "accuracy_all_query": 0.646551724137931,
+          "macro_f1_query": 0.6211843711843712,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Hydathodes",
+              "count": 21
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 18
+            },
+            {
+              "truth": "Hydathodes",
+              "prediction": "Mesophyll",
+              "count": 10
+            },
+            {
+              "truth": "Hydathodes",
+              "prediction": "Unknow",
+              "count": 9
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Xylem parenchyma",
+              "count": 7
+            }
+          ]
+        },
+        {
+          "species": "Gossypium bickii",
+          "test_cells": 256,
+          "support_cells": 24,
+          "query_cells": 232,
+          "support_labels": 8,
+          "query_labels": 8,
+          "accuracy_all_query": 0.5905172413793104,
+          "macro_f1_query": 0.4280420616256495,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Xylem",
+              "count": 25
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Procambium",
+              "count": 24
+            },
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "Mesophyll",
+              "count": 6
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Pigment gland",
+              "count": 6
+            },
+            {
+              "truth": "Phloem parenchyma",
+              "prediction": "Companion cell",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "species": "Gossypium hirsutum",
+          "test_cells": 256,
+          "support_cells": 3,
+          "query_cells": 253,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 0.9446640316205533,
+          "macro_f1_query": 0.3238482384823848,
+          "top_query_errors": [
+            {
+              "truth": "unannotated_leaf_glandular",
+              "prediction": "Mesophyll",
+              "count": 13
+            },
+            {
+              "truth": "unannotated_leaf_glandular",
+              "prediction": "unannotated_root",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "species": "Triticum aestivum",
+          "test_cells": 256,
+          "support_cells": 3,
+          "query_cells": 253,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 1.0,
+          "macro_f1_query": 1.0,
+          "top_query_errors": []
+        }
+      ]
+    },
+    {
+      "mode": "stratified_per_label",
+      "support_value": 5,
+      "support_weight": 1,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "mean_accuracy_all_query": 0.7308153804199619,
+      "std_accuracy_all_query": 0.01435899632095285,
+      "min_accuracy_all_query": 0.7052086173984183,
+      "max_accuracy_all_query": 0.7551131715298609,
+      "mean_macro_f1_query": 0.5464866397723872,
+      "mean_support_cells": 297.0,
+      "mean_query_cells": 3667.0,
+      "representative_seed": 0,
+      "representative_per_species": [
+        {
+          "species": "Arabidopsis thaliana",
+          "test_cells": 2366,
+          "support_cells": 139,
+          "query_cells": 2227,
+          "support_labels": 29,
+          "query_labels": 27,
+          "accuracy_all_query": 0.7521329142343961,
+          "macro_f1_query": 0.5153425896986045,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Leaf pavement cell",
+              "count": 74
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Xylem",
+              "count": 45
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Shoot apical meristem",
+              "count": 29
+            },
+            {
+              "truth": "stem cell niche",
+              "prediction": "proximal meristem",
+              "count": 25
+            },
+            {
+              "truth": "S phase",
+              "prediction": "G2/M phase",
+              "count": 23
+            }
+          ]
+        },
+        {
+          "species": "Brassica rapa",
+          "test_cells": 256,
+          "support_cells": 32,
+          "query_cells": 224,
+          "support_labels": 8,
+          "query_labels": 6,
+          "accuracy_all_query": 0.5803571428571429,
+          "macro_f1_query": 0.5786148701680988,
+          "top_query_errors": [
+            {
+              "truth": "Unknow",
+              "prediction": "Bundle sheath",
+              "count": 43
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 15
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Bundle sheath",
+              "count": 10
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Mesophyll",
+              "count": 6
+            },
+            {
+              "truth": "Leaf epidermis",
+              "prediction": "Vascular tissue",
+              "count": 4
+            }
+          ]
+        },
+        {
+          "species": "Catharanthus roseus",
+          "test_cells": 256,
+          "support_cells": 33,
+          "query_cells": 223,
+          "support_labels": 7,
+          "query_labels": 6,
+          "accuracy_all_query": 0.4439461883408072,
+          "macro_f1_query": 0.24606280643462053,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 58
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Leaf epidermis",
+              "count": 17
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Vascular tissue",
+              "count": 14
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Meristematic cell",
+              "count": 5
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "unannotated_leaf_glandular",
+              "count": 4
+            }
+          ]
+        },
+        {
+          "species": "Eutrema salsugineum",
+          "test_cells": 62,
+          "support_cells": 5,
+          "query_cells": 57,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 0.9824561403508771,
+          "macro_f1_query": 0.49557522123893805,
+          "top_query_errors": [
+            {
+              "truth": "unannotated_root",
+              "prediction": "Idioblast cell",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "species": "Fragaria vesca",
+          "test_cells": 256,
+          "support_cells": 39,
+          "query_cells": 217,
+          "support_labels": 8,
+          "query_labels": 6,
+          "accuracy_all_query": 0.6405529953917051,
+          "macro_f1_query": 0.6841757862874859,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Hydathodes",
+              "count": 38
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Unknow",
+              "count": 20
+            },
+            {
+              "truth": "Hydathodes",
+              "prediction": "Mesophyll",
+              "count": 7
+            },
+            {
+              "truth": "Unknow",
+              "prediction": "Mesophyll",
+              "count": 3
+            },
+            {
+              "truth": "Hydathodes",
+              "prediction": "Unknow",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "species": "Gossypium bickii",
+          "test_cells": 256,
+          "support_cells": 39,
+          "query_cells": 217,
+          "support_labels": 8,
+          "query_labels": 6,
+          "accuracy_all_query": 0.6175115207373272,
+          "macro_f1_query": 0.4374337292600442,
+          "top_query_errors": [
+            {
+              "truth": "Mesophyll",
+              "prediction": "Procambium",
+              "count": 23
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Xylem",
+              "count": 10
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Pigment gland",
+              "count": 10
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Phloem parenchyma",
+              "count": 7
+            },
+            {
+              "truth": "Mesophyll",
+              "prediction": "Leaf epidermis",
+              "count": 6
+            }
+          ]
+        },
+        {
+          "species": "Gossypium hirsutum",
+          "test_cells": 256,
+          "support_cells": 5,
+          "query_cells": 251,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 0.9322709163346613,
+          "macro_f1_query": 0.3216494845360825,
+          "top_query_errors": [
+            {
+              "truth": "unannotated_leaf_glandular",
+              "prediction": "unannotated_root",
+              "count": 10
+            },
+            {
+              "truth": "unannotated_leaf_glandular",
+              "prediction": "Mesophyll",
+              "count": 7
+            }
+          ]
+        },
+        {
+          "species": "Triticum aestivum",
+          "test_cells": 256,
+          "support_cells": 5,
+          "query_cells": 251,
+          "support_labels": 1,
+          "query_labels": 1,
+          "accuracy_all_query": 1.0,
+          "macro_f1_query": 1.0,
+          "top_query_errors": []
+        }
+      ]
+    }
+  ],
+  "best_summary": {
+    "mode": "budgeted_random",
+    "support_value": 64,
+    "support_weight": 3,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "mean_accuracy_all_query": 0.7588688946015425,
+    "std_accuracy_all_query": 0.016347973572391653,
+    "min_accuracy_all_query": 0.7232219365895458,
+    "max_accuracy_all_query": 0.7809197372179377,
+    "mean_macro_f1_query": 0.4619070119250499,
+    "mean_support_cells": 463.0,
+    "mean_query_cells": 3501.0,
+    "representative_seed": 0,
+    "representative_per_species": [
+      {
+        "species": "Arabidopsis thaliana",
+        "test_cells": 2366,
+        "support_cells": 64,
+        "query_cells": 2302,
+        "support_labels": 16,
+        "query_labels": 29,
+        "accuracy_all_query": 0.7267593397046047,
+        "macro_f1_query": 0.3410493041616619,
+        "top_query_errors": [
+          {
+            "truth": "Mesophyll",
+            "prediction": "Xylem",
+            "count": 57
+          },
+          {
+            "truth": "Root cortex",
+            "prediction": "Root cap",
+            "count": 38
+          },
+          {
+            "truth": "proximal meristem",
+            "prediction": "stem cell niche",
+            "count": 37
+          },
+          {
+            "truth": "Unknow",
+            "prediction": "Root hair",
+            "count": 34
+          },
+          {
+            "truth": "S phase",
+            "prediction": "G2/M phase",
+            "count": 31
+          }
+        ]
+      },
+      {
+        "species": "Brassica rapa",
+        "test_cells": 256,
+        "support_cells": 64,
+        "query_cells": 192,
+        "support_labels": 6,
+        "query_labels": 8,
+        "accuracy_all_query": 0.734375,
+        "macro_f1_query": 0.641501420805535,
+        "top_query_errors": [
+          {
+            "truth": "Unknow",
+            "prediction": "Mesophyll",
+            "count": 12
+          },
+          {
+            "truth": "Mesophyll",
+            "prediction": "Unknow",
+            "count": 10
+          },
+          {
+            "truth": "Bundle sheath",
+            "prediction": "Unknow",
+            "count": 8
+          },
+          {
+            "truth": "Vascular tissue",
+            "prediction": "Leaf epidermis",
+            "count": 4
+          },
+          {
+            "truth": "Unknow",
+            "prediction": "Bundle sheath",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "species": "Catharanthus roseus",
+        "test_cells": 256,
+        "support_cells": 64,
+        "query_cells": 192,
+        "support_labels": 6,
+        "query_labels": 7,
+        "accuracy_all_query": 0.7239583333333334,
+        "macro_f1_query": 0.3531252222143212,
+        "top_query_errors": [
+          {
+            "truth": "Mesophyll",
+            "prediction": "Leaf epidermis",
+            "count": 10
+          },
+          {
+            "truth": "Leaf epidermis",
+            "prediction": "Mesophyll",
+            "count": 9
+          },
+          {
+            "truth": "Unknow",
+            "prediction": "Mesophyll",
+            "count": 8
+          },
+          {
+            "truth": "Idioblast cell",
+            "prediction": "Mesophyll",
+            "count": 6
+          },
+          {
+            "truth": "Meristematic cell",
+            "prediction": "Mesophyll",
+            "count": 5
+          }
+        ]
+      },
+      {
+        "species": "Eutrema salsugineum",
+        "test_cells": 62,
+        "support_cells": 15,
+        "query_cells": 47,
+        "support_labels": 1,
+        "query_labels": 1,
+        "accuracy_all_query": 1.0,
+        "macro_f1_query": 1.0,
+        "top_query_errors": []
+      },
+      {
+        "species": "Fragaria vesca",
+        "test_cells": 256,
+        "support_cells": 64,
+        "query_cells": 192,
+        "support_labels": 6,
+        "query_labels": 8,
+        "accuracy_all_query": 0.6302083333333334,
+        "macro_f1_query": 0.3918859649122807,
+        "top_query_errors": [
+          {
+            "truth": "Hydathodes",
+            "prediction": "Mesophyll",
+            "count": 19
+          },
+          {
+            "truth": "Mesophyll",
+            "prediction": "Hydathodes",
+            "count": 18
+          },
+          {
+            "truth": "Unknow",
+            "prediction": "Mesophyll",
+            "count": 10
+          },
+          {
+            "truth": "Abaxial epidermis",
+            "prediction": "Leaf epidermis",
+            "count": 6
+          },
+          {
+            "truth": "Mesophyll",
+            "prediction": "Unknow",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "species": "Gossypium bickii",
+        "test_cells": 256,
+        "support_cells": 64,
+        "query_cells": 192,
+        "support_labels": 5,
+        "query_labels": 8,
+        "accuracy_all_query": 0.7291666666666666,
+        "macro_f1_query": 0.46526482776482775,
+        "top_query_errors": [
+          {
+            "truth": "Procambium",
+            "prediction": "Mesophyll",
+            "count": 7
+          },
+          {
+            "truth": "Mesophyll",
+            "prediction": "Leaf epidermis",
+            "count": 7
+          },
+          {
+            "truth": "Xylem",
+            "prediction": "Mesophyll",
+            "count": 6
+          },
+          {
+            "truth": "Pigment gland",
+            "prediction": "Mesophyll",
+            "count": 5
+          },
+          {
+            "truth": "Xylem",
+            "prediction": "Leaf epidermis",
+            "count": 5
+          }
+        ]
+      },
+      {
+        "species": "Gossypium hirsutum",
+        "test_cells": 256,
+        "support_cells": 64,
+        "query_cells": 192,
+        "support_labels": 1,
+        "query_labels": 1,
+        "accuracy_all_query": 1.0,
+        "macro_f1_query": 1.0,
+        "top_query_errors": []
+      },
+      {
+        "species": "Triticum aestivum",
+        "test_cells": 256,
+        "support_cells": 64,
+        "query_cells": 192,
+        "support_labels": 1,
+        "query_labels": 1,
+        "accuracy_all_query": 1.0,
+        "macro_f1_query": 1.0,
+        "top_query_errors": []
+      }
+    ]
+  },
+  "safe_reporting_sentence": "Plant-CellFM v11 keeps zero-shot strict leave-species STC as the conservative benchmark and adds a target-species adapter protocol: with only 8 randomly labeled support cells per held-out species, query all-cell accuracy exceeds 40%, and larger support budgets approach the deployable runtime-head range."
+}

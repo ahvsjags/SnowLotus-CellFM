@@ -48,6 +48,9 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Species ontology coverage audit | `release_metadata/species_ontology_coverage_audit_v9.md` |
 | Species ontology-label benchmark | `release_metadata/species_ontology_label_benchmark_v9.md` |
 | Species-transfer calibration benchmark | `release_metadata/cross_species_classifier_benchmark_v10.md` |
+| v11 few-shot target adapter benchmark | `release_metadata/revision_v11_fewshot_adapter_benchmark.md` |
+| v11 runtime-head cross-species benchmark | `release_metadata/revision_v11_runtime_head_benchmark.md` |
+| v11 third-party metric closure audit | `release_metadata/revision_v11_third_party_closure.md` |
 | Algorithmic innovation note | `release_metadata/algorithm_innovation_v10.md` |
 | Open-set calibration and selective annotation | `release_metadata/open_set_calibration_v9.md` |
 | Submission scorecard | `release_metadata/submission_scorecard_v11.md` |
@@ -76,6 +79,9 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 16. The submission scorecard records all fixable evidence-readiness dimensions at 90+ while explicitly not inflating raw leave-species accuracy or unfinished official third-party metrics.
 17. The publication target readiness matrix ranks the current package as strongest for plant-focused method/resource submission, plausible for genomics computational-method submission with major-revision risk, and stretch for top general methods venues until official third-party numerical closure and stronger validation are added.
 18. The English synopsis file provides an abstract, significance statement, highlights, graphical abstract text and editorial positioning that use the same claim boundaries as the full manuscript.
+19. The v11 few-shot target-adapter benchmark is the revision result for the all-plant adapter claim: with 8 random labeled support cells per target species, query all-cell accuracy is 59.21% across 10 seeds, and larger support budgets reach 67.34-75.89%.
+20. The v11 runtime-head benchmark reports 66.25% exact-label all-cell accuracy on the same 3,964 aligned cross-species cells, decomposed into 62.86% covered-label accuracy and 70.54% open-set-label accuracy.
+21. The v11 third-party closure audit records scPlantLLM official-weight download status, expected SHA256/LFS OID and scPlantAnnotate authentication status; it still does not report final third-party numerical superiority before metric JSON exists.
 
 ## Claims Not Used In The Current Submission
 
@@ -86,6 +92,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 5. The current submission does not treat old `SnowLotus_CellFM_*v0_*` manuscript drafts as the current manuscript.
 6. The current submission keeps exploratory post-v9 continuation checkpoints outside the editor-facing evidence package.
 7. The current submission does not treat the 90+ evidence-readiness scorecard as 90+ raw cross-species accuracy.
+8. The current submission does not present the v11 few-shot target-adapter benchmark as a zero-shot leave-species result; it is a labeled-support species-adaptation protocol.
 
 ## Key Numbers
 
@@ -95,6 +102,9 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Leave-sample-out | 0.6200 | 0.9871 | 0.6281 | 0.4902 | 0.4155 |
 | Leave-species-out, species labels normalized | 0.2354 | 0.5590 | 0.4210 | 0.1918 | 0.1912 |
 | STC `knn_cosine_k9` on frozen leave-species embeddings | 0.3010 | 0.5590 | 0.5384 | 0.2663 | centroid 0.2364 |
+| v11 few-shot adapter, 8 random support cells/species | 0.5921 query accuracy | support cells excluded | n/a | 0.2195 | zero-shot STC 0.3010 |
+| v11 few-shot adapter, 16 random support cells/species | 0.6734 query accuracy | support cells excluded | n/a | 0.2904 | zero-shot STC 0.3010 |
+| v11 full-vocabulary runtime head | 0.6625 | n/a | covered-label 0.6286; open-set-label 0.7054 | n/a | strict STC 0.3010 |
 | Seurat label transfer on frozen v9 subset | 0.2207 | n/a | n/a | 0.0603 | n/a |
 | Classical centroid SRP169576 sample holdout | 0.7337 | n/a | n/a | 0.4873 | n/a |
 | API confidence top-30 selective annotation | 0.9664 | 0.3000 accepted | n/a | n/a | n/a |

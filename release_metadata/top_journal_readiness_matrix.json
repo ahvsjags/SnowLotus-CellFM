@@ -64,6 +64,16 @@
             "evidence": "release_metadata/cross_species_classifier_benchmark_v10.md and release_metadata/algorithm_innovation_v10.md"
         },
         {
+            "gate": "v11_fewshot_target_adapter",
+            "status": "READY_REVISION_UPGRADE",
+            "evidence": "release_metadata/revision_v11_fewshot_adapter_benchmark.md"
+        },
+        {
+            "gate": "v11_runtime_head_cross_species_benchmark",
+            "status": "READY_PROTOCOL_AUDIT",
+            "evidence": "release_metadata/revision_v11_runtime_head_benchmark.md"
+        },
+        {
             "gate": "open_set_calibration_selective_annotation",
       "status": "READY_90_PLUS_EVIDENCE",
       "evidence": "release_metadata/open_set_calibration_v9.md and release_metadata/api_confidence_calibration_curve_v9.tsv"
@@ -82,6 +92,11 @@
       "gate": "scplantannotate_comparator",
       "status": "CONTRACT_READY_AUTH_LIMITED",
       "evidence": "release_metadata/scplantannotate_access_audit.md, release_metadata/scplantannotate_benchmark_input_package.md and release_metadata/third_party_benchmark_contract_v10.md"
+    },
+    {
+      "gate": "v11_third_party_closure_audit",
+      "status": "IN_PROGRESS_TRACKED",
+      "evidence": "release_metadata/revision_v11_third_party_closure.md"
     },
     {
       "gate": "arabidopsis_root_case",
@@ -119,6 +134,13 @@
         "stc_centroid_leave_species_known_label_accuracy": 0.4228,
         "stc_leave_species_macro_f1": 0.2663,
         "stc_centroid_leave_species_macro_f1": 0.1922,
+        "v11_fewshot_adapter_8_support_cells_per_species_mean_query_all_cell_accuracy": 0.5921,
+        "v11_fewshot_adapter_16_support_cells_per_species_mean_query_all_cell_accuracy": 0.6734,
+        "v11_fewshot_adapter_32_support_cells_per_species_mean_query_all_cell_accuracy": 0.7230,
+        "v11_fewshot_adapter_64_support_cells_per_species_mean_query_all_cell_accuracy": 0.7589,
+        "v11_runtime_head_all_cell_accuracy": 0.6625,
+        "v11_runtime_head_covered_label_accuracy": 0.6286,
+        "v11_runtime_head_open_set_label_accuracy": 0.7054,
         "species_ontology_actionable_coverage_audit": 0.4526,
     "species_ontology_unknown_or_unannotated_cells": 1384,
     "ontology_label_benchmark_actionable_coverage": 0.7444,
@@ -142,7 +164,7 @@
   "higher_tier_required_upgrades": [
     "Complete one official third-party foundation-model comparator run, preferably scPlantLLM; current contract is ready but metric JSON is still pending.",
     "Strengthen the independent non-Arabidopsis biology case with literature anchors, figure panel or independent validation.",
-        "Improve model-side cross-species transfer under the completed STC/ontology/open-set layer using model-internal species adapter calibration, ortholog-aware tokenization or independent species replication.",
+        "Extend model-side cross-species transfer beyond the completed STC/ontology/open-set/few-shot-adapter layer using official third-party closure, ortholog-aware tokenization or independent species replication.",
     "Add English manuscript package and supplement index.",
     "Add model usability supplement.",
     "Add Snow Lotus single-cell matrix only if a reusable matrix becomes available."

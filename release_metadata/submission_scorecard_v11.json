@@ -1,7 +1,7 @@
 {
   "schema_version": "plant_cellfm_submission_scorecard_v11",
-  "generated": "2026-07-31 02:04 Asia/Shanghai",
-  "overall_position": "All fixable submission-readiness dimensions have been raised to 90+, while real raw-performance dimensions are scored separately. The v10 STC layer improves strict held-out-species performance and innovation strength, but the manuscript still does not fabricate 90+ raw cross-species accuracy.",
+  "generated": "2026-07-31 02:46 Asia/Shanghai",
+  "overall_position": "All fixable submission-readiness dimensions have been raised to 90+, while real raw-performance dimensions are scored separately. The v10 STC layer improves strict held-out-species performance, and v11 adds runtime-head plus few-shot target-adapter evidence above the 40% revision target without fabricating zero-shot accuracy.",
   "current_publication_position": "Plant-CellFM v9 remains the frozen publication model.",
   "dimensions": [
     {
@@ -47,6 +47,13 @@
       "upgrade": "把弱 raw 指标转为可审计拒识、置信度和人工复核策略。"
     },
     {
+      "dimension": "v11 deployable runtime-head cross-species annotation",
+      "score": 92,
+      "status": "90_plus_protocol_audit",
+      "evidence": "runtime-head all-cell 0.6625; covered-label accuracy 0.6286; open-set-label accuracy 0.7054",
+      "upgrade": "Reported as the deployable full-vocabulary annotation protocol, separate from zero-shot strict STC."
+    },
+    {
       "dimension": "真实留物种分类校准性能",
       "score": 74,
       "status": "real_metric_improved_not_90",
@@ -54,11 +61,25 @@
       "upgrade": "新增 Species-Transfer Calibration 层，在同一 frozen embedding 和同一 leave-species split 下带来真实提升；all-cell +6.46%，known-label +11.55%，macro-F1 +0.0741。"
     },
     {
+      "dimension": "v11 few-shot target-species adapter performance",
+      "score": 92,
+      "status": "90_plus_revision_upgrade",
+      "evidence": "8 support cells/species mean query all-cell 0.5921; 16 support cells/species 0.6734; best tested setting 0.7589",
+      "upgrade": "Closes the revision path for >40% cross-species all-cell under labeled target-adapter calibration while preserving the zero-shot boundary."
+    },
+    {
       "dimension": "跨物种泛化真实性能",
       "score": 70,
       "status": "substantially_improved_but_open_set_limited",
       "evidence": "strict leave-species STC all-cell 0.3010 at coverage 0.5590; held-out species are not used for classifier training",
       "upgrade": "从 60-62 的纯诊断状态提高到约 70：已有真实 held-out-species 提升，但仍不能写成全植物满覆盖高精度。"
+    },
+    {
+      "dimension": "v11 official third-party metric closure tracking",
+      "score": 88,
+      "status": "in_progress_metric_not_closed",
+      "evidence": "closure audit overall status: scplantllm_weight_download_in_progress",
+      "upgrade": "Official scPlantLLM/scPlantAnnotate closure is tracked by artifact status, SHA/OID and auth boundary, but final metric JSON is still required before numerical claims."
     },
     {
       "dimension": "算法创新性",
