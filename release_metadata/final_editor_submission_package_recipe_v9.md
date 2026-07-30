@@ -17,6 +17,7 @@ python scripts/package_v9_editor_submission.py
 - SHA256 sidecar: `outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.zip.sha256`
 - Package status JSON: `outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.status.json`
 - Package status Markdown: `outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.status.md`
+- Peer-review preflight: `release_metadata/publication_peer_review_preflight_v9.md`
 
 ## Package Scope
 

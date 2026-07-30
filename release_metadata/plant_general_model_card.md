@@ -1,10 +1,11 @@
 # Plant-CellFM General Plant Model Card
 
 - Generated UTC: `2026-07-29T09:04:15.639141+00:00`
+- Status: legacy pre-v9 model card retained for development history. For the frozen v9 submission, use `release_metadata/plant_cellfm_v9_model_card.md` and `SUBMISSION_INDEX_v9.md`.
 - Model scope: **plant_general**
 - Model name: `Plant-CellFM (general plant foundation model)`
 - Snow Lotus is an adapter and case study; the backbone is designed for cross-species plant expression data.
-- Known adapters: **21**; runtime dynamic adapters are materialized for any additional plant species.
+- Historical known adapters at card generation: **21**. The frozen v9 live service reports 24 known adapters; use `release_metadata/plant_cellfm_v9_model_card.md` for the current submission.
 
 ## Scope and Functions
 

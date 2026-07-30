@@ -5,7 +5,7 @@ This file records the evidence behind the frozen v9 candidate. It is an engineer
 ## Implemented
 
 1. **General-plant model scope.** The service and adapter registry treat Snow Lotus as one species within a plant-general model. Unknown named species receive a runtime adapter record, while exact gene IDs and optional ortholog maps are resolved through the same inference contract.
-2. **Public corpus construction.** The v9 corpus contains 56 validated manifest rows from 29 datasets and 21 species, with 13.78 million cells in the built corpus. Manifest paths, duplicate handling, source metadata and checksums are retained.
+2. **Public corpus construction.** The v9 corpus contains 56 validated manifest rows from 29 datasets, 20 normalized plant species labels and 21 raw species strings before alias canonicalization, with 13.78 million cells in the built corpus. Manifest paths, duplicate handling, source metadata and checksums are retained.
 3. **GPU training.** The v9 LoRA candidate was trained on the RTX 4090 with a resolved YAML configuration, epoch checkpoints, progress logs, preprocessing statistics and a completion marker.
 4. **Fair baseline comparison.** v9 and v3 were evaluated on the same v9 shared-gene benchmark under leave-dataset-out, leave-sample-out and leave-species-out protocols.
 5. **Inference service.** The service exposes health, metadata, capability, adapter and annotation routes. A live health check reports `model_scope=plant_general`, 24 catalog adapters, dynamic all-plant resolution and `device=cuda`.
@@ -21,6 +21,7 @@ This file records the evidence behind the frozen v9 candidate. It is an engineer
 15. **Submission manuscript refresh.** `manuscript/Plant_CellFM_v9_final_submission_zh_v1.md` and `.docx` provide an ASCII-path copy of the integrated Chinese manuscript, now including live API runtime evidence, watchdog recovery evidence and the updated stability matrix.
 16. **Arabidopsis literature anchor.** `release_metadata/arabidopsis_root_literature_anchor_v9.md` aligns the root case labels with established Arabidopsis root atlas categories and canonical marker examples while preserving the claim boundary that model markers are computational candidates.
 17. **Final editor package recipe.** `scripts/package_v9_editor_submission.py` and `release_metadata/final_editor_submission_package_recipe_v9.md` generate a compact editor-facing zip with the final Word manuscript, model card, benchmark evidence, server evidence, Arabidopsis case evidence and model asset pointer.
+18. **Peer-review preflight.** `release_metadata/publication_peer_review_preflight_v9.md` records a strict reviewer-style audit of venue fit, current strengths, claim boundaries and remaining hard evidence needed for higher-tier revision.
 
 ## Frozen Results
 

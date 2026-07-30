@@ -13,7 +13,7 @@
 
 - 56 manifest rows
 - 29 public datasets
-- 21 plant species
+- 20 normalized plant species labels and 21 raw species strings before alias canonicalization
 - Approximately 13.78 million cells
 - Approximately 1.53 million source genes before shared-gene filtering
 - Shared checkpoint vocabulary: 280,747 genes

@@ -8,7 +8,8 @@ The v9 corpus is assembled from public plant single-cell and single-nucleus matr
 | --- | ---: |
 | Manifest rows | 56 |
 | Unique datasets | 29 |
-| Species | 21 |
+| Normalized species labels | 20 |
+| Raw species strings before alias canonicalization | 21 |
 | Cells in built corpus | approximately 13.78 million |
 | Source genes before filtering | approximately 1.53 million |
 | Missing manifest files | 0 |

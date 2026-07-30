@@ -23,6 +23,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Publication readiness | `docs/publication_readiness_v9.md` |
 | Model card | `release_metadata/plant_cellfm_v9_model_card.md` |
 | Stability audit | `release_metadata/v9_submission_stability_audit.md` |
+| Peer-review preflight | `release_metadata/publication_peer_review_preflight_v9.md` |
 | Server sustainability audit | `release_metadata/server_sustainability_status_v9.md` |
 | Watchdog recovery audit | `release_metadata/watchdog_recovery_status_v9.md` |
 | Editor issue closure | `release_metadata/v9_editor_issue_closure.md` |

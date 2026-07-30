@@ -7,6 +7,7 @@
   "default_sha256_sidecar": "outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.zip.sha256",
   "default_status_json": "outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.status.json",
   "default_status_md": "outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.status.md",
+  "peer_review_preflight": "release_metadata/publication_peer_review_preflight_v9.md",
   "checkpoint_asset": "https://github.com/ahvsjags/SnowLotus-CellFM/releases/download/v0.9.0-plant-general-lora/SnowLotus-CellFM-v9-lora-4090-best.pt",
   "checkpoint_sha256": "9a98dbc799c062981c1dd895034300b7385e1ecddad88d8d98cff5d1c6962c93",
   "claim_boundary": [

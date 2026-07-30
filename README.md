@@ -8,7 +8,7 @@ The current publication candidate is the v9 LoRA checkpoint trained on an audite
 
 Reviewer-facing entry point: `SUBMISSION_INDEX_v9.md`. That file lists the current manuscript, model card, benchmark panel and stable claim boundaries for the frozen v9 package.
 
-- Corpus: 56 manifest rows, 29 datasets and 21 plant species.
+- Corpus: 56 manifest rows, 29 datasets, 20 normalized plant species labels and 21 raw species strings before alias canonicalization.
 - Training corpus: 13.78 million cells after corpus construction.
 - Architecture: 256-dimensional model, 4 transformer layers, 8 attention heads, LoRA rank 8.
 - Training: six epochs, hybrid masked-expression modelling and hierarchical annotation objectives, CUDA mixed precision.
@@ -71,6 +71,7 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `release_metadata/plant_biology_case_study_v9.md`
 - `release_metadata/third_party_comparator_sources_v9.md`
 - `release_metadata/v9_submission_stability_audit.md`
+- `release_metadata/publication_peer_review_preflight_v9.md`
 - `release_metadata/server_sustainability_status_v9.md`
 - `release_metadata/watchdog_recovery_status_v9.md`
 - `release_metadata/v9_editor_issue_closure.md`

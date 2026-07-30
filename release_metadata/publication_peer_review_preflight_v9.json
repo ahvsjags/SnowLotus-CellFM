@@ -1,0 +1,86 @@
+{
+  "schema_version": "plant_cellfm_v9_peer_review_preflight_v1",
+  "generated_at": "2026-07-30T18:18:00+08:00",
+  "submission_identity": {
+    "project": "Plant-CellFM / SnowLotus-CellFM",
+    "release": "v0.9.0-plant-general-lora",
+    "checkpoint": "SnowLotus-CellFM-v9-lora-4090-best.pt",
+    "checkpoint_sha256": "9a98dbc799c062981c1dd895034300b7385e1ecddad88d8d98cff5d1c6962c93",
+    "hardware": "NVIDIA GeForce RTX 4090, 24 GB VRAM",
+    "branch": "agent/remote-pipeline-20260728"
+  },
+  "corpus_scope": {
+    "manifest_rows": 56,
+    "datasets": 29,
+    "normalized_species_labels": 20,
+    "raw_species_strings_before_alias_canonicalization": 21,
+    "built_corpus_cells_approx": 13780000
+  },
+  "editorial_position": {
+    "current_decision": "submission-ready with major-revision risk",
+    "best_fit": [
+      "plant-focused methods/resource journal",
+      "genomics or computational biology methods journal"
+    ],
+    "stretch_fit": [
+      "top general methods venue after stronger third-party and independent biological validation"
+    ]
+  },
+  "benchmark_claim_boundary": {
+    "leave_dataset_out": {
+      "v9_accuracy_all": 0.4490,
+      "coverage": 0.8017,
+      "known_label_accuracy": 0.5601,
+      "known_label_macro_f1": 0.3485,
+      "v3_accuracy_all": 0.2021
+    },
+    "leave_sample_out": {
+      "v9_accuracy_all": 0.6200,
+      "coverage": 0.9871,
+      "known_label_accuracy": 0.6281,
+      "known_label_macro_f1": 0.4902,
+      "v3_accuracy_all": 0.4155
+    },
+    "leave_species_out_normalized": {
+      "v9_accuracy_all": 0.2354,
+      "coverage": 0.5590,
+      "known_label_accuracy": 0.4210,
+      "known_label_macro_f1": 0.1918,
+      "v3_accuracy_all": 0.1912
+    }
+  },
+  "completed_evidence": [
+    "frozen v9 checkpoint and SHA256",
+    "public corpus and manifest audit",
+    "v9 versus v3 shared-gene benchmark",
+    "centroid and Seurat comparator evidence",
+    "Arabidopsis root marker-candidate case",
+    "live CUDA service smoke test",
+    "tmux watchdog recovery evidence",
+    "final editor package"
+  ],
+  "residual_high_tier_risks": [
+    {
+      "risk": "strict leave-species-out accuracy remains modest",
+      "severity": "high",
+      "safe_response": "frame as open-set transfer evidence and reproducible framework, not universal high-accuracy annotation"
+    },
+    {
+      "risk": "scPlantLLM and scPlantAnnotate numeric comparisons are not fully closed",
+      "severity": "high",
+      "safe_response": "report input-ready and access-limited status only until executable official metrics are frozen"
+    },
+    {
+      "risk": "biology case is computational and public-data based",
+      "severity": "medium",
+      "safe_response": "anchor markers to literature and present as a model-use case, not wet-lab validation"
+    }
+  ],
+  "next_revision_priorities": [
+    "complete at least one official third-party foundation-model comparator metric",
+    "add an independent public species or tissue biological replication case",
+    "harmonize labels into a clearer plant cell ontology for species holdout",
+    "turn the Arabidopsis root case into a figure-ready biological panel",
+    "prepare English manuscript and reviewer supplement"
+  ]
+}
