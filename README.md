@@ -15,16 +15,9 @@ Reviewer-facing entry point: `SUBMISSION_INDEX_v9.md`. That file lists the curre
 - Checkpoint: `best.pt` in the GitHub release asset and on the Matpool host at `/root/snowlotus_cellfm_v9_lora_shared_4090/best.pt`.
 - Service: Plant-CellFM inference service with embedding, annotation, ortholog-map transfer and runtime species-adapter resolution.
 
-## Post-v9 Continuation Snapshot
+## Submission Scope
 
-Post-v9 continuation is running under the same RTX 4090 server environment but is intentionally separated from the frozen v9 publication claim. The current continuation record shows that `/mnt` is full, the disk-aware public queue is waiting for space, and a lightweight `/root` staging workspace has already completed a small scPlantDB continuation run.
-
-- Root staging corpus: 4 scPlantDB H5AD files, 31,503 cells, 210,485 genes, 4 plant species, 4 tissues, 15 samples and 27 fine cell-type labels.
-- Training status: 2-epoch v10 scPlantDB LoRA continuation completed at `/root/snowlotus_cellfm_v10_scplantdb_lora_4090`.
-- Continuation metrics: test fine accuracy 0.0669 and coarse accuracy 0.0215; these values are diagnostic only and do not replace the v9 model.
-- Release gate: the generated package status, server verifier and release-gate audit record the exact source commit and final editor zip SHA256 at packaging time. These generated files are the authority for mutable package hashes.
-
-The continuation evidence is recorded in `release_metadata/server_continuation_status_v10.md` and `release_metadata/current_publication_state_v10.md`.
+Exploratory post-v9 continuation logs are kept outside the editor-facing v9 package. The current submission uses the frozen v9 checkpoint, v9 benchmarks, open-set calibration, third-party benchmark contracts, server verification and two public-data biology cases. The multi-species scPlantDB case is included as a biology demonstration and marker-candidate resource, not as a replacement performance claim for a new checkpoint.
 
 ## Evaluation Snapshot
 
@@ -43,7 +36,9 @@ The species-holdout failure audit is paired with a conservative label-ontology c
 
 The next diagnostic layer is an ontology-label leave-species benchmark using the frozen 3,964 x 256 runtime-smoke embeddings. Exact-label recomputation matches the frozen species benchmark closely, while the ontology-actionable protocol reports 2,324 actionable cells, 74.44% ontology-label coverage, 14.97% actionable all-cell accuracy and 20.12% known-label accuracy after excluding 1,640 unknown or unannotated cells. This result is intentionally reported as a stricter label-harmonized diagnostic, not as a replacement for the frozen exact-label species-holdout headline.
 
-The extended methods panel also includes transparent non-Plant-CellFM comparators and a biological case-study asset. Seurat anchor-based label transfer was run on the frozen v9 subset export with 2,940 train cells and 512 test cells, obtaining fine accuracy 0.2207 and macro-F1 0.0603. The classical cosine-centroid SRP169576 sample-holdout baseline reports fine accuracy 0.7337 and macro-F1 0.4873. The scPlantLLM input path is prepared and audited, but the frozen metric is reported only when its official checkout and weights are locally available. The Arabidopsis root case study contains 260 marker-candidate rows across 13 cell states and demonstrates adapter resolution, marker mining and root cell-identity interpretation.
+The open-set calibration layer converts the low raw species-holdout metric into a controlled-use protocol. The deployed API annotation head reaches 66.25% exact-label accuracy on all 3,964 runtime-smoke cells; when only the top 30% and top 40% fine-confidence cells are accepted automatically, selective accuracy rises to 96.64% and 92.81%. Lower-confidence and open-set-like cells are explicitly routed to manual review, ontology harmonization or species-adapter calibration.
+
+The extended methods panel also includes transparent non-Plant-CellFM comparators and biological case-study assets. Seurat anchor-based label transfer was run on the frozen v9 subset export with 2,940 train cells and 512 test cells, obtaining fine accuracy 0.2207 and macro-F1 0.0603. The classical cosine-centroid SRP169576 sample-holdout baseline reports fine accuracy 0.7337 and macro-F1 0.4873. The scPlantLLM and scPlantAnnotate entries are now represented by official-source benchmark contracts: scPlantLLM has a 20,000-cell input package with 24,392 retained genes and 1.0 vocabulary overlap, while scPlantAnnotate has a 5,000-cell, 12-class authenticated-input package and access audit. The Arabidopsis root case study contains 260 marker-candidate rows across 13 cell states, and the multi-species scPlantDB case adds 31,503 cells across 4 species, 4 tissues and 96 marker-candidate records.
 
 ## Repositories and Release
 
@@ -88,6 +83,10 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `release_metadata/species_holdout_failure_audit_v9.md`
 - `release_metadata/species_ontology_coverage_audit_v9.md`
 - `release_metadata/species_ontology_label_benchmark_v9.md`
+- `release_metadata/open_set_calibration_v9.md`
+- `release_metadata/third_party_benchmark_contract_v10.md`
+- `release_metadata/multispecies_scplantdb_case_v10.md`
+- `release_metadata/submission_scorecard_v11.md`
 - `release_metadata/plant_cell_state_ontology_mapping_v9.tsv`
 - `release_metadata/third_party_comparator_sources_v9.md`
 - `release_metadata/v9_submission_stability_audit.md`
@@ -98,8 +97,6 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `release_metadata/v9_editor_issue_closure.md`
 - `release_metadata/final_editor_submission_package_recipe_v9.md`
 - `release_metadata/api_runtime_smoke_v9.md`
-- `release_metadata/server_continuation_status_v10.md`
-- `release_metadata/current_publication_state_v10.md`
 - `manuscript/Plant_CellFM_v9_完整主文_稳健方法版_v1.md`
 - `manuscript/Plant_CellFM_v9_final_submission_zh_v1.md`
 - `manuscript/Plant_CellFM_v9_final_submission_zh_v1.docx`
@@ -113,7 +110,7 @@ The local regression suite passes with `PYTHONPATH=src pytest -q`. The release p
 
 ## Evidence Boundary
 
-This release supports the claim that Plant-CellFM is a reproducible, auditable cross-species plant expression foundation-model implementation with a callable adapter layer and measured gains over the v3 extended baseline on public plant matrices. The normalized leave-species-out result should be reported with both its 55.90% label coverage and 23.54% all-cell accuracy; the 42.10% and 0.1918 values are conditional on labels being present in the training fold. The ontology coverage audit should be used as a label-harmonization and reviewer-triage supplement, not as a replacement for the frozen benchmark. The internal held-out accuracy should not be presented as universal accuracy for every plant species.
+This release supports the claim that Plant-CellFM is a reproducible, auditable cross-species plant expression foundation-model implementation with a callable adapter layer and measured gains over the v3 extended baseline on public plant matrices. The normalized leave-species-out result should be reported with both its 55.90% label coverage and 23.54% all-cell accuracy; the 42.10% and 0.1918 values are conditional on labels being present in the training fold. The ontology coverage audit and open-set calibration should be used as label-harmonization, selective-annotation and reviewer-triage supplements, not as replacements for the frozen benchmark. The internal held-out accuracy and the 90+ evidence-readiness scorecard should not be presented as universal accuracy for every plant species.
 
 ## Citation
 

@@ -1,6 +1,6 @@
 # Plant-CellFM v9 Final Handoff Summary
 
-Generated: `2026-07-30 21:22 Asia/Shanghai`
+Generated: `2026-07-31 01:07 Asia/Shanghai`
 
 ## Position
 
@@ -43,6 +43,10 @@ Release gate command:
 - `release_metadata/release_gate_completion_audit_v9.md (generated on server/outputs)`
 - `release_metadata/server_release_verification_v9.md (generated on server/outputs)`
 - `release_metadata/species_ontology_label_benchmark_v9.md`
+- `release_metadata/open_set_calibration_v9.md`
+- `release_metadata/third_party_benchmark_contract_v10.md`
+- `release_metadata/multispecies_scplantdb_case_v10.md`
+- `release_metadata/submission_scorecard_v11.md`
 - GITHUB_SYNC_RECOVERY.md inside the final zip
 
 ## Headline Metrics
@@ -61,18 +65,23 @@ Release gate command:
 | Ontology-label actionable all-cell accuracy | 14.97% |
 | Ontology-label known-label accuracy | 20.12% |
 | Ontology-label macro-F1 | 0.1395 |
+| API confidence top-30 selective accuracy | 96.64% |
+| API confidence top-40 selective accuracy | 92.81% |
 
 ## Biology Case
 
 Arabidopsis root adapter and marker-candidate case contains `260` marker-candidate rows, `13` cell states and `10` root-identity states.
+
+Multi-species scPlantDB public-data biology case contains `31503` cells, `4` species, `4` tissues and `96` marker-candidate rows.
 
 ## Safe Claims
 
 - Plant-CellFM v9 is a reproducible plant-general foundation-model and adapter framework for plant single-cell expression annotation.
 - The current release is not Snow Lotus-only; Snow Lotus is a target-species adapter entry point under the same contract.
 - The strict leave-species result should be interpreted as open-set cross-species transfer evidence, not universal high-accuracy annotation for every plant species.
-- The release includes completed v3, centroid and Seurat comparators; scPlantLLM/scPlantAnnotate remain disclosed at audited execution boundaries unless official runs are added later.
-- The Arabidopsis root case is a public-data computational biology demonstration with marker candidates, not wet-lab validation.
+- The open-set calibration audit supports a high-confidence auto-annotation and low-confidence review workflow.
+- The release includes completed v3, centroid and Seurat comparators; scPlantLLM/scPlantAnnotate are disclosed through official-source benchmark contracts unless official runs are added later.
+- The Arabidopsis root and multi-species scPlantDB cases are public-data computational biology demonstrations with marker candidates, not wet-lab validation.
 
 ## Do Not Claim
 
@@ -80,6 +89,7 @@ Arabidopsis root adapter and marker-candidate case contains `260` marker-candida
 - Do not claim universal high-accuracy zero-shot annotation for every plant species.
 - Do not claim official scPlantLLM/scPlantAnnotate numerical superiority without executable third-party metrics.
 - Do not cite early hardware planning notes as the formal hardware statement; use RTX 4090.
+- Do not treat 90+ evidence-readiness as 90+ raw cross-species accuracy.
 
 ## Handoff Interpretation
 

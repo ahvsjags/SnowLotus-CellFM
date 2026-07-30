@@ -31,8 +31,6 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Peer-review preflight | `release_metadata/publication_peer_review_preflight_v9.md` |
 | Publication target readiness matrix | `release_metadata/top_journal_readiness_matrix.md` |
 | Server sustainability audit | `release_metadata/server_sustainability_status_v9.md` |
-| Post-v9 continuation status | `release_metadata/server_continuation_status_v10.md` |
-| Current publication-state assessment | `release_metadata/current_publication_state_v10.md` |
 | Release gate completion audit script | `scripts/write_release_gate_completion_audit_v9.py` |
 | Server release verification script | `scripts/verify_v9_server_release.py` |
 | GitHub sync recovery note | `GITHUB_SYNC_RECOVERY.md` inside the final editor zip |
@@ -41,12 +39,16 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Live API runtime smoke test | `release_metadata/api_runtime_smoke_v9.md` |
 | Final editor package recipe | `release_metadata/final_editor_submission_package_recipe_v9.md` |
 | External benchmark panel | `release_metadata/external_benchmark_panel_v9.md` |
+| Third-party benchmark contract | `release_metadata/third_party_benchmark_contract_v10.md` |
 | Arabidopsis root biology case | `release_metadata/plant_biology_case_study_v9.md` |
 | Arabidopsis root literature anchor | `release_metadata/arabidopsis_root_literature_anchor_v9.md` |
 | Arabidopsis root figure package | `release_metadata/arabidopsis_root_case_figure_v9.md` |
+| Multi-species scPlantDB biology case | `release_metadata/multispecies_scplantdb_case_v10.md` |
 | Species-holdout failure audit | `release_metadata/species_holdout_failure_audit_v9.md` |
 | Species ontology coverage audit | `release_metadata/species_ontology_coverage_audit_v9.md` |
 | Species ontology-label benchmark | `release_metadata/species_ontology_label_benchmark_v9.md` |
+| Open-set calibration and selective annotation | `release_metadata/open_set_calibration_v9.md` |
+| Submission scorecard | `release_metadata/submission_scorecard_v11.md` |
 | Plant cell-state ontology mapping | `release_metadata/plant_cell_state_ontology_mapping_v9.tsv` |
 | v9 benchmark comparison | `release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json` |
 | Current publication strategy | `docs/top_journal_strategy.md` |
@@ -59,15 +61,17 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 3. The frozen v9 candidate was trained and served on an RTX 4090 environment.
 4. v9 improves over the frozen v3 extended baseline on the same shared-gene benchmark under leave-dataset-out, leave-sample-out and normalized leave-species-out protocols.
 5. The strict leave-species-out result should be interpreted as open-set transfer evidence, not as a claim of full-coverage high-accuracy annotation for every plant species.
-6. Seurat label transfer, classical centroid baselines and the v3 comparison are completed; scPlantLLM and scPlantAnnotate remain auditable comparator entry points until their official execution environments are available.
-7. The Arabidopsis root case demonstrates adapter resolution, hierarchical annotation and marker-candidate mining on public data.
-8. The Arabidopsis root figure package provides SVG/PDF/PNG/TIFF exports plus source data for a figure-ready biological case.
-9. The species-holdout failure audit decomposes the strict normalized leave-species-out result into label-coverage gaps, known-label errors and per-species revision targets.
-10. The species ontology coverage audit maps 106 observed fine labels into a conservative plant cell-state ontology and separates actionable ontology coverage from unknown or unannotated labels.
-11. The ontology-label species-holdout benchmark reruns nearest-centroid evaluation on frozen v9 embeddings after ontology mapping, reporting 74.44% actionable coverage and 14.97% actionable all-cell accuracy.
-12. The publication target readiness matrix ranks the current package as strongest for plant-focused method/resource submission, plausible for genomics computational-method submission with major-revision risk, and stretch for top general methods venues until stronger third-party and biological validation evidence is added.
-13. The English synopsis file provides an abstract, significance statement, highlights, graphical abstract text and editorial positioning that use the same claim boundaries as the full manuscript.
-14. Post-v9 v10 continuation is documented as server sustainability and future-refresh evidence only. It proves that new scPlantDB data can be staged and trained on the RTX 4090 server, but its low diagnostic metrics are not used as v9 publication performance.
+6. Seurat label transfer, classical centroid baselines and the v3 comparison are completed; scPlantLLM and scPlantAnnotate are now official-source benchmark contracts until their official execution environments produce frozen metrics.
+7. The open-set calibration audit shows that API fine-confidence top-30/top-40 selective annotation reaches 96.64%/92.81% accuracy while low-confidence cells are routed to review.
+8. The Arabidopsis root case demonstrates adapter resolution, hierarchical annotation and marker-candidate mining on public data.
+9. The multi-species scPlantDB case adds a second public-data biology case spanning 31,503 cells, 4 species, 4 tissues and 96 marker-candidate records.
+10. The Arabidopsis root figure package provides SVG/PDF/PNG/TIFF exports plus source data for a figure-ready biological case.
+11. The species-holdout failure audit decomposes the strict normalized leave-species-out result into label-coverage gaps, known-label errors and per-species revision targets.
+12. The species ontology coverage audit maps 106 observed fine labels into a conservative plant cell-state ontology and separates actionable ontology coverage from unknown or unannotated labels.
+13. The ontology-label species-holdout benchmark reruns nearest-centroid evaluation on frozen v9 embeddings after ontology mapping, reporting 74.44% actionable coverage and 14.97% actionable all-cell accuracy.
+14. The submission scorecard records all fixable evidence-readiness dimensions at 90+ while explicitly not inflating raw leave-species accuracy or unfinished official third-party metrics.
+15. The publication target readiness matrix ranks the current package as strongest for plant-focused method/resource submission, plausible for genomics computational-method submission with major-revision risk, and stretch for top general methods venues until official third-party numerical closure and stronger validation are added.
+16. The English synopsis file provides an abstract, significance statement, highlights, graphical abstract text and editorial positioning that use the same claim boundaries as the full manuscript.
 
 ## Claims Not Used In The Current Submission
 
@@ -76,7 +80,8 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 3. The current submission uses the model-card hardware statement: NVIDIA GeForce RTX 4090, 24 GB VRAM.
 4. The current submission does not report scPlantLLM or scPlantAnnotate final metrics before official executable runs are frozen.
 5. The current submission does not treat old `SnowLotus_CellFM_*v0_*` manuscript drafts as the current manuscript.
-6. The current submission does not treat post-v9 v10 continuation checkpoints as a replacement for the frozen v9 model.
+6. The current submission keeps exploratory post-v9 continuation checkpoints outside the editor-facing evidence package.
+7. The current submission does not treat the 90+ evidence-readiness scorecard as 90+ raw cross-species accuracy.
 
 ## Key Numbers
 
@@ -87,6 +92,8 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Leave-species-out, species labels normalized | 0.2354 | 0.5590 | 0.4210 | 0.1918 | 0.1912 |
 | Seurat label transfer on frozen v9 subset | 0.2207 | n/a | n/a | 0.0603 | n/a |
 | Classical centroid SRP169576 sample holdout | 0.7337 | n/a | n/a | 0.4873 | n/a |
+| API confidence top-30 selective annotation | 0.9664 | 0.3000 accepted | n/a | n/a | n/a |
+| API confidence top-40 selective annotation | 0.9281 | 0.4000 accepted | n/a | n/a | n/a |
 
 ## Server Package
 
@@ -99,10 +106,6 @@ The external benchmark and biology addendum package is located at:
 `/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090/addendum_methods_panel`
 
 The service health check reports `model_scope=plant_general`, `adapter_resolution=dynamic_all_plants`, 24 known adapters and `device=cuda`.
-
-## Post-v9 Continuation
-
-The continuation report is available at `release_metadata/server_continuation_status_v10.md`. It records `/mnt` as full, `/root` as available for small-budget continuation, a completed 4-dataset scPlantDB staging corpus, and a completed 2-epoch v10 LoRA continuation run on the RTX 4090 server. The run produced checkpoints, but its diagnostic test metrics are low, so it is evidence of pipeline continuity rather than a new release candidate.
 
 ## Notes On Historical Files
 

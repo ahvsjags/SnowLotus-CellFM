@@ -5,8 +5,8 @@
     "rows": 8,
     "completed_metric_rows": 6,
     "completed_formal_comparisons": 5,
-    "metric_missing_or_access_limited": 1,
-    "claim_safe_position": "Plant-CellFM v9 has a completed frozen v3 comparison and a classical sample-holdout baseline. Seurat label transfer is included as a completed traditional external baseline. scPlantLLM remains input-ready until a metric JSON is present; scPlantAnnotate remains access-limited until an authenticated reproducible execution path is available."
+    "contract_pending_rows": 2,
+    "claim_safe_position": "Plant-CellFM v9 has a completed frozen v3 comparison and a classical sample-holdout baseline. Seurat label transfer is included as a completed traditional external baseline. scPlantLLM remains contract-ready until the official checkpoint/probe metric is present; scPlantAnnotate remains contract-ready until authenticated or exported official predictions are available."
   },
   "comparisons": [
     {
@@ -93,13 +93,16 @@
     {
       "comparison": "scPlantLLM frozen embedding nearest-centroid probe",
       "protocol": "public sprint train/test chunks",
-      "status": "input_ready_metric_missing",
+      "status": "contract_ready_metric_pending",
       "formal_comparison": false,
       "evidence": "release_metadata/scplantllm_input_readiness.json",
-      "selected_cells": null,
-      "retained_genes": null,
-      "gene_vocab_overlap_rate": null,
-      "interpretation": "The scPlantLLM-compatible input and reference preprocessing are ready, but a metric JSON is not present in the current release tree."
+      "selected_cells": 20000,
+      "retained_genes": 24392,
+      "gene_vocab_overlap_rate": 1.0,
+      "input_h5_ready": true,
+      "reference_metadata_ready": true,
+      "reference_chunks_ready": true,
+      "interpretation": "The scPlantLLM-compatible input, reference chunks and execution contract are ready; final numeric metrics require the official checkpoint/probe output."
     },
     {
       "comparison": "Seurat label transfer",
@@ -118,13 +121,13 @@
     {
       "comparison": "scPlantAnnotate",
       "protocol": "official web/API route audit",
-      "status": "web_api_auth_required",
+      "status": "contract_ready_auth_limited",
       "formal_comparison": false,
       "evidence": "release_metadata/scplantannotate_access_audit.json",
       "web_server_reachable": true,
       "scriptable_batch_api_detected": false,
       "anonymous_api_accessible": false,
-      "interpretation": "The official web server is reachable, but anonymous scriptable benchmark execution is not available in the current audit. This is kept as an access-limited comparator rather than reported as a completed result."
+      "interpretation": "The official web/API route has been audited and the benchmark input package is defined; final numeric metrics require authenticated or exported official predictions."
     }
   ]
 }

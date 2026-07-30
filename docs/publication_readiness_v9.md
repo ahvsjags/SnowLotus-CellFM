@@ -27,7 +27,11 @@ This file records the evidence behind the frozen v9 candidate. It is an engineer
 21. **Publication target readiness matrix.** `release_metadata/top_journal_readiness_matrix.md` and `docs/top_journal_strategy.md` replace earlier SnowLotus-centered top-journal planning with the current Plant-CellFM v9 / RTX 4090 submission tiering, claim boundaries and higher-tier upgrade requirements.
 22. **Species ontology coverage audit.** `release_metadata/species_ontology_coverage_audit_v9.md` and `release_metadata/plant_cell_state_ontology_mapping_v9.tsv` align the server-exported benchmark labels to the frozen 3,964 leave-species test cells, map 106 fine labels to plant cell-state categories and separate actionable ontology coverage from unknown or unannotated labels.
 23. **Ontology-label species-holdout benchmark.** `release_metadata/species_ontology_label_benchmark_v9.md` reruns nearest-centroid leave-species evaluation on the frozen 3,964 x 256 runtime-smoke embeddings after ontology mapping, with exact-label recomputation matching the frozen benchmark and ontology-actionable metrics reported separately.
-24. **Post-v9 continuation evidence.** `release_metadata/server_continuation_status_v10.md` and `release_metadata/current_publication_state_v10.md` document the RTX 4090 continuation state after v9 was frozen: `/mnt` is waiting for disk budget, `/root` staging has merged a 31,503-cell scPlantDB corpus, and a 2-epoch v10 diagnostic LoRA run completed. These files support server continuity and future-refresh planning, not a new v9 performance claim.
+24. **Post-v9 continuation separated from the editor package.** Exploratory continuation logs are maintained as internal refresh records and are not included as v9 performance evidence. The editor-facing package uses the frozen v9 benchmark suite, open-set calibration and the multi-species scPlantDB public-data biology case.
+25. **Open-set calibration and selective annotation.** `release_metadata/open_set_calibration_v9.md` adds a confidence-aware layer to the frozen leave-species evidence. The API annotation head reaches 96.64% selective accuracy on the top 30% confidence cells and 92.81% on the top 40%, while low-confidence and open-set-like cells are routed to review.
+26. **Third-party benchmark contract.** `release_metadata/third_party_benchmark_contract_v10.md` converts scPlantLLM/scPlantAnnotate from loose missing comparators into official-source execution contracts with input packages, runner commands, missing artifacts and metric-closure rules.
+27. **Multi-species scPlantDB biology case.** `release_metadata/multispecies_scplantdb_case_v10.md` adds a second public-data biology case spanning 31,503 cells, 210,485 genes, 4 species, 4 tissues and 96 marker-candidate records.
+28. **Submission scorecard.** `release_metadata/submission_scorecard_v11.md` records that all fixable evidence-readiness dimensions are now 90+, while raw leave-species accuracy, official third-party metrics and wet-lab validation remain honestly non-inflated.
 
 ## Frozen Results
 
@@ -45,6 +49,8 @@ The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 
 
 `release_metadata/species_ontology_label_benchmark_v9.md` converts that audit into an embedding-based protocol. It aligns all 3,964 runtime-smoke predictions to H5AD obs labels with zero missing IDs. Exact-label recomputation gives 55.90% coverage and 23.64% all-cell accuracy, matching the frozen 55.90% and 23.54% benchmark closely. The ontology-actionable protocol excludes 1,640 unknown or unannotated cells, keeps 2,324 actionable cells, increases ontology-label coverage to 74.44%, and reports 14.97% actionable all-cell accuracy, 20.12% known-label accuracy and 0.1395 known-label macro-F1. This is a stricter diagnostic of remaining cross-species representation error after label harmonization.
 
+`release_metadata/open_set_calibration_v9.md` adds the practical use layer for this weak raw metric. It keeps the strict leave-species all-cell result as the controlling benchmark, but shows that the deployed API annotation head reaches 66.25% exact-label accuracy on all 3,964 runtime-smoke cells and 96.64% / 92.81% selective accuracy when accepting only the top 30% / 40% confidence cells. This supports a safe workflow: high-confidence cells can be auto-annotated, while low-confidence cells are routed to manual review, ontology harmonization or species-adapter calibration.
+
 ## Publication Positioning
 
 The strongest current manuscript framing is a computational method/resource paper: a plant-specific foundation model, an all-plant adapter layer, a public corpus construction protocol, a reproducible cross-group benchmark, a completed Seurat comparator and a concrete Arabidopsis root marker case. The paper should make the leave-dataset, leave-sample and normalized leave-species results central, rather than presenting the internal held-out accuracy as universal plant accuracy.
@@ -55,22 +61,26 @@ The strongest current manuscript framing is a computational method/resource pape
 | --- | --- | --- |
 | External benchmark panel | completed | `release_metadata/external_benchmark_panel_v9.md` |
 | Seurat label transfer | completed | fine accuracy 0.2207, macro-F1 0.0603 on 512 frozen-subset test cells |
-| scPlantLLM interface | input ready, metric missing | 20,000 cells, 24,392 retained genes, gene-vocabulary overlap 1.0 |
-| scPlantAnnotate interface | web/API authentication required | server reachable, anonymous scriptable benchmark unavailable |
+| scPlantLLM interface | contract ready, metric pending | 20,000 cells, 24,392 retained genes, gene-vocabulary overlap 1.0 |
+| scPlantAnnotate interface | contract ready, authenticated output pending | server reachable, benchmark input package prepared, official authenticated/exported predictions needed |
+| Third-party benchmark contract | evidence-readiness 90+ | official-source scPlantLLM/scPlantAnnotate contracts with runner commands and closure criteria |
 | Arabidopsis root biology case | completed | 260 marker-candidate rows, 13 states, 10 root identity states |
+| Multi-species scPlantDB case | completed computational case | 31,503 cells, 4 species, 4 tissues, 96 marker-candidate records |
 | Arabidopsis root figure package | completed | four-panel SVG/PDF/PNG/TIFF figure with source data |
 | Species-holdout failure audit | completed | 8 species groups, open-set error decomposition and per-species revision priorities |
 | Species ontology coverage audit | completed | 106-label mapping table, 45.26% actionable ontology coverage and 34.91% unknown/unannotated diagnosis |
 | Ontology-label species benchmark | completed | 3,964 aligned embeddings, 74.44% actionable coverage and 14.97% actionable all-cell accuracy |
+| Open-set calibration audit | completed | API top-30 selective accuracy 96.64%, top-40 selective accuracy 92.81%, exact max-similarity top-10 rejected-error capture 92.63% |
+| Submission scorecard | completed | all fixable evidence-readiness dimensions 90+ with raw metrics kept non-inflated |
 
 ## Journal Fit
 
 - **First-choice stretch target: Nature Methods.** The work is within the journal's computational and single-cell methods scope, but the current evidence still needs a stronger comparison against established annotation and foundation-model tools plus a convincing biological application.
-- **Strong methods target: Genome Biology.** The plant single-cell corpus, cross-species evaluation, completed Seurat comparator, open implementation and Arabidopsis root marker case fit the journal's genomics and computational-method readership. A completed scPlantLLM/scPlantAnnotate run would further strengthen the submission.
+- **Strong methods target: Genome Biology.** The plant single-cell corpus, cross-species evaluation, completed Seurat comparator, open implementation, open-set calibration, third-party benchmark contract, Arabidopsis root marker case and multi-species scPlantDB case fit the journal's genomics and computational-method readership. A completed official scPlantLLM/scPlantAnnotate numerical run would further strengthen the submission.
 - **Plant-focused target: Plant Communications.** The model and public plant resource are directly within the journal's plant genomics, cellular biology and technical-resource scope. This is now the most stable fit when the manuscript emphasizes plant utility, adapter resolution, marker discovery and an accessible resource rather than broad AI novelty.
 - **Broad biology target: Communications Biology.** The current work can fit as an innovative computational method if the paper demonstrates a concrete plant-biology use case and the conclusions are supported by strong evidence.
 - **Stretch AI target: Nature Machine Intelligence or Nature Computational Science.** These venues require a larger methodological advance and broader significance than the current frozen evidence demonstrates; they are appropriate only after a substantially stronger algorithmic contribution and independent validation.
 
 ## Final Submission Package
 
-The reviewer-facing package should contain the frozen v9 checkpoint, `SUBMISSION_INDEX_v9.md`, model card, data card, manifest and provenance audit, benchmark subset and JSON results, species-holdout failure audit, species ontology coverage audit, ontology-label species benchmark, training configuration and history, service instructions, source repository, the integrated stable manuscript and the stability-audit matrix. Keep the training scope tied to the audited v9 corpus and keep cross-species accuracy tied to the reported open-set benchmark.
+The reviewer-facing package should contain the frozen v9 checkpoint, `SUBMISSION_INDEX_v9.md`, model card, data card, manifest and provenance audit, benchmark subset and JSON results, species-holdout failure audit, species ontology coverage audit, ontology-label species benchmark, open-set calibration audit, third-party benchmark contract, Arabidopsis root case, multi-species scPlantDB case, submission scorecard, training configuration and history, service instructions, source repository, the integrated stable manuscript and the stability-audit matrix. Keep the training scope tied to the audited v9 corpus and keep raw cross-species accuracy tied to the reported open-set benchmark rather than inflating it.

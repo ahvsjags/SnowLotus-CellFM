@@ -1,7 +1,7 @@
 {
   "schema_version": "plant_cellfm_v9_editor_issue_closure_v1",
   "generated_at": "2026-07-30T17:38:00+08:00",
-  "claim_position": "Plant-CellFM v9 is a general plant single-cell expression foundation-model and adapter framework with a frozen RTX 4090 LoRA checkpoint, completed v3/centroid/Seurat comparisons, species-holdout failure audit, ontology coverage audit, ontology-label species benchmark, an Arabidopsis root computational biology case, live CUDA service evidence and watchdog recovery evidence.",
+  "claim_position": "Plant-CellFM v9 is a general plant single-cell expression foundation-model and adapter framework with a frozen RTX 4090 LoRA checkpoint, completed v3/centroid/Seurat comparisons, species-holdout failure audit, ontology coverage audit, ontology-label species benchmark, open-set calibration/selective annotation audit, official-source third-party benchmark contracts, Arabidopsis root and multi-species scPlantDB computational biology cases, live CUDA service evidence and watchdog recovery evidence.",
   "avoid_claims": [
     "universal high-accuracy zero-shot annotation for every plant species",
     "completed Snow Lotus single-cell atlas",
@@ -11,31 +11,34 @@
     {
       "issue": "strict cross-species generalization remains modest",
       "status": "claim_scoped",
-      "safe_claim": "Plant-CellFM v9 improves over frozen v3 on the same shared-gene subset and reports open-set metrics, per-species failures, ontology coverage and ontology-label benchmark diagnostics transparently.",
+      "safe_claim": "Plant-CellFM v9 improves over frozen v3 on the same shared-gene subset and reports open-set metrics, per-species failures, ontology coverage, ontology-label benchmark diagnostics and confidence-aware selective annotation transparently.",
       "evidence": [
         "release_metadata/plant_cellfm_v9_model_card.md",
         "release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json",
         "release_metadata/species_holdout_failure_audit_v9.md",
         "release_metadata/species_ontology_coverage_audit_v9.md",
-        "release_metadata/species_ontology_label_benchmark_v9.md"
+        "release_metadata/species_ontology_label_benchmark_v9.md",
+        "release_metadata/open_set_calibration_v9.md"
       ]
     },
     {
       "issue": "third-party comparator panel is not fully closed for every external tool",
-      "status": "partially_completed_with_audited_boundaries",
-      "safe_claim": "Completed v3, centroid and Seurat baselines are included; scPlantLLM and scPlantAnnotate are retained as input-ready or access-limited audits.",
+      "status": "contract_ready_metric_pending",
+      "safe_claim": "Completed v3, centroid and Seurat baselines are included; scPlantLLM and scPlantAnnotate are retained as official-source benchmark contracts pending executable metric closure.",
       "evidence": [
         "release_metadata/external_benchmark_panel_v9.md",
-        "release_metadata/external_benchmarks/seurat_v9_subset.json"
+        "release_metadata/external_benchmarks/seurat_v9_subset.json",
+        "release_metadata/third_party_benchmark_contract_v10.md"
       ]
     },
     {
       "issue": "biology case lacks wet-lab validation",
-      "status": "framed_as_public_data_computational_case",
-      "safe_claim": "The Arabidopsis root case demonstrates adapter resolution, annotation, marker-candidate mining and literature-aligned root identity taxonomy on public data.",
+      "status": "framed_as_public_data_computational_cases",
+      "safe_claim": "The Arabidopsis root and multi-species scPlantDB cases demonstrate adapter resolution, annotation, marker-candidate mining, species/tissue organization and literature-aligned plant cell identity taxonomy on public data.",
       "evidence": [
         "release_metadata/plant_biology_case_study_v9.md",
-        "release_metadata/arabidopsis_root_literature_anchor_v9.md"
+        "release_metadata/arabidopsis_root_literature_anchor_v9.md",
+        "release_metadata/multispecies_scplantdb_case_v10.md"
       ]
     },
     {

@@ -18,10 +18,19 @@ def pct(value: float) -> str:
     return f"{value * 100:.2f}%"
 
 
+def curve_at(curve: list[dict[str, Any]], rate: float) -> dict[str, Any]:
+    for item in curve:
+        if abs(float(item.get("acceptance_rate", -1)) - rate) < 1e-9:
+            return item
+    return {}
+
+
 def build_summary() -> dict[str, Any]:
     comparison = read_json(RELEASE / "v9_benchmarks" / "v9_lora_vs_v3_shared_comparison.json")
     ontology = read_json(RELEASE / "species_ontology_label_benchmark_v9.json")
     case = read_json(RELEASE / "plant_biology_case_study_v9.json")
+    open_set = read_json(RELEASE / "open_set_calibration_v9.json")
+    multi_case = read_json(RELEASE / "multispecies_scplantdb_case_v10.json")
 
     candidate = comparison["candidate"]["summary"]
     baseline = comparison["baseline"]["summary"]
@@ -53,12 +62,25 @@ def build_summary() -> dict[str, Any]:
             "ontology_label_actionable_all_cell_accuracy": ontology_action["accuracy_all"],
             "ontology_label_known_label_accuracy": ontology_action["accuracy"],
             "ontology_label_macro_f1": ontology_action["macro_f1"],
+            "api_confidence_top30_selective_accuracy": curve_at(
+                open_set["api_head_confidence"]["fine_confidence_curve"], 0.3
+            )["selective_accuracy"],
+            "api_confidence_top40_selective_accuracy": curve_at(
+                open_set["api_head_confidence"]["fine_confidence_curve"], 0.4
+            )["selective_accuracy"],
         },
         "biology_case": {
             "case": "Arabidopsis root adapter and marker-candidate case",
             "marker_candidate_rows": case["marker_overview"]["n_marker_rows"],
             "cell_states": case["marker_overview"]["n_labels"],
             "root_identity_states": case["marker_overview"]["root_identity_label_count"],
+        },
+        "multispecies_case": {
+            "case": "Multi-species scPlantDB public-data biology case",
+            "cells": multi_case["corpus"]["cells"],
+            "species": multi_case["corpus"]["species"],
+            "tissues": multi_case["corpus"]["tissues"],
+            "marker_candidate_rows": multi_case["marker_record_count"],
         },
         "read_first": [
             "SUBMISSION_INDEX_v9.md",
@@ -68,20 +90,26 @@ def build_summary() -> dict[str, Any]:
             "release_metadata/release_gate_completion_audit_v9.md (generated on server/outputs)",
             "release_metadata/server_release_verification_v9.md (generated on server/outputs)",
             "release_metadata/species_ontology_label_benchmark_v9.md",
+            "release_metadata/open_set_calibration_v9.md",
+            "release_metadata/third_party_benchmark_contract_v10.md",
+            "release_metadata/multispecies_scplantdb_case_v10.md",
+            "release_metadata/submission_scorecard_v11.md",
             "GITHUB_SYNC_RECOVERY.md inside the final zip",
         ],
         "safe_claims": [
             "Plant-CellFM v9 is a reproducible plant-general foundation-model and adapter framework for plant single-cell expression annotation.",
             "The current release is not Snow Lotus-only; Snow Lotus is a target-species adapter entry point under the same contract.",
             "The strict leave-species result should be interpreted as open-set cross-species transfer evidence, not universal high-accuracy annotation for every plant species.",
-            "The release includes completed v3, centroid and Seurat comparators; scPlantLLM/scPlantAnnotate remain disclosed at audited execution boundaries unless official runs are added later.",
-            "The Arabidopsis root case is a public-data computational biology demonstration with marker candidates, not wet-lab validation.",
+            "The open-set calibration audit supports a high-confidence auto-annotation and low-confidence review workflow.",
+            "The release includes completed v3, centroid and Seurat comparators; scPlantLLM/scPlantAnnotate are disclosed through official-source benchmark contracts unless official runs are added later.",
+            "The Arabidopsis root and multi-species scPlantDB cases are public-data computational biology demonstrations with marker candidates, not wet-lab validation.",
         ],
         "do_not_claim": [
             "Do not claim a completed Snow Lotus single-cell atlas.",
             "Do not claim universal high-accuracy zero-shot annotation for every plant species.",
             "Do not claim official scPlantLLM/scPlantAnnotate numerical superiority without executable third-party metrics.",
             "Do not cite early hardware planning notes as the formal hardware statement; use RTX 4090.",
+            "Do not treat 90+ evidence-readiness as 90+ raw cross-species accuracy.",
         ],
     }
 
@@ -89,6 +117,7 @@ def build_summary() -> dict[str, Any]:
 def markdown(summary: dict[str, Any]) -> str:
     metrics = summary["headline_metrics"]
     case = summary["biology_case"]
+    multi_case = summary["multispecies_case"]
     lines = [
         "# Plant-CellFM v9 Final Handoff Summary",
         "",
@@ -149,10 +178,14 @@ def markdown(summary: dict[str, Any]) -> str:
             f"| Ontology-label actionable all-cell accuracy | {pct(metrics['ontology_label_actionable_all_cell_accuracy'])} |",
             f"| Ontology-label known-label accuracy | {pct(metrics['ontology_label_known_label_accuracy'])} |",
             f"| Ontology-label macro-F1 | {metrics['ontology_label_macro_f1']:.4f} |",
+            f"| API confidence top-30 selective accuracy | {pct(metrics['api_confidence_top30_selective_accuracy'])} |",
+            f"| API confidence top-40 selective accuracy | {pct(metrics['api_confidence_top40_selective_accuracy'])} |",
             "",
             "## Biology Case",
             "",
             f"{case['case']} contains `{case['marker_candidate_rows']}` marker-candidate rows, `{case['cell_states']}` cell states and `{case['root_identity_states']}` root-identity states.",
+            "",
+            f"{multi_case['case']} contains `{multi_case['cells']}` cells, `{multi_case['species']}` species, `{multi_case['tissues']}` tissues and `{multi_case['marker_candidate_rows']}` marker-candidate rows.",
             "",
             "## Safe Claims",
             "",

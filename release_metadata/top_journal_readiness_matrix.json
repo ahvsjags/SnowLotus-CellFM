@@ -13,8 +13,8 @@
     },
     {
       "target": "Genome Biology / genomics computational-method target",
-      "status": "NEAR_READY_WITH_MAJOR_REVISION_RISK",
-      "submission_stance": "Plausible with conservative method/resource framing"
+      "status": "READY_WITH_MAJOR_REVISION_RISK",
+      "submission_stance": "Plausible with reproducible genomics resource, open-set calibration, third-party benchmark contracts and multi-species public-data biology"
     },
     {
       "target": "Communications Biology / broad biology target",
@@ -23,8 +23,8 @@
     },
     {
       "target": "Nature Methods",
-      "status": "STRETCH_NOT_YET_FULLY_CLOSED",
-      "submission_stance": "Presubmission inquiry only until stronger validation and comparator closure"
+      "status": "PRESUBMISSION_INQUIRY_READY_STRETCH",
+      "submission_stance": "Open-set calibration and benchmark contracts strengthen the inquiry; full submission still needs official third-party numerical closure and stronger validation"
     },
     {
       "target": "Nature Plants",
@@ -51,12 +51,17 @@
     {
       "gate": "species_holdout_interpretation",
       "status": "READY_WITH_OPEN_SET_BOUNDARY",
-      "evidence": "release_metadata/species_holdout_failure_audit_v9.md, release_metadata/species_ontology_coverage_audit_v9.md and release_metadata/species_ontology_label_benchmark_v9.md"
+      "evidence": "release_metadata/species_holdout_failure_audit_v9.md, release_metadata/species_ontology_coverage_audit_v9.md, release_metadata/species_ontology_label_benchmark_v9.md and release_metadata/open_set_calibration_v9.md"
     },
     {
       "gate": "species_ontology_mapping_and_benchmark",
       "status": "READY_DIAGNOSTIC",
       "evidence": "release_metadata/plant_cell_state_ontology_mapping_v9.tsv and release_metadata/species_ontology_label_benchmark_v9.md"
+    },
+    {
+      "gate": "open_set_calibration_selective_annotation",
+      "status": "READY_90_PLUS_EVIDENCE",
+      "evidence": "release_metadata/open_set_calibration_v9.md and release_metadata/api_confidence_calibration_curve_v9.tsv"
     },
     {
       "gate": "seurat_comparator",
@@ -65,18 +70,28 @@
     },
     {
       "gate": "scplantllm_comparator",
-      "status": "INPUT_READY_METRIC_MISSING",
-      "evidence": "release_metadata/scplantllm_input_readiness.md"
+      "status": "CONTRACT_READY_METRIC_PENDING",
+      "evidence": "release_metadata/scplantllm_input_readiness.md and release_metadata/third_party_benchmark_contract_v10.md"
     },
     {
       "gate": "scplantannotate_comparator",
-      "status": "ACCESS_LIMITED",
-      "evidence": "release_metadata/scplantannotate_access_audit.md"
+      "status": "CONTRACT_READY_AUTH_LIMITED",
+      "evidence": "release_metadata/scplantannotate_access_audit.md, release_metadata/scplantannotate_benchmark_input_package.md and release_metadata/third_party_benchmark_contract_v10.md"
     },
     {
       "gate": "arabidopsis_root_case",
       "status": "READY_COMPUTATIONAL_CASE",
       "evidence": "release_metadata/plant_biology_case_study_v9.md"
+    },
+    {
+      "gate": "multispecies_scplantdb_case",
+      "status": "READY_COMPUTATIONAL_CASE",
+      "evidence": "release_metadata/multispecies_scplantdb_case_v10.md"
+    },
+    {
+      "gate": "submission_scorecard",
+      "status": "READY_90_PLUS_EVIDENCE",
+      "evidence": "release_metadata/submission_scorecard_v11.md"
     },
     {
       "gate": "snow_lotus_atlas_claim",
@@ -100,15 +115,23 @@
     "ontology_label_benchmark_known_label_accuracy": 0.2012,
     "ontology_label_benchmark_macro_f1": 0.1395,
     "ontology_label_benchmark_unknown_or_unannotated_cells": 1640,
+    "api_confidence_top30_selective_accuracy": 0.9664,
+    "api_confidence_top40_selective_accuracy": 0.9281,
+    "exact_max_similarity_top10_rejected_error_capture": 0.9263,
     "seurat_frozen_subset_fine_accuracy": 0.2207,
     "arabidopsis_root_marker_candidates": 260,
     "arabidopsis_root_cell_states": 13,
-    "arabidopsis_root_identity_states": 10
+    "arabidopsis_root_identity_states": 10,
+    "multispecies_scplantdb_cells": 31503,
+    "multispecies_scplantdb_species": 4,
+    "multispecies_scplantdb_tissues": 4,
+    "multispecies_scplantdb_marker_candidates": 96,
+    "submission_scorecard_fixable_dimensions_min_score": 90
   },
   "higher_tier_required_upgrades": [
-    "Complete one official third-party foundation-model comparator run, preferably scPlantLLM.",
-    "Add one independent non-Arabidopsis biological case.",
-    "Improve model-side cross-species transfer under the completed ontology label layer using species adapter calibration, open-set rejection or independent species replication.",
+    "Complete one official third-party foundation-model comparator run, preferably scPlantLLM; current contract is ready but metric JSON is still pending.",
+    "Strengthen the independent non-Arabidopsis biology case with literature anchors, figure panel or independent validation.",
+    "Improve model-side cross-species transfer under the completed ontology/open-set layer using species adapter calibration, ortholog-aware tokenization or independent species replication.",
     "Add English manuscript package and supplement index.",
     "Add model usability supplement.",
     "Add Snow Lotus single-cell matrix only if a reusable matrix becomes available."

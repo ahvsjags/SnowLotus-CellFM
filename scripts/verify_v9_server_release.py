@@ -24,6 +24,9 @@ CRITICAL_ZIP_ENTRIES = [
     "release_metadata/server_sustainability_status_v9.md",
     "release_metadata/species_ontology_label_benchmark_v9.md",
     "release_metadata/species_ontology_label_benchmark_v9.json",
+    "release_metadata/open_set_calibration_v9.md",
+    "release_metadata/third_party_benchmark_contract_v10.md",
+    "release_metadata/submission_scorecard_v11.md",
     "scripts/verify_v9_server_release.py",
 ]
 
@@ -34,6 +37,9 @@ CRITICAL_ROOT_FILES = [
     "release_metadata/server_sustainability_status_v9.md",
     "release_metadata/species_ontology_label_benchmark_v9.md",
     "release_metadata/species_ontology_label_benchmark_v9.json",
+    "release_metadata/open_set_calibration_v9.md",
+    "release_metadata/third_party_benchmark_contract_v10.md",
+    "release_metadata/submission_scorecard_v11.md",
     "release_metadata/api_runtime_smoke_v9.md",
     "release_metadata/watchdog_recovery_status_v9.md",
 ]

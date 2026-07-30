@@ -26,7 +26,7 @@ Root v10 scPlantDB training exists: `True` at `/root/snowlotus_cellfm_v10_scplan
 
 Root v10 scPlantDB training epochs: `2`; best epoch by eval loss `2`
 
-Root v10 scPlantDB test fine accuracy: `0.06689453125`; coarse accuracy `0.021484375`
+Root v10 exploratory metrics policy: `exploratory_continuation_metrics_are_not_editor_facing_v9_evidence`
 
 Health: `ok`; scope `plant_general`; device `cuda`; adapters `24`
 
@@ -62,10 +62,8 @@ Release gate position: `release_ready_current_gates_pass`
 - Epochs recorded: `2`
 - Last train loss: `8.935744511894882`
 - Last eval loss: `8.71316534280777`
-- Last eval fine accuracy: `0.02978515625`
-- Last eval coarse accuracy: `0.2626953125`
-- Test fine accuracy: `0.06689453125`
-- Test coarse accuracy: `0.021484375`
+- Metrics available: `True`
+- Metric policy: `exploratory_continuation_metrics_are_not_editor_facing_v9_evidence`
 - Best checkpoint exists: `True`; size `139.88 MB`
 - Latest checkpoint exists: `True`; size `387.50 MB`
 

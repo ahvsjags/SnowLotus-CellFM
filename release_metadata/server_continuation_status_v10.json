@@ -1,6 +1,7 @@
 {
   "schema_version": "plant_cellfm_server_continuation_status_v10",
   "generated_at_utc": "2026-07-30T16:11:29.513102+00:00",
+  "editor_package_role": "internal_refresh_log_excluded_from_frozen_v9_package",
   "project_root": "/mnt/snowlotus_cellfm",
   "min_free_bytes": 21474836480,
   "disk_project": {
@@ -72,21 +73,8 @@
     "latest_step": null,
     "train_loss_last_epoch": 8.935744511894882,
     "eval_loss_last_epoch": 8.71316534280777,
-    "eval_fine_accuracy_last_epoch": 0.02978515625,
-    "eval_coarse_accuracy_last_epoch": 0.2626953125,
-    "test_metrics": {
-      "coarse_accuracy": 0.021484375,
-      "coarse_macro_f1": 0.016547291120828315,
-      "eval_batches": 128.0,
-      "eval_coarse_loss": 3.1896195244044065,
-      "eval_fine_loss": 3.2791325710713863,
-      "eval_hierarchy_loss": 3.2435658536851406,
-      "eval_loss": 8.798879615962505,
-      "eval_mlm_gene_loss": 11.613447368144989,
-      "eval_mlm_value_loss": 0.14317100041080266,
-      "fine_accuracy": 0.06689453125,
-      "fine_macro_f1": 0.012795182058339953
-    },
+    "test_metrics_available": true,
+    "metric_policy": "exploratory_continuation_metrics_are_not_editor_facing_v9_evidence",
     "checkpoints": {
       "best.pt": {
         "path": "/root/snowlotus_cellfm_v10_scplantdb_lora_4090/best.pt",

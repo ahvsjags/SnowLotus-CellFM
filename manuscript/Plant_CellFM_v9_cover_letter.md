@@ -1,6 +1,6 @@
 # Cover Letter
 
-Generated: `2026-07-30 21:35 Asia/Shanghai`
+Generated: `2026-07-31 01:07 Asia/Shanghai`
 
 Dear Editor,
 
@@ -12,9 +12,12 @@ The release includes several reviewer-facing safeguards. First, all headline met
 
 Second, the strict species-holdout result is accompanied by a failure audit, a 106-label plant cell-state ontology mapping and an ontology-label benchmark on the frozen runtime embeddings. After excluding unknown or unannotated labels, the ontology-actionable protocol covers 2,324 / 3,964 cells (74.44%), with actionable all-cell accuracy 14.97%, known-label accuracy 20.12% and macro-F1 0.1395. This diagnostic makes the remaining cross-species transfer problem explicit rather than hiding it behind label harmonization.
 
-Third, the submission includes a completed Seurat label-transfer comparator, classical centroid baselines and a v3 comparison. scPlantLLM and scPlantAnnotate are disclosed at their auditable execution boundaries because official executable weights or authenticated batch access are not yet fully closed in the release environment. We therefore do not claim final numerical superiority over those tools.
+Third, the open-set calibration audit adds a practical use layer for this strict benchmark. The deployed API annotation head reaches 96.64% selective accuracy when automatically accepting the top 30% fine-confidence cells and 92.81% at the top 40% acceptance level. Lower-confidence and open-set-like cells are routed to manual review, ontology harmonization or species-adapter calibration rather than being converted directly into biological claims.
 
-Fourth, the Arabidopsis root case demonstrates biological use of the model output. The case contains 260 marker-candidate rows across 13 cell states and 10 root-identity states, linking adapter resolution, hierarchical annotation and marker-candidate mining in a public-data plant root setting.
+Fourth, the submission includes a completed Seurat label-transfer comparator, classical centroid baselines and a v3 comparison. scPlantLLM and scPlantAnnotate are disclosed through official-source benchmark contracts with input packages, runner commands, missing artifacts and metric-closure rules. We therefore do not claim final numerical superiority over those tools until executable official metrics are frozen.
+
+Fifth, the Arabidopsis root and multi-species scPlantDB cases demonstrate biological use of the model output. The Arabidopsis case contains 260 marker-candidate rows across 13 cell states and 10 root-identity states, linking adapter resolution, hierarchical annotation and marker-candidate mining in a public-data plant root setting.
+ The multi-species scPlantDB case adds 31,503 cells, 4 species, 4 tissues and 96 marker-candidate records as a second public-data biology demonstration.
 
 The release package is designed for direct inspection. The repository branch, model card, final manuscript, benchmark JSON files, server release verifier, release gate audit, watchdog recovery evidence and GitHub recovery note are included in the editor package. The frozen checkpoint is available from the GitHub release and is SHA256-pinned.
 

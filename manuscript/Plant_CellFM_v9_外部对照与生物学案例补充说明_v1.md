@@ -1,6 +1,6 @@
 # Plant-CellFM v9 外部对照与植物生物学案例补充说明
 
-生成时间：2026-07-30 15:15 Asia/Shanghai
+生成时间：2026-07-31 01:07 Asia/Shanghai
 
 ## 1 外部对照补强
 
@@ -13,9 +13,9 @@
 | Plant-CellFM v9 vs frozen v3 extended | Leave-species-out, species labels normalized | completed | 0.2354 | 0.1918 | release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json |
 | Classical cosine centroid, group-random split | group_random | completed | 0.7583 | 0.7125 | release_metadata/strict_benchmarks/public_sprint_group_random.centroid_baseline.json |
 | Classical cosine centroid, SRP169576 sample holdout | explicit_leaveout | completed | 0.7337 | 0.4873 | release_metadata/strict_benchmarks/leaveout_srp169576_sample.centroid_baseline.json |
-| scPlantLLM frozen embedding nearest-centroid probe | public sprint train/test chunks | input_ready_metric_missing | - | - | release_metadata/scplantllm_input_readiness.json |
+| scPlantLLM frozen embedding nearest-centroid probe | public sprint train/test chunks | contract_ready_metric_pending | - | - | release_metadata/scplantllm_input_readiness.json |
 | Seurat label transfer | exported train/test split | completed | 0.2207 | 0.0603 | release_metadata/external_benchmarks/seurat_v9_subset.json |
-| scPlantAnnotate | official web/API route audit | web_api_auth_required | - | - | release_metadata/scplantannotate_access_audit.json |
+| scPlantAnnotate | official web/API route audit | contract_ready_auth_limited | - | - | release_metadata/scplantannotate_access_audit.json |
 
 Seurat label transfer 已在 frozen v9 subset 的导出矩阵上完成，测试细胞数为 512，fine accuracy 为 0.2207，fine macro-F1 为 0.0603。这个结果说明在跨数据集、多物种、共享基因空间的严格设置下，传统 anchor-based label transfer 并不能稳定解决植物单细胞注释问题，从而支持 Plant-CellFM v9 作为植物专用基础模型与适配层的必要性。
 

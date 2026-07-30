@@ -1,6 +1,6 @@
 # Plant-CellFM v9 Submission Highlights
 
-Generated: `2026-07-30 21:53 Asia/Shanghai`
+Generated: `2026-07-31 01:07 Asia/Shanghai`
 
 ## Proposed Title
 
@@ -13,7 +13,9 @@ Plant-CellFM: a reproducible foundation-model and adapter framework for plant si
 - Strict grouped evaluation separates leave-dataset, leave-sample and open-set leave-species transfer.
 - Frozen v9 improves over frozen v3 on the shared-gene benchmark in leave-dataset-out and leave-sample-out protocols.
 - Plant cell-state ontology diagnostics separate actionable labels from unknown or unannotated states.
+- Open-set calibration provides a confidence-aware accept/review protocol for high-confidence annotations.
 - Arabidopsis root case links adapter resolution, hierarchical annotation and marker-candidate mining.
+- Multi-species scPlantDB case broadens the public-data biology demonstration beyond Arabidopsis.
 
 ## Headline Numbers
 

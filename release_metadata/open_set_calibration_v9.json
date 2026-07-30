@@ -1,0 +1,561 @@
+{
+  "schema_version": "plant_cellfm_v9_open_set_calibration_v1",
+  "claim_boundary": "Selective annotation and open-set triage diagnostic; does not replace frozen v9 benchmark metrics.",
+  "source_files": {
+    "embeddings": "outputs\\editor_submission_v9\\runtime_smoke_embeddings_v9.npy",
+    "predictions": "outputs\\editor_submission_v9\\runtime_smoke_predictions_v9.csv",
+    "obs_labels": "release_metadata\\species_ontology_obs_labels_with_ids_v9.tsv"
+  },
+  "alignment": {
+    "prediction_rows": 3964,
+    "obs_rows": 7424,
+    "aligned_rows": 3964,
+    "missing_prediction_cell_ids": 0,
+    "duplicate_obs_ids_seen": 0,
+    "missing_examples": []
+  },
+  "embedding": {
+    "rows": 3964,
+    "dimension": 256,
+    "nan_count": 0,
+    "infinite_count": 0
+  },
+  "label_summary": {
+    "species_groups": 8,
+    "fine_labels": 40,
+    "ontology_labels": 20,
+    "top_fine_labels": [
+      [
+        "Mesophyll",
+        948
+      ],
+      [
+        "unannotated_root",
+        636
+      ],
+      [
+        "unannotated",
+        512
+      ],
+      [
+        "unannotated_leaf_glandular",
+        256
+      ],
+      [
+        "Unknow",
+        236
+      ],
+      [
+        "proximal meristem",
+        168
+      ],
+      [
+        "Leaf epidermis",
+        122
+      ],
+      [
+        "Vascular tissue",
+        86
+      ],
+      [
+        "S phase",
+        79
+      ],
+      [
+        "Root cortex",
+        79
+      ],
+      [
+        "G2/M phase",
+        77
+      ],
+      [
+        "Xylem",
+        72
+      ],
+      [
+        "stem cell niche",
+        62
+      ],
+      [
+        "Hydathodes",
+        60
+      ],
+      [
+        "Root cap",
+        57
+      ],
+      [
+        "Shoot system epidermis",
+        49
+      ],
+      [
+        "Root hair",
+        48
+      ],
+      [
+        "Lateral root cap",
+        31
+      ],
+      [
+        "Non-hair",
+        29
+      ],
+      [
+        "Root endodermis",
+        29
+      ]
+    ],
+    "top_ontology_labels": [
+      [
+        "unknown_or_unannotated",
+        1640
+      ],
+      [
+        "mesophyll",
+        948
+      ],
+      [
+        "meristem_or_stem_cell_niche",
+        277
+      ],
+      [
+        "epidermis",
+        220
+      ],
+      [
+        "cell_cycle_state",
+        159
+      ],
+      [
+        "vascular_stele",
+        108
+      ],
+      [
+        "xylem",
+        80
+      ],
+      [
+        "cortex",
+        79
+      ],
+      [
+        "root_cap",
+        78
+      ],
+      [
+        "phloem",
+        68
+      ],
+      [
+        "hydathode",
+        60
+      ],
+      [
+        "endodermis",
+        55
+      ],
+      [
+        "root_hair_or_trichoblast",
+        48
+      ],
+      [
+        "lateral_root_cap",
+        31
+      ],
+      [
+        "guard_or_stomatal_cell",
+        29
+      ],
+      [
+        "nonhair_or_atrichoblast",
+        29
+      ],
+      [
+        "procambium",
+        19
+      ],
+      [
+        "bundle_sheath",
+        16
+      ],
+      [
+        "secretory_or_specialized_epidermis",
+        15
+      ],
+      [
+        "pigment_gland",
+        5
+      ]
+    ]
+  },
+  "nearest_centroid_exact": {
+    "summary": {
+      "n": 3964,
+      "known_label_cells": 2216,
+      "open_set_cells": 1748,
+      "all_cell_accuracy": 0.2363773965691221,
+      "known_label_accuracy": 0.42283393501805056,
+      "macro_f1_all": 0.07136695983941876,
+      "truth_labels": 40,
+      "prediction_labels": 29
+    },
+    "selective_curve": [
+      {
+        "acceptance_rate": 0.1,
+        "accepted_cells": 396,
+        "threshold": 0.7931229472160339,
+        "selective_accuracy": 0.43686868686868685,
+        "known_label_accuracy": 0.4792243767313019,
+        "known_label_fraction": 0.9116161616161617,
+        "rejected_cells": 3568,
+        "rejected_error_capture": 0.9263296993723158,
+        "rejected_open_set_capture": 0.9799771167048055
+      },
+      {
+        "acceptance_rate": 0.2,
+        "accepted_cells": 793,
+        "threshold": 0.7536976933479309,
+        "selective_accuracy": 0.5964691046658259,
+        "known_label_accuracy": 0.6815561959654178,
+        "known_label_fraction": 0.8751576292559899,
+        "rejected_cells": 3171,
+        "rejected_error_capture": 0.8942847703997358,
+        "rejected_open_set_capture": 0.9433638443935927
+      },
+      {
+        "acceptance_rate": 0.3,
+        "accepted_cells": 1189,
+        "threshold": 0.7017766237258911,
+        "selective_accuracy": 0.5391084945332212,
+        "known_label_accuracy": 0.7138084632516704,
+        "known_label_fraction": 0.7552565180824222,
+        "rejected_cells": 2775,
+        "rejected_error_capture": 0.8189626693095474,
+        "rejected_open_set_capture": 0.8335240274599542
+      },
+      {
+        "acceptance_rate": 0.4,
+        "accepted_cells": 1586,
+        "threshold": 0.6437053680419922,
+        "selective_accuracy": 0.45081967213114754,
+        "known_label_accuracy": 0.6881616939364774,
+        "known_label_fraction": 0.6551071878940732,
+        "rejected_cells": 2378,
+        "rejected_error_capture": 0.7122563594317807,
+        "rejected_open_set_capture": 0.687070938215103
+      },
+      {
+        "acceptance_rate": 0.5,
+        "accepted_cells": 1982,
+        "threshold": 0.5435136556625366,
+        "selective_accuracy": 0.38244197780020184,
+        "known_label_accuracy": 0.6337792642140468,
+        "known_label_fraction": 0.6034308779011099,
+        "rejected_cells": 1982,
+        "rejected_error_capture": 0.595639246778989,
+        "rejected_open_set_capture": 0.5503432494279176
+      },
+      {
+        "acceptance_rate": 0.6,
+        "accepted_cells": 2378,
+        "threshold": 0.44492778182029724,
+        "selective_accuracy": 0.3351555929352397,
+        "known_label_accuracy": 0.5676638176638177,
+        "known_label_fraction": 0.5904121110176619,
+        "rejected_cells": 1586,
+        "rejected_error_capture": 0.47770069375619423,
+        "rejected_open_set_capture": 0.44279176201373
+      },
+      {
+        "acceptance_rate": 0.7,
+        "accepted_cells": 2775,
+        "threshold": 0.37894701957702637,
+        "selective_accuracy": 0.3009009009009009,
+        "known_label_accuracy": 0.49850746268656715,
+        "known_label_fraction": 0.6036036036036037,
+        "rejected_cells": 1189,
+        "rejected_error_capture": 0.3591014205483978,
+        "rejected_open_set_capture": 0.3707093821510298
+      },
+      {
+        "acceptance_rate": 0.8,
+        "accepted_cells": 3171,
+        "threshold": 0.31864145398139954,
+        "selective_accuracy": 0.272153894670451,
+        "known_label_accuracy": 0.4490114464099896,
+        "known_label_fraction": 0.6061179438662883,
+        "rejected_cells": 793,
+        "rejected_error_capture": 0.23752890650809383,
+        "rejected_open_set_capture": 0.2854691075514874
+      },
+      {
+        "acceptance_rate": 0.9,
+        "accepted_cells": 3568,
+        "threshold": 0.2592141628265381,
+        "selective_accuracy": 0.2564461883408072,
+        "known_label_accuracy": 0.4322153991497402,
+        "known_label_fraction": 0.593329596412556,
+        "rejected_cells": 396,
+        "rejected_error_capture": 0.12355467459530889,
+        "rejected_open_set_capture": 0.16990846681922198
+      },
+      {
+        "acceptance_rate": 1.0,
+        "accepted_cells": 3964,
+        "threshold": 0.05641501396894455,
+        "selective_accuracy": 0.2363773965691221,
+        "known_label_accuracy": 0.42283393501805056,
+        "known_label_fraction": 0.5590312815338042,
+        "rejected_cells": 0,
+        "rejected_error_capture": 0.0,
+        "rejected_open_set_capture": 0.0
+      }
+    ]
+  },
+  "nearest_centroid_ontology": {
+    "summary": {
+      "n": 2324,
+      "known_label_cells": 1730,
+      "open_set_cells": 594,
+      "all_cell_accuracy": 0.14759036144578314,
+      "known_label_accuracy": 0.19826589595375724,
+      "macro_f1_all": 0.07769012657889114,
+      "truth_labels": 19,
+      "prediction_labels": 17
+    },
+    "selective_curve": [
+      {
+        "acceptance_rate": 0.1,
+        "accepted_cells": 232,
+        "threshold": 0.5817504525184631,
+        "selective_accuracy": 0.34051724137931033,
+        "known_label_accuracy": 0.34801762114537443,
+        "known_label_fraction": 0.978448275862069,
+        "rejected_cells": 2092,
+        "rejected_error_capture": 0.9227662796567391,
+        "rejected_open_set_capture": 0.9915824915824916
+      },
+      {
+        "acceptance_rate": 0.2,
+        "accepted_cells": 465,
+        "threshold": 0.4911094903945923,
+        "selective_accuracy": 0.26881720430107525,
+        "known_label_accuracy": 0.2796420581655481,
+        "known_label_fraction": 0.9612903225806452,
+        "rejected_cells": 1859,
+        "rejected_error_capture": 0.828369510348309,
+        "rejected_open_set_capture": 0.9696969696969697
+      },
+      {
+        "acceptance_rate": 0.3,
+        "accepted_cells": 697,
+        "threshold": 0.44440481066703796,
+        "selective_accuracy": 0.2568149210903874,
+        "known_label_accuracy": 0.2728658536585366,
+        "known_label_fraction": 0.9411764705882353,
+        "rejected_cells": 1627,
+        "rejected_error_capture": 0.7385159010600707,
+        "rejected_open_set_capture": 0.930976430976431
+      },
+      {
+        "acceptance_rate": 0.4,
+        "accepted_cells": 930,
+        "threshold": 0.40865522623062134,
+        "selective_accuracy": 0.23333333333333334,
+        "known_label_accuracy": 0.24885321100917432,
+        "known_label_fraction": 0.9376344086021505,
+        "rejected_cells": 1394,
+        "rejected_error_capture": 0.6400807672892479,
+        "rejected_open_set_capture": 0.9023569023569024
+      },
+      {
+        "acceptance_rate": 0.5,
+        "accepted_cells": 1162,
+        "threshold": 0.36861467361450195,
+        "selective_accuracy": 0.2117039586919105,
+        "known_label_accuracy": 0.22693726937269373,
+        "known_label_fraction": 0.9328743545611016,
+        "rejected_cells": 1162,
+        "rejected_error_capture": 0.5376072690560323,
+        "rejected_open_set_capture": 0.8686868686868687
+      },
+      {
+        "acceptance_rate": 0.6,
+        "accepted_cells": 1394,
+        "threshold": 0.32159537076950073,
+        "selective_accuracy": 0.18866571018651362,
+        "known_label_accuracy": 0.2069236821400472,
+        "known_label_fraction": 0.9117647058823529,
+        "rejected_cells": 930,
+        "rejected_error_capture": 0.4290762241292277,
+        "rejected_open_set_capture": 0.7929292929292929
+      },
+      {
+        "acceptance_rate": 0.7,
+        "accepted_cells": 1627,
+        "threshold": 0.28170084953308105,
+        "selective_accuracy": 0.17332513829133375,
+        "known_label_accuracy": 0.19488597097442986,
+        "known_label_fraction": 0.8893669330055316,
+        "rejected_cells": 697,
+        "rejected_error_capture": 0.3210499747602221,
+        "rejected_open_set_capture": 0.696969696969697
+      },
+      {
+        "acceptance_rate": 0.8,
+        "accepted_cells": 1859,
+        "threshold": 0.23593685030937195,
+        "selective_accuracy": 0.17159763313609466,
+        "known_label_accuracy": 0.19962453066332916,
+        "known_label_fraction": 0.8596019365250135,
+        "rejected_cells": 465,
+        "rejected_error_capture": 0.2226148409893993,
+        "rejected_open_set_capture": 0.5606060606060606
+      },
+      {
+        "acceptance_rate": 0.9,
+        "accepted_cells": 2092,
+        "threshold": 0.1359364241361618,
+        "selective_accuracy": 0.16108986615678778,
+        "known_label_accuracy": 0.1983519717480871,
+        "known_label_fraction": 0.8121414913957935,
+        "rejected_cells": 232,
+        "rejected_error_capture": 0.11408379606259465,
+        "rejected_open_set_capture": 0.3383838383838384
+      },
+      {
+        "acceptance_rate": 1.0,
+        "accepted_cells": 2324,
+        "threshold": -0.046792078763246536,
+        "selective_accuracy": 0.14759036144578314,
+        "known_label_accuracy": 0.19826589595375724,
+        "known_label_fraction": 0.7444061962134251,
+        "rejected_cells": 0,
+        "rejected_error_capture": 0.0,
+        "rejected_open_set_capture": 0.0
+      }
+    ]
+  },
+  "api_head_confidence": {
+    "summary": {
+      "n": 3964,
+      "exact_accuracy": 0.6624621594349143,
+      "ontology_accuracy": 0.686175580221998,
+      "mean_fine_confidence": 0.7206258567103936,
+      "mean_coarse_confidence": 0.6951954245711403
+    },
+    "fine_confidence_curve": [
+      {
+        "acceptance_rate": 0.1,
+        "accepted_cells": 396,
+        "threshold": 0.952267,
+        "selective_accuracy": 0.98989898989899,
+        "known_label_accuracy": 0.98989898989899,
+        "known_label_fraction": 1.0,
+        "rejected_cells": 3568,
+        "rejected_error_capture": 0.9970104633781763,
+        "rejected_open_set_capture": 0.0
+      },
+      {
+        "acceptance_rate": 0.2,
+        "accepted_cells": 793,
+        "threshold": 0.91985,
+        "selective_accuracy": 0.987389659520807,
+        "known_label_accuracy": 0.987389659520807,
+        "known_label_fraction": 1.0,
+        "rejected_cells": 3171,
+        "rejected_error_capture": 0.992526158445441,
+        "rejected_open_set_capture": 0.0
+      },
+      {
+        "acceptance_rate": 0.3,
+        "accepted_cells": 1189,
+        "threshold": 0.8781,
+        "selective_accuracy": 0.9663582842724979,
+        "known_label_accuracy": 0.9663582842724979,
+        "known_label_fraction": 1.0,
+        "rejected_cells": 2775,
+        "rejected_error_capture": 0.9701046337817638,
+        "rejected_open_set_capture": 0.0
+      },
+      {
+        "acceptance_rate": 0.4,
+        "accepted_cells": 1586,
+        "threshold": 0.815479,
+        "selective_accuracy": 0.9281210592686002,
+        "known_label_accuracy": 0.9281210592686002,
+        "known_label_fraction": 1.0,
+        "rejected_cells": 2378,
+        "rejected_error_capture": 0.9147982062780269,
+        "rejected_open_set_capture": 0.0
+      },
+      {
+        "acceptance_rate": 0.5,
+        "accepted_cells": 1982,
+        "threshold": 0.758567,
+        "selective_accuracy": 0.8920282542885973,
+        "known_label_accuracy": 0.8920282542885973,
+        "known_label_fraction": 1.0,
+        "rejected_cells": 1982,
+        "rejected_error_capture": 0.8400597907324364,
+        "rejected_open_set_capture": 0.0
+      },
+      {
+        "acceptance_rate": 0.6,
+        "accepted_cells": 2378,
+        "threshold": 0.69526,
+        "selective_accuracy": 0.851555929352397,
+        "known_label_accuracy": 0.851555929352397,
+        "known_label_fraction": 1.0,
+        "rejected_cells": 1586,
+        "rejected_error_capture": 0.7361733931240658,
+        "rejected_open_set_capture": 0.0
+      },
+      {
+        "acceptance_rate": 0.7,
+        "accepted_cells": 2775,
+        "threshold": 0.612054,
+        "selective_accuracy": 0.7992792792792793,
+        "known_label_accuracy": 0.7992792792792793,
+        "known_label_fraction": 1.0,
+        "rejected_cells": 1189,
+        "rejected_error_capture": 0.5837070254110612,
+        "rejected_open_set_capture": 0.0
+      },
+      {
+        "acceptance_rate": 0.8,
+        "accepted_cells": 3171,
+        "threshold": 0.520279,
+        "selective_accuracy": 0.760643330179754,
+        "known_label_accuracy": 0.760643330179754,
+        "known_label_fraction": 1.0,
+        "rejected_cells": 793,
+        "rejected_error_capture": 0.4327354260089686,
+        "rejected_open_set_capture": 0.0
+      },
+      {
+        "acceptance_rate": 0.9,
+        "accepted_cells": 3568,
+        "threshold": 0.418954,
+        "selective_accuracy": 0.7135650224215246,
+        "known_label_accuracy": 0.7135650224215246,
+        "known_label_fraction": 1.0,
+        "rejected_cells": 396,
+        "rejected_error_capture": 0.23617339312406577,
+        "rejected_open_set_capture": 0.0
+      },
+      {
+        "acceptance_rate": 1.0,
+        "accepted_cells": 3964,
+        "threshold": 0.18453,
+        "selective_accuracy": 0.6624621594349143,
+        "known_label_accuracy": 0.6624621594349143,
+        "known_label_fraction": 1.0,
+        "rejected_cells": 0,
+        "rejected_error_capture": 0.0,
+        "rejected_open_set_capture": 0.0
+      }
+    ]
+  }
+}

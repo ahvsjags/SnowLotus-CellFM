@@ -64,6 +64,7 @@ The ontology-label species-holdout benchmark reuses the frozen 3,964 x 256 runti
 - scPlantAnnotate: official web route is reachable, but anonymous scriptable benchmark execution is not available in the current audit.
 - Arabidopsis root case: `release_metadata/plant_biology_case_study_v9.md` records adapter resolution plus 260 marker-candidate rows across 13 cell states.
 - Arabidopsis root literature anchor: `release_metadata/arabidopsis_root_literature_anchor_v9.md` maps the case labels to established root atlas terminology and canonical marker examples.
+- Multi-species scPlantDB case: `release_metadata/multispecies_scplantdb_case_v10.md` adds 31,503 public-data cells across 4 plant species, 4 tissues and 96 marker-candidate records.
 
 ## Reproduction and Integrity
 
@@ -77,13 +78,6 @@ The ontology-label species-holdout benchmark reuses the frozen 3,964 x 256 runti
 - Server sustainability evidence: `release_metadata/server_sustainability_status_v9.md`
 - Release package checksum verification: passed on the server
 
-## Post-v9 Continuation Record
+## Scope Boundary
 
-The v9 model card keeps NVIDIA GeForce RTX 4090, 24 GB VRAM as the formal hardware statement. A post-v9 continuation run has also been recorded on the same server family after the v9 release was frozen. This continuation is not part of the v9 performance claim.
-
-- Continuation report: `release_metadata/server_continuation_status_v10.md`
-- Root staging corpus: 4 scPlantDB H5AD files merged into a 31,503-cell, 210,485-gene corpus with 4 species, 4 tissues, 15 samples and 27 fine cell-type labels.
-- Training output: `/root/snowlotus_cellfm_v10_scplantdb_lora_4090`
-- Completed training: 2 epochs; best epoch by evaluation loss: 2.
-- Diagnostic test metrics: fine accuracy 0.0669, fine macro-F1 0.0128, coarse accuracy 0.0215, coarse macro-F1 0.0165.
-- Interpretation: this proves the post-v9 data-ingestion and LoRA continuation path can run on the RTX 4090 server, but the checkpoint is not a publication replacement for the frozen v9 model. Further label harmonization, adapter calibration and controlled benchmark design are required before any v10 model can be promoted.
+The model card describes the frozen v9 publication checkpoint only. Exploratory post-v9 continuation checkpoints and refresh logs are not used as v9 performance evidence and are kept outside the editor-facing package.

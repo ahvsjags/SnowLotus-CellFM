@@ -1,0 +1,95 @@
+{
+  "schema_version": "plant_cellfm_third_party_benchmark_contract_v10",
+  "generated": "2026-07-31 01:09 Asia/Shanghai",
+  "claim_boundary": "This contract upgrades third-party comparator handling from an informal pending item to a reproducible execution specification. It does not create completed metrics for tools whose official weights, executable checkout or authenticated API are absent.",
+  "official_sources": {
+    "scPlantLLM": {
+      "paper": "Cao et al., Genomics, Proteomics & Bioinformatics 2025, DOI 10.1093/gpbjnl/qzaf024",
+      "github": "https://github.com/compbioNJU/scPlantLLM",
+      "biocode": "BT007822"
+    },
+    "scPlantAnnotate": {
+      "paper": "Journal of Advanced Research 2026, DOI 10.1016/j.jare.2026.01.035",
+      "web": "https://scplantannotate.missouri.edu/"
+    },
+    "Seurat": {
+      "source": "https://satijalab.org/seurat/",
+      "local_metric": "release_metadata/external_benchmarks/seurat_v9_subset.json"
+    }
+  },
+  "completed_comparators": [
+    {
+      "name": "Seurat label transfer",
+      "status": "completed_metric",
+      "test_cells": 512,
+      "fine_accuracy": 0.2207,
+      "fine_macro_f1": 0.0603,
+      "evidence": "release_metadata/external_benchmarks/seurat_v9_subset.json"
+    }
+  ],
+  "contracts": [
+    {
+      "name": "scPlantLLM",
+      "status": "execution_contract_ready_metric_pending",
+      "evidence_readiness_score": 92,
+      "metric_closure_status": "pending_official_weight_and_probe_json",
+      "input_package": {
+        "h5": "outputs/external_benchmarks/scplantllm_public_sprint_input/snowcell_public_sprint.h5",
+        "metadata_csv": "outputs/external_benchmarks/scplantllm_public_sprint_input/snowcell_public_sprint.meta.csv",
+        "selected_cells": 20000,
+        "retained_genes": 24392,
+        "gene_vocab_overlap_rate": 1.0,
+        "input_ready": true,
+        "reference_metadata_ready": true,
+        "reference_chunks_ready": true,
+        "chunk_count": 3
+      },
+      "required_artifacts_for_metric_closure": [
+        "external/scPlantLLM/model_params/scPlantLLM_model.pth",
+        "outputs/external_benchmarks/scplantllm_embedding_centroid_probe.json",
+        "command log for scripts/run_scplantllm_embedding_centroid_probe.py"
+      ],
+      "local_runner": "python scripts/run_scplantllm_embedding_centroid_probe.py --chunks-dir outputs/external_benchmarks/scplantllm_public_sprint_input/reference_preprocess/chunks --checkpoint external/scPlantLLM/model_params/scPlantLLM_model.pth --output outputs/external_benchmarks/scplantllm_embedding_centroid_probe.json",
+      "reporting_rule": "Report input readiness and official-source anchoring now; report numerical comparison only after the official checkpoint/probe JSON exists and is regenerated inside the release tree."
+    },
+    {
+      "name": "scPlantAnnotate",
+      "status": "auth_limited_contract_ready",
+      "evidence_readiness_score": 90,
+      "metric_closure_status": "pending_authenticated_prediction_export",
+      "input_package": {
+        "input_h5ad": "outputs/external_benchmarks/scplantannotate_public_sprint_input/scplantannotate_input.h5ad",
+        "truth_csv": "outputs/external_benchmarks/scplantannotate_public_sprint_input/truth_labels.csv",
+        "selected_cells": 5000,
+        "class_count": 12,
+        "species": "Arabidopsis thaliana"
+      },
+      "access_audit": {
+        "web_server_reachable": true,
+        "root_status": 200,
+        "scriptable_batch_api_detected": false,
+        "anonymous_api_accessible": false,
+        "auth_required_endpoint_count": 3
+      },
+      "required_artifacts_for_metric_closure": [
+        "authenticated scPlantAnnotate account or author-exported predictions",
+        "outputs/external_benchmarks/scplantannotate_final_metrics.json",
+        "truth-matched prediction CSV with cell identifiers"
+      ],
+      "local_runner": "SCPLANTANNOTATE_USERNAME=<user> SCPLANTANNOTATE_PASSWORD=<password> python scripts/run_scplantannotate_authenticated_benchmark.py --input-h5ad outputs/external_benchmarks/scplantannotate_public_sprint_input/scplantannotate_input.h5ad --dataset-name snowcell_public_sprint_scplantannotate_probe --organism-id 1 --predictor-id 1 --execute --wait --output outputs/external_benchmarks/scplantannotate_authenticated_benchmark_plan.json",
+      "reporting_rule": "Keep this as access-limited until authenticated predictions or an official export are scored."
+    }
+  ],
+  "panel_summary": {
+    "rows": 8,
+    "completed_metric_rows": 6,
+    "completed_formal_comparisons": 5,
+    "contract_pending_rows": 2,
+    "claim_safe_position": "Plant-CellFM v9 has a completed frozen v3 comparison and a classical sample-holdout baseline. Seurat label transfer is included as a completed traditional external baseline. scPlantLLM remains contract-ready until the official checkpoint/probe metric is present; scPlantAnnotate remains contract-ready until authenticated or exported official predictions are available."
+  },
+  "submission_upgrade": {
+    "before": "Third-party model comparison needed a clearer separation between completed metrics and official-source metric-pending contracts.",
+    "after": "Completed Seurat metrics, scPlantLLM input/runner readiness and scPlantAnnotate auth-limited execution are separated, sourced and assigned closure criteria.",
+    "safe_sentence": "Plant-CellFM v9 includes completed v3, centroid and Seurat benchmarks, while scPlantLLM and scPlantAnnotate are disclosed through official-source benchmark contracts pending executable metric closure."
+  }
+}

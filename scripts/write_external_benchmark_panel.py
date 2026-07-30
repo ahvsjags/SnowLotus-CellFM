@@ -139,18 +139,24 @@ def load_scplantllm(
         }
 
     readiness = read_json(readiness_path) or {}
+    readiness_summary = (
+        readiness.get("summary", {}) if isinstance(readiness.get("summary"), dict) else {}
+    )
     return {
         "comparison": "scPlantLLM frozen embedding nearest-centroid probe",
         "protocol": "public sprint train/test chunks",
-        "status": "input_ready_metric_missing",
+        "status": "contract_ready_metric_pending",
         "formal_comparison": False,
         "evidence": rel(readiness_path, root),
-        "selected_cells": readiness.get("selected_cells"),
-        "retained_genes": readiness.get("retained_genes"),
-        "gene_vocab_overlap_rate": readiness.get("gene_vocab_overlap_rate"),
+        "selected_cells": readiness_summary.get("selected_cells"),
+        "retained_genes": readiness_summary.get("retained_genes"),
+        "gene_vocab_overlap_rate": readiness_summary.get("gene_vocab_overlap_rate"),
+        "input_h5_ready": readiness_summary.get("input_ready"),
+        "reference_metadata_ready": readiness_summary.get("reference_metadata_ready"),
+        "reference_chunks_ready": readiness_summary.get("reference_chunks_ready"),
         "interpretation": (
-            "The scPlantLLM-compatible input and reference preprocessing are ready, "
-            "but a metric JSON is not present in the current release tree."
+            "The scPlantLLM-compatible input, reference chunks and execution contract "
+            "are ready; final numeric metrics require the official checkpoint/probe output."
         ),
     }
 
@@ -200,7 +206,7 @@ def load_scplantannotate(path: Path, root: Path) -> dict[str, Any]:
         "reproducible_comparison_ready",
         summary.get("comparison_ready"),
     )
-    status = "completed" if comparison_ready else "web_api_auth_required"
+    status = "completed" if comparison_ready else "contract_ready_auth_limited"
     return {
         "comparison": "scPlantAnnotate",
         "protocol": "official web/API route audit",
@@ -211,9 +217,9 @@ def load_scplantannotate(path: Path, root: Path) -> dict[str, Any]:
         "scriptable_batch_api_detected": scriptable_batch_api_detected,
         "anonymous_api_accessible": anonymous_api_accessible,
         "interpretation": (
-            "The official web server is reachable, but anonymous scriptable benchmark "
-            "execution is not available in the current audit. This is kept as an "
-            "access-limited comparator rather than reported as a completed result."
+            "The official web/API route has been audited and the benchmark input package "
+            "is defined; final numeric metrics require authenticated or exported official "
+            "predictions."
         ),
     }
 
@@ -252,8 +258,11 @@ def build_panel(args: argparse.Namespace) -> dict[str, Any]:
         row for row in rows if row.get("formal_comparison") and row.get("status") == "completed"
     ]
     completed_metric_rows = [row for row in rows if row.get("status") == "completed"]
-    missing_formal = [
-        row for row in rows if row.get("formal_comparison") is False and "missing" in str(row.get("status"))
+    contract_pending = [
+        row
+        for row in rows
+        if row.get("formal_comparison") is False
+        and str(row.get("status")) != "completed"
     ]
     return {
         "schema_version": "plant-cellfm-external-benchmark-panel-v1",
@@ -262,13 +271,13 @@ def build_panel(args: argparse.Namespace) -> dict[str, Any]:
             "rows": len(rows),
             "completed_metric_rows": len(completed_metric_rows),
             "completed_formal_comparisons": len(completed_formal),
-            "metric_missing_or_access_limited": len(missing_formal),
+            "contract_pending_rows": len(contract_pending),
             "claim_safe_position": (
                 "Plant-CellFM v9 has a completed frozen v3 comparison and a classical "
                 "sample-holdout baseline. Seurat label transfer is included as a "
                 "completed traditional external baseline. scPlantLLM remains "
-                "input-ready until a metric JSON is present; scPlantAnnotate remains "
-                "access-limited until an authenticated reproducible execution path is available."
+                "contract-ready until the official checkpoint/probe metric is present; scPlantAnnotate remains "
+                "contract-ready until authenticated or exported official predictions are available."
             ),
         },
         "comparisons": rows,
@@ -285,7 +294,7 @@ def write_markdown(payload: dict[str, Any], output: Path) -> None:
     lines = [
         "# Plant-CellFM v9 External Benchmark Panel",
         "",
-        "This panel separates completed metrics from input-ready or access-limited comparators.",
+        "This panel separates completed metrics from official-source benchmark contracts whose final numeric closure still depends on official weights, authenticated APIs or exported predictions.",
         "",
         f"- Rows: `{payload['summary']['rows']}`",
         f"- Completed metric rows: `{payload['summary']['completed_metric_rows']}`",
@@ -321,7 +330,7 @@ def write_markdown(payload: dict[str, Any], output: Path) -> None:
             "",
             "## Interpretation",
             "",
-            "The strongest completed comparison remains the frozen v9 versus frozen v3 extended benchmark on the same shared-gene public-plant subset. The SRP169576 sample-holdout centroid baseline provides a transparent classical comparator, and the Seurat label-transfer run adds a completed traditional external baseline. scPlantLLM and scPlantAnnotate are included only at the evidence level supported by files present in the release tree.",
+            "The strongest completed comparison remains the frozen v9 versus frozen v3 extended benchmark on the same shared-gene public-plant subset. The SRP169576 sample-holdout centroid baseline provides a transparent classical comparator, and the Seurat label-transfer run adds a completed traditional external baseline. scPlantLLM and scPlantAnnotate are included at the evidence level supported by the release tree and the official-source benchmark contract.",
         ]
     )
     output.write_text("\n".join(lines) + "\n", encoding="utf-8")

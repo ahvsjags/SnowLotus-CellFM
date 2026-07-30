@@ -1,6 +1,6 @@
 {
   "schema_version": "plant_cellfm_v9_submission_highlights_v1",
-  "generated_at": "2026-07-30 21:53 Asia/Shanghai",
+  "generated_at": "2026-07-31 01:07 Asia/Shanghai",
   "repository": "https://github.com/ahvsjags/SnowLotus-CellFM",
   "branch": "agent/remote-pipeline-20260728",
   "release_tag": "v0.9.0-plant-general-lora",
@@ -11,7 +11,9 @@
     "Strict grouped evaluation separates leave-dataset, leave-sample and open-set leave-species transfer.",
     "Frozen v9 improves over frozen v3 on the shared-gene benchmark in leave-dataset-out and leave-sample-out protocols.",
     "Plant cell-state ontology diagnostics separate actionable labels from unknown or unannotated states.",
-    "Arabidopsis root case links adapter resolution, hierarchical annotation and marker-candidate mining."
+    "Open-set calibration provides a confidence-aware accept/review protocol for high-confidence annotations.",
+    "Arabidopsis root case links adapter resolution, hierarchical annotation and marker-candidate mining.",
+    "Multi-species scPlantDB case broadens the public-data biology demonstration beyond Arabidopsis."
   ],
   "headline_numbers": {
     "leave_dataset_out_v9_accuracy_all": 0.44904137235116043,
@@ -25,10 +27,15 @@
     "ontology_actionable_accuracy_all": 0.14974182444061962,
     "ontology_known_label_accuracy": 0.20115606936416186,
     "ontology_macro_f1": 0.13953579473841998,
+    "api_confidence_top30_selective_accuracy": 0.9663582842724979,
+    "api_confidence_top40_selective_accuracy": 0.9281210592686002,
     "adapter_count": 24,
     "arabidopsis_marker_candidate_rows": 260,
     "arabidopsis_cell_states": 13,
-    "arabidopsis_root_identity_states": 10
+    "arabidopsis_root_identity_states": 10,
+    "multispecies_scplantdb_cells": 31503,
+    "multispecies_scplantdb_species": 4,
+    "multispecies_scplantdb_marker_candidates": 96
   },
   "claim_safe_position": "Use Plant-CellFM v9 as a plant-general reproducible method and resource. State leave-species-out performance as open-set transfer evidence, not universal high-accuracy annotation."
 }

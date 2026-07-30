@@ -1,6 +1,6 @@
 {
   "schema_version": "plant_cellfm_v9_data_code_availability_v1",
-  "generated_at": "2026-07-30 21:35 Asia/Shanghai",
+  "generated_at": "2026-07-31 01:07 Asia/Shanghai",
   "code_availability": {
     "repository": "https://github.com/ahvsjags/SnowLotus-CellFM",
     "branch": "agent/remote-pipeline-20260728",
@@ -23,8 +23,12 @@
       "release_metadata/species_holdout_failure_audit_v9.md",
       "release_metadata/species_ontology_coverage_audit_v9.md",
       "release_metadata/species_ontology_label_benchmark_v9.md",
+      "release_metadata/open_set_calibration_v9.md",
+      "release_metadata/third_party_benchmark_contract_v10.md",
       "release_metadata/plant_biology_case_study_v9.md",
-      "release_metadata/arabidopsis_root_case_figure_v9.md"
+      "release_metadata/arabidopsis_root_case_figure_v9.md",
+      "release_metadata/multispecies_scplantdb_case_v10.md",
+      "release_metadata/submission_scorecard_v11.md"
     ],
     "source_data_policy": "The release records public-source accessions, processed benchmark manifests and derived audit tables. Original public datasets remain available from their source repositories under their original access conditions."
   },
@@ -37,6 +41,7 @@
   "claim_boundary": [
     "The release does not claim a completed Snow Lotus single-cell atlas.",
     "The release does not claim universal high-accuracy zero-shot annotation for every plant species.",
-    "The release does not claim final official scPlantLLM or scPlantAnnotate numerical superiority without executable third-party benchmark closure."
+    "The release does not claim final official scPlantLLM or scPlantAnnotate numerical superiority without executable third-party benchmark closure.",
+    "The release does not interpret 90+ evidence-readiness as 90+ raw cross-species accuracy."
   ]
 }

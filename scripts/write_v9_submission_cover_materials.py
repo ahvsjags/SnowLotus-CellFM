@@ -51,10 +51,19 @@ def pct(value: float) -> str:
     return f"{value * 100:.2f}%"
 
 
+def curve_at(curve: list[dict[str, Any]], rate: float) -> dict[str, Any]:
+    for item in curve:
+        if abs(float(item.get("acceptance_rate", -1)) - rate) < 1e-9:
+            return item
+    return {}
+
+
 def build_context() -> dict[str, Any]:
     comparison = read_json(RELEASE / "v9_benchmarks" / "v9_lora_vs_v3_shared_comparison.json")
     ontology = read_json(RELEASE / "species_ontology_label_benchmark_v9.json")
     case = read_json(RELEASE / "plant_biology_case_study_v9.json")
+    open_set = read_json(RELEASE / "open_set_calibration_v9.json")
+    multi_case = read_json(RELEASE / "multispecies_scplantdb_case_v10.json")
     candidate = comparison["candidate"]["summary"]
     baseline = comparison["baseline"]["summary"]
     ontology_action = ontology["protocols"]["leave_species_out_ontology_actionable"]
@@ -65,6 +74,9 @@ def build_context() -> dict[str, Any]:
         "baseline": baseline,
         "ontology_action": ontology_action,
         "case": case,
+        "api_top30": curve_at(open_set["api_head_confidence"]["fine_confidence_curve"], 0.3),
+        "api_top40": curve_at(open_set["api_head_confidence"]["fine_confidence_curve"], 0.4),
+        "multi_case": multi_case,
     }
 
 
@@ -73,6 +85,9 @@ def cover_letter_md(ctx: dict[str, Any]) -> str:
     baseline = ctx["baseline"]
     ontology_action = ctx["ontology_action"]
     marker_overview = ctx["case"]["marker_overview"]
+    api_top30 = ctx["api_top30"]
+    api_top40 = ctx["api_top40"]
+    multi = ctx["multi_case"]
     return "\n".join(
         [
             "# Cover Letter",
@@ -93,10 +108,14 @@ def cover_letter_md(ctx: dict[str, Any]) -> str:
             "Second, the strict species-holdout result is accompanied by a failure audit, a 106-label plant cell-state ontology mapping and an ontology-label benchmark on the frozen runtime embeddings. After excluding unknown or unannotated labels, the ontology-actionable protocol covers "
             f"{ontology_action['n_test']:,} / {ontology_action['n_test_total']:,} cells ({pct(ontology_action['coverage'])}), with actionable all-cell accuracy {pct(ontology_action['accuracy_all'])}, known-label accuracy {pct(ontology_action['accuracy'])} and macro-F1 {fmt(ontology_action['macro_f1'])}. This diagnostic makes the remaining cross-species transfer problem explicit rather than hiding it behind label harmonization.",
             "",
-            "Third, the submission includes a completed Seurat label-transfer comparator, classical centroid baselines and a v3 comparison. scPlantLLM and scPlantAnnotate are disclosed at their auditable execution boundaries because official executable weights or authenticated batch access are not yet fully closed in the release environment. We therefore do not claim final numerical superiority over those tools.",
+            "Third, the open-set calibration audit adds a practical use layer for this strict benchmark. The deployed API annotation head reaches "
+            f"{pct(api_top30['selective_accuracy'])} selective accuracy when automatically accepting the top 30% fine-confidence cells and {pct(api_top40['selective_accuracy'])} at the top 40% acceptance level. Lower-confidence and open-set-like cells are routed to manual review, ontology harmonization or species-adapter calibration rather than being converted directly into biological claims.",
             "",
-            "Fourth, the Arabidopsis root case demonstrates biological use of the model output. The case contains "
+            "Fourth, the submission includes a completed Seurat label-transfer comparator, classical centroid baselines and a v3 comparison. scPlantLLM and scPlantAnnotate are disclosed through official-source benchmark contracts with input packages, runner commands, missing artifacts and metric-closure rules. We therefore do not claim final numerical superiority over those tools until executable official metrics are frozen.",
+            "",
+            "Fifth, the Arabidopsis root and multi-species scPlantDB cases demonstrate biological use of the model output. The Arabidopsis case contains "
             f"{marker_overview['n_marker_rows']} marker-candidate rows across {marker_overview['n_labels']} cell states and {marker_overview['root_identity_label_count']} root-identity states, linking adapter resolution, hierarchical annotation and marker-candidate mining in a public-data plant root setting.",
+            f" The multi-species scPlantDB case adds {multi['corpus']['cells']:,} cells, {multi['corpus']['species']} species, {multi['corpus']['tissues']} tissues and {multi['marker_record_count']} marker-candidate records as a second public-data biology demonstration.",
             "",
             "The release package is designed for direct inspection. The repository branch, model card, final manuscript, benchmark JSON files, server release verifier, release gate audit, watchdog recovery evidence and GitHub recovery note are included in the editor package. The frozen checkpoint is available from the GitHub release and is SHA256-pinned.",
             "",
@@ -136,8 +155,12 @@ def availability() -> dict[str, Any]:
                 "release_metadata/species_holdout_failure_audit_v9.md",
                 "release_metadata/species_ontology_coverage_audit_v9.md",
                 "release_metadata/species_ontology_label_benchmark_v9.md",
+                "release_metadata/open_set_calibration_v9.md",
+                "release_metadata/third_party_benchmark_contract_v10.md",
                 "release_metadata/plant_biology_case_study_v9.md",
                 "release_metadata/arabidopsis_root_case_figure_v9.md",
+                "release_metadata/multispecies_scplantdb_case_v10.md",
+                "release_metadata/submission_scorecard_v11.md",
             ],
             "source_data_policy": "The release records public-source accessions, processed benchmark manifests and derived audit tables. Original public datasets remain available from their source repositories under their original access conditions.",
         },
@@ -151,6 +174,7 @@ def availability() -> dict[str, Any]:
             "The release does not claim a completed Snow Lotus single-cell atlas.",
             "The release does not claim universal high-accuracy zero-shot annotation for every plant species.",
             "The release does not claim final official scPlantLLM or scPlantAnnotate numerical superiority without executable third-party benchmark closure.",
+            "The release does not interpret 90+ evidence-readiness as 90+ raw cross-species accuracy.",
         ],
     }
 

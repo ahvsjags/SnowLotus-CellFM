@@ -31,11 +31,20 @@ def pct(value: float) -> str:
     return f"{value * 100:.2f}%"
 
 
+def curve_at(curve: list[dict[str, Any]], rate: float) -> dict[str, Any]:
+    for item in curve:
+        if abs(float(item.get("acceptance_rate", -1)) - rate) < 1e-9:
+            return item
+    return {}
+
+
 def build_context() -> dict[str, Any]:
     comparison = read_json(RELEASE / "v9_benchmarks" / "v9_lora_vs_v3_shared_comparison.json")
     ontology = read_json(RELEASE / "species_ontology_label_benchmark_v9.json")
     biology = read_json(RELEASE / "plant_biology_case_study_v9.json")
     external = read_json(RELEASE / "external_benchmark_panel_v9.json")
+    open_set = read_json(RELEASE / "open_set_calibration_v9.json")
+    multi_case = read_json(RELEASE / "multispecies_scplantdb_case_v10.json")
     candidate = comparison["candidate"]["summary"]
     baseline = comparison["baseline"]["summary"]
     delta = comparison["delta"]
@@ -52,6 +61,9 @@ def build_context() -> dict[str, Any]:
         "marker_overview": marker_overview,
         "adapter_count": adapter_layer["adapter_count"],
         "external_summary": external["summary"],
+        "api_top30": curve_at(open_set["api_head_confidence"]["fine_confidence_curve"], 0.3),
+        "api_top40": curve_at(open_set["api_head_confidence"]["fine_confidence_curve"], 0.4),
+        "multi_case": multi_case,
     }
 
 
@@ -60,6 +72,9 @@ def abstract(ctx: dict[str, Any]) -> str:
     baseline = ctx["baseline"]
     ontology = ctx["ontology_action"]
     markers = ctx["marker_overview"]
+    api_top30 = ctx["api_top30"]
+    api_top40 = ctx["api_top40"]
+    multi = ctx["multi_case"]
     return (
         "Plant single-cell and single-nucleus transcriptomic studies increasingly cover diverse species, "
         "tissues and assay formats, yet cross-study reuse is limited by heterogeneous matrix formats, "
@@ -78,10 +93,13 @@ def abstract(ctx: dict[str, Any]) -> str:
         f"{fmt(candidate['leave_species_out']['fine']['accuracy'])}, supporting open-set cross-species "
         "transfer analysis rather than a universal high-accuracy claim. A plant cell-state ontology diagnostic "
         f"covers {ontology['n_test']:,} of {ontology['n_test_total']:,} cells "
-        f"({pct(ontology['coverage'])}) after excluding unknown or unannotated states. The release further "
-        f"includes {ctx['adapter_count']} adapter entries and an Arabidopsis root case with "
+        f"({pct(ontology['coverage'])}) after excluding unknown or unannotated states. The API confidence layer "
+        f"reaches {pct(api_top30['selective_accuracy'])} and {pct(api_top40['selective_accuracy'])} selective "
+        "accuracy when accepting the top 30% and 40% confidence cells. The release further "
+        f"includes {ctx['adapter_count']} adapter entries, an Arabidopsis root case with "
         f"{markers['n_marker_rows']} marker-candidate rows across {markers['n_labels']} cell states and "
-        f"{markers['root_identity_label_count']} root-identity states. Plant-CellFM v9 therefore provides "
+        f"{markers['root_identity_label_count']} root-identity states, and a multi-species scPlantDB case with "
+        f"{multi['corpus']['cells']:,} cells across {multi['corpus']['species']} species. Plant-CellFM v9 therefore provides "
         "a traceable method and resource for plant single-cell annotation, benchmark auditing and target-species "
         "adapter transfer."
     )
@@ -93,6 +111,9 @@ def synopsis_markdown(ctx: dict[str, Any]) -> str:
     ontology = ctx["ontology_action"]
     markers = ctx["marker_overview"]
     external = ctx["external_summary"]
+    api_top30 = ctx["api_top30"]
+    api_top40 = ctx["api_top40"]
+    multi = ctx["multi_case"]
     lines = [
         "# Plant-CellFM v9 English Submission Synopsis",
         "",
@@ -127,7 +148,9 @@ def synopsis_markdown(ctx: dict[str, Any]) -> str:
         "- Strict grouped evaluation, including leave-dataset-out, leave-sample-out and normalized leave-species-out protocols.",
         f"- v9 improves over frozen v3 in leave-dataset-out all-cell accuracy ({fmt(candidate['leave_dataset_out']['fine']['accuracy_all'])} versus {fmt(baseline['leave_dataset_out']['fine']['accuracy_all'])}) and leave-sample-out all-cell accuracy ({fmt(candidate['leave_sample_out']['fine']['accuracy_all'])} versus {fmt(baseline['leave_sample_out']['fine']['accuracy_all'])}).",
         f"- Ontology-actionable benchmark separates {pct(ontology['coverage'])} covered cells from unknown or unannotated states.",
+        f"- Open-set calibration reaches {pct(api_top30['selective_accuracy'])}/{pct(api_top40['selective_accuracy'])} selective accuracy at top-30/top-40 confidence acceptance.",
         f"- Arabidopsis root case provides {markers['n_marker_rows']} marker-candidate rows across {markers['n_labels']} cell states.",
+        f"- Multi-species scPlantDB case adds {multi['corpus']['cells']:,} cells across {multi['corpus']['species']} species and {multi['marker_record_count']} marker-candidate records.",
         "",
         "## Graphical Abstract Text",
         "",
@@ -141,6 +164,8 @@ def synopsis_markdown(ctx: dict[str, Any]) -> str:
         "",
         "Panel 5: The Arabidopsis root case links model output to cell-state labels and marker-candidate mining for downstream biological interpretation.",
         "",
+        "Panel 6: Open-set confidence calibration and the multi-species scPlantDB case show how high-confidence predictions, review routing and public-data biology examples are packaged for reuse.",
+        "",
         "## Evidence At A Glance",
         "",
         f"- Completed metric rows in external benchmark panel: {external['completed_metric_rows']} / {external['rows']}.",
@@ -150,14 +175,18 @@ def synopsis_markdown(ctx: dict[str, Any]) -> str:
         f"- Ontology-label actionable all-cell accuracy: {pct(ontology['accuracy_all'])}.",
         f"- Ontology-label known-label accuracy: {pct(ontology['accuracy'])}.",
         f"- Ontology-label macro-F1: {fmt(ontology['macro_f1'])}.",
+        f"- API confidence top-30 selective accuracy: {pct(api_top30['selective_accuracy'])}.",
+        f"- API confidence top-40 selective accuracy: {pct(api_top40['selective_accuracy'])}.",
+        f"- Multi-species scPlantDB case: {multi['corpus']['cells']:,} cells, {multi['corpus']['species']} species, {multi['marker_record_count']} marker-candidate records.",
         "",
         "## Editorial Positioning",
         "",
         "The manuscript is positioned as a computational method/resource paper for plant single-cell annotation. "
         "The core promise is reproducibility, adapter-based plant generalization and transparent benchmark auditing. "
-        "The submission reports open-set leave-species performance as diagnostic transfer evidence, treats Snow Lotus "
-        "as one target-species adapter entry point and records scPlantLLM/scPlantAnnotate at auditable execution "
-        "boundaries pending official metric closure.",
+        "The submission reports open-set leave-species performance as diagnostic transfer evidence, adds selective "
+        "annotation evidence for high-confidence predictions, treats Snow Lotus as one target-species adapter entry "
+        "point and records scPlantLLM/scPlantAnnotate through official-source benchmark contracts pending official "
+        "metric closure.",
         "",
         "## Submission Checklist",
         "",
@@ -190,7 +219,9 @@ def highlights_json(ctx: dict[str, Any]) -> dict[str, Any]:
             "Strict grouped evaluation separates leave-dataset, leave-sample and open-set leave-species transfer.",
             "Frozen v9 improves over frozen v3 on the shared-gene benchmark in leave-dataset-out and leave-sample-out protocols.",
             "Plant cell-state ontology diagnostics separate actionable labels from unknown or unannotated states.",
+            "Open-set calibration provides a confidence-aware accept/review protocol for high-confidence annotations.",
             "Arabidopsis root case links adapter resolution, hierarchical annotation and marker-candidate mining.",
+            "Multi-species scPlantDB case broadens the public-data biology demonstration beyond Arabidopsis.",
         ],
         "headline_numbers": {
             "leave_dataset_out_v9_accuracy_all": candidate["leave_dataset_out"]["fine"]["accuracy_all"],
@@ -204,10 +235,15 @@ def highlights_json(ctx: dict[str, Any]) -> dict[str, Any]:
             "ontology_actionable_accuracy_all": ontology["accuracy_all"],
             "ontology_known_label_accuracy": ontology["accuracy"],
             "ontology_macro_f1": ontology["macro_f1"],
+            "api_confidence_top30_selective_accuracy": ctx["api_top30"]["selective_accuracy"],
+            "api_confidence_top40_selective_accuracy": ctx["api_top40"]["selective_accuracy"],
             "adapter_count": ctx["adapter_count"],
             "arabidopsis_marker_candidate_rows": markers["n_marker_rows"],
             "arabidopsis_cell_states": markers["n_labels"],
             "arabidopsis_root_identity_states": markers["root_identity_label_count"],
+            "multispecies_scplantdb_cells": ctx["multi_case"]["corpus"]["cells"],
+            "multispecies_scplantdb_species": ctx["multi_case"]["corpus"]["species"],
+            "multispecies_scplantdb_marker_candidates": ctx["multi_case"]["marker_record_count"],
         },
         "claim_safe_position": (
             "Use Plant-CellFM v9 as a plant-general reproducible method and resource. "

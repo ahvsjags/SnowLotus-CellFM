@@ -141,9 +141,8 @@ def root_v10_training_progress(output_dir: Path) -> dict[str, Any]:
         "latest_step": progress_latest.get("step"),
         "train_loss_last_epoch": epochs[-1].get("train_loss") if epochs else None,
         "eval_loss_last_epoch": epochs[-1].get("eval_loss") if epochs else None,
-        "eval_fine_accuracy_last_epoch": epochs[-1].get("fine_accuracy") if epochs else None,
-        "eval_coarse_accuracy_last_epoch": epochs[-1].get("coarse_accuracy") if epochs else None,
-        "test_metrics": test_metrics,
+        "test_metrics_available": bool(test_metrics),
+        "metric_policy": "exploratory_continuation_metrics_are_not_editor_facing_v9_evidence",
         "checkpoints": checkpoints,
     }
 
@@ -205,6 +204,7 @@ def build_status(min_free_bytes: int) -> dict[str, Any]:
     return {
         "schema_version": "plant_cellfm_server_continuation_status_v10",
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "editor_package_role": "internal_refresh_log_excluded_from_frozen_v9_package",
         "project_root": str(ROOT),
         "min_free_bytes": min_free_bytes,
         "disk_project": disk_project,
@@ -275,7 +275,7 @@ def markdown(status: dict[str, Any]) -> str:
         "",
         f"Root v10 scPlantDB training epochs: `{root_training.get('history_epochs', 'not_available')}`; best epoch by eval loss `{root_training.get('best_epoch_by_eval_loss', 'not_available')}`",
         "",
-        f"Root v10 scPlantDB test fine accuracy: `{root_training.get('test_metrics', {}).get('fine_accuracy', 'not_available')}`; coarse accuracy `{root_training.get('test_metrics', {}).get('coarse_accuracy', 'not_available')}`",
+        f"Root v10 exploratory metrics policy: `{root_training.get('metric_policy', 'not_available')}`",
         "",
         f"Health: `{health.get('status')}`; scope `{health.get('model_scope')}`; device `{health.get('device')}`; adapters `{health.get('adapter_count')}`",
         "",
@@ -321,10 +321,8 @@ def markdown(status: dict[str, Any]) -> str:
                 f"- Epochs recorded: `{root_training.get('history_epochs')}`",
                 f"- Last train loss: `{root_training.get('train_loss_last_epoch')}`",
                 f"- Last eval loss: `{root_training.get('eval_loss_last_epoch')}`",
-                f"- Last eval fine accuracy: `{root_training.get('eval_fine_accuracy_last_epoch')}`",
-                f"- Last eval coarse accuracy: `{root_training.get('eval_coarse_accuracy_last_epoch')}`",
-                f"- Test fine accuracy: `{root_training.get('test_metrics', {}).get('fine_accuracy')}`",
-                f"- Test coarse accuracy: `{root_training.get('test_metrics', {}).get('coarse_accuracy')}`",
+                f"- Metrics available: `{root_training.get('test_metrics_available')}`",
+                f"- Metric policy: `{root_training.get('metric_policy')}`",
                 f"- Best checkpoint exists: `{root_training.get('checkpoints', {}).get('best.pt', {}).get('exists')}`; size `{fmt_bytes(root_training.get('checkpoints', {}).get('best.pt', {}).get('size_bytes'))}`",
                 f"- Latest checkpoint exists: `{root_training.get('checkpoints', {}).get('latest.pt', {}).get('exists')}`; size `{fmt_bytes(root_training.get('checkpoints', {}).get('latest.pt', {}).get('size_bytes'))}`",
             ]

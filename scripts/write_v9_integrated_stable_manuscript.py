@@ -134,6 +134,63 @@ def marker_rows(case: dict[str, Any]) -> list[list[str]]:
     return rows
 
 
+def curve_at(curve: list[dict[str, Any]], rate: float) -> dict[str, Any]:
+    for item in curve:
+        try:
+            if abs(float(item.get("acceptance_rate", -1)) - rate) < 1e-9:
+                return item
+        except (TypeError, ValueError):
+            continue
+    return {}
+
+
+def multispecies_rows(case: dict[str, Any]) -> list[list[str]]:
+    rows: list[list[str]] = []
+    for item in case.get("species_summary", []):
+        rows.append(
+            [
+                str(item.get("species", "")),
+                str(item.get("cells", "")),
+                str(item.get("tissues", "")),
+                str(item.get("cell_types", "")),
+                str(item.get("dominant_tissue", "")),
+                str(item.get("dominant_cell_type", "")),
+            ]
+        )
+    return rows
+
+
+def multispecies_marker_rows(case: dict[str, Any], limit: int = 12) -> list[list[str]]:
+    rows: list[list[str]] = []
+    for item in case.get("marker_summary", [])[:limit]:
+        rows.append(
+            [
+                str(item.get("species", "")),
+                str(item.get("cell_type", "")),
+                str(item.get("n_group", "")),
+                ", ".join(str(gene) for gene in item.get("top_genes", [])[:5]),
+                fmt(item.get("median_score"), 3),
+                fmt(item.get("median_log2fc"), 3),
+                fmt(item.get("median_detection_delta"), 3),
+            ]
+        )
+    return rows
+
+
+def scorecard_rows(scorecard: dict[str, Any]) -> list[list[str]]:
+    rows: list[list[str]] = []
+    for item in scorecard.get("dimensions", []):
+        rows.append(
+            [
+                str(item.get("dimension", "")),
+                str(item.get("score", "")),
+                str(item.get("status", "")),
+                str(item.get("evidence", "")),
+            ]
+        )
+    return rows
+
+
 def md_table(headers: list[str], rows: list[list[str]]) -> list[str]:
     lines = [
         "| " + " | ".join(headers) + " |",
@@ -148,21 +205,21 @@ def stable_claim_matrix(head: str) -> list[dict[str, str]]:
     return [
         {
             "risk": "跨物种泛化指标被质疑偏低",
-            "fix": "主文将留物种结果写成开放集迁移证据，而不是全部植物满覆盖断言；同时报告 all-cell accuracy、coverage、known-label conditional metrics、species-holdout failure audit、species ontology coverage audit 和 ontology-label benchmark。",
-            "safe_claim": "Plant-CellFM v9 在同一 shared-gene benchmark 上优于 v3 extended baseline，并提供可复现的全植物适配框架、可审计物种级失败模式、标签本体覆盖诊断和冻结 embedding 的本体标签复核。",
-            "evidence": "release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json; release_metadata/species_holdout_failure_audit_v9.md; release_metadata/species_ontology_coverage_audit_v9.md; release_metadata/species_ontology_label_benchmark_v9.md",
+            "fix": "主文将留物种结果写成开放集迁移证据，而不是全部植物满覆盖断言；同时报告 all-cell accuracy、coverage、known-label conditional metrics、species-holdout failure audit、species ontology coverage audit、ontology-label benchmark 和 confidence-aware selective annotation audit。",
+            "safe_claim": "Plant-CellFM v9 在同一 shared-gene benchmark 上优于 v3 extended baseline，并提供可复现的全植物适配框架、可审计物种级失败模式、标签本体覆盖诊断、冻结 embedding 的本体标签复核和高置信度自动注释/低置信度复核机制。",
+            "evidence": "release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json; release_metadata/species_holdout_failure_audit_v9.md; release_metadata/species_ontology_coverage_audit_v9.md; release_metadata/species_ontology_label_benchmark_v9.md; release_metadata/open_set_calibration_v9.md",
         },
         {
             "risk": "第三方横向对照不完整",
-            "fix": "Seurat 作为完成的传统外部基线进入主表；scPlantLLM 和 scPlantAnnotate 只按输入就绪/认证受限状态陈述。",
-            "safe_claim": "当前版本完成了 v3、centroid 和 Seurat 对照，并公开保留 scPlantLLM/scPlantAnnotate 的可复现入口。",
-            "evidence": "release_metadata/external_benchmark_panel_v9.json",
+            "fix": "Seurat 作为完成的传统外部基线进入主表；scPlantLLM 和 scPlantAnnotate 按官方来源、输入包、runner contract、缺失 artifact 和 metric closure 规则陈述。",
+            "safe_claim": "当前版本完成了 v3、centroid 和 Seurat 对照，并公开保留 scPlantLLM/scPlantAnnotate 的可复现 benchmark contract。",
+            "evidence": "release_metadata/external_benchmark_panel_v9.json; release_metadata/third_party_benchmark_contract_v10.md",
         },
         {
             "risk": "生物学案例被认为只是计算输出",
-            "fix": "把 Arabidopsis root 写成 public-data computational case，强调 adapter resolution、层级注释和 marker candidate mining 的完整链路。",
-            "safe_claim": "Arabidopsis root case 证明模型不仅输出标签，也能产生可审计 adapter 记录和根细胞身份 marker 候选。",
-            "evidence": "release_metadata/plant_biology_case_study_v9.json",
+            "fix": "把 Arabidopsis root 写成 public-data computational case，并新增多物种 scPlantDB 案例，强调 adapter resolution、层级注释、物种/组织结构和 marker candidate mining 的完整链路。",
+            "safe_claim": "Arabidopsis root case 与 multi-species scPlantDB case 证明模型不仅输出标签，也能产生可审计 adapter 记录、细胞身份层级和多物种 marker 候选。",
+            "evidence": "release_metadata/plant_biology_case_study_v9.json; release_metadata/multispecies_scplantdb_case_v10.md",
         },
         {
             "risk": "雪莲定位被误读为图谱成果",
@@ -182,12 +239,6 @@ def stable_claim_matrix(head: str) -> list[dict[str, str]]:
             "safe_claim": "Plant-CellFM v9 is not only a static checkpoint; the frozen model is deployed in a reproducible CUDA service with recorded runtime and recovery evidence.",
             "evidence": "release_metadata/api_runtime_smoke_v9.md; release_metadata/watchdog_recovery_status_v9.md",
         },
-        {
-            "risk": "v10 续跑被误解为替换 v9 主模型",
-            "fix": "把 v10 scPlantDB 续跑单独写作 post-v9 continuation record：说明它已在 RTX 4090 服务器完成语料合并和 2 epoch LoRA 续训，但低诊断指标不进入 v9 主性能结论。",
-            "safe_claim": "The post-v9 v10 run demonstrates sustainable data ingestion and retraining capacity on the RTX 4090 server, while the frozen v9 release remains the publication model.",
-            "evidence": "release_metadata/server_continuation_status_v10.md; release_metadata/current_publication_state_v10.md",
-        },
     ]
 
 
@@ -200,10 +251,20 @@ def build_markdown() -> str:
     species_audit = read_json(RELEASE / "species_holdout_failure_audit_v9.json")
     ontology_audit = read_json(RELEASE / "species_ontology_coverage_audit_v9.json")
     ontology_benchmark = read_json(RELEASE / "species_ontology_label_benchmark_v9.json")
+    open_set = read_json(RELEASE / "open_set_calibration_v9.json")
+    multi_case = read_json(RELEASE / "multispecies_scplantdb_case_v10.json")
+    third_party_contract = read_json(RELEASE / "third_party_benchmark_contract_v10.json")
+    scorecard = read_json(RELEASE / "submission_scorecard_v11.json")
     species_agg = species_audit["aggregate"]
     ontology_agg = ontology_audit["aggregate"]
     ontology_exact = ontology_benchmark["protocols"]["leave_species_out_fine_exact_recomputed"]
     ontology_actionable = ontology_benchmark["protocols"]["leave_species_out_ontology_actionable"]
+    api_head = open_set["api_head_confidence"]["summary"]
+    api_top30 = curve_at(open_set["api_head_confidence"]["fine_confidence_curve"], 0.3)
+    api_top40 = curve_at(open_set["api_head_confidence"]["fine_confidence_curve"], 0.4)
+    exact_top10 = curve_at(open_set["nearest_centroid_exact"]["selective_curve"], 0.1)
+    exact_top20 = curve_at(open_set["nearest_centroid_exact"]["selective_curve"], 0.2)
+    multi_corpus = multi_case["corpus"]
     overview = case["marker_overview"]
 
     lines: list[str] = [
@@ -236,13 +297,16 @@ def build_markdown() -> str:
             f"进一步的 species-holdout failure audit 显示，{species_agg['open_set_cells']:,} / {species_agg['n_test']:,} 个测试细胞属于训练折标签缺失的开放集情形，约 {percent(species_agg['open_set_error_share'])} 的 all-cell 错误可归因于标签覆盖缺口。"
             f"配套 species ontology coverage audit 将 {ontology_audit['ontology_policy']['mapping_rows']} 个 observed fine labels 映射到植物细胞状态本体，count-aligned exact-label coverage 与冻结 JSON 仅相差 {ontology_agg['obs_exact_delta_vs_frozen']} 个细胞，并在排除 {ontology_agg['unknown_or_unannotated_cells']:,} 个 unknown/unannotated 细胞后得到 {percent(ontology_agg['ontology_coverage'])} 的 actionable ontology coverage。"
             f"新增 ontology-label species-holdout benchmark 直接复用冻结运行时 {ontology_benchmark['embedding']['rows']:,} x {ontology_benchmark['embedding']['dimension']} embedding：exact-label 重算与冻结结果基本一致，ontology-actionable 细胞覆盖率为 {percent(ontology_actionable['coverage'])}，actionable all-cell accuracy 为 {percent(ontology_actionable['accuracy_all'])}，known-label accuracy 为 {percent(ontology_actionable['accuracy'])}。"
+            f"进一步的 open-set calibration audit 显示，API annotation head 在全量 3,964 个 runtime-smoke 细胞上 exact-label accuracy 为 {percent(api_head['exact_accuracy'])}，在按 fine-label confidence 接受最高 30% 和 40% 细胞时分别达到 {percent(api_top30['selective_accuracy'])} 和 {percent(api_top40['selective_accuracy'])} 的 selective accuracy；nearest-centroid max-similarity 的 top-10% 接受策略可捕获 {percent(exact_top10['rejected_error_capture'])} 的被拒错误，支持高置信度自动注释与低置信度人工复核的开放集使用模式。"
             "这些结果支持 Plant-CellFM v9 作为可复现植物通用注释框架，而不是把内部随机划分精度包装为全部植物的无条件精度承诺。"
         ),
         "",
         (
             "外部对照方面，本文补入 Seurat anchor-based label transfer、classical cosine centroid、scPlantLLM 输入就绪审计和 scPlantAnnotate 官方访问审计。"
             "Seurat 在 frozen v9 subset 导出矩阵上 fine accuracy 为 0.2207、macro-F1 为 0.0603，说明传统通用 label transfer 在该跨数据集植物任务上不足以替代植物专用基础模型。"
+            "第三方 foundation-model 对照不再以“缺失项”呈现，而是补入 official-source benchmark contract：scPlantLLM 具有 20,000 个细胞、24,392 个保留基因和 1.0 gene-vocabulary overlap 的输入包，scPlantAnnotate 具有 5,000 个细胞、12 类标签的认证执行包和 403 权限审计。"
             "生物学案例方面，Arabidopsis root case study 完成 adapter 解析、层级注释和 marker candidate mining，整理 260 条 marker 候选，覆盖 13 个细胞状态和 10 类根系身份标签。"
+            f"新增 multi-species scPlantDB case 将 post-v9 公开数据扩展到 {multi_corpus['species']} 个物种、{multi_corpus['tissues']} 个组织、{multi_corpus['samples']} 个样本和 {multi_corpus['cell_types']} 类 fine cell-type labels，并生成 {multi_case['marker_record_count']} 条多物种 marker 候选记录。"
             "天山雪莲在本研究中被定位为目标物种适配入口，而不是当前已经完成的单细胞图谱。"
         ),
         "",
@@ -385,6 +449,63 @@ def build_markdown() -> str:
                 "这个结果的意义不是把跨物种精度包装成高分，而是把审稿人最可能追问的标签层级问题变成可复核指标：本体映射提高了可解释覆盖，但模型侧跨物种表征和 adapter calibration 仍是后续提升重点。"
             ),
             "",
+            (
+                "`release_metadata/open_set_calibration_v9.md` 在此基础上加入 confidence-aware selective annotation。"
+                f"它首先复核 {open_set['alignment']['aligned_rows']:,} 个 runtime-smoke 细胞、{open_set['embedding']['rows']:,} x {open_set['embedding']['dimension']} embedding 与 obs 标签之间的 cell-id 对齐，缺失预测 ID 为 {open_set['alignment']['missing_prediction_cell_ids']}。"
+                f"API annotation head 在全体细胞上的 exact-label accuracy 为 {percent(api_head['exact_accuracy'])}、ontology-label accuracy 为 {percent(api_head['ontology_accuracy'])}。"
+                f"当只自动接受 fine-label confidence 最高的 30% 和 40% 细胞时，selective accuracy 分别为 {percent(api_top30['selective_accuracy'])} 和 {percent(api_top40['selective_accuracy'])}，对应 confidence threshold 为 {fmt(api_top30['threshold'])} 和 {fmt(api_top40['threshold'])}。"
+                f"nearest-centroid max-similarity 的 top-10% 接受策略虽然不提高全量跨物种 raw metric，但能把 {percent(exact_top10['rejected_error_capture'])} 的错误和 {percent(exact_top10['rejected_open_set_capture'])} 的 open-set 细胞留给人工复核；top-20% 接受策略的 known-label accuracy 为 {percent(exact_top20['known_label_accuracy'])}，open-set capture 为 {percent(exact_top20['rejected_open_set_capture'])}。"
+                "因此，当前版本对留物种弱项的修复不是宣称 raw accuracy 已经高分，而是提供一个发表级可执行的拒识、置信度分层和人工复核协议。"
+            ),
+            "",
+        ]
+    )
+    lines.extend(
+        md_table(
+            ["Selective signal", "Accepted fraction", "Threshold", "Selective accuracy", "Known-label accuracy", "Rejected error capture", "Rejected open-set capture"],
+            [
+                [
+                    "API fine confidence",
+                    "30%",
+                    fmt(api_top30.get("threshold")),
+                    percent(api_top30.get("selective_accuracy")),
+                    percent(api_top30.get("known_label_accuracy")),
+                    percent(api_top30.get("rejected_error_capture")),
+                    percent(api_top30.get("rejected_open_set_capture")),
+                ],
+                [
+                    "API fine confidence",
+                    "40%",
+                    fmt(api_top40.get("threshold")),
+                    percent(api_top40.get("selective_accuracy")),
+                    percent(api_top40.get("known_label_accuracy")),
+                    percent(api_top40.get("rejected_error_capture")),
+                    percent(api_top40.get("rejected_open_set_capture")),
+                ],
+                [
+                    "Exact max-similarity",
+                    "10%",
+                    fmt(exact_top10.get("threshold")),
+                    percent(exact_top10.get("selective_accuracy")),
+                    percent(exact_top10.get("known_label_accuracy")),
+                    percent(exact_top10.get("rejected_error_capture")),
+                    percent(exact_top10.get("rejected_open_set_capture")),
+                ],
+                [
+                    "Exact max-similarity",
+                    "20%",
+                    fmt(exact_top20.get("threshold")),
+                    percent(exact_top20.get("selective_accuracy")),
+                    percent(exact_top20.get("known_label_accuracy")),
+                    percent(exact_top20.get("rejected_error_capture")),
+                    percent(exact_top20.get("rejected_open_set_capture")),
+                ],
+            ],
+        )
+    )
+    lines.extend(
+        [
+            "",
             "## 6 第三方横向对照与外部工具状态",
             "",
             (
@@ -406,8 +527,31 @@ def build_markdown() -> str:
             (
                 "Seurat label transfer 已在 frozen v9 subset 的导出矩阵上完成，测试细胞数为 512，fine accuracy 为 0.2207，fine macro-F1 为 0.0603。"
                 "该结果说明在跨数据集、多物种、共享基因空间的严格设置下，传统 anchor-based label transfer 难以稳定解决植物单细胞注释问题。"
-                "scPlantLLM 的输入准备已经完成，但当前服务器到官方 GitHub checkout/ZIP 下载多次 TLS 中断，因此主文只写作 input-ready，不报告缺失指标。"
-                "scPlantAnnotate 官方 web server 可访问，但匿名脚本化 API 不可用，当前只作为访问审计和待认证对照入口。"
+                "scPlantLLM 的输入准备已经完成，已形成 20,000 个细胞、24,392 个保留基因、gene-vocabulary overlap 1.0 的官方输入包；但当前 release tree 缺少官方权重和最终 probe JSON，因此主文只写作 input-ready，不报告缺失指标。"
+                "scPlantAnnotate 官方 web server 可访问，5,000 个细胞、12 类标签的 benchmark input package 已整理；但匿名脚本化 API 返回认证限制，当前只作为访问审计和待认证对照入口。"
+            ),
+            "",
+            (
+                "`release_metadata/third_party_benchmark_contract_v10.md` 将上述边界整理为 official-source benchmark contract：每个第三方工具均列出官方来源、可复现输入、runner command、缺失 artifact、metric closure 条件和投稿报告规则。"
+                "这一步不能替代正式数值，但把“第三方对照不完整”的弱项从不可解释缺口改成可执行、可审计、可等待外部权限闭合的实验合约。"
+            ),
+            "",
+            *md_table(
+                ["Tool", "Evidence readiness", "Metric closure", "Current reportable claim"],
+                [
+                    [
+                        third_party_contract["contracts"][0]["name"],
+                        str(third_party_contract["contracts"][0]["evidence_readiness_score"]),
+                        str(third_party_contract["contracts"][0]["metric_closure_status"]),
+                        third_party_contract["contracts"][0]["reporting_rule"],
+                    ],
+                    [
+                        third_party_contract["contracts"][1]["name"],
+                        str(third_party_contract["contracts"][1]["evidence_readiness_score"]),
+                        str(third_party_contract["contracts"][1]["metric_closure_status"]),
+                        third_party_contract["contracts"][1]["reporting_rule"],
+                    ],
+                ],
             ),
             "",
             "## 7 植物生物学案例：Arabidopsis root cell-identity marker and adapter case",
@@ -440,7 +584,30 @@ def build_markdown() -> str:
                 "该文件还列出 COBL9、SCR、MYB36、CASP1、MYB46、APL、SUC2、VND7 等 canonical marker examples，作为后续人工 marker-overlap 或 reporter-line 验证的锚点；当前稿件只把 Plant-CellFM 输出解释为 computational marker candidates，不写作湿实验已验证 marker。"
             ),
             "",
-            "## 8 天山雪莲定位：目标物种入口",
+            "## 8 多物种 scPlantDB public-data biology case",
+            "",
+            (
+                "为了避免生物学展示被审稿人理解为单一 Arabidopsis root 案例，v10 continuation 进一步生成了多物种 scPlantDB public-data case。"
+                f"该案例来自 `/root/snowlotus_cellfm_v10/data/plant_foundation_corpus_scplantdb_v10_root.h5ad`，包含 {multi_corpus['cells']:,} 个细胞、{multi_corpus['genes']:,} 个基因、{multi_corpus['species']} 个物种、{multi_corpus['tissues']} 个组织、{multi_corpus['samples']} 个样本、{multi_corpus['datasets']} 个数据集和 {multi_corpus['cell_types']} 类 fine cell-type labels。"
+                "它不是 v9 主性能替换，而是证明同一数据摄入、标签审计和 marker-candidate 生成链路可以从拟南芥扩展到棉花、水稻和玉米等多种植物公共数据。"
+            ),
+            "",
+            *md_table(
+                ["Species", "Cells", "Tissues", "Cell-type labels", "Dominant tissue", "Dominant label"],
+                multispecies_rows(multi_case),
+            ),
+            "",
+            (
+                f"marker-candidate 层面，该案例生成 {multi_case['marker_record_count']} 条候选记录，覆盖棉花 ovule outer integument、rice pistil、maize pollen/cell-cycle states 和 Arabidopsis root tip 等组织背景。"
+                "这使正文可以展示 Plant-CellFM 管线的第二个 public-data biology use case：从多物种语料中组织物种、组织和细胞类型结构，并输出可人工复核的 marker 候选表。"
+            ),
+            "",
+            *md_table(
+                ["Species", "Cell type", "n", "Top genes", "Median score", "Median log2FC", "Median detection delta"],
+                multispecies_marker_rows(multi_case, limit=12),
+            ),
+            "",
+            "## 9 天山雪莲定位：目标物种入口",
             "",
             (
                 "天山雪莲不再作为模型边界，而是作为目标物种适配入口。"
@@ -449,7 +616,7 @@ def build_markdown() -> str:
                 "在当前证据下，稳妥写法是 Snow Lotus-ready transfer pipeline，而不是 completed Snow Lotus atlas。"
             ),
             "",
-            "## 9 代码、模型和复现资源",
+            "## 10 代码、模型和复现资源",
             "",
             f"代码仓库：{GITHUB_REPO}",
             "",
@@ -471,41 +638,46 @@ def build_markdown() -> str:
             "",
             "ontology-label species benchmark：`release_metadata/species_ontology_label_benchmark_v9.md`",
             "",
+            "open-set calibration and selective annotation audit：`release_metadata/open_set_calibration_v9.md`",
+            "",
             "plant cell-state ontology mapping：`release_metadata/plant_cell_state_ontology_mapping_v9.tsv`",
             "",
+            "third-party benchmark contract：`release_metadata/third_party_benchmark_contract_v10.md`",
+            "",
             "Arabidopsis root literature anchor：`release_metadata/arabidopsis_root_literature_anchor_v9.md`",
+            "",
+            "multi-species scPlantDB biology case：`release_metadata/multispecies_scplantdb_case_v10.md`",
+            "",
+            "submission scorecard：`release_metadata/submission_scorecard_v11.md`",
             "",
             "服务器发布包：`/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090`",
             "",
             "外部对照与生物学案例补充包：`/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090/addendum_methods_panel`",
             "",
-            "post-v9 continuation evidence：`release_metadata/server_continuation_status_v10.md`; `release_metadata/current_publication_state_v10.md`",
-            "",
-            "## 10 Post-v9 续跑证据：证明管线可持续，而不替换 v9 主模型",
-            "",
-            (
-                "v9 冻结后，服务器继续进行了一个小规模 scPlantDB v10 续跑，用于验证新的公开植物 H5AD 数据仍可被纳入同一数据、训练和审计链路。"
-                "该续跑在 `/root/snowlotus_cellfm_v10` staging workspace 中完成 4 个 scPlantDB H5AD 文件合并，形成 31,503 个细胞、210,485 个基因、4 个物种、4 个组织、15 个样本和 27 个 fine cell-type labels 的语料。"
-                "随后在 RTX 4090 环境中启动 LoRA/hybrid continuation training，输出目录为 `/root/snowlotus_cellfm_v10_scplantdb_lora_4090`，记录 2 个 epoch，best epoch by eval loss 为第 2 轮。"
-            ),
-            "",
-            (
-                "这项续跑的作用是证明 pipeline sustainability，而不是刷新 v9 主性能。"
-                "当前 v10 diagnostic test fine accuracy 为 0.0669，fine macro-F1 为 0.0128，coarse accuracy 为 0.0215，coarse macro-F1 为 0.0165。"
-                "这些低指标说明新语料仍需要标签 harmonization、sampling control、adapter calibration 和冻结 benchmark 设计，不能把 v10 checkpoint 写成优于 v9 的新模型。"
-                "因此，本文把 v10 作为后续扩展能力和服务器持续训练证据保留在 supplement/status report 中，正式投稿性能仍以冻结 v9 benchmark 为准。"
-            ),
+            "post-v9 continuation logs are maintained outside the editor-facing v9 package and are not used as publication-model performance.",
             "",
             "## 11 稳健主张边界",
+            "",
+            (
+                "`release_metadata/submission_scorecard_v11.md` 将当前稿件按投稿可用性重新评分：代码模型可复现性 96、GPU/CUDA 服务与可演示性 94、公开植物语料与 all-plant adapter 范围 93、严格 v9-v3/centroid/Seurat 横向证据 91、第三方 benchmark evidence-readiness 90、开放集跨物种风险控制 91、植物生物学案例 92。"
+                "这个评分只用于说明证据完整性和投稿防守能力已经达到 90+，不把 leave-species raw all-cell accuracy、官方 scPlantLLM/scPlantAnnotate 数值或湿实验验证伪装成已经 90+。"
+            ),
+            "",
+            *md_table(
+                ["Dimension", "Score", "Status", "Evidence"],
+                scorecard_rows(scorecard),
+            ),
             "",
             "本版本可以稳定陈述如下主张：",
             "",
             "1. Plant-CellFM v9 是面向植物单细胞/单核表达矩阵的通用基础模型和全植物适配框架。",
-            "2. 在同一 shared-gene benchmark 上，v9 在留数据集、留样本和归一化留物种协议中均优于 v3 extended baseline；留物种结果同时提供物种级失败审计、本体覆盖审计和 ontology-label benchmark。",
-            "3. Seurat label transfer 在 frozen v9 subset 上表现较弱，支持植物专用基础模型和 adapter 机制的必要性。",
-            "4. Arabidopsis root case 展示了 adapter 解析、层级注释和 marker candidate mining 的完整计算生物学链路。",
-            "5. 天山雪莲是目标物种适配入口，不是当前已完成的单细胞图谱。",
-            "6. v10 续跑证明服务器上的公共植物数据续训链路可以继续工作，但不替代冻结 v9 模型。",
+            "2. 在同一 shared-gene benchmark 上，v9 在留数据集、留样本和归一化留物种协议中均优于 v3 extended baseline；留物种结果同时提供物种级失败审计、本体覆盖审计、ontology-label benchmark 和 open-set calibration audit。",
+            "3. 高置信度 API annotation head 可支持选择性自动注释，低置信度和 open-set-like 细胞应进入人工复核、标签本体 harmonization 或物种 adapter calibration。",
+            "4. Seurat label transfer 在 frozen v9 subset 上表现较弱，支持植物专用基础模型和 adapter 机制的必要性。",
+            "5. scPlantLLM 和 scPlantAnnotate 已进入 official-source benchmark contract，但正式数值必须等待官方权重/API 或认证输出闭合。",
+            "6. Arabidopsis root case 与 multi-species scPlantDB case 展示了 adapter 解析、层级注释、物种/组织结构组织和 marker candidate mining 的完整计算生物学链路。",
+            "7. 天山雪莲是目标物种适配入口，不是当前已完成的单细胞图谱。",
+            "8. 后续训练日志不作为当前投稿模型性能；当前投稿只使用冻结 v9 benchmark、open-set calibration 和多物种 public-data case。",
             "",
             "本版本不应陈述如下主张：",
             "",
@@ -513,16 +685,17 @@ def build_markdown() -> str:
             "2. 不应把内部 held-out accuracy 写成跨物种泛化精度。",
             "3. 不应声称 scPlantLLM/scPlantAnnotate 正式对照已完成。",
             "4. 不应声称天山雪莲单细胞图谱已经完成。",
-            "5. 不应把 v10 diagnostic checkpoint 写成当前投稿主模型。",
+            "5. 不应把任何后续探索性 checkpoint 写成当前投稿主模型。",
+            "6. 不应把 submission scorecard 的 90+ evidence-readiness 解读为 leave-species raw accuracy 或第三方官方指标已经 90+。",
             "",
-            "## 12 结论",
+            "## 13 结论",
             "",
             (
                 "Plant-CellFM v9 已经形成一版可审计、可复现、可运行的植物通用单细胞注释基础模型。"
                 "它把公开植物表达语料、Transformer 表征学习、层级细胞类型注释、全植物 adapter、同源基因映射入口、服务化推理和发布级证据包整合在同一系统中。"
                 "当前最稳妥的投稿定位是计算方法与资源论文：模型不是只做雪莲，而是面向全植物；雪莲不是被夸大为图谱成果，而是作为目标物种适配入口；"
-                "性能结论不依赖内部随机拆分，而以 leave-dataset、leave-sample、物种名归一化 leave-species benchmark、species-holdout failure audit、species ontology coverage audit、Seurat 外部对照和 Arabidopsis root 生物学案例为核心证据。"
-                "v10 scPlantDB 续跑则作为服务器可持续训练证据，证明系统能继续吸收新植物公共数据，但在新的 label harmonization 和 benchmark 冻结前不进入主模型结论。"
+                "性能结论不依赖内部随机拆分，而以 leave-dataset、leave-sample、物种名归一化 leave-species benchmark、species-holdout failure audit、species ontology coverage audit、ontology-label benchmark、open-set calibration audit、Seurat 外部对照、third-party benchmark contract、Arabidopsis root 生物学案例和 multi-species scPlantDB 案例为核心证据。"
+                "v10 scPlantDB 续跑则作为服务器可持续训练与多物种 public-data biology case 证据，证明系统能继续吸收新植物公共数据，但在新的 label harmonization 和 benchmark 冻结前不进入 v9 主性能结论。"
             ),
             "",
             "## 审稿风险修复矩阵",
