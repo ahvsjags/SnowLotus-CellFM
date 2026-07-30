@@ -33,6 +33,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Arabidopsis root biology case | `release_metadata/plant_biology_case_study_v9.md` |
 | Arabidopsis root literature anchor | `release_metadata/arabidopsis_root_literature_anchor_v9.md` |
 | Arabidopsis root figure package | `release_metadata/arabidopsis_root_case_figure_v9.md` |
+| Species-holdout failure audit | `release_metadata/species_holdout_failure_audit_v9.md` |
 | v9 benchmark comparison | `release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json` |
 | Development plan matching this submission | `docs/development_plan.md` |
 
@@ -46,6 +47,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 6. Seurat label transfer, classical centroid baselines and the v3 comparison are completed; scPlantLLM and scPlantAnnotate remain auditable comparator entry points until their official execution environments are available.
 7. The Arabidopsis root case demonstrates adapter resolution, hierarchical annotation and marker-candidate mining on public data.
 8. The Arabidopsis root figure package provides SVG/PDF/PNG/TIFF exports plus source data for a figure-ready biological case.
+9. The species-holdout failure audit decomposes the strict normalized leave-species-out result into label-coverage gaps, known-label errors and per-species revision targets.
 
 ## Claims Not Used In The Current Submission
 

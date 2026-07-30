@@ -70,6 +70,7 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `release_metadata/external_benchmark_panel_v9.md`
 - `release_metadata/plant_biology_case_study_v9.md`
 - `release_metadata/arabidopsis_root_case_figure_v9.md`
+- `release_metadata/species_holdout_failure_audit_v9.md`
 - `release_metadata/third_party_comparator_sources_v9.md`
 - `release_metadata/v9_submission_stability_audit.md`
 - `release_metadata/publication_peer_review_preflight_v9.md`

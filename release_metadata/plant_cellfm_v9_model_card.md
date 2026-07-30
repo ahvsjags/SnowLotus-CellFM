@@ -42,10 +42,13 @@ The candidate and v3 baseline were evaluated on the same v9 shared-gene subset.
 
 The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 and fine macro-F1 0.3833. Known-label metrics are conditional on the reference label occurring in the training fold; all-cell accuracy counts unseen labels as errors. Species labels are canonicalized before species holdout, so `Arabidopsis_thaliana` and `Arabidopsis thaliana` are evaluated as one species group. Therefore, for cross-species generalization, the primary normalized species-holdout result is 23.54% all-cell accuracy at 55.90% coverage, while 42.10% and 0.1918 are conditional metrics.
 
+The species-holdout failure audit decomposes this result into label coverage, known-label transfer and per-species revision targets. It reports 1,748 / 3,964 open-set cells without train-fold label overlap, accounting for an estimated 57.67% of all-cell errors. This audit supports a transparent open-set generalization claim rather than a universal high-accuracy claim for every plant species.
+
 ## External Comparators And Biological Case
 
 - Submission index: `SUBMISSION_INDEX_v9.md`
 - External benchmark panel: `release_metadata/external_benchmark_panel_v9.md`
+- Species-holdout failure audit: `release_metadata/species_holdout_failure_audit_v9.md`
 - Integrated stable manuscript: `manuscript/Plant_CellFM_v9_完整主文_稳健方法版_v1.md`
 - Submission stability audit: `release_metadata/v9_submission_stability_audit.md`
 - Seurat label transfer on the frozen v9 subset: fine accuracy 0.2207 and fine macro-F1 0.0603 on 512 test cells.

@@ -62,6 +62,12 @@ def pct(delta: Any) -> str:
     return f"{float(delta) * 100:.2f} 个百分点"
 
 
+def percent(value: Any) -> str:
+    if value is None:
+        return "-"
+    return f"{float(value) * 100:.2f}%"
+
+
 def comparison_metrics(panel: dict[str, Any]) -> list[list[str]]:
     rows: list[list[str]] = []
     for item in panel["comparisons"]:
@@ -142,9 +148,9 @@ def stable_claim_matrix(head: str) -> list[dict[str, str]]:
     return [
         {
             "risk": "跨物种泛化指标被质疑偏低",
-            "fix": "主文将留物种结果写成开放集迁移证据，而不是全部植物满覆盖断言；同时报告 all-cell accuracy、coverage 和 known-label conditional metrics。",
-            "safe_claim": "Plant-CellFM v9 在同一 shared-gene benchmark 上稳定优于 v3 extended baseline，并提供可复现的全植物适配框架。",
-            "evidence": "release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json",
+            "fix": "主文将留物种结果写成开放集迁移证据，而不是全部植物满覆盖断言；同时报告 all-cell accuracy、coverage、known-label conditional metrics 和 species-holdout failure audit。",
+            "safe_claim": "Plant-CellFM v9 在同一 shared-gene benchmark 上优于 v3 extended baseline，并提供可复现的全植物适配框架与可审计物种级失败模式。",
+            "evidence": "release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json; release_metadata/species_holdout_failure_audit_v9.md",
         },
         {
             "risk": "第三方横向对照不完整",
@@ -191,6 +197,8 @@ def build_markdown() -> str:
     panel = read_json(RELEASE / "external_benchmark_panel_v9.json")
     case = read_json(RELEASE / "plant_biology_case_study_v9.json")
     comparison = read_json(RELEASE / "v9_benchmarks" / "v9_lora_vs_v3_shared_comparison.json")
+    species_audit = read_json(RELEASE / "species_holdout_failure_audit_v9.json")
+    species_agg = species_audit["aggregate"]
     overview = case["marker_overview"]
 
     lines: list[str] = [
@@ -220,6 +228,7 @@ def build_markdown() -> str:
             "checkpoint 共享基因词表为 280,747 个基因。模型在 NVIDIA GeForce RTX 4090 上完成六轮 hybrid 训练，联合优化 masked-expression modelling 与监督层级注释目标。"
             "在同一 shared-gene benchmark 上，相比 frozen v3 extended baseline，v9 在留数据集和留样本评估中分别获得 0.4490 和 0.6200 的 all-cell accuracy，"
             "较基线提升 24.70 和 20.45 个百分点；在物种名归一化后的严格留物种开放集评估中，v9 all-cell accuracy 为 0.2354、coverage 为 0.5590、known-label conditional accuracy 为 0.4210。"
+            f"进一步的 species-holdout failure audit 显示，{species_agg['open_set_cells']:,} / {species_agg['n_test']:,} 个测试细胞属于训练折标签缺失的开放集情形，约 {percent(species_agg['open_set_error_share'])} 的 all-cell 错误可归因于标签覆盖缺口。"
             "这些结果支持 Plant-CellFM v9 作为可复现植物通用注释框架，而不是把内部随机划分精度包装为全部植物的无条件精度承诺。"
         ),
         "",
@@ -344,6 +353,15 @@ def build_markdown() -> str:
                 "因此，本文将 Plant-CellFM v9 表述为可复现的植物通用基础模型和适配框架，而不是声称已经解决所有植物物种的满覆盖零样本注释。"
             ),
             "",
+            (
+                "`release_metadata/species_holdout_failure_audit_v9.md` 对留物种结果做了进一步拆解。"
+                f"在 {species_agg['n_test']:,} 个测试细胞中，{species_agg['n_evaluable']:,} 个细胞的参考标签在训练折中出现，"
+                f"{species_agg['open_set_cells']:,} 个细胞属于 open-set label absence；该部分占 all-cell 错误估计的 {percent(species_agg['open_set_error_share'])}。"
+                "物种级诊断同时显示，Eutrema salsugineum 和 Triticum aestivum 在当前标签覆盖与组织上下文下具有较强迁移表现，"
+                "Catharanthus roseus 则属于高覆盖但已知标签迁移失败的主要靶点，Gossypium hirsutum 需要先完成标签本体映射后才能解释准确率。"
+                "因此，留物种指标在本文中承担的是开放集泛化审计和下一轮改进靶点定位，而不是全植物无条件高精度声明。"
+            ),
+            "",
             "## 6 第三方横向对照与外部工具状态",
             "",
             (
@@ -424,6 +442,8 @@ def build_markdown() -> str:
             "",
             "editor issue closure：`release_metadata/v9_editor_issue_closure.md`",
             "",
+            "species-holdout failure audit：`release_metadata/species_holdout_failure_audit_v9.md`",
+            "",
             "Arabidopsis root literature anchor：`release_metadata/arabidopsis_root_literature_anchor_v9.md`",
             "",
             "服务器发布包：`/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090`",
@@ -435,7 +455,7 @@ def build_markdown() -> str:
             "本版本可以稳定陈述如下主张：",
             "",
             "1. Plant-CellFM v9 是面向植物单细胞/单核表达矩阵的通用基础模型和全植物适配框架。",
-            "2. 在同一 shared-gene benchmark 上，v9 在留数据集、留样本和归一化留物种协议中均优于 v3 extended baseline。",
+            "2. 在同一 shared-gene benchmark 上，v9 在留数据集、留样本和归一化留物种协议中均优于 v3 extended baseline；留物种结果同时提供物种级失败审计。",
             "3. Seurat label transfer 在 frozen v9 subset 上表现较弱，支持植物专用基础模型和 adapter 机制的必要性。",
             "4. Arabidopsis root case 展示了 adapter 解析、层级注释和 marker candidate mining 的完整计算生物学链路。",
             "5. 天山雪莲是目标物种适配入口，不是当前已完成的单细胞图谱。",
@@ -453,7 +473,7 @@ def build_markdown() -> str:
                 "Plant-CellFM v9 已经形成一版可提交、可演示、可复现的植物通用单细胞注释基础模型。"
                 "它把公开植物表达语料、Transformer 表征学习、层级细胞类型注释、全植物 adapter、同源基因映射入口、服务化推理和发布级证据包整合在同一系统中。"
                 "当前最稳妥的投稿定位是计算方法与资源论文：模型不是只做雪莲，而是面向全植物；雪莲不是被夸大为图谱成果，而是作为目标物种适配入口；"
-                "性能结论不依赖内部随机拆分，而以 leave-dataset、leave-sample、物种名归一化 leave-species benchmark、Seurat 外部对照和 Arabidopsis root 生物学案例为核心证据。"
+                "性能结论不依赖内部随机拆分，而以 leave-dataset、leave-sample、物种名归一化 leave-species benchmark、species-holdout failure audit、Seurat 外部对照和 Arabidopsis root 生物学案例为核心证据。"
             ),
             "",
             "## 审稿风险修复矩阵",

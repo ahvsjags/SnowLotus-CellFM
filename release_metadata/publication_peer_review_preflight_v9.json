@@ -53,6 +53,7 @@
     "frozen v9 checkpoint and SHA256",
     "public corpus and manifest audit",
     "v9 versus v3 shared-gene benchmark",
+    "species-holdout open-set failure audit",
     "centroid and Seurat comparator evidence",
     "Arabidopsis root marker-candidate case",
     "Arabidopsis root figure package with source data",
@@ -80,7 +81,7 @@
   "next_revision_priorities": [
     "complete at least one official third-party foundation-model comparator metric",
     "add an independent public species or tissue biological replication case",
-    "harmonize labels into a clearer plant cell ontology for species holdout",
+    "use the species-holdout failure audit to build a clearer plant cell ontology and before/after coverage analysis",
     "add a second independent biological figure panel beyond Arabidopsis",
     "prepare English manuscript and reviewer supplement"
   ]

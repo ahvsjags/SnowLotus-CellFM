@@ -23,6 +23,7 @@ This file records the evidence behind the frozen v9 candidate. It is an engineer
 17. **Final editor package recipe.** `scripts/package_v9_editor_submission.py` and `release_metadata/final_editor_submission_package_recipe_v9.md` generate a compact editor-facing zip with the final Word manuscript, model card, benchmark evidence, server evidence, Arabidopsis case evidence and model asset pointer.
 18. **Peer-review preflight.** `release_metadata/publication_peer_review_preflight_v9.md` records a strict reviewer-style audit of venue fit, current strengths, claim boundaries and remaining hard evidence needed for higher-tier revision.
 19. **Figure-ready biology case.** `release_metadata/arabidopsis_root_case_figure_v9.md` and `figures/plant_cellfm_v9_arabidopsis_root_case/` provide a four-panel Arabidopsis root adapter and marker-candidate figure with SVG/PDF/PNG/TIFF exports and source data.
+20. **Species-holdout failure audit.** `release_metadata/species_holdout_failure_audit_v9.md` decomposes the normalized leave-species-out result into per-species coverage, open-set label absence and known-label transfer errors.
 
 ## Frozen Results
 
@@ -33,6 +34,8 @@ This file records the evidence behind the frozen v9 candidate. It is an engineer
 | Leave-species-out, species labels normalized | 0.2354 | 0.5590 | 0.4210 | 0.1918 | 0.1912 |
 
 The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 and fine macro-F1 0.3833. The known-label columns evaluate only cells whose reference labels occur in the training fold. The all-cell column counts an unseen reference label as an error, so the leave-species-out result is the stricter open-set estimate. The species-holdout protocol now normalizes species aliases such as `Arabidopsis_thaliana` and `Arabidopsis thaliana` before splitting, reducing the selected benchmark from 9 raw species labels to 8 normalized groups. The cross-group results above are the primary generalization evidence, and the 23.54% all-cell normalized species-holdout accuracy rather than 42.10% conditional accuracy should be used as the headline species number.
+
+`release_metadata/species_holdout_failure_audit_v9.md` further shows that 1,748 of 3,964 held-out species cells are open-set cells whose reference labels do not occur in the training fold, accounting for 57.67% of the all-cell error mass. Catharanthus roseus is the clearest high-coverage transfer failure, while Gossypium hirsutum is unassessable without label-ontology mapping under the current split.
 
 ## Publication Positioning
 
@@ -48,6 +51,7 @@ The strongest current manuscript framing is a computational method/resource pape
 | scPlantAnnotate interface | web/API authentication required | server reachable, anonymous scriptable benchmark unavailable |
 | Arabidopsis root biology case | completed | 260 marker-candidate rows, 13 states, 10 root identity states |
 | Arabidopsis root figure package | completed | four-panel SVG/PDF/PNG/TIFF figure with source data |
+| Species-holdout failure audit | completed | 8 species groups, open-set error decomposition and per-species revision priorities |
 
 ## Journal Fit
 

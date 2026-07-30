@@ -14,7 +14,8 @@
       "safe_claim": "Plant-CellFM v9 improves over frozen v3 on the same shared-gene subset and reports open-set metrics transparently.",
       "evidence": [
         "release_metadata/plant_cellfm_v9_model_card.md",
-        "release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json"
+        "release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json",
+        "release_metadata/species_holdout_failure_audit_v9.md"
       ]
     },
     {

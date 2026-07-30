@@ -39,6 +39,8 @@ ASSET_PATHS = [
     "release_metadata/v9_editor_issue_closure.json",
     "release_metadata/publication_peer_review_preflight_v9.md",
     "release_metadata/publication_peer_review_preflight_v9.json",
+    "release_metadata/final_editor_submission_package_recipe_v9.md",
+    "release_metadata/final_editor_submission_package_recipe_v9.json",
     "release_metadata/v9_submission_stability_audit.md",
     "release_metadata/v9_submission_stability_audit.json",
     "release_metadata/server_sustainability_status_v9.md",
@@ -56,6 +58,9 @@ ASSET_PATHS = [
     "release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json",
     "release_metadata/v9_benchmarks/v9_lora_cross_species_benchmark.json",
     "release_metadata/v9_benchmarks/v3_on_v9_shared_subset_cross_species_benchmark.json",
+    "release_metadata/species_holdout_failure_audit_v9.md",
+    "release_metadata/species_holdout_failure_audit_v9.json",
+    "release_metadata/species_holdout_failure_audit_v9.tsv",
     "release_metadata/plant_biology_case_study_v9.md",
     "release_metadata/plant_biology_case_study_v9.json",
     "release_metadata/plant_biology_case_study_top_markers_v9.tsv",
@@ -83,6 +88,7 @@ ASSET_PATHS = [
     "release_metadata/saussurea_public_data_discovery.md",
     "scripts/write_v9_integrated_stable_manuscript.py",
     "scripts/render_arabidopsis_root_case_figure_v9.py",
+    "scripts/write_species_holdout_failure_audit_v9.py",
     "scripts/package_v9_editor_submission.py",
 ]
 
@@ -163,13 +169,16 @@ def package_readme(git_head: str, generated_at: str) -> str:
             "4. `release_metadata/v9_editor_issue_closure.md`",
             "5. `release_metadata/publication_peer_review_preflight_v9.md`",
             "6. `release_metadata/arabidopsis_root_case_figure_v9.md`",
-            "7. `release_metadata/server_sustainability_status_v9.md`",
+            "7. `release_metadata/species_holdout_failure_audit_v9.md`",
+            "8. `release_metadata/server_sustainability_status_v9.md`",
             "",
             "## Claim Boundary",
             "",
             "This package supports a Plant-CellFM v9 computational method/resource submission: general plant single-cell expression modelling, all-plant adapter resolution, completed v3/centroid/Seurat comparisons, Arabidopsis root computational biology case, live CUDA service evidence and watchdog recovery evidence.",
             "",
             "It does not claim universal high-accuracy zero-shot annotation for every plant species, a completed Snow Lotus single-cell atlas, or final scPlantLLM/scPlantAnnotate numeric superiority without executable third-party metric evidence.",
+            "",
+            "Cross-species generalization is reported with the normalized leave-species-out metrics and `release_metadata/species_holdout_failure_audit_v9.md`, which separates open-set label absence, known-label transfer errors and per-species revision targets.",
             "",
         ]
     )
@@ -268,6 +277,7 @@ def build_package(output_dir: Path, package_name: str) -> dict[str, Any]:
             "release_metadata/v9_editor_issue_closure.md",
             "release_metadata/publication_peer_review_preflight_v9.md",
             "release_metadata/arabidopsis_root_case_figure_v9.md",
+            "release_metadata/species_holdout_failure_audit_v9.md",
             "release_metadata/server_sustainability_status_v9.md",
         ],
     }

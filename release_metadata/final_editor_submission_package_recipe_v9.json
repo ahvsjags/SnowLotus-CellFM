@@ -1,6 +1,6 @@
 {
   "schema_version": "plant_cellfm_v9_final_editor_submission_package_recipe_v1",
-  "generated_at": "2026-07-30T17:49:00+08:00",
+  "generated_at": "2026-07-30T18:27:00+08:00",
   "command": "python scripts/package_v9_editor_submission.py",
   "default_output_dir": "outputs/editor_submission_v9",
   "default_zip": "outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.zip",
@@ -9,12 +9,14 @@
   "default_status_md": "outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.status.md",
   "peer_review_preflight": "release_metadata/publication_peer_review_preflight_v9.md",
   "arabidopsis_root_figure_package": "release_metadata/arabidopsis_root_case_figure_v9.md",
+  "species_holdout_failure_audit": "release_metadata/species_holdout_failure_audit_v9.md",
   "checkpoint_asset": "https://github.com/ahvsjags/SnowLotus-CellFM/releases/download/v0.9.0-plant-general-lora/SnowLotus-CellFM-v9-lora-4090-best.pt",
   "checkpoint_sha256": "9a98dbc799c062981c1dd895034300b7385e1ecddad88d8d98cff5d1c6962c93",
   "claim_boundary": [
     "computational method/resource submission",
     "no universal high-accuracy zero-shot claim for every plant species",
     "no completed Snow Lotus single-cell atlas claim",
-    "no final scPlantLLM/scPlantAnnotate numeric superiority claim without executable third-party metric evidence"
+    "no final scPlantLLM/scPlantAnnotate numeric superiority claim without executable third-party metric evidence",
+    "cross-species generalization reported with leave-species-out metrics and species holdout failure decomposition"
   ]
 }
