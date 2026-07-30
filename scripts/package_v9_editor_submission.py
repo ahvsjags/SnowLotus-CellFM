@@ -260,6 +260,17 @@ def github_sync_recovery(git_head: str, origin_head: str, generated_at: str) -> 
     bundle_name = f"Plant_CellFM_{short_head}_from_{short_origin}.bundle"
     patch_name = f"Plant_CellFM_{short_head}_from_{short_origin}.patch"
     changed_files_name = f"Plant_CellFM_changed_files_{short_head}.tar"
+    synced = git_head != "unknown" and git_head == origin_head
+    sync_status = (
+        "The packaged source commit matches the observed origin branch head. The public GitHub branch is synchronized with this editor package."
+        if synced
+        else "The packaged source commit differs from the observed origin branch head. Use the recovery artifacts below to reconstruct or push the exact packaged state."
+    )
+    claim_boundary = (
+        "The synchronized GitHub branch, final manuscript, model card, benchmark files, ontology-label species benchmark, server health evidence and package status JSON all refer to the same packaged source state."
+        if synced
+        else "The GitHub sync lag does not change the model evidence in the zip: the package contains the final manuscript, model card, benchmark files, ontology-label species benchmark, server health evidence and recovery metadata for the packaged source commit."
+    )
     return "\n".join(
         [
             "# Plant-CellFM v9 GitHub Sync Recovery",
@@ -270,7 +281,7 @@ def github_sync_recovery(git_head: str, origin_head: str, generated_at: str) -> 
             "",
             f"Observed origin branch head: `{origin_head}`",
             "",
-            "The workstation GitHub CLI authentication was invalid during packaging, so the public branch may lag behind the package source commit. This recovery note is included so the exact packaged state can still be reconstructed from the server artifacts.",
+            sync_status,
             "",
             "## Server Artifacts",
             "",
@@ -294,7 +305,7 @@ def github_sync_recovery(git_head: str, origin_head: str, generated_at: str) -> 
             "",
             "## Claim Boundary",
             "",
-            "The GitHub sync lag does not change the model evidence in the zip: the package contains the final manuscript, model card, benchmark files, ontology-label species benchmark, server health evidence and recovery metadata for the packaged source commit.",
+            claim_boundary,
             "",
         ]
     )
