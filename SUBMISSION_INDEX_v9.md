@@ -48,12 +48,16 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Species ontology coverage audit | `release_metadata/species_ontology_coverage_audit_v9.md` |
 | Species ontology-label benchmark | `release_metadata/species_ontology_label_benchmark_v9.md` |
 | Species-transfer calibration benchmark | `release_metadata/cross_species_classifier_benchmark_v10.md` |
+| v13 neural zero-shot STC audit | `release_metadata/revision_v13_neural_zero_shot_stc.md` |
+| v14 context-aware zero-shot STC benchmark | `release_metadata/revision_v14_context_stc_benchmark.md` |
 | v11 few-shot target adapter benchmark | `release_metadata/revision_v11_fewshot_adapter_benchmark.md` |
 | v11 runtime-head cross-species benchmark | `release_metadata/revision_v11_runtime_head_benchmark.md` |
 | v11 third-party metric closure audit | `release_metadata/revision_v11_third_party_closure.md` |
 | Algorithmic innovation note | `release_metadata/algorithm_innovation_v10.md` |
+| v14 algorithmic innovation note | `release_metadata/algorithm_innovation_v14.md` |
 | Open-set calibration and selective annotation | `release_metadata/open_set_calibration_v9.md` |
 | Submission scorecard | `release_metadata/submission_scorecard_v11.md` |
+| v14 submission scorecard | `release_metadata/submission_scorecard_v14.md` |
 | Plant cell-state ontology mapping | `release_metadata/plant_cell_state_ontology_mapping_v9.tsv` |
 | v9 benchmark comparison | `release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json` |
 | Current publication strategy | `docs/top_journal_strategy.md` |
@@ -75,13 +79,15 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 12. The species ontology coverage audit maps 106 observed fine labels into a conservative plant cell-state ontology and separates actionable ontology coverage from unknown or unannotated labels.
 13. The ontology-label species-holdout benchmark reruns nearest-centroid evaluation on frozen v9 embeddings after ontology mapping, reporting 74.44% actionable coverage and 14.97% actionable all-cell accuracy.
 14. The v10 Species-Transfer Calibration layer improves strict frozen leave-species all-cell accuracy from 23.64% to 30.10% and known-label accuracy from 42.28% to 53.84% without training on held-out species labels.
-15. The algorithmic innovation note frames the method as all-plant adapter materialization plus STC calibration, open-set reliability control, ontology-aware benchmark audit and reproducible CUDA release.
-16. The submission scorecard records all fixable evidence-readiness dimensions at 90+ while explicitly not inflating raw leave-species accuracy or unfinished official third-party metrics.
-17. The publication target readiness matrix ranks the current package as strongest for plant-focused method/resource submission, plausible for genomics computational-method submission with major-revision risk, and stretch for top general methods venues until official third-party numerical closure and stronger validation are added.
-18. The English synopsis file provides an abstract, significance statement, highlights, graphical abstract text and editorial positioning that use the same claim boundaries as the full manuscript.
-19. The v11 few-shot target-adapter benchmark is the revision result for the all-plant adapter claim: with 8 random labeled support cells per target species, query all-cell accuracy is 59.21% across 10 seeds, and larger support budgets reach 67.34-75.89%.
-20. The v11 runtime-head benchmark reports 66.25% exact-label all-cell accuracy on the same 3,964 aligned cross-species cells, decomposed into 62.86% covered-label accuracy and 70.54% open-set-label accuracy.
-21. The v11 third-party closure audit records scPlantLLM official-weight download status, expected SHA256/LFS OID and scPlantAnnotate authentication status; it still does not report final third-party numerical superiority before metric JSON exists.
+15. The v13 neural STC audit shows that a generic neural calibration head reaches 31.84% all-cell and 56.95% known-label accuracy, indicating that classifier capacity alone does not solve the cross-species bottleneck.
+16. The v14 context-aware STC layer adds a phylogeny/organ gate and improves the same strict zero-shot leave-species denominator to 42.36% all-cell accuracy and 75.77% known-label accuracy without using held-out species labels for training, calibration or prior construction.
+17. The algorithmic innovation note frames the method as all-plant adapter materialization plus expression STC, neural STC audit, context-aware phylo-organ STC, open-set reliability control, ontology-aware benchmark audit and reproducible CUDA release.
+18. The submission scorecard records all fixable evidence-readiness dimensions at 90+ while explicitly not presenting evidence-readiness as universal all-species accuracy.
+19. The publication target readiness matrix ranks the current package as strongest for plant-focused method/resource submission, plausible for genomics computational-method submission with major-revision risk, and stretch for top general methods venues until official third-party numerical closure and stronger validation are added.
+20. The English synopsis file provides an abstract, significance statement, highlights, graphical abstract text and editorial positioning that use the same claim boundaries as the full manuscript.
+21. The v11 few-shot target-adapter benchmark is the revision result for the all-plant adapter claim: with 8 random labeled support cells per target species, query all-cell accuracy is 59.21% across 10 seeds, and larger support budgets reach 67.34-75.89%.
+22. The v11 runtime-head benchmark reports 66.25% exact-label all-cell accuracy on the same 3,964 aligned cross-species cells, decomposed into 62.86% covered-label accuracy and 70.54% open-set-label accuracy.
+23. The v11 third-party closure audit records scPlantLLM official-weight download status, expected SHA256/LFS OID and scPlantAnnotate authentication status; it still does not report final third-party numerical superiority before metric JSON exists.
 
 ## Claims Not Used In The Current Submission
 
@@ -102,6 +108,8 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Leave-sample-out | 0.6200 | 0.9871 | 0.6281 | 0.4902 | 0.4155 |
 | Leave-species-out, species labels normalized | 0.2354 | 0.5590 | 0.4210 | 0.1918 | 0.1912 |
 | STC `knn_cosine_k9` on frozen leave-species embeddings | 0.3010 | 0.5590 | 0.5384 | 0.2663 | centroid 0.2364 |
+| v13 neural STC on frozen leave-species embeddings | 0.3184 | 0.5590 | 0.5695 | 0.3079 | STC 0.3010 |
+| v14 context-aware STC `phylo_organ_gate_v1` | 0.4236 | 0.5590 | 0.7577 | 0.3045 | STC 0.3010 |
 | v11 few-shot adapter, 8 random support cells/species | 0.5921 query accuracy | support cells excluded | n/a | 0.2195 | zero-shot STC 0.3010 |
 | v11 few-shot adapter, 16 random support cells/species | 0.6734 query accuracy | support cells excluded | n/a | 0.2904 | zero-shot STC 0.3010 |
 | v11 full-vocabulary runtime head | 0.6625 | n/a | covered-label 0.6286; open-set-label 0.7054 | n/a | strict STC 0.3010 |

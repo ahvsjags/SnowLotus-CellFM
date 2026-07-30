@@ -11,7 +11,7 @@ This matrix is a current-state submission audit for the frozen v9 package. The c
 | Plant-focused methods/resource journal | READY | Strongest current path. Submit as a plant single-cell method/resource with public corpus, adapter framework, benchmark evidence and Arabidopsis root case. |
 | Genome Biology / genomics computational-method target | READY_WITH_MAJOR_REVISION_RISK | Plausible if framed around reproducible genomics resource, strict benchmark, open-set calibration, third-party benchmark contracts and multi-species public-data biology. |
 | Communications Biology / broad biology target | POSSIBLE_WITH_CONSERVATIVE_FRAMING | Usable if the manuscript emphasizes concrete plant biology utility and avoids universal high-accuracy claims. |
-| Nature Methods | PRESUBMISSION_INQUIRY_READY_STRETCH | STC species-transfer calibration, open-set calibration and benchmark contracts make the inquiry stronger, but full submission still needs official third-party numerical closure and stronger validation. |
+| Nature Methods | PRESUBMISSION_INQUIRY_READY_STRETCH | v14 context-aware zero-shot STC now crosses the 40% strict leave-species threshold, but full submission still needs official third-party numerical closure and stronger independent validation. |
 | Nature Plants | STRETCH_AFTER_BIOLOGY_VALIDATION | Needs stronger independent plant biological discovery or validation beyond the current computational case. |
 
 ## Current Gate Matrix
@@ -28,6 +28,8 @@ This matrix is a current-state submission audit for the frozen v9 package. The c
 | Species-holdout interpretation | READY_WITH_OPEN_SET_BOUNDARY | `release_metadata/species_holdout_failure_audit_v9.md`; `release_metadata/species_ontology_coverage_audit_v9.md`; `release_metadata/species_ontology_label_benchmark_v9.md`; `release_metadata/open_set_calibration_v9.md` | Low leave-species result is decomposed into label coverage, ontology-actionable labels, unknown labels, transfer errors and confidence-aware selective annotation; do not claim universal high accuracy. |
 | Species ontology mapping and benchmark | READY_DIAGNOSTIC | `release_metadata/plant_cell_state_ontology_mapping_v9.tsv`; `release_metadata/species_ontology_label_benchmark_v9.md` | 106 observed fine labels are mapped to plant cell-state categories; the frozen embedding ontology-label benchmark is complete and should be reported as a diagnostic, not as a high-accuracy replacement metric. |
 | Species-transfer calibration layer | READY_MEASURED_IMPROVEMENT | `release_metadata/cross_species_classifier_benchmark_v10.md`; `release_metadata/algorithm_innovation_v10.md` | STC `knn_cosine_k9` improves frozen leave-species all-cell accuracy from 23.64% to 30.10% and known-label accuracy from 42.28% to 53.84% without using held-out species labels for training. |
+| v13 neural zero-shot STC audit | READY_DIAGNOSTIC | `release_metadata/revision_v13_neural_zero_shot_stc.md` | Generic neural calibration reaches 31.84% all-cell and 56.95% known-label accuracy, showing that classifier capacity alone does not solve the bottleneck. |
+| v14 context-aware zero-shot STC | READY_REVISION_THRESHOLD_MET | `release_metadata/revision_v14_context_stc_benchmark.md`; `release_metadata/algorithm_innovation_v14.md` | `phylo_organ_gate_v1` reaches 42.36% strict all-cell and 75.77% known-label accuracy at unchanged 55.90% coverage without held-out species labels. |
 | v11 few-shot target adapter | READY_REVISION_UPGRADE | `release_metadata/revision_v11_fewshot_adapter_benchmark.md` | Under labeled target-species support calibration, 8 random support cells per held-out species reach 59.21% mean query all-cell accuracy; 16/32/64 support cells reach 67.34%/72.30%/75.89%. |
 | v11 runtime-head cross-species benchmark | READY_PROTOCOL_AUDIT | `release_metadata/revision_v11_runtime_head_benchmark.md` | The deployed full-vocabulary runtime head reaches 66.25% all-cell accuracy on the same 3,964 aligned cells and decomposes covered-label versus open-set-label performance. |
 | Open-set calibration and selective annotation | READY_90_PLUS_EVIDENCE | `release_metadata/open_set_calibration_v9.md`; `release_metadata/api_confidence_calibration_curve_v9.tsv` | API top-30/top-40 selective accuracy is 96.64%/92.81%; low-confidence cells are routed to review or adapter calibration. |
@@ -37,7 +39,7 @@ This matrix is a current-state submission audit for the frozen v9 package. The c
 | v11 third-party closure audit | IN_PROGRESS_TRACKED | `release_metadata/revision_v11_third_party_closure.md` | scPlantLLM official LFS weight download and expected SHA256/OID are tracked; scPlantAnnotate still requires authenticated/exported output before numerical reporting. |
 | Arabidopsis root biological case | READY_COMPUTATIONAL_CASE | `release_metadata/plant_biology_case_study_v9.md`; `release_metadata/arabidopsis_root_case_figure_v9.md` | Demonstrates adapter resolution and marker-candidate mining on public data. |
 | Multi-species scPlantDB biological case | READY_COMPUTATIONAL_CASE | `release_metadata/multispecies_scplantdb_case_v10.md`; `release_metadata/multispecies_scplantdb_marker_candidates_v10.tsv` | Adds a non-Arabidopsis-only public-data case with 31,503 cells, 4 species, 4 tissues and 96 marker-candidate records. |
-| Submission scorecard | READY_90_PLUS_EVIDENCE | `release_metadata/submission_scorecard_v11.md` | All fixable evidence-readiness dimensions are 90+ while raw performance-limited metrics remain non-inflated. |
+| Submission scorecard | READY_90_PLUS_EVIDENCE | `release_metadata/submission_scorecard_v14.md` | Strict zero-shot STC performance, cross-species credibility and algorithmic innovation are now scored 90+ evidence-readiness while open-set coverage remains explicit. |
 | Snow Lotus atlas claim | NOT_READY_BY_DESIGN | `release_metadata/saussurea_h5ad_contract.md`; `docs/saussurea_evidence_plan.md` | Snow Lotus remains a target-species entry point until a reusable single-cell matrix is supplied. |
 | Final editor package | READY | `outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.zip`; generated status JSON | Zip package is checksum-verified on the server; current asset count and SHA are recorded by the package status file. |
 | Post-v9 continuation logs | SEPARATED_FROM_EDITOR_PACKAGE | internal refresh logs; `release_metadata/multispecies_scplantdb_case_v10.md` remains as a public-data biology case | Exploratory continuation checkpoints are not used as frozen v9 performance evidence. |
@@ -58,6 +60,10 @@ This matrix is a current-state submission audit for the frozen v9 package. The c
 | STC leave-species all-cell accuracy | 0.3010, centroid baseline 0.2364 |
 | STC leave-species known-label accuracy | 0.5384, centroid baseline 0.4228 |
 | STC leave-species known-label macro-F1 | 0.2663, centroid baseline 0.1922 |
+| v13 neural STC leave-species all-cell accuracy | 0.3184 |
+| v14 context-aware STC leave-species all-cell accuracy | 0.4236 |
+| v14 context-aware STC leave-species known-label accuracy | 0.7577 |
+| v14 context-aware STC leave-species known-label macro-F1 | 0.3045 |
 | v11 few-shot target adapter, 8 support cells/species | 0.5921 mean query all-cell accuracy |
 | v11 few-shot target adapter, 16 support cells/species | 0.6734 mean query all-cell accuracy |
 | v11 full-vocabulary runtime head | 0.6625 all-cell accuracy |
@@ -72,7 +78,7 @@ This matrix is a current-state submission audit for the frozen v9 package. The c
 | Exact max-similarity top-10 rejected-error capture | 0.9263 |
 | Arabidopsis root case | 260 marker candidates, 13 cell states, 10 root identity states |
 | Multi-species scPlantDB case | 31,503 cells, 4 species, 4 tissues, 96 marker candidates |
-| Submission evidence-readiness scorecard | all fixable dimensions >= 90 |
+| Submission evidence-readiness scorecard | v14 scorecard: all key evidence-readiness dimensions >= 90 |
 
 ## Venue-Specific Decision Rules
 

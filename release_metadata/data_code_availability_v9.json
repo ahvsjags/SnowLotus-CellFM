@@ -24,13 +24,15 @@
       "release_metadata/species_ontology_coverage_audit_v9.md",
       "release_metadata/species_ontology_label_benchmark_v9.md",
       "release_metadata/cross_species_classifier_benchmark_v10.md",
-      "release_metadata/algorithm_innovation_v10.md",
+      "release_metadata/revision_v13_neural_zero_shot_stc.md",
+      "release_metadata/revision_v14_context_stc_benchmark.md",
+      "release_metadata/algorithm_innovation_v14.md",
       "release_metadata/open_set_calibration_v9.md",
       "release_metadata/third_party_benchmark_contract_v10.md",
       "release_metadata/plant_biology_case_study_v9.md",
       "release_metadata/arabidopsis_root_case_figure_v9.md",
       "release_metadata/multispecies_scplantdb_case_v10.md",
-      "release_metadata/submission_scorecard_v11.md"
+      "release_metadata/submission_scorecard_v14.md"
     ],
     "source_data_policy": "The release records public-source accessions, processed benchmark manifests and derived audit tables. Original public datasets remain available from their source repositories under their original access conditions."
   },

@@ -13,6 +13,7 @@ Plant-CellFM: a reproducible foundation-model and adapter framework for plant si
 - Strict grouped evaluation separates leave-dataset, leave-sample and open-set leave-species transfer.
 - Frozen v9 improves over frozen v3 on the shared-gene benchmark in leave-dataset-out and leave-sample-out protocols.
 - Plant cell-state ontology diagnostics separate actionable labels from unknown or unannotated states.
+- Context-aware zero-shot STC raises strict leave-species all-cell accuracy above 40% without held-out species labels.
 - v11 target-species adapter calibration moves the revision cross-species query all-cell metric above 40% with only small labeled support sets.
 - Full-vocabulary runtime annotation reaches 66.25% all-cell accuracy on the same aligned cross-species cells.
 - Open-set calibration provides a confidence-aware accept/review protocol for high-confidence annotations.
@@ -27,6 +28,8 @@ Plant-CellFM: a reproducible foundation-model and adapter framework for plant si
 - Normalized leave-species-out coverage: 0.5590.
 - Normalized leave-species-out known-label accuracy: 0.4210.
 - STC leave-species all-cell accuracy: 0.3010.
+- v14 context-aware zero-shot STC all-cell accuracy: 0.4236.
+- v14 context-aware zero-shot STC known-label accuracy: 0.7577.
 - v11 few-shot adapter with 8 random support cells/species: 0.5921 mean query all-cell accuracy.
 - v11 few-shot adapter with 16 random support cells/species: 0.6734 mean query all-cell accuracy.
 - v11 full-vocabulary runtime-head all-cell accuracy: 0.6625.
@@ -41,4 +44,4 @@ Plant-CellFM: a reproducible foundation-model and adapter framework for plant si
 
 ## Claim-Safe Position
 
-Use Plant-CellFM v9 as a plant-general reproducible method and resource. State leave-species-out performance as open-set transfer evidence, not universal high-accuracy annotation.
+Use Plant-CellFM v9 as a plant-general reproducible method and resource. Report v14 as a context-aware strict zero-shot STC extension at 42.36% all-cell accuracy, while keeping the 55.90% coverage and open-set boundary explicit.

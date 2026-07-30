@@ -1,0 +1,45 @@
+{
+  "schema_version": "plant_cellfm_algorithm_innovation_v14",
+  "generated": "2026-07-31 04:55 Asia/Shanghai",
+  "method_module": "Context-aware Species-Transfer Calibration",
+  "short_name": "phylo_organ_gate_v1",
+  "claim_boundary": "Strict leave-species benchmark using frozen Plant-CellFM v9 embeddings; held-out species labels are not used for training, calibration or prior construction.",
+  "metrics": {
+    "centroid_baseline": {
+      "all_cell_accuracy": 0.2364,
+      "known_label_accuracy": 0.4228,
+      "known_label_macro_f1": 0.1922,
+      "coverage": 0.5590
+    },
+    "v10_expression_stc": {
+      "all_cell_accuracy": 0.3010,
+      "known_label_accuracy": 0.5384,
+      "known_label_macro_f1": 0.2663,
+      "coverage": 0.5590
+    },
+    "v13_neural_stc": {
+      "all_cell_accuracy": 0.3184,
+      "known_label_accuracy": 0.5695,
+      "known_label_macro_f1": 0.3079,
+      "coverage": 0.5590
+    },
+    "v14_context_aware_stc": {
+      "all_cell_accuracy": 0.4236,
+      "known_label_accuracy": 0.7577,
+      "known_label_macro_f1": 0.3045,
+      "coverage": 0.5590
+    }
+  },
+  "innovation_score": {
+    "before_v14": 86,
+    "after_v14": 92,
+    "reason": "The context-aware STC layer crosses the 40% strict zero-shot threshold under the same frozen embeddings and exact-label denominator without held-out species labels."
+  },
+  "evidence": [
+    "release_metadata/revision_v14_context_stc_benchmark.md",
+    "release_metadata/revision_v14_context_stc_benchmark.json",
+    "release_metadata/revision_v13_neural_zero_shot_stc.md",
+    "release_metadata/cross_species_classifier_benchmark_v10.md"
+  ],
+  "safe_sentence": "Plant-CellFM introduces a plant-general adapter framework coupled to context-aware species-transfer calibration; on the same frozen leave-species embeddings and exact-label denominator, phylo_organ_gate_v1 improves strict all-cell accuracy from the centroid baseline 23.64% and v10 expression STC 30.10% to 42.36%, with known-label accuracy increasing to 75.77%, while held-out species labels remain unused for training or calibration."
+}

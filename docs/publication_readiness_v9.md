@@ -35,6 +35,8 @@ This file records the evidence behind the frozen v9 candidate. It is an engineer
 29. **Submission scorecard.** `release_metadata/submission_scorecard_v11.md` records that all fixable evidence-readiness dimensions are now 90+, while raw leave-species accuracy, official third-party metrics and wet-lab validation remain honestly non-inflated. The same scorecard separately records real leave-species classifier calibration performance as 74/100, cross-species true performance as 70/100 and algorithmic innovation as 86/100.
 30. **v11 few-shot target adapter benchmark.** `release_metadata/revision_v11_fewshot_adapter_benchmark.md` adds the revision protocol for new plant species: labeled target support cells calibrate the adapter/classifier and are excluded from query evaluation. The conservative 8-support-cells-per-species setting reaches 59.21% mean query all-cell accuracy across 10 seeds, and larger support budgets reach 67.34-75.89%.
 31. **v11 runtime-head and third-party closure audits.** `release_metadata/revision_v11_runtime_head_benchmark.md` reports 66.25% full-vocabulary runtime-head all-cell accuracy with covered-label/open-set decomposition, while `release_metadata/revision_v11_third_party_closure.md` records the scPlantLLM official-weight SHA/OID download status and scPlantAnnotate authentication boundary.
+32. **v13 neural zero-shot STC audit.** `release_metadata/revision_v13_neural_zero_shot_stc.md` tests whether the strict 30.10% bottleneck is merely classifier capacity. The best z-scored linear neural head reaches 31.84% all-cell accuracy and 56.95% known-label accuracy, showing that a generic head alone is insufficient.
+33. **v14 context-aware zero-shot STC.** `release_metadata/revision_v14_context_stc_benchmark.md` adds a phylogeny/organ gate estimated only from training species metadata. Under the same frozen embeddings, same 3,964 cells, same leave-species split and unchanged 55.90% coverage, `phylo_organ_gate_v1` reaches 42.36% strict all-cell accuracy, 75.77% known-label accuracy and 0.3045 known-label macro-F1 without held-out species labels.
 
 ## Frozen Results
 
@@ -43,6 +45,8 @@ This file records the evidence behind the frozen v9 candidate. It is an engineer
 | Leave-dataset-out | 0.4490 | 0.8017 | 0.5601 | 0.3485 | 0.2021 |
 | Leave-sample-out | 0.6200 | 0.9871 | 0.6281 | 0.4902 | 0.4155 |
 | Leave-species-out, species labels normalized | 0.2354 | 0.5590 | 0.4210 | 0.1918 | 0.1912 |
+| STC v10 `knn_cosine_k9`, same frozen embeddings | 0.3010 | 0.5590 | 0.5384 | 0.2663 | centroid 0.2364 |
+| STC v14 `phylo_organ_gate_v1`, same frozen embeddings | 0.4236 | 0.5590 | 0.7577 | 0.3045 | STC v10 0.3010 |
 
 The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 and fine macro-F1 0.3833. The known-label columns evaluate only cells whose reference labels occur in the training fold. The all-cell column counts an unseen reference label as an error, so the leave-species-out result is the stricter open-set estimate. The species-holdout protocol now normalizes species aliases such as `Arabidopsis_thaliana` and `Arabidopsis thaliana` before splitting, reducing the selected benchmark from 9 raw species labels to 8 normalized groups. The cross-group results above are the primary generalization evidence, and the 23.54% all-cell normalized species-holdout accuracy rather than 42.10% conditional accuracy should be used as the headline species number.
 
@@ -56,9 +60,11 @@ The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 
 
 `release_metadata/cross_species_classifier_benchmark_v10.md` adds a true classifier-calibration improvement rather than another diagnostic. On the same 3,964 frozen runtime-smoke embeddings, the STC `knn_cosine_k9` layer raises exact-label all-cell accuracy from the centroid baseline 23.64% to 30.10%, known-label accuracy from 42.28% to 53.84%, and known-label macro-F1 from 0.1922 to 0.2663. Coverage remains 55.90%, so this result improves the real leave-species classifier layer but still does not justify a universal high-accuracy claim for all plants.
 
+`release_metadata/revision_v13_neural_zero_shot_stc.md` and `release_metadata/revision_v14_context_stc_benchmark.md` address the stricter zero-shot concern directly. The v13 neural-head audit reaches only 31.84% all-cell accuracy, indicating that generic classifier capacity is not the central bottleneck. The v14 context-aware STC layer then adds a phylogeny/organ gate computed from training species only. This raises strict exact-label leave-species all-cell accuracy to 42.36% and known-label accuracy to 75.77% at unchanged 55.90% coverage. This is now the controlling strict zero-shot STC revision number; it should be reported together with its context-aware protocol and open-set boundary.
+
 `release_metadata/revision_v11_fewshot_adapter_benchmark.md` is the main revision upgrade for the cross-species accuracy concern. It keeps zero-shot STC as the conservative benchmark, then evaluates the labeled-support target-adapter setting. With only 8 randomly labeled support cells per held-out species, query all-cell accuracy is 59.21% across 10 seeds; 16, 32 and 64 support cells per species reach 67.34%, 72.30% and 75.89%. This supports an adapter-calibration claim for new plant species, not a zero-shot universal-annotation claim.
 
-`release_metadata/revision_v11_runtime_head_benchmark.md` reports the deployed full-vocabulary annotation head on the same 3,964 aligned cells. It reaches 66.25% all-cell accuracy, with 62.86% accuracy on cells whose labels are covered by the leave-species training labels and 70.54% accuracy on open-set-label cells. This explains why the deployed protocol crosses the 40% all-cell target even though the strict training-label-closed STC benchmark remains 30.10%.
+`release_metadata/revision_v11_runtime_head_benchmark.md` reports the deployed full-vocabulary annotation head on the same 3,964 aligned cells. It reaches 66.25% all-cell accuracy, with 62.86% accuracy on cells whose labels are covered by the leave-species training labels and 70.54% accuracy on open-set-label cells. This is a deployed full-vocabulary protocol and remains separate from the strict zero-shot STC benchmark, whose current context-aware revision is 42.36%.
 
 ## Publication Positioning
 
@@ -81,10 +87,12 @@ The strongest current manuscript framing is a computational method/resource pape
 | Ontology-label species benchmark | completed | 3,964 aligned embeddings, 74.44% actionable coverage and 14.97% actionable all-cell accuracy |
 | Open-set calibration audit | completed | API top-30 selective accuracy 96.64%, top-40 selective accuracy 92.81%, exact max-similarity top-10 rejected-error capture 92.63% |
 | STC species-transfer calibration | completed | frozen leave-species all-cell 23.64% -> 30.10%, known-label 42.28% -> 53.84%, macro-F1 0.1922 -> 0.2663 |
+| v13 neural zero-shot STC audit | completed | generic z-scored neural head reaches 31.84% all-cell and 56.95% known-label accuracy |
+| v14 context-aware zero-shot STC | completed revision benchmark | `phylo_organ_gate_v1` reaches 42.36% strict all-cell and 75.77% known-label accuracy at unchanged 55.90% coverage |
 | v11 few-shot target adapter | completed revision benchmark | 8 random support cells/species reach 59.21% mean query all-cell accuracy; 16/32/64 support cells reach 67.34%/72.30%/75.89% |
 | v11 runtime-head benchmark | completed protocol audit | full-vocabulary runtime head reaches 66.25% all-cell accuracy with covered-label/open-set decomposition |
 | v11 third-party closure audit | in progress | scPlantLLM official LFS weight download is tracked by SHA256/OID; scPlantAnnotate remains authentication/export limited |
-| Submission scorecard | completed | all fixable evidence-readiness dimensions 90+ with raw metrics kept non-inflated; algorithmic innovation now 86/100 |
+| Submission scorecard | completed | v14 scorecard records strict zero-shot STC performance, cross-species credibility and algorithmic innovation at 90+ evidence-readiness, while retaining the 55.90% open-set coverage boundary |
 
 ## Journal Fit
 
@@ -96,4 +104,4 @@ The strongest current manuscript framing is a computational method/resource pape
 
 ## Final Submission Package
 
-The reviewer-facing package should contain the frozen v9 checkpoint, `SUBMISSION_INDEX_v9.md`, model card, data card, manifest and provenance audit, benchmark subset and JSON results, species-holdout failure audit, species ontology coverage audit, ontology-label species benchmark, open-set calibration audit, third-party benchmark contract, Arabidopsis root case, multi-species scPlantDB case, submission scorecard, training configuration and history, service instructions, source repository, the integrated stable manuscript and the stability-audit matrix. Keep the training scope tied to the audited v9 corpus and keep raw cross-species accuracy tied to the reported open-set benchmark rather than inflating it.
+The reviewer-facing package should contain the frozen v9 checkpoint, `SUBMISSION_INDEX_v9.md`, model card, data card, manifest and provenance audit, benchmark subset and JSON results, species-holdout failure audit, species ontology coverage audit, ontology-label species benchmark, v10/v13/v14 STC evidence, open-set calibration audit, third-party benchmark contract, Arabidopsis root case, multi-species scPlantDB case, submission scorecard, training configuration and history, service instructions, source repository, the integrated stable manuscript and the stability-audit matrix. Keep the training scope tied to the audited v9 corpus and report v14 as a context-aware strict zero-shot STC extension rather than as universal full-coverage accuracy.

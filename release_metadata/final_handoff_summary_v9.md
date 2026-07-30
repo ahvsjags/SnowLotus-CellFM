@@ -44,14 +44,16 @@ Release gate command:
 - `release_metadata/server_release_verification_v9.md (generated on server/outputs)`
 - `release_metadata/species_ontology_label_benchmark_v9.md`
 - `release_metadata/cross_species_classifier_benchmark_v10.md`
+- `release_metadata/revision_v13_neural_zero_shot_stc.md`
+- `release_metadata/revision_v14_context_stc_benchmark.md`
 - `release_metadata/revision_v11_fewshot_adapter_benchmark.md`
 - `release_metadata/revision_v11_runtime_head_benchmark.md`
 - `release_metadata/revision_v11_third_party_closure.md`
-- `release_metadata/algorithm_innovation_v10.md`
+- `release_metadata/algorithm_innovation_v14.md`
 - `release_metadata/open_set_calibration_v9.md`
 - `release_metadata/third_party_benchmark_contract_v10.md`
 - `release_metadata/multispecies_scplantdb_case_v10.md`
-- `release_metadata/submission_scorecard_v11.md`
+- `release_metadata/submission_scorecard_v14.md`
 - GITHUB_SYNC_RECOVERY.md inside the final zip
 
 ## Headline Metrics
@@ -72,6 +74,10 @@ Release gate command:
 | STC centroid baseline known-label accuracy | 0.4228 |
 | STC leave-species macro-F1 | 0.2663 |
 | STC centroid baseline macro-F1 | 0.1922 |
+| v13 neural STC leave-species all-cell accuracy | 0.3184 |
+| v14 context-aware STC leave-species all-cell accuracy | 0.4236 |
+| v14 context-aware STC leave-species known-label accuracy | 0.7577 |
+| v14 context-aware STC leave-species macro-F1 | 0.3045 |
 | v11 few-shot adapter, 8 support cells/species mean query all-cell accuracy | 0.5921 |
 | v11 few-shot adapter, 16 support cells/species mean query all-cell accuracy | 0.6734 |
 | v11 full-vocabulary runtime-head all-cell accuracy | 0.6625 |
@@ -95,7 +101,7 @@ Multi-species scPlantDB public-data biology case contains `31503` cells, `4` spe
 - Plant-CellFM v9 is a reproducible plant-general foundation-model and adapter framework for plant single-cell expression annotation.
 - The current release is not Snow Lotus-only; Snow Lotus is a target-species adapter entry point under the same contract.
 - The strict leave-species result should be interpreted as open-set cross-species transfer evidence, not universal high-accuracy annotation for every plant species.
-- The STC layer improves strict frozen leave-species all-cell accuracy from 23.64% to 30.10% and known-label accuracy from 42.28% to 53.84% without training on held-out species labels.
+- The v10 expression STC layer improves strict frozen leave-species all-cell accuracy from 23.64% to 30.10%; the v14 context-aware STC layer further improves the same strict denominator to 42.36% all-cell and 75.77% known-label accuracy without training on held-out species labels.
 - The v11 few-shot target-adapter benchmark improves the practical new-species adaptation protocol above the 40% revision target: 8 random labeled support cells per target species reach 59.21% mean query all-cell accuracy.
 - The v11 runtime-head benchmark reports the deployable full-vocabulary annotation protocol at 66.25% all-cell accuracy, with covered-label and open-set-label performance separated.
 - The open-set calibration audit supports a high-confidence auto-annotation and low-confidence review workflow.

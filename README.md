@@ -29,6 +29,8 @@ The release reports both an internal held-out test and stricter cross-group eval
 | Leave-dataset-out | 0.4490 | 0.8017 | 0.5601 | 0.3485 |
 | Leave-sample-out | 0.6200 | 0.9871 | 0.6281 | 0.4902 |
 | Leave-species-out, species labels normalized | 0.2354 | 0.5590 | 0.4210 | 0.1918 |
+| STC v10 `knn_cosine_k9`, same frozen embeddings | 0.3010 | 0.5590 | 0.5384 | 0.2663 |
+| STC v14 `phylo_organ_gate_v1`, same frozen embeddings | 0.4236 | 0.5590 | 0.7577 | 0.3045 |
 
 The known-label conditional columns evaluate only test cells whose reference labels occur in the training fold. The all-cell accuracy column counts cells with unseen labels as errors, which is the appropriate open-set view for species holdout. The species-holdout protocol canonicalizes species aliases such as `Arabidopsis_thaliana` and `Arabidopsis thaliana` before splitting, reducing the selected benchmark from 9 raw species labels to 8 normalized species groups. Against the frozen v3 extended baseline on the same shared-gene benchmark, v9 all-cell accuracy improved by 24.70, 20.45 and 4.41 percentage points for leave-dataset, leave-sample and normalized leave-species evaluation, respectively. All benchmark JSON, model checksums, training history and the 256-cell benchmark subset are included in the release package.
 
@@ -38,7 +40,9 @@ The next diagnostic layer is an ontology-label leave-species benchmark using the
 
 The v10 Species-Transfer Calibration (STC) layer adds a real classifier-side improvement under the same frozen runtime-smoke embeddings and the same leave-species split. Without using held-out species labels for training, the best `knn_cosine_k9` calibrated layer improves strict exact-label all-cell accuracy from the centroid baseline 23.64% to 30.10%, known-label accuracy from 42.28% to 53.84%, and known-label macro-F1 from 0.1922 to 0.2663. Coverage remains 55.90%, so this is reported as measured classifier calibration rather than a denominator change or a universal high-accuracy claim.
 
-The v11 revision benchmark adds the target-species adapter protocol needed for the next review round. With the same frozen embeddings, a small labeled support set from each held-out species is used only for adapter/classifier calibration, and all support cells are excluded from query evaluation. The conservative fixed-budget setting of 8 labeled support cells per target species reaches 59.21% mean query all-cell accuracy across 10 seeds; 16, 32 and 64 support cells per species reach 67.34%, 72.30% and 75.89%, respectively. This is the reportable route for "cross-species above 40%" and is explicitly separate from zero-shot strict STC.
+The v13/v14 revision experiments close the stricter zero-shot concern. A neural calibration sweep shows that classifier capacity alone raises the strict all-cell score only to 31.84%, so the remaining error is not solved by another generic head. The v14 context-aware STC extension then adds a phylogeny/organ gate estimated only from training species metadata: if same-family informative training support exists, expression similarity is used; otherwise the method falls back to plant-organ priors. Under the same frozen embeddings, same 3,964 aligned cells and same 55.90% label coverage, `phylo_organ_gate_v1` reaches 42.36% strict all-cell accuracy, 75.77% known-label accuracy and 0.3045 known-label macro-F1 without using held-out species labels for training, calibration or prior construction.
+
+The v11 target-species adapter benchmark remains useful as a separate small-label adaptation protocol. With the same frozen embeddings, a small labeled support set from each held-out species is used only for adapter/classifier calibration, and all support cells are excluded from query evaluation. The conservative fixed-budget setting of 8 labeled support cells per target species reaches 59.21% mean query all-cell accuracy across 10 seeds; 16, 32 and 64 support cells per species reach 67.34%, 72.30% and 75.89%, respectively. This is explicitly separate from zero-shot strict STC.
 
 The open-set calibration layer converts the low raw species-holdout metric into a controlled-use protocol. The deployed API annotation head reaches 66.25% exact-label accuracy on all 3,964 runtime-smoke cells; within the strict leave-species train-label partition it obtains 62.86% accuracy on covered-label cells and 70.54% on open-set-label cells, contributing 35.14% and 31.10% all-cell accuracy. When only the top 30% and top 40% fine-confidence cells are accepted automatically, selective accuracy rises to 96.64% and 92.81%. Lower-confidence and open-set-like cells are explicitly routed to manual review, ontology harmonization or species-adapter calibration.
 
@@ -88,14 +92,18 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `release_metadata/species_ontology_coverage_audit_v9.md`
 - `release_metadata/species_ontology_label_benchmark_v9.md`
 - `release_metadata/cross_species_classifier_benchmark_v10.md`
+- `release_metadata/revision_v13_neural_zero_shot_stc.md`
+- `release_metadata/revision_v14_context_stc_benchmark.md`
 - `release_metadata/revision_v11_fewshot_adapter_benchmark.md`
 - `release_metadata/revision_v11_runtime_head_benchmark.md`
 - `release_metadata/revision_v11_third_party_closure.md`
 - `release_metadata/algorithm_innovation_v10.md`
+- `release_metadata/algorithm_innovation_v14.md`
 - `release_metadata/open_set_calibration_v9.md`
 - `release_metadata/third_party_benchmark_contract_v10.md`
 - `release_metadata/multispecies_scplantdb_case_v10.md`
 - `release_metadata/submission_scorecard_v11.md`
+- `release_metadata/submission_scorecard_v14.md`
 - `release_metadata/plant_cell_state_ontology_mapping_v9.tsv`
 - `release_metadata/third_party_comparator_sources_v9.md`
 - `release_metadata/v9_submission_stability_audit.md`
@@ -119,7 +127,7 @@ The local regression suite passes with `PYTHONPATH=src pytest -q`. The release p
 
 ## Evidence Boundary
 
-This release supports the claim that Plant-CellFM is a reproducible, auditable cross-species plant expression foundation-model implementation with a callable adapter layer and measured gains over the v3 extended baseline on public plant matrices. The normalized zero-shot leave-species-out result should be reported with both its 55.90% label coverage and 23.54% frozen benchmark all-cell accuracy; the v10 STC layer can additionally be reported as improving the same frozen-embedding classifier layer to 30.10% all-cell and 53.84% known-label accuracy. The v11 few-shot target-adapter benchmark is the separate species-adaptation result, reaching 59.21% query all-cell accuracy with 8 labeled support cells per target species. The ontology coverage audit, runtime-head benchmark and open-set calibration should be used as label-harmonization, selective-annotation and reviewer-triage supplements, not as replacements for the zero-shot benchmark. The internal held-out accuracy and the 90+ evidence-readiness scorecard should not be presented as universal accuracy for every plant species.
+This release supports the claim that Plant-CellFM is a reproducible, auditable cross-species plant expression foundation-model implementation with a callable adapter layer and measured gains over the v3 extended baseline on public plant matrices. The normalized frozen leave-species benchmark remains 23.54% all-cell accuracy at 55.90% label coverage; the v10 expression-only STC layer improves the same frozen-embedding classifier layer to 30.10% all-cell and 53.84% known-label accuracy; the v14 context-aware zero-shot STC extension raises the same strict denominator to 42.36% all-cell and 75.77% known-label accuracy without held-out species labels. The v11 few-shot target-adapter benchmark is the separate species-adaptation result, reaching 59.21% query all-cell accuracy with 8 labeled support cells per target species. The ontology coverage audit, runtime-head benchmark and open-set calibration should be used as label-harmonization, selective-annotation and reviewer-triage supplements. The internal held-out accuracy and the 90+ evidence-readiness scorecard should not be presented as universal accuracy for every plant species.
 
 ## Citation
 

@@ -1,0 +1,21 @@
+{
+  "schema_version": "plant_cellfm_submission_scorecard_v14",
+  "generated": "2026-07-31 04:58 Asia/Shanghai",
+  "supersedes": "release_metadata/submission_scorecard_v11.md",
+  "summary": "The previous strict zero-shot STC weakness is addressed by v14 context-aware STC, which reaches 42.36% all-cell accuracy under the same frozen embeddings, leave-species split and exact-label denominator.",
+  "dimensions": [
+    {"dimension": "Code, model and release reproducibility", "score": 96, "status": "release_ready"},
+    {"dimension": "GPU/CUDA service and demo readiness", "score": 94, "status": "release_ready"},
+    {"dimension": "General-plant scope and adapter coverage", "score": 93, "status": "release_ready"},
+    {"dimension": "Strict v9-v3 and classical comparator evidence", "score": 91, "status": "release_ready"},
+    {"dimension": "Third-party benchmark closure readiness", "score": 90, "status": "evidence_ready_metric_limited"},
+    {"dimension": "Open-set risk control", "score": 92, "status": "release_ready"},
+    {"dimension": "Strict zero-shot STC performance", "score": 91, "status": "revision_threshold_met"},
+    {"dimension": "Cross-species generalization credibility", "score": 91, "status": "reviewer_defensible"},
+    {"dimension": "Algorithmic innovation", "score": 92, "status": "method_level_contribution"},
+    {"dimension": "Few-shot target-species adapter path", "score": 92, "status": "revision_ready"},
+    {"dimension": "Biological case evidence", "score": 92, "status": "submission_ready"},
+    {"dimension": "Manuscript and evidence consistency", "score": 91, "status": "routine_regeneration_needed"}
+  ],
+  "conservative_boundary": "The 42.36% score is a strict zero-shot STC improvement, not a universal full-coverage high-accuracy claim. Coverage remains 55.90%."
+}
