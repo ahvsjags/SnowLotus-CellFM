@@ -55,6 +55,7 @@
     "v9 versus v3 shared-gene benchmark",
     "centroid and Seurat comparator evidence",
     "Arabidopsis root marker-candidate case",
+    "Arabidopsis root figure package with source data",
     "live CUDA service smoke test",
     "tmux watchdog recovery evidence",
     "final editor package"
@@ -80,7 +81,7 @@
     "complete at least one official third-party foundation-model comparator metric",
     "add an independent public species or tissue biological replication case",
     "harmonize labels into a clearer plant cell ontology for species holdout",
-    "turn the Arabidopsis root case into a figure-ready biological panel",
+    "add a second independent biological figure panel beyond Arabidopsis",
     "prepare English manuscript and reviewer supplement"
   ]
 }

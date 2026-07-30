@@ -1,0 +1,32 @@
+{
+  "schema_version": "plant_cellfm_v9_arabidopsis_root_case_figure_record_v1",
+  "generated_at": "2026-07-30T18:45:00+08:00",
+  "claim": "Plant-CellFM v9 resolves an Arabidopsis-specific adapter from the plant-general registry and produces marker-candidate evidence for major root cell identities from public single-cell data.",
+  "script": "scripts/render_arabidopsis_root_case_figure_v9.py",
+  "inputs": {
+    "marker_candidates": "release_metadata/strict_benchmarks/public_sprint.marker_candidates.tsv",
+    "top_markers": "release_metadata/plant_biology_case_study_top_markers_v9.tsv",
+    "adapter_registry": "release_metadata/plant_species_adapters.json"
+  },
+  "exports": {
+    "svg": "figures/plant_cellfm_v9_arabidopsis_root_case/plant_cellfm_v9_arabidopsis_root_case.svg",
+    "pdf": "figures/plant_cellfm_v9_arabidopsis_root_case/plant_cellfm_v9_arabidopsis_root_case.pdf",
+    "png": "figures/plant_cellfm_v9_arabidopsis_root_case/plant_cellfm_v9_arabidopsis_root_case.png",
+    "tiff": "figures/plant_cellfm_v9_arabidopsis_root_case/plant_cellfm_v9_arabidopsis_root_case.tiff",
+    "metadata": "figures/plant_cellfm_v9_arabidopsis_root_case/plant_cellfm_v9_arabidopsis_root_case_figure_metadata.json"
+  },
+  "source_data": [
+    "figures/plant_cellfm_v9_arabidopsis_root_case/source_data/arabidopsis_root_marker_candidates_figure_source_v9.tsv",
+    "figures/plant_cellfm_v9_arabidopsis_root_case/source_data/arabidopsis_root_top_marker_matrix_source_v9.tsv",
+    "figures/plant_cellfm_v9_arabidopsis_root_case/source_data/arabidopsis_root_identity_summary_source_v9.tsv"
+  ],
+  "case_counts": {
+    "known_adapters": 24,
+    "root_identity_categories": 10,
+    "all_cell_states": 13,
+    "marker_candidate_rows": 260,
+    "root_identity_marker_rows": 200,
+    "embedding_dimensions": 256
+  },
+  "claim_boundary": "computational marker-candidate and adapter-resolution case; no wet-lab marker validation claim"
+}

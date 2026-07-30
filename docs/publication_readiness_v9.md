@@ -22,6 +22,7 @@ This file records the evidence behind the frozen v9 candidate. It is an engineer
 16. **Arabidopsis literature anchor.** `release_metadata/arabidopsis_root_literature_anchor_v9.md` aligns the root case labels with established Arabidopsis root atlas categories and canonical marker examples while preserving the claim boundary that model markers are computational candidates.
 17. **Final editor package recipe.** `scripts/package_v9_editor_submission.py` and `release_metadata/final_editor_submission_package_recipe_v9.md` generate a compact editor-facing zip with the final Word manuscript, model card, benchmark evidence, server evidence, Arabidopsis case evidence and model asset pointer.
 18. **Peer-review preflight.** `release_metadata/publication_peer_review_preflight_v9.md` records a strict reviewer-style audit of venue fit, current strengths, claim boundaries and remaining hard evidence needed for higher-tier revision.
+19. **Figure-ready biology case.** `release_metadata/arabidopsis_root_case_figure_v9.md` and `figures/plant_cellfm_v9_arabidopsis_root_case/` provide a four-panel Arabidopsis root adapter and marker-candidate figure with SVG/PDF/PNG/TIFF exports and source data.
 
 ## Frozen Results
 
@@ -46,6 +47,7 @@ The strongest current manuscript framing is a computational method/resource pape
 | scPlantLLM interface | input ready, metric missing | 20,000 cells, 24,392 retained genes, gene-vocabulary overlap 1.0 |
 | scPlantAnnotate interface | web/API authentication required | server reachable, anonymous scriptable benchmark unavailable |
 | Arabidopsis root biology case | completed | 260 marker-candidate rows, 13 states, 10 root identity states |
+| Arabidopsis root figure package | completed | four-panel SVG/PDF/PNG/TIFF figure with source data |
 
 ## Journal Fit
 

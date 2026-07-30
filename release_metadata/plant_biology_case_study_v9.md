@@ -53,3 +53,12 @@ The reported root identity categories are aligned with established Arabidopsis r
 - `marker_tsv`: `release_metadata/strict_benchmarks/public_sprint.marker_candidates.tsv`
 - `top_marker_tsv`: `release_metadata/plant_biology_case_study_top_markers_v9.tsv`
 - `adapter_registry`: `release_metadata/plant_species_adapters.json`
+
+## Figure-Ready Package
+
+The case has a manuscript-ready four-panel figure package:
+
+- figure record: `release_metadata/arabidopsis_root_case_figure_v9.md`
+- SVG/PDF/PNG/TIFF exports: `figures/plant_cellfm_v9_arabidopsis_root_case/`
+- source data: `figures/plant_cellfm_v9_arabidopsis_root_case/source_data/`
+- rendering script: `scripts/render_arabidopsis_root_case_figure_v9.py`

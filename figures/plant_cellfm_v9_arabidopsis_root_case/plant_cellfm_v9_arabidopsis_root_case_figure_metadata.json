@@ -1,0 +1,24 @@
+{
+  "schema_version": "plant_cellfm_v9_arabidopsis_root_figure_v1",
+  "figure": "figures/plant_cellfm_v9_arabidopsis_root_case/plant_cellfm_v9_arabidopsis_root_case",
+  "input_marker_tsv": "release_metadata/strict_benchmarks/public_sprint.marker_candidates.tsv",
+  "input_top_marker_tsv": "release_metadata/plant_biology_case_study_top_markers_v9.tsv",
+  "input_adapter_registry": "release_metadata/plant_species_adapters.json",
+  "source_data": [
+    "figures/plant_cellfm_v9_arabidopsis_root_case/source_data/arabidopsis_root_marker_candidates_figure_source_v9.tsv",
+    "figures/plant_cellfm_v9_arabidopsis_root_case/source_data/arabidopsis_root_top_marker_matrix_source_v9.tsv",
+    "figures/plant_cellfm_v9_arabidopsis_root_case/source_data/arabidopsis_root_identity_summary_source_v9.tsv"
+  ],
+  "adapter_count": 24,
+  "arabidopsis_adapter": "plant_arabidopsis_thaliana",
+  "marker_rows": 260,
+  "root_identity_marker_rows": 200,
+  "root_identity_labels": 10,
+  "all_cell_states": 13,
+  "exports": [
+    "figures/plant_cellfm_v9_arabidopsis_root_case/plant_cellfm_v9_arabidopsis_root_case.svg",
+    "figures/plant_cellfm_v9_arabidopsis_root_case/plant_cellfm_v9_arabidopsis_root_case.pdf",
+    "figures/plant_cellfm_v9_arabidopsis_root_case/plant_cellfm_v9_arabidopsis_root_case.png",
+    "figures/plant_cellfm_v9_arabidopsis_root_case/plant_cellfm_v9_arabidopsis_root_case.tiff"
+  ]
+}

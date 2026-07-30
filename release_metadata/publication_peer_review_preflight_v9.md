@@ -27,7 +27,7 @@ Practical submission advice: submit the current package as a **plant-general sin
 | Frozen checkpoint and checksum | GitHub release asset; `release_metadata/plant_cellfm_v9_model_card.md` | The checkpoint is externally addressable and SHA256-pinned. |
 | Cross-group benchmark | `release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json` | v9 is compared with the frozen v3 baseline on the same shared-gene benchmark. |
 | Traditional external comparator | `release_metadata/external_benchmark_panel_v9.md` | Seurat label transfer is completed on the frozen v9 subset; this gives a recognisable non-Plant-CellFM baseline. |
-| Biological case | `release_metadata/plant_biology_case_study_v9.md`; `release_metadata/arabidopsis_root_literature_anchor_v9.md` | Arabidopsis root adapter resolution, 13 cell states and 260 marker-candidate rows show biological use beyond raw metrics. |
+| Biological case | `release_metadata/plant_biology_case_study_v9.md`; `release_metadata/arabidopsis_root_literature_anchor_v9.md`; `release_metadata/arabidopsis_root_case_figure_v9.md` | Arabidopsis root adapter resolution, 13 cell states, 260 marker-candidate rows and a four-panel figure-ready package show biological use beyond raw metrics. |
 | Live service and recovery | `release_metadata/api_runtime_smoke_v9.md`; `release_metadata/watchdog_recovery_status_v9.md` | The model is deployable as a CUDA service with recorded smoke and watchdog recovery evidence. |
 
 ## Reviewer-Risk Matrix
@@ -68,9 +68,9 @@ Safe interpretation: Plant-CellFM v9 shows reproducible gains over the frozen v3
 | P1 | Complete one official third-party foundation-model comparator run, preferably scPlantLLM if weights/checkout become available. | Frozen metric JSON, exact environment, input manifest, command log and comparison table. |
 | P1 | Add an independent public species/tissue replication case outside the current Arabidopsis-heavy evidence. | Separate held-out dataset, marker table and literature-anchored interpretation. |
 | P2 | Rebuild species-holdout with clearer label harmonization and class ontology mapping. | Label ontology table, before/after coverage analysis and per-species failure audit. |
-| P2 | Convert the Arabidopsis root case into a figure-ready biological result. | Marker heatmap, adapter trace, root identity panel and source-data tables. |
+| P2 | Convert the Arabidopsis root case into a figure-ready biological result. | Completed in `release_metadata/arabidopsis_root_case_figure_v9.md`; next improvement is independent replication beyond Arabidopsis. |
 | P3 | Prepare an English manuscript and response-ready reviewer supplement. | English `.docx` or `.tex`, figure panels, supplement table index and reproducibility checklist. |
 
 ## Submission-Safe Summary
 
-Plant-CellFM v9 is currently best described as a reproducible plant-general foundation-model and adapter framework for single-cell expression annotation. Its strongest evidence is the complete engineering chain: public corpus, frozen RTX 4090 checkpoint, strict cross-group benchmark, v3/centroid/Seurat comparisons, Arabidopsis root biological case, GitHub release asset, editor package and live CUDA service. The main limitation for top-tier review is not the existence of the system but the remaining need for stronger independent external-model closure and broader biological replication.
+Plant-CellFM v9 is currently best described as a reproducible plant-general foundation-model and adapter framework for single-cell expression annotation. Its strongest evidence is the complete engineering chain: public corpus, frozen RTX 4090 checkpoint, strict cross-group benchmark, v3/centroid/Seurat comparisons, figure-ready Arabidopsis root biological case, GitHub release asset, editor package and live CUDA service. The main limitation for top-tier review is not the existence of the system but the remaining need for stronger independent external-model closure and broader biological replication.
