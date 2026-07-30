@@ -22,6 +22,8 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Full Chinese manuscript, Word | `manuscript/Plant_CellFM_v9_final_submission_zh_v1.docx` |
 | Final handoff summary | `release_metadata/final_handoff_summary_v9.md` |
 | Cover letter | `manuscript/Plant_CellFM_v9_cover_letter.docx` |
+| English synopsis, abstract and highlights | `manuscript/Plant_CellFM_v9_english_submission_synopsis.docx` |
+| Submission highlights and headline numbers | `release_metadata/submission_highlights_v9.md` |
 | Data and code availability | `release_metadata/data_code_availability_v9.md` |
 | Publication readiness | `docs/publication_readiness_v9.md` |
 | Model card | `release_metadata/plant_cellfm_v9_model_card.md` |
@@ -62,6 +64,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 10. The species ontology coverage audit maps 106 observed fine labels into a conservative plant cell-state ontology and separates actionable ontology coverage from unknown or unannotated labels.
 11. The ontology-label species-holdout benchmark reruns nearest-centroid evaluation on frozen v9 embeddings after ontology mapping, reporting 74.44% actionable coverage and 14.97% actionable all-cell accuracy.
 12. The publication target readiness matrix ranks the current package as strongest for plant-focused method/resource submission, plausible for genomics computational-method submission with major-revision risk, and stretch for top general methods venues until stronger third-party and biological validation evidence is added.
+13. The English synopsis file provides an abstract, significance statement, highlights, graphical abstract text and editorial positioning that use the same claim boundaries as the full manuscript.
 
 ## Claims Not Used In The Current Submission
 

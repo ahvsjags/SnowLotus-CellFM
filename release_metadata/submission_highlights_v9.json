@@ -1,0 +1,34 @@
+{
+  "schema_version": "plant_cellfm_v9_submission_highlights_v1",
+  "generated_at": "2026-07-30 21:53 Asia/Shanghai",
+  "repository": "https://github.com/ahvsjags/SnowLotus-CellFM",
+  "branch": "agent/remote-pipeline-20260728",
+  "release_tag": "v0.9.0-plant-general-lora",
+  "proposed_title": "Plant-CellFM: a reproducible foundation-model and adapter framework for plant single-cell annotation",
+  "highlights": [
+    "Plant-general foundation model for single-cell and single-nucleus plant expression annotation.",
+    "All-plant adapter framework with 24 adapter entries and universal fallback resolution.",
+    "Strict grouped evaluation separates leave-dataset, leave-sample and open-set leave-species transfer.",
+    "Frozen v9 improves over frozen v3 on the shared-gene benchmark in leave-dataset-out and leave-sample-out protocols.",
+    "Plant cell-state ontology diagnostics separate actionable labels from unknown or unannotated states.",
+    "Arabidopsis root case links adapter resolution, hierarchical annotation and marker-candidate mining."
+  ],
+  "headline_numbers": {
+    "leave_dataset_out_v9_accuracy_all": 0.44904137235116043,
+    "leave_dataset_out_v3_accuracy_all": 0.2020686175580222,
+    "leave_sample_out_v9_accuracy_all": 0.6200383246646591,
+    "leave_sample_out_v3_accuracy_all": 0.41554886394744045,
+    "leave_species_out_v9_accuracy_all": 0.2353683148335015,
+    "leave_species_out_v9_coverage": 0.5590312815338042,
+    "leave_species_out_v9_known_label_accuracy": 0.421028880866426,
+    "ontology_actionable_coverage": 0.7444061962134251,
+    "ontology_actionable_accuracy_all": 0.14974182444061962,
+    "ontology_known_label_accuracy": 0.20115606936416186,
+    "ontology_macro_f1": 0.13953579473841998,
+    "adapter_count": 24,
+    "arabidopsis_marker_candidate_rows": 260,
+    "arabidopsis_cell_states": 13,
+    "arabidopsis_root_identity_states": 10
+  },
+  "claim_safe_position": "Use Plant-CellFM v9 as a plant-general reproducible method and resource. State leave-species-out performance as open-set transfer evidence, not universal high-accuracy annotation."
+}
