@@ -1,0 +1,76 @@
+{
+  "schema_version": "plant_cellfm_current_publication_state_v10",
+  "generated_at": "2026-07-31 Asia/Shanghai",
+  "formal_release": "Plant-CellFM v9",
+  "formal_hardware_statement": "NVIDIA GeForce RTX 4090, 24 GB VRAM",
+  "source_commit": "35857f667bd277777e93373551a1e01707ce2c6d",
+  "github_branch": "https://github.com/ahvsjags/SnowLotus-CellFM/tree/agent/remote-pipeline-20260728",
+  "final_editor_zip_sha256": "f0dbad6f437557e481c5412d3a5dc21639cbe369cc39e200ccc0762ccca65500",
+  "server_verifier_status": "pass",
+  "release_gate_position": "release_ready_current_gates_pass",
+  "frozen_v9_metrics": {
+    "leave_dataset_out": {
+      "v9_all_cell_accuracy": 0.4490,
+      "coverage": 0.8017,
+      "known_label_accuracy": 0.5601,
+      "known_label_macro_f1": 0.3485,
+      "v3_all_cell_accuracy": 0.2021
+    },
+    "leave_sample_out": {
+      "v9_all_cell_accuracy": 0.6200,
+      "coverage": 0.9871,
+      "known_label_accuracy": 0.6281,
+      "known_label_macro_f1": 0.4902,
+      "v3_all_cell_accuracy": 0.4155
+    },
+    "leave_species_out_normalized": {
+      "v9_all_cell_accuracy": 0.2354,
+      "coverage": 0.5590,
+      "known_label_accuracy": 0.4210,
+      "known_label_macro_f1": 0.1918,
+      "v3_all_cell_accuracy": 0.1912
+    },
+    "seurat_label_transfer": {
+      "fine_accuracy": 0.2207,
+      "fine_macro_f1": 0.0603
+    },
+    "centroid_srp169576_sample_holdout": {
+      "fine_accuracy": 0.7337,
+      "fine_macro_f1": 0.4873
+    }
+  },
+  "post_v9_continuation": {
+    "status": "diagnostic_only",
+    "continuation_state": "waiting_for_disk_budget",
+    "root_staging_path": "/root/snowlotus_cellfm_v10",
+    "corpus_cells": 31503,
+    "corpus_genes": 210485,
+    "species": 4,
+    "tissues": 4,
+    "samples": 15,
+    "datasets": 4,
+    "fine_cell_type_labels": 27,
+    "training_output": "/root/snowlotus_cellfm_v10_scplantdb_lora_4090",
+    "epochs": 2,
+    "best_epoch_by_eval_loss": 2,
+    "test_fine_accuracy": 0.06689453125,
+    "test_fine_macro_f1": 0.012795182058339953,
+    "test_coarse_accuracy": 0.021484375,
+    "test_coarse_macro_f1": 0.016547291120828315,
+    "interpretation": "Pipeline continuity evidence only; not a replacement for frozen v9 publication metrics."
+  },
+  "safe_claim": "Plant-CellFM v9 is a reproducible plant-general single-cell expression foundation-model and all-plant adapter framework with frozen v9 metrics and post-v9 continuation evidence separated from the publication claim.",
+  "unsafe_claims": [
+    "universal high-accuracy annotation for all plants",
+    "v10 continuation checkpoint replaces v9",
+    "completed Snow Lotus single-cell atlas",
+    "official scPlantLLM or scPlantAnnotate superiority without executable metrics",
+    "RTX 5090 as the current formal hardware statement"
+  ],
+  "venue_fit": {
+    "plant_focused_method_resource": "ready",
+    "genome_biology_style_computational_genomics": "plausible_with_major_revision_risk",
+    "communications_biology_style": "possible_with_conservative_framing",
+    "nature_methods_or_nature_plants": "stretch"
+  }
+}

@@ -31,6 +31,8 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Peer-review preflight | `release_metadata/publication_peer_review_preflight_v9.md` |
 | Publication target readiness matrix | `release_metadata/top_journal_readiness_matrix.md` |
 | Server sustainability audit | `release_metadata/server_sustainability_status_v9.md` |
+| Post-v9 continuation status | `release_metadata/server_continuation_status_v10.md` |
+| Current publication-state assessment | `release_metadata/current_publication_state_v10.md` |
 | Release gate completion audit script | `scripts/write_release_gate_completion_audit_v9.py` |
 | Server release verification script | `scripts/verify_v9_server_release.py` |
 | GitHub sync recovery note | `GITHUB_SYNC_RECOVERY.md` inside the final editor zip |
@@ -65,6 +67,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 11. The ontology-label species-holdout benchmark reruns nearest-centroid evaluation on frozen v9 embeddings after ontology mapping, reporting 74.44% actionable coverage and 14.97% actionable all-cell accuracy.
 12. The publication target readiness matrix ranks the current package as strongest for plant-focused method/resource submission, plausible for genomics computational-method submission with major-revision risk, and stretch for top general methods venues until stronger third-party and biological validation evidence is added.
 13. The English synopsis file provides an abstract, significance statement, highlights, graphical abstract text and editorial positioning that use the same claim boundaries as the full manuscript.
+14. Post-v9 v10 continuation is documented as server sustainability and future-refresh evidence only. It proves that new scPlantDB data can be staged and trained on the RTX 4090 server, but its low diagnostic metrics are not used as v9 publication performance.
 
 ## Claims Not Used In The Current Submission
 
@@ -73,6 +76,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 3. The current submission uses the model-card hardware statement: NVIDIA GeForce RTX 4090, 24 GB VRAM.
 4. The current submission does not report scPlantLLM or scPlantAnnotate final metrics before official executable runs are frozen.
 5. The current submission does not treat old `SnowLotus_CellFM_*v0_*` manuscript drafts as the current manuscript.
+6. The current submission does not treat post-v9 v10 continuation checkpoints as a replacement for the frozen v9 model.
 
 ## Key Numbers
 
@@ -95,6 +99,10 @@ The external benchmark and biology addendum package is located at:
 `/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090/addendum_methods_panel`
 
 The service health check reports `model_scope=plant_general`, `adapter_resolution=dynamic_all_plants`, 24 known adapters and `device=cuda`.
+
+## Post-v9 Continuation
+
+The continuation report is available at `release_metadata/server_continuation_status_v10.md`. It records `/mnt` as full, `/root` as available for small-budget continuation, a completed 4-dataset scPlantDB staging corpus, and a completed 2-epoch v10 LoRA continuation run on the RTX 4090 server. The run produced checkpoints, but its diagnostic test metrics are low, so it is evidence of pipeline continuity rather than a new release candidate.
 
 ## Notes On Historical Files
 

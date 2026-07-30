@@ -15,6 +15,17 @@ Reviewer-facing entry point: `SUBMISSION_INDEX_v9.md`. That file lists the curre
 - Checkpoint: `best.pt` in the GitHub release asset and on the Matpool host at `/root/snowlotus_cellfm_v9_lora_shared_4090/best.pt`.
 - Service: Plant-CellFM inference service with embedding, annotation, ortholog-map transfer and runtime species-adapter resolution.
 
+## Post-v9 Continuation Snapshot
+
+Post-v9 continuation is running under the same RTX 4090 server environment but is intentionally separated from the frozen v9 publication claim. The current continuation record shows that `/mnt` is full, the disk-aware public queue is waiting for space, and a lightweight `/root` staging workspace has already completed a small scPlantDB continuation run.
+
+- Root staging corpus: 4 scPlantDB H5AD files, 31,503 cells, 210,485 genes, 4 plant species, 4 tissues, 15 samples and 27 fine cell-type labels.
+- Training status: 2-epoch v10 scPlantDB LoRA continuation completed at `/root/snowlotus_cellfm_v10_scplantdb_lora_4090`.
+- Continuation metrics: test fine accuracy 0.0669 and coarse accuracy 0.0215; these values are diagnostic only and do not replace the v9 model.
+- Release gate: the frozen v9 package still verifies as pass at source commit `35857f667bd277777e93373551a1e01707ce2c6d` with final editor zip SHA256 `f0dbad6f437557e481c5412d3a5dc21639cbe369cc39e200ccc0762ccca65500`.
+
+The continuation evidence is recorded in `release_metadata/server_continuation_status_v10.md` and `release_metadata/current_publication_state_v10.md`.
+
 ## Evaluation Snapshot
 
 The release reports both an internal held-out test and stricter cross-group evaluations. The latter are the appropriate evidence for cross-species generalization.
@@ -87,6 +98,8 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `release_metadata/v9_editor_issue_closure.md`
 - `release_metadata/final_editor_submission_package_recipe_v9.md`
 - `release_metadata/api_runtime_smoke_v9.md`
+- `release_metadata/server_continuation_status_v10.md`
+- `release_metadata/current_publication_state_v10.md`
 - `manuscript/Plant_CellFM_v9_完整主文_稳健方法版_v1.md`
 - `manuscript/Plant_CellFM_v9_final_submission_zh_v1.md`
 - `manuscript/Plant_CellFM_v9_final_submission_zh_v1.docx`

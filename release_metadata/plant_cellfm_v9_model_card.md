@@ -76,3 +76,14 @@ The ontology-label species-holdout benchmark reuses the frozen 3,964 x 256 runti
 - Watchdog recovery evidence: `release_metadata/watchdog_recovery_status_v9.md`
 - Server sustainability evidence: `release_metadata/server_sustainability_status_v9.md`
 - Release package checksum verification: passed on the server
+
+## Post-v9 Continuation Record
+
+The v9 model card keeps NVIDIA GeForce RTX 4090, 24 GB VRAM as the formal hardware statement. A post-v9 continuation run has also been recorded on the same server family after the v9 release was frozen. This continuation is not part of the v9 performance claim.
+
+- Continuation report: `release_metadata/server_continuation_status_v10.md`
+- Root staging corpus: 4 scPlantDB H5AD files merged into a 31,503-cell, 210,485-gene corpus with 4 species, 4 tissues, 15 samples and 27 fine cell-type labels.
+- Training output: `/root/snowlotus_cellfm_v10_scplantdb_lora_4090`
+- Completed training: 2 epochs; best epoch by evaluation loss: 2.
+- Diagnostic test metrics: fine accuracy 0.0669, fine macro-F1 0.0128, coarse accuracy 0.0215, coarse macro-F1 0.0165.
+- Interpretation: this proves the post-v9 data-ingestion and LoRA continuation path can run on the RTX 4090 server, but the checkpoint is not a publication replacement for the frozen v9 model. Further label harmonization, adapter calibration and controlled benchmark design are required before any v10 model can be promoted.

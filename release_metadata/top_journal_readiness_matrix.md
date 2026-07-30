@@ -33,6 +33,7 @@ This matrix is a current-state submission audit for the frozen v9 package. The c
 | Arabidopsis root biological case | READY_COMPUTATIONAL_CASE | `release_metadata/plant_biology_case_study_v9.md`; `release_metadata/arabidopsis_root_case_figure_v9.md` | Demonstrates adapter resolution and marker-candidate mining on public data. |
 | Snow Lotus atlas claim | NOT_READY_BY_DESIGN | `release_metadata/saussurea_h5ad_contract.md`; `docs/saussurea_evidence_plan.md` | Snow Lotus remains a target-species entry point until a reusable single-cell matrix is supplied. |
 | Final editor package | READY | `outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.zip`; generated status JSON | Zip package is checksum-verified on the server; current asset count and SHA are recorded by the package status file. |
+| Post-v9 continuation | READY_DIAGNOSTIC | `release_metadata/server_continuation_status_v10.md`; `release_metadata/current_publication_state_v10.md` | The RTX 4090 server has completed a small scPlantDB v10 continuation run, proving the refresh path; low diagnostic metrics mean it remains future-work evidence, not a replacement model. |
 
 ## Headline Evidence
 

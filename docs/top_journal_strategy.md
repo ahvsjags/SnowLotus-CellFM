@@ -60,6 +60,7 @@ Plant-CellFM v9 是一个面向植物单细胞/单核表达矩阵的可复现注
 | 留物种本体标签 benchmark | completed diagnostic | `release_metadata/species_ontology_label_benchmark_v9.md` | 复用冻结 runtime embedding；ontology-actionable coverage 为 74.44%，actionable all-cell accuracy 为 14.97%，用于定位跨物种迁移问题而非包装高分。 |
 | Arabidopsis root 案例 | completed computational case | `release_metadata/plant_biology_case_study_v9.md`; `release_metadata/arabidopsis_root_case_figure_v9.md` | 展示生物学使用路径和 marker-candidate 输出。 |
 | 雪莲目标物种入口 | scoped | `release_metadata/saussurea_h5ad_contract.md`; `docs/saussurea_evidence_plan.md` | 说明接入条件，不夸大成已完成图谱。 |
+| post-v9 续跑 | completed diagnostic | `release_metadata/server_continuation_status_v10.md`; `release_metadata/current_publication_state_v10.md` | 证明 4090 服务器仍可继续吸收 scPlantDB 数据并完成 LoRA 续训；当前低指标只作为管线证据，不替代 v9。 |
 
 ## 推荐投稿路径
 

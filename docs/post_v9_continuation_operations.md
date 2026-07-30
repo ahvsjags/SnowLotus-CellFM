@@ -35,6 +35,13 @@ The report is written to:
 
 The report records disk state, queue tmux sessions, API health, GPU visibility, v9 package commit, v9 package SHA256, server verifier status and release gate position.
 
+The latest synchronized status is also tracked in the repository as:
+
+- `release_metadata/server_continuation_status_v10.md`
+- `release_metadata/server_continuation_status_v10.json`
+- `release_metadata/current_publication_state_v10.md`
+- `release_metadata/current_publication_state_v10.json`
+
 ## Root staging when `/mnt` is full
 
 If `/mnt` is full but `/root` has enough space, prepare a lightweight post-v9 staging workspace:
@@ -61,3 +68,5 @@ This route is for public-data continuation and v10 preparation. It does not repl
 ## Interpretation
 
 If the report says `waiting_for_disk_budget`, the continuation machinery is ready but intentionally paused. Free space must be restored before public downloads or v10 training can resume safely.
+
+The completed `/root` scPlantDB continuation run should be interpreted as a pipeline and sustainability proof: it confirms that new public plant H5AD files can be staged, merged and trained on the RTX 4090 server. Its current diagnostic metrics are low, so it must not be promoted as the new publication model without additional label harmonization, adapter calibration and frozen benchmark validation.

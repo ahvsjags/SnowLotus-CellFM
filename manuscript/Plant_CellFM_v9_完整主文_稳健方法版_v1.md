@@ -2,7 +2,7 @@
 
 英文题名：Plant-CellFM v9: a general plant foundation model and all-plant adapter framework for single-cell annotation
 
-生成时间：2026-07-30 19:46 Asia/Shanghai
+生成时间：2026-07-31 00:18 Asia/Shanghai
 
 代码仓库：https://github.com/ahvsjags/SnowLotus-CellFM
 
@@ -150,7 +150,15 @@ Arabidopsis root literature anchor：`release_metadata/arabidopsis_root_literatu
 
 外部对照与生物学案例补充包：`/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090/addendum_methods_panel`
 
-## 10 稳健主张边界
+post-v9 continuation evidence：`release_metadata/server_continuation_status_v10.md`; `release_metadata/current_publication_state_v10.md`
+
+## 10 Post-v9 续跑证据：证明管线可持续，而不替换 v9 主模型
+
+v9 冻结后，服务器继续进行了一个小规模 scPlantDB v10 续跑，用于验证新的公开植物 H5AD 数据仍可被纳入同一数据、训练和审计链路。该续跑在 `/root/snowlotus_cellfm_v10` staging workspace 中完成 4 个 scPlantDB H5AD 文件合并，形成 31,503 个细胞、210,485 个基因、4 个物种、4 个组织、15 个样本和 27 个 fine cell-type labels 的语料。随后在 RTX 4090 环境中启动 LoRA/hybrid continuation training，输出目录为 `/root/snowlotus_cellfm_v10_scplantdb_lora_4090`，记录 2 个 epoch，best epoch by eval loss 为第 2 轮。
+
+这项续跑的作用是证明 pipeline sustainability，而不是刷新 v9 主性能。当前 v10 diagnostic test fine accuracy 为 0.0669，fine macro-F1 为 0.0128，coarse accuracy 为 0.0215，coarse macro-F1 为 0.0165。这些低指标说明新语料仍需要标签 harmonization、sampling control、adapter calibration 和冻结 benchmark 设计，不能把 v10 checkpoint 写成优于 v9 的新模型。因此，本文把 v10 作为后续扩展能力和服务器持续训练证据保留在 supplement/status report 中，正式投稿性能仍以冻结 v9 benchmark 为准。
+
+## 11 稳健主张边界
 
 本版本可以稳定陈述如下主张：
 
@@ -159,6 +167,7 @@ Arabidopsis root literature anchor：`release_metadata/arabidopsis_root_literatu
 3. Seurat label transfer 在 frozen v9 subset 上表现较弱，支持植物专用基础模型和 adapter 机制的必要性。
 4. Arabidopsis root case 展示了 adapter 解析、层级注释和 marker candidate mining 的完整计算生物学链路。
 5. 天山雪莲是目标物种适配入口，不是当前已完成的单细胞图谱。
+6. v10 续跑证明服务器上的公共植物数据续训链路可以继续工作，但不替代冻结 v9 模型。
 
 本版本不应陈述如下主张：
 
@@ -166,10 +175,11 @@ Arabidopsis root literature anchor：`release_metadata/arabidopsis_root_literatu
 2. 不应把内部 held-out accuracy 写成跨物种泛化精度。
 3. 不应声称 scPlantLLM/scPlantAnnotate 正式对照已完成。
 4. 不应声称天山雪莲单细胞图谱已经完成。
+5. 不应把 v10 diagnostic checkpoint 写成当前投稿主模型。
 
-## 11 结论
+## 12 结论
 
-Plant-CellFM v9 已经形成一版可审计、可复现、可运行的植物通用单细胞注释基础模型。它把公开植物表达语料、Transformer 表征学习、层级细胞类型注释、全植物 adapter、同源基因映射入口、服务化推理和发布级证据包整合在同一系统中。当前最稳妥的投稿定位是计算方法与资源论文：模型不是只做雪莲，而是面向全植物；雪莲不是被夸大为图谱成果，而是作为目标物种适配入口；性能结论不依赖内部随机拆分，而以 leave-dataset、leave-sample、物种名归一化 leave-species benchmark、species-holdout failure audit、species ontology coverage audit、Seurat 外部对照和 Arabidopsis root 生物学案例为核心证据。
+Plant-CellFM v9 已经形成一版可审计、可复现、可运行的植物通用单细胞注释基础模型。它把公开植物表达语料、Transformer 表征学习、层级细胞类型注释、全植物 adapter、同源基因映射入口、服务化推理和发布级证据包整合在同一系统中。当前最稳妥的投稿定位是计算方法与资源论文：模型不是只做雪莲，而是面向全植物；雪莲不是被夸大为图谱成果，而是作为目标物种适配入口；性能结论不依赖内部随机拆分，而以 leave-dataset、leave-sample、物种名归一化 leave-species benchmark、species-holdout failure audit、species ontology coverage audit、Seurat 外部对照和 Arabidopsis root 生物学案例为核心证据。v10 scPlantDB 续跑则作为服务器可持续训练证据，证明系统能继续吸收新植物公共数据，但在新的 label harmonization 和 benchmark 冻结前不进入主模型结论。
 
 ## 审稿风险修复矩阵
 
@@ -181,3 +191,4 @@ Plant-CellFM v9 已经形成一版可审计、可复现、可运行的植物通�
 | 雪莲定位被误读为图谱成果 | 主文明确 Snow Lotus 是目标物种接入口和应用场景，当前不写作已发布细胞图谱成果。 | Snow Lotus-ready transfer is supported once a reusable Snow Lotus single-cell matrix is supplied under the h5ad contract. | release_metadata/saussurea_h5ad_contract.md |
 | 代码版本和 GitHub 展示不同步 | GitHub HTTPS 后端已切换为 repo-local OpenSSL；最新同步状态用 `git rev-parse HEAD origin/agent/remote-pipeline-20260728` 复核，不在正文写死易过期 commit。 | The submission branch, release asset, SHA256 records and server package can be independently checked from the repository and release metadata. | release_metadata/server_sustainability_status_v9.md |
 | 在线服务稳定性被追问 | 已补 live `POST /annotate` smoke test 和 tmux watchdog 控制恢复测试；服务被 SIGTERM 后 30 秒内由 watchdog 拉起，并恢复健康检查。 | Plant-CellFM v9 is not only a static checkpoint; the frozen model is deployed in a reproducible CUDA service with recorded runtime and recovery evidence. | release_metadata/api_runtime_smoke_v9.md; release_metadata/watchdog_recovery_status_v9.md |
+| v10 续跑被误解为替换 v9 主模型 | 把 v10 scPlantDB 续跑单独写作 post-v9 continuation record：说明它已在 RTX 4090 服务器完成语料合并和 2 epoch LoRA 续训，但低诊断指标不进入 v9 主性能结论。 | The post-v9 v10 run demonstrates sustainable data ingestion and retraining capacity on the RTX 4090 server, while the frozen v9 release remains the publication model. | release_metadata/server_continuation_status_v10.md; release_metadata/current_publication_state_v10.md |

@@ -1,0 +1,139 @@
+{
+  "schema_version": "plant_cellfm_server_continuation_status_v10",
+  "generated_at_utc": "2026-07-30T16:11:29.513102+00:00",
+  "project_root": "/mnt/snowlotus_cellfm",
+  "min_free_bytes": 21474836480,
+  "disk_project": {
+    "path": "/mnt/snowlotus_cellfm",
+    "filesystem": "fx",
+    "size_bytes": 864362168320,
+    "used_bytes": 863636553728,
+    "available_bytes": 725614592,
+    "use_percent": "100%",
+    "mount": "/mnt"
+  },
+  "disk_root": {
+    "path": "/root",
+    "filesystem": "overlay",
+    "size_bytes": 214748364800,
+    "used_bytes": 148742668288,
+    "available_bytes": 66005696512,
+    "use_percent": "70%",
+    "mount": "/"
+  },
+  "root_stage_exists": true,
+  "root_stage": "/root/snowlotus_cellfm_v10",
+  "disk_root_stage": {
+    "path": "/root/snowlotus_cellfm_v10",
+    "filesystem": "overlay",
+    "size_bytes": 214748364800,
+    "used_bytes": 148742668288,
+    "available_bytes": 66005696512,
+    "use_percent": "70%",
+    "mount": "/"
+  },
+  "root_stage_scplantdb": {
+    "exists": true,
+    "manifest": "/root/snowlotus_cellfm_v10/data/corpus_manifest.scplantdb.tsv",
+    "manifest_rows": 4,
+    "h5ad_file_count": 4,
+    "h5ad_total_bytes": 179097417,
+    "h5ad_files": [
+      "SRP164771.h5ad",
+      "SRP241596.h5ad",
+      "SRP285040.h5ad",
+      "SRP386976.h5ad"
+    ],
+    "audits": {
+      "scplantdb_manifest_audit.md": {
+        "path": "/root/snowlotus_cellfm_v10/outputs/publication_package/scplantdb_manifest_audit.md",
+        "exists": true,
+        "size_bytes": 752
+      },
+      "data_integrity_audit.md": {
+        "path": "/root/snowlotus_cellfm_v10/outputs/publication_package/data_integrity_audit.md",
+        "exists": true,
+        "size_bytes": 1198
+      },
+      "pending_corpus_additions.md": {
+        "path": "/root/snowlotus_cellfm_v10/outputs/publication_package/pending_corpus_additions.md",
+        "exists": true,
+        "size_bytes": 566
+      }
+    }
+  },
+  "root_v10_training": {
+    "exists": true,
+    "output_dir": "/root/snowlotus_cellfm_v10_scplantdb_lora_4090",
+    "history_epochs": 2,
+    "best_epoch_by_eval_loss": 2,
+    "latest_status": "epoch_completed",
+    "latest_epoch": 2,
+    "latest_step": null,
+    "train_loss_last_epoch": 8.935744511894882,
+    "eval_loss_last_epoch": 8.71316534280777,
+    "eval_fine_accuracy_last_epoch": 0.02978515625,
+    "eval_coarse_accuracy_last_epoch": 0.2626953125,
+    "test_metrics": {
+      "coarse_accuracy": 0.021484375,
+      "coarse_macro_f1": 0.016547291120828315,
+      "eval_batches": 128.0,
+      "eval_coarse_loss": 3.1896195244044065,
+      "eval_fine_loss": 3.2791325710713863,
+      "eval_hierarchy_loss": 3.2435658536851406,
+      "eval_loss": 8.798879615962505,
+      "eval_mlm_gene_loss": 11.613447368144989,
+      "eval_mlm_value_loss": 0.14317100041080266,
+      "fine_accuracy": 0.06689453125,
+      "fine_macro_f1": 0.012795182058339953
+    },
+    "checkpoints": {
+      "best.pt": {
+        "path": "/root/snowlotus_cellfm_v10_scplantdb_lora_4090/best.pt",
+        "exists": true,
+        "size_bytes": 146669799
+      },
+      "latest.pt": {
+        "path": "/root/snowlotus_cellfm_v10_scplantdb_lora_4090/latest.pt",
+        "exists": true,
+        "size_bytes": 406321184
+      },
+      "epoch_0001.pt": {
+        "path": "/root/snowlotus_cellfm_v10_scplantdb_lora_4090/epoch_0001.pt",
+        "exists": true,
+        "size_bytes": 146677617
+      },
+      "epoch_0002.pt": {
+        "path": "/root/snowlotus_cellfm_v10_scplantdb_lora_4090/epoch_0002.pt",
+        "exists": true,
+        "size_bytes": 146677617
+      }
+    }
+  },
+  "disk_budget_ok": false,
+  "tmux_sessions": [
+    "plant_cellfm_watchdog",
+    "snowcell_public_queues_when_space"
+  ],
+  "active_queue_sessions": [
+    "snowcell_public_queues_when_space"
+  ],
+  "continuation_state": "waiting_for_disk_budget",
+  "health": {
+    "status": "ok",
+    "service": "Plant-CellFM",
+    "model_scope": "plant_general",
+    "adapter_count": 24,
+    "known_adapter_count": 24,
+    "adapter_resolution": "dynamic_all_plants",
+    "device": "cuda"
+  },
+  "nvidia_smi": {
+    "returncode": 0,
+    "output": "NVIDIA GeForce RTX 4090, 24564 MiB, 1 MiB, 0 %"
+  },
+  "package_source_commit": "35857f667bd277777e93373551a1e01707ce2c6d",
+  "package_sha256": "f0dbad6f437557e481c5412d3a5dc21639cbe369cc39e200ccc0762ccca65500",
+  "server_verifier_status": "pass",
+  "release_gate_completion_position": "release_ready_current_gates_pass"
+}
