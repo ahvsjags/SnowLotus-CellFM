@@ -20,6 +20,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Full Chinese manuscript | `manuscript/Plant_CellFM_v9_完整主文_稳健方法版_v1.md` |
 | Full Chinese manuscript, ASCII path | `manuscript/Plant_CellFM_v9_final_submission_zh_v1.md` |
 | Full Chinese manuscript, Word | `manuscript/Plant_CellFM_v9_final_submission_zh_v1.docx` |
+| Final handoff summary | `release_metadata/final_handoff_summary_v9.md` |
 | Publication readiness | `docs/publication_readiness_v9.md` |
 | Model card | `release_metadata/plant_cellfm_v9_model_card.md` |
 | Stability audit | `release_metadata/v9_submission_stability_audit.md` |

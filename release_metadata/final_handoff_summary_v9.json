@@ -1,0 +1,57 @@
+{
+  "schema_version": "plant_cellfm_v9_final_handoff_summary_v1",
+  "generated_at": "2026-07-30 21:22 Asia/Shanghai",
+  "project": "Plant-CellFM / SnowLotus-CellFM",
+  "release_scope": "plant-general single-cell and single-nucleus expression foundation model with all-plant adapter framework",
+  "formal_hardware_statement": "NVIDIA GeForce RTX 4090, 24 GB VRAM",
+  "repository": "https://github.com/ahvsjags/SnowLotus-CellFM",
+  "branch": "agent/remote-pipeline-20260728",
+  "release_tag": "v0.9.0-plant-general-lora",
+  "server_root": "/mnt/snowlotus_cellfm",
+  "server_final_zip": "/mnt/snowlotus_cellfm/outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.zip",
+  "server_verifier_command": "/root/miniconda3/envs/myconda/bin/python scripts/verify_v9_server_release.py --output-json release_metadata/server_release_verification_v9.json --output-md release_metadata/server_release_verification_v9.md",
+  "release_gate_command": "/root/miniconda3/envs/myconda/bin/python scripts/write_release_gate_completion_audit_v9.py",
+  "headline_metrics": {
+    "leave_dataset_out_v9_all_cell_accuracy": 0.44904137235116043,
+    "leave_dataset_out_v3_all_cell_accuracy": 0.2020686175580222,
+    "leave_sample_out_v9_all_cell_accuracy": 0.6200383246646591,
+    "leave_sample_out_v3_all_cell_accuracy": 0.41554886394744045,
+    "leave_species_out_v9_all_cell_accuracy": 0.2353683148335015,
+    "leave_species_out_v3_all_cell_accuracy": 0.19122098890010092,
+    "leave_species_out_v9_coverage": 0.5590312815338042,
+    "leave_species_out_v9_known_label_accuracy": 0.421028880866426,
+    "ontology_label_actionable_coverage": 0.7444061962134251,
+    "ontology_label_actionable_all_cell_accuracy": 0.14974182444061962,
+    "ontology_label_known_label_accuracy": 0.20115606936416186,
+    "ontology_label_macro_f1": 0.13953579473841998
+  },
+  "biology_case": {
+    "case": "Arabidopsis root adapter and marker-candidate case",
+    "marker_candidate_rows": 260,
+    "cell_states": 13,
+    "root_identity_states": 10
+  },
+  "read_first": [
+    "SUBMISSION_INDEX_v9.md",
+    "manuscript/Plant_CellFM_v9_final_submission_zh_v1.docx",
+    "release_metadata/final_handoff_summary_v9.md",
+    "release_metadata/plant_cellfm_v9_model_card.md",
+    "release_metadata/release_gate_completion_audit_v9.md (generated on server/outputs)",
+    "release_metadata/server_release_verification_v9.md (generated on server/outputs)",
+    "release_metadata/species_ontology_label_benchmark_v9.md",
+    "GITHUB_SYNC_RECOVERY.md inside the final zip"
+  ],
+  "safe_claims": [
+    "Plant-CellFM v9 is a reproducible plant-general foundation-model and adapter framework for plant single-cell expression annotation.",
+    "The current release is not Snow Lotus-only; Snow Lotus is a target-species adapter entry point under the same contract.",
+    "The strict leave-species result should be interpreted as open-set cross-species transfer evidence, not universal high-accuracy annotation for every plant species.",
+    "The release includes completed v3, centroid and Seurat comparators; scPlantLLM/scPlantAnnotate remain disclosed at audited execution boundaries unless official runs are added later.",
+    "The Arabidopsis root case is a public-data computational biology demonstration with marker candidates, not wet-lab validation."
+  ],
+  "do_not_claim": [
+    "Do not claim a completed Snow Lotus single-cell atlas.",
+    "Do not claim universal high-accuracy zero-shot annotation for every plant species.",
+    "Do not claim official scPlantLLM/scPlantAnnotate numerical superiority without executable third-party metrics.",
+    "Do not cite early hardware planning notes as the formal hardware statement; use RTX 4090."
+  ]
+}
