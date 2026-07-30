@@ -46,12 +46,15 @@ The species-holdout failure audit decomposes this result into label coverage, kn
 
 The paired species ontology coverage audit maps 106 observed fine labels to a conservative plant cell-state ontology. After aligning server-exported `obs` labels to the frozen 3,964 leave-species test cells, exact-label coverage is reconstructed as 2,246 cells, within 30 cells of the frozen JSON. Actionable ontology coverage is 1,794 / 3,964 cells (45.26%) after excluding 1,384 unknown or unannotated cells. This is a label-harmonization audit and does not revise the frozen accuracy or macro-F1 metrics.
 
+The ontology-label species-holdout benchmark reuses the frozen 3,964 x 256 runtime-smoke embeddings and reruns nearest-centroid transfer after ontology mapping. Exact-label recomputation matches the frozen benchmark closely. Under the ontology-actionable protocol, 1,640 unknown or unannotated cells are excluded, 2,324 cells remain actionable, ontology-label coverage is 74.44%, actionable all-cell accuracy is 14.97%, known-label accuracy is 20.12% and known-label macro-F1 is 0.1395. This provides a stricter diagnostic of remaining representation-transfer error after label harmonization.
+
 ## External Comparators And Biological Case
 
 - Submission index: `SUBMISSION_INDEX_v9.md`
 - External benchmark panel: `release_metadata/external_benchmark_panel_v9.md`
 - Species-holdout failure audit: `release_metadata/species_holdout_failure_audit_v9.md`
 - Species ontology coverage audit: `release_metadata/species_ontology_coverage_audit_v9.md`
+- Species ontology-label benchmark: `release_metadata/species_ontology_label_benchmark_v9.md`
 - Plant cell-state ontology mapping: `release_metadata/plant_cell_state_ontology_mapping_v9.tsv`
 - Integrated stable manuscript: `manuscript/Plant_CellFM_v9_完整主文_稳健方法版_v1.md`
 - Submission stability audit: `release_metadata/v9_submission_stability_audit.md`

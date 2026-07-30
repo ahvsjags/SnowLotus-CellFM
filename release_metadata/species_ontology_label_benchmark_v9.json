@@ -1,0 +1,377 @@
+{
+  "schema_version": "plant_cellfm_v9_ontology_label_species_holdout_benchmark_v1",
+  "source_files": {
+    "embeddings": "/mnt/snowlotus_cellfm/outputs/runtime_smoke_v9_annotation_20260730_1659/embeddings.npy",
+    "predictions": "/mnt/snowlotus_cellfm/outputs/runtime_smoke_v9_annotation_20260730_1659/predictions.csv",
+    "obs_labels": "/mnt/snowlotus_cellfm/release_metadata/species_ontology_obs_labels_with_ids_v9.tsv",
+    "benchmark_json": "/mnt/snowlotus_cellfm/release_metadata/v9_benchmarks/v9_lora_cross_species_benchmark.json"
+  },
+  "claim_boundary": "Additional ontology-label diagnostic; does not replace the frozen exact-label v9 species-holdout benchmark.",
+  "alignment": {
+    "prediction_rows": 3964,
+    "obs_rows": 7424,
+    "aligned_rows": 3964,
+    "missing_prediction_cell_ids": 0,
+    "duplicate_obs_ids_seen": 0,
+    "missing_examples": []
+  },
+  "embedding": {
+    "rows": 3964,
+    "dimension": 256,
+    "dtype": "float32",
+    "nan_count": 0,
+    "infinite_count": 0
+  },
+  "frozen_reference": {
+    "leave_species_out_fine": {
+      "groups_seen": 8,
+      "groups_attempted": 8,
+      "groups_with_evaluable_cells": 7,
+      "n_test": 3964,
+      "n_evaluable": 2216,
+      "coverage": 0.5590312815338042,
+      "accuracy_all": 0.2353683148335015,
+      "macro_f1_all_weighted_by_cells": 0.0846356556759921,
+      "accuracy": 0.421028880866426,
+      "macro_f1": 0.191807515126701
+    }
+  },
+  "label_summary": {
+    "species": 8,
+    "fine_labels": 40,
+    "ontology_labels": 20,
+    "unknown_or_unannotated_cells": 1640,
+    "top_ontology_labels": [
+      [
+        "unknown_or_unannotated",
+        1640
+      ],
+      [
+        "mesophyll",
+        948
+      ],
+      [
+        "meristem_or_stem_cell_niche",
+        277
+      ],
+      [
+        "epidermis",
+        220
+      ],
+      [
+        "cell_cycle_state",
+        159
+      ],
+      [
+        "vascular_stele",
+        108
+      ],
+      [
+        "xylem",
+        80
+      ],
+      [
+        "cortex",
+        79
+      ],
+      [
+        "root_cap",
+        78
+      ],
+      [
+        "phloem",
+        68
+      ],
+      [
+        "hydathode",
+        60
+      ],
+      [
+        "endodermis",
+        55
+      ],
+      [
+        "root_hair_or_trichoblast",
+        48
+      ],
+      [
+        "lateral_root_cap",
+        31
+      ],
+      [
+        "guard_or_stomatal_cell",
+        29
+      ],
+      [
+        "nonhair_or_atrichoblast",
+        29
+      ],
+      [
+        "procambium",
+        19
+      ],
+      [
+        "bundle_sheath",
+        16
+      ],
+      [
+        "secretory_or_specialized_epidermis",
+        15
+      ],
+      [
+        "pigment_gland",
+        5
+      ]
+    ]
+  },
+  "protocols": {
+    "leave_species_out_fine_exact_recomputed": {
+      "groups_seen": 8,
+      "groups_attempted": 8,
+      "groups_with_evaluable_cells": 7,
+      "n_test_total": 3964,
+      "n_test": 3964,
+      "unknown_or_unannotated_excluded": 0,
+      "unknown_or_unannotated_fraction": 0.0,
+      "n_evaluable": 2216,
+      "records": [
+        {
+          "status": "ok",
+          "n_test": 2366,
+          "n_test_total": 2366,
+          "unknown_or_unannotated_excluded": 0,
+          "n_evaluable": 1024,
+          "coverage": 0.4327979712595097,
+          "train_classes": 20,
+          "test_classes": 29,
+          "accuracy_all": 0.18808114961961117,
+          "macro_f1_all": 0.055866388051250986,
+          "accuracy": 0.4345703125,
+          "macro_f1": 0.20833354738153145,
+          "held_out_group": "Arabidopsis thaliana"
+        },
+        {
+          "status": "ok",
+          "n_test": 256,
+          "n_test_total": 256,
+          "unknown_or_unannotated_excluded": 0,
+          "n_evaluable": 240,
+          "coverage": 0.9375,
+          "train_classes": 39,
+          "test_classes": 8,
+          "accuracy_all": 0.28515625,
+          "macro_f1_all": 0.11112454212454213,
+          "accuracy": 0.30416666666666664,
+          "macro_f1": 0.11959237027103646,
+          "held_out_group": "Brassica rapa"
+        },
+        {
+          "status": "ok",
+          "n_test": 256,
+          "n_test_total": 256,
+          "unknown_or_unannotated_excluded": 0,
+          "n_evaluable": 241,
+          "coverage": 0.94140625,
+          "train_classes": 39,
+          "test_classes": 7,
+          "accuracy_all": 0.00390625,
+          "macro_f1_all": 0.008333333333333333,
+          "accuracy": 0.004149377593360996,
+          "macro_f1": 0.009523809523809523,
+          "held_out_group": "Catharanthus roseus"
+        },
+        {
+          "status": "ok",
+          "n_test": 62,
+          "n_test_total": 62,
+          "unknown_or_unannotated_excluded": 0,
+          "n_evaluable": 62,
+          "coverage": 1.0,
+          "train_classes": 40,
+          "test_classes": 1,
+          "accuracy_all": 0.9838709677419355,
+          "macro_f1_all": 0.4959349593495935,
+          "accuracy": 0.9838709677419355,
+          "macro_f1": 0.4959349593495935,
+          "held_out_group": "Eutrema salsugineum"
+        },
+        {
+          "status": "ok",
+          "n_test": 256,
+          "n_test_total": 256,
+          "unknown_or_unannotated_excluded": 0,
+          "n_evaluable": 161,
+          "coverage": 0.62890625,
+          "train_classes": 36,
+          "test_classes": 8,
+          "accuracy_all": 0.16015625,
+          "macro_f1_all": 0.07386113508562489,
+          "accuracy": 0.2546583850931677,
+          "macro_f1": 0.1422017797017797,
+          "held_out_group": "Fragaria vesca"
+        },
+        {
+          "status": "ok",
+          "n_test": 256,
+          "n_test_total": 256,
+          "unknown_or_unannotated_excluded": 0,
+          "n_evaluable": 232,
+          "coverage": 0.90625,
+          "train_classes": 38,
+          "test_classes": 8,
+          "accuracy_all": 0.3671875,
+          "macro_f1_all": 0.17067178834691046,
+          "accuracy": 0.4051724137931034,
+          "macro_f1": 0.20736679412121617,
+          "held_out_group": "Gossypium bickii"
+        },
+        {
+          "status": "no_label_overlap",
+          "n_test": 256,
+          "n_test_total": 256,
+          "unknown_or_unannotated_excluded": 0,
+          "n_evaluable": 0,
+          "coverage": 0.0,
+          "train_classes": 39,
+          "test_classes": 1,
+          "accuracy_all": 0.0,
+          "macro_f1_all": 0.0,
+          "held_out_group": "Gossypium hirsutum"
+        },
+        {
+          "status": "ok",
+          "n_test": 256,
+          "n_test_total": 256,
+          "unknown_or_unannotated_excluded": 0,
+          "n_evaluable": 256,
+          "coverage": 1.0,
+          "train_classes": 40,
+          "test_classes": 1,
+          "accuracy_all": 0.8671875,
+          "macro_f1_all": 0.30962343096234307,
+          "accuracy": 0.8671875,
+          "macro_f1": 0.30962343096234307,
+          "held_out_group": "Triticum aestivum"
+        }
+      ],
+      "coverage": 0.5590312815338042,
+      "accuracy_all": 0.2363773965691221,
+      "macro_f1_all_weighted_by_cells": 0.08460471353462151,
+      "accuracy": 0.42283393501805056,
+      "macro_f1": 0.1919431895546563
+    },
+    "leave_species_out_ontology_actionable": {
+      "groups_seen": 8,
+      "groups_attempted": 8,
+      "groups_with_evaluable_cells": 5,
+      "n_test_total": 3964,
+      "n_test": 2324,
+      "unknown_or_unannotated_excluded": 1640,
+      "unknown_or_unannotated_fraction": 0.41372351160444,
+      "n_evaluable": 1730,
+      "records": [
+        {
+          "status": "ok",
+          "n_test": 1447,
+          "n_test_total": 2366,
+          "unknown_or_unannotated_excluded": 919,
+          "n_evaluable": 968,
+          "coverage": 0.6689702833448514,
+          "train_classes": 12,
+          "test_classes": 14,
+          "accuracy_all": 0.09536973047684866,
+          "macro_f1_all": 0.056662540895061154,
+          "accuracy": 0.14256198347107438,
+          "macro_f1": 0.12191183543583718,
+          "held_out_group": "Arabidopsis thaliana"
+        },
+        {
+          "status": "ok",
+          "n_test": 137,
+          "n_test_total": 256,
+          "unknown_or_unannotated_excluded": 119,
+          "n_evaluable": 121,
+          "coverage": 0.8832116788321168,
+          "train_classes": 18,
+          "test_classes": 7,
+          "accuracy_all": 0.34306569343065696,
+          "macro_f1_all": 0.1690524980483997,
+          "accuracy": 0.3884297520661157,
+          "macro_f1": 0.19166954221302046,
+          "held_out_group": "Brassica rapa"
+        },
+        {
+          "status": "ok",
+          "n_test": 243,
+          "n_test_total": 256,
+          "unknown_or_unannotated_excluded": 13,
+          "n_evaluable": 228,
+          "coverage": 0.9382716049382716,
+          "train_classes": 18,
+          "test_classes": 6,
+          "accuracy_all": 0.06995884773662552,
+          "macro_f1_all": 0.047470774609417676,
+          "accuracy": 0.07456140350877193,
+          "macro_f1": 0.0629927143657762,
+          "held_out_group": "Catharanthus roseus"
+        },
+        {
+          "status": "insufficient_labels",
+          "n_test": 0,
+          "n_test_total": 62,
+          "unknown_or_unannotated_excluded": 62,
+          "held_out_group": "Eutrema salsugineum"
+        },
+        {
+          "status": "ok",
+          "n_test": 241,
+          "n_test_total": 256,
+          "unknown_or_unannotated_excluded": 15,
+          "n_evaluable": 181,
+          "coverage": 0.7510373443983402,
+          "train_classes": 18,
+          "test_classes": 5,
+          "accuracy_all": 0.23651452282157676,
+          "macro_f1_all": 0.07047619047619048,
+          "accuracy": 0.3149171270718232,
+          "macro_f1": 0.08161094224924012,
+          "held_out_group": "Fragaria vesca"
+        },
+        {
+          "status": "ok",
+          "n_test": 256,
+          "n_test_total": 256,
+          "unknown_or_unannotated_excluded": 0,
+          "n_evaluable": 232,
+          "coverage": 0.90625,
+          "train_classes": 17,
+          "test_classes": 7,
+          "accuracy_all": 0.34765625,
+          "macro_f1_all": 0.23099313407437216,
+          "accuracy": 0.38362068965517243,
+          "macro_f1": 0.30629454381591054,
+          "held_out_group": "Gossypium bickii"
+        },
+        {
+          "status": "insufficient_labels",
+          "n_test": 0,
+          "n_test_total": 256,
+          "unknown_or_unannotated_excluded": 256,
+          "held_out_group": "Gossypium hirsutum"
+        },
+        {
+          "status": "insufficient_labels",
+          "n_test": 0,
+          "n_test_total": 256,
+          "unknown_or_unannotated_excluded": 256,
+          "held_out_group": "Triticum aestivum"
+        }
+      ],
+      "coverage": 0.7444061962134251,
+      "accuracy_all": 0.14974182444061962,
+      "macro_f1_all_weighted_by_cells": 0.08296268991638293,
+      "accuracy": 0.20115606936416186,
+      "macro_f1": 0.13953579473841998
+    }
+  }
+}

@@ -51,12 +51,12 @@
     {
       "gate": "species_holdout_interpretation",
       "status": "READY_WITH_OPEN_SET_BOUNDARY",
-      "evidence": "release_metadata/species_holdout_failure_audit_v9.md and release_metadata/species_ontology_coverage_audit_v9.md"
+      "evidence": "release_metadata/species_holdout_failure_audit_v9.md, release_metadata/species_ontology_coverage_audit_v9.md and release_metadata/species_ontology_label_benchmark_v9.md"
     },
     {
-      "gate": "species_ontology_mapping",
-      "status": "READY_AUDIT_ONLY",
-      "evidence": "release_metadata/plant_cell_state_ontology_mapping_v9.tsv"
+      "gate": "species_ontology_mapping_and_benchmark",
+      "status": "READY_DIAGNOSTIC",
+      "evidence": "release_metadata/plant_cell_state_ontology_mapping_v9.tsv and release_metadata/species_ontology_label_benchmark_v9.md"
     },
     {
       "gate": "seurat_comparator",
@@ -95,6 +95,11 @@
     "leave_species_out_known_label_accuracy": 0.421,
     "species_ontology_actionable_coverage_audit": 0.4526,
     "species_ontology_unknown_or_unannotated_cells": 1384,
+    "ontology_label_benchmark_actionable_coverage": 0.7444,
+    "ontology_label_benchmark_actionable_all_cell_accuracy": 0.1497,
+    "ontology_label_benchmark_known_label_accuracy": 0.2012,
+    "ontology_label_benchmark_macro_f1": 0.1395,
+    "ontology_label_benchmark_unknown_or_unannotated_cells": 1640,
     "seurat_frozen_subset_fine_accuracy": 0.2207,
     "arabidopsis_root_marker_candidates": 260,
     "arabidopsis_root_cell_states": 13,
@@ -103,7 +108,7 @@
   "higher_tier_required_upgrades": [
     "Complete one official third-party foundation-model comparator run, preferably scPlantLLM.",
     "Add one independent non-Arabidopsis biological case.",
-    "Rerun species-holdout under the explicit ontology label layer now recorded by the coverage audit.",
+    "Improve model-side cross-species transfer under the completed ontology label layer using species adapter calibration, open-set rejection or independent species replication.",
     "Add English manuscript package and supplement index.",
     "Add model usability supplement.",
     "Add Snow Lotus single-cell matrix only if a reusable matrix becomes available."

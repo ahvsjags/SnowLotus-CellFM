@@ -26,6 +26,7 @@ This file records the evidence behind the frozen v9 candidate. It is an engineer
 20. **Species-holdout failure audit.** `release_metadata/species_holdout_failure_audit_v9.md` decomposes the normalized leave-species-out result into per-species coverage, open-set label absence and known-label transfer errors.
 21. **Publication target readiness matrix.** `release_metadata/top_journal_readiness_matrix.md` and `docs/top_journal_strategy.md` replace earlier SnowLotus-centered top-journal planning with the current Plant-CellFM v9 / RTX 4090 submission tiering, claim boundaries and higher-tier upgrade requirements.
 22. **Species ontology coverage audit.** `release_metadata/species_ontology_coverage_audit_v9.md` and `release_metadata/plant_cell_state_ontology_mapping_v9.tsv` align the server-exported benchmark labels to the frozen 3,964 leave-species test cells, map 106 fine labels to plant cell-state categories and separate actionable ontology coverage from unknown or unannotated labels.
+23. **Ontology-label species-holdout benchmark.** `release_metadata/species_ontology_label_benchmark_v9.md` reruns nearest-centroid leave-species evaluation on the frozen 3,964 x 256 runtime-smoke embeddings after ontology mapping, with exact-label recomputation matching the frozen benchmark and ontology-actionable metrics reported separately.
 
 ## Frozen Results
 
@@ -40,6 +41,8 @@ The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 
 `release_metadata/species_holdout_failure_audit_v9.md` further shows that 1,748 of 3,964 held-out species cells are open-set cells whose reference labels do not occur in the training fold, accounting for 57.67% of the all-cell error mass. Catharanthus roseus is the clearest high-coverage transfer failure, while Gossypium hirsutum is unassessable without label-ontology mapping under the current split.
 
 `release_metadata/species_ontology_coverage_audit_v9.md` adds the label-harmonization view without changing the frozen metrics. It reconstructs count-aligned exact-label coverage as 2,246 / 3,964 cells, within 30 cells of the frozen JSON, and reports 1,794 / 3,964 actionable ontology-covered cells after excluding 1,384 unknown or unannotated cells. This is the current evidence for why the next species-holdout revision should use an explicit plant cell-state ontology rather than relying only on literal fine-label strings.
+
+`release_metadata/species_ontology_label_benchmark_v9.md` converts that audit into an embedding-based protocol. It aligns all 3,964 runtime-smoke predictions to H5AD obs labels with zero missing IDs. Exact-label recomputation gives 55.90% coverage and 23.64% all-cell accuracy, matching the frozen 55.90% and 23.54% benchmark closely. The ontology-actionable protocol excludes 1,640 unknown or unannotated cells, keeps 2,324 actionable cells, increases ontology-label coverage to 74.44%, and reports 14.97% actionable all-cell accuracy, 20.12% known-label accuracy and 0.1395 known-label macro-F1. This is a stricter diagnostic of remaining cross-species representation error after label harmonization.
 
 ## Publication Positioning
 
@@ -57,6 +60,7 @@ The strongest current manuscript framing is a computational method/resource pape
 | Arabidopsis root figure package | completed | four-panel SVG/PDF/PNG/TIFF figure with source data |
 | Species-holdout failure audit | completed | 8 species groups, open-set error decomposition and per-species revision priorities |
 | Species ontology coverage audit | completed | 106-label mapping table, 45.26% actionable ontology coverage and 34.91% unknown/unannotated diagnosis |
+| Ontology-label species benchmark | completed | 3,964 aligned embeddings, 74.44% actionable coverage and 14.97% actionable all-cell accuracy |
 
 ## Journal Fit
 
@@ -68,4 +72,4 @@ The strongest current manuscript framing is a computational method/resource pape
 
 ## Final Submission Package
 
-The reviewer-facing package should contain the frozen v9 checkpoint, `SUBMISSION_INDEX_v9.md`, model card, data card, manifest and provenance audit, benchmark subset and JSON results, species-holdout failure audit, species ontology coverage audit, training configuration and history, service instructions, source repository, the integrated stable manuscript and the stability-audit matrix. Keep the training scope tied to the audited v9 corpus and keep cross-species accuracy tied to the reported open-set benchmark.
+The reviewer-facing package should contain the frozen v9 checkpoint, `SUBMISSION_INDEX_v9.md`, model card, data card, manifest and provenance audit, benchmark subset and JSON results, species-holdout failure audit, species ontology coverage audit, ontology-label species benchmark, training configuration and history, service instructions, source repository, the integrated stable manuscript and the stability-audit matrix. Keep the training scope tied to the audited v9 corpus and keep cross-species accuracy tied to the reported open-set benchmark.

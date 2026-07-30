@@ -36,6 +36,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Arabidopsis root figure package | `release_metadata/arabidopsis_root_case_figure_v9.md` |
 | Species-holdout failure audit | `release_metadata/species_holdout_failure_audit_v9.md` |
 | Species ontology coverage audit | `release_metadata/species_ontology_coverage_audit_v9.md` |
+| Species ontology-label benchmark | `release_metadata/species_ontology_label_benchmark_v9.md` |
 | Plant cell-state ontology mapping | `release_metadata/plant_cell_state_ontology_mapping_v9.tsv` |
 | v9 benchmark comparison | `release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json` |
 | Current publication strategy | `docs/top_journal_strategy.md` |
@@ -53,13 +54,14 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 8. The Arabidopsis root figure package provides SVG/PDF/PNG/TIFF exports plus source data for a figure-ready biological case.
 9. The species-holdout failure audit decomposes the strict normalized leave-species-out result into label-coverage gaps, known-label errors and per-species revision targets.
 10. The species ontology coverage audit maps 106 observed fine labels into a conservative plant cell-state ontology and separates actionable ontology coverage from unknown or unannotated labels.
-11. The publication target readiness matrix ranks the current package as strongest for plant-focused method/resource submission, plausible for genomics computational-method submission with major-revision risk, and stretch for top general methods venues until stronger third-party and biological validation evidence is added.
+11. The ontology-label species-holdout benchmark reruns nearest-centroid evaluation on frozen v9 embeddings after ontology mapping, reporting 74.44% actionable coverage and 14.97% actionable all-cell accuracy.
+12. The publication target readiness matrix ranks the current package as strongest for plant-focused method/resource submission, plausible for genomics computational-method submission with major-revision risk, and stretch for top general methods venues until stronger third-party and biological validation evidence is added.
 
 ## Claims Not Used In The Current Submission
 
 1. The current submission does not claim a completed Snow Lotus single-cell atlas.
 2. The current submission does not claim universal high-accuracy annotation for all plant species.
-3. The current submission does not use early RTX 5090 planning notes as the v9 hardware statement.
+3. The current submission uses the model-card hardware statement: NVIDIA GeForce RTX 4090, 24 GB VRAM.
 4. The current submission does not report scPlantLLM or scPlantAnnotate final metrics before official executable runs are frozen.
 5. The current submission does not treat old `SnowLotus_CellFM_*v0_*` manuscript drafts as the current manuscript.
 
@@ -87,4 +89,4 @@ The service health check reports `model_scope=plant_general`, `adapter_resolutio
 
 ## Notes On Historical Files
 
-This repository keeps earlier drafts, early hardware plans and exploratory scripts for reproducibility. Some historical names include `5090` or Snow Lotus-centered wording. Those files are development history, not the v9 submission statement. For the current submission, use this index, the v9 model card, the integrated manuscript and the v9 readiness audit.
+This repository keeps earlier drafts and exploratory scripts for reproducibility. Historical files are development history, not the v9 submission statement. For the current submission, use this index, the v9 model card, the integrated manuscript and the v9 readiness audit.

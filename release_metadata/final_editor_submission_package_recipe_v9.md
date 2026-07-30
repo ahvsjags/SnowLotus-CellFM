@@ -21,12 +21,13 @@ python scripts/package_v9_editor_submission.py
 - Arabidopsis root figure package: `release_metadata/arabidopsis_root_case_figure_v9.md`
 - Species holdout failure audit: `release_metadata/species_holdout_failure_audit_v9.md`
 - Species ontology coverage audit: `release_metadata/species_ontology_coverage_audit_v9.md`
+- Ontology-label species benchmark: `release_metadata/species_ontology_label_benchmark_v9.md`
 - Plant cell-state ontology mapping table: `release_metadata/plant_cell_state_ontology_mapping_v9.tsv`
 - Publication target readiness matrix: `release_metadata/top_journal_readiness_matrix.md`
 
 ## Package Scope
 
-The package contains the current v9 submission index, final Chinese Word manuscript with ASCII file path, README, publication readiness audit, publication target readiness matrix, final package recipe, model card, data card, release notes, editor issue closure, stability audit, server sustainability audit, live API smoke evidence, watchdog recovery evidence, external benchmark panel, Seurat baseline result, centroid baselines, v9-v3 benchmark JSON, species holdout failure audit, species ontology coverage audit, plant cell-state ontology mapping table, Arabidopsis root case, Arabidopsis root literature anchor, adapter registry, scPlantLLM/scPlantAnnotate audit files and model asset pointer.
+The package contains the current v9 submission index, final Chinese Word manuscript with ASCII file path, README, publication readiness audit, publication target readiness matrix, final package recipe, model card, data card, release notes, editor issue closure, stability audit, server sustainability audit, live API smoke evidence, watchdog recovery evidence, external benchmark panel, Seurat baseline result, centroid baselines, v9-v3 benchmark JSON, species holdout failure audit, species ontology coverage audit, ontology-label species benchmark, plant cell-state ontology mapping table, Arabidopsis root case, Arabidopsis root literature anchor, adapter registry, scPlantLLM/scPlantAnnotate audit files and model asset pointer.
 
 The package intentionally does not duplicate the large checkpoint. It records the GitHub release asset and SHA256:
 
@@ -35,4 +36,4 @@ The package intentionally does not duplicate the large checkpoint. It records th
 
 ## Claim Boundary
 
-The package supports a computational method/resource submission. It does not claim universal high-accuracy zero-shot annotation for every plant species, a completed Snow Lotus single-cell atlas, or final scPlantLLM/scPlantAnnotate numeric superiority without executable third-party metric evidence. Cross-species generalization is stated through the frozen leave-species-out metrics plus the species holdout failure and ontology coverage audits, which separate label-coverage gaps, unknown/unannotated labels, known-label transfer errors and per-species revision targets.
+The package supports a computational method/resource submission. It does not claim universal high-accuracy zero-shot annotation for every plant species, a completed Snow Lotus single-cell atlas, or final scPlantLLM/scPlantAnnotate numeric superiority without executable third-party metric evidence. Cross-species generalization is stated through the frozen leave-species-out metrics plus the species holdout failure audit, ontology coverage audit and ontology-label species benchmark, which separate label-coverage gaps, unknown/unannotated labels, known-label transfer errors, ontology-actionable coverage and per-species revision targets.

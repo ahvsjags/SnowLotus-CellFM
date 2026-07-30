@@ -11,6 +11,7 @@
   "arabidopsis_root_figure_package": "release_metadata/arabidopsis_root_case_figure_v9.md",
   "species_holdout_failure_audit": "release_metadata/species_holdout_failure_audit_v9.md",
   "species_ontology_coverage_audit": "release_metadata/species_ontology_coverage_audit_v9.md",
+  "ontology_label_species_benchmark": "release_metadata/species_ontology_label_benchmark_v9.md",
   "plant_cell_state_ontology_mapping": "release_metadata/plant_cell_state_ontology_mapping_v9.tsv",
   "publication_target_readiness_matrix": "release_metadata/top_journal_readiness_matrix.md",
   "checkpoint_asset": "https://github.com/ahvsjags/SnowLotus-CellFM/releases/download/v0.9.0-plant-general-lora/SnowLotus-CellFM-v9-lora-4090-best.pt",
@@ -20,6 +21,6 @@
     "no universal high-accuracy zero-shot claim for every plant species",
     "no completed Snow Lotus single-cell atlas claim",
     "no final scPlantLLM/scPlantAnnotate numeric superiority claim without executable third-party metric evidence",
-    "cross-species generalization reported with leave-species-out metrics, species holdout failure decomposition and ontology coverage audit"
+    "cross-species generalization reported with leave-species-out metrics, species holdout failure decomposition, ontology coverage audit and ontology-label species benchmark"
   ]
 }

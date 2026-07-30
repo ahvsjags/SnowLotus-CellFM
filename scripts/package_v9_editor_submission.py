@@ -67,9 +67,13 @@ ASSET_PATHS = [
     "release_metadata/species_ontology_coverage_audit_v9.md",
     "release_metadata/species_ontology_coverage_audit_v9.json",
     "release_metadata/species_ontology_coverage_audit_v9.tsv",
+    "release_metadata/species_ontology_label_benchmark_v9.md",
+    "release_metadata/species_ontology_label_benchmark_v9.json",
+    "release_metadata/species_ontology_label_benchmark_v9.tsv",
     "release_metadata/plant_cell_state_ontology_mapping_v9.tsv",
     "release_metadata/plant_cell_state_ontology_mapping_v9.json",
     "release_metadata/species_ontology_obs_labels_v9.tsv",
+    "release_metadata/species_ontology_obs_labels_with_ids_v9.tsv",
     "release_metadata/plant_biology_case_study_v9.md",
     "release_metadata/plant_biology_case_study_v9.json",
     "release_metadata/plant_biology_case_study_top_markers_v9.tsv",
@@ -99,6 +103,7 @@ ASSET_PATHS = [
     "scripts/render_arabidopsis_root_case_figure_v9.py",
     "scripts/write_species_holdout_failure_audit_v9.py",
     "scripts/write_species_ontology_coverage_audit_v9.py",
+    "scripts/run_species_ontology_label_benchmark_v9.py",
     "scripts/package_v9_editor_submission.py",
 ]
 
@@ -182,7 +187,8 @@ def package_readme(git_head: str, generated_at: str) -> str:
             "7. `release_metadata/arabidopsis_root_case_figure_v9.md`",
             "8. `release_metadata/species_holdout_failure_audit_v9.md`",
             "9. `release_metadata/species_ontology_coverage_audit_v9.md`",
-            "10. `release_metadata/server_sustainability_status_v9.md`",
+            "10. `release_metadata/species_ontology_label_benchmark_v9.md`",
+            "11. `release_metadata/server_sustainability_status_v9.md`",
             "",
             "## Claim Boundary",
             "",
@@ -190,7 +196,7 @@ def package_readme(git_head: str, generated_at: str) -> str:
             "",
             "It does not claim universal high-accuracy zero-shot annotation for every plant species, a completed Snow Lotus single-cell atlas, or final scPlantLLM/scPlantAnnotate numeric superiority without executable third-party metric evidence.",
             "",
-            "Cross-species generalization is reported with the normalized leave-species-out metrics, `release_metadata/species_holdout_failure_audit_v9.md` and `release_metadata/species_ontology_coverage_audit_v9.md`, which separate open-set label absence, known-label transfer errors, ontology-actionable labels and per-species revision targets.",
+            "Cross-species generalization is reported with the normalized leave-species-out metrics, `release_metadata/species_holdout_failure_audit_v9.md`, `release_metadata/species_ontology_coverage_audit_v9.md` and `release_metadata/species_ontology_label_benchmark_v9.md`, which separate open-set label absence, known-label transfer errors, ontology-actionable labels, ontology-label benchmark accuracy and per-species revision targets.",
             "",
         ]
     )
@@ -292,6 +298,7 @@ def build_package(output_dir: Path, package_name: str) -> dict[str, Any]:
             "release_metadata/arabidopsis_root_case_figure_v9.md",
             "release_metadata/species_holdout_failure_audit_v9.md",
             "release_metadata/species_ontology_coverage_audit_v9.md",
+            "release_metadata/species_ontology_label_benchmark_v9.md",
             "release_metadata/server_sustainability_status_v9.md",
         ],
     }

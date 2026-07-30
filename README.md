@@ -30,6 +30,8 @@ The known-label conditional columns evaluate only test cells whose reference lab
 
 The species-holdout failure audit is paired with a conservative label-ontology coverage audit. The ontology audit aligns the server-exported benchmark `obs` labels to the frozen 3,964 leave-species test cells, reconstructs exact-label coverage within 30 cells of the frozen JSON, maps 106 observed fine labels to plant cell-state categories, and reports 45.26% actionable ontology coverage after excluding 1,384 unknown or unannotated cells. This does not revise the frozen accuracy; it explains which errors come from open-set labels, uninformative annotations and fixable ontology harmonization.
 
+The next diagnostic layer is an ontology-label leave-species benchmark using the frozen 3,964 x 256 runtime-smoke embeddings. Exact-label recomputation matches the frozen species benchmark closely, while the ontology-actionable protocol reports 2,324 actionable cells, 74.44% ontology-label coverage, 14.97% actionable all-cell accuracy and 20.12% known-label accuracy after excluding 1,640 unknown or unannotated cells. This result is intentionally reported as a stricter label-harmonized diagnostic, not as a replacement for the frozen exact-label species-holdout headline.
+
 The extended methods panel also includes transparent non-Plant-CellFM comparators and a biological case-study asset. Seurat anchor-based label transfer was run on the frozen v9 subset export with 2,940 train cells and 512 test cells, obtaining fine accuracy 0.2207 and macro-F1 0.0603. The classical cosine-centroid SRP169576 sample-holdout baseline reports fine accuracy 0.7337 and macro-F1 0.4873. The scPlantLLM input path is prepared and audited, but the frozen metric is reported only when its official checkout and weights are locally available. The Arabidopsis root case study contains 260 marker-candidate rows across 13 cell states and demonstrates adapter resolution, marker mining and root cell-identity interpretation.
 
 ## Repositories and Release
@@ -74,6 +76,7 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `release_metadata/arabidopsis_root_case_figure_v9.md`
 - `release_metadata/species_holdout_failure_audit_v9.md`
 - `release_metadata/species_ontology_coverage_audit_v9.md`
+- `release_metadata/species_ontology_label_benchmark_v9.md`
 - `release_metadata/plant_cell_state_ontology_mapping_v9.tsv`
 - `release_metadata/third_party_comparator_sources_v9.md`
 - `release_metadata/v9_submission_stability_audit.md`
