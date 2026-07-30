@@ -1,46 +1,47 @@
 # Plant-CellFM / SnowLotus-CellFM
 
-Plant-CellFM is the general-plant scope of SnowLotus-CellFM: a cross-species foundation model for plant single-cell and single-nucleus expression modelling. It provides a general expression backbone, known adapters for audited public datasets, and runtime dynamic adapters for any plant species supplied at inference time. *Saussurea involucrata* (Snow Lotus) is one adapter and validation case, not the model boundary.
+Plant-CellFM is the general-plant branch of SnowLotus-CellFM, a cross-species foundation model for plant single-cell and single-nucleus expression data. The model is not restricted to *Saussurea involucrata* (Snow Lotus): Snow Lotus is one species adapter and one biological validation case within a broader plant model.
 
-This project is being run end-to-end on the Matpool RTX 4090 host. The completed `public_plants_v1` release combines 24 manifest rows from 19 public datasets spanning 13 plant species and is served as the current general-plant backbone. The supervised annotation head remains available alongside the general backbone through the same service contract.
+## Frozen v9 Release
 
-GitHub repository: https://github.com/ahvsjags/SnowLotus-CellFM
+The current publication candidate is the v9 LoRA checkpoint trained on an audited public plant corpus with an NVIDIA RTX 4090. The release is frozen for reproducibility; later v10 data-expansion jobs are not part of this candidate.
 
-GitHub release: https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/editor-v0.3
+- Corpus: 56 manifest rows, 29 datasets and 21 plant species.
+- Training corpus: 13.78 million cells after corpus construction.
+- Architecture: 256-dimensional model, 4 transformer layers, 8 attention heads, LoRA rank 8.
+- Training: six epochs, hybrid masked-expression modelling and hierarchical annotation objectives, CUDA mixed precision.
+- Checkpoint: `best.pt` in the GitHub release asset and on the Matpool host at `/root/snowlotus_cellfm_v9_lora_shared_4090/best.pt`.
+- Service: Plant-CellFM inference service with embedding, annotation, ortholog-map transfer and runtime species-adapter resolution.
 
-The repository is currently private. Grant editor/reviewer access or switch it to public before using these URLs as reviewer-facing links.
+## Evaluation Snapshot
 
-## General Plant Snapshot
+The release reports both an internal held-out test and stricter cross-group evaluations. The latter are the appropriate evidence for cross-species generalization.
 
-- Release scope: `plant_general`
-- Runtime host: NVIDIA RTX 4090, 24 GB VRAM
-- Primary validated backbone: `outputs/plant_general_foundation_public_plants_v1_4090/best.pt` (epoch 4; validation MLM loss 13.6896)
-- Validated annotation head: `outputs/remote_srp169576_joint_init_hybrid_4090/best.pt`
-- Completed all-plant corpus: `data/plant_foundation_corpus_public_plants_v1.h5ad` (on-disk Zarr store)
-- Reproducible training config: `configs/plant_general_foundation_public_plants_v1_4090.yaml`
-- Active data supervisor: `scripts/supervise_plant_public_data_queue.sh`
-- Active training watchdog: `scripts/start_plant_general_v1_training_watchdog.sh`
-- General-plant model card: `release_metadata/plant_general_model_card.md`
-- Species adapter registry: `release_metadata/plant_species_adapters.json` with dynamic resolution for all plant species
-- Species coverage table: `release_metadata/plant_general_corpus_species.tsv`
-- Runtime API exposes `/capabilities` and `/adapters`, resolves a species adapter on every `/annotate` request, and accepts an optional ortholog TSV for novel plant species
-- Verified service state: CUDA-backed Plant-CellFM with dynamic adapter resolution for named species; `Musa acuminata` embedding and `Arabidopsis thaliana` annotation smoke tests both completed successfully.
+| Evaluation | Fine accuracy | Fine macro-F1 |
+| --- | ---: | ---: |
+| Internal held-out test | 0.8113 | 0.3833 |
+| Leave-dataset-out | 0.5601 | 0.3485 |
+| Leave-sample-out | 0.6281 | 0.4902 |
+| Leave-species-out | 0.5282 | 0.2897 |
 
-## What Is Included
+Against the frozen v3 baseline on the same shared-gene benchmark, fine accuracy improved by 30.81, 20.72 and 28.26 percentage points for leave-dataset, leave-sample and leave-species evaluation, respectively. All benchmark JSON, model checksums, training history and the 256-cell benchmark subset are included in the release package.
 
-- A Python package for plant expression tokenization, masked-modelling training, checkpoint evaluation and prediction.
-- Public-corpus manifests and audits that distinguish readable cell-by-gene matrices from unsupported public records.
-- A plant species-adapter registry with exact-gene and ortholog-map transfer policies, plus a runtime dynamic adapter for every newly supplied plant species.
-- Frozen baseline checkpoints plus an isolated full-plant continuation output directory.
-- Manuscript, cover note, model card, release manifest, data-integrity audit, corpus-provenance audit and benchmark-gap audit.
-- Chinese function/innovation brief for rapid editorial communication: `SnowLotus_CellFM_中文功能创新说明_v0_1.docx`.
-- Focused regression tests for the core package.
+## Repositories and Release
 
-## Evidence Boundary
+- Repository: https://github.com/ahvsjags/SnowLotus-CellFM
+- Frozen v9 release: https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/v0.9.0-plant-general-lora
+- Code branch used for the release: `agent/remote-pipeline-20260728`
 
-This release supports the claim that Plant-CellFM is a reproducible, auditable cross-species plant expression foundation-model scaffold with traceable checkpoints, a callable species-adapter layer and benchmark evidence across public plant matrices.
+The repository contains the source package, training configurations, public-data manifests, audit scripts, benchmark code, model card, manuscript materials and service watchdog. The large checkpoint is distributed as a GitHub Release asset rather than committed to Git history.
 
-The adapter registry records known species promoted into the public catalog and dynamically materializes a dedicated adapter record for any other plant name at request time. Each runtime adapter uses the general backbone, exact gene identifiers first, an ortholog map when supplied, and the same fine-tuning/annotation interfaces. The universal fallback is reserved for requests without a species name. Public discovery identified transcriptomic, genomic and literature support for *S. involucrata*; the Snow Lotus branch adds reference-genome and future primary single-cell adaptation assets without narrowing the general plant model.
+## Model Functions
+
+- Cross-species expression embeddings from `.h5ad` or `.npz` input.
+- Masked-expression feature extraction and annotation inference.
+- Hierarchical fine/coarse cell-state prediction when a supervised head is available.
+- Exact-gene transfer followed by an optional ortholog TSV for species with different gene identifiers.
+- Known adapter registry plus runtime adapter materialization for any named plant species.
+- Reproducible output bundles containing predictions, embeddings, metadata and adapter-selection records.
 
 ## Quick Start
 
@@ -51,43 +52,25 @@ snowcell train --config configs/smoke.yaml
 snowcell predict --checkpoint outputs/smoke/best.pt --data data/demo.npz --output outputs/smoke/predictions.csv
 ```
 
-For model inspection, keep the frozen checkpoint assets under:
+For the frozen model, download the v9 release asset and use the packaged configuration and scripts. The server-side API exposes `GET /health`, `GET /metadata`, `GET /capabilities`, `GET /adapters` and `POST /annotate`.
 
-```text
-models/
-```
+## Reproducibility Evidence
 
-Frozen editor assets:
+- `release_metadata/plant_general_model_card.md`
+- `release_metadata/model_data_card.md`
+- `release_metadata/data_integrity_audit.md`
+- `release_metadata/corpus_provenance_audit.md`
+- `release_metadata/benchmark_gap_audit.md`
+- `docs/publication_readiness_v9.md`
+- `scripts/package_v9_release.sh`
+- `tests/`
 
-```text
-models/SnowLotus_CellFM_best_annotation.pt
-models/SnowLotus_CellFM_best_embedding.pt
-models/SHA256SUMS.txt
-```
+The local regression suite passes with `PYTHONPATH=src pytest -q`. The release package also includes a SHA256 manifest that was verified on the server.
 
-Validate the frozen assets after download:
+## Evidence Boundary
 
-```bash
-cd models
-sha256sum -c SHA256SUMS.txt
-```
-
-## Repository Layout
-
-```text
-src/                         Core Python package and species-adapter resolver
-configs/                     Training and evaluation configurations
-scripts/                     Data, training, audit and release scripts
-tests/                       Focused regression tests
-manuscript/                  Editor-facing manuscript and cover note
-release_metadata/            Model cards, adapter registry and audit summaries
-models/                      Git LFS or GitHub Release checkpoint assets
-```
-
-## Submission Note
-
-The repository distinguishes completed baseline evidence from the current all-plant release. New GEO datasets are promoted only after conversion, manifest validation and corpus inclusion; each new checkpoint is released with its training history, SHA256 digest and service metadata.
+This release supports the claim that Plant-CellFM is a reproducible, auditable cross-species plant expression foundation-model implementation with a callable adapter layer and measured gains over the v3 baseline on public plant matrices. The reported leave-species-out result is the principal generalization result; the internal held-out accuracy should not be presented as universal accuracy for every plant species.
 
 ## Citation
 
-SnowLotus-CellFM Consortium. SnowLotus-CellFM: an audited plant single-cell foundation-model scaffold for target-species transfer. Editor release v0.3, 2026.
+SnowLotus-CellFM Consortium. *Plant-CellFM: a cross-species foundation model and adapter layer for plant single-cell expression annotation*. Frozen v9 release, 2026.
