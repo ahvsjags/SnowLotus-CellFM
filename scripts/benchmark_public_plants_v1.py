@@ -95,6 +95,13 @@ def nearest_centroid_metrics(
         "coverage": float(covered.mean()),
         "train_classes": len(label_set),
         "test_classes": len(set(test_labels.tolist())),
+        # `accuracy` below is retained as the known-label conditional metric.
+        # These all-cell metrics count labels absent from the training fold as
+        # errors, which is the honest open-set view of species holdout.
+        "accuracy_all": float(accuracy_score(test_labels, predictions)),
+        "macro_f1_all": float(
+            f1_score(test_labels, predictions, average="macro", zero_division=0)
+        ),
     }
     if covered.any():
         result["accuracy"] = float(accuracy_score(covered_true, covered_pred))
@@ -124,17 +131,32 @@ def run_leaveout_protocol(
         metrics["held_out_group"] = str(group)
         records.append(metrics)
 
-    evaluable = [item for item in records if item.get("n_evaluable", 0) > 0]
+    attempted = [item for item in records if item.get("n_test", 0) > 0]
+    evaluable = [item for item in attempted if item.get("n_evaluable", 0) > 0]
+    total_test = sum(int(item["n_test"]) for item in attempted)
     total_evaluable = sum(int(item["n_evaluable"]) for item in evaluable)
     aggregate: dict[str, Any] = {
         "groups_seen": int(len(set(groups.tolist()))),
         "groups_attempted": len(records),
         "groups_with_evaluable_cells": len(evaluable),
+        "n_test": total_test,
         "n_evaluable": total_evaluable,
         "records": records,
     }
+    if total_test:
+        aggregate["coverage"] = float(total_evaluable / total_test)
+        aggregate["accuracy_all"] = float(
+            sum(float(item["accuracy_all"]) * int(item["n_test"]) for item in attempted)
+            / total_test
+        )
+        aggregate["macro_f1_all_weighted_by_cells"] = float(
+            sum(float(item["macro_f1_all"]) * int(item["n_test"]) for item in attempted)
+            / total_test
+        )
     if total_evaluable:
         for key in ("accuracy", "macro_f1", "coverage"):
+            if key == "coverage":
+                continue
             aggregate[key] = float(
                 sum(float(item.get(key, 0.0)) * int(item["n_evaluable"]) for item in evaluable)
                 / total_evaluable
