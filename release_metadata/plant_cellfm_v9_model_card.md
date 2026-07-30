@@ -44,6 +44,7 @@ The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 
 
 ## External Comparators And Biological Case
 
+- Submission index: `SUBMISSION_INDEX_v9.md`
 - External benchmark panel: `release_metadata/external_benchmark_panel_v9.md`
 - Integrated stable manuscript: `manuscript/Plant_CellFM_v9_完整主文_稳健方法版_v1.md`
 - Submission stability audit: `release_metadata/v9_submission_stability_audit.md`

@@ -14,6 +14,7 @@ This file records the evidence behind the frozen v9 candidate. It is an engineer
 8. **External benchmark panel.** The addendum panel reports the frozen v3 comparison, Seurat label transfer on the frozen v9 subset, a classical SRP169576 sample-holdout baseline, and audited scPlantLLM/scPlantAnnotate execution status.
 9. **Biological case study.** The Arabidopsis root case study reports 260 marker-candidate rows across 13 cell states, including 10 root cell-identity labels, and links adapter resolution to marker discovery.
 10. **Integrated stable manuscript.** The repository now contains `manuscript/Plant_CellFM_v9_完整主文_稳健方法版_v1.md` and `.docx`, plus `release_metadata/v9_submission_stability_audit.md`, to keep cross-species claims, comparator status, the Arabidopsis biology case and the Snow Lotus scope in one reviewer-facing narrative.
+11. **Submission index.** `SUBMISSION_INDEX_v9.md` is the current entry point and separates v9 submission claims from historical Snow Lotus-centered drafts and early hardware-planning files.
 
 ## Frozen Results
 
@@ -49,4 +50,4 @@ The strongest current manuscript framing is a computational method/resource pape
 
 ## Final Submission Package
 
-The reviewer-facing package should contain the frozen v9 checkpoint, model card, data card, manifest and provenance audit, benchmark subset and JSON results, training configuration and history, service instructions, source repository, the integrated stable manuscript and the stability-audit matrix. Do not describe the model as trained on all plant species or claim universal accuracy.
+The reviewer-facing package should contain the frozen v9 checkpoint, `SUBMISSION_INDEX_v9.md`, model card, data card, manifest and provenance audit, benchmark subset and JSON results, training configuration and history, service instructions, source repository, the integrated stable manuscript and the stability-audit matrix. Keep the training scope tied to the audited v9 corpus and keep cross-species accuracy tied to the reported open-set benchmark.

@@ -6,6 +6,8 @@ Plant-CellFM is the general-plant branch of SnowLotus-CellFM, a cross-species fo
 
 The current publication candidate is the v9 LoRA checkpoint trained on an audited public plant corpus with an NVIDIA RTX 4090. The release is frozen for reproducibility; later v10 data-expansion jobs are not part of this candidate.
 
+Reviewer-facing entry point: `SUBMISSION_INDEX_v9.md`. That file lists the current manuscript, model card, benchmark panel and stable claim boundaries for the frozen v9 package.
+
 - Corpus: 56 manifest rows, 29 datasets and 21 plant species.
 - Training corpus: 13.78 million cells after corpus construction.
 - Architecture: 256-dimensional model, 4 transformer layers, 8 attention heads, LoRA rank 8.
@@ -58,6 +60,7 @@ For the frozen model, download the v9 release asset and use the packaged configu
 
 ## Reproducibility Evidence
 
+- `SUBMISSION_INDEX_v9.md`
 - `release_metadata/plant_cellfm_v9_model_card.md`
 - `release_metadata/v9_data_card.md`
 - `release_metadata/data_integrity_audit.md`
