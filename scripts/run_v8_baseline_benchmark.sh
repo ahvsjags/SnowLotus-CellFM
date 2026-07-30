@@ -7,6 +7,7 @@ V8_ROOT="${SNOWCELL_V8_ROOT:-/root/snowlotus_public_plants_v8}"
 CHECKPOINT="${SNOWCELL_V3_CHECKPOINT:-${PROJECT_DIR}/outputs/publication_package/checkpoints/v3_extended_4090/best.pt}"
 SHARED_CORPUS="${SNOWCELL_V8_SHARED_CORPUS:-${V8_ROOT}/plant_foundation_corpus_public_plants_v8_shared_genes.h5ad}"
 SUBSET="${SNOWCELL_V8_SHARED_SUBSET:-${V8_ROOT}/v8_benchmark_subset_256_shared_genes.h5ad}"
+MANIFEST="${SNOWCELL_V8_MANIFEST:-${V8_ROOT}/corpus_manifest_public_plants_v8.tsv}"
 OUTPUT="${SNOWCELL_V8_BASELINE_BENCHMARK:-${V8_ROOT}/v3_on_v8_shared_subset_cross_species_benchmark.json}"
 LOG="${SNOWCELL_V8_BASELINE_BENCHMARK_LOG:-${V8_ROOT}/v3_on_v8_shared_subset_cross_species_benchmark.log}"
 
@@ -27,7 +28,7 @@ PYTHONPATH="${PROJECT_DIR}/src" "${PYTHON_BIN}" -X utf8 -u \
   --project-dir "${PROJECT_DIR}" \
   --checkpoint "${CHECKPOINT}" \
   --data "${SUBSET}" \
-  --manifest "${V8_ROOT}/corpus_manifest_public_plants_v8.tsv" \
+  --manifest "${MANIFEST}" \
   --output "${OUTPUT}" \
   --max-cells-per-dataset 256 \
   --batch-size 64 \

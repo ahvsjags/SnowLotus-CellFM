@@ -49,6 +49,7 @@ fi
 
 export SNOWCELL_V8_CONFIG="${PROJECT_DIR}/configs/generated/foundation_public_plants_v9_lora_4090.yaml"
 export SNOWCELL_V8_ROOT="${V9_ROOT}"
+export SNOWCELL_V8_MANIFEST="${V9_MANIFEST}"
 export SNOWCELL_V8_TRAIN_ROOT="${TRAIN_ROOT}"
 export SNOWCELL_V8_FULL_CORPUS="${V9_ROOT}/plant_foundation_corpus_public_plants_v9.h5ad"
 export SNOWCELL_V8_SHARED_CORPUS="${V9_ROOT}/plant_foundation_corpus_public_plants_v9_shared_genes.h5ad"
