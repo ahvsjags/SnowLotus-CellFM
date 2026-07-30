@@ -13,7 +13,7 @@ Plant-CellFM v9 是一个面向植物单细胞/单核表达矩阵的可复现注
 1. 模型不是雪莲单物种工具，而是植物通用框架。
 2. v9 在同一 shared-gene benchmark 上优于 frozen v3 extended baseline。
 3. 留物种结果必须按开放集解释：23.54% all-cell accuracy、55.90% coverage、42.10% known-label conditional accuracy。
-4. `release_metadata/species_holdout_failure_audit_v9.md` 已把留物种低分拆成标签覆盖缺口、已知标签迁移错误和物种级修订目标。
+4. `release_metadata/species_holdout_failure_audit_v9.md` 已把留物种低分拆成标签覆盖缺口、已知标签迁移错误和物种级修订目标；`release_metadata/species_ontology_coverage_audit_v9.md` 进一步给出 106 个 fine label 的植物细胞状态本体映射和 unknown/unannotated 诊断。
 5. Arabidopsis root 案例展示 adapter 解析、层级注释和 marker-candidate mining，但仍是 public-data computational case。
 
 当前稿件不应主张：
@@ -56,6 +56,7 @@ Plant-CellFM v9 是一个面向植物单细胞/单核表达矩阵的可复现注
 | scPlantLLM 对照 | input-ready, metric missing | `release_metadata/scplantllm_input_readiness.md`; `release_metadata/scplantllm_preprocess_probe_readiness.md` | 保留正式横向对照入口，当前不写数值结论。 |
 | scPlantAnnotate 对照 | access-limited audit | `release_metadata/scplantannotate_access_audit.md` | 记录官方 web/API 可达但匿名脚本 benchmark 受限。 |
 | 留物种失败审计 | completed | `release_metadata/species_holdout_failure_audit_v9.md` | 把低分解释为开放集标签覆盖与迁移错误分解，而非包装成高精度。 |
+| 留物种本体覆盖审计 | completed | `release_metadata/species_ontology_coverage_audit_v9.md`; `release_metadata/plant_cell_state_ontology_mapping_v9.tsv` | 给出 count-aligned exact coverage、actionable ontology coverage、unknown/unannotated 细胞占比和可重跑本体层。 |
 | Arabidopsis root 案例 | completed computational case | `release_metadata/plant_biology_case_study_v9.md`; `release_metadata/arabidopsis_root_case_figure_v9.md` | 展示生物学使用路径和 marker-candidate 输出。 |
 | 雪莲目标物种入口 | scoped | `release_metadata/saussurea_h5ad_contract.md`; `docs/saussurea_evidence_plan.md` | 说明接入条件，不夸大成已完成图谱。 |
 
@@ -82,7 +83,7 @@ Plant-CellFM v9 是一个面向植物单细胞/单核表达矩阵的可复现注
 
 1. 完成至少一个 official third-party model comparator 的冻结数值，优先 scPlantLLM。
 2. 增加一个非 Arabidopsis 的独立 public-data case，例如 wheat/rice/cotton/Brassicaceae root/stress 数据。
-3. 给 species-holdout 加一张 ontology mapping before/after coverage 表。
+3. 基于已完成的 species ontology audit，重跑 ontology-label species-holdout benchmark，并同时报告 exact-label 与 ontology-label 指标。
 4. 把全部 benchmark 和 case source data 组织成 supplement tables。
 
 ### 冲 Nature Methods 的增强路径
@@ -108,4 +109,4 @@ Plant-CellFM v9 是一个面向植物单细胞/单核表达矩阵的可复现注
 
 如果编辑催问当前版本完成度，可以这样说：
 
-Plant-CellFM v9 has been frozen as a reproducible plant-general single-cell annotation framework. The current package includes the GitHub branch, release checkpoint with SHA256, model card, final Word manuscript, v9-v3 strict benchmark, Seurat comparator, species-holdout failure audit, Arabidopsis root marker case, live CUDA service evidence and watchdog recovery evidence. The manuscript is intentionally scoped as a computational method/resource paper: it does not claim universal high-accuracy annotation for all plant species, does not claim a completed Snow Lotus atlas, and keeps scPlantLLM/scPlantAnnotate at their audited execution boundaries until official runs are available.
+Plant-CellFM v9 has been frozen as a reproducible plant-general single-cell annotation framework. The current package includes the GitHub branch, release checkpoint with SHA256, model card, final Word manuscript, v9-v3 strict benchmark, Seurat comparator, species-holdout failure audit, species ontology coverage audit, Arabidopsis root marker case, live CUDA service evidence and watchdog recovery evidence. The manuscript is intentionally scoped as a computational method/resource paper: it does not claim universal high-accuracy annotation for all plant species, does not claim a completed Snow Lotus atlas, and keeps scPlantLLM/scPlantAnnotate at their audited execution boundaries until official runs are available.

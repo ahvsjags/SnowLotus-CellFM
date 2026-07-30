@@ -3,9 +3,9 @@
   "items": [
     {
       "risk": "跨物种泛化指标被质疑偏低",
-      "fix": "主文将留物种结果写成开放集迁移证据，而不是全部植物满覆盖断言；同时报告 all-cell accuracy、coverage、known-label conditional metrics 和 species-holdout failure audit。",
-      "safe_claim": "Plant-CellFM v9 在同一 shared-gene benchmark 上优于 v3 extended baseline，并提供可复现的全植物适配框架与可审计物种级失败模式。",
-      "evidence": "release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json; release_metadata/species_holdout_failure_audit_v9.md"
+      "fix": "主文将留物种结果写成开放集迁移证据，而不是全部植物满覆盖断言；同时报告 all-cell accuracy、coverage、known-label conditional metrics、species-holdout failure audit 和 species ontology coverage audit。",
+      "safe_claim": "Plant-CellFM v9 在同一 shared-gene benchmark 上优于 v3 extended baseline，并提供可复现的全植物适配框架、可审计物种级失败模式和标签本体覆盖诊断。",
+      "evidence": "release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json; release_metadata/species_holdout_failure_audit_v9.md; release_metadata/species_ontology_coverage_audit_v9.md"
     },
     {
       "risk": "第三方横向对照不完整",

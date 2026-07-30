@@ -28,6 +28,8 @@ The release reports both an internal held-out test and stricter cross-group eval
 
 The known-label conditional columns evaluate only test cells whose reference labels occur in the training fold. The all-cell accuracy column counts cells with unseen labels as errors, which is the appropriate open-set view for species holdout. The species-holdout protocol canonicalizes species aliases such as `Arabidopsis_thaliana` and `Arabidopsis thaliana` before splitting, reducing the selected benchmark from 9 raw species labels to 8 normalized species groups. Against the frozen v3 extended baseline on the same shared-gene benchmark, v9 all-cell accuracy improved by 24.70, 20.45 and 4.41 percentage points for leave-dataset, leave-sample and normalized leave-species evaluation, respectively. All benchmark JSON, model checksums, training history and the 256-cell benchmark subset are included in the release package.
 
+The species-holdout failure audit is paired with a conservative label-ontology coverage audit. The ontology audit aligns the server-exported benchmark `obs` labels to the frozen 3,964 leave-species test cells, reconstructs exact-label coverage within 30 cells of the frozen JSON, maps 106 observed fine labels to plant cell-state categories, and reports 45.26% actionable ontology coverage after excluding 1,384 unknown or unannotated cells. This does not revise the frozen accuracy; it explains which errors come from open-set labels, uninformative annotations and fixable ontology harmonization.
+
 The extended methods panel also includes transparent non-Plant-CellFM comparators and a biological case-study asset. Seurat anchor-based label transfer was run on the frozen v9 subset export with 2,940 train cells and 512 test cells, obtaining fine accuracy 0.2207 and macro-F1 0.0603. The classical cosine-centroid SRP169576 sample-holdout baseline reports fine accuracy 0.7337 and macro-F1 0.4873. The scPlantLLM input path is prepared and audited, but the frozen metric is reported only when its official checkout and weights are locally available. The Arabidopsis root case study contains 260 marker-candidate rows across 13 cell states and demonstrates adapter resolution, marker mining and root cell-identity interpretation.
 
 ## Repositories and Release
@@ -71,6 +73,8 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `release_metadata/plant_biology_case_study_v9.md`
 - `release_metadata/arabidopsis_root_case_figure_v9.md`
 - `release_metadata/species_holdout_failure_audit_v9.md`
+- `release_metadata/species_ontology_coverage_audit_v9.md`
+- `release_metadata/plant_cell_state_ontology_mapping_v9.tsv`
 - `release_metadata/third_party_comparator_sources_v9.md`
 - `release_metadata/v9_submission_stability_audit.md`
 - `release_metadata/publication_peer_review_preflight_v9.md`
@@ -93,7 +97,7 @@ The local regression suite passes with `PYTHONPATH=src pytest -q`. The release p
 
 ## Evidence Boundary
 
-This release supports the claim that Plant-CellFM is a reproducible, auditable cross-species plant expression foundation-model implementation with a callable adapter layer and measured gains over the v3 extended baseline on public plant matrices. The normalized leave-species-out result should be reported with both its 55.90% label coverage and 23.54% all-cell accuracy; the 42.10% and 0.1918 values are conditional on labels being present in the training fold. The internal held-out accuracy should not be presented as universal accuracy for every plant species.
+This release supports the claim that Plant-CellFM is a reproducible, auditable cross-species plant expression foundation-model implementation with a callable adapter layer and measured gains over the v3 extended baseline on public plant matrices. The normalized leave-species-out result should be reported with both its 55.90% label coverage and 23.54% all-cell accuracy; the 42.10% and 0.1918 values are conditional on labels being present in the training fold. The ontology coverage audit should be used as a label-harmonization and reviewer-triage supplement, not as a replacement for the frozen benchmark. The internal held-out accuracy should not be presented as universal accuracy for every plant species.
 
 ## Citation
 

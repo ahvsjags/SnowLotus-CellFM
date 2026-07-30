@@ -3,8 +3,8 @@
   "generated_at": "2026-07-30T18:45:00+08:00",
   "current_scope": "Plant-CellFM plant-general single-cell annotation foundation model with all-plant adapter layer",
   "hardware_statement": "NVIDIA GeForce RTX 4090, 24 GB VRAM",
-  "source_commit": "eed1005dec5d7d747b66afaa21e01505b096a381",
-  "package_sha256": "75ae45ee6e0f9a3b085953ec071d36e4fa05b4020742cb72cc7cd03b1c9c416c",
+  "source_commit": "recorded in outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.status.json",
+  "package_sha256": "recorded in outputs/editor_submission_v9/Plant_CellFM_v9_editor_submission_final.status.json and .zip.sha256",
   "target_tiers": [
     {
       "target": "Plant-focused methods/resource journal",
@@ -51,7 +51,12 @@
     {
       "gate": "species_holdout_interpretation",
       "status": "READY_WITH_OPEN_SET_BOUNDARY",
-      "evidence": "release_metadata/species_holdout_failure_audit_v9.md"
+      "evidence": "release_metadata/species_holdout_failure_audit_v9.md and release_metadata/species_ontology_coverage_audit_v9.md"
+    },
+    {
+      "gate": "species_ontology_mapping",
+      "status": "READY_AUDIT_ONLY",
+      "evidence": "release_metadata/plant_cell_state_ontology_mapping_v9.tsv"
     },
     {
       "gate": "seurat_comparator",
@@ -88,6 +93,8 @@
     "leave_species_out_v3_all_cell_accuracy": 0.1912,
     "leave_species_out_coverage": 0.559,
     "leave_species_out_known_label_accuracy": 0.421,
+    "species_ontology_actionable_coverage_audit": 0.4526,
+    "species_ontology_unknown_or_unannotated_cells": 1384,
     "seurat_frozen_subset_fine_accuracy": 0.2207,
     "arabidopsis_root_marker_candidates": 260,
     "arabidopsis_root_cell_states": 13,
@@ -96,7 +103,7 @@
   "higher_tier_required_upgrades": [
     "Complete one official third-party foundation-model comparator run, preferably scPlantLLM.",
     "Add one independent non-Arabidopsis biological case.",
-    "Improve species-holdout ontology coverage with before/after audit.",
+    "Rerun species-holdout under the explicit ontology label layer now recorded by the coverage audit.",
     "Add English manuscript package and supplement index.",
     "Add model usability supplement.",
     "Add Snow Lotus single-cell matrix only if a reusable matrix becomes available."

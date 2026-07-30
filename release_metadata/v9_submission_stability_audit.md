@@ -2,7 +2,7 @@
 
 | Risk | Mitigation | Safe claim | Evidence |
 | --- | --- | --- | --- |
-| 跨物种泛化指标被质疑偏低 | 主文将留物种结果写成开放集迁移证据，而不是全部植物满覆盖断言；同时报告 all-cell accuracy、coverage、known-label conditional metrics 和 species-holdout failure audit。 | Plant-CellFM v9 在同一 shared-gene benchmark 上优于 v3 extended baseline，并提供可复现的全植物适配框架与可审计物种级失败模式。 | release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json; release_metadata/species_holdout_failure_audit_v9.md |
+| 跨物种泛化指标被质疑偏低 | 主文将留物种结果写成开放集迁移证据，而不是全部植物满覆盖断言；同时报告 all-cell accuracy、coverage、known-label conditional metrics、species-holdout failure audit 和 species ontology coverage audit。 | Plant-CellFM v9 在同一 shared-gene benchmark 上优于 v3 extended baseline，并提供可复现的全植物适配框架、可审计物种级失败模式和标签本体覆盖诊断。 | release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json; release_metadata/species_holdout_failure_audit_v9.md; release_metadata/species_ontology_coverage_audit_v9.md |
 | 第三方横向对照不完整 | Seurat 作为完成的传统外部基线进入主表；scPlantLLM 和 scPlantAnnotate 只按输入就绪/认证受限状态陈述。 | 当前版本完成了 v3、centroid 和 Seurat 对照，并公开保留 scPlantLLM/scPlantAnnotate 的可复现入口。 | release_metadata/external_benchmark_panel_v9.json |
 | 生物学案例被认为只是计算输出 | 把 Arabidopsis root 写成 public-data computational case，强调 adapter resolution、层级注释和 marker candidate mining 的完整链路。 | Arabidopsis root case 证明模型不仅输出标签，也能产生可审计 adapter 记录和根细胞身份 marker 候选。 | release_metadata/plant_biology_case_study_v9.json |
 | 雪莲定位被误读为图谱成果 | 主文明确 Snow Lotus 是目标物种接入口和应用场景，当前不写作已发布细胞图谱成果。 | Snow Lotus-ready transfer is supported once a reusable Snow Lotus single-cell matrix is supplied under the h5ad contract. | release_metadata/saussurea_h5ad_contract.md |

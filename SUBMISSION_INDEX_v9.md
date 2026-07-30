@@ -35,6 +35,8 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Arabidopsis root literature anchor | `release_metadata/arabidopsis_root_literature_anchor_v9.md` |
 | Arabidopsis root figure package | `release_metadata/arabidopsis_root_case_figure_v9.md` |
 | Species-holdout failure audit | `release_metadata/species_holdout_failure_audit_v9.md` |
+| Species ontology coverage audit | `release_metadata/species_ontology_coverage_audit_v9.md` |
+| Plant cell-state ontology mapping | `release_metadata/plant_cell_state_ontology_mapping_v9.tsv` |
 | v9 benchmark comparison | `release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json` |
 | Current publication strategy | `docs/top_journal_strategy.md` |
 | Development plan matching this submission | `docs/development_plan.md` |
@@ -50,7 +52,8 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 7. The Arabidopsis root case demonstrates adapter resolution, hierarchical annotation and marker-candidate mining on public data.
 8. The Arabidopsis root figure package provides SVG/PDF/PNG/TIFF exports plus source data for a figure-ready biological case.
 9. The species-holdout failure audit decomposes the strict normalized leave-species-out result into label-coverage gaps, known-label errors and per-species revision targets.
-10. The publication target readiness matrix ranks the current package as strongest for plant-focused method/resource submission, plausible for genomics computational-method submission with major-revision risk, and stretch for top general methods venues until stronger third-party and biological validation evidence is added.
+10. The species ontology coverage audit maps 106 observed fine labels into a conservative plant cell-state ontology and separates actionable ontology coverage from unknown or unannotated labels.
+11. The publication target readiness matrix ranks the current package as strongest for plant-focused method/resource submission, plausible for genomics computational-method submission with major-revision risk, and stretch for top general methods venues until stronger third-party and biological validation evidence is added.
 
 ## Claims Not Used In The Current Submission
 

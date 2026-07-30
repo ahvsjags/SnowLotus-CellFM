@@ -1,0 +1,107 @@
+raw_label	normalized_label	ontology_label	actionable	all_obs_count	benchmark_aligned_count
+Bundle sheath	bundle sheath	bundle_sheath	True	16	16
+Bundle.Sheath	bundle sheath	bundle_sheath	True	7	0
+G1/G0 phase	g1 g0 phase	cell_cycle_state	True	3	3
+G2/M phase	g2 m phase	cell_cycle_state	True	77	77
+S phase	s phase	cell_cycle_state	True	79	79
+colonized cells	colonized cells	colonized_cells	True	3	0
+Cortex	cortex	cortex	True	35	35
+cortex_1	cortex 1	cortex	True	17	0
+cortex_2	cortex 2	cortex	True	16	0
+cortex_3	cortex 3	cortex	True	5	0
+Root cortex	root cortex	cortex	True	79	79
+Endodermis	endodermis	endodermis	True	22	22
+endodermis	endodermis	endodermis	True	26	26
+endodermis_1	endodermis 1	endodermis	True	17	0
+endodermis_2	endodermis 2	endodermis	True	18	0
+endodermis_3	endodermis 3	endodermis	True	16	0
+endodermis_4	endodermis 4	endodermis	True	1	0
+Root endodermis	root endodermis	endodermis	True	29	29
+Abaxial epidermis	abaxial epidermis	epidermis	True	9	9
+Adaxial epidermis	adaxial epidermis	epidermis	True	18	18
+Epidermal.Precursor	epidermal precursor	epidermis	True	36	0
+Epidermis	epidermis	epidermis	True	63	34
+epidermis_1	epidermis 1	epidermis	True	21	0
+epidermis_2	epidermis 2	epidermis	True	17	0
+epidermis_3	epidermis 3	epidermis	True	11	0
+epidermis_4	epidermis 4	epidermis	True	8	0
+epidermis_5	epidermis 5	epidermis	True	2	0
+Leaf epidermis	leaf epidermis	epidermis	True	122	122
+Leaf pavement cell	leaf pavement cell	epidermis	True	22	22
+Shoot system epidermis	shoot system epidermis	epidermis	True	49	49
+Fibre	fibre	fibre	True	2	0
+Guard cell	guard cell	guard_or_stomatal_cell	True	6	6
+Leaf guard cell	leaf guard cell	guard_or_stomatal_cell	True	23	23
+Hydathodes	hydathodes	hydathode	True	60	60
+Initials	initials	initials	True	3	3
+Lateral root cap	lateral root cap	lateral_root_cap	True	95	95
+Meristem	meristem	meristem_or_stem_cell_niche	True	28	0
+Meristematic cell	meristematic cell	meristem_or_stem_cell_niche	True	26	26
+proximal meristem	proximal meristem	meristem_or_stem_cell_niche	True	168	168
+Shoot apical meristem	shoot apical meristem	meristem_or_stem_cell_niche	True	21	21
+stem cell niche	stem cell niche	meristem_or_stem_cell_niche	True	62	62
+Mesophyll	mesophyll	mesophyll	True	988	948
+Mesophyll.Precursor	mesophyll precursor	mesophyll	True	53	0
+Mestome.Sheath	mestome sheath	mestome_sheath	True	1	0
+Non-hair	non hair	nonhair_or_atrichoblast	True	29	29
+Large.Parenchyma	large parenchyma	parenchyma	True	13	0
+Pericycle	pericycle	pericycle	True	24	24
+pericycle_1	pericycle 1	pericycle	True	18	0
+pericycle_2	pericycle 2	pericycle	True	6	0
+pericycle_3	pericycle 3	pericycle	True	7	0
+pericycle_4	pericycle 4	pericycle	True	9	0
+Companion cell	companion cell	phloem	True	27	27
+Phloem	phloem	phloem	True	16	16
+phloem	phloem	phloem	True	8	0
+Phloem parenchyma	phloem parenchyma	phloem	True	27	27
+Phloem.SE	phloem se	phloem	True	3	0
+Sieve element	sieve element	phloem	True	1	1
+Pigment gland	pigment gland	pigment_gland	True	5	5
+Procambium	procambium	procambium	True	61	22
+Columella root cap	columella root cap	root_cap	True	21	21
+Root cap	root cap	root_cap	True	57	57
+Atrichoblast	atrichoblast	root_hair_or_trichoblast	True	53	53
+Root hair	root hair	root_hair_or_trichoblast	True	48	48
+Trichoblast	trichoblast	root_hair_or_trichoblast	True	10	10
+Idioblast cell	idioblast cell	secretory_or_specialized_epidermis	True	15	15
+1	1	unknown_or_unannotated	False	35	0
+10	10	unknown_or_unannotated	False	3	0
+2	2	unknown_or_unannotated	False	32	0
+3	3	unknown_or_unannotated	False	36	0
+4	4	unknown_or_unannotated	False	37	0
+5	5	unknown_or_unannotated	False	37	0
+6	6	unknown_or_unannotated	False	30	0
+7	7	unknown_or_unannotated	False	24	0
+8	8	unknown_or_unannotated	False	11	0
+9	9	unknown_or_unannotated	False	11	0
+RNA_0	rna 0	unknown_or_unannotated	False	41	0
+RNA_1	rna 1	unknown_or_unannotated	False	36	0
+RNA_10	rna 10	unknown_or_unannotated	False	7	0
+RNA_11	rna 11	unknown_or_unannotated	False	4	0
+RNA_12	rna 12	unknown_or_unannotated	False	5	0
+RNA_13	rna 13	unknown_or_unannotated	False	1	0
+RNA_14	rna 14	unknown_or_unannotated	False	2	0
+RNA_15	rna 15	unknown_or_unannotated	False	2	0
+RNA_2	rna 2	unknown_or_unannotated	False	26	0
+RNA_3	rna 3	unknown_or_unannotated	False	32	0
+RNA_4	rna 4	unknown_or_unannotated	False	30	0
+RNA_5	rna 5	unknown_or_unannotated	False	20	0
+RNA_6	rna 6	unknown_or_unannotated	False	19	0
+RNA_7	rna 7	unknown_or_unannotated	False	17	0
+RNA_8	rna 8	unknown_or_unannotated	False	9	0
+RNA_9	rna 9	unknown_or_unannotated	False	5	0
+unannotated	unannotated	unknown_or_unannotated	False	2304	256
+unannotated_leaf_glandular	unannotated leaf glandular	unknown_or_unannotated	False	256	256
+unannotated_root	unannotated root	unknown_or_unannotated	False	768	636
+unannotated_root_tip	unannotated root tip	unknown_or_unannotated	False	256	0
+Unknow	unknow	unknown_or_unannotated	False	236	236
+unknown_1	unknown 1	unknown_or_unannotated	False	11	0
+unknown_2	unknown 2	unknown_or_unannotated	False	4	0
+unknown_3	unknown 3	unknown_or_unannotated	False	4	0
+Root stele	root stele	vascular_stele	True	22	22
+stele_1	stele 1	vascular_stele	True	29	0
+stele_2	stele 2	vascular_stele	True	8	0
+Vascular tissue	vascular tissue	vascular_stele	True	86	86
+Xylem	xylem	xylem	True	81	77
+Xylem parenchyma	xylem parenchyma	xylem	True	8	8
+Xylem.Parenchyma	xylem parenchyma	xylem	True	1	0

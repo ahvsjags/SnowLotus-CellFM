@@ -54,6 +54,7 @@
     "public corpus and manifest audit",
     "v9 versus v3 shared-gene benchmark",
     "species-holdout open-set failure audit",
+    "species ontology coverage audit and 106-label plant cell-state mapping table",
     "centroid and Seurat comparator evidence",
     "Arabidopsis root marker-candidate case",
     "Arabidopsis root figure package with source data",
@@ -65,7 +66,7 @@
     {
       "risk": "strict leave-species-out accuracy remains modest",
       "severity": "high",
-      "safe_response": "frame as open-set transfer evidence and reproducible framework, not universal high-accuracy annotation"
+      "safe_response": "frame as open-set transfer evidence and reproducible framework; report species-holdout failure and ontology coverage audits rather than universal high-accuracy annotation"
     },
     {
       "risk": "scPlantLLM and scPlantAnnotate numeric comparisons are not fully closed",
@@ -81,7 +82,7 @@
   "next_revision_priorities": [
     "complete at least one official third-party foundation-model comparator metric",
     "add an independent public species or tissue biological replication case",
-    "use the species-holdout failure audit to build a clearer plant cell ontology and before/after coverage analysis",
+    "rerun species-holdout under the explicit plant cell ontology layer now recorded in the coverage audit",
     "add a second independent biological figure panel beyond Arabidopsis",
     "prepare English manuscript and reviewer supplement"
   ]

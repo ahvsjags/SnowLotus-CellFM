@@ -1,0 +1,9 @@
+species	benchmark_status	frozen_n_test	obs_n_test	obs_n_test_delta	frozen_exact_n_evaluable	frozen_exact_coverage	obs_exact_n_evaluable	obs_exact_coverage	obs_exact_delta_vs_frozen	ontology_n_evaluable	ontology_coverage	ontology_gain_cells_vs_frozen	ontology_gain_points_vs_frozen	unknown_or_unannotated_cells	unknown_or_unannotated_fraction	rescue_candidates	reconstruction_status	alignment_method
+Arabidopsis thaliana	ok	2366	2366	0	1024	0.4327979712595097	1035	0.437447168216399	11	1013	0.42814877430262044	-11	-0.004649196956889257	663	0.2802197802197802	385	near_exact	raw_species_exact_count
+Brassica rapa	ok	256	256	0	240	0.9375	240	0.9375	0	121	0.47265625	-119	-0.46484375	119	0.46484375	0	near_exact	raw_species_exact_count
+Catharanthus roseus	ok	256	256	0	241	0.94140625	241	0.94140625	0	228	0.890625	-13	-0.05078125	13	0.05078125	0	near_exact	raw_species_exact_count
+Eutrema salsugineum	ok	62	62	0	62	1.0	62	1.0	0	0	0.0	-62	-1.0	62	1.0	0	near_exact	raw_species_exact_count
+Fragaria vesca	ok	256	256	0	161	0.62890625	161	0.62890625	0	181	0.70703125	20	0.078125	15	0.05859375	35	near_exact	raw_species_exact_count
+Gossypium bickii	ok	256	256	0	232	0.90625	251	0.98046875	19	251	0.98046875	19	0.07421875	0	0.0	0	near_exact	raw_species_exact_count
+Gossypium hirsutum	no_label_overlap	256	256	0	0	0.0	0	0.0	0	0	0.0	0	0.0	256	1.0	0	near_exact	raw_species_exact_count
+Triticum aestivum	ok	256	256	0	256	1.0	256	1.0	0	0	0.0	-256	-1.0	256	1.0	0	near_exact	raw_species_exact_count

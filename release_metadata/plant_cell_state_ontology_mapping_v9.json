@@ -1,0 +1,856 @@
+{
+  "schema_version": "plant_cell_state_ontology_mapping_v1",
+  "source": "release_metadata/species_ontology_obs_labels_v9.tsv",
+  "unknown_or_unannotated_excluded_from_actionable_coverage": true,
+  "mapping_count": 106,
+  "rows": [
+    {
+      "raw_label": "Bundle sheath",
+      "normalized_label": "bundle sheath",
+      "ontology_label": "bundle_sheath",
+      "actionable": true,
+      "all_obs_count": 16,
+      "benchmark_aligned_count": 16
+    },
+    {
+      "raw_label": "Bundle.Sheath",
+      "normalized_label": "bundle sheath",
+      "ontology_label": "bundle_sheath",
+      "actionable": true,
+      "all_obs_count": 7,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "G1/G0 phase",
+      "normalized_label": "g1 g0 phase",
+      "ontology_label": "cell_cycle_state",
+      "actionable": true,
+      "all_obs_count": 3,
+      "benchmark_aligned_count": 3
+    },
+    {
+      "raw_label": "G2/M phase",
+      "normalized_label": "g2 m phase",
+      "ontology_label": "cell_cycle_state",
+      "actionable": true,
+      "all_obs_count": 77,
+      "benchmark_aligned_count": 77
+    },
+    {
+      "raw_label": "S phase",
+      "normalized_label": "s phase",
+      "ontology_label": "cell_cycle_state",
+      "actionable": true,
+      "all_obs_count": 79,
+      "benchmark_aligned_count": 79
+    },
+    {
+      "raw_label": "colonized cells",
+      "normalized_label": "colonized cells",
+      "ontology_label": "colonized_cells",
+      "actionable": true,
+      "all_obs_count": 3,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "Cortex",
+      "normalized_label": "cortex",
+      "ontology_label": "cortex",
+      "actionable": true,
+      "all_obs_count": 35,
+      "benchmark_aligned_count": 35
+    },
+    {
+      "raw_label": "cortex_1",
+      "normalized_label": "cortex 1",
+      "ontology_label": "cortex",
+      "actionable": true,
+      "all_obs_count": 17,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "cortex_2",
+      "normalized_label": "cortex 2",
+      "ontology_label": "cortex",
+      "actionable": true,
+      "all_obs_count": 16,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "cortex_3",
+      "normalized_label": "cortex 3",
+      "ontology_label": "cortex",
+      "actionable": true,
+      "all_obs_count": 5,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "Root cortex",
+      "normalized_label": "root cortex",
+      "ontology_label": "cortex",
+      "actionable": true,
+      "all_obs_count": 79,
+      "benchmark_aligned_count": 79
+    },
+    {
+      "raw_label": "Endodermis",
+      "normalized_label": "endodermis",
+      "ontology_label": "endodermis",
+      "actionable": true,
+      "all_obs_count": 22,
+      "benchmark_aligned_count": 22
+    },
+    {
+      "raw_label": "endodermis",
+      "normalized_label": "endodermis",
+      "ontology_label": "endodermis",
+      "actionable": true,
+      "all_obs_count": 26,
+      "benchmark_aligned_count": 26
+    },
+    {
+      "raw_label": "endodermis_1",
+      "normalized_label": "endodermis 1",
+      "ontology_label": "endodermis",
+      "actionable": true,
+      "all_obs_count": 17,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "endodermis_2",
+      "normalized_label": "endodermis 2",
+      "ontology_label": "endodermis",
+      "actionable": true,
+      "all_obs_count": 18,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "endodermis_3",
+      "normalized_label": "endodermis 3",
+      "ontology_label": "endodermis",
+      "actionable": true,
+      "all_obs_count": 16,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "endodermis_4",
+      "normalized_label": "endodermis 4",
+      "ontology_label": "endodermis",
+      "actionable": true,
+      "all_obs_count": 1,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "Root endodermis",
+      "normalized_label": "root endodermis",
+      "ontology_label": "endodermis",
+      "actionable": true,
+      "all_obs_count": 29,
+      "benchmark_aligned_count": 29
+    },
+    {
+      "raw_label": "Abaxial epidermis",
+      "normalized_label": "abaxial epidermis",
+      "ontology_label": "epidermis",
+      "actionable": true,
+      "all_obs_count": 9,
+      "benchmark_aligned_count": 9
+    },
+    {
+      "raw_label": "Adaxial epidermis",
+      "normalized_label": "adaxial epidermis",
+      "ontology_label": "epidermis",
+      "actionable": true,
+      "all_obs_count": 18,
+      "benchmark_aligned_count": 18
+    },
+    {
+      "raw_label": "Epidermal.Precursor",
+      "normalized_label": "epidermal precursor",
+      "ontology_label": "epidermis",
+      "actionable": true,
+      "all_obs_count": 36,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "Epidermis",
+      "normalized_label": "epidermis",
+      "ontology_label": "epidermis",
+      "actionable": true,
+      "all_obs_count": 63,
+      "benchmark_aligned_count": 34
+    },
+    {
+      "raw_label": "epidermis_1",
+      "normalized_label": "epidermis 1",
+      "ontology_label": "epidermis",
+      "actionable": true,
+      "all_obs_count": 21,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "epidermis_2",
+      "normalized_label": "epidermis 2",
+      "ontology_label": "epidermis",
+      "actionable": true,
+      "all_obs_count": 17,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "epidermis_3",
+      "normalized_label": "epidermis 3",
+      "ontology_label": "epidermis",
+      "actionable": true,
+      "all_obs_count": 11,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "epidermis_4",
+      "normalized_label": "epidermis 4",
+      "ontology_label": "epidermis",
+      "actionable": true,
+      "all_obs_count": 8,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "epidermis_5",
+      "normalized_label": "epidermis 5",
+      "ontology_label": "epidermis",
+      "actionable": true,
+      "all_obs_count": 2,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "Leaf epidermis",
+      "normalized_label": "leaf epidermis",
+      "ontology_label": "epidermis",
+      "actionable": true,
+      "all_obs_count": 122,
+      "benchmark_aligned_count": 122
+    },
+    {
+      "raw_label": "Leaf pavement cell",
+      "normalized_label": "leaf pavement cell",
+      "ontology_label": "epidermis",
+      "actionable": true,
+      "all_obs_count": 22,
+      "benchmark_aligned_count": 22
+    },
+    {
+      "raw_label": "Shoot system epidermis",
+      "normalized_label": "shoot system epidermis",
+      "ontology_label": "epidermis",
+      "actionable": true,
+      "all_obs_count": 49,
+      "benchmark_aligned_count": 49
+    },
+    {
+      "raw_label": "Fibre",
+      "normalized_label": "fibre",
+      "ontology_label": "fibre",
+      "actionable": true,
+      "all_obs_count": 2,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "Guard cell",
+      "normalized_label": "guard cell",
+      "ontology_label": "guard_or_stomatal_cell",
+      "actionable": true,
+      "all_obs_count": 6,
+      "benchmark_aligned_count": 6
+    },
+    {
+      "raw_label": "Leaf guard cell",
+      "normalized_label": "leaf guard cell",
+      "ontology_label": "guard_or_stomatal_cell",
+      "actionable": true,
+      "all_obs_count": 23,
+      "benchmark_aligned_count": 23
+    },
+    {
+      "raw_label": "Hydathodes",
+      "normalized_label": "hydathodes",
+      "ontology_label": "hydathode",
+      "actionable": true,
+      "all_obs_count": 60,
+      "benchmark_aligned_count": 60
+    },
+    {
+      "raw_label": "Initials",
+      "normalized_label": "initials",
+      "ontology_label": "initials",
+      "actionable": true,
+      "all_obs_count": 3,
+      "benchmark_aligned_count": 3
+    },
+    {
+      "raw_label": "Lateral root cap",
+      "normalized_label": "lateral root cap",
+      "ontology_label": "lateral_root_cap",
+      "actionable": true,
+      "all_obs_count": 95,
+      "benchmark_aligned_count": 95
+    },
+    {
+      "raw_label": "Meristem",
+      "normalized_label": "meristem",
+      "ontology_label": "meristem_or_stem_cell_niche",
+      "actionable": true,
+      "all_obs_count": 28,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "Meristematic cell",
+      "normalized_label": "meristematic cell",
+      "ontology_label": "meristem_or_stem_cell_niche",
+      "actionable": true,
+      "all_obs_count": 26,
+      "benchmark_aligned_count": 26
+    },
+    {
+      "raw_label": "proximal meristem",
+      "normalized_label": "proximal meristem",
+      "ontology_label": "meristem_or_stem_cell_niche",
+      "actionable": true,
+      "all_obs_count": 168,
+      "benchmark_aligned_count": 168
+    },
+    {
+      "raw_label": "Shoot apical meristem",
+      "normalized_label": "shoot apical meristem",
+      "ontology_label": "meristem_or_stem_cell_niche",
+      "actionable": true,
+      "all_obs_count": 21,
+      "benchmark_aligned_count": 21
+    },
+    {
+      "raw_label": "stem cell niche",
+      "normalized_label": "stem cell niche",
+      "ontology_label": "meristem_or_stem_cell_niche",
+      "actionable": true,
+      "all_obs_count": 62,
+      "benchmark_aligned_count": 62
+    },
+    {
+      "raw_label": "Mesophyll",
+      "normalized_label": "mesophyll",
+      "ontology_label": "mesophyll",
+      "actionable": true,
+      "all_obs_count": 988,
+      "benchmark_aligned_count": 948
+    },
+    {
+      "raw_label": "Mesophyll.Precursor",
+      "normalized_label": "mesophyll precursor",
+      "ontology_label": "mesophyll",
+      "actionable": true,
+      "all_obs_count": 53,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "Mestome.Sheath",
+      "normalized_label": "mestome sheath",
+      "ontology_label": "mestome_sheath",
+      "actionable": true,
+      "all_obs_count": 1,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "Non-hair",
+      "normalized_label": "non hair",
+      "ontology_label": "nonhair_or_atrichoblast",
+      "actionable": true,
+      "all_obs_count": 29,
+      "benchmark_aligned_count": 29
+    },
+    {
+      "raw_label": "Large.Parenchyma",
+      "normalized_label": "large parenchyma",
+      "ontology_label": "parenchyma",
+      "actionable": true,
+      "all_obs_count": 13,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "Pericycle",
+      "normalized_label": "pericycle",
+      "ontology_label": "pericycle",
+      "actionable": true,
+      "all_obs_count": 24,
+      "benchmark_aligned_count": 24
+    },
+    {
+      "raw_label": "pericycle_1",
+      "normalized_label": "pericycle 1",
+      "ontology_label": "pericycle",
+      "actionable": true,
+      "all_obs_count": 18,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "pericycle_2",
+      "normalized_label": "pericycle 2",
+      "ontology_label": "pericycle",
+      "actionable": true,
+      "all_obs_count": 6,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "pericycle_3",
+      "normalized_label": "pericycle 3",
+      "ontology_label": "pericycle",
+      "actionable": true,
+      "all_obs_count": 7,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "pericycle_4",
+      "normalized_label": "pericycle 4",
+      "ontology_label": "pericycle",
+      "actionable": true,
+      "all_obs_count": 9,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "Companion cell",
+      "normalized_label": "companion cell",
+      "ontology_label": "phloem",
+      "actionable": true,
+      "all_obs_count": 27,
+      "benchmark_aligned_count": 27
+    },
+    {
+      "raw_label": "Phloem",
+      "normalized_label": "phloem",
+      "ontology_label": "phloem",
+      "actionable": true,
+      "all_obs_count": 16,
+      "benchmark_aligned_count": 16
+    },
+    {
+      "raw_label": "phloem",
+      "normalized_label": "phloem",
+      "ontology_label": "phloem",
+      "actionable": true,
+      "all_obs_count": 8,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "Phloem parenchyma",
+      "normalized_label": "phloem parenchyma",
+      "ontology_label": "phloem",
+      "actionable": true,
+      "all_obs_count": 27,
+      "benchmark_aligned_count": 27
+    },
+    {
+      "raw_label": "Phloem.SE",
+      "normalized_label": "phloem se",
+      "ontology_label": "phloem",
+      "actionable": true,
+      "all_obs_count": 3,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "Sieve element",
+      "normalized_label": "sieve element",
+      "ontology_label": "phloem",
+      "actionable": true,
+      "all_obs_count": 1,
+      "benchmark_aligned_count": 1
+    },
+    {
+      "raw_label": "Pigment gland",
+      "normalized_label": "pigment gland",
+      "ontology_label": "pigment_gland",
+      "actionable": true,
+      "all_obs_count": 5,
+      "benchmark_aligned_count": 5
+    },
+    {
+      "raw_label": "Procambium",
+      "normalized_label": "procambium",
+      "ontology_label": "procambium",
+      "actionable": true,
+      "all_obs_count": 61,
+      "benchmark_aligned_count": 22
+    },
+    {
+      "raw_label": "Columella root cap",
+      "normalized_label": "columella root cap",
+      "ontology_label": "root_cap",
+      "actionable": true,
+      "all_obs_count": 21,
+      "benchmark_aligned_count": 21
+    },
+    {
+      "raw_label": "Root cap",
+      "normalized_label": "root cap",
+      "ontology_label": "root_cap",
+      "actionable": true,
+      "all_obs_count": 57,
+      "benchmark_aligned_count": 57
+    },
+    {
+      "raw_label": "Atrichoblast",
+      "normalized_label": "atrichoblast",
+      "ontology_label": "root_hair_or_trichoblast",
+      "actionable": true,
+      "all_obs_count": 53,
+      "benchmark_aligned_count": 53
+    },
+    {
+      "raw_label": "Root hair",
+      "normalized_label": "root hair",
+      "ontology_label": "root_hair_or_trichoblast",
+      "actionable": true,
+      "all_obs_count": 48,
+      "benchmark_aligned_count": 48
+    },
+    {
+      "raw_label": "Trichoblast",
+      "normalized_label": "trichoblast",
+      "ontology_label": "root_hair_or_trichoblast",
+      "actionable": true,
+      "all_obs_count": 10,
+      "benchmark_aligned_count": 10
+    },
+    {
+      "raw_label": "Idioblast cell",
+      "normalized_label": "idioblast cell",
+      "ontology_label": "secretory_or_specialized_epidermis",
+      "actionable": true,
+      "all_obs_count": 15,
+      "benchmark_aligned_count": 15
+    },
+    {
+      "raw_label": "1",
+      "normalized_label": "1",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 35,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "10",
+      "normalized_label": "10",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 3,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "2",
+      "normalized_label": "2",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 32,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "3",
+      "normalized_label": "3",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 36,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "4",
+      "normalized_label": "4",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 37,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "5",
+      "normalized_label": "5",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 37,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "6",
+      "normalized_label": "6",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 30,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "7",
+      "normalized_label": "7",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 24,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "8",
+      "normalized_label": "8",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 11,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "9",
+      "normalized_label": "9",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 11,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "RNA_0",
+      "normalized_label": "rna 0",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 41,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "RNA_1",
+      "normalized_label": "rna 1",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 36,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "RNA_10",
+      "normalized_label": "rna 10",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 7,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "RNA_11",
+      "normalized_label": "rna 11",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 4,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "RNA_12",
+      "normalized_label": "rna 12",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 5,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "RNA_13",
+      "normalized_label": "rna 13",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 1,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "RNA_14",
+      "normalized_label": "rna 14",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 2,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "RNA_15",
+      "normalized_label": "rna 15",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 2,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "RNA_2",
+      "normalized_label": "rna 2",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 26,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "RNA_3",
+      "normalized_label": "rna 3",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 32,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "RNA_4",
+      "normalized_label": "rna 4",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 30,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "RNA_5",
+      "normalized_label": "rna 5",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 20,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "RNA_6",
+      "normalized_label": "rna 6",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 19,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "RNA_7",
+      "normalized_label": "rna 7",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 17,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "RNA_8",
+      "normalized_label": "rna 8",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 9,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "RNA_9",
+      "normalized_label": "rna 9",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 5,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "unannotated",
+      "normalized_label": "unannotated",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 2304,
+      "benchmark_aligned_count": 256
+    },
+    {
+      "raw_label": "unannotated_leaf_glandular",
+      "normalized_label": "unannotated leaf glandular",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 256,
+      "benchmark_aligned_count": 256
+    },
+    {
+      "raw_label": "unannotated_root",
+      "normalized_label": "unannotated root",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 768,
+      "benchmark_aligned_count": 636
+    },
+    {
+      "raw_label": "unannotated_root_tip",
+      "normalized_label": "unannotated root tip",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 256,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "Unknow",
+      "normalized_label": "unknow",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 236,
+      "benchmark_aligned_count": 236
+    },
+    {
+      "raw_label": "unknown_1",
+      "normalized_label": "unknown 1",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 11,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "unknown_2",
+      "normalized_label": "unknown 2",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 4,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "unknown_3",
+      "normalized_label": "unknown 3",
+      "ontology_label": "unknown_or_unannotated",
+      "actionable": false,
+      "all_obs_count": 4,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "Root stele",
+      "normalized_label": "root stele",
+      "ontology_label": "vascular_stele",
+      "actionable": true,
+      "all_obs_count": 22,
+      "benchmark_aligned_count": 22
+    },
+    {
+      "raw_label": "stele_1",
+      "normalized_label": "stele 1",
+      "ontology_label": "vascular_stele",
+      "actionable": true,
+      "all_obs_count": 29,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "stele_2",
+      "normalized_label": "stele 2",
+      "ontology_label": "vascular_stele",
+      "actionable": true,
+      "all_obs_count": 8,
+      "benchmark_aligned_count": 0
+    },
+    {
+      "raw_label": "Vascular tissue",
+      "normalized_label": "vascular tissue",
+      "ontology_label": "vascular_stele",
+      "actionable": true,
+      "all_obs_count": 86,
+      "benchmark_aligned_count": 86
+    },
+    {
+      "raw_label": "Xylem",
+      "normalized_label": "xylem",
+      "ontology_label": "xylem",
+      "actionable": true,
+      "all_obs_count": 81,
+      "benchmark_aligned_count": 77
+    },
+    {
+      "raw_label": "Xylem parenchyma",
+      "normalized_label": "xylem parenchyma",
+      "ontology_label": "xylem",
+      "actionable": true,
+      "all_obs_count": 8,
+      "benchmark_aligned_count": 8
+    },
+    {
+      "raw_label": "Xylem.Parenchyma",
+      "normalized_label": "xylem parenchyma",
+      "ontology_label": "xylem",
+      "actionable": true,
+      "all_obs_count": 1,
+      "benchmark_aligned_count": 0
+    }
+  ]
+}

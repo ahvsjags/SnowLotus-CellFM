@@ -1,0 +1,353 @@
+{
+  "schema_version": "plant_cellfm_v9_species_ontology_coverage_audit_v1",
+  "source_files": {
+    "benchmark": "release_metadata/v9_benchmarks/v9_lora_cross_species_benchmark.json",
+    "obs_labels": "release_metadata/species_ontology_obs_labels_v9.tsv",
+    "ontology_mapping_tsv": "release_metadata/plant_cell_state_ontology_mapping_v9.tsv",
+    "ontology_mapping_json": "release_metadata/plant_cell_state_ontology_mapping_v9.json"
+  },
+  "protocol": "leave_species_out_fine_obs_ontology_coverage_audit",
+  "claim_boundary": "Coverage audit only; does not revise frozen v9 accuracy, macro-F1, Seurat comparison, or v9-v3 benchmark metrics.",
+  "selection": {
+    "seed": 20260729,
+    "max_cells_per_dataset": 256,
+    "selected_cells": 3964,
+    "benchmark_selected_cells": 3964,
+    "species_label_normalization": "underscore_to_space_and_whitespace_collapse",
+    "obs_alignment": "count-aligned to frozen leave_species_out_fine records because the raw H5AD obs table has more cells than the prepared benchmark matrix"
+  },
+  "ontology_policy": {
+    "unknown_or_unannotated_excluded": true,
+    "mapping_scope": "coarse plant cell-state ontology for label harmonization triage",
+    "primary_label_key": "cell_type",
+    "mapping_rows": 106
+  },
+  "aggregate": {
+    "n_test": 3964,
+    "frozen_exact_n_evaluable": 2216,
+    "frozen_exact_coverage": 0.5590312815338042,
+    "obs_exact_n_evaluable": 2246,
+    "obs_exact_coverage": 0.5665993945509586,
+    "obs_exact_delta_vs_frozen": 30,
+    "ontology_n_evaluable": 1794,
+    "ontology_coverage": 0.4525731584258325,
+    "ontology_gain_cells_vs_frozen": -422,
+    "ontology_gain_points_vs_frozen": -0.10645812310797174,
+    "unknown_or_unannotated_cells": 1384,
+    "unknown_or_unannotated_fraction": 0.3491422805247225,
+    "rescue_candidates": 420
+  },
+  "rows": [
+    {
+      "species": "Arabidopsis thaliana",
+      "benchmark_status": "ok",
+      "frozen_n_test": 2366,
+      "obs_n_test": 2366,
+      "obs_n_test_delta": 0,
+      "frozen_exact_n_evaluable": 1024,
+      "frozen_exact_coverage": 0.4327979712595097,
+      "obs_exact_n_evaluable": 1035,
+      "obs_exact_coverage": 0.437447168216399,
+      "obs_exact_delta_vs_frozen": 11,
+      "ontology_n_evaluable": 1013,
+      "ontology_coverage": 0.42814877430262044,
+      "ontology_gain_cells_vs_frozen": -11,
+      "ontology_gain_points_vs_frozen": -0.004649196956889257,
+      "unknown_or_unannotated_cells": 663,
+      "unknown_or_unannotated_fraction": 0.2802197802197802,
+      "rescue_candidates": 385,
+      "reconstruction_status": "near_exact",
+      "alignment_method": "raw_species_exact_count",
+      "top_rescued_labels": [
+        {
+          "label": "proximal meristem",
+          "count": 168
+        },
+        {
+          "label": "stem cell niche",
+          "count": 62
+        },
+        {
+          "label": "Shoot system epidermis",
+          "count": 49
+        },
+        {
+          "label": "Epidermis",
+          "count": 34
+        },
+        {
+          "label": "Leaf pavement cell",
+          "count": 22
+        },
+        {
+          "label": "Root stele",
+          "count": 22
+        },
+        {
+          "label": "Shoot apical meristem",
+          "count": 21
+        },
+        {
+          "label": "Guard cell",
+          "count": 6
+        }
+      ],
+      "top_rescued_ontology": [
+        {
+          "label": "meristem_or_stem_cell_niche",
+          "count": 251
+        },
+        {
+          "label": "epidermis",
+          "count": 105
+        },
+        {
+          "label": "vascular_stele",
+          "count": 22
+        },
+        {
+          "label": "guard_or_stomatal_cell",
+          "count": 6
+        },
+        {
+          "label": "phloem",
+          "count": 1
+        }
+      ],
+      "top_unknown_labels": [
+        {
+          "label": "unannotated_root",
+          "count": 318
+        },
+        {
+          "label": "unannotated",
+          "count": 256
+        },
+        {
+          "label": "Unknow",
+          "count": 89
+        }
+      ]
+    },
+    {
+      "species": "Brassica rapa",
+      "benchmark_status": "ok",
+      "frozen_n_test": 256,
+      "obs_n_test": 256,
+      "obs_n_test_delta": 0,
+      "frozen_exact_n_evaluable": 240,
+      "frozen_exact_coverage": 0.9375,
+      "obs_exact_n_evaluable": 240,
+      "obs_exact_coverage": 0.9375,
+      "obs_exact_delta_vs_frozen": 0,
+      "ontology_n_evaluable": 121,
+      "ontology_coverage": 0.47265625,
+      "ontology_gain_cells_vs_frozen": -119,
+      "ontology_gain_points_vs_frozen": -0.46484375,
+      "unknown_or_unannotated_cells": 119,
+      "unknown_or_unannotated_fraction": 0.46484375,
+      "rescue_candidates": 0,
+      "reconstruction_status": "near_exact",
+      "alignment_method": "raw_species_exact_count",
+      "top_rescued_labels": [],
+      "top_rescued_ontology": [],
+      "top_unknown_labels": [
+        {
+          "label": "Unknow",
+          "count": 119
+        }
+      ]
+    },
+    {
+      "species": "Catharanthus roseus",
+      "benchmark_status": "ok",
+      "frozen_n_test": 256,
+      "obs_n_test": 256,
+      "obs_n_test_delta": 0,
+      "frozen_exact_n_evaluable": 241,
+      "frozen_exact_coverage": 0.94140625,
+      "obs_exact_n_evaluable": 241,
+      "obs_exact_coverage": 0.94140625,
+      "obs_exact_delta_vs_frozen": 0,
+      "ontology_n_evaluable": 228,
+      "ontology_coverage": 0.890625,
+      "ontology_gain_cells_vs_frozen": -13,
+      "ontology_gain_points_vs_frozen": -0.05078125,
+      "unknown_or_unannotated_cells": 13,
+      "unknown_or_unannotated_fraction": 0.05078125,
+      "rescue_candidates": 0,
+      "reconstruction_status": "near_exact",
+      "alignment_method": "raw_species_exact_count",
+      "top_rescued_labels": [],
+      "top_rescued_ontology": [],
+      "top_unknown_labels": [
+        {
+          "label": "Unknow",
+          "count": 13
+        }
+      ]
+    },
+    {
+      "species": "Eutrema salsugineum",
+      "benchmark_status": "ok",
+      "frozen_n_test": 62,
+      "obs_n_test": 62,
+      "obs_n_test_delta": 0,
+      "frozen_exact_n_evaluable": 62,
+      "frozen_exact_coverage": 1.0,
+      "obs_exact_n_evaluable": 62,
+      "obs_exact_coverage": 1.0,
+      "obs_exact_delta_vs_frozen": 0,
+      "ontology_n_evaluable": 0,
+      "ontology_coverage": 0.0,
+      "ontology_gain_cells_vs_frozen": -62,
+      "ontology_gain_points_vs_frozen": -1.0,
+      "unknown_or_unannotated_cells": 62,
+      "unknown_or_unannotated_fraction": 1.0,
+      "rescue_candidates": 0,
+      "reconstruction_status": "near_exact",
+      "alignment_method": "raw_species_exact_count",
+      "top_rescued_labels": [],
+      "top_rescued_ontology": [],
+      "top_unknown_labels": [
+        {
+          "label": "unannotated_root",
+          "count": 62
+        }
+      ]
+    },
+    {
+      "species": "Fragaria vesca",
+      "benchmark_status": "ok",
+      "frozen_n_test": 256,
+      "obs_n_test": 256,
+      "obs_n_test_delta": 0,
+      "frozen_exact_n_evaluable": 161,
+      "frozen_exact_coverage": 0.62890625,
+      "obs_exact_n_evaluable": 161,
+      "obs_exact_coverage": 0.62890625,
+      "obs_exact_delta_vs_frozen": 0,
+      "ontology_n_evaluable": 181,
+      "ontology_coverage": 0.70703125,
+      "ontology_gain_cells_vs_frozen": 20,
+      "ontology_gain_points_vs_frozen": 0.078125,
+      "unknown_or_unannotated_cells": 15,
+      "unknown_or_unannotated_fraction": 0.05859375,
+      "rescue_candidates": 35,
+      "reconstruction_status": "near_exact",
+      "alignment_method": "raw_species_exact_count",
+      "top_rescued_labels": [
+        {
+          "label": "Adaxial epidermis",
+          "count": 18
+        },
+        {
+          "label": "Abaxial epidermis",
+          "count": 9
+        },
+        {
+          "label": "Xylem parenchyma",
+          "count": 8
+        }
+      ],
+      "top_rescued_ontology": [
+        {
+          "label": "epidermis",
+          "count": 27
+        },
+        {
+          "label": "xylem",
+          "count": 8
+        }
+      ],
+      "top_unknown_labels": [
+        {
+          "label": "Unknow",
+          "count": 15
+        }
+      ]
+    },
+    {
+      "species": "Gossypium bickii",
+      "benchmark_status": "ok",
+      "frozen_n_test": 256,
+      "obs_n_test": 256,
+      "obs_n_test_delta": 0,
+      "frozen_exact_n_evaluable": 232,
+      "frozen_exact_coverage": 0.90625,
+      "obs_exact_n_evaluable": 251,
+      "obs_exact_coverage": 0.98046875,
+      "obs_exact_delta_vs_frozen": 19,
+      "ontology_n_evaluable": 251,
+      "ontology_coverage": 0.98046875,
+      "ontology_gain_cells_vs_frozen": 19,
+      "ontology_gain_points_vs_frozen": 0.07421875,
+      "unknown_or_unannotated_cells": 0,
+      "unknown_or_unannotated_fraction": 0.0,
+      "rescue_candidates": 0,
+      "reconstruction_status": "near_exact",
+      "alignment_method": "raw_species_exact_count",
+      "top_rescued_labels": [],
+      "top_rescued_ontology": [],
+      "top_unknown_labels": []
+    },
+    {
+      "species": "Gossypium hirsutum",
+      "benchmark_status": "no_label_overlap",
+      "frozen_n_test": 256,
+      "obs_n_test": 256,
+      "obs_n_test_delta": 0,
+      "frozen_exact_n_evaluable": 0,
+      "frozen_exact_coverage": 0.0,
+      "obs_exact_n_evaluable": 0,
+      "obs_exact_coverage": 0.0,
+      "obs_exact_delta_vs_frozen": 0,
+      "ontology_n_evaluable": 0,
+      "ontology_coverage": 0.0,
+      "ontology_gain_cells_vs_frozen": 0,
+      "ontology_gain_points_vs_frozen": 0.0,
+      "unknown_or_unannotated_cells": 256,
+      "unknown_or_unannotated_fraction": 1.0,
+      "rescue_candidates": 0,
+      "reconstruction_status": "near_exact",
+      "alignment_method": "raw_species_exact_count",
+      "top_rescued_labels": [],
+      "top_rescued_ontology": [],
+      "top_unknown_labels": [
+        {
+          "label": "unannotated_leaf_glandular",
+          "count": 256
+        }
+      ]
+    },
+    {
+      "species": "Triticum aestivum",
+      "benchmark_status": "ok",
+      "frozen_n_test": 256,
+      "obs_n_test": 256,
+      "obs_n_test_delta": 0,
+      "frozen_exact_n_evaluable": 256,
+      "frozen_exact_coverage": 1.0,
+      "obs_exact_n_evaluable": 256,
+      "obs_exact_coverage": 1.0,
+      "obs_exact_delta_vs_frozen": 0,
+      "ontology_n_evaluable": 0,
+      "ontology_coverage": 0.0,
+      "ontology_gain_cells_vs_frozen": -256,
+      "ontology_gain_points_vs_frozen": -1.0,
+      "unknown_or_unannotated_cells": 256,
+      "unknown_or_unannotated_fraction": 1.0,
+      "rescue_candidates": 0,
+      "reconstruction_status": "near_exact",
+      "alignment_method": "raw_species_exact_count",
+      "top_rescued_labels": [],
+      "top_rescued_ontology": [],
+      "top_unknown_labels": [
+        {
+          "label": "unannotated_root",
+          "count": 256
+        }
+      ]
+    }
+  ]
+}
