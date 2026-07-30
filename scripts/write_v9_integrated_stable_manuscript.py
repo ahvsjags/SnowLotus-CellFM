@@ -166,9 +166,21 @@ def stable_claim_matrix(head: str) -> list[dict[str, str]]:
         },
         {
             "risk": "代码版本和 GitHub 展示不同步",
-            "fix": "主文写入 GitHub release、服务器发布包和 SHA256 校验状态；GitHub auth 未恢复前不声称最新 commit 已推送。",
-            "safe_claim": "The integrated manuscript is version-controlled in the repository; the current commit should be read from git log -1 or the final handoff note.",
-            "evidence": "GITHUB_PUSH_INSTRUCTIONS.md",
+            "fix": "GitHub HTTPS 后端已切换为 repo-local OpenSSL；最新同步状态用 `git rev-parse HEAD origin/agent/remote-pipeline-20260728` 复核，不在正文写死易过期 commit。",
+            "safe_claim": "The submission branch, release asset, SHA256 records and server package can be independently checked from the repository and release metadata.",
+            "evidence": "release_metadata/server_sustainability_status_v9.md",
+        },
+        {
+            "risk": "在线服务稳定性被追问",
+            "fix": "已补 live `POST /annotate` smoke test 和 tmux watchdog 控制恢复测试；服务被 SIGTERM 后 30 秒内由 watchdog 拉起，并恢复健康检查。",
+            "safe_claim": "Plant-CellFM v9 is not only a static checkpoint; the frozen model is deployed in a reproducible CUDA service with recorded runtime and recovery evidence.",
+            "evidence": "release_metadata/api_runtime_smoke_v9.md; release_metadata/watchdog_recovery_status_v9.md",
+        },
+        {
+            "risk": "早期 5090 文件名与当前硬件声明混淆",
+            "fix": "正式 README、提交索引、模型卡和主文均使用实测 NVIDIA GeForce RTX 4090, 24 GB VRAM；早期 5090 文件名只作为开发历史保留。",
+            "safe_claim": "The frozen v9 candidate should be cited as the RTX 4090 LoRA checkpoint and CUDA service.",
+            "evidence": "release_metadata/plant_cellfm_v9_model_card.md; SUBMISSION_INDEX_v9.md",
         },
     ]
 
@@ -297,6 +309,13 @@ def build_markdown() -> str:
                 "远程服务加载 `/root/snowlotus_cellfm_v9_lora_shared_4090/best.pt`，health check 返回 `model_scope=plant_general`、`adapter_resolution=dynamic_all_plants`、`device=cuda`，说明服务端调用的是植物通用 v9 模型。"
             ),
             "",
+            (
+                "为了让模型不是停留在静态文件层面，当前提交还冻结了 live runtime evidence："
+                "`release_metadata/api_runtime_smoke_v9.md` 记录一次真实 `POST /annotate` 调用，输入 Arabidopsis benchmark subset，服务解析 `plant_arabidopsis_thaliana` adapter，输出 3964 个细胞的预测和 3964 x 256 embedding；"
+                "`release_metadata/watchdog_recovery_status_v9.md` 记录一次控制恢复测试，服务进程被 SIGTERM 后由 `plant_cellfm_watchdog` tmux 会话在 30 秒内重新拉起并恢复 `/health`。"
+                "这两项证据把 checkpoint、CUDA 服务和可持续运行状态连成同一条可复核链路。"
+            ),
+            "",
             "## 5 评估设计：用开放集口径解释跨物种泛化",
             "",
             (
@@ -375,6 +394,11 @@ def build_markdown() -> str:
                 "它是 public-data computational case，因此主文把它写成可复现生物学示范，而不写成湿实验已验证的最终生物发现。"
             ),
             "",
+            (
+                "`release_metadata/arabidopsis_root_literature_anchor_v9.md` 进一步把上述 root identity labels 与既有 Arabidopsis root single-cell atlas 文献中的 root cap/columella、trichoblast/root hair、atrichoblast/non-hair、cortex、endodermis、stele、phloem 和 xylem taxonomy 对齐。"
+                "该文件还列出 COBL9、SCR、MYB36、CASP1、MYB46、APL、SUC2、VND7 等 canonical marker examples，作为后续人工 marker-overlap 或 reporter-line 验证的锚点；当前稿件只把 Plant-CellFM 输出解释为 computational marker candidates，不写作湿实验已验证 marker。"
+            ),
+            "",
             "## 8 天山雪莲定位：目标物种入口",
             "",
             (
@@ -393,6 +417,14 @@ def build_markdown() -> str:
             f"checkpoint asset：{CHECKPOINT_ASSET}",
             "",
             f"checkpoint SHA256：`{CHECKPOINT_SHA256}`",
+            "",
+            "live API smoke evidence：`release_metadata/api_runtime_smoke_v9.md`",
+            "",
+            "watchdog recovery evidence：`release_metadata/watchdog_recovery_status_v9.md`",
+            "",
+            "editor issue closure：`release_metadata/v9_editor_issue_closure.md`",
+            "",
+            "Arabidopsis root literature anchor：`release_metadata/arabidopsis_root_literature_anchor_v9.md`",
             "",
             "服务器发布包：`/mnt/snowlotus_cellfm/outputs/publication_package/v9_lora_shared_4090`",
             "",
@@ -522,7 +554,10 @@ def build_docx(markdown: str, output: Path) -> None:
 
 
 def write_risk_matrix(markdown: str, head: str) -> None:
-    matrix = {"commit": head, "items": stable_claim_matrix(head)}
+    matrix = {
+        "head_verification_command": "git rev-parse HEAD origin/agent/remote-pipeline-20260728",
+        "items": stable_claim_matrix(head),
+    }
     json_path = RELEASE / "v9_submission_stability_audit.json"
     md_path = RELEASE / "v9_submission_stability_audit.md"
     json_path.write_text(json.dumps(matrix, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -540,13 +575,21 @@ def write_risk_matrix(markdown: str, head: str) -> None:
 def main() -> None:
     markdown = build_markdown()
     head = git_head()
-    md_path = MANUSCRIPT / "Plant_CellFM_v9_完整主文_稳健方法版_v1.md"
-    docx_path = MANUSCRIPT / "Plant_CellFM_v9_完整主文_稳健方法版_v1.docx"
-    md_path.write_text(markdown, encoding="utf-8")
-    build_docx(markdown, docx_path)
+    md_paths = [
+        MANUSCRIPT / "Plant_CellFM_v9_完整主文_稳健方法版_v1.md",
+        MANUSCRIPT / "Plant_CellFM_v9_final_submission_zh_v1.md",
+    ]
+    docx_paths = [
+        MANUSCRIPT / "Plant_CellFM_v9_完整主文_稳健方法版_v1.docx",
+        MANUSCRIPT / "Plant_CellFM_v9_final_submission_zh_v1.docx",
+    ]
+    for md_path in md_paths:
+        md_path.write_text(markdown, encoding="utf-8")
+    for docx_path in docx_paths:
+        build_docx(markdown, docx_path)
     write_risk_matrix(markdown, head)
-    print(md_path)
-    print(docx_path)
+    for path in [*md_paths, *docx_paths]:
+        print(path)
     print(RELEASE / "v9_submission_stability_audit.md")
 
 

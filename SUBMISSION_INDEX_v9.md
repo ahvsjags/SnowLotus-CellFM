@@ -18,6 +18,8 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | --- | --- |
 | Repository overview | `README.md` |
 | Full Chinese manuscript | `manuscript/Plant_CellFM_v9_完整主文_稳健方法版_v1.md` |
+| Full Chinese manuscript, ASCII path | `manuscript/Plant_CellFM_v9_final_submission_zh_v1.md` |
+| Full Chinese manuscript, Word | `manuscript/Plant_CellFM_v9_final_submission_zh_v1.docx` |
 | Publication readiness | `docs/publication_readiness_v9.md` |
 | Model card | `release_metadata/plant_cellfm_v9_model_card.md` |
 | Stability audit | `release_metadata/v9_submission_stability_audit.md` |
@@ -27,6 +29,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Live API runtime smoke test | `release_metadata/api_runtime_smoke_v9.md` |
 | External benchmark panel | `release_metadata/external_benchmark_panel_v9.md` |
 | Arabidopsis root biology case | `release_metadata/plant_biology_case_study_v9.md` |
+| Arabidopsis root literature anchor | `release_metadata/arabidopsis_root_literature_anchor_v9.md` |
 | v9 benchmark comparison | `release_metadata/v9_benchmarks/v9_lora_vs_v3_shared_comparison.json` |
 | Development plan matching this submission | `docs/development_plan.md` |
 

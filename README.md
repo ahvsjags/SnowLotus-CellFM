@@ -76,6 +76,8 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `release_metadata/v9_editor_issue_closure.md`
 - `release_metadata/api_runtime_smoke_v9.md`
 - `manuscript/Plant_CellFM_v9_完整主文_稳健方法版_v1.md`
+- `manuscript/Plant_CellFM_v9_final_submission_zh_v1.md`
+- `manuscript/Plant_CellFM_v9_final_submission_zh_v1.docx`
 - `docs/publication_readiness_v9.md`
 - `scripts/package_v9_release.sh`
 - `tests/`

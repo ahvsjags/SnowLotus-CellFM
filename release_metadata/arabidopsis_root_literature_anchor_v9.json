@@ -1,0 +1,73 @@
+{
+  "schema_version": "plant_cellfm_arabidopsis_root_literature_anchor_v1",
+  "generated_at": "2026-07-30T17:36:00+08:00",
+  "scope": "Literature support for the biological plausibility of the Arabidopsis root cell-identity taxonomy used in the Plant-CellFM v9 public-data computational case.",
+  "claim_boundary": "This is not wet-lab validation. Plant-CellFM marker genes remain computational marker candidates.",
+  "identity_taxonomy": [
+    {
+      "plant_cellfm_label": "Columella root cap",
+      "literature_identity": "root cap / columella branch"
+    },
+    {
+      "plant_cellfm_label": "Lateral root cap",
+      "literature_identity": "lateral root cap"
+    },
+    {
+      "plant_cellfm_label": "Root cap",
+      "literature_identity": "root cap"
+    },
+    {
+      "plant_cellfm_label": "Root hair",
+      "literature_identity": "trichoblast / root-hair epidermis",
+      "canonical_marker_examples": ["COBL9"]
+    },
+    {
+      "plant_cellfm_label": "Non-hair",
+      "literature_identity": "atrichoblast / non-hair epidermis",
+      "canonical_marker_examples": ["WER", "GL2"]
+    },
+    {
+      "plant_cellfm_label": "Root cortex",
+      "literature_identity": "cortex / ground tissue",
+      "canonical_marker_examples": ["AT1G09750", "NPF6.4", "AT3G21670"]
+    },
+    {
+      "plant_cellfm_label": "Root endodermis",
+      "literature_identity": "endodermis / ground tissue",
+      "canonical_marker_examples": ["SCR", "MYB36", "CASP1"]
+    },
+    {
+      "plant_cellfm_label": "Root stele",
+      "literature_identity": "stele / vascular cylinder"
+    },
+    {
+      "plant_cellfm_label": "Phloem",
+      "literature_identity": "phloem within stele",
+      "canonical_marker_examples": ["APL", "SUC2"]
+    },
+    {
+      "plant_cellfm_label": "Xylem",
+      "literature_identity": "xylem within stele",
+      "canonical_marker_examples": ["MYB46", "VND7"]
+    }
+  ],
+  "sources": [
+    {
+      "citation": "Jean-Baptiste et al., Dynamics of Gene Expression in Single Root Cells of Arabidopsis thaliana",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8516002/",
+      "evidence_role": "Major root groups and canonical marker examples including COBL9, SCR, MYB46, APL and SUC2."
+    },
+    {
+      "citation": "Shahan et al., A single cell Arabidopsis root atlas reveals developmental trajectories in wild-type and cell identity mutants",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9014886/",
+      "doi": "https://doi.org/10.1016/j.devcel.2022.01.008",
+      "evidence_role": "Organ-scale root atlas with root cap, epidermis, ground tissue and stele branches plus phloem/xylem subtypes."
+    },
+    {
+      "citation": "Ryu et al., Single-Cell RNA Sequencing Resolves Molecular Relationships Among Individual Plant Cells",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6446759/",
+      "doi": "10.1104/pp.18.01482",
+      "evidence_role": "Arabidopsis root scRNA-seq identifying major root tissue types including root cap, root hair, nonhair, cortex, endodermis and stele."
+    }
+  ]
+}

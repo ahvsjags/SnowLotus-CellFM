@@ -1,6 +1,6 @@
 {
   "schema_version": "plant_cellfm_v9_editor_issue_closure_v1",
-  "generated_at": "2026-07-30T17:25:00+08:00",
+  "generated_at": "2026-07-30T17:38:00+08:00",
   "claim_position": "Plant-CellFM v9 is a general plant single-cell expression foundation-model and adapter framework with a frozen RTX 4090 LoRA checkpoint, completed v3/centroid/Seurat comparisons, an Arabidopsis root computational biology case, live CUDA service evidence and watchdog recovery evidence.",
   "avoid_claims": [
     "universal high-accuracy zero-shot annotation for every plant species",
@@ -29,9 +29,10 @@
     {
       "issue": "biology case lacks wet-lab validation",
       "status": "framed_as_public_data_computational_case",
-      "safe_claim": "The Arabidopsis root case demonstrates adapter resolution, annotation and marker-candidate mining on public data.",
+      "safe_claim": "The Arabidopsis root case demonstrates adapter resolution, annotation, marker-candidate mining and literature-aligned root identity taxonomy on public data.",
       "evidence": [
-        "release_metadata/plant_biology_case_study_v9.md"
+        "release_metadata/plant_biology_case_study_v9.md",
+        "release_metadata/arabidopsis_root_literature_anchor_v9.md"
       ]
     },
     {

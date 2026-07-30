@@ -53,6 +53,7 @@ The internal held-out test reports fine accuracy 0.8113, coarse accuracy 0.8298 
 - scPlantLLM: compatible input and preprocessing are present; metric completion requires an executable official checkout and weights in the release environment.
 - scPlantAnnotate: official web route is reachable, but anonymous scriptable benchmark execution is not available in the current audit.
 - Arabidopsis root case: `release_metadata/plant_biology_case_study_v9.md` records adapter resolution plus 260 marker-candidate rows across 13 cell states.
+- Arabidopsis root literature anchor: `release_metadata/arabidopsis_root_literature_anchor_v9.md` maps the case labels to established root atlas terminology and canonical marker examples.
 
 ## Reproduction and Integrity
 

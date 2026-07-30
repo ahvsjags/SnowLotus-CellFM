@@ -14,6 +14,7 @@ A complete public-plant biological case demonstrating adapter resolution, hierar
 - Marker labels: `13`
 - Marker rows: `260`
 - Root identity labels: `10`
+- Literature anchor: `release_metadata/arabidopsis_root_literature_anchor_v9.md`
 
 ## Top Marker Summary
 
@@ -36,6 +37,8 @@ A complete public-plant biological case demonstrating adapter resolution, hierar
 ## Manuscript-Ready Case Statement
 
 The Arabidopsis root case provides a complete public-data demonstration of Plant-CellFM v9: the same plant-general model resolves a species adapter, produces annotation-ready representations and returns marker candidates for major root cell identities.
+
+The reported root identity categories are aligned with established Arabidopsis root single-cell atlas terminology, including root cap/columella, root-hair and non-hair epidermis, cortex, endodermis, stele, phloem and xylem. The model-derived marker genes remain computational candidates, not wet-lab-validated markers.
 
 ## Reproducible Workflow
 

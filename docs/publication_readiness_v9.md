@@ -18,6 +18,8 @@ This file records the evidence behind the frozen v9 candidate. It is an engineer
 12. **Live runtime smoke test.** `release_metadata/api_runtime_smoke_v9.md` records a successful `POST /annotate` call on the deployed service, resolving the Arabidopsis adapter and writing predictions plus 3964 x 256 embeddings.
 13. **Watchdog recovery.** `release_metadata/watchdog_recovery_status_v9.md` records a controlled SIGTERM recovery test in which the tmux watchdog restarted the Plant-CellFM service within 30 seconds.
 14. **Editor issue closure.** `release_metadata/v9_editor_issue_closure.md` records the current safe resolution of the main editor-facing concerns: strict cross-species wording, third-party comparator boundaries, Arabidopsis case scope, Snow Lotus scope, RTX 4090 hardware statement and server/GitHub reproducibility.
+15. **Submission manuscript refresh.** `manuscript/Plant_CellFM_v9_final_submission_zh_v1.md` and `.docx` provide an ASCII-path copy of the integrated Chinese manuscript, now including live API runtime evidence, watchdog recovery evidence and the updated stability matrix.
+16. **Arabidopsis literature anchor.** `release_metadata/arabidopsis_root_literature_anchor_v9.md` aligns the root case labels with established Arabidopsis root atlas categories and canonical marker examples while preserving the claim boundary that model markers are computational candidates.
 
 ## Frozen Results
 
