@@ -60,6 +60,19 @@ for item in \
   copy_if_exists "$item"
 done
 
+for stem in \
+  scplantdb_dataset_catalog.tsv \
+  scplantdb_dataset_catalog.json \
+  scplantdb_acquisition_catalog.md \
+  scplantdb_h5ad_size_probe.tsv \
+  scplantdb_h5ad_size_probe.json \
+  scplantdb_h5ad_size_probe.md \
+  scplantdb_selected_h5ad_datasets.txt; do
+  if [ -s "${stage_dir}/release_metadata/public_discovery/${stem}" ]; then
+    cp -f "${stage_dir}/release_metadata/public_discovery/${stem}" "${stage_dir}/data/public_discovery/${stem}"
+  fi
+done
+
 cat > "$stage_dir/ROOT_STAGING_README.md" <<EOF
 # Plant-CellFM v10 root staging workspace
 

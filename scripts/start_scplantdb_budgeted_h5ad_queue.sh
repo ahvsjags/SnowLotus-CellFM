@@ -10,6 +10,7 @@ max_datasets="${SNOWCELL_SCPLANTDB_MAX_DATASETS:-32}"
 min_cells="${SNOWCELL_SCPLANTDB_MIN_CELLS:-0}"
 probe_timeout="${SNOWCELL_SCPLANTDB_PROBE_TIMEOUT:-15}"
 refresh_package="${SNOWCELL_SCPLANTDB_REFRESH_PACKAGE:-1}"
+min_free_bytes="${SNOWCELL_MIN_FREE_BYTES:-10737418240}"
 
 cd "$project_dir"
 mkdir -p logs
@@ -20,8 +21,8 @@ if tmux has-session -t "=$session" 2>/dev/null; then
 fi
 
 tmux new-session -d -s "$session" \
-  "cd '$project_dir' && SNOWCELL_SCPLANTDB_MAX_BYTES='$max_bytes' SNOWCELL_SCPLANTDB_MAX_TOTAL_BYTES='$max_total_bytes' SNOWCELL_SCPLANTDB_MAX_DATASETS='$max_datasets' SNOWCELL_SCPLANTDB_MIN_CELLS='$min_cells' SNOWCELL_SCPLANTDB_PROBE_TIMEOUT='$probe_timeout' SNOWCELL_SCPLANTDB_REFRESH_PACKAGE='$refresh_package' bash scripts/queue_scplantdb_budgeted_h5ad_download.sh >> '$log_path' 2>&1"
+  "cd '$project_dir' && SNOWCELL_PROJECT_DIR='$project_dir' SNOWCELL_MIN_FREE_BYTES='$min_free_bytes' SNOWCELL_SCPLANTDB_MAX_BYTES='$max_bytes' SNOWCELL_SCPLANTDB_MAX_TOTAL_BYTES='$max_total_bytes' SNOWCELL_SCPLANTDB_MAX_DATASETS='$max_datasets' SNOWCELL_SCPLANTDB_MIN_CELLS='$min_cells' SNOWCELL_SCPLANTDB_PROBE_TIMEOUT='$probe_timeout' SNOWCELL_SCPLANTDB_REFRESH_PACKAGE='$refresh_package' bash scripts/queue_scplantdb_budgeted_h5ad_download.sh >> '$log_path' 2>&1"
 
 echo "started scPlantDB budgeted H5AD queue: $session"
 echo "log: $log_path"
-echo "budgets: max_bytes=$max_bytes max_total_bytes=$max_total_bytes max_datasets=$max_datasets min_cells=$min_cells"
+echo "budgets: max_bytes=$max_bytes max_total_bytes=$max_total_bytes max_datasets=$max_datasets min_cells=$min_cells min_free_bytes=$min_free_bytes"

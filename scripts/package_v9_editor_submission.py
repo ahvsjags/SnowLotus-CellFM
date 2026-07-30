@@ -31,6 +31,7 @@ ASSET_PATHS = [
     "docs/publication_readiness_v9.md",
     "docs/development_plan.md",
     "docs/top_journal_strategy.md",
+    "docs/post_v9_continuation_operations.md",
     "manuscript/Plant_CellFM_v9_final_submission_zh_v1.md",
     "manuscript/Plant_CellFM_v9_final_submission_zh_v1.docx",
     "manuscript/Plant_CellFM_v9_cover_letter.md",
@@ -120,6 +121,13 @@ ASSET_PATHS = [
     "scripts/write_v9_submission_cover_materials.py",
     "scripts/write_v9_english_submission_synopsis.py",
     "scripts/package_v9_editor_submission.py",
+    "scripts/check_disk_budget.sh",
+    "scripts/start_public_queues_when_space.sh",
+    "scripts/prepare_root_continuation_staging.sh",
+    "scripts/download_scplantdb_h5ad_subset.sh",
+    "scripts/queue_scplantdb_budgeted_h5ad_download.sh",
+    "scripts/start_scplantdb_budgeted_h5ad_queue.sh",
+    "scripts/write_server_continuation_status_v10.py",
 ]
 
 
@@ -211,7 +219,9 @@ def package_readme(git_head: str, generated_at: str) -> str:
             "16. `release_metadata/server_sustainability_status_v9.md`",
             "17. `scripts/verify_v9_server_release.py`",
             "18. `scripts/write_release_gate_completion_audit_v9.py`",
-            "19. `GITHUB_SYNC_RECOVERY.md`",
+            "19. `docs/post_v9_continuation_operations.md`",
+            "20. `scripts/write_server_continuation_status_v10.py`",
+            "21. `GITHUB_SYNC_RECOVERY.md`",
             "",
             "## Claim Boundary",
             "",
@@ -234,6 +244,8 @@ def package_readme(git_head: str, generated_at: str) -> str:
             "```",
             "",
             "The verifier checks the final zip SHA256, critical zip entries, recovery note, root evidence files, addendum recovery note, live `/health`, CUDA device, RTX 4090 visibility and watchdog tmux session.",
+            "",
+            "Post-v9 continuation is documented separately in `docs/post_v9_continuation_operations.md`. It records the disk-budget watcher, `/root` staging path, scPlantDB budgeted H5AD queue and continuation-status script used when `/mnt` is full. These continuation assets are evidence of ongoing reproducible work and do not expand the frozen v9 claims.",
             "",
         ]
     )
@@ -400,6 +412,8 @@ def build_package(output_dir: Path, package_name: str) -> dict[str, Any]:
             "release_metadata/species_ontology_coverage_audit_v9.md",
             "release_metadata/species_ontology_label_benchmark_v9.md",
             "release_metadata/server_sustainability_status_v9.md",
+            "docs/post_v9_continuation_operations.md",
+            "scripts/write_server_continuation_status_v10.py",
             "scripts/verify_v9_server_release.py",
             "scripts/write_release_gate_completion_audit_v9.py",
             "GITHUB_SYNC_RECOVERY.md",

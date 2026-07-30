@@ -18,14 +18,22 @@ SCPLANTLLM_MODEL_WEIGHT = "model_params/scPlantLLM_model.pth"
 def run_command(command: list[str], cwd: Path) -> dict[str, Any]:
     if shutil.which(command[0]) is None:
         return {"command": command, "returncode": None, "stdout": "", "stderr": "command not found"}
-    completed = subprocess.run(
-        command,
-        cwd=cwd,
-        check=False,
-        text=True,
-        capture_output=True,
-        timeout=60,
-    )
+    try:
+        completed = subprocess.run(
+            command,
+            cwd=cwd,
+            check=False,
+            text=True,
+            capture_output=True,
+            timeout=60,
+        )
+    except subprocess.TimeoutExpired as exc:
+        return {
+            "command": command,
+            "returncode": -124,
+            "stdout": (exc.stdout or "").strip() if isinstance(exc.stdout, str) else "",
+            "stderr": f"command timed out after {exc.timeout} seconds",
+        }
     return {
         "command": command,
         "returncode": completed.returncode,

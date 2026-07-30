@@ -69,6 +69,43 @@ def df_bytes(path: str) -> dict[str, Any]:
     }
 
 
+def count_tsv_rows(path: Path) -> int | None:
+    if not path.exists():
+        return None
+    with path.open("r", encoding="utf-8", errors="replace") as handle:
+        line_count = sum(1 for _ in handle)
+    return max(0, line_count - 1)
+
+
+def root_stage_progress(root_stage: Path) -> dict[str, Any]:
+    if not root_stage.exists():
+        return {"exists": False}
+    manifest = root_stage / "data" / "corpus_manifest.scplantdb.tsv"
+    h5ad_dir = root_stage / "data" / "public" / "scPlantDB_h5ad"
+    audit_paths = [
+        root_stage / "outputs" / "publication_package" / "scplantdb_manifest_audit.md",
+        root_stage / "outputs" / "publication_package" / "data_integrity_audit.md",
+        root_stage / "outputs" / "publication_package" / "pending_corpus_additions.md",
+    ]
+    h5ad_files = sorted(h5ad_dir.glob("*.h5ad")) if h5ad_dir.exists() else []
+    return {
+        "exists": True,
+        "manifest": str(manifest),
+        "manifest_rows": count_tsv_rows(manifest),
+        "h5ad_file_count": len(h5ad_files),
+        "h5ad_total_bytes": sum(path.stat().st_size for path in h5ad_files),
+        "h5ad_files": [path.name for path in h5ad_files],
+        "audits": {
+            path.name: {
+                "path": str(path),
+                "exists": path.exists(),
+                "size_bytes": path.stat().st_size if path.exists() else 0,
+            }
+            for path in audit_paths
+        },
+    }
+
+
 def tmux_sessions() -> list[str]:
     result = run(["tmux", "ls"], timeout=10)
     if result["returncode"] != 0:
@@ -103,6 +140,7 @@ def build_status(min_free_bytes: int) -> dict[str, Any]:
     disk_root = df_bytes("/root")
     root_stage = Path("/root/snowlotus_cellfm_v10")
     disk_root_stage = df_bytes(str(root_stage)) if root_stage.exists() else {}
+    root_stage_scplantdb = root_stage_progress(root_stage)
     available = disk_project.get("available_bytes")
     disk_ok = available is not None and available >= min_free_bytes
     package_status = read_json(OUTPUTS / "Plant_CellFM_v9_editor_submission_final.status.json")
@@ -130,6 +168,7 @@ def build_status(min_free_bytes: int) -> dict[str, Any]:
         "root_stage_exists": root_stage.exists(),
         "root_stage": str(root_stage),
         "disk_root_stage": disk_root_stage,
+        "root_stage_scplantdb": root_stage_scplantdb,
         "disk_budget_ok": disk_ok,
         "tmux_sessions": sessions,
         "active_queue_sessions": active_queue_sessions,
@@ -159,6 +198,7 @@ def markdown(status: dict[str, Any]) -> str:
     disk = status["disk_project"]
     root_disk = status["disk_root"]
     stage_disk = status.get("disk_root_stage", {})
+    root_scplantdb = status.get("root_stage_scplantdb", {})
     health = status["health"]
     lines = [
         "# Plant-CellFM v10 Continuation Status",
@@ -180,6 +220,10 @@ def markdown(status: dict[str, Any]) -> str:
         f"Root staging exists: `{status.get('root_stage_exists')}` at `{status.get('root_stage')}`",
         "",
         f"Root staging disk free: `{fmt_bytes(stage_disk.get('available_bytes'))}` on `{stage_disk.get('mount', '')}` ({stage_disk.get('use_percent', '')} used)",
+        "",
+        f"Root staging scPlantDB manifest rows: `{root_scplantdb.get('manifest_rows', 'not_available')}`",
+        "",
+        f"Root staging scPlantDB H5AD files: `{root_scplantdb.get('h5ad_file_count', 'not_available')}`; total size `{fmt_bytes(root_scplantdb.get('h5ad_total_bytes'))}`",
         "",
         f"Health: `{health.get('status')}`; scope `{health.get('model_scope')}`; device `{health.get('device')}`; adapters `{health.get('adapter_count')}`",
         "",
@@ -203,6 +247,18 @@ def markdown(status: dict[str, Any]) -> str:
     lines.extend(["", "## All tmux Sessions", ""])
     if status["tmux_sessions"]:
         lines.extend(f"- `{session}`" for session in status["tmux_sessions"])
+    else:
+        lines.append("- none")
+    lines.extend(
+        [
+            "",
+            "## Root Staging scPlantDB Files",
+            "",
+        ]
+    )
+    h5ad_files = root_scplantdb.get("h5ad_files") or []
+    if h5ad_files:
+        lines.extend(f"- `{name}`" for name in h5ad_files)
     else:
         lines.append("- none")
     lines.extend(

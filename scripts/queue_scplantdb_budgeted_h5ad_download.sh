@@ -12,6 +12,7 @@ manifest="${SNOWCELL_SCPLANTDB_MANIFEST:-data/corpus_manifest.scplantdb.tsv}"
 refresh_package="${SNOWCELL_SCPLANTDB_REFRESH_PACKAGE:-1}"
 
 cd "$project_dir"
+export PATH="/root/miniconda3/envs/myconda/bin:$PATH"
 source .venv/bin/activate 2>/dev/null || true
 mkdir -p logs data/public_discovery outputs/publication_package
 

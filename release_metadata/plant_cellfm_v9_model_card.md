@@ -56,7 +56,7 @@ The ontology-label species-holdout benchmark reuses the frozen 3,964 x 256 runti
 - Species ontology coverage audit: `release_metadata/species_ontology_coverage_audit_v9.md`
 - Species ontology-label benchmark: `release_metadata/species_ontology_label_benchmark_v9.md`
 - Plant cell-state ontology mapping: `release_metadata/plant_cell_state_ontology_mapping_v9.tsv`
-- Integrated stable manuscript: `manuscript/Plant_CellFM_v9_完整主文_稳健方法版_v1.md`
+- Integrated stable manuscript: `manuscript/Plant_CellFM_v9_final_submission_zh_v1.md` and `manuscript/Plant_CellFM_v9_final_submission_zh_v1.docx`
 - Submission stability audit: `release_metadata/v9_submission_stability_audit.md`
 - Seurat label transfer on the frozen v9 subset: fine accuracy 0.2207 and fine macro-F1 0.0603 on 512 test cells.
 - Classical cosine-centroid SRP169576 sample holdout: fine accuracy 0.7337 and fine macro-F1 0.4873.
