@@ -105,6 +105,7 @@ ASSET_PATHS = [
     "scripts/write_species_ontology_coverage_audit_v9.py",
     "scripts/run_species_ontology_label_benchmark_v9.py",
     "scripts/verify_v9_server_release.py",
+    "scripts/write_release_gate_completion_audit_v9.py",
     "scripts/package_v9_editor_submission.py",
 ]
 
@@ -191,7 +192,8 @@ def package_readme(git_head: str, generated_at: str) -> str:
             "10. `release_metadata/species_ontology_label_benchmark_v9.md`",
             "11. `release_metadata/server_sustainability_status_v9.md`",
             "12. `scripts/verify_v9_server_release.py`",
-            "13. `GITHUB_SYNC_RECOVERY.md`",
+            "13. `scripts/write_release_gate_completion_audit_v9.py`",
+            "14. `GITHUB_SYNC_RECOVERY.md`",
             "",
             "## Claim Boundary",
             "",
@@ -365,6 +367,7 @@ def build_package(output_dir: Path, package_name: str) -> dict[str, Any]:
             "release_metadata/species_ontology_label_benchmark_v9.md",
             "release_metadata/server_sustainability_status_v9.md",
             "scripts/verify_v9_server_release.py",
+            "scripts/write_release_gate_completion_audit_v9.py",
             "GITHUB_SYNC_RECOVERY.md",
         ],
     }
