@@ -1,10 +1,12 @@
 # Plant-CellFM / SnowLotus-CellFM
 
-Plant-CellFM is the general-plant branch of SnowLotus-CellFM, a cross-species foundation model for plant single-cell and single-nucleus expression data. The model is not restricted to *Saussurea involucrata* (Snow Lotus): Snow Lotus is one species adapter and one biological validation case within a broader plant model.
+Plant-CellFM is the general-plant branch of SnowLotus-CellFM, a cross-species foundation model for plant single-cell and single-nucleus expression data. The model is not restricted to *Saussurea involucrata* (Snow Lotus): Snow Lotus is a target-species adapter and application scenario within a broader plant model.
 
 ## Frozen v9 Release
 
 The current publication candidate is the v9 LoRA checkpoint trained on an audited public plant corpus with an NVIDIA RTX 4090. The release is frozen for reproducibility; later v10 data-expansion jobs are not part of this candidate.
+
+Reviewer-facing entry point: `SUBMISSION_INDEX_v9.md`. That file lists the current manuscript, model card, benchmark panel and stable claim boundaries for the frozen v9 package.
 
 - Corpus: 56 manifest rows, 29 datasets and 21 plant species.
 - Training corpus: 13.78 million cells after corpus construction.
@@ -25,6 +27,8 @@ The release reports both an internal held-out test and stricter cross-group eval
 | Leave-species-out, species labels normalized | 0.2354 | 0.5590 | 0.4210 | 0.1918 |
 
 The known-label conditional columns evaluate only test cells whose reference labels occur in the training fold. The all-cell accuracy column counts cells with unseen labels as errors, which is the appropriate open-set view for species holdout. The species-holdout protocol canonicalizes species aliases such as `Arabidopsis_thaliana` and `Arabidopsis thaliana` before splitting, reducing the selected benchmark from 9 raw species labels to 8 normalized species groups. Against the frozen v3 extended baseline on the same shared-gene benchmark, v9 all-cell accuracy improved by 24.70, 20.45 and 4.41 percentage points for leave-dataset, leave-sample and normalized leave-species evaluation, respectively. All benchmark JSON, model checksums, training history and the 256-cell benchmark subset are included in the release package.
+
+The extended methods panel also includes transparent non-Plant-CellFM comparators and a biological case-study asset. Seurat anchor-based label transfer was run on the frozen v9 subset export with 2,940 train cells and 512 test cells, obtaining fine accuracy 0.2207 and macro-F1 0.0603. The classical cosine-centroid SRP169576 sample-holdout baseline reports fine accuracy 0.7337 and macro-F1 0.4873. The scPlantLLM input path is prepared and audited, but the frozen metric is reported only when its official checkout and weights are locally available. The Arabidopsis root case study contains 260 marker-candidate rows across 13 cell states and demonstrates adapter resolution, marker mining and root cell-identity interpretation.
 
 ## Repositories and Release
 
@@ -56,12 +60,18 @@ For the frozen model, download the v9 release asset and use the packaged configu
 
 ## Reproducibility Evidence
 
+- `SUBMISSION_INDEX_v9.md`
 - `release_metadata/plant_cellfm_v9_model_card.md`
 - `release_metadata/v9_data_card.md`
 - `release_metadata/data_integrity_audit.md`
 - `release_metadata/corpus_provenance_audit.md`
 - `release_metadata/benchmark_gap_audit.md`
 - `release_metadata/external_benchmark_status_v9.md`
+- `release_metadata/external_benchmark_panel_v9.md`
+- `release_metadata/plant_biology_case_study_v9.md`
+- `release_metadata/third_party_comparator_sources_v9.md`
+- `release_metadata/v9_submission_stability_audit.md`
+- `manuscript/Plant_CellFM_v9_完整主文_稳健方法版_v1.md`
 - `docs/publication_readiness_v9.md`
 - `scripts/package_v9_release.sh`
 - `tests/`
