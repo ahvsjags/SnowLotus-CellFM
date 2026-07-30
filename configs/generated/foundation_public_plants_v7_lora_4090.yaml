@@ -1,5 +1,5 @@
 data:
-  path: /root/snowlotus_public_plants_v7/plant_foundation_corpus_public_plants_v7.h5ad
+  path: /root/snowlotus_public_plants_v7/plant_foundation_corpus_public_plants_v7_shared_genes.h5ad
   layer: null
   label_key: cell_type
   coarse_label_key: cell_type_coarse
@@ -59,5 +59,5 @@ train:
   compile_model: false
 
 output:
-  directory: /root/snowlotus_cellfm_v7_lora_4090
+  directory: /root/snowlotus_cellfm_v7_lora_shared_4090
   save_every_epochs: 1
