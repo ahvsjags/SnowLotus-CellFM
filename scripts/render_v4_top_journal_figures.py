@@ -79,6 +79,21 @@ ONTOLOGY = {
     "cell_cycle_state": "#7D8790",
     UNKNOWN_ONTOLOGY: "#D5DDE0",
 }
+ROOT_STATE = {
+    "Lateral root cap": "#D97524",
+    "Root cortex": "#2D8C88",
+    "Root stele": "#2E6FAD",
+    "Unknow": "#9CAAB2",
+    "Root cap": "#B34D5B",
+    "Non-hair": "#8064A7",
+    "Root endodermis": "#007C83",
+    "Xylem": "#5A95C8",
+    "S phase": "#C7674B",
+    "Root hair": "#E69F00",
+    "Columella root cap": "#B77A4A",
+    "G1/G0 phase": "#657987",
+    "Phloem": "#6A5BA5",
+}
 
 
 def setup() -> None:
@@ -498,7 +513,6 @@ def render_fig4_root_resource() -> None:
     ax_d = fig.add_subplot(grid[1, 3])
 
     ax_a.set_axis_off()
-    y_positions = {label: index for index, label in enumerate(root_order[::-1])}
     display_taxonomy = {
         "Columella root cap": "Columella",
         "Lateral root cap": "Lateral cap",
@@ -511,17 +525,40 @@ def render_fig4_root_resource() -> None:
         "Phloem": "Phloem",
         "Xylem": "Xylem",
     }
-    for label in root_order:
-        y = y_positions[label]
-        group = markers.loc[markers.label.eq(label), "compartment"].iloc[0]
-        color = colors[str(group)]
-        ax_a.plot([.03, .23], [y, y], color=color, lw=1.25, solid_capstyle="round")
-        ax_a.scatter(.28, y, s=39, color=color, edgecolor="white", linewidth=.55, zorder=3)
-        ax_a.text(.39, y, display_taxonomy[label], va="center", fontsize=4.65)
-    for text, y, color in [("cap", 8.0, ORANGE), ("epi", 5.5, PURPLE), ("ground", 3.3, TEAL), ("vascular", 1.0, BLUE)]:
-        ax_a.text(-.34, y, text, ha="left", va="center", fontsize=4.25, color=color, fontweight="bold")
-    ax_a.set(xlim=(-.37, 1.28), ylim=(-.65, 9.65))
-    label_panel(ax_a, "a", "Root identity\ntaxonomy")
+    state_cells = markers.groupby("label", as_index=True).n_cells_in.max()
+    taxonomy = taxonomy.merge(
+        state_cells.rename("candidate_resource_cells"),
+        left_on="plant_cellfm_label",
+        right_index=True,
+        how="left",
+    )
+    branch_layout = (
+        ("root cap", ORANGE, ["Columella root cap", "Lateral root cap", "Root cap"], .68, .23),
+        ("epidermis", PURPLE, ["Root hair", "Non-hair"], .48, .15),
+        ("ground tissue", TEAL, ["Root cortex", "Root endodermis"], .30, .15),
+        ("vascular", BLUE, ["Root stele", "Phloem", "Xylem"], .075, .21),
+    )
+    # A compact tree exposes hierarchy and per-state evidence scale instead of
+    # using the taxonomy panel as a decorative legend.
+    ax_a.text(.50, .97, "Arabidopsis root", ha="center", va="center", fontsize=5.2, fontweight="bold", color=INK)
+    ax_a.plot([.50, .50], [.92, .11], color=GRID, lw=1.0, zorder=0)
+    for compartment, color, members, center, height in branch_layout:
+        bottom = center - height / 2
+        pale = mpl.colors.to_rgba(color, alpha=.10)
+        ax_a.add_patch(Rectangle((.035, bottom), .90, height, facecolor=pale, edgecolor="none", zorder=-1))
+        ax_a.plot([.50, .17], [center, center], color=color, lw=1.05, zorder=1)
+        ax_a.plot([.17, .17], [bottom + .025, bottom + height - .025], color=color, lw=.9, zorder=1)
+        ax_a.text(.075, bottom + height - .017, compartment, ha="left", va="top", fontsize=4.05, color=color, fontweight="bold")
+        member_y = np.linspace(bottom + height - .057, bottom + .042, len(members))
+        for label, y in zip(members, member_y, strict=True):
+            cell_count = int(state_cells[label])
+            ax_a.plot([.17, .27], [y, y], color=color, lw=.72, zorder=1)
+            ax_a.scatter(.30, y, s=28, color=color, edgecolor="white", linewidth=.45, zorder=3)
+            ax_a.text(.38, y, display_taxonomy[label], va="center", fontsize=4.15, color=INK)
+            ax_a.text(.90, y, f"n={cell_count:,}", ha="right", va="center", fontsize=3.7, color=MUTED)
+    ax_a.text(.90, .015, "public cells", ha="right", va="bottom", fontsize=3.55, color=MUTED)
+    ax_a.set(xlim=(0, 1), ylim=(0, 1))
+    label_panel(ax_a, "a", "Root taxonomy\nand cell scale")
 
     top = markers[markers["rank"].le(5)]
     score = top.pivot(index="label", columns="rank", values="log2fc").reindex(index=root_order, columns=range(1, 6))
@@ -808,6 +845,187 @@ def render_ed4_literature_marker_concordance() -> None:
     )
 
 
+def render_ed5_external_root_blind_inference() -> None:
+    """Render a data-first external blind-inference case without implying accuracy.
+
+    The GEO matrix is external to the frozen v4 corpus profile, but it carries
+    no expert labels.  This panel therefore makes its evidence boundary part
+    of the visual argument: embedding and predicted composition are paired
+    with a preregistered-style marker-coherence test rather than a fabricated
+    accuracy bar.
+    """
+    record_path = ROOT / "release_metadata" / "gse152766_external_root_blind_inference_v4.json"
+    if not record_path.exists():
+        raise FileNotFoundError(
+            "External blind-inference audit is required before Extended Data Fig. 5. "
+            "Run scripts/audit_gse152766_external_root_case.py first."
+        )
+    record = json.loads(record_path.read_text(encoding="utf-8"))
+    case_root = ROOT / "outputs" / "external_validation" / "gse152766_gsm4626007" / "annotation_bundle"
+    predictions = pd.read_csv(case_root / "predictions.csv")
+    embeddings = np.load(case_root / "embeddings.npy").astype(np.float32)
+    labels = pd.DataFrame(record["prediction_distribution"])
+    markers = pd.DataFrame(record["predefined_marker_coherence"])
+    if len(predictions) != embeddings.shape[0] or len(predictions) != int(record["execution"]["n_cells"]):
+        raise ValueError("External blind-inference embedding/prediction count does not match the audit record.")
+    if labels["cells"].sum() != len(predictions) or len(markers) != 6:
+        raise ValueError("External blind-inference audit summary is incomplete.")
+
+    reducer = umap.UMAP(n_neighbors=30, min_dist=.34, metric="cosine", random_state=31)
+    coordinates = reducer.fit_transform(embeddings)
+    plot_rows = predictions[["cell_id", "fine_label", "fine_confidence"]].copy()
+    plot_rows["UMAP1"] = coordinates[:, 0]
+    plot_rows["UMAP2"] = coordinates[:, 1]
+
+    fig = plt.figure(figsize=(7.25, 7.35))
+    grid = fig.add_gridspec(
+        2,
+        2,
+        width_ratios=(1.45, .94),
+        height_ratios=(1.13, .87),
+        left=.075,
+        right=.987,
+        bottom=.10,
+        top=.92,
+        hspace=.48,
+        wspace=.48,
+    )
+    ax_a = fig.add_subplot(grid[0, 0])
+    ax_b = fig.add_subplot(grid[0, 1])
+    ax_c = fig.add_subplot(grid[1, :])
+
+    plotted_labels = labels["fine_label"].tolist()
+    for label in reversed(plotted_labels):
+        subset = plot_rows.loc[plot_rows["fine_label"].eq(label)]
+        ax_a.scatter(
+            subset["UMAP1"],
+            subset["UMAP2"],
+            s=2.45,
+            color=ROOT_STATE.get(label, GREY),
+            linewidth=0,
+            alpha=.76,
+            rasterized=True,
+        )
+    ax_a.set(xticks=[], yticks=[])
+    for spine in ax_a.spines.values():
+        spine.set_visible(False)
+    panel(
+        ax_a,
+        "a",
+        "Blind external root inference resolves a structured cell-state manifold",
+        "GSE152766 / GSM4626007; 6,566 cells; label-free input not listed in the frozen v4 corpus profile",
+    )
+    ax_a.text(
+        .01,
+        -.095,
+        "UMAP of frozen 256-dimensional model embeddings; colours are model predictions, not supplied labels.",
+        transform=ax_a.transAxes,
+        fontsize=4.65,
+        color=MUTED,
+    )
+
+    display = labels.sort_values("cells", ascending=True, kind="mergesort").reset_index(drop=True)
+    y = np.arange(len(display))
+    bar_colors = [ROOT_STATE.get(label, GREY) for label in display["fine_label"]]
+    ax_b.barh(y, display["fraction"], color=bar_colors, edgecolor="white", linewidth=.45, height=.64)
+    ax_b.scatter(
+        display["mean_confidence"],
+        y,
+        s=np.clip(display["cells"].to_numpy() / 15, 10, 58),
+        color=INK,
+        edgecolor="white",
+        linewidth=.45,
+        zorder=3,
+    )
+    for index, row in display.iterrows():
+        ax_b.text(
+            max(float(row.fraction), float(row.mean_confidence)) + .012,
+            index,
+            f"{int(row.cells):,}",
+            va="center",
+            fontsize=4.55,
+            color=INK,
+        )
+    ax_b.set(
+        yticks=y,
+        yticklabels=display["fine_label"].tolist(),
+        xlim=(0, 1.16),
+        xticks=(0, .25, .5, .75, 1),
+        xticklabels=("0", ".25", ".50", ".75", "1.0"),
+        xlabel="bar: cell fraction     dot: mean confidence",
+    )
+    ax_b.tick_params(axis="y", labelsize=4.55, pad=1.5, length=0)
+    clean(ax_b, "x")
+    panel(
+        ax_b,
+        "b",
+        "Composition and confidence retain\nall 13 output states",
+        "right-hand number: predicted cells; dot size follows predicted cell count",
+    )
+
+    marker_order = markers.sort_values("mean_expression_delta", ascending=True, kind="mergesort").reset_index(drop=True)
+    y_marker = np.arange(len(marker_order))
+    marker_colors = [ROOT_STATE.get(label, TEAL) for label in marker_order["expected_label"]]
+    ax_c.axvline(0, color=GRID, linewidth=.8, zorder=0)
+    ax_c.hlines(y_marker, 0, marker_order["mean_expression_delta"], color=LIGHT_GREY, lw=3.0, zorder=1)
+    ax_c.scatter(
+        marker_order["mean_expression_delta"],
+        y_marker,
+        s=46 + marker_order["target_detection_fraction"].to_numpy() * 52,
+        color=marker_colors,
+        edgecolor="white",
+        linewidth=.65,
+        zorder=3,
+    )
+    for index, row in marker_order.iterrows():
+        rank = int(row.rank_among_predicted_labels_by_mean_expression)
+        ax_c.text(
+            float(row.mean_expression_delta) + .022,
+            index,
+            f"rank {rank}/13  |  n={int(row.predicted_label_cells)}  |  Δdetect {row.detection_fraction_delta:+.2f}",
+            va="center",
+            fontsize=5.05,
+            color=INK if rank == 1 else MUTED,
+            fontweight="bold" if rank == 1 else "normal",
+        )
+    ax_c.set(
+        yticks=y_marker,
+        yticklabels=[f"{row.marker_symbol}  |  {row.expected_label}" for row in marker_order.itertuples(index=False)],
+        xlim=(-.05, max(1.26, float(marker_order["mean_expression_delta"].max()) + .46)),
+        xlabel="expected-group minus all-other-groups mean log1p(normalised expression)",
+    )
+    ax_c.tick_params(axis="y", labelsize=5.45, pad=2.3, length=0)
+    clean(ax_c, "x")
+    top_hits = int(record["marker_coherence"]["expected_label_is_top_mean_expression"])
+    panel(
+        ax_c,
+        "c",
+        f"Five of six fixed canonical markers peak in their corresponding predicted group ({top_hits}/6)",
+        "All six literature-defined anchors shown; point size encodes marker detection in the expected predicted group",
+    )
+    fig.text(
+        .987,
+        .025,
+        "No expert cell-type labels were present in this GEO matrix: this is a blind-inference and marker-coherence case, not an accuracy estimate or external model ranking.",
+        ha="right",
+        va="bottom",
+        fontsize=4.75,
+        color=MUTED,
+    )
+    source_marker = marker_order.copy()
+    source_marker["marker_display"] = source_marker["marker_symbol"] + " | " + source_marker["expected_label"]
+    export(
+        fig,
+        EXTENDED,
+        "plant_cellfm_v4_ed_fig5_external_root_blind_inference",
+        {
+            "external_embedding_umap": plot_rows,
+            "external_prediction_distribution": labels,
+            "external_marker_coherence": source_marker,
+        },
+    )
+
+
 def main() -> None:
     setup()
     cells, v17, v18 = load_cells()
@@ -819,7 +1037,8 @@ def main() -> None:
     render_ed2_nested_selection()
     render_ed3_matched_checkpoint_comparison()
     render_ed4_literature_marker_concordance()
-    print(json.dumps({"main_figures": 4, "extended_data_figures": 4, "output": str(OUT)}, ensure_ascii=False))
+    render_ed5_external_root_blind_inference()
+    print(json.dumps({"main_figures": 4, "extended_data_figures": 5, "output": str(OUT)}, ensure_ascii=False))
 
 
 if __name__ == "__main__":

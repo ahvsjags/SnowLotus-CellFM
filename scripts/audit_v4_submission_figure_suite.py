@@ -24,6 +24,7 @@ EXTENDED = [
     "plant_cellfm_v4_ed_fig2_nested_selection_audit",
     "plant_cellfm_v4_ed_fig3_matched_checkpoint_comparison",
     "plant_cellfm_v4_ed_fig4_literature_marker_concordance",
+    "plant_cellfm_v4_ed_fig5_external_root_blind_inference",
 ]
 REQUIRED_RECORDS = {
     "v17": ROOT / "release_metadata" / "revision_v17_nested_metadata_gate.json",
@@ -32,6 +33,7 @@ REQUIRED_RECORDS = {
     "model_card": ROOT / "release_metadata" / "plant_cellfm_model_card_v4.json",
     "scplantllm_execution": ROOT / "release_metadata" / "scplantllm_official_execution_audit.json",
     "root_literature_concordance": ROOT / "release_metadata" / "arabidopsis_root_literature_concordance_v4.json",
+    "external_root_blind_inference": ROOT / "release_metadata" / "gse152766_external_root_blind_inference_v4.json",
 }
 OUTPUT_JSON = ROOT / "release_metadata" / "top_journal_figure_audit_v4.json"
 OUTPUT_MD = ROOT / "release_metadata" / "top_journal_figure_audit_v4.md"
@@ -69,6 +71,7 @@ def audit() -> dict[str, Any]:
     card = records["model_card"]
     scplantllm_execution = records["scplantllm_execution"]
     root_literature = records["root_literature_concordance"]
+    external_root = records["external_root_blind_inference"]
     failures: list[str] = []
     for figure in main + extended:
         if figure["missing_exports"]:
@@ -96,18 +99,29 @@ def audit() -> dict[str, Any]:
         failures.append("The root literature-concordance audit no longer matches the frozen predefined-anchor lookup.")
     if root_literature["claim_boundary"] != "Literature concordance only: it is neither wet-lab validation nor an independent single-cell matrix replication.":
         failures.append("The root literature-concordance record has an unsafe validation boundary.")
+    external_input = external_root["input_provenance"]
+    external_marker = external_root["marker_coherence"]
+    if external_input["matrix"]["cells"] != 6566 or external_input["input_has_expert_cell_type_labels"]:
+        failures.append("The external root case no longer records the blind 6,566-cell GEO input correctly.")
+    if external_input["frozen_v4_corpus_profile_membership"]:
+        failures.append("The external root case incorrectly claims that GSE152766 is listed in the frozen v4 corpus profile.")
+    if external_marker["predefined_expectations"] != 6 or external_marker["expected_label_is_top_mean_expression"] != 5:
+        failures.append("The external root marker-coherence summary no longer matches the frozen six-anchor audit.")
+    if "no external accuracy" not in external_root["claim_boundary"].casefold():
+        failures.append("The external root case has an unsafe accuracy-claim boundary.")
     visual = {
         "status": "expert_reviewed_v4_data_first_draft",
-        "score_out_of_100": 88.0,
+        "score_out_of_100": 90.0,
         "per_figure_review": [
             {"figure": "Fig. 1", "score": 90, "assessment": "Dominant cell-level embedding, matched ontology view and compact corpus context make the biological scale visible without a decorative dashboard."},
             {"figure": "Fig. 2", "score": 89, "assessment": "The strict protocol, held-out-cell view, all-species outcomes and label-integrity cascade form a connected causal argument; v17 and v18 remain explicitly separated."},
             {"figure": "Fig. 3", "score": 91, "assessment": "All independent support draws, dose response, macro-F1 and species heterogeneity are visible. Single-label public records are explicitly marked."},
-            {"figure": "Fig. 4", "score": 88, "assessment": "Identity hierarchy, effect size, detection separation and ranked candidate programs are readable. The scientific evidence remains a public-data candidate resource pending independent validation."},
+            {"figure": "Fig. 4", "score": 91, "assessment": "The compact root taxonomy now joins four biological compartments, ten identity nodes and their public-data evidence scale with ranked programs, effect size and detection separation. The resource remains explicitly computational pending independent validation."},
             {"figure": "Extended Data 1", "score": 90, "assessment": "The identity denominator and excluded labels are directly auditable at species resolution."},
             {"figure": "Extended Data 2", "score": 89, "assessment": "Nested candidate selection is visible rather than asserted in prose."},
             {"figure": "Extended Data 3", "score": 90, "assessment": "Frozen checkpoint gains are shown only on matched protocols, with the hardest species transfer setting left visible."},
             {"figure": "Extended Data 4", "score": 90, "assessment": "All six literature-defined root anchors are visible, with recovered and unrecovered entries shown together and the non-experimental scope made explicit."},
+            {"figure": "Extended Data 5", "score": 92, "assessment": "A full external label-free root-matrix execution exposes its manifold, all 13 output states, confidence distribution and all six fixed marker checks without substituting marker coherence for accuracy."},
         ],
         "strengths": [
             "Four main figures are data-led and each has a distinct claim.",
@@ -115,10 +129,11 @@ def audit() -> dict[str, Any]:
             "The v18 label-integrity companion removes pseudo-identities before fitting and scoring.",
             "The few-shot panel exposes all ten draws and flags single-label public records rather than treating them as ordinary identity evidence.",
             "The root case now includes a preregistered-style literature-anchor lookup rather than a marker list without external biological context.",
+            "The external GSE152766 root execution is visualized as a blind inference case with its label-free boundary, not as an unscored accuracy bar.",
         ],
         "remaining_submission_blockers": [
             "A matched official scPlantLLM/scPlantAnnotate benchmark is not closed. scPlantLLM has an auditable CUDA execution on its own official chunks, not a shared v17 input and scoring contract.",
-            "The biological case has primary-literature anchor concordance but remains a public-data marker-candidate resource without independent experimental validation.",
+            "The biology package now includes literature-anchor concordance and a label-free external root-matrix marker-coherence execution, but it still lacks independently annotated test labels or wet-lab validation.",
             "The frozen corpus supports a defined public cohort, not universal all-plant performance.",
         ],
     }

@@ -25,6 +25,7 @@ const root = path.resolve(__dirname, "..");
 const inputPath = path.resolve(root, process.argv[2] || "manuscript/Plant_CellFM_v4_顶刊证据主文.md");
 const outputPath = path.resolve(root, process.argv[3] || "manuscript/Plant_CellFM_v4_顶刊证据主文.docx");
 const figureDir = path.join(root, "figures", "plant_cellfm_submission_v4", "main");
+const extendedFigureDir = path.join(root, "figures", "plant_cellfm_submission_v4", "extended_data");
 const font = "Microsoft YaHei";
 const ink = "18242E";
 const teal = "007C83";
@@ -80,6 +81,7 @@ function evidenceSnapshot() {
     ["开放集标签空间（v17）", "55.90% 覆盖率；71.48% 条件准确率", "全细胞分母与可覆盖身份子集并列报告，不以条件指标替代开放集难度。"],
     ["身份完整性伴随队列（v18）", "2,324 显式身份细胞", "1,640 个无信息标签仅用于审计；伴随队列不替代 v17。"],
     ["少样本目标物种适配", "59.21% 至 75.89%", "每物种 8 至 64 个支持细胞，10 次独立抽样；支持与查询严格不重叠。"],
+    ["外部无标签根系盲推理", "6,566 细胞；5/6 marker 顶位一致", "GSE152766 / GSM4626007 不在冻结 v4 profile；为 marker 一致性审计，不是外部准确率。"],
     ["运行时全词表注释头", "66.25% 全细胞准确率", "部署分析，与严格零样本迁移分开报告。"],
   ];
   return new Table({
@@ -89,8 +91,8 @@ function evidenceSnapshot() {
   });
 }
 
-function figure(stem, caption, height) {
-  const imagePath = path.join(figureDir, `${stem}.png`);
+function figure(stem, caption, height, directory = figureDir) {
+  const imagePath = path.join(directory, `${stem}.png`);
   if (!fs.existsSync(imagePath)) throw new Error(`Missing manuscript figure: ${imagePath}`);
   return [
     new Paragraph({
@@ -172,6 +174,13 @@ function main() {
     ["plant_cellfm_v4_fig4_arabidopsis_root_candidate_resource", "图 4 | 拟南芥根系身份与 marker 候选资源。", 500],
   ];
   for (const [stem, caption, height] of figures) children.push(...figure(stem, caption, height));
+  children.push(heading("关键扩展数据图", 1));
+  children.push(...figure(
+    "plant_cellfm_v4_ed_fig5_external_root_blind_inference",
+    "扩展数据图 5 | 无标签外部拟南芥根系矩阵的盲推理与 marker 一致性。",
+    560,
+    extendedFigureDir,
+  ));
 
   const document = new Document({
     creator: "Plant-CellFM project",

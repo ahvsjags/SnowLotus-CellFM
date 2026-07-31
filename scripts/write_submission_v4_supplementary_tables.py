@@ -74,6 +74,7 @@ def main() -> None:
     scplantllm_probe = json.loads((ROOT / "release_metadata" / "scplantllm_official_data_embedding_probe_256.json").read_text(encoding="utf-8"))
     scplantllm_audit = json.loads((ROOT / "release_metadata" / "scplantllm_official_execution_audit.json").read_text(encoding="utf-8"))
     root_literature = json.loads((ROOT / "release_metadata" / "arabidopsis_root_literature_concordance_v4.json").read_text(encoding="utf-8"))
+    external_root = json.loads((ROOT / "release_metadata" / "gse152766_external_root_blind_inference_v4.json").read_text(encoding="utf-8"))
     audit = json.loads((ROOT / "release_metadata" / "top_journal_figure_audit_v4.json").read_text(encoding="utf-8"))
     runtime = json.loads((ROOT / "release_metadata" / "revision_v11_runtime_head_benchmark.json").read_text(encoding="utf-8"))
 
@@ -115,6 +116,9 @@ def main() -> None:
         ROOT / "scripts" / "run_revision_v11_fewshot_adapter_benchmark.py",
         ROOT / "scripts" / "render_v4_top_journal_figures.py",
         ROOT / "scripts" / "build_v4_root_literature_concordance.py",
+        ROOT / "scripts" / "download_gse152766_external_root_case.py",
+        ROOT / "scripts" / "prepare_gse152766_external_root_case.py",
+        ROOT / "scripts" / "audit_gse152766_external_root_case.py",
         ROOT / "scripts" / "write_submission_v4_supplementary_tables.py",
         ROOT / "scripts" / "audit_v4_submission_figure_suite.py",
         ROOT / "scripts" / "audit_scplantllm_official_execution.py",
@@ -124,6 +128,8 @@ def main() -> None:
         ROOT / "release_metadata" / "scplantllm_official_data_embedding_probe_256.json",
         ROOT / "release_metadata" / "scplantllm_official_execution_audit.json",
         ROOT / "release_metadata" / "arabidopsis_root_literature_concordance_v4.json",
+        ROOT / "release_metadata" / "gse152766_external_input_acquisition_v4.json",
+        ROOT / "release_metadata" / "gse152766_external_root_blind_inference_v4.json",
     ]
     reproducibility = pd.DataFrame(
         [
@@ -138,6 +144,9 @@ def main() -> None:
                     "python scripts/audit_v4_submission_figure_suite.py" if path.name.startswith("audit_v4") else
                     "python scripts/audit_scplantllm_official_execution.py" if path.name.startswith("audit_scplantllm") else
                     "python scripts/build_v4_root_literature_concordance.py" if path.name.startswith("build_v4_root") else
+                    "python scripts/download_gse152766_external_root_case.py" if path.name.startswith("download_gse152766_external") else
+                    "python scripts/prepare_gse152766_external_root_case.py" if path.name.startswith("prepare_gse152766") else
+                    "python scripts/audit_gse152766_external_root_case.py" if path.name.startswith("audit_gse152766") else
                     "frozen release record"
                 ),
             }
@@ -184,6 +193,9 @@ def main() -> None:
         "Supplementary_Table_S14_figure_and_source_data_manifest.tsv": pd.DataFrame(figure_manifest),
         "Supplementary_Table_S15_reproducibility_manifest.tsv": reproducibility,
         "Supplementary_Table_S16_arabidopsis_root_literature_concordance.tsv": pd.DataFrame(root_literature["anchors"]),
+        "Supplementary_Table_S17_gse152766_external_root_blind_inference.tsv": pd.DataFrame(
+            external_root["predefined_marker_coherence"]
+        ),
     }
     for name, frame in tables.items():
         frame.to_csv(OUT / name, sep="\t", index=False)
@@ -197,7 +209,7 @@ def main() -> None:
         "workbook": "Plant_CellFM_Supplementary_Tables_v4.xlsx",
         "primary_strict_protocol": "revision_v17_nested_metadata_gate",
         "label_integrity_companion": "revision_v18_identity_curated_strict",
-        "claim_boundary": "v17 is the only primary strict leave-species result. v18 is a pre-specified identity-curated companion; v14, few-shot adaptation and runtime-head outputs use distinct protocols. External methods with unavailable official matched predictions are recorded as pending, not numerically ranked. Arabidopsis literature-marker concordance supports biological plausibility but is neither wet-lab validation nor independent-matrix replication.",
+        "claim_boundary": "v17 is the only primary strict leave-species result. v18 is a pre-specified identity-curated companion; v14, few-shot adaptation and runtime-head outputs use distinct protocols. External methods with unavailable official matched predictions are recorded as pending, not numerically ranked. Arabidopsis literature-marker concordance supports biological plausibility but is neither wet-lab validation nor independent-matrix replication. The GSE152766 case is blind external inference on a label-free matrix, so its marker-coherence statistics are not external accuracy or an external model ranking.",
     }
     (OUT / "MANIFEST.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"out": str(OUT), "tables": len(tables)}, ensure_ascii=False))

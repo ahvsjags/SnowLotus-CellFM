@@ -1,0 +1,54 @@
+{
+  "schema_version": "plant_cellfm_v4_external_gse152766_input_v1",
+  "source_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM4626nnn/GSM4626007/suppl/GSM4626007_sc_52_mtx.tar.gz",
+  "series_accession": "GSE152766",
+  "sample_accession": "GSM4626007",
+  "sample_name": "sc_52",
+  "matrix_type": "spliced_counts_filtered",
+  "archive_path": "outputs/external_validation/gse152766_gsm4626007/GSM4626007_sc_52_mtx.tar.gz",
+  "archive_bytes": 89379848,
+  "archive_sha256": "7e55c00b6cd651e01a90989a487328694e6f65f3841227675b171b115517edaa",
+  "prepared_h5ad": "outputs/external_validation/gse152766_gsm4626007/GSM4626007_sc_52_spliced_external_root.h5ad",
+  "matrix": {
+    "cells": 6566,
+    "genes": 25171,
+    "nonzero_counts": 22353207
+  },
+  "frozen_v4_corpus_profile": {
+    "schema_version": "plant_cellfm_h5ad_corpus_profile_v1",
+    "input": "data/plant_foundation_corpus_current_scplantdb_v2.h5ad",
+    "shape": {
+      "cells": 272732,
+      "genes": 209405
+    },
+    "available_obs_columns": [
+      "species",
+      "tissue",
+      "dataset_id",
+      "sample_id",
+      "cell_type",
+      "cell_type_coarse"
+    ],
+    "unique_values": {
+      "species": 5,
+      "tissue": 6,
+      "dataset_id": 9,
+      "sample_id": 31,
+      "cell_type": 34,
+      "cell_type_coarse": 34
+    }
+  },
+  "frozen_v4_dataset_ids": [
+    "scplantdb_CRA002977_1",
+    "scplantdb_CRA002977_2",
+    "scplantdb_CRA004848",
+    "scplantdb_CRA006988",
+    "scplantdb_DRP009643",
+    "scplantdb_SRP148288",
+    "scplantdb_SRP169576",
+    "scplantdb_SRP335448",
+    "scplantdb_SRP424189"
+  ],
+  "gse152766_listed_in_frozen_v4_corpus_profile": false,
+  "claim_boundary": "Blinded external input preparation only. The archive has no expert cell-type labels and cannot by itself provide an accuracy benchmark."
+}

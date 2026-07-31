@@ -1,6 +1,6 @@
 {
   "schema_version": "plant_cellfm_v4_figure_audit_v1",
-  "generated_utc": "2026-07-31T20:16:40.089320+00:00",
+  "generated_utc": "2026-07-31T20:41:11.182868+00:00",
   "state": "EVIDENCE_STRONG_DRAFT_NOT_SUBMISSION_APPROVED",
   "v17_primary_summary": {
     "groups": 8,
@@ -238,13 +238,34 @@
           ]
         },
         "ready": true
+      },
+      {
+        "stem": "plant_cellfm_v4_ed_fig5_external_root_blind_inference",
+        "missing_exports": [],
+        "source_tables": [
+          "plant_cellfm_v4_ed_fig5_external_root_blind_inference_external_embedding_umap.tsv",
+          "plant_cellfm_v4_ed_fig5_external_root_blind_inference_external_marker_coherence.tsv",
+          "plant_cellfm_v4_ed_fig5_external_root_blind_inference_external_prediction_distribution.tsv"
+        ],
+        "editable_svg_text": true,
+        "raster": {
+          "pixels": [
+            4679,
+            4152
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        },
+        "ready": true
       }
     ]
   },
   "technical_failures": [],
   "visual_review": {
     "status": "expert_reviewed_v4_data_first_draft",
-    "score_out_of_100": 88.0,
+    "score_out_of_100": 90.0,
     "per_figure_review": [
       {
         "figure": "Fig. 1",
@@ -263,8 +284,8 @@
       },
       {
         "figure": "Fig. 4",
-        "score": 88,
-        "assessment": "Identity hierarchy, effect size, detection separation and ranked candidate programs are readable. The scientific evidence remains a public-data candidate resource pending independent validation."
+        "score": 91,
+        "assessment": "The compact root taxonomy now joins four biological compartments, ten identity nodes and their public-data evidence scale with ranked programs, effect size and detection separation. The resource remains explicitly computational pending independent validation."
       },
       {
         "figure": "Extended Data 1",
@@ -285,6 +306,11 @@
         "figure": "Extended Data 4",
         "score": 90,
         "assessment": "All six literature-defined root anchors are visible, with recovered and unrecovered entries shown together and the non-experimental scope made explicit."
+      },
+      {
+        "figure": "Extended Data 5",
+        "score": 92,
+        "assessment": "A full external label-free root-matrix execution exposes its manifold, all 13 output states, confidence distribution and all six fixed marker checks without substituting marker coherence for accuracy."
       }
     ],
     "strengths": [
@@ -292,11 +318,12 @@
       "All main and Extended Data panels have vector, high-resolution raster and source-data exports.",
       "The v18 label-integrity companion removes pseudo-identities before fitting and scoring.",
       "The few-shot panel exposes all ten draws and flags single-label public records rather than treating them as ordinary identity evidence.",
-      "The root case now includes a preregistered-style literature-anchor lookup rather than a marker list without external biological context."
+      "The root case now includes a preregistered-style literature-anchor lookup rather than a marker list without external biological context.",
+      "The external GSE152766 root execution is visualized as a blind inference case with its label-free boundary, not as an unscored accuracy bar."
     ],
     "remaining_submission_blockers": [
       "A matched official scPlantLLM/scPlantAnnotate benchmark is not closed. scPlantLLM has an auditable CUDA execution on its own official chunks, not a shared v17 input and scoring contract.",
-      "The biological case has primary-literature anchor concordance but remains a public-data marker-candidate resource without independent experimental validation.",
+      "The biology package now includes literature-anchor concordance and a label-free external root-matrix marker-coherence execution, but it still lacks independently annotated test labels or wet-lab validation.",
       "The frozen corpus supports a defined public cohort, not universal all-plant performance."
     ]
   }

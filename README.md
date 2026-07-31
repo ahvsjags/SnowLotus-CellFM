@@ -10,9 +10,9 @@ The current reviewer-facing package is the evidence-first v4 release on [`agent/
 - **Strict primary result**: nested leave-species v17 uses 3,964 aligned cells across 8 held-out species, retains every test cell, and reports 39.96% all-cell accuracy, 55.90% source-label coverage, 71.48% accuracy and 0.2817 macro-F1 on the covered-label subset.
 - **Label-integrity companion**: v18 keeps 2,324 explicit-identity cells and audits 1,640 unknown/unannotated labels separately; it is a companion analysis, not a substitute headline.
 - **Target-species adaptation**: 8, 16, 32 and 64 labelled support cells per species give 59.21%, 67.34%, 72.30% and 75.89% mean query all-cell accuracy across ten non-overlapping support/query draws.
-- **Figures and source data**: four main figures, four Extended Data figures, editable SVG/PDF, PNG previews, local 600-dpi TIFF submission copies and a TSV table for every quantitative panel live in [`figures/plant_cellfm_submission_v4`](figures/plant_cellfm_submission_v4).
-- **Supplementary package**: 16 TSV tables plus an Excel workbook are in [`supplementary_tables/submission_v4`](supplementary_tables/submission_v4).
-- **Claim and reproducibility record**: [`v4 model card`](release_metadata/plant_cellfm_model_card_v4.json), [`figure audit`](release_metadata/top_journal_figure_audit_v4.md), [`scPlantLLM execution audit`](release_metadata/scplantllm_official_execution_audit.md) and [`root literature-concordance audit`](release_metadata/arabidopsis_root_literature_concordance_v4.md). The official scPlantLLM checkpoint now executes on CUDA with zero state-key mismatches and a 256/256 official-chunk frozen-encoder probe; it is explicitly not a matched v17 external ranking. The root case recovers 3/6 predefined canonical markers in their matching top-20 programs, which is literature concordance rather than wet-lab validation. Matched scPlantLLM/scPlantAnnotate predictions and independent experimental marker validation remain open evidence items.
+- **Figures and source data**: four main figures, five Extended Data figures, editable SVG/PDF, PNG previews, local 600-dpi TIFF submission copies and a TSV table for every quantitative panel live in [`figures/plant_cellfm_submission_v4`](figures/plant_cellfm_submission_v4).
+- **Supplementary package**: 17 TSV tables plus an Excel workbook are in [`supplementary_tables/submission_v4`](supplementary_tables/submission_v4).
+- **Claim and reproducibility record**: [`v4 model card`](release_metadata/plant_cellfm_model_card_v4.json), [`figure audit`](release_metadata/top_journal_figure_audit_v4.md), [`scPlantLLM execution audit`](release_metadata/scplantllm_official_execution_audit.md), [`root literature-concordance audit`](release_metadata/arabidopsis_root_literature_concordance_v4.md) and [`GSE152766 blind external-root audit`](release_metadata/gse152766_external_root_blind_inference_v4.md). The official scPlantLLM checkpoint now executes on CUDA with zero state-key mismatches and a 256/256 official-chunk frozen-encoder probe; it is explicitly not a matched v17 external ranking. The root case recovers 3/6 predefined canonical markers in matching top-20 programs, and a separate label-free GSE152766 root matrix gives a blind external execution in which 5/6 fixed canonical anchors peak in their corresponding predicted group. Neither result is wet-lab validation or external accuracy. Matched scPlantLLM/scPlantAnnotate predictions and independently annotated or experimental biological validation remain open evidence items.
 
 Run the current package with:
 
@@ -20,9 +20,14 @@ Run the current package with:
 python scripts/run_revision_v18_identity_curated_strict.py
 python scripts/run_revision_v11_fewshot_adapter_benchmark.py
 python scripts/build_v4_root_literature_concordance.py
+python scripts/download_gse152766_external_root_case.py
+python scripts/prepare_gse152766_external_root_case.py
+python scripts/audit_gse152766_external_root_case.py
 python scripts/render_v4_top_journal_figures.py
 python scripts/write_submission_v4_supplementary_tables.py
 python scripts/audit_v4_submission_figure_suite.py
+npm ci
+npm run build:manuscript
 ```
 
 ## Historical v9 Checkpoint Release

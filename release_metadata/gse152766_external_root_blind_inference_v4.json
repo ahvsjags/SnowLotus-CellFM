@@ -1,0 +1,278 @@
+{
+  "schema_version": "plant_cellfm_v4_gse152766_external_root_blind_inference_v1",
+  "case_role": "Blinded external Arabidopsis root-matrix inference and predefined marker-coherence audit.",
+  "claim_boundary": "The downloaded matrix has no expert cell-type labels. This record contains no external accuracy, no head-to-head model comparison and no claim of independent experimental validation. Marker coherence tests whether fixed canonical loci are enriched in their corresponding model-predicted groups.",
+  "input_provenance": {
+    "series_accession": "GSE152766",
+    "sample_accession": "GSM4626007",
+    "source_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM4626nnn/GSM4626007/suppl/GSM4626007_sc_52_mtx.tar.gz",
+    "archive_sha256": "7e55c00b6cd651e01a90989a487328694e6f65f3841227675b171b115517edaa",
+    "prepared_h5ad": "outputs/external_validation/gse152766_gsm4626007/GSM4626007_sc_52_spliced_external_root.h5ad",
+    "prepared_h5ad_sha256": "8ae35e9776c1acb5b3004113a58973e789f4c11efff70c970b4ee1bc16418dde",
+    "frozen_v4_corpus_profile_membership": false,
+    "frozen_v4_dataset_ids": [
+      "scplantdb_CRA002977_1",
+      "scplantdb_CRA002977_2",
+      "scplantdb_CRA004848",
+      "scplantdb_CRA006988",
+      "scplantdb_DRP009643",
+      "scplantdb_SRP148288",
+      "scplantdb_SRP169576",
+      "scplantdb_SRP335448",
+      "scplantdb_SRP424189"
+    ],
+    "input_has_expert_cell_type_labels": false,
+    "matrix": {
+      "cells": 6566,
+      "genes": 25171,
+      "nonzero_counts": 22353207
+    }
+  },
+  "execution": {
+    "annotation_bundle": "outputs/external_validation/gse152766_gsm4626007/annotation_bundle",
+    "prediction_csv_sha256": "eaa6c8dfc07cf285ca636e97e6be54a2103617f9ef9852bad40cc790e931201f",
+    "embedding_npy_sha256": "a4e9c4ea8e383998e403e2566fad97d013b3f47e55201c532c01267a5ff71465",
+    "annotation_metadata_sha256": "f744cbe511e2375c3a2a488393c023443bde64aa6918c9fc6e88cf36df74780b",
+    "checkpoint_path": "models/SnowLotus_CellFM_SRP169576_annotation_1024_best.pt",
+    "checkpoint_sha256": "e16564fa0a1aa74dd19ca007d9aedbe89a12fc7d1051b761c15d39705a3386fc",
+    "checkpoint_epoch": 4,
+    "device_record": "cuda (NVIDIA GeForce RTX 4070 Laptop GPU at execution)",
+    "preprocessing": {
+      "input_cells": 6566,
+      "input_genes": 25171,
+      "log1p": true,
+      "median_library_size_before_normalization": 8721.0,
+      "normalize_total": 10000.0,
+      "retained_cells": 6566,
+      "retained_genes": 21836
+    },
+    "n_cells": 6566,
+    "embedding_dimension": 256
+  },
+  "prediction_summary": {
+    "predicted_labels": 13,
+    "fine_confidence_quantiles": {
+      "min": 0.192473,
+      "q05": 0.42300525,
+      "q25": 0.69911475,
+      "median": 0.91706,
+      "q75": 0.974522,
+      "q95": 0.98834225,
+      "max": 0.997661
+    }
+  },
+  "marker_coherence": {
+    "normalisation": "raw spliced UMI counts per cell were scaled to 10,000 and log1p transformed, matching the recorded annotation preprocessing contract",
+    "predefined_expectations": 6,
+    "expected_label_is_top_mean_expression": 5,
+    "expected_label_is_top_detection_fraction": 5,
+    "sources": {
+      "jean_baptiste_2019": {
+        "citation": "Jean-Baptiste et al. Dynamics of Gene Expression in Single Root Cells of Arabidopsis thaliana. Plant Cell 31, 993-1011 (2019).",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8516002/"
+      },
+      "shahan_2022": {
+        "citation": "Shahan et al. A single cell Arabidopsis root atlas reveals developmental trajectories in wild-type and cell identity mutants. Developmental Cell 57, 543-560.e9 (2022).",
+        "url": "https://doi.org/10.1016/j.devcel.2022.01.008"
+      }
+    },
+    "interpretation": "A positive delta or rank is a coherence statistic of the model-predicted partition and the external expression matrix; it is not a ground-truth accuracy measure and may be affected by marker specificity, dropout and label granularity."
+  },
+  "prediction_distribution": [
+    {
+      "fine_label": "Lateral root cap",
+      "cells": 2177,
+      "fraction": 0.3315565031982942,
+      "mean_confidence": 0.8600037390904914,
+      "median_confidence": 0.95624
+    },
+    {
+      "fine_label": "Root cortex",
+      "cells": 1364,
+      "fraction": 0.20773682607371308,
+      "mean_confidence": 0.8553654494134897,
+      "median_confidence": 0.939199
+    },
+    {
+      "fine_label": "Root stele",
+      "cells": 605,
+      "fraction": 0.09214133414559854,
+      "mean_confidence": 0.884745761983471,
+      "median_confidence": 0.95111
+    },
+    {
+      "fine_label": "Unknow",
+      "cells": 530,
+      "fraction": 0.08071885470606154,
+      "mean_confidence": 0.7529463773584906,
+      "median_confidence": 0.789202
+    },
+    {
+      "fine_label": "Root cap",
+      "cells": 451,
+      "fraction": 0.06868717636308255,
+      "mean_confidence": 0.7879443791574279,
+      "median_confidence": 0.858301
+    },
+    {
+      "fine_label": "Non-hair",
+      "cells": 428,
+      "fraction": 0.0651842826682912,
+      "mean_confidence": 0.7364691682242991,
+      "median_confidence": 0.7719305000000001
+    },
+    {
+      "fine_label": "Root endodermis",
+      "cells": 321,
+      "fraction": 0.0488882120012184,
+      "mean_confidence": 0.690155031152648,
+      "median_confidence": 0.695397
+    },
+    {
+      "fine_label": "Xylem",
+      "cells": 191,
+      "fraction": 0.02908924763935425,
+      "mean_confidence": 0.732894895287958,
+      "median_confidence": 0.834241
+    },
+    {
+      "fine_label": "S phase",
+      "cells": 178,
+      "fraction": 0.027109351203167834,
+      "mean_confidence": 0.8876818820224719,
+      "median_confidence": 0.9534024999999999
+    },
+    {
+      "fine_label": "Root hair",
+      "cells": 168,
+      "fraction": 0.0255863539445629,
+      "mean_confidence": 0.8544872559523808,
+      "median_confidence": 0.9526965000000001
+    },
+    {
+      "fine_label": "Columella root cap",
+      "cells": 127,
+      "fraction": 0.019342065184282668,
+      "mean_confidence": 0.5869924330708661,
+      "median_confidence": 0.574982
+    },
+    {
+      "fine_label": "G1/G0 phase",
+      "cells": 22,
+      "fraction": 0.003350593968930856,
+      "mean_confidence": 0.501381590909091,
+      "median_confidence": 0.481954
+    },
+    {
+      "fine_label": "Phloem",
+      "cells": 4,
+      "fraction": 0.0006091989034419738,
+      "mean_confidence": 0.7184762499999999,
+      "median_confidence": 0.8518175
+    }
+  ],
+  "predefined_marker_coherence": [
+    {
+      "expected_label": "Root hair",
+      "marker_symbol": "COBL9",
+      "gene_id": "AT5G49270",
+      "literature_key": "jean_baptiste_2019",
+      "predicted_label_cells": 168,
+      "target_mean_log1p_normalised_expression": 0.759526588341427,
+      "outside_mean_log1p_normalised_expression": 0.04519819918830953,
+      "mean_expression_delta": 0.7143283891531174,
+      "target_detection_fraction": 0.6726190476190477,
+      "outside_detection_fraction": 0.05032822757111598,
+      "detection_fraction_delta": 0.6222908200479317,
+      "rank_among_predicted_labels_by_mean_expression": 1,
+      "rank_among_predicted_labels_by_detection_fraction": 1,
+      "is_top_mean_expression_label": true,
+      "is_top_detection_label": true
+    },
+    {
+      "expected_label": "Non-hair",
+      "marker_symbol": "WER",
+      "gene_id": "AT5G14750",
+      "literature_key": "jean_baptiste_2019",
+      "predicted_label_cells": 428,
+      "target_mean_log1p_normalised_expression": 0.07833718756583632,
+      "outside_mean_log1p_normalised_expression": 0.060011016611229484,
+      "mean_expression_delta": 0.01832617095460684,
+      "target_detection_fraction": 0.1588785046728972,
+      "outside_detection_fraction": 0.08145975887911372,
+      "detection_fraction_delta": 0.07741874579378347,
+      "rank_among_predicted_labels_by_mean_expression": 4,
+      "rank_among_predicted_labels_by_detection_fraction": 3,
+      "is_top_mean_expression_label": false,
+      "is_top_detection_label": false
+    },
+    {
+      "expected_label": "Non-hair",
+      "marker_symbol": "GL2",
+      "gene_id": "AT1G79840",
+      "literature_key": "jean_baptiste_2019",
+      "predicted_label_cells": 428,
+      "target_mean_log1p_normalised_expression": 0.16167668367887825,
+      "outside_mean_log1p_normalised_expression": 0.03053287187659477,
+      "mean_expression_delta": 0.1311438118022835,
+      "target_detection_fraction": 0.2383177570093458,
+      "outside_detection_fraction": 0.05555555555555555,
+      "detection_fraction_delta": 0.18276220145379024,
+      "rank_among_predicted_labels_by_mean_expression": 1,
+      "rank_among_predicted_labels_by_detection_fraction": 1,
+      "is_top_mean_expression_label": true,
+      "is_top_detection_label": true
+    },
+    {
+      "expected_label": "Root endodermis",
+      "marker_symbol": "CASP1",
+      "gene_id": "AT2G36100",
+      "literature_key": "shahan_2022",
+      "predicted_label_cells": 321,
+      "target_mean_log1p_normalised_expression": 0.0836947109930169,
+      "outside_mean_log1p_normalised_expression": 0.0018091888633148699,
+      "mean_expression_delta": 0.08188552212970203,
+      "target_detection_fraction": 0.021806853582554516,
+      "outside_detection_fraction": 0.0012810248198558848,
+      "detection_fraction_delta": 0.020525828762698633,
+      "rank_among_predicted_labels_by_mean_expression": 1,
+      "rank_among_predicted_labels_by_detection_fraction": 1,
+      "is_top_mean_expression_label": true,
+      "is_top_detection_label": true
+    },
+    {
+      "expected_label": "Phloem",
+      "marker_symbol": "APL",
+      "gene_id": "AT1G79430",
+      "literature_key": "jean_baptiste_2019",
+      "predicted_label_cells": 4,
+      "target_mean_log1p_normalised_expression": 1.012643594738103,
+      "outside_mean_log1p_normalised_expression": 0.005530055345931204,
+      "mean_expression_delta": 1.0071135393921717,
+      "target_detection_fraction": 0.75,
+      "outside_detection_fraction": 0.0032002438281011885,
+      "detection_fraction_delta": 0.7467997561718989,
+      "rank_among_predicted_labels_by_mean_expression": 1,
+      "rank_among_predicted_labels_by_detection_fraction": 1,
+      "is_top_mean_expression_label": true,
+      "is_top_detection_label": true
+    },
+    {
+      "expected_label": "Xylem",
+      "marker_symbol": "MYB46",
+      "gene_id": "AT5G12870",
+      "literature_key": "jean_baptiste_2019",
+      "predicted_label_cells": 191,
+      "target_mean_log1p_normalised_expression": 0.028204206416429838,
+      "outside_mean_log1p_normalised_expression": 0.0030508785149966472,
+      "mean_expression_delta": 0.02515332790143319,
+      "target_detection_fraction": 0.02617801047120419,
+      "outside_detection_fraction": 0.002823529411764706,
+      "detection_fraction_delta": 0.02335448105943948,
+      "rank_among_predicted_labels_by_mean_expression": 1,
+      "rank_among_predicted_labels_by_detection_fraction": 1,
+      "is_top_mean_expression_label": true,
+      "is_top_detection_label": true
+    }
+  ]
+}

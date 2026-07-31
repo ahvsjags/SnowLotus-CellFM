@@ -1,0 +1,12 @@
+{
+  "name": "plant-cellfm-submission-assets",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Reproducible document tooling for the Plant-CellFM submission package.",
+  "scripts": {
+    "build:manuscript": "node scripts/build_v4_chinese_manuscript_docx.js"
+  },
+  "devDependencies": {
+    "docx": "9.6.1"
+  }
+}
