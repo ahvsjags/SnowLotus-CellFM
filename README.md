@@ -31,6 +31,8 @@ The release reports both an internal held-out test and stricter cross-group eval
 | Leave-species-out, species labels normalized | 0.2354 | 0.5590 | 0.4210 | 0.1918 |
 | STC v10 `knn_cosine_k9`, same frozen embeddings | 0.3010 | 0.5590 | 0.5384 | 0.2663 |
 | STC v14 `phylo_organ_gate_v1`, same frozen embeddings | 0.4236 | 0.5590 | 0.7577 | 0.3045 |
+| v15 runtime-teacher rescue t0.70 with v14 fallback | 0.6009 | 0.5590 | 0.7396 | 0.3485 |
+| v15 full runtime annotation head, deployment protocol | 0.6625 | 0.5590 partition | 0.6286 | 0.3408 |
 
 The known-label conditional columns evaluate only test cells whose reference labels occur in the training fold. The all-cell accuracy column counts cells with unseen labels as errors, which is the appropriate open-set view for species holdout. The species-holdout protocol canonicalizes species aliases such as `Arabidopsis_thaliana` and `Arabidopsis thaliana` before splitting, reducing the selected benchmark from 9 raw species labels to 8 normalized species groups. Against the frozen v3 extended baseline on the same shared-gene benchmark, v9 all-cell accuracy improved by 24.70, 20.45 and 4.41 percentage points for leave-dataset, leave-sample and normalized leave-species evaluation, respectively. All benchmark JSON, model checksums, training history and the 256-cell benchmark subset are included in the release package.
 
@@ -41,6 +43,8 @@ The next diagnostic layer is an ontology-label leave-species benchmark using the
 The v10 Species-Transfer Calibration (STC) layer adds a real classifier-side improvement under the same frozen runtime-smoke embeddings and the same leave-species split. Without using held-out species labels for training, the best `knn_cosine_k9` calibrated layer improves strict exact-label all-cell accuracy from the centroid baseline 23.64% to 30.10%, known-label accuracy from 42.28% to 53.84%, and known-label macro-F1 from 0.1922 to 0.2663. Coverage remains 55.90%, so this is reported as measured classifier calibration rather than a denominator change or a universal high-accuracy claim.
 
 The v13/v14 revision experiments close the stricter zero-shot concern. A neural calibration sweep shows that classifier capacity alone raises the strict all-cell score only to 31.84%, so the remaining error is not solved by another generic head. The v14 context-aware STC extension then adds a phylogeny/organ gate estimated only from training species metadata: if same-family informative training support exists, expression similarity is used; otherwise the method falls back to plant-organ priors. Under the same frozen embeddings, same 3,964 aligned cells and same 55.90% label coverage, `phylo_organ_gate_v1` reaches 42.36% strict all-cell accuracy, 75.77% known-label accuracy and 0.3045 known-label macro-F1 without using held-out species labels for training, calibration or prior construction.
+
+The v15 runtime-teacher rescue benchmark adds a separate deployment/readiness protocol rather than changing the strict zero-shot claim. The strict inductive headline remains the v14 42.36% result. When the already-trained Plant-CellFM runtime annotation head is allowed to participate as a high-confidence teacher, `teacher_rescue_t07_v14fallback` reaches 60.09% all-cell accuracy, 73.96% known-label accuracy, 0.3485 known-label macro-F1 and 42.51% open-set exact accuracy while falling back to v14 below the confidence threshold. The full runtime annotation head reaches 66.25% all-cell accuracy, 62.86% covered-label accuracy and 70.54% open-set-label accuracy. These v15 values are deployment metrics and are not reported as strict leave-species zero-shot scores.
 
 The v11 target-species adapter benchmark remains useful as a separate small-label adaptation protocol. With the same frozen embeddings, a small labeled support set from each held-out species is used only for adapter/classifier calibration, and all support cells are excluded from query evaluation. The conservative fixed-budget setting of 8 labeled support cells per target species reaches 59.21% mean query all-cell accuracy across 10 seeds; 16, 32 and 64 support cells per species reach 67.34%, 72.30% and 75.89%, respectively. This is explicitly separate from zero-shot strict STC.
 
@@ -94,6 +98,7 @@ For the frozen model, download the v9 release asset and use the packaged configu
 - `release_metadata/cross_species_classifier_benchmark_v10.md`
 - `release_metadata/revision_v13_neural_zero_shot_stc.md`
 - `release_metadata/revision_v14_context_stc_benchmark.md`
+- `release_metadata/revision_v15_runtime_teacher_rescue.md`
 - `release_metadata/revision_v11_fewshot_adapter_benchmark.md`
 - `release_metadata/revision_v11_runtime_head_benchmark.md`
 - `release_metadata/revision_v11_third_party_closure.md`

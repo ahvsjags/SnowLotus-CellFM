@@ -52,7 +52,9 @@ The v10 Species-Transfer Calibration (STC) benchmark adds a classifier-side impr
 
 The v13/v14 zero-shot STC revision closes the stricter reviewer concern under the same frozen embeddings and same 3,964 aligned cells. v13 shows that a generic z-scored neural calibration head reaches only 31.84% all-cell and 56.95% known-label accuracy. v14 then adds a context-aware phylogeny/organ gate estimated only from training species metadata; `phylo_organ_gate_v1` reaches 42.36% strict all-cell accuracy, 75.77% known-label accuracy and 0.3045 known-label macro-F1 at unchanged 55.90% coverage, without using held-out species labels for training, calibration or prior construction.
 
-The v11 revision benchmark adds two clearly separated cross-species usage protocols. First, the deployable full-vocabulary runtime annotation head reaches 66.25% exact-label all-cell accuracy on the same 3,964 aligned runtime-smoke cells; within the strict leave-species train-label partition this decomposes into 62.86% covered-label accuracy and 70.54% open-set-label accuracy. Second, the few-shot target-species adapter protocol uses a small labeled support set from each held-out species for adapter/classifier calibration and excludes support cells from query evaluation. Under this species-adaptation protocol, 8 random support cells per target species reach 59.21% mean query all-cell accuracy across 10 seeds, while 16, 32 and 64 support cells reach 67.34%, 72.30% and 75.89%. These v11 results do not replace the zero-shot STC benchmark; they document the practical adapter path for new plant species.
+The v15 runtime-teacher rescue benchmark adds a deployment/readiness layer without changing the strict zero-shot claim. The strict inductive headline remains v14. Under the deployment protocol, the full runtime annotation head reaches 66.25% exact-label all-cell accuracy on the same 3,964 aligned runtime-smoke cells, decomposed into 62.86% covered-label accuracy and 70.54% open-set-label accuracy. The confidence-gated `teacher_rescue_t07_v14fallback` setting reaches 60.09% all-cell accuracy, 73.96% known-label accuracy, 0.3485 known-label macro-F1 and 42.51% open-set exact accuracy while retaining the strict v14 classifier whenever teacher confidence is below threshold. These v15 results are reported as deployment metrics, not as strict leave-species zero-shot scores.
+
+The v11 few-shot target-species adapter protocol uses a small labeled support set from each held-out species for adapter/classifier calibration and excludes support cells from query evaluation. Under this species-adaptation protocol, 8 random support cells per target species reach 59.21% mean query all-cell accuracy across 10 seeds, while 16, 32 and 64 support cells reach 67.34%, 72.30% and 75.89%. These v11 results do not replace the zero-shot STC benchmark; they document the practical adapter path for new plant species.
 
 ## External Comparators And Biological Case
 
@@ -64,6 +66,7 @@ The v11 revision benchmark adds two clearly separated cross-species usage protoc
 - Species-transfer calibration benchmark: `release_metadata/cross_species_classifier_benchmark_v10.md`
 - v13 neural zero-shot STC audit: `release_metadata/revision_v13_neural_zero_shot_stc.md`
 - v14 context-aware zero-shot STC benchmark: `release_metadata/revision_v14_context_stc_benchmark.md`
+- v15 runtime-teacher rescue benchmark: `release_metadata/revision_v15_runtime_teacher_rescue.md`
 - v11 few-shot target adapter benchmark: `release_metadata/revision_v11_fewshot_adapter_benchmark.md`
 - v11 runtime-head benchmark: `release_metadata/revision_v11_runtime_head_benchmark.md`
 - v11 third-party closure audit: `release_metadata/revision_v11_third_party_closure.md`

@@ -1,0 +1,34 @@
+{
+  "schema_version": "plant_cellfm_submission_scorecard_v15",
+  "generated": "2026-07-31 15:55 Asia/Shanghai",
+  "scores": {
+    "topic_importance": 92,
+    "model_engineering_completeness": 92,
+    "strict_inductive_zero_shot_stc": 86,
+    "cross_species_deployment_performance": 91,
+    "open_set_honesty": 93,
+    "algorithmic_innovation": 88,
+    "third_party_comparator_status": 78,
+    "biological_case_evidence": 86,
+    "reproducibility": 91,
+    "submission_package_readiness": 91
+  },
+  "headline_metrics": {
+    "strict_v14_all_cell_accuracy": 0.42356205852674067,
+    "strict_v14_known_accuracy": 0.7576714801444043,
+    "strict_v14_known_macro_f1": 0.3044862624502163,
+    "v15_teacher_rescue_t07_all_cell_accuracy": 0.6009081735620585,
+    "v15_teacher_rescue_t07_known_accuracy": 0.7396209386281588,
+    "v15_teacher_rescue_t07_known_macro_f1": 0.34849275457976486,
+    "v15_teacher_rescue_t07_open_set_accuracy": 0.42505720823798625,
+    "v15_runtime_teacher_only_all_cell_accuracy": 0.6624621594349143,
+    "v15_runtime_teacher_only_known_accuracy": 0.6286101083032491,
+    "v15_runtime_teacher_only_open_set_accuracy": 0.7053775743707094
+  },
+  "claim_boundary": "Strict inductive zero-shot remains the v14 no-held-out-label result. v15 runtime-teacher rescue is a deployment/readiness protocol using the already-trained Plant-CellFM runtime annotation head and must not be reported as strict leave-species zero-shot.",
+  "remaining_noninflated_limits": [
+    "Official scPlantLLM numerical benchmark is pending completion of the official weight download and executable probe.",
+    "scPlantAnnotate numerical benchmark remains authentication-limited.",
+    "Wet-lab validation is not claimed."
+  ]
+}

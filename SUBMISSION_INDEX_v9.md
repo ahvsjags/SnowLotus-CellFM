@@ -50,6 +50,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | Species-transfer calibration benchmark | `release_metadata/cross_species_classifier_benchmark_v10.md` |
 | v13 neural zero-shot STC audit | `release_metadata/revision_v13_neural_zero_shot_stc.md` |
 | v14 context-aware zero-shot STC benchmark | `release_metadata/revision_v14_context_stc_benchmark.md` |
+| v15 runtime-teacher rescue benchmark | `release_metadata/revision_v15_runtime_teacher_rescue.md` |
 | v11 few-shot target adapter benchmark | `release_metadata/revision_v11_fewshot_adapter_benchmark.md` |
 | v11 runtime-head cross-species benchmark | `release_metadata/revision_v11_runtime_head_benchmark.md` |
 | v11 third-party metric closure audit | `release_metadata/revision_v11_third_party_closure.md` |
@@ -81,13 +82,14 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 14. The v10 Species-Transfer Calibration layer improves strict frozen leave-species all-cell accuracy from 23.64% to 30.10% and known-label accuracy from 42.28% to 53.84% without training on held-out species labels.
 15. The v13 neural STC audit shows that a generic neural calibration head reaches 31.84% all-cell and 56.95% known-label accuracy, indicating that classifier capacity alone does not solve the cross-species bottleneck.
 16. The v14 context-aware STC layer adds a phylogeny/organ gate and improves the same strict zero-shot leave-species denominator to 42.36% all-cell accuracy and 75.77% known-label accuracy without using held-out species labels for training, calibration or prior construction.
-17. The algorithmic innovation note frames the method as all-plant adapter materialization plus expression STC, neural STC audit, context-aware phylo-organ STC, open-set reliability control, ontology-aware benchmark audit and reproducible CUDA release.
-18. The submission scorecard records all fixable evidence-readiness dimensions at 90+ while explicitly not presenting evidence-readiness as universal all-species accuracy.
-19. The publication target readiness matrix ranks the current package as strongest for plant-focused method/resource submission, plausible for genomics computational-method submission with major-revision risk, and stretch for top general methods venues until official third-party numerical closure and stronger validation are added.
-20. The English synopsis file provides an abstract, significance statement, highlights, graphical abstract text and editorial positioning that use the same claim boundaries as the full manuscript.
-21. The v11 few-shot target-adapter benchmark is the revision result for the all-plant adapter claim: with 8 random labeled support cells per target species, query all-cell accuracy is 59.21% across 10 seeds, and larger support budgets reach 67.34-75.89%.
-22. The v11 runtime-head benchmark reports 66.25% exact-label all-cell accuracy on the same 3,964 aligned cross-species cells, decomposed into 62.86% covered-label accuracy and 70.54% open-set-label accuracy.
-23. The v11 third-party closure audit records scPlantLLM official-weight download status, expected SHA256/LFS OID and scPlantAnnotate authentication status; it still does not report final third-party numerical superiority before metric JSON exists.
+17. The v15 runtime-teacher rescue benchmark separates strict zero-shot from deployment readiness: the strict headline remains v14, while `teacher_rescue_t07_v14fallback` reaches 60.09% all-cell accuracy with v14 fallback and the full runtime annotation head reaches 66.25% all-cell accuracy under a deployment protocol.
+18. The algorithmic innovation note frames the method as all-plant adapter materialization plus expression STC, neural STC audit, context-aware phylo-organ STC, open-set reliability control, ontology-aware benchmark audit and reproducible CUDA release.
+19. The submission scorecard records all fixable evidence-readiness dimensions at 90+ while explicitly not presenting evidence-readiness as universal all-species accuracy.
+20. The publication target readiness matrix ranks the current package as strongest for plant-focused method/resource submission, plausible for genomics computational-method submission with major-revision risk, and stretch for top general methods venues until official third-party numerical closure and stronger validation are added.
+21. The English synopsis file provides an abstract, significance statement, highlights, graphical abstract text and editorial positioning that use the same claim boundaries as the full manuscript.
+22. The v11 few-shot target-adapter benchmark is the revision result for the all-plant adapter claim: with 8 random labeled support cells per target species, query all-cell accuracy is 59.21% across 10 seeds, and larger support budgets reach 67.34-75.89%.
+23. The v11 runtime-head benchmark reports 66.25% exact-label all-cell accuracy on the same 3,964 aligned cross-species cells, decomposed into 62.86% covered-label accuracy and 70.54% open-set-label accuracy.
+24. The v11 third-party closure audit records scPlantLLM official-weight download status, expected SHA256/LFS OID and scPlantAnnotate authentication status; it still does not report final third-party numerical superiority before metric JSON exists.
 
 ## Claims Not Used In The Current Submission
 
@@ -110,6 +112,7 @@ This file is the reviewer-facing entry point for the frozen v9 submission packag
 | STC `knn_cosine_k9` on frozen leave-species embeddings | 0.3010 | 0.5590 | 0.5384 | 0.2663 | centroid 0.2364 |
 | v13 neural STC on frozen leave-species embeddings | 0.3184 | 0.5590 | 0.5695 | 0.3079 | STC 0.3010 |
 | v14 context-aware STC `phylo_organ_gate_v1` | 0.4236 | 0.5590 | 0.7577 | 0.3045 | STC 0.3010 |
+| v15 runtime-teacher rescue t0.70 with v14 fallback | 0.6009 | 0.5590 | 0.7396 | 0.3485 | strict v14 0.4236 |
 | v11 few-shot adapter, 8 random support cells/species | 0.5921 query accuracy | support cells excluded | n/a | 0.2195 | zero-shot STC 0.3010 |
 | v11 few-shot adapter, 16 random support cells/species | 0.6734 query accuracy | support cells excluded | n/a | 0.2904 | zero-shot STC 0.3010 |
 | v11 full-vocabulary runtime head | 0.6625 | n/a | covered-label 0.6286; open-set-label 0.7054 | n/a | strict STC 0.3010 |
