@@ -1,0 +1,98 @@
+{
+  "schema_version": "plant_cellfm_model_card_v3_evidence_first",
+  "generated": "2026-08-01 Asia/Shanghai",
+  "model_name": "Plant-CellFM",
+  "model_class": "plant single-cell expression encoder with species adapters, hierarchical annotation paths and a runtime annotation head",
+  "claim_scope": "A reproducible plant single-cell annotation framework. The current frozen evidence establishes behaviour on a defined public corpus and cross-species evaluation set; it does not establish uniformly high-accuracy annotation for every plant species.",
+  "architecture": {
+    "embedding_dimension": 256,
+    "encoder_layers": 4,
+    "adaptation": "LoRA adapters and runtime adapter-resolution interface",
+    "gene_transfer": "exact gene identifiers followed by an ortholog-mapping contract when an appropriate map is supplied",
+    "implemented_outputs": [
+      "cell embedding",
+      "hierarchical cell-state annotation",
+      "marker-candidate ranking",
+      "annotation metadata"
+    ]
+  },
+  "frozen_current_corpus": {
+    "profile_source": "figure_data/corpus_profile_v1/corpus_profile.json",
+    "cells": 272732,
+    "genes": 209405,
+    "species": 5,
+    "datasets": 9,
+    "samples": 31,
+    "cell_labels": 34,
+    "species_list": [
+      "Arabidopsis thaliana",
+      "Brassica rapa",
+      "Catharanthus roseus",
+      "Fragaria vesca",
+      "Gossypium bickii"
+    ],
+    "boundary": "Historical manifest/catalogue rows and adapter registry entries are not equivalent to cells in this frozen profiled corpus."
+  },
+  "evaluated_protocols": {
+    "primary_strict_leave_species_v17": {
+      "test_cells": 3964,
+      "held_out_species": 8,
+      "target_labels_used_for_fitting_or_selection": false,
+      "selection": "nested source-species selection",
+      "all_cell_accuracy": 0.39959636730575174,
+      "known_label_accuracy": 0.7148014440433213,
+      "known_label_macro_f1": 0.281730572216521,
+      "source_label_coverage": 0.5590312815338042,
+      "source_record": "release_metadata/revision_v17_nested_metadata_gate.json"
+    },
+    "exploratory_global_context_v14": {
+      "all_cell_accuracy": 0.42356205852674067,
+      "reporting_boundary": "Exploratory sensitivity result. It is not the primary strict headline because the global configuration choice uses information across outer folds.",
+      "source_record": "release_metadata/revision_v14_context_stc_benchmark.json"
+    },
+    "fewshot_target_adaptation_v11": {
+      "support_query_nonoverlap": true,
+      "support_draws": 10,
+      "mean_query_all_cell_accuracy": {
+        "8_support_cells_per_species": 0.5921,
+        "16_support_cells_per_species": 0.6734,
+        "32_support_cells_per_species": 0.7230,
+        "64_support_cells_per_species": 0.7589
+      },
+      "source_record": "release_metadata/revision_v11_fewshot_adapter_benchmark.json"
+    },
+    "runtime_full_vocabulary_head": {
+      "all_cell_accuracy": 0.6624621594349143,
+      "reporting_boundary": "Deployment/readiness analysis with a trained full-vocabulary annotation head. It is not a strict leave-species zero-shot result.",
+      "source_record": "release_metadata/revision_v11_runtime_head_benchmark.json"
+    }
+  },
+  "intended_uses": [
+    "build embeddings for plant scRNA-seq or snRNA-seq cells that satisfy the documented gene contract",
+    "run a validated strict-transfer, few-shot-adaptation or runtime-annotation workflow with the correct protocol label",
+    "derive ranked marker candidates for follow-up biological validation",
+    "instantiate a new species adapter after providing gene identifiers or an ortholog map and then validating on held-out cells"
+  ],
+  "not_established": [
+    "universal high-accuracy zero-shot cell annotation across all plants",
+    "official numerical superiority over scPlantLLM or scPlantAnnotate",
+    "a completed Saussurea involucrata single-cell atlas",
+    "wet-lab validation of marker candidates"
+  ],
+  "comparison_status": {
+    "matched_frozen_v3": "completed",
+    "cosine_centroid": "completed",
+    "seurat_label_transfer": "completed_on_its_exported_split",
+    "scPlantLLM": "input_contract_ready_metric_pending",
+    "scPlantAnnotate": "official_access_audited_authenticated_output_pending"
+  },
+  "reproducibility": {
+    "main_figure_command": "python scripts/render_v3_data_first_main_figures.py",
+    "extended_data_command": "python scripts/render_v3_extended_data_suite.py",
+    "tables_command": "python scripts/write_submission_v3_supplementary_tables.py",
+    "source_data_directory": "figures/plant_cellfm_submission_v3/source_data",
+    "supplementary_tables_directory": "supplementary_tables/submission_v3",
+    "hardware_record": "The historical training artefacts record RTX 4090 runs. The currently accessible remote session did not expose a CUDA device on 2026-08-01; no active GPU training is claimed by this card.",
+    "repository": "https://github.com/ahvsjags/SnowLotus-CellFM"
+  }
+}

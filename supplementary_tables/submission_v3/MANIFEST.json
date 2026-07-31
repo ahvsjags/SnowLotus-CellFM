@@ -1,0 +1,42 @@
+{
+  "schema_version": "plant_cellfm_submission_v3_supplementary_tables",
+  "corpus_profile": {
+    "schema_version": "plant_cellfm_h5ad_corpus_profile_v1",
+    "input": "data/plant_foundation_corpus_current_scplantdb_v2.h5ad",
+    "shape": {
+      "cells": 272732,
+      "genes": 209405
+    },
+    "available_obs_columns": [
+      "species",
+      "tissue",
+      "dataset_id",
+      "sample_id",
+      "cell_type",
+      "cell_type_coarse"
+    ],
+    "unique_values": {
+      "species": 5,
+      "tissue": 6,
+      "dataset_id": 9,
+      "sample_id": 31,
+      "cell_type": 34,
+      "cell_type_coarse": 34
+    }
+  },
+  "primary_strict_protocol": "revision_v17_nested_metadata_gate",
+  "table_files": [
+    "Supplementary_Table_S1_current_corpus_manifest.tsv",
+    "Supplementary_Table_S2_protocol_boundaries.tsv",
+    "Supplementary_Table_S3_primary_strict_v17_per_species.tsv",
+    "Supplementary_Table_S4_nested_inner_selection_audit.tsv",
+    "Supplementary_Table_S5_selected_nested_configurations.tsv",
+    "Supplementary_Table_S6_fewshot_aggregate_metrics.tsv",
+    "Supplementary_Table_S7_fewshot_representative_per_species.tsv",
+    "Supplementary_Table_S8_external_benchmark_audit.tsv",
+    "Supplementary_Table_S9_arabidopsis_root_marker_candidates.tsv",
+    "Supplementary_Table_S10_reproducibility_manifest.tsv"
+  ],
+  "workbook": "Plant_CellFM_Supplementary_Tables_v3.xlsx",
+  "claim_boundary": "The v17 nested metadata gate is the only primary strict leave-species result. v14 remains an exploratory sensitivity result; few-shot and runtime-head tables use distinct, explicitly labeled protocols."
+}

@@ -15,3 +15,7 @@ outputs/
 checkpoints/
 wandb/
 
+# Submission TIFFs are retained locally for journal upload.  The renderers,
+# vector/raster review copies and TSV source data are versioned instead.
+figures/plant_cellfm_submission_v3/**/*.tiff
+

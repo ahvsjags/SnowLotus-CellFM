@@ -1,0 +1,6 @@
+method	all_cell_accuracy	status
+centroid	0.2364	matched baseline
+expression STC	0.301	matched baseline
+nested learned probe	0.35317860746720486	nested
+nested metadata gate	0.39959636730575177	nested
+global metadata gate	0.42356205852674067	exploratory

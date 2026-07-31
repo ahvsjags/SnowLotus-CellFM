@@ -1,0 +1,58 @@
+species	cell_type	cells	fraction_of_corpus
+Arabidopsis thaliana	Mesophyll	35786	0.13121305897364446
+Catharanthus roseus	Mesophyll	29549	0.1083444553627737
+Fragaria vesca	Mesophyll	22644	0.08302656087294487
+Arabidopsis thaliana	Shoot system epidermis	14326	0.05252775618555945
+Arabidopsis thaliana	Vascular tissue	14111	0.051739436516433715
+Arabidopsis thaliana	Unknow	11410	0.041835941510347155
+Fragaria vesca	Hydathodes	11357	0.04164161154539988
+Arabidopsis thaliana	G2/M phase	11305	0.04145094818356482
+Brassica rapa	Unknow	10561	0.03872299546807855
+Arabidopsis thaliana	S phase	9310	0.03413607497470044
+Arabidopsis thaliana	Root cortex	8336	0.030564803543405246
+Gossypium bickii	Mesophyll	6815	0.0249879002097297
+Arabidopsis thaliana	Root hair	5984	0.021940953023480925
+Arabidopsis thaliana	Shoot apical meristem	5610	0.020569643459513367
+Arabidopsis thaliana	Root cap	5357	0.01964199287212355
+Arabidopsis thaliana	Lateral root cap	4595	0.016848041300617456
+Catharanthus roseus	Leaf epidermis	4435	0.016261384802663422
+Arabidopsis thaliana	Root endodermis	4211	0.015440065705527771
+Brassica rapa	Mesophyll	3848	0.014109088775794552
+Brassica rapa	Leaf epidermis	3678	0.01348576624671839
+Fragaria vesca	Adaxial epidermis	3614	0.013251103647536776
+Fragaria vesca	Unknow	3498	0.0128257776865201
+Arabidopsis thaliana	Non-hair	3482	0.012767112036724697
+Arabidopsis thaliana	Root stele	3435	0.0125947816904507
+Arabidopsis thaliana	Xylem	2837	0.01040215302934749
+Gossypium bickii	Leaf epidermis	2592	0.009503835266855375
+Catharanthus roseus	Unknow	2370	0.00868984937594415
+Arabidopsis thaliana	Guard cell	2084	0.0076412008858513115
+Arabidopsis thaliana	Columella root cap	2027	0.007432204508455186
+Fragaria vesca	Xylem parenchyma	1881	0.006896880454072129
+Catharanthus roseus	Vascular tissue	1758	0.006445888271269964
+Arabidopsis thaliana	Companion cell	1560	0.005719900855051846
+Brassica rapa	Bundle sheath	1540	0.0056465687928075915
+Catharanthus roseus	Idioblast cell	1536	0.00563190238035874
+Catharanthus roseus	Meristematic cell	1382	0.005067245501077981
+Brassica rapa	Meristematic cell	1336	0.004898581757916196
+Brassica rapa	Vascular tissue	1318	0.004832582901896367
+Fragaria vesca	Xylem	1192	0.004370590909757564
+Arabidopsis thaliana	Phloem	1172	0.0042972588475133095
+Gossypium bickii	Procambium	1040	0.0038132672367012306
+Fragaria vesca	Abaxial epidermis	904	0.0033146092134403
+Arabidopsis thaliana	Leaf pavement cell	858	0.003145945470278515
+Gossypium bickii	Phloem parenchyma	794	0.002911282871096901
+Gossypium bickii	Xylem	703	0.0025776219878855433
+Fragaria vesca	Phloem	694	0.002544622559875629
+Arabidopsis thaliana	G1/G0 phase	666	0.002441957672733673
+Catharanthus roseus	Phloem parenchyma	623	0.0022842937389085257
+Arabidopsis thaliana	Leaf guard cell	587	0.0021522960268688675
+Gossypium bickii	Companion cell	467	0.001712303653403341
+Arabidopsis thaliana	Phloem parenchyma	352	0.001290644295498878
+Brassica rapa	Leaf guard cell	341	0.0012503116612645382
+Gossypium bickii	Pigment gland	309	0.001132980361673731
+Fragaria vesca	Meristematic cell	244	0.0008946511593799041
+Gossypium bickii	Leaf guard cell	175	0.0006416555446372263
+Brassica rapa	Xylem	68	0.00024932901163046505
+Brassica rapa	Phloem	51	0.0001869967587228488
+Arabidopsis thaliana	Sieve element	14	5.13324435709781e-05

@@ -1,0 +1,10 @@
+species	dataset_id	cells	fraction_of_corpus
+Arabidopsis thaliana	scplantdb_CRA002977_2	63034	0.23112066057521669
+Fragaria vesca	scplantdb_CRA004848	46028	0.16876640804892715
+Catharanthus roseus	scplantdb_SRP335448	41653	0.1527250194329965
+Arabidopsis thaliana	scplantdb_SRP169576	35665	0.13076939999706672
+Arabidopsis thaliana	scplantdb_SRP148288	24369	0.08935145124151181
+Brassica rapa	scplantdb_CRA006988	22741	0.08338222137482951
+Arabidopsis thaliana	scplantdb_DRP009643	15400	0.056465687928075915
+Gossypium bickii	scplantdb_SRP424189	12895	0.04728084713198304
+Arabidopsis thaliana	scplantdb_CRA002977_1	10947	0.04013830426939266

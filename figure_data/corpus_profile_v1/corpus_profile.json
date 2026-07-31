@@ -1,0 +1,24 @@
+{
+  "schema_version": "plant_cellfm_h5ad_corpus_profile_v1",
+  "input": "data/plant_foundation_corpus_current_scplantdb_v2.h5ad",
+  "shape": {
+    "cells": 272732,
+    "genes": 209405
+  },
+  "available_obs_columns": [
+    "species",
+    "tissue",
+    "dataset_id",
+    "sample_id",
+    "cell_type",
+    "cell_type_coarse"
+  ],
+  "unique_values": {
+    "species": 5,
+    "tissue": 6,
+    "dataset_id": 9,
+    "sample_id": 31,
+    "cell_type": 34,
+    "cell_type_coarse": 34
+  }
+}

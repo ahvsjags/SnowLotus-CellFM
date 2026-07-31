@@ -1,0 +1,44 @@
+{
+  "schema_version": "plant_cellfm_top_journal_figure_audit_rubric_v1",
+  "required_package": {
+    "main_figures": 6,
+    "extended_data_figures": 9,
+    "supplementary_figures": 13,
+    "supplementary_tables": 13,
+    "source_data_groups": 6,
+    "supplementary_notes": 5
+  },
+  "weights": {
+    "blueprint_completeness": 25,
+    "evidence_integrity": 15,
+    "supporting_package": 20,
+    "rendered_asset_coverage": 20,
+    "technical_export_quality": 10,
+    "visual_review": 10
+  },
+  "required_claim_tokens": [
+    "42.36%",
+    "55.90%",
+    "60.09%",
+    "66.25%",
+    "scPlantLLM",
+    "scPlantAnnotate",
+    "Gossypium hirsutum",
+    "candidate"
+  ],
+  "hard_blocker_rules": [
+    "Strict v14 zero-shot and v15 deployment metrics must be explicitly separated.",
+    "Incomplete third-party comparators cannot be presented as completed numerical baselines.",
+    "Marker candidates cannot be described as experimentally validated without independent support.",
+    "Final quantitative plots require a traceable source-data table.",
+    "Final suite requires recorded visual QA in addition to static checks."
+  ],
+  "technical_rules": {
+    "required_vector_extensions": [".svg", ".pdf"],
+    "required_raster_extensions": [".tif", ".tiff", ".png"],
+    "minimum_raster_dpi": 300,
+    "target_raster_dpi": 600,
+    "required_main_panel_labels": ["a", "b", "c"],
+    "editable_svg_text_required": true
+  }
+}

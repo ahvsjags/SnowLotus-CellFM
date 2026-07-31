@@ -1,0 +1,1662 @@
+{
+  "schema_version": "plant_cellfm_revision_v17_nested_metadata_gate",
+  "generated": "2026-08-01 02:41 Asia/Shanghai",
+  "protocol": {
+    "outer_split": "leave one canonical species out",
+    "inner_selection": "source-species leave-one-species-out",
+    "selection_objective": "all-cell accuracy, then macro-F1, then known-label accuracy",
+    "held_out_label_access": "none until final scoring",
+    "candidates": [
+      {
+        "name": "organ_context_prior",
+        "kind": "organ",
+        "scope": "none",
+        "minimum_family_support": 0,
+        "k": 9
+      },
+      {
+        "name": "expression_knn_k9",
+        "kind": "knn",
+        "scope": "none",
+        "minimum_family_support": 0,
+        "k": 9
+      },
+      {
+        "name": "gate_leaf_support_0",
+        "kind": "gate",
+        "scope": "leaf",
+        "minimum_family_support": 0,
+        "k": 9
+      },
+      {
+        "name": "gate_leaf_support_64",
+        "kind": "gate",
+        "scope": "leaf",
+        "minimum_family_support": 64,
+        "k": 9
+      },
+      {
+        "name": "gate_leaf_support_128",
+        "kind": "gate",
+        "scope": "leaf",
+        "minimum_family_support": 128,
+        "k": 9
+      },
+      {
+        "name": "gate_leaf_support_256",
+        "kind": "gate",
+        "scope": "leaf",
+        "minimum_family_support": 256,
+        "k": 9
+      },
+      {
+        "name": "gate_single_organ_support_128",
+        "kind": "gate",
+        "scope": "single",
+        "minimum_family_support": 128,
+        "k": 9
+      },
+      {
+        "name": "gate_any_organ_support_128",
+        "kind": "gate",
+        "scope": "any",
+        "minimum_family_support": 128,
+        "k": 9
+      },
+      {
+        "name": "gate_any_organ_support_256",
+        "kind": "gate",
+        "scope": "any",
+        "minimum_family_support": 256,
+        "k": 9
+      }
+    ],
+    "target_metadata_permitted": "canonical target species identity and input tissue/organ metadata"
+  },
+  "inputs": {
+    "aligned_cells": 3964,
+    "species": 8,
+    "fine_labels": 40
+  },
+  "summary": {
+    "groups": 8,
+    "n_test": 3964,
+    "n_evaluable": 2216,
+    "open_set_cells": 1748,
+    "coverage": 0.5590312815338042,
+    "accuracy_all": 0.39959636730575177,
+    "accuracy": 0.7148014440433214,
+    "macro_f1": 0.28173155370900244
+  },
+  "outer_species_records": [
+    {
+      "n_test": 2366,
+      "n_evaluable": 1024,
+      "open_set_cells": 1342,
+      "coverage": 0.4327979712595097,
+      "accuracy_all": 0.3241758241758242,
+      "macro_f1_all": 0.034233542076163345,
+      "accuracy": 0.7490234375,
+      "macro_f1": 0.1908012056658264,
+      "held_out_species": "Arabidopsis thaliana",
+      "selected_candidate": "organ_context_prior",
+      "decision": "organ_context_prior"
+    },
+    {
+      "n_test": 256,
+      "n_evaluable": 240,
+      "open_set_cells": 16,
+      "coverage": 0.9375,
+      "accuracy_all": 0.17578125,
+      "macro_f1_all": 0.03737541528239203,
+      "accuracy": 0.1875,
+      "macro_f1": 0.045112781954887216,
+      "held_out_species": "Brassica rapa",
+      "selected_candidate": "organ_context_prior",
+      "decision": "organ_context_prior"
+    },
+    {
+      "n_test": 256,
+      "n_evaluable": 241,
+      "open_set_cells": 15,
+      "coverage": 0.94140625,
+      "accuracy_all": 0.6953125,
+      "macro_f1_all": 0.11718235681369323,
+      "accuracy": 0.7385892116182573,
+      "macro_f1": 0.14160700079554495,
+      "held_out_species": "Catharanthus roseus",
+      "selected_candidate": "gate_leaf_support_64",
+      "decision": "organ_scope=leaf;same_family_support=0"
+    },
+    {
+      "n_test": 62,
+      "n_evaluable": 62,
+      "open_set_cells": 0,
+      "coverage": 1.0,
+      "accuracy_all": 1.0,
+      "macro_f1_all": 1.0,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "held_out_species": "Eutrema salsugineum",
+      "selected_candidate": "gate_leaf_support_64",
+      "decision": "organ_scope=leaf;same_family_support=1584"
+    },
+    {
+      "n_test": 256,
+      "n_evaluable": 161,
+      "open_set_cells": 95,
+      "coverage": 0.62890625,
+      "accuracy_all": 0.53515625,
+      "macro_f1_all": 0.0871501272264631,
+      "accuracy": 0.8509316770186336,
+      "macro_f1": 0.22986577181208054,
+      "held_out_species": "Fragaria vesca",
+      "selected_candidate": "gate_leaf_support_64",
+      "decision": "organ_scope=leaf;same_family_support=0"
+    },
+    {
+      "n_test": 256,
+      "n_evaluable": 232,
+      "open_set_cells": 24,
+      "coverage": 0.90625,
+      "accuracy_all": 0.54296875,
+      "macro_f1_all": 0.0879746835443038,
+      "accuracy": 0.5991379310344828,
+      "macro_f1": 0.12488769092542677,
+      "held_out_species": "Gossypium bickii",
+      "selected_candidate": "gate_leaf_support_64",
+      "decision": "organ_scope=leaf;same_family_support=0"
+    },
+    {
+      "n_test": 256,
+      "n_evaluable": 0,
+      "open_set_cells": 256,
+      "coverage": 0.0,
+      "accuracy_all": 0.0,
+      "macro_f1_all": 0.0,
+      "held_out_species": "Gossypium hirsutum",
+      "selected_candidate": "gate_leaf_support_64",
+      "decision": "expression_scope=leaf;same_family_support=256"
+    },
+    {
+      "n_test": 256,
+      "n_evaluable": 256,
+      "open_set_cells": 0,
+      "coverage": 1.0,
+      "accuracy_all": 1.0,
+      "macro_f1_all": 1.0,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "held_out_species": "Triticum aestivum",
+      "selected_candidate": "gate_leaf_support_64",
+      "decision": "organ_scope=leaf;same_family_support=0"
+    }
+  ],
+  "selected_configs": [
+    {
+      "held_out_species": "Arabidopsis thaliana",
+      "selected_candidate": {
+        "name": "organ_context_prior",
+        "kind": "organ",
+        "scope": "none",
+        "minimum_family_support": 0,
+        "k": 9
+      },
+      "inner_candidate_ranking": [
+        {
+          "candidate": {
+            "name": "organ_context_prior",
+            "kind": "organ",
+            "scope": "none",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 1598,
+            "n_evaluable": 1181,
+            "open_set_cells": 417,
+            "coverage": 0.7390488110137672,
+            "accuracy_all": 0.5112640801001251,
+            "accuracy": 0.6917866215071973,
+            "macro_f1": 0.36756559385678783
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_64",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 64,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 1598,
+            "n_evaluable": 1181,
+            "open_set_cells": 417,
+            "coverage": 0.7390488110137672,
+            "accuracy_all": 0.5112640801001251,
+            "accuracy": 0.6917866215071973,
+            "macro_f1": 0.36756559385678783
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_128",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 1598,
+            "n_evaluable": 1181,
+            "open_set_cells": 417,
+            "coverage": 0.7390488110137672,
+            "accuracy_all": 0.5112640801001251,
+            "accuracy": 0.6917866215071973,
+            "macro_f1": 0.36756559385678783
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_256",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 256,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 1598,
+            "n_evaluable": 1181,
+            "open_set_cells": 417,
+            "coverage": 0.7390488110137672,
+            "accuracy_all": 0.5112640801001251,
+            "accuracy": 0.6917866215071973,
+            "macro_f1": 0.36756559385678783
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_any_organ_support_256",
+            "kind": "gate",
+            "scope": "any",
+            "minimum_family_support": 256,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 1598,
+            "n_evaluable": 1181,
+            "open_set_cells": 417,
+            "coverage": 0.7390488110137672,
+            "accuracy_all": 0.5112640801001251,
+            "accuracy": 0.6917866215071973,
+            "macro_f1": 0.36756559385678783
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_single_organ_support_128",
+            "kind": "gate",
+            "scope": "single",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 1598,
+            "n_evaluable": 1181,
+            "open_set_cells": 417,
+            "coverage": 0.7390488110137672,
+            "accuracy_all": 0.5106382978723404,
+            "accuracy": 0.6909398814563928,
+            "macro_f1": 0.3411032462527868
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_any_organ_support_128",
+            "kind": "gate",
+            "scope": "any",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 1598,
+            "n_evaluable": 1181,
+            "open_set_cells": 417,
+            "coverage": 0.7390488110137672,
+            "accuracy_all": 0.5106382978723404,
+            "accuracy": 0.6909398814563928,
+            "macro_f1": 0.3411032462527868
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_0",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 1598,
+            "n_evaluable": 1181,
+            "open_set_cells": 417,
+            "coverage": 0.7390488110137672,
+            "accuracy_all": 0.3460575719649562,
+            "accuracy": 0.46824724809483487,
+            "macro_f1": 0.32476358317466747
+          }
+        },
+        {
+          "candidate": {
+            "name": "expression_knn_k9",
+            "kind": "knn",
+            "scope": "none",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 1598,
+            "n_evaluable": 1181,
+            "open_set_cells": 417,
+            "coverage": 0.7390488110137672,
+            "accuracy_all": 0.3166458072590738,
+            "accuracy": 0.42845046570702794,
+            "macro_f1": 0.17921978499230307
+          }
+        }
+      ]
+    },
+    {
+      "held_out_species": "Brassica rapa",
+      "selected_candidate": {
+        "name": "organ_context_prior",
+        "kind": "organ",
+        "scope": "none",
+        "minimum_family_support": 0,
+        "k": 9
+      },
+      "inner_candidate_ranking": [
+        {
+          "candidate": {
+            "name": "organ_context_prior",
+            "kind": "organ",
+            "scope": "none",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1967,
+            "open_set_cells": 1741,
+            "coverage": 0.5304746494066882,
+            "accuracy_all": 0.41504854368932037,
+            "accuracy": 0.7824097610574479,
+            "macro_f1": 0.31502366479209715
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_64",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 64,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1967,
+            "open_set_cells": 1741,
+            "coverage": 0.5304746494066882,
+            "accuracy_all": 0.41504854368932037,
+            "accuracy": 0.7824097610574479,
+            "macro_f1": 0.31502366479209715
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_128",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1967,
+            "open_set_cells": 1741,
+            "coverage": 0.5304746494066882,
+            "accuracy_all": 0.41504854368932037,
+            "accuracy": 0.7824097610574479,
+            "macro_f1": 0.31502366479209715
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_256",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 256,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1967,
+            "open_set_cells": 1741,
+            "coverage": 0.5304746494066882,
+            "accuracy_all": 0.41504854368932037,
+            "accuracy": 0.7824097610574479,
+            "macro_f1": 0.31502366479209715
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_single_organ_support_128",
+            "kind": "gate",
+            "scope": "single",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1967,
+            "open_set_cells": 1741,
+            "coverage": 0.5304746494066882,
+            "accuracy_all": 0.4147788565264293,
+            "accuracy": 0.7819013726487036,
+            "macro_f1": 0.2991354937090645
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_any_organ_support_128",
+            "kind": "gate",
+            "scope": "any",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1967,
+            "open_set_cells": 1741,
+            "coverage": 0.5304746494066882,
+            "accuracy_all": 0.4147788565264293,
+            "accuracy": 0.7819013726487036,
+            "macro_f1": 0.2991354937090645
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_any_organ_support_256",
+            "kind": "gate",
+            "scope": "any",
+            "minimum_family_support": 256,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1967,
+            "open_set_cells": 1741,
+            "coverage": 0.5304746494066882,
+            "accuracy_all": 0.4147788565264293,
+            "accuracy": 0.7819013726487036,
+            "macro_f1": 0.2991354937090645
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_0",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1967,
+            "open_set_cells": 1741,
+            "coverage": 0.5304746494066882,
+            "accuracy_all": 0.3492448759439051,
+            "accuracy": 0.6583629893238434,
+            "macro_f1": 0.32563906674025356
+          }
+        },
+        {
+          "candidate": {
+            "name": "expression_knn_k9",
+            "kind": "knn",
+            "scope": "none",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1967,
+            "open_set_cells": 1741,
+            "coverage": 0.5304746494066882,
+            "accuracy_all": 0.2688781014023732,
+            "accuracy": 0.5068632435180478,
+            "macro_f1": 0.23695901135271058
+          }
+        }
+      ]
+    },
+    {
+      "held_out_species": "Catharanthus roseus",
+      "selected_candidate": {
+        "name": "gate_leaf_support_64",
+        "kind": "gate",
+        "scope": "leaf",
+        "minimum_family_support": 64,
+        "k": 9
+      },
+      "inner_candidate_ranking": [
+        {
+          "candidate": {
+            "name": "gate_leaf_support_64",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 64,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1958,
+            "open_set_cells": 1750,
+            "coverage": 0.5280474649406688,
+            "accuracy_all": 0.4048004314994606,
+            "accuracy": 0.7665985699693565,
+            "macro_f1": 0.3308247789384629
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_128",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1958,
+            "open_set_cells": 1750,
+            "coverage": 0.5280474649406688,
+            "accuracy_all": 0.4048004314994606,
+            "accuracy": 0.7665985699693565,
+            "macro_f1": 0.3308247789384629
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_256",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 256,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1958,
+            "open_set_cells": 1750,
+            "coverage": 0.5280474649406688,
+            "accuracy_all": 0.4048004314994606,
+            "accuracy": 0.7665985699693565,
+            "macro_f1": 0.3308247789384629
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_single_organ_support_128",
+            "kind": "gate",
+            "scope": "single",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1958,
+            "open_set_cells": 1750,
+            "coverage": 0.5280474649406688,
+            "accuracy_all": 0.4045307443365696,
+            "accuracy": 0.7660878447395302,
+            "macro_f1": 0.3148635774469791
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_any_organ_support_256",
+            "kind": "gate",
+            "scope": "any",
+            "minimum_family_support": 256,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1958,
+            "open_set_cells": 1750,
+            "coverage": 0.5280474649406688,
+            "accuracy_all": 0.4045307443365696,
+            "accuracy": 0.7660878447395302,
+            "macro_f1": 0.3148635774469791
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_0",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1958,
+            "open_set_cells": 1750,
+            "coverage": 0.5280474649406688,
+            "accuracy_all": 0.3888888888888889,
+            "accuracy": 0.7364657814096016,
+            "macro_f1": 0.3576697476173332
+          }
+        },
+        {
+          "candidate": {
+            "name": "organ_context_prior",
+            "kind": "organ",
+            "scope": "none",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1958,
+            "open_set_cells": 1750,
+            "coverage": 0.5280474649406688,
+            "accuracy_all": 0.37918015102481123,
+            "accuracy": 0.7180796731358529,
+            "macro_f1": 0.3022697198375037
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_any_organ_support_128",
+            "kind": "gate",
+            "scope": "any",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1958,
+            "open_set_cells": 1750,
+            "coverage": 0.5280474649406688,
+            "accuracy_all": 0.3408845738942826,
+            "accuracy": 0.6455566905005107,
+            "macro_f1": 0.3538257531967284
+          }
+        },
+        {
+          "candidate": {
+            "name": "expression_knn_k9",
+            "kind": "knn",
+            "scope": "none",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1958,
+            "open_set_cells": 1750,
+            "coverage": 0.5280474649406688,
+            "accuracy_all": 0.32227615965480044,
+            "accuracy": 0.6103166496424923,
+            "macro_f1": 0.3139956448598618
+          }
+        }
+      ]
+    },
+    {
+      "held_out_species": "Eutrema salsugineum",
+      "selected_candidate": {
+        "name": "gate_leaf_support_64",
+        "kind": "gate",
+        "scope": "leaf",
+        "minimum_family_support": 64,
+        "k": 9
+      },
+      "inner_candidate_ranking": [
+        {
+          "candidate": {
+            "name": "gate_leaf_support_64",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 64,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3902,
+            "n_evaluable": 2154,
+            "open_set_cells": 1748,
+            "coverage": 0.5520246027678114,
+            "accuracy_all": 0.41440287032291134,
+            "accuracy": 0.7506963788300836,
+            "macro_f1": 0.28446683267858835
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_128",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3902,
+            "n_evaluable": 2154,
+            "open_set_cells": 1748,
+            "coverage": 0.5520246027678114,
+            "accuracy_all": 0.41440287032291134,
+            "accuracy": 0.7506963788300836,
+            "macro_f1": 0.28446683267858835
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_256",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 256,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3902,
+            "n_evaluable": 2154,
+            "open_set_cells": 1748,
+            "coverage": 0.5520246027678114,
+            "accuracy_all": 0.41440287032291134,
+            "accuracy": 0.7506963788300836,
+            "macro_f1": 0.28446683267858835
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_single_organ_support_128",
+            "kind": "gate",
+            "scope": "single",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3902,
+            "n_evaluable": 2154,
+            "open_set_cells": 1748,
+            "coverage": 0.5520246027678114,
+            "accuracy_all": 0.41440287032291134,
+            "accuracy": 0.7506963788300836,
+            "macro_f1": 0.28446683267858835
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_any_organ_support_256",
+            "kind": "gate",
+            "scope": "any",
+            "minimum_family_support": 256,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3902,
+            "n_evaluable": 2154,
+            "open_set_cells": 1748,
+            "coverage": 0.5520246027678114,
+            "accuracy_all": 0.41440287032291134,
+            "accuracy": 0.7506963788300836,
+            "macro_f1": 0.28446683267858835
+          }
+        },
+        {
+          "candidate": {
+            "name": "organ_context_prior",
+            "kind": "organ",
+            "scope": "none",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3902,
+            "n_evaluable": 2154,
+            "open_set_cells": 1748,
+            "coverage": 0.5520246027678114,
+            "accuracy_all": 0.3900563813429011,
+            "accuracy": 0.7065923862581244,
+            "macro_f1": 0.2610571601760211
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_0",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3902,
+            "n_evaluable": 2154,
+            "open_set_cells": 1748,
+            "coverage": 0.5520246027678114,
+            "accuracy_all": 0.35340850845720145,
+            "accuracy": 0.6402042711234912,
+            "macro_f1": 0.29267659750396924
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_any_organ_support_128",
+            "kind": "gate",
+            "scope": "any",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3902,
+            "n_evaluable": 2154,
+            "open_set_cells": 1748,
+            "coverage": 0.5520246027678114,
+            "accuracy_all": 0.3528959507944644,
+            "accuracy": 0.6392757660167131,
+            "macro_f1": 0.31198699613567726
+          }
+        },
+        {
+          "candidate": {
+            "name": "expression_knn_k9",
+            "kind": "knn",
+            "scope": "none",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3902,
+            "n_evaluable": 2154,
+            "open_set_cells": 1748,
+            "coverage": 0.5520246027678114,
+            "accuracy_all": 0.28933880061506917,
+            "accuracy": 0.5241411327762303,
+            "macro_f1": 0.25958868259670675
+          }
+        }
+      ]
+    },
+    {
+      "held_out_species": "Fragaria vesca",
+      "selected_candidate": {
+        "name": "gate_leaf_support_64",
+        "kind": "gate",
+        "scope": "leaf",
+        "minimum_family_support": 64,
+        "k": 9
+      },
+      "inner_candidate_ranking": [
+        {
+          "candidate": {
+            "name": "gate_leaf_support_64",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 64,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2055,
+            "open_set_cells": 1653,
+            "coverage": 0.5542071197411004,
+            "accuracy_all": 0.41585760517799353,
+            "accuracy": 0.7503649635036497,
+            "macro_f1": 0.31018948333942564
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_128",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2055,
+            "open_set_cells": 1653,
+            "coverage": 0.5542071197411004,
+            "accuracy_all": 0.41585760517799353,
+            "accuracy": 0.7503649635036497,
+            "macro_f1": 0.31018948333942564
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_256",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 256,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2055,
+            "open_set_cells": 1653,
+            "coverage": 0.5542071197411004,
+            "accuracy_all": 0.41585760517799353,
+            "accuracy": 0.7503649635036497,
+            "macro_f1": 0.31018948333942564
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_single_organ_support_128",
+            "kind": "gate",
+            "scope": "single",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2055,
+            "open_set_cells": 1653,
+            "coverage": 0.5542071197411004,
+            "accuracy_all": 0.4155879180151025,
+            "accuracy": 0.7498783454987834,
+            "macro_f1": 0.29498168162637206
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_any_organ_support_256",
+            "kind": "gate",
+            "scope": "any",
+            "minimum_family_support": 256,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2055,
+            "open_set_cells": 1653,
+            "coverage": 0.5542071197411004,
+            "accuracy_all": 0.4155879180151025,
+            "accuracy": 0.7498783454987834,
+            "macro_f1": 0.29498168162637206
+          }
+        },
+        {
+          "candidate": {
+            "name": "organ_context_prior",
+            "kind": "organ",
+            "scope": "none",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2055,
+            "open_set_cells": 1653,
+            "coverage": 0.5542071197411004,
+            "accuracy_all": 0.3902373247033441,
+            "accuracy": 0.7041362530413625,
+            "macro_f1": 0.2857950042615107
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_0",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2055,
+            "open_set_cells": 1653,
+            "coverage": 0.5542071197411004,
+            "accuracy_all": 0.34870550161812297,
+            "accuracy": 0.6291970802919709,
+            "macro_f1": 0.3011685244759508
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_any_organ_support_128",
+            "kind": "gate",
+            "scope": "any",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2055,
+            "open_set_cells": 1653,
+            "coverage": 0.5542071197411004,
+            "accuracy_all": 0.3454692556634304,
+            "accuracy": 0.6233576642335766,
+            "macro_f1": 0.3190919291771588
+          }
+        },
+        {
+          "candidate": {
+            "name": "expression_knn_k9",
+            "kind": "knn",
+            "scope": "none",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2055,
+            "open_set_cells": 1653,
+            "coverage": 0.5542071197411004,
+            "accuracy_all": 0.2756202804746494,
+            "accuracy": 0.497323600973236,
+            "macro_f1": 0.2465430867142617
+          }
+        }
+      ]
+    },
+    {
+      "held_out_species": "Gossypium bickii",
+      "selected_candidate": {
+        "name": "gate_leaf_support_64",
+        "kind": "gate",
+        "scope": "leaf",
+        "minimum_family_support": 64,
+        "k": 9
+      },
+      "inner_candidate_ranking": [
+        {
+          "candidate": {
+            "name": "gate_leaf_support_64",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 64,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1968,
+            "open_set_cells": 1740,
+            "coverage": 0.5307443365695793,
+            "accuracy_all": 0.40722761596548,
+            "accuracy": 0.7672764227642277,
+            "macro_f1": 0.32999780254842365
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_128",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1968,
+            "open_set_cells": 1740,
+            "coverage": 0.5307443365695793,
+            "accuracy_all": 0.40722761596548,
+            "accuracy": 0.7672764227642277,
+            "macro_f1": 0.32999780254842365
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_256",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 256,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1968,
+            "open_set_cells": 1740,
+            "coverage": 0.5307443365695793,
+            "accuracy_all": 0.40722761596548,
+            "accuracy": 0.7672764227642277,
+            "macro_f1": 0.32999780254842365
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_single_organ_support_128",
+            "kind": "gate",
+            "scope": "single",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1968,
+            "open_set_cells": 1740,
+            "coverage": 0.5307443365695793,
+            "accuracy_all": 0.406957928802589,
+            "accuracy": 0.7667682926829268,
+            "macro_f1": 0.31411770472305517
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_any_organ_support_256",
+            "kind": "gate",
+            "scope": "any",
+            "minimum_family_support": 256,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1968,
+            "open_set_cells": 1740,
+            "coverage": 0.5307443365695793,
+            "accuracy_all": 0.406957928802589,
+            "accuracy": 0.7667682926829268,
+            "macro_f1": 0.31411770472305517
+          }
+        },
+        {
+          "candidate": {
+            "name": "organ_context_prior",
+            "kind": "organ",
+            "scope": "none",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1968,
+            "open_set_cells": 1740,
+            "coverage": 0.5307443365695793,
+            "accuracy_all": 0.38969795037756205,
+            "accuracy": 0.7342479674796748,
+            "macro_f1": 0.3140077365173292
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_0",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1968,
+            "open_set_cells": 1740,
+            "coverage": 0.5307443365695793,
+            "accuracy_all": 0.36003236245954695,
+            "accuracy": 0.6783536585365854,
+            "macro_f1": 0.3266871328333176
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_any_organ_support_128",
+            "kind": "gate",
+            "scope": "any",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1968,
+            "open_set_cells": 1740,
+            "coverage": 0.5307443365695793,
+            "accuracy_all": 0.31903991370010787,
+            "accuracy": 0.6011178861788617,
+            "macro_f1": 0.2975150040213663
+          }
+        },
+        {
+          "candidate": {
+            "name": "expression_knn_k9",
+            "kind": "knn",
+            "scope": "none",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1968,
+            "open_set_cells": 1740,
+            "coverage": 0.5307443365695793,
+            "accuracy_all": 0.2691477885652643,
+            "accuracy": 0.5071138211382114,
+            "macro_f1": 0.22786805341357083
+          }
+        }
+      ]
+    },
+    {
+      "held_out_species": "Gossypium hirsutum",
+      "selected_candidate": {
+        "name": "gate_leaf_support_64",
+        "kind": "gate",
+        "scope": "leaf",
+        "minimum_family_support": 64,
+        "k": 9
+      },
+      "inner_candidate_ranking": [
+        {
+          "candidate": {
+            "name": "gate_leaf_support_64",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 64,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2216,
+            "open_set_cells": 1492,
+            "coverage": 0.5976267529665588,
+            "accuracy_all": 0.4528047464940669,
+            "accuracy": 0.7576714801444043,
+            "macro_f1": 0.3044862624502163
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_128",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2216,
+            "open_set_cells": 1492,
+            "coverage": 0.5976267529665588,
+            "accuracy_all": 0.4528047464940669,
+            "accuracy": 0.7576714801444043,
+            "macro_f1": 0.3044862624502163
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_256",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 256,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2216,
+            "open_set_cells": 1492,
+            "coverage": 0.5976267529665588,
+            "accuracy_all": 0.4528047464940669,
+            "accuracy": 0.7576714801444043,
+            "macro_f1": 0.3044862624502163
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_single_organ_support_128",
+            "kind": "gate",
+            "scope": "single",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2216,
+            "open_set_cells": 1492,
+            "coverage": 0.5976267529665588,
+            "accuracy_all": 0.4525350593311758,
+            "accuracy": 0.7572202166064982,
+            "macro_f1": 0.29038335968833673
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_any_organ_support_256",
+            "kind": "gate",
+            "scope": "any",
+            "minimum_family_support": 256,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2216,
+            "open_set_cells": 1492,
+            "coverage": 0.5976267529665588,
+            "accuracy_all": 0.4525350593311758,
+            "accuracy": 0.7572202166064982,
+            "macro_f1": 0.29038335968833673
+          }
+        },
+        {
+          "candidate": {
+            "name": "organ_context_prior",
+            "kind": "organ",
+            "scope": "none",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2216,
+            "open_set_cells": 1492,
+            "coverage": 0.5976267529665588,
+            "accuracy_all": 0.42718446601941745,
+            "accuracy": 0.7148014440433214,
+            "macro_f1": 0.28173155370900244
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_any_organ_support_128",
+            "kind": "gate",
+            "scope": "any",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2216,
+            "open_set_cells": 1492,
+            "coverage": 0.5976267529665588,
+            "accuracy_all": 0.4077669902912621,
+            "accuracy": 0.6823104693140795,
+            "macro_f1": 0.3260815885257772
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_0",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2216,
+            "open_set_cells": 1492,
+            "coverage": 0.5976267529665588,
+            "accuracy_all": 0.3948220064724919,
+            "accuracy": 0.6606498194945848,
+            "macro_f1": 0.31941578382145797
+          }
+        },
+        {
+          "candidate": {
+            "name": "expression_knn_k9",
+            "kind": "knn",
+            "scope": "none",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2216,
+            "open_set_cells": 1492,
+            "coverage": 0.5976267529665588,
+            "accuracy_all": 0.3497842502696872,
+            "accuracy": 0.5852888086642599,
+            "macro_f1": 0.3410111098970189
+          }
+        }
+      ]
+    },
+    {
+      "held_out_species": "Triticum aestivum",
+      "selected_candidate": {
+        "name": "gate_leaf_support_64",
+        "kind": "gate",
+        "scope": "leaf",
+        "minimum_family_support": 64,
+        "k": 9
+      },
+      "inner_candidate_ranking": [
+        {
+          "candidate": {
+            "name": "gate_leaf_support_64",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 64,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1960,
+            "open_set_cells": 1748,
+            "coverage": 0.5285868392664509,
+            "accuracy_all": 0.383764832793959,
+            "accuracy": 0.7260204081632653,
+            "macro_f1": 0.21364365183146905
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_128",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1960,
+            "open_set_cells": 1748,
+            "coverage": 0.5285868392664509,
+            "accuracy_all": 0.383764832793959,
+            "accuracy": 0.7260204081632653,
+            "macro_f1": 0.21364365183146905
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_256",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 256,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1960,
+            "open_set_cells": 1748,
+            "coverage": 0.5285868392664509,
+            "accuracy_all": 0.383764832793959,
+            "accuracy": 0.7260204081632653,
+            "macro_f1": 0.21364365183146905
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_single_organ_support_128",
+            "kind": "gate",
+            "scope": "single",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1960,
+            "open_set_cells": 1748,
+            "coverage": 0.5285868392664509,
+            "accuracy_all": 0.38349514563106796,
+            "accuracy": 0.7255102040816327,
+            "macro_f1": 0.19769873728028273
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_any_organ_support_256",
+            "kind": "gate",
+            "scope": "any",
+            "minimum_family_support": 256,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1960,
+            "open_set_cells": 1748,
+            "coverage": 0.5285868392664509,
+            "accuracy_all": 0.38349514563106796,
+            "accuracy": 0.7255102040816327,
+            "macro_f1": 0.19769873728028273
+          }
+        },
+        {
+          "candidate": {
+            "name": "organ_context_prior",
+            "kind": "organ",
+            "scope": "none",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1960,
+            "open_set_cells": 1748,
+            "coverage": 0.5285868392664509,
+            "accuracy_all": 0.3581445523193096,
+            "accuracy": 0.6775510204081633,
+            "macro_f1": 0.18791689949956605
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_leaf_support_0",
+            "kind": "gate",
+            "scope": "leaf",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1960,
+            "open_set_cells": 1748,
+            "coverage": 0.5285868392664509,
+            "accuracy_all": 0.31957928802589,
+            "accuracy": 0.6045918367346939,
+            "macro_f1": 0.2226660158283417
+          }
+        },
+        {
+          "candidate": {
+            "name": "gate_any_organ_support_128",
+            "kind": "gate",
+            "scope": "any",
+            "minimum_family_support": 128,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1960,
+            "open_set_cells": 1748,
+            "coverage": 0.5285868392664509,
+            "accuracy_all": 0.3193096008629989,
+            "accuracy": 0.6040816326530613,
+            "macro_f1": 0.22804039617038582
+          }
+        },
+        {
+          "candidate": {
+            "name": "expression_knn_k9",
+            "kind": "knn",
+            "scope": "none",
+            "minimum_family_support": 0,
+            "k": 9
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1960,
+            "open_set_cells": 1748,
+            "coverage": 0.5285868392664509,
+            "accuracy_all": 0.2551240560949299,
+            "accuracy": 0.4826530612244898,
+            "macro_f1": 0.23706276016725844
+          }
+        }
+      ]
+    }
+  ],
+  "interpretation": "This experiment replaces a globally selected rule with nested source-species selection. It remains strict zero-shot because target labels are excluded from training, gate selection and prior estimation."
+}

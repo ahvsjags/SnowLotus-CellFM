@@ -1,0 +1,972 @@
+{
+  "schema_version": "plant_cellfm_revision_v16_nested_hierarchical_probe",
+  "generated": "2026-08-01 02:38 Asia/Shanghai",
+  "protocol": {
+    "outer_split": "leave one canonical species out",
+    "inner_selection": "leave one source species out within each outer training fold",
+    "selection_objective": "all-cell accuracy, then known-label macro-F1, then known-label accuracy",
+    "held_out_label_access": "none until final outer-fold scoring",
+    "candidates": [
+      {
+        "name": "embedding_lr_c1",
+        "c": 1.0,
+        "organ_scale": 0.0,
+        "prior_weight": 0.0
+      },
+      {
+        "name": "hierarchical_lr_c01_o05_p015",
+        "c": 0.1,
+        "organ_scale": 0.5,
+        "prior_weight": 0.15
+      },
+      {
+        "name": "hierarchical_lr_c1_o05_p015",
+        "c": 1.0,
+        "organ_scale": 0.5,
+        "prior_weight": 0.15
+      },
+      {
+        "name": "hierarchical_lr_c1_o10_p035",
+        "c": 1.0,
+        "organ_scale": 1.0,
+        "prior_weight": 0.35
+      },
+      {
+        "name": "hierarchical_lr_c3_o10_p015",
+        "c": 3.0,
+        "organ_scale": 1.0,
+        "prior_weight": 0.15
+      }
+    ],
+    "input_features": "frozen 256-dimensional normalized Plant-CellFM embedding plus optional training-fold organ one-hot context",
+    "prior": "optional organ-conditioned label prior estimated from each fit fold only"
+  },
+  "inputs": {
+    "aligned_cells": 3964,
+    "species": 8,
+    "fine_labels": 40,
+    "organs": [
+      "callus",
+      "leaf",
+      "root",
+      "shoot_apex"
+    ]
+  },
+  "summary": {
+    "groups": 8,
+    "n_test": 3964,
+    "n_evaluable": 2216,
+    "open_set_cells": 1748,
+    "coverage": 0.5590312815338042,
+    "accuracy_all": 0.35317860746720486,
+    "accuracy": 0.631768953068592,
+    "macro_f1": 0.2643228153621266
+  },
+  "outer_species_records": [
+    {
+      "n_test": 2366,
+      "n_evaluable": 1024,
+      "open_set_cells": 1342,
+      "coverage": 0.4327979712595097,
+      "accuracy_all": 0.31952662721893493,
+      "macro_f1_all": 0.08658712944011056,
+      "accuracy": 0.73828125,
+      "macro_f1": 0.27967600454487407,
+      "held_out_species": "Arabidopsis thaliana",
+      "selected_candidate": "hierarchical_lr_c3_o10_p015"
+    },
+    {
+      "n_test": 256,
+      "n_evaluable": 240,
+      "open_set_cells": 16,
+      "coverage": 0.9375,
+      "accuracy_all": 0.17578125,
+      "macro_f1_all": 0.03737541528239203,
+      "accuracy": 0.1875,
+      "macro_f1": 0.045112781954887216,
+      "held_out_species": "Brassica rapa",
+      "selected_candidate": "hierarchical_lr_c01_o05_p015"
+    },
+    {
+      "n_test": 256,
+      "n_evaluable": 241,
+      "open_set_cells": 15,
+      "coverage": 0.94140625,
+      "accuracy_all": 0.0,
+      "macro_f1_all": 0.0,
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "held_out_species": "Catharanthus roseus",
+      "selected_candidate": "embedding_lr_c1"
+    },
+    {
+      "n_test": 62,
+      "n_evaluable": 62,
+      "open_set_cells": 0,
+      "coverage": 1.0,
+      "accuracy_all": 0.9838709677419355,
+      "macro_f1_all": 0.4959349593495935,
+      "accuracy": 0.9838709677419355,
+      "macro_f1": 0.4959349593495935,
+      "held_out_species": "Eutrema salsugineum",
+      "selected_candidate": "embedding_lr_c1"
+    },
+    {
+      "n_test": 256,
+      "n_evaluable": 161,
+      "open_set_cells": 95,
+      "coverage": 0.62890625,
+      "accuracy_all": 0.55859375,
+      "macro_f1_all": 0.1673811802232855,
+      "accuracy": 0.8881987577639752,
+      "macro_f1": 0.44805555555555554,
+      "held_out_species": "Fragaria vesca",
+      "selected_candidate": "embedding_lr_c1"
+    },
+    {
+      "n_test": 256,
+      "n_evaluable": 232,
+      "open_set_cells": 24,
+      "coverage": 0.90625,
+      "accuracy_all": 0.5625,
+      "macro_f1_all": 0.18016165713934476,
+      "accuracy": 0.6206896551724138,
+      "macro_f1": 0.2538856810836329,
+      "held_out_species": "Gossypium bickii",
+      "selected_candidate": "embedding_lr_c1"
+    },
+    {
+      "n_test": 256,
+      "n_evaluable": 0,
+      "open_set_cells": 256,
+      "coverage": 0.0,
+      "accuracy_all": 0.0,
+      "macro_f1_all": 0.0,
+      "held_out_species": "Gossypium hirsutum",
+      "selected_candidate": "embedding_lr_c1"
+    },
+    {
+      "n_test": 256,
+      "n_evaluable": 256,
+      "open_set_cells": 0,
+      "coverage": 1.0,
+      "accuracy_all": 0.98046875,
+      "macro_f1_all": 0.49506903353057197,
+      "accuracy": 0.98046875,
+      "macro_f1": 0.49506903353057197,
+      "held_out_species": "Triticum aestivum",
+      "selected_candidate": "embedding_lr_c1"
+    }
+  ],
+  "selected_configs": [
+    {
+      "held_out_species": "Arabidopsis thaliana",
+      "selected_candidate": {
+        "name": "hierarchical_lr_c3_o10_p015",
+        "c": 3.0,
+        "organ_scale": 1.0,
+        "prior_weight": 0.15
+      },
+      "inner_candidate_ranking": [
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c3_o10_p015",
+            "c": 3.0,
+            "organ_scale": 1.0,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 1598,
+            "n_evaluable": 1181,
+            "open_set_cells": 417,
+            "coverage": 0.7390488110137672,
+            "accuracy_all": 0.40801001251564456,
+            "accuracy": 0.5520745131244708,
+            "macro_f1": 0.38274281381971786
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c1_o10_p035",
+            "c": 1.0,
+            "organ_scale": 1.0,
+            "prior_weight": 0.35
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 1598,
+            "n_evaluable": 1181,
+            "open_set_cells": 417,
+            "coverage": 0.7390488110137672,
+            "accuracy_all": 0.38735919899874843,
+            "accuracy": 0.5241320914479255,
+            "macro_f1": 0.3593289772156472
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c01_o05_p015",
+            "c": 0.1,
+            "organ_scale": 0.5,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 1598,
+            "n_evaluable": 1181,
+            "open_set_cells": 417,
+            "coverage": 0.7390488110137672,
+            "accuracy_all": 0.38360450563204007,
+            "accuracy": 0.519051651143099,
+            "macro_f1": 0.2220222271624113
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c1_o05_p015",
+            "c": 1.0,
+            "organ_scale": 0.5,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 1598,
+            "n_evaluable": 1181,
+            "open_set_cells": 417,
+            "coverage": 0.7390488110137672,
+            "accuracy_all": 0.37922403003754696,
+            "accuracy": 0.5131244707874683,
+            "macro_f1": 0.2457896930412169
+          }
+        },
+        {
+          "candidate": {
+            "name": "embedding_lr_c1",
+            "c": 1.0,
+            "organ_scale": 0.0,
+            "prior_weight": 0.0
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 1598,
+            "n_evaluable": 1181,
+            "open_set_cells": 417,
+            "coverage": 0.7390488110137672,
+            "accuracy_all": 0.2853566958698373,
+            "accuracy": 0.3861134631668078,
+            "macro_f1": 0.18962556622467416
+          }
+        }
+      ]
+    },
+    {
+      "held_out_species": "Brassica rapa",
+      "selected_candidate": {
+        "name": "hierarchical_lr_c01_o05_p015",
+        "c": 0.1,
+        "organ_scale": 0.5,
+        "prior_weight": 0.15
+      },
+      "inner_candidate_ranking": [
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c01_o05_p015",
+            "c": 0.1,
+            "organ_scale": 0.5,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1967,
+            "open_set_cells": 1741,
+            "coverage": 0.5304746494066882,
+            "accuracy_all": 0.3648867313915858,
+            "accuracy": 0.6878495170310117,
+            "macro_f1": 0.284067416875152
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c1_o10_p035",
+            "c": 1.0,
+            "organ_scale": 1.0,
+            "prior_weight": 0.35
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1967,
+            "open_set_cells": 1741,
+            "coverage": 0.5304746494066882,
+            "accuracy_all": 0.3597626752966559,
+            "accuracy": 0.6781901372648703,
+            "macro_f1": 0.2719391324200248
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c1_o05_p015",
+            "c": 1.0,
+            "organ_scale": 0.5,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1967,
+            "open_set_cells": 1741,
+            "coverage": 0.5304746494066882,
+            "accuracy_all": 0.3586839266450917,
+            "accuracy": 0.6761565836298933,
+            "macro_f1": 0.2740845971448371
+          }
+        },
+        {
+          "candidate": {
+            "name": "embedding_lr_c1",
+            "c": 1.0,
+            "organ_scale": 0.0,
+            "prior_weight": 0.0
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1967,
+            "open_set_cells": 1741,
+            "coverage": 0.5304746494066882,
+            "accuracy_all": 0.3559870550161812,
+            "accuracy": 0.6710726995424504,
+            "macro_f1": 0.24639613557080256
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c3_o10_p015",
+            "c": 3.0,
+            "organ_scale": 1.0,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1967,
+            "open_set_cells": 1741,
+            "coverage": 0.5304746494066882,
+            "accuracy_all": 0.34627831715210355,
+            "accuracy": 0.6527707168276563,
+            "macro_f1": 0.3235245729602891
+          }
+        }
+      ]
+    },
+    {
+      "held_out_species": "Catharanthus roseus",
+      "selected_candidate": {
+        "name": "embedding_lr_c1",
+        "c": 1.0,
+        "organ_scale": 0.0,
+        "prior_weight": 0.0
+      },
+      "inner_candidate_ranking": [
+        {
+          "candidate": {
+            "name": "embedding_lr_c1",
+            "c": 1.0,
+            "organ_scale": 0.0,
+            "prior_weight": 0.0
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1958,
+            "open_set_cells": 1750,
+            "coverage": 0.5280474649406688,
+            "accuracy_all": 0.3907766990291262,
+            "accuracy": 0.7400408580183861,
+            "macro_f1": 0.3269530499411148
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c3_o10_p015",
+            "c": 3.0,
+            "organ_scale": 1.0,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1958,
+            "open_set_cells": 1750,
+            "coverage": 0.5280474649406688,
+            "accuracy_all": 0.38996763754045305,
+            "accuracy": 0.7385086823289071,
+            "macro_f1": 0.4053175019240107
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c1_o05_p015",
+            "c": 1.0,
+            "organ_scale": 0.5,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1958,
+            "open_set_cells": 1750,
+            "coverage": 0.5280474649406688,
+            "accuracy_all": 0.38915857605177995,
+            "accuracy": 0.736976506639428,
+            "macro_f1": 0.34164889874605847
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c1_o10_p035",
+            "c": 1.0,
+            "organ_scale": 1.0,
+            "prior_weight": 0.35
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1958,
+            "open_set_cells": 1750,
+            "coverage": 0.5280474649406688,
+            "accuracy_all": 0.37837108953613807,
+            "accuracy": 0.7165474974463738,
+            "macro_f1": 0.3390250787508407
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c01_o05_p015",
+            "c": 0.1,
+            "organ_scale": 0.5,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1958,
+            "open_set_cells": 1750,
+            "coverage": 0.5280474649406688,
+            "accuracy_all": 0.36138079827400216,
+            "accuracy": 0.6843718079673136,
+            "macro_f1": 0.28476527774210925
+          }
+        }
+      ]
+    },
+    {
+      "held_out_species": "Eutrema salsugineum",
+      "selected_candidate": {
+        "name": "embedding_lr_c1",
+        "c": 1.0,
+        "organ_scale": 0.0,
+        "prior_weight": 0.0
+      },
+      "inner_candidate_ranking": [
+        {
+          "candidate": {
+            "name": "embedding_lr_c1",
+            "c": 1.0,
+            "organ_scale": 0.0,
+            "prior_weight": 0.0
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3902,
+            "n_evaluable": 2154,
+            "open_set_cells": 1748,
+            "coverage": 0.5520246027678114,
+            "accuracy_all": 0.3780112762685802,
+            "accuracy": 0.6847725162488394,
+            "macro_f1": 0.2743904208539392
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c3_o10_p015",
+            "c": 3.0,
+            "organ_scale": 1.0,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3902,
+            "n_evaluable": 2154,
+            "open_set_cells": 1748,
+            "coverage": 0.5520246027678114,
+            "accuracy_all": 0.36955407483341873,
+            "accuracy": 0.669452181987001,
+            "macro_f1": 0.3441668333564721
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c1_o05_p015",
+            "c": 1.0,
+            "organ_scale": 0.5,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3902,
+            "n_evaluable": 2154,
+            "open_set_cells": 1748,
+            "coverage": 0.5520246027678114,
+            "accuracy_all": 0.36776012301383904,
+            "accuracy": 0.6662024141132776,
+            "macro_f1": 0.3102671997868707
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c1_o10_p035",
+            "c": 1.0,
+            "organ_scale": 1.0,
+            "prior_weight": 0.35
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3902,
+            "n_evaluable": 2154,
+            "open_set_cells": 1748,
+            "coverage": 0.5520246027678114,
+            "accuracy_all": 0.3590466427473091,
+            "accuracy": 0.6504178272980501,
+            "macro_f1": 0.2734110361548427
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c01_o05_p015",
+            "c": 0.1,
+            "organ_scale": 0.5,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3902,
+            "n_evaluable": 2154,
+            "open_set_cells": 1748,
+            "coverage": 0.5520246027678114,
+            "accuracy_all": 0.3436699128651973,
+            "accuracy": 0.6225626740947076,
+            "macro_f1": 0.17310549024795008
+          }
+        }
+      ]
+    },
+    {
+      "held_out_species": "Fragaria vesca",
+      "selected_candidate": {
+        "name": "embedding_lr_c1",
+        "c": 1.0,
+        "organ_scale": 0.0,
+        "prior_weight": 0.0
+      },
+      "inner_candidate_ranking": [
+        {
+          "candidate": {
+            "name": "embedding_lr_c1",
+            "c": 1.0,
+            "organ_scale": 0.0,
+            "prior_weight": 0.0
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2055,
+            "open_set_cells": 1653,
+            "coverage": 0.5542071197411004,
+            "accuracy_all": 0.3554476806903991,
+            "accuracy": 0.6413625304136253,
+            "macro_f1": 0.23694285932486106
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c1_o05_p015",
+            "c": 1.0,
+            "organ_scale": 0.5,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2055,
+            "open_set_cells": 1653,
+            "coverage": 0.5542071197411004,
+            "accuracy_all": 0.34115426105717367,
+            "accuracy": 0.6155717761557178,
+            "macro_f1": 0.2929736520141272
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c1_o10_p035",
+            "c": 1.0,
+            "organ_scale": 1.0,
+            "prior_weight": 0.35
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2055,
+            "open_set_cells": 1653,
+            "coverage": 0.5542071197411004,
+            "accuracy_all": 0.34115426105717367,
+            "accuracy": 0.6155717761557178,
+            "macro_f1": 0.28405845642219113
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c01_o05_p015",
+            "c": 0.1,
+            "organ_scale": 0.5,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2055,
+            "open_set_cells": 1653,
+            "coverage": 0.5542071197411004,
+            "accuracy_all": 0.3344120819848975,
+            "accuracy": 0.6034063260340633,
+            "macro_f1": 0.2550187518595094
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c3_o10_p015",
+            "c": 3.0,
+            "organ_scale": 1.0,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2055,
+            "open_set_cells": 1653,
+            "coverage": 0.5542071197411004,
+            "accuracy_all": 0.3290183387270766,
+            "accuracy": 0.5936739659367397,
+            "macro_f1": 0.3158630776536446
+          }
+        }
+      ]
+    },
+    {
+      "held_out_species": "Gossypium bickii",
+      "selected_candidate": {
+        "name": "embedding_lr_c1",
+        "c": 1.0,
+        "organ_scale": 0.0,
+        "prior_weight": 0.0
+      },
+      "inner_candidate_ranking": [
+        {
+          "candidate": {
+            "name": "embedding_lr_c1",
+            "c": 1.0,
+            "organ_scale": 0.0,
+            "prior_weight": 0.0
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1968,
+            "open_set_cells": 1740,
+            "coverage": 0.5307443365695793,
+            "accuracy_all": 0.337108953613808,
+            "accuracy": 0.6351626016260162,
+            "macro_f1": 0.37031946293112245
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c3_o10_p015",
+            "c": 3.0,
+            "organ_scale": 1.0,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1968,
+            "open_set_cells": 1740,
+            "coverage": 0.5307443365695793,
+            "accuracy_all": 0.33495145631067963,
+            "accuracy": 0.6310975609756098,
+            "macro_f1": 0.29050806646842947
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c01_o05_p015",
+            "c": 0.1,
+            "organ_scale": 0.5,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1968,
+            "open_set_cells": 1740,
+            "coverage": 0.5307443365695793,
+            "accuracy_all": 0.3271305285868393,
+            "accuracy": 0.6163617886178862,
+            "macro_f1": 0.28593033088114533
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c1_o05_p015",
+            "c": 1.0,
+            "organ_scale": 0.5,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1968,
+            "open_set_cells": 1740,
+            "coverage": 0.5307443365695793,
+            "accuracy_all": 0.3187702265372168,
+            "accuracy": 0.600609756097561,
+            "macro_f1": 0.299217215821121
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c1_o10_p035",
+            "c": 1.0,
+            "organ_scale": 1.0,
+            "prior_weight": 0.35
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1968,
+            "open_set_cells": 1740,
+            "coverage": 0.5307443365695793,
+            "accuracy_all": 0.31472491909385114,
+            "accuracy": 0.5929878048780488,
+            "macro_f1": 0.286833998700963
+          }
+        }
+      ]
+    },
+    {
+      "held_out_species": "Gossypium hirsutum",
+      "selected_candidate": {
+        "name": "embedding_lr_c1",
+        "c": 1.0,
+        "organ_scale": 0.0,
+        "prior_weight": 0.0
+      },
+      "inner_candidate_ranking": [
+        {
+          "candidate": {
+            "name": "embedding_lr_c1",
+            "c": 1.0,
+            "organ_scale": 0.0,
+            "prior_weight": 0.0
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2216,
+            "open_set_cells": 1492,
+            "coverage": 0.5976267529665588,
+            "accuracy_all": 0.4501078748651564,
+            "accuracy": 0.753158844765343,
+            "macro_f1": 0.33183374468081983
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c3_o10_p015",
+            "c": 3.0,
+            "organ_scale": 1.0,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2216,
+            "open_set_cells": 1492,
+            "coverage": 0.5976267529665588,
+            "accuracy_all": 0.44660194174757284,
+            "accuracy": 0.7472924187725631,
+            "macro_f1": 0.37997435586352263
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c1_o05_p015",
+            "c": 1.0,
+            "organ_scale": 0.5,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2216,
+            "open_set_cells": 1492,
+            "coverage": 0.5976267529665588,
+            "accuracy_all": 0.43985976267529664,
+            "accuracy": 0.7360108303249098,
+            "macro_f1": 0.3275636040219875
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c1_o10_p035",
+            "c": 1.0,
+            "organ_scale": 1.0,
+            "prior_weight": 0.35
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2216,
+            "open_set_cells": 1492,
+            "coverage": 0.5976267529665588,
+            "accuracy_all": 0.43716289104638617,
+            "accuracy": 0.7314981949458483,
+            "macro_f1": 0.3205207709362961
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c01_o05_p015",
+            "c": 0.1,
+            "organ_scale": 0.5,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 2216,
+            "open_set_cells": 1492,
+            "coverage": 0.5976267529665588,
+            "accuracy_all": 0.4285329018338727,
+            "accuracy": 0.717057761732852,
+            "macro_f1": 0.2819213076218701
+          }
+        }
+      ]
+    },
+    {
+      "held_out_species": "Triticum aestivum",
+      "selected_candidate": {
+        "name": "embedding_lr_c1",
+        "c": 1.0,
+        "organ_scale": 0.0,
+        "prior_weight": 0.0
+      },
+      "inner_candidate_ranking": [
+        {
+          "candidate": {
+            "name": "embedding_lr_c1",
+            "c": 1.0,
+            "organ_scale": 0.0,
+            "prior_weight": 0.0
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1960,
+            "open_set_cells": 1748,
+            "coverage": 0.5285868392664509,
+            "accuracy_all": 0.34331175836030203,
+            "accuracy": 0.6494897959183673,
+            "macro_f1": 0.27698016681512977
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c3_o10_p015",
+            "c": 3.0,
+            "organ_scale": 1.0,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1960,
+            "open_set_cells": 1748,
+            "coverage": 0.5285868392664509,
+            "accuracy_all": 0.3400755124056095,
+            "accuracy": 0.6433673469387755,
+            "macro_f1": 0.258897449548787
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c1_o05_p015",
+            "c": 1.0,
+            "organ_scale": 0.5,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1960,
+            "open_set_cells": 1748,
+            "coverage": 0.5285868392664509,
+            "accuracy_all": 0.33980582524271846,
+            "accuracy": 0.6428571428571429,
+            "macro_f1": 0.2253378510871494
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c1_o10_p035",
+            "c": 1.0,
+            "organ_scale": 1.0,
+            "prior_weight": 0.35
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1960,
+            "open_set_cells": 1748,
+            "coverage": 0.5285868392664509,
+            "accuracy_all": 0.3276699029126214,
+            "accuracy": 0.6198979591836735,
+            "macro_f1": 0.1892591931759672
+          }
+        },
+        {
+          "candidate": {
+            "name": "hierarchical_lr_c01_o05_p015",
+            "c": 0.1,
+            "organ_scale": 0.5,
+            "prior_weight": 0.15
+          },
+          "summary": {
+            "groups": 7,
+            "n_test": 3708,
+            "n_evaluable": 1960,
+            "open_set_cells": 1748,
+            "coverage": 0.5285868392664509,
+            "accuracy_all": 0.3104099244875944,
+            "accuracy": 0.5872448979591837,
+            "macro_f1": 0.15784470067591022
+          }
+        }
+      ]
+    }
+  ],
+  "interpretation": "This is a learned classifier-side ablation on frozen embeddings. It is a strict zero-shot result only because every configuration is selected within outer training species. It does not use target-species labels, target-cell support labels or the deployment annotation head."
+}

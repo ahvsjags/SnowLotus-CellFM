@@ -1,0 +1,5 @@
+protocol	primary	target-label access	model/selection	reported_all_cell_accuracy	reported_known_label_accuracy	reported_macro_f1	coverage	reporting use
+primary strict leave-species	True	none	nested metadata gate; inner source-species selection	0.39959636730575177	0.7148014440433214	0.28173155370900244	0.5590312815338042	main strict claim
+global context gate sensitivity	False	none	global v14 context gate	0.42356205852674067	0.7576714801444043	0.3044862624502163	0.5590312815338042	exploratory sensitivity only
+few-shot target adaptation	False	random support only; query held out	target adapter, 10 support draws	0.7588688946015425		0.4619070119250499		adaptation analysis
+runtime full-vocabulary head	False	trained runtime vocabulary	deployed annotation head	0.6624621594349143				deployment analysis; not strict zero-shot

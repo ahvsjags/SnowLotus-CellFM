@@ -1,0 +1,79 @@
+{
+  "schema_version": "plant_cellfm_top_journal_figure_anchor_corpus_v1",
+  "scope": "Verified primary articles and official publisher guides relevant to plant cross-species single-cell foundation models, annotation benchmarks, atlas resources and supplementary-package design.",
+  "update_policy": "Add only primary articles or official publisher guidance. Record the URL, journal, year, figure roles and reusable principle. Do not copy published artwork or proprietary templates.",
+  "anchors": [
+    {
+      "id": "scgpt_2024",
+      "journal": "Nature Methods",
+      "year": 2024,
+      "title": "scGPT: toward building a foundation model for single-cell multi-omics using generative AI",
+      "url": "https://www.nature.com/articles/s41592-024-02201-0",
+      "figure_pattern": "Method overview first; core annotation benchmark second; downstream capabilities and interpretability separated into later figures.",
+      "reuse_rule": "Do not make one page carry architecture, benchmark, biology and deployment at once."
+    },
+    {
+      "id": "nicheformer_2025",
+      "journal": "Nature Methods",
+      "year": 2025,
+      "title": "Nicheformer: a foundation model for single-cell and spatial omics",
+      "url": "https://www.nature.com/articles/s41592-025-02814-z",
+      "figure_pattern": "Fig. 1 connects corpus, metadata, tokenization, architecture and task scope; data scale and benchmark/application evidence have dedicated figures.",
+      "reuse_rule": "Use a schematic-led overview with a quantified corpus panel and a real use-case panel."
+    },
+    {
+      "id": "uce_2026",
+      "journal": "Nature",
+      "year": 2026,
+      "title": "Universal cell embedding provides a foundation model for cell biology",
+      "url": "https://www.nature.com/articles/s41586-026-10689-z",
+      "figure_pattern": "Zero-shot protocol definition, unseen-data embedding, cross-species example and ontology-consistency validation are distinct evidence layers.",
+      "reuse_rule": "Show the held-out protocol before the numerical result and use UMAP only as a complement to quantitative evidence."
+    },
+    {
+      "id": "scplantllm_2025",
+      "journal": "Genomics, Proteomics & Bioinformatics",
+      "year": 2025,
+      "title": "scPlantLLM: A Foundation Model for Exploring Single-cell Expression Atlases in Plants",
+      "url": "https://academic.oup.com/gpb/article/23/3/qzaf024/8081791",
+      "figure_pattern": "Foundation workflow and embedding; separate zero-shot test datasets; fine-tuning separated from zero-shot; later GRN and efficiency panels.",
+      "reuse_rule": "Keep strict zero-shot, few-shot adaptation and operations as separately titled protocols."
+    },
+    {
+      "id": "omg_2025",
+      "journal": "Nature Communications",
+      "year": 2025,
+      "title": "Orthologous marker groups reveal broad cell identity conservation across plant single-cell transcriptomes",
+      "url": "https://www.nature.com/articles/s41467-024-55755-0",
+      "figure_pattern": "Ortholog-aware workflow plus multispecies coverage followed by cross-species heatmap, UMAP and significance evidence.",
+      "reuse_rule": "Make plant gene-family and one-to-many ortholog handling visible in the cross-species evidence chain."
+    },
+    {
+      "id": "arabidopsis_lifecycle_2025",
+      "journal": "Nature Plants",
+      "year": 2025,
+      "title": "A single-cell, spatial transcriptomic atlas of the Arabidopsis life cycle",
+      "url": "https://www.nature.com/articles/s41477-025-02072-z",
+      "figure_pattern": "Atlas acquisition and coverage first; marker and spatial validation second; biological discovery follows.",
+      "reuse_rule": "A biological case must progress from cells to marker evidence to an interpretable biological statement."
+    },
+    {
+      "id": "vascular_atlas_2025",
+      "journal": "Cell",
+      "year": 2025,
+      "title": "A unified cell atlas of vascular plants reveals cell-type foundational genes and accelerates gene discovery",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S009286742500858X",
+      "figure_pattern": "Cross-species resource, foundational-gene discovery, biological validation and automated annotation tool form a resource-to-discovery loop.",
+      "reuse_rule": "Frame Plant-CellFM as a reusable biological discovery resource, not only a classifier."
+    },
+    {
+      "id": "nature_artwork_guide",
+      "journal": "Nature Portfolio",
+      "year": 2026,
+      "title": "Nature final-submission artwork guidance",
+      "url": "https://www.nature.com/nature/for-authors/final-submission",
+      "figure_pattern": "Two-column figure width, small bold panel labels, editable vector text and traceable statistical source data.",
+      "reuse_rule": "Use 180-183 mm double-column layouts, 5-7 pt final text, 8 pt bold panel labels and editable vector exports."
+    }
+  ]
+}
