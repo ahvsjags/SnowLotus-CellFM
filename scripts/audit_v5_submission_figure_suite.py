@@ -68,6 +68,7 @@ def inspect(directory: Path, stem: str) -> dict[str, Any]:
 def audit() -> dict[str, Any]:
     records = {
         "v17": json.loads((ROOT / "release_metadata" / "revision_v17_nested_metadata_gate.json").read_text(encoding="utf-8")),
+        "v14": json.loads((ROOT / "release_metadata" / "revision_v14_context_stc_benchmark.json").read_text(encoding="utf-8")),
         "model_card": json.loads((ROOT / "release_metadata" / "plant_cellfm_model_card_v4.json").read_text(encoding="utf-8")),
         "external_root": json.loads((ROOT / "release_metadata" / "gse152766_external_root_blind_inference_v4.json").read_text(encoding="utf-8")),
         "secondary_root_adapter": json.loads((ROOT / "release_metadata" / "gse270140_secondary_root_adapter_audit_v1.json").read_text(encoding="utf-8")),
@@ -87,6 +88,11 @@ def audit() -> dict[str, Any]:
             failures.append(f"{item['stem']} TIFF is below 600 dpi.")
     if abs(records["v17"]["summary"]["accuracy_all"] - 0.39959636730575174) > 1e-10:
         failures.append("Frozen v17 primary all-cell accuracy changed unexpectedly.")
+    v14 = records["v14"]["best_method"]
+    if v14["method"] != "phylo_organ_gate_v1" or abs(v14["summary"]["accuracy_all"] - 0.42356205852674067) > 1e-10:
+        failures.append("Context-aware v14 global sensitivity record changed unexpectedly.")
+    if abs(v14["summary"]["coverage"] - records["v17"]["summary"]["coverage"]) > 1e-10:
+        failures.append("Context-aware v14 no longer retains the v17 coverage boundary.")
     external = records["external_root"]
     root_candidate_path = (
         ROOT
@@ -132,6 +138,8 @@ def audit() -> dict[str, Any]:
         "figures": {"main": main, "extended_data": extended},
         "frozen_evidence": {
             "v17_all_cell_accuracy": records["v17"]["summary"]["accuracy_all"],
+            "v14_context_sensitivity_all_cell_accuracy": v14["summary"]["accuracy_all"],
+            "v14_context_sensitivity_coverage": v14["summary"]["coverage"],
             "external_root_input_cells": external["input_provenance"]["matrix"]["cells"],
             "external_root_label_free": not external["input_provenance"]["input_has_expert_cell_type_labels"],
             "external_root_top_mean_marker_hits": external["marker_coherence"]["expected_label_is_top_mean_expression"],

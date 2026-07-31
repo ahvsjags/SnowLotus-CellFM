@@ -314,20 +314,37 @@ def render_fig2(frame: pd.DataFrame, v17: pd.DataFrame) -> None:
     clean(ax_d, "x")
     panel(ax_d, "d", "Strict transfer is heterogeneous across all eight held-out species", "Teal: all-cell accuracy; blue: conditional accuracy; orange: source-label coverage")
 
-    ax_e.set_axis_off()
-    panel(ax_e, "e", "Nested selection firewall", "A local rule is selected inside source-species folds")
-    steps = [
-        (0.06, "source\nspecies", BLUE),
-        (0.36, "inner\nfolds", TEAL),
-        (0.66, "labels\nlocked", RED),
-        (0.91, "score\nonce", ORANGE),
+    innovation = json.loads((ROOT / "release_metadata" / "algorithm_innovation_v14.json").read_text(encoding="utf-8"))["metrics"]
+    method_rows = [
+        ("centroid baseline", innovation["centroid_baseline"], GREY),
+        ("expression STC", innovation["v10_expression_stc"], BLUE),
+        ("neural STC", innovation["v13_neural_stc"], PURPLE),
+        ("context-aware gate", innovation["v14_context_aware_stc"], TEAL),
     ]
-    for x, label, color in steps:
-        ax_e.scatter([x], [0.56], s=100, transform=ax_e.transAxes, color=color, edgecolor="white", linewidth=0.7, zorder=3)
-        ax_e.text(x, 0.31, label, transform=ax_e.transAxes, ha="center", va="center", fontsize=4.65, fontweight="bold")
-    for left, right in zip(steps[:-1], steps[1:], strict=True):
-        ax_e.add_patch(FancyArrowPatch((left[0] + .06, .56), (right[0] - .065, .56), transform=ax_e.transAxes, arrowstyle="-|>", mutation_scale=7, color=MUTED, lw=.7))
-    ax_e.text(0.5, 0.08, "No target-cell identity informs candidate choice, thresholding or calibration.", transform=ax_e.transAxes, ha="center", fontsize=4.55, color=RED)
+    method_table = pd.DataFrame(
+        [
+            {
+                "method": name,
+                "all_cell_accuracy": values["all_cell_accuracy"],
+                "known_label_accuracy": values["known_label_accuracy"],
+                "known_label_macro_f1": values["known_label_macro_f1"],
+                "coverage": values["coverage"],
+            }
+            for name, values, _ in method_rows
+        ]
+    )
+    y = np.arange(len(method_rows))
+    for index, (name, values, color) in enumerate(method_rows):
+        ax_e.hlines(index, 0, values["all_cell_accuracy"], color=LIGHT_GREY, lw=2.0, zorder=1)
+        ax_e.scatter(values["all_cell_accuracy"], index, s=34, color=color, edgecolor="white", linewidth=.55, zorder=3)
+        ax_e.text(values["all_cell_accuracy"] + .012, index, f"{values['all_cell_accuracy']:.1%}", va="center", fontsize=4.5, fontweight="bold" if index == len(method_rows) - 1 else "normal")
+    ax_e.set(yticks=y, yticklabels=[name for name, _, _ in method_rows], xlim=(-.015, .50), xlabel="all-cell accuracy")
+    ax_e.tick_params(axis="y", labelsize=4.3, pad=1.3, length=0)
+    clean(ax_e, "x")
+    panel(ax_e, "e", "Context-aware calibration improves the frozen transfer panel", "Same cells and 55.90% coverage; global sensitivity analysis, not the nested primary result")
+    best = method_rows[-1][1]
+    gain = best["all_cell_accuracy"] - method_rows[0][1]["all_cell_accuracy"]
+    ax_e.text(.99, .06, f"+{gain:.1%} vs centroid\nknown-label accuracy {best['known_label_accuracy']:.1%}", transform=ax_e.transAxes, ha="right", va="bottom", fontsize=4.25, color=TEAL)
 
     export(
         fig,
@@ -338,6 +355,7 @@ def render_fig2(frame: pd.DataFrame, v17: pd.DataFrame) -> None:
             "v17_species_metrics": v17,
             "all_cell_bootstrap": bootstrap,
             "strict_denominator": pd.DataFrame({"stage": [row[0].replace("\n", " ") for row in stages], "cells": [row[1] for row in stages]}),
+            "context_stc_methods": method_table,
         },
     )
 
@@ -350,22 +368,34 @@ def render_fig3() -> None:
     species_order = sorted(mean_species.species.unique().tolist(), key=short_species)
     heat = mean_species.pivot(index="species", columns="support_per_species", values="accuracy").reindex(index=species_order, columns=budgets)
 
+    draw_summary = draws.groupby("support_per_species", as_index=False).agg(
+        draws=("seed", "nunique"),
+        support_cells=("support_cells", "median"),
+        query_cells=("query_cells", "median"),
+    )
+
     fig = plt.figure(figsize=(7.25, 5.1))
-    grid = fig.add_gridspec(2, 6, width_ratios=(0.92, 1.05, 1.05, 1.05, 1.05, 1.05), height_ratios=(1.05, .95), left=.055, right=.988, bottom=.09, top=.95, wspace=.48, hspace=.70)
-    ax_a = fig.add_subplot(grid[0, 0])
-    ax_b = fig.add_subplot(grid[0, 1:])
+    grid = fig.add_gridspec(2, 6, width_ratios=(1.28, 1.28, 1.0, 1.0, 1.0, 1.0), height_ratios=(1.05, .95), left=.055, right=.988, bottom=.09, top=.95, wspace=.46, hspace=.70)
+    ax_a = fig.add_subplot(grid[0, :2])
+    ax_b = fig.add_subplot(grid[0, 2:])
     ax_c = fig.add_subplot(grid[1, :3])
     ax_d = fig.add_subplot(grid[1, 3:])
 
     ax_a.set_axis_off()
-    panel(ax_a, "a", "", None)
-    nodes = [(0.17, "target\nspecies", GREY), (0.50, "support\nlabels", ORANGE), (0.83, "query\ncells", TEAL)]
-    for x, label, color in nodes:
-        ax_a.scatter([x] * 4, [0.70, .61, .52, .43], s=22, transform=ax_a.transAxes, color=color, clip_on=False)
-        ax_a.text(x, .16, label, transform=ax_a.transAxes, ha="center", va="center", fontsize=3.65, fontweight="bold")
-    for left, right in zip(nodes[:-1], nodes[1:], strict=True):
-        ax_a.add_patch(FancyArrowPatch((left[0] + .075, .56), (right[0] - .075, .56), transform=ax_a.transAxes, arrowstyle="-|>", mutation_scale=6, color=MUTED, lw=.7))
-    ax_a.text(.5, .91, "No overlap", transform=ax_a.transAxes, ha="center", fontsize=4.45, color=RED, fontweight="bold")
+    panel(ax_a, "a", "Support and query cells are physically disjoint", "Eight held-out species; ten fixed-seed support draws at each budget")
+    ax_a.add_patch(Rectangle((.04, .15), .20, .62, transform=ax_a.transAxes, facecolor="#F4F7F8", edgecolor=GREY, linewidth=.7))
+    ax_a.text(.14, .61, "target\nspecies", transform=ax_a.transAxes, ha="center", va="center", fontsize=5.0, fontweight="bold")
+    ax_a.text(.14, .29, "labels locked\nuntil support draw", transform=ax_a.transAxes, ha="center", va="center", fontsize=3.75, color=MUTED)
+    ax_a.add_patch(FancyArrowPatch((.25, .48), (.35, .48), transform=ax_a.transAxes, arrowstyle="-|>", mutation_scale=8, lw=.75, color=MUTED))
+    ax_a.add_patch(Rectangle((.37, .53), .23, .24, transform=ax_a.transAxes, facecolor="#FFF4E9", edgecolor=ORANGE, linewidth=.85))
+    ax_a.add_patch(Rectangle((.37, .15), .23, .24, transform=ax_a.transAxes, facecolor="#EAF5F4", edgecolor=TEAL, linewidth=.85))
+    ax_a.text(.485, .65, "labelled support", transform=ax_a.transAxes, ha="center", va="center", fontsize=4.45, fontweight="bold")
+    ax_a.text(.485, .27, "unlabelled query", transform=ax_a.transAxes, ha="center", va="center", fontsize=4.45, fontweight="bold")
+    ax_a.add_patch(FancyArrowPatch((.61, .48), (.70, .48), transform=ax_a.transAxes, arrowstyle="-|>", mutation_scale=8, lw=.75, color=MUTED))
+    ax_a.add_patch(Rectangle((.72, .15), .24, .62, transform=ax_a.transAxes, facecolor="#F4F7F8", edgecolor=PURPLE, linewidth=.7))
+    ax_a.text(.84, .61, "target adapter", transform=ax_a.transAxes, ha="center", va="center", fontsize=4.7, fontweight="bold")
+    ax_a.text(.84, .32, "fit only on\nsupport labels", transform=ax_a.transAxes, ha="center", va="center", fontsize=4.0, color=MUTED)
+    ax_a.text(.5, .06, "No support cell is included in query scoring.", transform=ax_a.transAxes, ha="center", fontsize=4.2, color=RED, fontweight="bold")
 
     rng = np.random.default_rng(24)
     means = []
@@ -403,7 +433,12 @@ def render_fig3() -> None:
         fig,
         MAIN,
         "plant_cellfm_v5_fig3_target_adaptation",
-        {"fewshot_draws": draws, "fewshot_species_draws": species_draws, "fewshot_species_budget_means": mean_species},
+        {
+            "fewshot_draws": draws,
+            "fewshot_species_draws": species_draws,
+            "fewshot_species_budget_means": mean_species,
+            "fewshot_protocol_summary": draw_summary,
+        },
     )
 
 

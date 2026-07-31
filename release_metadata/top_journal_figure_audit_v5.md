@@ -8,8 +8,8 @@
 | Figure | SVG/PDF/PNG/TIFF | Source TSV | Editable SVG text | TIFF pixels |
 | --- | --- | --- | --- | --- |
 | plant_cellfm_v5_fig1_foundation_contract | pass | 5 | True | 4326x2981 |
-| plant_cellfm_v5_fig2_strict_transfer | pass | 4 | True | 4408x3093 |
-| plant_cellfm_v5_fig3_target_adaptation | pass | 3 | True | 4376x2951 |
+| plant_cellfm_v5_fig2_strict_transfer | pass | 5 | True | 4798x3093 |
+| plant_cellfm_v5_fig3_target_adaptation | pass | 4 | True | 4381x2951 |
 | plant_cellfm_v5_fig4_external_root_evidence | pass | 3 | True | 4276x3198 |
 | plant_cellfm_v4_ed_fig1_label_integrity | pass | 4 | True | 4352x2715 |
 | plant_cellfm_v4_ed_fig2_nested_selection_audit | pass | 2 | True | 4455x2645 |

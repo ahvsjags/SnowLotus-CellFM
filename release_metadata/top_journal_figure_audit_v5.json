@@ -1,6 +1,6 @@
 {
   "schema_version": "plant_cellfm_v5_figure_audit_v1",
-  "generated_utc": "2026-07-31T21:54:34.695172+00:00",
+  "generated_utc": "2026-07-31T22:11:50.181852+00:00",
   "state": "TECHNICALLY_READY_PENDING_EDITORIAL_AND_EVIDENCE_REVIEW",
   "technical_failures": [],
   "figures": {
@@ -32,6 +32,7 @@
         "missing_exports": [],
         "source_data_tables": [
           "plant_cellfm_v5_fig2_strict_transfer_all_cell_bootstrap.tsv",
+          "plant_cellfm_v5_fig2_strict_transfer_context_stc_methods.tsv",
           "plant_cellfm_v5_fig2_strict_transfer_focus_reference_and_predictions.tsv",
           "plant_cellfm_v5_fig2_strict_transfer_strict_denominator.tsv",
           "plant_cellfm_v5_fig2_strict_transfer_v17_species_metrics.tsv"
@@ -39,7 +40,7 @@
         "editable_svg_text": true,
         "raster": {
           "pixels": [
-            4408,
+            4798,
             3093
           ],
           "dpi": [
@@ -53,13 +54,14 @@
         "missing_exports": [],
         "source_data_tables": [
           "plant_cellfm_v5_fig3_target_adaptation_fewshot_draws.tsv",
+          "plant_cellfm_v5_fig3_target_adaptation_fewshot_protocol_summary.tsv",
           "plant_cellfm_v5_fig3_target_adaptation_fewshot_species_budget_means.tsv",
           "plant_cellfm_v5_fig3_target_adaptation_fewshot_species_draws.tsv"
         ],
         "editable_svg_text": true,
         "raster": {
           "pixels": [
-            4376,
+            4381,
             2951
           ],
           "dpi": [
@@ -217,6 +219,8 @@
   },
   "frozen_evidence": {
     "v17_all_cell_accuracy": 0.39959636730575177,
+    "v14_context_sensitivity_all_cell_accuracy": 0.42356205852674067,
+    "v14_context_sensitivity_coverage": 0.5590312815338042,
     "external_root_input_cells": 6566,
     "external_root_label_free": true,
     "external_root_top_mean_marker_hits": 5,
