@@ -100,7 +100,7 @@ python scripts/render_v3_extended_data_suite.py
 python scripts/write_submission_v3_supplementary_tables.py
 ```
 
-The final archival commit identifier should be inserted here after the v3 source-data package has been pushed. The current source-data directories are `figures/plant_cellfm_submission_v3/source_data`, `figures/plant_cellfm_submission_v3/extended_data/source_data` and `supplementary_tables/submission_v3`.
+The v3 evidence package is frozen at commit [`a70a296`](https://github.com/ahvsjags/SnowLotus-CellFM/commit/a70a296) on branch `agent/remote-pipeline-20260728`. The current source-data directories are `figures/plant_cellfm_submission_v3/source_data`, `figures/plant_cellfm_submission_v3/extended_data/source_data` and `supplementary_tables/submission_v3`.
 
 ## References
 
