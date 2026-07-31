@@ -868,6 +868,7 @@ def predict_to_csv(
     output_path: str | Path,
     layer: str | None = None,
     ortholog_map: str | Path | None = None,
+    ortholog_aggregation: str | None = None,
     batch_size: int = 128,
     device: torch.device | None = None,
 ) -> Path:
@@ -883,6 +884,7 @@ def predict_to_csv(
             "path": str(data_path),
             "layer": exp_config.data.layer if layer is None else layer,
             "ortholog_map": str(ortholog_map) if ortholog_map else exp_config.data.ortholog_map,
+            "ortholog_aggregation": ortholog_aggregation or exp_config.data.ortholog_aggregation,
         }
     )
     inference = prepare_inference_data(data_config, gene_vocab, species_vocab, tissue_vocab)
@@ -952,6 +954,7 @@ def annotate_to_bundle(
     output_dir: str | Path,
     layer: str | None = None,
     ortholog_map: str | Path | None = None,
+    ortholog_aggregation: str | None = None,
     batch_size: int = 128,
     device: torch.device | None = None,
 ) -> dict[str, Any]:
@@ -967,6 +970,7 @@ def annotate_to_bundle(
             "path": str(data_path),
             "layer": exp_config.data.layer if layer is None else layer,
             "ortholog_map": str(ortholog_map) if ortholog_map else exp_config.data.ortholog_map,
+            "ortholog_aggregation": ortholog_aggregation or exp_config.data.ortholog_aggregation,
         }
     )
     inference = prepare_inference_data(data_config, gene_vocab, species_vocab, tissue_vocab)

@@ -1,0 +1,72 @@
+{
+  "schema_version": "plant_cellfm_gse270342_wheat_root_nonoverlap_input_v1",
+  "source": {
+    "series_accession": "GSE270342",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE270342",
+    "publication_doi": "10.1016/j.celrep.2025.115240",
+    "object_name": "GSE270342_seuratObj_for_publication.rds.gz",
+    "assay": "RNA",
+    "slot": "counts",
+    "author_annotation_column": "annotation"
+  },
+  "input_files": {
+    "matrix_cells_by_genes.mtx": {
+      "bytes": 535489574,
+      "sha256": "0b11806edf0d7de1ac34369826f21146f6818009b853b01c2538aae75778b5f3"
+    },
+    "genes.txt": {
+      "bytes": 1668656,
+      "sha256": "a7cf9244fc1b0b5b02eede25803e8d94ee7d918b1cc3958f7b593507916f5c8e"
+    },
+    "cells.txt": {
+      "bytes": 177312,
+      "sha256": "998be774a9fcffdb9cd208c958bae6c4bfb182119731f74409f6d450ff7f5134"
+    },
+    "metadata.csv": {
+      "bytes": 993934,
+      "sha256": "ea45ddc8ce1a84c591a602f459e31f182f4b872d45f862ea9acb0e03f3ccf142"
+    }
+  },
+  "overlap_audit": {
+    "author_cells": 7388,
+    "historical_strict_prediction_rows": 256,
+    "exact_cs1_barcode_overlap_excluded": 224,
+    "retained_nonoverlap_cells": 7164,
+    "author_cell_prefixes": {
+      "CS1": 1581,
+      "CS2": 3216,
+      "CS3": 2591
+    },
+    "historical_prediction_path": "figure_data/v2_embeddings/v17_nested_strict_predictions.csv",
+    "historical_prediction_sha256": "d3a6ce08f0f6eef814beca4fd2125260125be43b7b11d28fa04c6d1e1bdca53d",
+    "historical_prefix": "wheat_soil_root_atlas:GSM8339904_rep1_filtered_feature_bc_matrix:",
+    "author_replicate_prefix_compared": "CS1_"
+  },
+  "mapping_coverage": {
+    "mapping_path": "data/orthologs/gse270342_wheat_to_arabidopsis_author_orthogroups.tsv",
+    "mapping_sha256": "3b2cb0f1ccbececb30093e396239fd805a228ba40de429c5966064a0bca35ead",
+    "checkpoint_path": "models/SnowLotus_CellFM_SRP169576_annotation_1024_best.pt",
+    "checkpoint_sha256": "e16564fa0a1aa74dd19ca007d9aedbe89a12fc7d1051b761c15d39705a3386fc",
+    "checkpoint_gene_vocab_size": 32992,
+    "source_gene_count": 78115,
+    "author_orthogroup_mapped_genes": 43342,
+    "author_orthogroup_mapped_gene_fraction": 0.5548486206234398,
+    "checkpoint_compatible_mapped_genes": 41987,
+    "checkpoint_compatible_gene_fraction": 0.5375024003072393,
+    "total_umi": 90156718.0,
+    "author_orthogroup_mapped_umi_fraction": 0.7870736044317851,
+    "checkpoint_compatible_umi_fraction": 0.7632529502682207
+  },
+  "prepared_h5ad": "outputs/external_validation/gse270342/GSE270342_wheat_root_author_annotated_nonoverlap_diagnostic.h5ad",
+  "prepared_h5ad_sha256": "f5321a76ccf4451604c7a1e4ad9cbfd697a33f2abc023ac4d408bf6b6abea5ef",
+  "matrix": {
+    "cells": 7164,
+    "genes": 78115,
+    "nonzero_counts": 37939189
+  },
+  "frozen_inference_covariates": {
+    "Organ": "Root",
+    "Tissue": "Whole root"
+  },
+  "claim_boundary": "The input excludes exact cell-barcode overlap with the recorded GSE270342 replicate-1 strict-transfer subset. It remains a same-study author-label re-audit, not an independent external benchmark. Any result is a frozen-model diagnostic subject to its declared many-to-many author orthogroup contract."
+}

@@ -1,0 +1,965 @@
+cell_index	cell_id	sample_id	species	tissue	true_fine	pred_fine	fine_confidence	fine_correct	true_coarse	pred_coarse	coarse_confidence	coarse_correct	frozen_fine_label	expected_root_label	adapted_root_label
+0	CS1_AAACCCAAGTCGAATA-1	CS1_AAACCCAAGTCGAATA-1	Root	Whole root	Epidermis	Endodermis	0.371009	False	Epidermis	Endodermis	0.33574	False	Unknow	Non-hair	Root endodermis
+2	CS1_AAACCCACATGAGTAA-1	CS1_AAACCCACATGAGTAA-1	Root	Whole root	Epidermis	Epidermis	0.63117	True	Epidermis	Epidermis	0.584161	True	Unknow	Non-hair	Non-hair
+6	CS1_AAACGAAAGAGAGGTA-1	CS1_AAACGAAAGAGAGGTA-1	Root	Whole root	Epidermis	Epidermis	0.504885	True	Epidermis	Epidermis	0.578003	True	Root cortex	Non-hair	Non-hair
+8	CS1_AAAGAACCAGGCGATA-1	CS1_AAAGAACCAGGCGATA-1	Root	Whole root	Cortex	Epidermis	0.602649	False	Cortex	Epidermis	0.604614	False	Unknow	Root cortex	Non-hair
+15	CS1_AAAGTCCCACGACGTC-1	CS1_AAAGTCCCACGACGTC-1	Root	Whole root	Epidermis	Meristems	0.388428	False	Epidermis	Meristems	0.459289	False	Unknow	Non-hair	__outside_direct_map__
+36	CS1_AACTTCTAGCAAGTCG-1	CS1_AACTTCTAGCAAGTCG-1	Root	Whole root	Endodermis	Endodermis	0.594829	True	Endodermis	Endodermis	0.586428	True	Root cortex	Root endodermis	Root endodermis
+38	CS1_AAGAACAGTGAGATAT-1	CS1_AAGAACAGTGAGATAT-1	Root	Whole root	Unknown	Unknown	0.517557	True	Unknown	Unknown	0.42633	True	Unknow	Unknow	Unknow
+39	CS1_AAGACAAAGGCATTTC-1	CS1_AAGACAAAGGCATTTC-1	Root	Whole root	Epidermis	Unknown	0.482155	False	Epidermis	Unknown	0.468485	False	S phase	Non-hair	Unknow
+50	CS1_AAGCGAGCAAGCTGTT-1	CS1_AAGCGAGCAAGCTGTT-1	Root	Whole root	Root Hair	Root Hair	0.489471	True	Root Hair	Root Hair	0.459932	True	Non-hair	Root hair	Root hair
+67	CS1_AATGGAATCCCTTTGG-1	CS1_AATGGAATCCCTTTGG-1	Root	Whole root	Epidermis	Meristems	0.839662	False	Epidermis	Meristems	0.846696	False	S phase	Non-hair	__outside_direct_map__
+72	CS1_AATTTCCAGGTATAGT-1	CS1_AATTTCCAGGTATAGT-1	Root	Whole root	Unknown	Dividing Cells	0.250862	False	Unknown	Epidermis	0.244569	False	S phase	Unknow	__outside_direct_map__
+78	CS1_ACAACCAAGGCTGGAT-1	CS1_ACAACCAAGGCTGGAT-1	Root	Whole root	Unknown	Unknown	0.568255	True	Unknown	Unknown	0.530343	True	G1/G0 phase	Unknow	Unknow
+80	CS1_ACAAGCTAGAGTTGCG-1	CS1_ACAAGCTAGAGTTGCG-1	Root	Whole root	Unknown	Unknown	0.610356	True	Unknown	Unknown	0.565717	True	Unknow	Unknow	Unknow
+81	CS1_ACACAGTCACGGCTAC-1	CS1_ACACAGTCACGGCTAC-1	Root	Whole root	Unknown	Cortex	0.936503	False	Unknown	Cortex	0.917687	False	Root cortex	Unknow	Root cortex
+88	CS1_ACAGGGAGTACGAAAT-1	CS1_ACAGGGAGTACGAAAT-1	Root	Whole root	Unknown	Epidermis	0.590339	False	Unknown	Epidermis	0.56627	False	S phase	Unknow	Non-hair
+89	CS1_ACATCCCAGAAGGCTC-1	CS1_ACATCCCAGAAGGCTC-1	Root	Whole root	Cortex	Cortex	0.439816	True	Cortex	Cortex	0.396372	True	Root cortex	Root cortex	Root cortex
+100	CS1_ACCTGTCAGAGGCTGT-1	CS1_ACCTGTCAGAGGCTGT-1	Root	Whole root	Endodermis	Endodermis	0.9066	True	Endodermis	Endodermis	0.902012	True	Unknow	Root endodermis	Root endodermis
+111	CS1_ACGGTCGCAGGAATAT-1	CS1_ACGGTCGCAGGAATAT-1	Root	Whole root	Epidermis	Epidermis	0.64014	True	Epidermis	Epidermis	0.646288	True	Unknow	Non-hair	Non-hair
+115	CS1_ACGTACACAACTTCTT-1	CS1_ACGTACACAACTTCTT-1	Root	Whole root	Cortex	Cortex	0.783644	True	Cortex	Cortex	0.800487	True	Root cortex	Root cortex	Root cortex
+128	CS1_ACTCCCACAGGTGTTT-1	CS1_ACTCCCACAGGTGTTT-1	Root	Whole root	Root Hair	Root Hair	0.960326	True	Root Hair	Root Hair	0.962348	True	Root hair	Root hair	Root hair
+134	CS1_ACTGTGAGTTTACGTG-1	CS1_ACTGTGAGTTTACGTG-1	Root	Whole root	Cortex	Cortex	0.942617	True	Cortex	Cortex	0.941612	True	Root cortex	Root cortex	Root cortex
+155	CS1_AGAAGTATCAGACCTA-1	CS1_AGAAGTATCAGACCTA-1	Root	Whole root	Xylem	Xylem	0.992635	True	Xylem	Xylem	0.992442	True	Unknow	Xylem	Xylem
+158	CS1_AGACACTGTACCTGTA-1	CS1_AGACACTGTACCTGTA-1	Root	Whole root	Cortex	Cortex	0.943737	True	Cortex	Cortex	0.933075	True	Non-hair	Root cortex	Root cortex
+186	CS1_AGCGCTGAGCTGTCCG-1	CS1_AGCGCTGAGCTGTCCG-1	Root	Whole root	Unknown	Unknown	0.651413	True	Unknown	Unknown	0.676361	True	Root hair	Unknow	Unknow
+188	CS1_AGCGCTGGTACTGACT-1	CS1_AGCGCTGGTACTGACT-1	Root	Whole root	Unknown	Unknown	0.631403	True	Unknown	Unknown	0.581277	True	Unknow	Unknow	Unknow
+194	CS1_AGGAAATCAGCTGAAG-1	CS1_AGGAAATCAGCTGAAG-1	Root	Whole root	Epidermis	Meristems	0.519714	False	Epidermis	Meristems	0.552954	False	S phase	Non-hair	__outside_direct_map__
+202	CS1_AGGACTTGTTCAGCGC-1	CS1_AGGACTTGTTCAGCGC-1	Root	Whole root	Endodermis	Endodermis/Phloem	0.471151	False	Endodermis	Endodermis/Phloem	0.375573	False	Non-hair	Root endodermis	__outside_direct_map__
+204	CS1_AGGAGGTAGCGGTAGT-1	CS1_AGGAGGTAGCGGTAGT-1	Root	Whole root	Unknown	Pericycle	0.817147	False	Unknown	Pericycle	0.816813	False	Root hair	Unknow	__outside_direct_map__
+229	CS1_AGGTTGTCAAGAGTGC-1	CS1_AGGTTGTCAAGAGTGC-1	Root	Whole root	Epidermis	Cortex	0.419996	False	Epidermis	Cortex	0.375409	False	Unknow	Non-hair	Root cortex
+232	CS1_AGTAACCAGCGTCTCG-1	CS1_AGTAACCAGCGTCTCG-1	Root	Whole root	Root Hair	Root Hair	0.950412	True	Root Hair	Root Hair	0.944713	True	Root hair	Root hair	Root hair
+250	CS1_AGTTAGCCACAGGATG-1	CS1_AGTTAGCCACAGGATG-1	Root	Whole root	Unknown	Endodermis/Phloem	0.571057	False	Unknown	Endodermis/Phloem	0.417195	False	Unknow	Unknow	__outside_direct_map__
+261	CS1_ATATCCTTCATGTCTT-1	CS1_ATATCCTTCATGTCTT-1	Root	Whole root	Unknown	Cortex	0.812914	False	Unknown	Cortex	0.724701	False	S phase	Unknow	Root cortex
+284	CS1_ATCGGATAGATTAGAC-1	CS1_ATCGGATAGATTAGAC-1	Root	Whole root	Epidermis	Meristems	0.82198	False	Epidermis	Meristems	0.793784	False	S phase	Non-hair	__outside_direct_map__
+290	CS1_ATCGTCCTCTCAACGA-1	CS1_ATCGTCCTCTCAACGA-1	Root	Whole root	Epidermis	Endodermis	0.441013	False	Epidermis	Endodermis	0.402981	False	S phase	Non-hair	Root endodermis
+310	CS1_ATGTCCCGTGCCTACG-1	CS1_ATGTCCCGTGCCTACG-1	Root	Whole root	Epidermis	Epidermis	0.635366	True	Epidermis	Epidermis	0.627828	True	Unknow	Non-hair	Non-hair
+350	CS1_CAAGAGGTCAAACCCA-1	CS1_CAAGAGGTCAAACCCA-1	Root	Whole root	Endodermis	Endodermis	0.85313	True	Endodermis	Endodermis	0.884587	True	Unknow	Root endodermis	Root endodermis
+359	CS1_CAATTTCTCGTTGTTT-1	CS1_CAATTTCTCGTTGTTT-1	Root	Whole root	Unknown	Pericycle	0.500582	False	Unknown	Pericycle	0.457966	False	Lateral root cap	Unknow	__outside_direct_map__
+363	CS1_CACACAAGTGCTTCAA-1	CS1_CACACAAGTGCTTCAA-1	Root	Whole root	Epidermis	Epidermis	0.604479	True	Epidermis	Epidermis	0.62894	True	Non-hair	Non-hair	Non-hair
+376	CS1_CACTAAGGTGCTGTCG-1	CS1_CACTAAGGTGCTGTCG-1	Root	Whole root	Endodermis	Endodermis	0.719815	True	Endodermis	Endodermis	0.729958	True	Unknow	Root endodermis	Root endodermis
+377	CS1_CACTAAGTCGTCGACG-1	CS1_CACTAAGTCGTCGACG-1	Root	Whole root	Unknown	Cortex	0.808819	False	Unknown	Cortex	0.738872	False	Root cortex	Unknow	Root cortex
+386	CS1_CAGCACGAGTTCCATG-1	CS1_CAGCACGAGTTCCATG-1	Root	Whole root	Epidermis	Meristems	0.906246	False	Epidermis	Meristems	0.908558	False	Unknow	Non-hair	__outside_direct_map__
+388	CS1_CAGCGTGTCCGATGCG-1	CS1_CAGCGTGTCCGATGCG-1	Root	Whole root	Xylem	Xylem	0.986364	True	Xylem	Xylem	0.986017	True	Unknow	Xylem	Xylem
+389	CS1_CAGGCCAGTCACAGAG-1	CS1_CAGGCCAGTCACAGAG-1	Root	Whole root	Unknown	Pericycle	0.450566	False	Unknown	Pericycle	0.420864	False	Root hair	Unknow	__outside_direct_map__
+416	CS1_CATGCGGGTTGTAAAG-1	CS1_CATGCGGGTTGTAAAG-1	Root	Whole root	Root Hair	Root Hair	0.932034	True	Root Hair	Root Hair	0.919473	True	Unknow	Root hair	Root hair
+421	CS1_CATTCCGAGGTCGTCC-1	CS1_CATTCCGAGGTCGTCC-1	Root	Whole root	Epidermis	Epidermis	0.598491	True	Epidermis	Epidermis	0.592358	True	Non-hair	Non-hair	Non-hair
+439	CS1_CCACAAATCATTTACC-1	CS1_CCACAAATCATTTACC-1	Root	Whole root	Root Hair	Pericycle	0.89064	False	Root Hair	Pericycle	0.876607	False	Unknow	Root hair	__outside_direct_map__
+443	CS1_CCACCATAGAGAGCGG-1	CS1_CCACCATAGAGAGCGG-1	Root	Whole root	Epidermis	Epidermis	0.616085	True	Epidermis	Epidermis	0.573985	True	Unknow	Non-hair	Non-hair
+445	CS1_CCACGTTAGGTGCTAG-1	CS1_CCACGTTAGGTGCTAG-1	Root	Whole root	Unknown	Phloem	0.191895	False	Unknown	Unknown	0.166567	True	Unknow	Unknow	Phloem
+446	CS1_CCACGTTGTGAGATCG-1	CS1_CCACGTTGTGAGATCG-1	Root	Whole root	Epidermis	Meristems	0.840046	False	Epidermis	Meristems	0.839371	False	S phase	Non-hair	__outside_direct_map__
+462	CS1_CCCTGATAGGCGTCCT-1	CS1_CCCTGATAGGCGTCCT-1	Root	Whole root	Endodermis	Endodermis	0.935741	True	Endodermis	Endodermis	0.940812	True	Unknow	Root endodermis	Root endodermis
+470	CS1_CCGCAAGAGGCCACCT-1	CS1_CCGCAAGAGGCCACCT-1	Root	Whole root	Root Hair	Epidermis	0.523643	False	Root Hair	Epidermis	0.607302	False	Root cortex	Root hair	Non-hair
+473	CS1_CCGGTGAAGGCACCAA-1	CS1_CCGGTGAAGGCACCAA-1	Root	Whole root	Cortex	Cortex	0.876769	True	Cortex	Cortex	0.825454	True	Root cortex	Root cortex	Root cortex
+476	CS1_CCGTAGGCAGTTAAAG-1	CS1_CCGTAGGCAGTTAAAG-1	Root	Whole root	Epidermis	Epidermis	0.36568	True	Epidermis	Epidermis	0.422945	True	S phase	Non-hair	Non-hair
+480	CS1_CCGTTCAGTAACCCTA-1	CS1_CCGTTCAGTAACCCTA-1	Root	Whole root	Epidermis	Dividing Cells	0.373162	False	Epidermis	Dividing Cells	0.385199	False	S phase	Non-hair	__outside_direct_map__
+496	CS1_CCTCTAGGTCCAGTTA-1	CS1_CCTCTAGGTCCAGTTA-1	Root	Whole root	Unknown	Unknown	0.701204	True	Unknown	Unknown	0.746277	True	Unknow	Unknow	Unknow
+515	CS1_CGAGGAACATAGTCGT-1	CS1_CGAGGAACATAGTCGT-1	Root	Whole root	Unknown	Pericycle	0.370739	False	Unknown	Pericycle	0.350288	False	Unknow	Unknow	__outside_direct_map__
+521	CS1_CGAGTGCAGCTGCGAA-1	CS1_CGAGTGCAGCTGCGAA-1	Root	Whole root	Unknown	Unknown	0.378809	True	Unknown	Unknown	0.398365	True	Unknow	Unknow	Unknow
+524	CS1_CGAGTTACATCGAGCC-1	CS1_CGAGTTACATCGAGCC-1	Root	Whole root	Unknown	Xylem	0.966852	False	Unknown	Xylem	0.969655	False	Unknow	Unknow	Xylem
+526	CS1_CGAGTTATCGAATGCT-1	CS1_CGAGTTATCGAATGCT-1	Root	Whole root	Epidermis	Epidermis	0.61471	True	Epidermis	Epidermis	0.668884	True	Root cortex	Non-hair	Non-hair
+527	CS1_CGATCGGCACACCTGG-1	CS1_CGATCGGCACACCTGG-1	Root	Whole root	Epidermis	Epidermis	0.248757	True	Epidermis	Epidermis	0.319796	True	Non-hair	Non-hair	Non-hair
+532	CS1_CGCATGGGTCGAGTGA-1	CS1_CGCATGGGTCGAGTGA-1	Root	Whole root	Endodermis	Endodermis	0.604022	True	Endodermis	Endodermis	0.589051	True	Unknow	Root endodermis	Root endodermis
+540	CS1_CGGAACCTCTGGCTGG-1	CS1_CGGAACCTCTGGCTGG-1	Root	Whole root	Epidermis	Meristems	0.888345	False	Epidermis	Meristems	0.896295	False	S phase	Non-hair	__outside_direct_map__
+541	CS1_CGGAATTAGTACGTCT-1	CS1_CGGAATTAGTACGTCT-1	Root	Whole root	Unknown	Cortex	0.461903	False	Unknown	Cortex	0.405642	False	Unknow	Unknow	Root cortex
+544	CS1_CGGACACTCCATTGCC-1	CS1_CGGACACTCCATTGCC-1	Root	Whole root	Unknown	Unknown	0.629208	True	Unknown	Unknown	0.616337	True	Unknow	Unknow	Unknow
+553	CS1_CGGGTCAGTGTCTAAC-1	CS1_CGGGTCAGTGTCTAAC-1	Root	Whole root	Unknown	Cortex	0.947166	False	Unknown	Cortex	0.933456	False	Root cortex	Unknow	Root cortex
+560	CS1_CGTCAAAAGCTAGATA-1	CS1_CGTCAAAAGCTAGATA-1	Root	Whole root	Unknown	Unknown	0.326669	True	Unknown	Unknown	0.319233	True	Unknow	Unknow	Unknow
+570	CS1_CGTTCTGCATTCATCT-1	CS1_CGTTCTGCATTCATCT-1	Root	Whole root	Epidermis	Epidermis	0.432419	True	Epidermis	Epidermis	0.431158	True	S phase	Non-hair	Non-hair
+574	CS1_CTAACTTTCTAGACAC-1	CS1_CTAACTTTCTAGACAC-1	Root	Whole root	Cortex	Unknown	0.48297	False	Cortex	Unknown	0.518243	False	Unknow	Root cortex	Unknow
+578	CS1_CTACCCATCCTGGTCT-1	CS1_CTACCCATCCTGGTCT-1	Root	Whole root	Root Hair	Root Hair	0.619539	True	Root Hair	Root Hair	0.635847	True	Unknow	Root hair	Root hair
+580	CS1_CTACGGGGTCACGACC-1	CS1_CTACGGGGTCACGACC-1	Root	Whole root	Unknown	Pericycle	0.288496	False	Unknown	Pericycle	0.240688	False	S phase	Unknow	__outside_direct_map__
+598	CS1_CTCATCGGTGAGTTGG-1	CS1_CTCATCGGTGAGTTGG-1	Root	Whole root	Unknown	Cortex	0.944304	False	Unknown	Cortex	0.925656	False	Root cortex	Unknow	Root cortex
+602	CS1_CTCATTAGTTTGGGAG-1	CS1_CTCATTAGTTTGGGAG-1	Root	Whole root	Endodermis	Endodermis	0.798747	True	Endodermis	Endodermis	0.772195	True	Unknow	Root endodermis	Root endodermis
+608	CS1_CTCCATGCACTTGACA-1	CS1_CTCCATGCACTTGACA-1	Root	Whole root	Cortex	Cortex	0.582333	True	Cortex	Cortex	0.588069	True	Unknow	Root cortex	Root cortex
+616	CS1_CTCGAGGCACTCCTTG-1	CS1_CTCGAGGCACTCCTTG-1	Root	Whole root	Endodermis	Endodermis	0.926185	True	Endodermis	Endodermis	0.921432	True	Unknow	Root endodermis	Root endodermis
+619	CS1_CTCTCGATCATTTCGT-1	CS1_CTCTCGATCATTTCGT-1	Root	Whole root	Unknown	Unknown	0.324521	True	Unknown	Unknown	0.359127	True	S phase	Unknow	Unknow
+620	CS1_CTCTGGTAGGCTTCCG-1	CS1_CTCTGGTAGGCTTCCG-1	Root	Whole root	Epidermis	Cortex	0.444212	False	Epidermis	Cortex	0.491471	False	Root hair	Non-hair	Root cortex
+622	CS1_CTGAGCGAGTTGTAAG-1	CS1_CTGAGCGAGTTGTAAG-1	Root	Whole root	Unknown	Dividing Cells	0.404736	False	Unknown	Dividing Cells	0.411074	False	S phase	Unknow	__outside_direct_map__
+625	CS1_CTGAGGCTCGCGATCG-1	CS1_CTGAGGCTCGCGATCG-1	Root	Whole root	Epidermis	Epidermis	0.696351	True	Epidermis	Epidermis	0.653447	True	Unknow	Non-hair	Non-hair
+635	CS1_CTGGTCTTCCACGTCT-1	CS1_CTGGTCTTCCACGTCT-1	Root	Whole root	Root Hair	Root Hair	0.974882	True	Root Hair	Root Hair	0.978149	True	Root hair	Root hair	Root hair
+642	CS1_CTGTATTTCACAAGAA-1	CS1_CTGTATTTCACAAGAA-1	Root	Whole root	Epidermis	Dividing Cells	0.448129	False	Epidermis	Epidermis	0.374325	True	S phase	Non-hair	__outside_direct_map__
+648	CS1_CTTAGGAAGCATATGA-1	CS1_CTTAGGAAGCATATGA-1	Root	Whole root	Unknown	Endodermis	0.359145	False	Unknown	Provascular cells	0.378856	False	Unknow	Unknow	Root endodermis
+649	CS1_CTTCAATTCACCATAG-1	CS1_CTTCAATTCACCATAG-1	Root	Whole root	Endodermis	Endodermis	0.926591	True	Endodermis	Endodermis	0.902625	True	Non-hair	Root endodermis	Root endodermis
+652	CS1_CTTCTCTAGACTACCT-1	CS1_CTTCTCTAGACTACCT-1	Root	Whole root	Epidermis	Epidermis	0.515644	True	Epidermis	Epidermis	0.544132	True	Unknow	Non-hair	Non-hair
+658	CS1_CTTTCGGTCGGAACTT-1	CS1_CTTTCGGTCGGAACTT-1	Root	Whole root	Epidermis	Endodermis/Phloem	0.662726	False	Epidermis	Endodermis/Phloem	0.585501	False	S phase	Non-hair	__outside_direct_map__
+683	CS1_GAATCGTGTAACCCTA-1	CS1_GAATCGTGTAACCCTA-1	Root	Whole root	Epidermis	Provascular cells	0.580878	False	Epidermis	Provascular cells	0.592188	False	S phase	Non-hair	__outside_direct_map__
+689	CS1_GACAGCCTCCTCTTTC-1	CS1_GACAGCCTCCTCTTTC-1	Root	Whole root	Epidermis	Epidermis	0.525813	True	Epidermis	Epidermis	0.556063	True	Root cortex	Non-hair	Non-hair
+703	CS1_GACTCTCTCATAAGGA-1	CS1_GACTCTCTCATAAGGA-1	Root	Whole root	Cortex	Cortex	0.642517	True	Cortex	Cortex	0.557829	True	Root cortex	Root cortex	Root cortex
+723	CS1_GAGTGAGCAGGGAGAG-1	CS1_GAGTGAGCAGGGAGAG-1	Root	Whole root	Unknown	Epidermis	0.397714	False	Unknown	Unknown	0.325311	True	S phase	Unknow	Non-hair
+726	CS1_GAGTTTGTCAGTCTTT-1	CS1_GAGTTTGTCAGTCTTT-1	Root	Whole root	Epidermis	Epidermis	0.746962	True	Epidermis	Epidermis	0.698956	True	Unknow	Non-hair	Non-hair
+728	CS1_GATAGAACACATGGTT-1	CS1_GATAGAACACATGGTT-1	Root	Whole root	Epidermis	Epidermis	0.600152	True	Epidermis	Epidermis	0.610023	True	Lateral root cap	Non-hair	Non-hair
+731	CS1_GATCACAGTAGATGTA-1	CS1_GATCACAGTAGATGTA-1	Root	Whole root	Cortex	Cortex	0.452568	True	Cortex	Cortex	0.41634	True	S phase	Root cortex	Root cortex
+733	CS1_GATCATGAGGTATTGA-1	CS1_GATCATGAGGTATTGA-1	Root	Whole root	Epidermis	Meristems	0.649682	False	Epidermis	Meristems	0.63058	False	S phase	Non-hair	__outside_direct_map__
+738	CS1_GATCCCTTCAGGAGAC-1	CS1_GATCCCTTCAGGAGAC-1	Root	Whole root	Endodermis	Endodermis	0.766472	True	Endodermis	Endodermis	0.803538	True	Unknow	Root endodermis	Root endodermis
+739	CS1_GATCCCTTCTGCGATA-1	CS1_GATCCCTTCTGCGATA-1	Root	Whole root	Unknown	Epidermis	0.377506	False	Unknown	Epidermis	0.386406	False	Lateral root cap	Unknow	Non-hair
+740	CS1_GATCGTAAGGCATCTT-1	CS1_GATCGTAAGGCATCTT-1	Root	Whole root	Epidermis	Provascular cells	0.280692	False	Epidermis	Provascular cells	0.26686	False	S phase	Non-hair	__outside_direct_map__
+774	CS1_GCATCGGTCCTTCACG-1	CS1_GCATCGGTCCTTCACG-1	Root	Whole root	Cortex	Cortex	0.949119	True	Cortex	Cortex	0.95062	True	Root cortex	Root cortex	Root cortex
+775	CS1_GCATCTCAGAGCTTTC-1	CS1_GCATCTCAGAGCTTTC-1	Root	Whole root	Unknown	Root Hair	0.40366	False	Unknown	Root Hair	0.454141	False	Unknow	Unknow	Root hair
+777	CS1_GCATCTCGTACGTGAG-1	CS1_GCATCTCGTACGTGAG-1	Root	Whole root	Endodermis	Cortex	0.911804	False	Endodermis	Cortex	0.897782	False	Root cortex	Root endodermis	Root cortex
+797	CS1_GCGATCGGTCCACACG-1	CS1_GCGATCGGTCCACACG-1	Root	Whole root	Unknown	Cortex	0.310459	False	Unknown	Unknown	0.302818	True	Unknow	Unknow	Root cortex
+813	CS1_GCTTCACCAGCGTACC-1	CS1_GCTTCACCAGCGTACC-1	Root	Whole root	Unknown	Meristems	0.400001	False	Unknown	Meristems	0.347558	False	S phase	Unknow	__outside_direct_map__
+814	CS1_GCTTCACGTCATATGC-1	CS1_GCTTCACGTCATATGC-1	Root	Whole root	Xylem	Xylem	0.989633	True	Xylem	Xylem	0.989918	True	Root cortex	Xylem	Xylem
+826	CS1_GGAATCTGTATCGGTT-1	CS1_GGAATCTGTATCGGTT-1	Root	Whole root	Unknown	Pericycle	0.767392	False	Unknown	Pericycle	0.76594	False	Unknow	Unknow	__outside_direct_map__
+828	CS1_GGAATGGCATCCCACT-1	CS1_GGAATGGCATCCCACT-1	Root	Whole root	Unknown	Unknown	0.58882	True	Unknown	Unknown	0.571066	True	Unknow	Unknow	Unknow
+829	CS1_GGACGTCTCGGTCGGT-1	CS1_GGACGTCTCGGTCGGT-1	Root	Whole root	Epidermis	Epidermis	0.622248	True	Epidermis	Epidermis	0.572927	True	Unknow	Non-hair	Non-hair
+845	CS1_GGCTTGGAGTCAACAA-1	CS1_GGCTTGGAGTCAACAA-1	Root	Whole root	Epidermis	Epidermis	0.59164	True	Epidermis	Epidermis	0.491535	True	Non-hair	Non-hair	Non-hair
+848	CS1_GGGAAGTAGTAAATGC-1	CS1_GGGAAGTAGTAAATGC-1	Root	Whole root	Unknown	Dividing Cells	0.486881	False	Unknown	Dividing Cells	0.498277	False	S phase	Unknow	__outside_direct_map__
+859	CS1_GGGCCATCAAGATCCT-1	CS1_GGGCCATCAAGATCCT-1	Root	Whole root	Unknown	Epidermis	0.33582	False	Unknown	Epidermis	0.377465	False	G1/G0 phase	Unknow	Non-hair
+862	CS1_GGGCTCACAACGAGGT-1	CS1_GGGCTCACAACGAGGT-1	Root	Whole root	Unknown	Pericycle	0.48097	False	Unknown	Pericycle	0.429773	False	S phase	Unknow	__outside_direct_map__
+868	CS1_GGGTGTCTCCGTTGAA-1	CS1_GGGTGTCTCCGTTGAA-1	Root	Whole root	Endodermis	Endodermis	0.664361	True	Endodermis	Endodermis	0.643365	True	Root cortex	Root endodermis	Root endodermis
+871	CS1_GGTAGAGCATGAAAGT-1	CS1_GGTAGAGCATGAAAGT-1	Root	Whole root	Epidermis	Epidermis	0.622231	True	Epidermis	Epidermis	0.60181	True	Unknow	Non-hair	Non-hair
+876	CS1_GGTGGCTCAGTACTAC-1	CS1_GGTGGCTCAGTACTAC-1	Root	Whole root	Endodermis	Root Hair	0.397762	False	Endodermis	Cortex	0.36382	False	Root cortex	Root endodermis	Root hair
+881	CS1_GGTGTTACATTCACCC-1	CS1_GGTGTTACATTCACCC-1	Root	Whole root	Epidermis	Root Hair	0.376718	False	Epidermis	Root Hair	0.459672	False	Unknow	Non-hair	Root hair
+882	CS1_GGTGTTAGTTATAGAG-1	CS1_GGTGTTAGTTATAGAG-1	Root	Whole root	Unknown	Unknown	0.218797	True	Unknown	Epidermis	0.194265	False	S phase	Unknow	Unknow
+884	CS1_GGTTAACCATAATCGC-1	CS1_GGTTAACCATAATCGC-1	Root	Whole root	Epidermis	Meristems	0.684162	False	Epidermis	Meristems	0.690118	False	S phase	Non-hair	__outside_direct_map__
+917	CS1_GTCATCCAGCGGGTAT-1	CS1_GTCATCCAGCGGGTAT-1	Root	Whole root	Epidermis	Pericycle	0.596945	False	Epidermis	Pericycle	0.528496	False	Non-hair	Non-hair	__outside_direct_map__
+928	CS1_GTCCTCAGTATCAAGA-1	CS1_GTCCTCAGTATCAAGA-1	Root	Whole root	Unknown	Cortex	0.873976	False	Unknown	Cortex	0.833751	False	Unknow	Unknow	Root cortex
+932	CS1_GTCGCGACACTACCCT-1	CS1_GTCGCGACACTACCCT-1	Root	Whole root	Epidermis	Epidermis	0.545603	True	Epidermis	Epidermis	0.461933	True	Non-hair	Non-hair	Non-hair
+953	CS1_GTGATGTCAGAGGCAT-1	CS1_GTGATGTCAGAGGCAT-1	Root	Whole root	Unknown	Cortex	0.273925	False	Unknown	Epidermis	0.25692	False	S phase	Unknow	Root cortex
+955	CS1_GTGATGTGTCACTCAA-1	CS1_GTGATGTGTCACTCAA-1	Root	Whole root	Epidermis	Epidermis	0.402201	True	Epidermis	Epidermis	0.40298	True	S phase	Non-hair	Non-hair
+960	CS1_GTGCTTCAGCGGATCA-1	CS1_GTGCTTCAGCGGATCA-1	Root	Whole root	Cortex	Cortex	0.929114	True	Cortex	Cortex	0.872903	True	Root cortex	Root cortex	Root cortex
+972	CS1_GTGTTAGCAGCGGATA-1	CS1_GTGTTAGCAGCGGATA-1	Root	Whole root	Unknown	Epidermis	0.476065	False	Unknown	Epidermis	0.440195	False	S phase	Unknow	Non-hair
+979	CS1_GTTAGTGAGTCGCTAT-1	CS1_GTTAGTGAGTCGCTAT-1	Root	Whole root	Unknown	Epidermis	0.425616	False	Unknown	Epidermis	0.437264	False	Unknow	Unknow	Non-hair
+1005	CS1_TAAGCCAGTTCTTGTT-1	CS1_TAAGCCAGTTCTTGTT-1	Root	Whole root	Endodermis	Endodermis	0.889	True	Endodermis	Endodermis	0.894007	True	Unknow	Root endodermis	Root endodermis
+1007	CS1_TAAGCGTGTCCTTAAG-1	CS1_TAAGCGTGTCCTTAAG-1	Root	Whole root	Root Hair	Root Hair	0.970172	True	Root Hair	Root Hair	0.973523	True	Root hair	Root hair	Root hair
+1010	CS1_TAAGTCGTCGTTATCT-1	CS1_TAAGTCGTCGTTATCT-1	Root	Whole root	Cortex	Unknown	0.658852	False	Cortex	Unknown	0.678734	False	Unknow	Root cortex	Unknow
+1016	CS1_TACATTCGTGTTTGCA-1	CS1_TACATTCGTGTTTGCA-1	Root	Whole root	Unknown	Unknown	0.315181	True	Unknown	Pericycle	0.338315	False	Unknow	Unknow	Unknow
+1017	CS1_TACCGGGGTTCTGACA-1	CS1_TACCGGGGTTCTGACA-1	Root	Whole root	Epidermis	Epidermis	0.637394	True	Epidermis	Epidermis	0.655304	True	Unknow	Non-hair	Non-hair
+1026	CS1_TACGGTAGTGACCGTC-1	CS1_TACGGTAGTGACCGTC-1	Root	Whole root	Epidermis	Epidermis	0.540926	True	Epidermis	Epidermis	0.617879	True	Root cortex	Non-hair	Non-hair
+1047	CS1_TATCTGTTCGGCATAT-1	CS1_TATCTGTTCGGCATAT-1	Root	Whole root	Epidermis	Unknown	0.476227	False	Epidermis	Unknown	0.459124	False	Unknow	Non-hair	Unknow
+1050	CS1_TATGTTCTCGGATACT-1	CS1_TATGTTCTCGGATACT-1	Root	Whole root	Epidermis	Epidermis	0.366909	True	Epidermis	Epidermis	0.351333	True	Root cortex	Non-hair	Non-hair
+1055	CS1_TCAAGACAGGAACTAT-1	CS1_TCAAGACAGGAACTAT-1	Root	Whole root	Endodermis	Endodermis	0.809417	True	Endodermis	Endodermis	0.832249	True	Unknow	Root endodermis	Root endodermis
+1056	CS1_TCAAGCATCACGGAGA-1	CS1_TCAAGCATCACGGAGA-1	Root	Whole root	Cortex	Cortex	0.935951	True	Cortex	Cortex	0.912713	True	Root cortex	Root cortex	Root cortex
+1059	CS1_TCAAGTGTCGTTCAGA-1	CS1_TCAAGTGTCGTTCAGA-1	Root	Whole root	Epidermis	Epidermis	0.720952	True	Epidermis	Epidermis	0.705685	True	Root cortex	Non-hair	Non-hair
+1068	CS1_TCACGCTCAGCCTTCT-1	CS1_TCACGCTCAGCCTTCT-1	Root	Whole root	Cortex	Cortex	0.893316	True	Cortex	Cortex	0.862933	True	Non-hair	Root cortex	Root cortex
+1074	CS1_TCAGCAACAGTAGTGG-1	CS1_TCAGCAACAGTAGTGG-1	Root	Whole root	Epidermis	Epidermis	0.625301	True	Epidermis	Epidermis	0.586431	True	Unknow	Non-hair	Non-hair
+1087	CS1_TCATGCCAGTCACTGT-1	CS1_TCATGCCAGTCACTGT-1	Root	Whole root	Endodermis	Endodermis	0.942387	True	Endodermis	Endodermis	0.936992	True	Root cortex	Root endodermis	Root endodermis
+1088	CS1_TCATGCCGTATCTCTT-1	CS1_TCATGCCGTATCTCTT-1	Root	Whole root	Epidermis	Epidermis	0.677216	True	Epidermis	Epidermis	0.639794	True	Unknow	Non-hair	Non-hair
+1089	CS1_TCATGCCTCATTTGCT-1	CS1_TCATGCCTCATTTGCT-1	Root	Whole root	Unknown	Endodermis	0.241379	False	Unknown	Unknown	0.204041	True	Unknow	Unknow	Root endodermis
+1090	CS1_TCATGGAGTCGCTGCA-1	CS1_TCATGGAGTCGCTGCA-1	Root	Whole root	Epidermis	Epidermis	0.655011	True	Epidermis	Epidermis	0.555313	True	S phase	Non-hair	Non-hair
+1091	CS1_TCATGTTGTCAAACGG-1	CS1_TCATGTTGTCAAACGG-1	Root	Whole root	Epidermis	Epidermis	0.443559	True	Epidermis	Epidermis	0.468106	True	S phase	Non-hair	Non-hair
+1110	CS1_TCCGTGTCATCCTCAC-1	CS1_TCCGTGTCATCCTCAC-1	Root	Whole root	Epidermis	Epidermis	0.6656	True	Epidermis	Epidermis	0.687108	True	Unknow	Non-hair	Non-hair
+1114	CS1_TCCTAATCAGATACTC-1	CS1_TCCTAATCAGATACTC-1	Root	Whole root	Epidermis	Cortex	0.394377	False	Epidermis	Cortex	0.415097	False	Unknow	Non-hair	Root cortex
+1115	CS1_TCCTCCCAGTATGGAT-1	CS1_TCCTCCCAGTATGGAT-1	Root	Whole root	Epidermis	Epidermis	0.395362	True	Epidermis	Meristems	0.404328	False	S phase	Non-hair	Non-hair
+1145	CS1_TCTATCATCTATTCGT-1	CS1_TCTATCATCTATTCGT-1	Root	Whole root	Unknown	Cortex	0.86592	False	Unknown	Cortex	0.810912	False	Unknow	Unknow	Root cortex
+1163	CS1_TGACGCGCACGTACTA-1	CS1_TGACGCGCACGTACTA-1	Root	Whole root	Unknown	Cortex	0.300176	False	Unknown	Cortex	0.247536	False	S phase	Unknow	Root cortex
+1177	CS1_TGATCAGGTCTAACGT-1	CS1_TGATCAGGTCTAACGT-1	Root	Whole root	Epidermis	Unknown	0.30346	False	Epidermis	Cortex	0.291391	False	Unknow	Non-hair	Unknow
+1183	CS1_TGATGGTTCGCACTCT-1	CS1_TGATGGTTCGCACTCT-1	Root	Whole root	Root Hair	Unknown	0.421947	False	Root Hair	Unknown	0.452948	False	Unknow	Root hair	Unknow
+1185	CS1_TGATTCTTCGCTAATG-1	CS1_TGATTCTTCGCTAATG-1	Root	Whole root	Epidermis	Epidermis	0.678943	True	Epidermis	Epidermis	0.602758	True	Unknow	Non-hair	Non-hair
+1187	CS1_TGATTTCCACGACCTG-1	CS1_TGATTTCCACGACCTG-1	Root	Whole root	Epidermis	Endodermis	0.429998	False	Epidermis	Endodermis	0.428121	False	Unknow	Non-hair	Root endodermis
+1191	CS1_TGCAGGCTCCCATACC-1	CS1_TGCAGGCTCCCATACC-1	Root	Whole root	Root Hair	Root Hair	0.935743	True	Root Hair	Root Hair	0.96137	True	Unknow	Root hair	Root hair
+1216	CS1_TGGATGTCAGGCGAAT-1	CS1_TGGATGTCAGGCGAAT-1	Root	Whole root	Epidermis	Dividing Cells	0.319881	False	Epidermis	Dividing Cells	0.379544	False	S phase	Non-hair	__outside_direct_map__
+1217	CS1_TGGATGTCAGTAGTTC-1	CS1_TGGATGTCAGTAGTTC-1	Root	Whole root	Epidermis	Epidermis	0.469005	True	Epidermis	Epidermis	0.447279	True	S phase	Non-hair	Non-hair
+1228	CS1_TGGGCGTTCTGCTCTG-1	CS1_TGGGCGTTCTGCTCTG-1	Root	Whole root	Unknown	Unknown	0.329829	True	Unknown	Cortex	0.341078	False	Unknow	Unknow	Unknow
+1232	CS1_TGGGTTACAGCTCCTT-1	CS1_TGGGTTACAGCTCCTT-1	Root	Whole root	Xylem	Xylem	0.982601	True	Xylem	Xylem	0.983136	True	Unknow	Xylem	Xylem
+1236	CS1_TGGTAGTTCGGATACT-1	CS1_TGGTAGTTCGGATACT-1	Root	Whole root	Endodermis	Endodermis	0.733245	True	Endodermis	Endodermis	0.704838	True	Non-hair	Root endodermis	Root endodermis
+1244	CS1_TGTCCACCAGGGAATC-1	CS1_TGTCCACCAGGGAATC-1	Root	Whole root	Epidermis	Endodermis	0.438837	False	Epidermis	Endodermis	0.380892	False	S phase	Non-hair	Root endodermis
+1249	CS1_TGTGAGTCAATTGCAC-1	CS1_TGTGAGTCAATTGCAC-1	Root	Whole root	Epidermis	Epidermis	0.536161	True	Epidermis	Epidermis	0.45339	True	S phase	Non-hair	Non-hair
+1250	CS1_TGTGAGTCATGGCCAC-1	CS1_TGTGAGTCATGGCCAC-1	Root	Whole root	Epidermis	Epidermis	0.535011	True	Epidermis	Epidermis	0.493884	True	S phase	Non-hair	Non-hair
+1262	CS1_TGTTGAGAGGCTTAGG-1	CS1_TGTTGAGAGGCTTAGG-1	Root	Whole root	Epidermis	Epidermis	0.499536	True	Epidermis	Epidermis	0.478038	True	S phase	Non-hair	Non-hair
+1274	CS1_TTAGGGTCACTGCGAC-1	CS1_TTAGGGTCACTGCGAC-1	Root	Whole root	Epidermis	Meristems	0.483539	False	Epidermis	Meristems	0.475836	False	S phase	Non-hair	__outside_direct_map__
+1296	CS1_TTCGCTGTCAGCGCGT-1	CS1_TTCGCTGTCAGCGCGT-1	Root	Whole root	Epidermis	Root Hair	0.460513	False	Epidermis	Root Hair	0.484547	False	Unknow	Non-hair	Root hair
+1297	CS1_TTCGCTGTCTACACAG-1	CS1_TTCGCTGTCTACACAG-1	Root	Whole root	Epidermis	Meristems	0.640325	False	Epidermis	Meristems	0.6487	False	S phase	Non-hair	__outside_direct_map__
+1302	CS1_TTCTAGTGTTGTTGCA-1	CS1_TTCTAGTGTTGTTGCA-1	Root	Whole root	Xylem	Xylem	0.983641	True	Xylem	Xylem	0.982852	True	Unknow	Xylem	Xylem
+1306	CS1_TTGAACGAGTTCTCTT-1	CS1_TTGAACGAGTTCTCTT-1	Root	Whole root	Unknown	Cortex	0.399217	False	Unknown	Cortex	0.455899	False	Unknow	Unknow	Root cortex
+1311	CS1_TTGAGTGGTACTGCCG-1	CS1_TTGAGTGGTACTGCCG-1	Root	Whole root	Root Hair	Root Hair	0.989235	True	Root Hair	Root Hair	0.989673	True	Root hair	Root hair	Root hair
+1315	CS1_TTGCTGCAGTGGATTA-1	CS1_TTGCTGCAGTGGATTA-1	Root	Whole root	Epidermis	Epidermis	0.393947	True	Epidermis	Epidermis	0.423856	True	S phase	Non-hair	Non-hair
+1317	CS1_TTGCTGCTCGCCTCTA-1	CS1_TTGCTGCTCGCCTCTA-1	Root	Whole root	Unknown	Pericycle	0.703773	False	Unknown	Pericycle	0.669911	False	Unknow	Unknow	__outside_direct_map__
+1321	CS1_TTGTTCAAGCACTGGA-1	CS1_TTGTTCAAGCACTGGA-1	Root	Whole root	Unknown	Epidermis	0.60257	False	Unknown	Epidermis	0.567608	False	Unknow	Unknow	Non-hair
+1330	CS1_TTTACGTCATCCTATT-1	CS1_TTTACGTCATCCTATT-1	Root	Whole root	Unknown	Dividing Cells	0.267287	False	Unknown	Provascular cells	0.274098	False	Root cortex	Unknow	__outside_direct_map__
+1339	CS1_TTTATGCTCTCGACGG-1	CS1_TTTATGCTCTCGACGG-1	Root	Whole root	Root Hair	Root Hair	0.965697	True	Root Hair	Root Hair	0.968482	True	Root hair	Root hair	Root hair
+1365	CS2_AAACGAATCGGAAACG-1	CS2_AAACGAATCGGAAACG-1	Root	Whole root	Endodermis	Endodermis	0.415248	True	Endodermis	Endodermis	0.489844	True	S phase	Root endodermis	Root endodermis
+1373	CS2_AAAGAACTCATGCATG-1	CS2_AAAGAACTCATGCATG-1	Root	Whole root	Unknown	Provascular cells	0.475076	False	Unknown	Provascular cells	0.505155	False	S phase	Unknow	__outside_direct_map__
+1378	CS2_AAAGGGCTCTGCGGCA-1	CS2_AAAGGGCTCTGCGGCA-1	Root	Whole root	Unknown	Unknown	0.564785	True	Unknown	Unknown	0.607239	True	Unknow	Unknow	Unknow
+1379	CS2_AAAGGTAAGACTTAAG-1	CS2_AAAGGTAAGACTTAAG-1	Root	Whole root	Unknown	Cortex	0.44664	False	Unknown	Cortex	0.427179	False	Unknow	Unknow	Root cortex
+1382	CS2_AAAGTCCCATACTGTG-1	CS2_AAAGTCCCATACTGTG-1	Root	Whole root	Epidermis	Cortex	0.421734	False	Epidermis	Cortex	0.403674	False	Unknow	Non-hair	Root cortex
+1404	CS2_AACCAACAGGTAGACC-1	CS2_AACCAACAGGTAGACC-1	Root	Whole root	Unknown	Unknown	0.676304	True	Unknown	Unknown	0.69472	True	S phase	Unknow	Unknow
+1417	CS2_AACCCAAGTGAAGCTG-1	CS2_AACCCAAGTGAAGCTG-1	Root	Whole root	Phloem	Phloem	0.99429	True	Phloem	Phloem	0.99526	True	Unknow	Phloem	Phloem
+1424	CS2_AACCTTTGTTGCCGCA-1	CS2_AACCTTTGTTGCCGCA-1	Root	Whole root	Epidermis	Root Hair	0.472516	False	Epidermis	Epidermis	0.448225	True	Non-hair	Non-hair	Root hair
+1434	CS2_AACGTCAAGTCGAAAT-1	CS2_AACGTCAAGTCGAAAT-1	Root	Whole root	Epidermis	Cortex	0.31184	False	Epidermis	Cortex	0.2993	False	S phase	Non-hair	Root cortex
+1436	CS2_AACTTCTGTCCAACGC-1	CS2_AACTTCTGTCCAACGC-1	Root	Whole root	Epidermis	Provascular cells	0.369282	False	Epidermis	Provascular cells	0.32649	False	S phase	Non-hair	__outside_direct_map__
+1441	CS2_AAGAACAGTTCGCGTG-1	CS2_AAGAACAGTTCGCGTG-1	Root	Whole root	Phloem	Phloem	0.99158	True	Phloem	Phloem	0.992243	True	G1/G0 phase	Phloem	Phloem
+1452	CS2_AAGCATCCAGGTTTAC-1	CS2_AAGCATCCAGGTTTAC-1	Root	Whole root	Cortex	Cortex	0.485566	True	Cortex	Cortex	0.463458	True	Unknow	Root cortex	Root cortex
+1460	CS2_AAGCGTTTCTCTTGCG-1	CS2_AAGCGTTTCTCTTGCG-1	Root	Whole root	Epidermis	Epidermis	0.535259	True	Epidermis	Epidermis	0.569039	True	Unknow	Non-hair	Non-hair
+1466	CS2_AAGTACCCAAAGGAGA-1	CS2_AAGTACCCAAAGGAGA-1	Root	Whole root	Root Hair	Root Hair	0.372978	True	Root Hair	Root Hair	0.414011	True	Unknow	Root hair	Root hair
+1468	CS2_AAGTACCGTAACTGCT-1	CS2_AAGTACCGTAACTGCT-1	Root	Whole root	Epidermis	Meristems	0.308052	False	Epidermis	Epidermis	0.259366	True	Non-hair	Non-hair	__outside_direct_map__
+1474	CS2_AAGTTCGTCTCGTGAA-1	CS2_AAGTTCGTCTCGTGAA-1	Root	Whole root	Cortex	Root Hair	0.42017	False	Cortex	Root Hair	0.405253	False	S phase	Root cortex	Root hair
+1476	CS2_AATAGAGGTAACGATA-1	CS2_AATAGAGGTAACGATA-1	Root	Whole root	Unknown	Unknown	0.483529	True	Unknown	Unknown	0.44853	True	Unknow	Unknow	Unknow
+1478	CS2_AATCACGAGAAGCCTG-1	CS2_AATCACGAGAAGCCTG-1	Root	Whole root	Unknown	Unknown	0.713431	True	Unknown	Unknown	0.726395	True	S phase	Unknow	Unknow
+1481	CS2_AATCACGAGCCATCCG-1	CS2_AATCACGAGCCATCCG-1	Root	Whole root	Root Hair	Root Hair	0.636318	True	Root Hair	Root Hair	0.617584	True	S phase	Root hair	Root hair
+1487	CS2_AATCGACGTCTGCATA-1	CS2_AATCGACGTCTGCATA-1	Root	Whole root	Epidermis	Epidermis	0.637715	True	Epidermis	Epidermis	0.684801	True	S phase	Non-hair	Non-hair
+1492	CS2_AATGAAGAGAAGTATC-1	CS2_AATGAAGAGAAGTATC-1	Root	Whole root	Epidermis	Cortex	0.281524	False	Epidermis	Root Hair	0.241539	False	Unknow	Non-hair	Root cortex
+1504	CS2_AATGGAAGTCAGGCAA-1	CS2_AATGGAAGTCAGGCAA-1	Root	Whole root	Unknown	Unknown	0.810515	True	Unknown	Unknown	0.813848	True	S phase	Unknow	Unknow
+1514	CS2_ACAAAGAGTAGAGATT-1	CS2_ACAAAGAGTAGAGATT-1	Root	Whole root	Xylem	Xylem	0.851654	True	Xylem	Xylem	0.886592	True	Unknow	Xylem	Xylem
+1515	CS2_ACAAAGATCCTCTAGC-1	CS2_ACAAAGATCCTCTAGC-1	Root	Whole root	Endodermis	Endodermis	0.371118	True	Endodermis	Endodermis	0.302659	True	Unknow	Root endodermis	Root endodermis
+1518	CS2_ACAACCAGTATAATGG-1	CS2_ACAACCAGTATAATGG-1	Root	Whole root	Epidermis	Pericycle	0.24273	False	Epidermis	Pericycle	0.249753	False	Root cortex	Non-hair	__outside_direct_map__
+1531	CS2_ACAGCCGAGTCACGAG-1	CS2_ACAGCCGAGTCACGAG-1	Root	Whole root	Endodermis	Endodermis	0.470158	True	Endodermis	Endodermis	0.422382	True	Unknow	Root endodermis	Root endodermis
+1537	CS2_ACAGCCGTCCAAACCA-1	CS2_ACAGCCGTCCAAACCA-1	Root	Whole root	Phloem	Phloem	0.985268	True	Phloem	Phloem	0.985627	True	Lateral root cap	Phloem	Phloem
+1548	CS2_ACATCGACAATCGCGC-1	CS2_ACATCGACAATCGCGC-1	Root	Whole root	Unknown	Unknown	0.793315	True	Unknown	Unknown	0.753788	True	S phase	Unknow	Unknow
+1550	CS2_ACATCGAGTCTCGGGT-1	CS2_ACATCGAGTCTCGGGT-1	Root	Whole root	Epidermis	Root Hair	0.52999	False	Epidermis	Root Hair	0.463931	False	Unknow	Non-hair	Root hair
+1551	CS2_ACATCGAGTTGATGTC-1	CS2_ACATCGAGTTGATGTC-1	Root	Whole root	Endodermis	Endodermis	0.733335	True	Endodermis	Endodermis	0.75542	True	Unknow	Root endodermis	Root endodermis
+1552	CS2_ACATCGATCATTCGTT-1	CS2_ACATCGATCATTCGTT-1	Root	Whole root	Epidermis	Epidermis	0.374658	True	Epidermis	Epidermis	0.378692	True	S phase	Non-hair	Non-hair
+1557	CS2_ACATGCACAGCGACCT-1	CS2_ACATGCACAGCGACCT-1	Root	Whole root	Xylem	Xylem	0.975147	True	Xylem	Xylem	0.977276	True	Unknow	Xylem	Xylem
+1559	CS2_ACATTTCCAAGTCATC-1	CS2_ACATTTCCAAGTCATC-1	Root	Whole root	Epidermis	Root Hair	0.565861	False	Epidermis	Root Hair	0.5262	False	Unknow	Non-hair	Root hair
+1570	CS2_ACCAACACAGTAACAA-1	CS2_ACCAACACAGTAACAA-1	Root	Whole root	Phloem	Phloem	0.994913	True	Phloem	Phloem	0.994426	True	Root hair	Phloem	Phloem
+1575	CS2_ACCACAATCATAGACC-1	CS2_ACCACAATCATAGACC-1	Root	Whole root	Epidermis	Endodermis	0.258284	False	Epidermis	Epidermis	0.277476	True	Lateral root cap	Non-hair	Root endodermis
+1589	CS2_ACCCTTGCACGCGCTA-1	CS2_ACCCTTGCACGCGCTA-1	Root	Whole root	Xylem	Xylem	0.971787	True	Xylem	Xylem	0.973355	True	Unknow	Xylem	Xylem
+1592	CS2_ACCCTTGTCTCTCCGA-1	CS2_ACCCTTGTCTCTCCGA-1	Root	Whole root	Unknown	Unknown	0.338261	True	Unknown	Unknown	0.421561	True	Unknow	Unknow	Unknow
+1595	CS2_ACCGTTCGTTCGGCGT-1	CS2_ACCGTTCGTTCGGCGT-1	Root	Whole root	Unknown	Unknown	0.62823	True	Unknown	Unknown	0.639496	True	Unknow	Unknow	Unknow
+1602	CS2_ACCTGAATCTGAGGCC-1	CS2_ACCTGAATCTGAGGCC-1	Root	Whole root	Epidermis	Epidermis	0.556495	True	Epidermis	Epidermis	0.600605	True	Root hair	Non-hair	Non-hair
+1611	CS2_ACGATGTAGCATTTGC-1	CS2_ACGATGTAGCATTTGC-1	Root	Whole root	Unknown	Cortex	0.56269	False	Unknown	Cortex	0.447626	False	Unknow	Unknow	Root cortex
+1628	CS2_ACGTACACATGGGATG-1	CS2_ACGTACACATGGGATG-1	Root	Whole root	Endodermis	Endodermis	0.322997	True	Endodermis	Epidermis	0.358389	False	Unknow	Root endodermis	Root endodermis
+1629	CS2_ACGTACATCATCCTAT-1	CS2_ACGTACATCATCCTAT-1	Root	Whole root	Epidermis	Unknown	0.323364	False	Epidermis	Epidermis	0.339995	True	S phase	Non-hair	Unknow
+1639	CS2_ACGTTCCAGTAATTGG-1	CS2_ACGTTCCAGTAATTGG-1	Root	Whole root	Unknown	Cortex	0.343618	False	Unknown	Cortex	0.307776	False	Unknow	Unknow	Root cortex
+1642	CS2_ACTACGAAGTGCTCAT-1	CS2_ACTACGAAGTGCTCAT-1	Root	Whole root	Xylem	Xylem	0.674648	True	Xylem	Xylem	0.610851	True	Unknow	Xylem	Xylem
+1643	CS2_ACTACGACATTAAAGG-1	CS2_ACTACGACATTAAAGG-1	Root	Whole root	Endodermis	Endodermis	0.909904	True	Endodermis	Endodermis	0.92126	True	Unknow	Root endodermis	Root endodermis
+1647	CS2_ACTATCTCAGTGTACT-1	CS2_ACTATCTCAGTGTACT-1	Root	Whole root	Unknown	Epidermis	0.475048	False	Unknown	Epidermis	0.518229	False	Unknow	Unknow	Non-hair
+1656	CS2_ACTCCCAGTTATTCTC-1	CS2_ACTCCCAGTTATTCTC-1	Root	Whole root	Unknown	Pericycle	0.77355	False	Unknown	Pericycle	0.747999	False	Unknow	Unknow	__outside_direct_map__
+1657	CS2_ACTCCCAGTTGCATCA-1	CS2_ACTCCCAGTTGCATCA-1	Root	Whole root	Root Cap	Root Cap	0.990405	True	Root Cap	Root Cap	0.98971	True	Unknow	Root cap	Root cap
+1658	CS2_ACTCCCATCCGTGCGA-1	CS2_ACTCCCATCCGTGCGA-1	Root	Whole root	Epidermis	Epidermis	0.620817	True	Epidermis	Epidermis	0.60482	True	Unknow	Non-hair	Non-hair
+1671	CS2_ACTGCAAAGTTGAAGT-1	CS2_ACTGCAAAGTTGAAGT-1	Root	Whole root	Unknown	Meristems	0.756205	False	Unknown	Meristems	0.780258	False	G1/G0 phase	Unknow	__outside_direct_map__
+1678	CS2_ACTGTGAAGTCGAAGC-1	CS2_ACTGTGAAGTCGAAGC-1	Root	Whole root	Root Hair	Root Hair	0.984489	True	Root Hair	Root Hair	0.985452	True	Root hair	Root hair	Root hair
+1688	CS2_ACTTATCTCATCTGTT-1	CS2_ACTTATCTCATCTGTT-1	Root	Whole root	Unknown	Epidermis	0.372977	False	Unknown	Epidermis	0.409119	False	S phase	Unknow	Non-hair
+1692	CS2_ACTTCGCGTACCCAGC-1	CS2_ACTTCGCGTACCCAGC-1	Root	Whole root	Epidermis	Cortex	0.362865	False	Epidermis	Cortex	0.345643	False	S phase	Non-hair	Root cortex
+1696	CS2_ACTTTCACAGCGACCT-1	CS2_ACTTTCACAGCGACCT-1	Root	Whole root	Epidermis	Epidermis	0.417253	True	Epidermis	Epidermis	0.459049	True	Non-hair	Non-hair	Non-hair
+1707	CS2_AGAAATGCATGCCATA-1	CS2_AGAAATGCATGCCATA-1	Root	Whole root	Root Hair	Epidermis	0.627939	False	Root Hair	Epidermis	0.609487	False	Root cortex	Root hair	Non-hair
+1711	CS2_AGAACAAAGCTTCGTA-1	CS2_AGAACAAAGCTTCGTA-1	Root	Whole root	Cortex	Cortex	0.488942	True	Cortex	Cortex	0.449901	True	S phase	Root cortex	Root cortex
+1719	CS2_AGACAAACAGGAATCG-1	CS2_AGACAAACAGGAATCG-1	Root	Whole root	Cortex	Cortex	0.440961	True	Cortex	Cortex	0.439742	True	S phase	Root cortex	Root cortex
+1721	CS2_AGACAAATCCGCAACG-1	CS2_AGACAAATCCGCAACG-1	Root	Whole root	Xylem	Xylem	0.753836	True	Xylem	Xylem	0.765714	True	Unknow	Xylem	Xylem
+1724	CS2_AGACAGGGTCGTACTA-1	CS2_AGACAGGGTCGTACTA-1	Root	Whole root	Unknown	Unknown	0.428596	True	Unknown	Unknown	0.42383	True	Unknow	Unknow	Unknow
+1729	CS2_AGACTCACACGCCACA-1	CS2_AGACTCACACGCCACA-1	Root	Whole root	Epidermis	Epidermis	0.488762	True	Epidermis	Epidermis	0.53346	True	Unknow	Non-hair	Non-hair
+1737	CS2_AGAGAGCCACTGATTG-1	CS2_AGAGAGCCACTGATTG-1	Root	Whole root	Unknown	Unknown	0.889961	True	Unknown	Unknown	0.867796	True	S phase	Unknow	Unknow
+1771	CS2_AGCCAATCATCACCAA-1	CS2_AGCCAATCATCACCAA-1	Root	Whole root	Cortex	Cortex	0.696532	True	Cortex	Cortex	0.569696	True	Unknow	Root cortex	Root cortex
+1787	CS2_AGCGATTCAAGATGTA-1	CS2_AGCGATTCAAGATGTA-1	Root	Whole root	Root Cap	Root Cap	0.989601	True	Root Cap	Root Cap	0.988584	True	S phase	Root cap	Root cap
+1797	CS2_AGCTACAGTGCAATAA-1	CS2_AGCTACAGTGCAATAA-1	Root	Whole root	Unknown	Cortex	0.28238	False	Unknown	Cortex	0.252228	False	Unknow	Unknow	Root cortex
+1801	CS2_AGCTCAAGTACAGAAT-1	CS2_AGCTCAAGTACAGAAT-1	Root	Whole root	Cortex	Cortex	0.64281	True	Cortex	Cortex	0.610162	True	Unknow	Root cortex	Root cortex
+1810	CS2_AGGAAATTCCCATACC-1	CS2_AGGAAATTCCCATACC-1	Root	Whole root	Root Cap	Root Cap	0.901563	True	Root Cap	Root Cap	0.902435	True	S phase	Root cap	Root cap
+1811	CS2_AGGAATATCGCCAACG-1	CS2_AGGAATATCGCCAACG-1	Root	Whole root	Unknown	Cortex	0.381279	False	Unknown	Cortex	0.386408	False	Unknow	Unknow	Root cortex
+1817	CS2_AGGACTTAGATGGCAC-1	CS2_AGGACTTAGATGGCAC-1	Root	Whole root	Unknown	Cortex	0.264404	False	Unknown	Cortex	0.28142	False	Unknow	Unknow	Root cortex
+1821	CS2_AGGACTTTCGGAGATG-1	CS2_AGGACTTTCGGAGATG-1	Root	Whole root	Root Hair	Epidermis	0.497501	False	Root Hair	Epidermis	0.470086	False	Unknow	Root hair	Non-hair
+1822	CS2_AGGAGGTCAAGTATAG-1	CS2_AGGAGGTCAAGTATAG-1	Root	Whole root	Endodermis	Endodermis	0.854049	True	Endodermis	Endodermis	0.855131	True	Unknow	Root endodermis	Root endodermis
+1827	CS2_AGGATCTAGAGTCCGA-1	CS2_AGGATCTAGAGTCCGA-1	Root	Whole root	Epidermis	Xylem	0.816799	False	Epidermis	Xylem	0.787792	False	S phase	Non-hair	Xylem
+1849	CS2_AGGGCTCCAAACACCT-1	CS2_AGGGCTCCAAACACCT-1	Root	Whole root	Unknown	Epidermis	0.548836	False	Unknown	Epidermis	0.532865	False	Unknow	Unknow	Non-hair
+1852	CS2_AGGGTCCGTCATTGCA-1	CS2_AGGGTCCGTCATTGCA-1	Root	Whole root	Epidermis	Cortex	0.277551	False	Epidermis	Unknown	0.30872	False	S phase	Non-hair	Root cortex
+1857	CS2_AGGGTGATCTCCACTG-1	CS2_AGGGTGATCTCCACTG-1	Root	Whole root	Epidermis	Epidermis	0.740195	True	Epidermis	Epidermis	0.726253	True	Unknow	Non-hair	Non-hair
+1862	CS2_AGGTAGGCATGCCGGT-1	CS2_AGGTAGGCATGCCGGT-1	Root	Whole root	Root Hair	Root Hair	0.556162	True	Root Hair	Root Hair	0.579282	True	Non-hair	Root hair	Root hair
+1866	CS2_AGGTCTAGTACCCGAC-1	CS2_AGGTCTAGTACCCGAC-1	Root	Whole root	Epidermis	Unknown	0.312758	False	Epidermis	Unknown	0.291368	False	S phase	Non-hair	Unknow
+1874	CS2_AGGTTGTCAGTATGAA-1	CS2_AGGTTGTCAGTATGAA-1	Root	Whole root	Phloem	Phloem	0.950423	True	Phloem	Phloem	0.943909	True	Lateral root cap	Phloem	Phloem
+1884	CS2_AGTAGCTCAGTAACGG-1	CS2_AGTAGCTCAGTAACGG-1	Root	Whole root	Unknown	Cortex	0.388714	False	Unknown	Cortex	0.418854	False	Unknow	Unknow	Root cortex
+1887	CS2_AGTAGTCCAAGGTCGA-1	CS2_AGTAGTCCAAGGTCGA-1	Root	Whole root	Epidermis	Endodermis	0.277388	False	Epidermis	Endodermis	0.28797	False	Unknow	Non-hair	Root endodermis
+1888	CS2_AGTAGTCCAGAGCGTA-1	CS2_AGTAGTCCAGAGCGTA-1	Root	Whole root	Root Hair	Epidermis	0.6175	False	Root Hair	Epidermis	0.57824	False	Non-hair	Root hair	Non-hair
+1900	CS2_AGTCTCCCAACATCGT-1	CS2_AGTCTCCCAACATCGT-1	Root	Whole root	Endodermis	Endodermis	0.595141	True	Endodermis	Endodermis	0.499403	True	Unknow	Root endodermis	Root endodermis
+1909	CS2_AGTTCCCGTTCCAGGC-1	CS2_AGTTCCCGTTCCAGGC-1	Root	Whole root	Unknown	Cortex	0.432964	False	Unknown	Cortex	0.361871	False	Unknow	Unknow	Root cortex
+1933	CS2_ATCACTTGTACAATAG-1	CS2_ATCACTTGTACAATAG-1	Root	Whole root	Epidermis	Epidermis	0.568355	True	Epidermis	Epidermis	0.552064	True	Unknow	Non-hair	Non-hair
+1945	CS2_ATCCATTGTCAGTCGC-1	CS2_ATCCATTGTCAGTCGC-1	Root	Whole root	Unknown	Meristems	0.769213	False	Unknown	Meristems	0.763509	False	Unknow	Unknow	__outside_direct_map__
+1949	CS2_ATCCCTGGTGGATTTC-1	CS2_ATCCCTGGTGGATTTC-1	Root	Whole root	Endodermis	Epidermis	0.416369	False	Endodermis	Epidermis	0.457122	False	Unknow	Root endodermis	Non-hair
+1952	CS2_ATCCGTCAGGGACAGG-1	CS2_ATCCGTCAGGGACAGG-1	Root	Whole root	Unknown	Cortex	0.499987	False	Unknown	Cortex	0.416184	False	Unknow	Unknow	Root cortex
+1972	CS2_ATCGGATCAAATGCTC-1	CS2_ATCGGATCAAATGCTC-1	Root	Whole root	Unknown	Unknown	0.578638	True	Unknown	Unknown	0.631348	True	Unknow	Unknow	Unknow
+1976	CS2_ATCGGCGCAGACGATG-1	CS2_ATCGGCGCAGACGATG-1	Root	Whole root	Unknown	Unknown	0.444281	True	Unknown	Unknown	0.476139	True	S phase	Unknow	Unknow
+1979	CS2_ATCGTAGGTATCTTCT-1	CS2_ATCGTAGGTATCTTCT-1	Root	Whole root	Endodermis	Cortex	0.232899	False	Endodermis	Cortex	0.278141	False	S phase	Root endodermis	Root cortex
+1982	CS2_ATCGTGATCCCGTGAG-1	CS2_ATCGTGATCCCGTGAG-1	Root	Whole root	Unknown	Epidermis	0.278352	False	Unknown	Unknown	0.299026	True	S phase	Unknow	Non-hair
+1985	CS2_ATCTTCAAGACGCATG-1	CS2_ATCTTCAAGACGCATG-1	Root	Whole root	Xylem	Xylem	0.981309	True	Xylem	Xylem	0.984559	True	Unknow	Xylem	Xylem
+1990	CS2_ATGAAAGGTGATACCT-1	CS2_ATGAAAGGTGATACCT-1	Root	Whole root	Cortex	Cortex	0.880486	True	Cortex	Cortex	0.907724	True	Root cortex	Root cortex	Root cortex
+1992	CS2_ATGACCAAGTTCTCTT-1	CS2_ATGACCAAGTTCTCTT-1	Root	Whole root	Epidermis	Epidermis	0.595799	True	Epidermis	Epidermis	0.62052	True	Lateral root cap	Non-hair	Non-hair
+2002	CS2_ATGAGTCTCTGACGCG-1	CS2_ATGAGTCTCTGACGCG-1	Root	Whole root	Cortex	Unknown	0.306202	False	Cortex	Unknown	0.331829	False	Unknow	Root cortex	Unknow
+2010	CS2_ATGCATGTCCAACTAG-1	CS2_ATGCATGTCCAACTAG-1	Root	Whole root	Unknown	Unknown	0.660248	True	Unknown	Unknown	0.691474	True	Unknow	Unknow	Unknow
+2014	CS2_ATGCCTCCATGTGGCC-1	CS2_ATGCCTCCATGTGGCC-1	Root	Whole root	Root Hair	Epidermis	0.426292	False	Root Hair	Epidermis	0.362957	False	Non-hair	Root hair	Non-hair
+2018	CS2_ATGCCTCTCGGTAAGG-1	CS2_ATGCCTCTCGGTAAGG-1	Root	Whole root	Unknown	Unknown	0.596775	True	Unknown	Unknown	0.623185	True	Unknow	Unknow	Unknow
+2028	CS2_ATGGATCGTCGTGTTA-1	CS2_ATGGATCGTCGTGTTA-1	Root	Whole root	Unknown	Cortex	0.401422	False	Unknown	Unknown	0.426521	True	Unknow	Unknow	Root cortex
+2031	CS2_ATGGGAGCAAGCCATT-1	CS2_ATGGGAGCAAGCCATT-1	Root	Whole root	Root Hair	Root Hair	0.957538	True	Root Hair	Root Hair	0.956038	True	Root hair	Root hair	Root hair
+2059	CS2_ATTATCCAGATTCGAA-1	CS2_ATTATCCAGATTCGAA-1	Root	Whole root	Phloem	Phloem	0.99283	True	Phloem	Phloem	0.990957	True	S phase	Phloem	Phloem
+2076	CS2_ATTCATCCAGGAATAT-1	CS2_ATTCATCCAGGAATAT-1	Root	Whole root	Cortex	Endodermis	0.588999	False	Cortex	Endodermis	0.529722	False	Root hair	Root cortex	Root endodermis
+2077	CS2_ATTCATCGTATCGCTA-1	CS2_ATTCATCGTATCGCTA-1	Root	Whole root	Root Hair	Root Hair	0.989941	True	Root Hair	Root Hair	0.992418	True	Root hair	Root hair	Root hair
+2081	CS2_ATTCCCGAGAAGGTAG-1	CS2_ATTCCCGAGAAGGTAG-1	Root	Whole root	Phloem	Phloem	0.996524	True	Phloem	Phloem	0.997059	True	G1/G0 phase	Phloem	Phloem
+2087	CS2_ATTCCTATCATCCTGC-1	CS2_ATTCCTATCATCCTGC-1	Root	Whole root	Unknown	Unknown	0.672201	True	Unknown	Unknown	0.68028	True	S phase	Unknow	Unknow
+2092	CS2_ATTCGTTCAGCAGACA-1	CS2_ATTCGTTCAGCAGACA-1	Root	Whole root	Unknown	Unknown	0.221892	True	Unknown	Pericycle	0.251834	False	Unknow	Unknow	Unknow
+2093	CS2_ATTCGTTGTAGACAAT-1	CS2_ATTCGTTGTAGACAAT-1	Root	Whole root	Root Hair	Epidermis	0.644669	False	Root Hair	Epidermis	0.659876	False	Non-hair	Root hair	Non-hair
+2112	CS2_ATTTCTGCATTGCCGG-1	CS2_ATTTCTGCATTGCCGG-1	Root	Whole root	Epidermis	Epidermis	0.485754	True	Epidermis	Epidermis	0.399234	True	S phase	Non-hair	Non-hair
+2122	CS2_CAACCTCGTCACAATC-1	CS2_CAACCTCGTCACAATC-1	Root	Whole root	Xylem	Xylem	0.983035	True	Xylem	Xylem	0.981747	True	Unknow	Xylem	Xylem
+2127	CS2_CAACGGCAGGTACCTT-1	CS2_CAACGGCAGGTACCTT-1	Root	Whole root	Cortex	Unknown	0.719441	False	Cortex	Unknown	0.672506	False	Non-hair	Root cortex	Unknow
+2130	CS2_CAACGGCTCGCTTTAT-1	CS2_CAACGGCTCGCTTTAT-1	Root	Whole root	Unknown	Pericycle	0.416654	False	Unknown	Pericycle	0.467004	False	S phase	Unknow	__outside_direct_map__
+2132	CS2_CAAGACTCAAGCACAG-1	CS2_CAAGACTCAAGCACAG-1	Root	Whole root	Epidermis	Root Hair	0.672904	False	Epidermis	Root Hair	0.694696	False	S phase	Non-hair	Root hair
+2144	CS2_CAAGGGACATCGAGCC-1	CS2_CAAGGGACATCGAGCC-1	Root	Whole root	Unknown	Unknown	0.463558	True	Unknown	Unknown	0.44669	True	S phase	Unknow	Unknow
+2148	CS2_CAATACGCAGGTCAGA-1	CS2_CAATACGCAGGTCAGA-1	Root	Whole root	Root Hair	Epidermis	0.609614	False	Root Hair	Epidermis	0.614076	False	Unknow	Root hair	Non-hair
+2161	CS2_CACACAAAGAAACTAC-1	CS2_CACACAAAGAAACTAC-1	Root	Whole root	Xylem	Xylem	0.982025	True	Xylem	Xylem	0.982233	True	Unknow	Xylem	Xylem
+2166	CS2_CACAGATGTCTACACA-1	CS2_CACAGATGTCTACACA-1	Root	Whole root	Endodermis	Endodermis	0.571296	True	Endodermis	Endodermis	0.548056	True	S phase	Root endodermis	Root endodermis
+2168	CS2_CACAGATTCACTTATC-1	CS2_CACAGATTCACTTATC-1	Root	Whole root	Endodermis	Endodermis	0.565661	True	Endodermis	Endodermis	0.499273	True	Unknow	Root endodermis	Root endodermis
+2173	CS2_CACATGAAGGATTCAA-1	CS2_CACATGAAGGATTCAA-1	Root	Whole root	Epidermis	Endodermis	0.388259	False	Epidermis	Endodermis	0.450885	False	S phase	Non-hair	Root endodermis
+2188	CS2_CACGGGTTCCAGTACA-1	CS2_CACGGGTTCCAGTACA-1	Root	Whole root	Root Cap	Root Cap	0.9186	True	Root Cap	Root Cap	0.91778	True	S phase	Root cap	Root cap
+2189	CS2_CACGGGTTCCCACAGG-1	CS2_CACGGGTTCCCACAGG-1	Root	Whole root	Unknown	Unknown	0.509115	True	Unknown	Unknown	0.536218	True	Unknow	Unknow	Unknow
+2199	CS2_CACTAAGCAGGGATAC-1	CS2_CACTAAGCAGGGATAC-1	Root	Whole root	Unknown	Unknown	0.520933	True	Unknown	Unknown	0.529397	True	S phase	Unknow	Unknow
+2207	CS2_CACTGTCAGATCACCT-1	CS2_CACTGTCAGATCACCT-1	Root	Whole root	Epidermis	Endodermis	0.403171	False	Epidermis	Endodermis	0.480959	False	Unknow	Non-hair	Root endodermis
+2221	CS2_CAGATACTCAAAGCCT-1	CS2_CAGATACTCAAAGCCT-1	Root	Whole root	Unknown	Unknown	0.750359	True	Unknown	Unknown	0.70797	True	S phase	Unknow	Unknow
+2223	CS2_CAGATCAAGCAAGGAA-1	CS2_CAGATCAAGCAAGGAA-1	Root	Whole root	Unknown	Pericycle	0.317582	False	Unknown	Unknown	0.274851	True	Unknow	Unknow	__outside_direct_map__
+2233	CS2_CAGCAATTCTAGTCAG-1	CS2_CAGCAATTCTAGTCAG-1	Root	Whole root	Xylem	Xylem	0.98045	True	Xylem	Xylem	0.983608	True	Unknow	Xylem	Xylem
+2234	CS2_CAGCACGGTGCATACT-1	CS2_CAGCACGGTGCATACT-1	Root	Whole root	Unknown	Unknown	0.536007	True	Unknown	Unknown	0.511856	True	S phase	Unknow	Unknow
+2268	CS2_CAGTTAGTCCGGCAAC-1	CS2_CAGTTAGTCCGGCAAC-1	Root	Whole root	Unknown	Endodermis	0.274289	False	Unknown	Endodermis	0.289765	False	S phase	Unknow	Root endodermis
+2270	CS2_CAGTTAGTCTCTCCGA-1	CS2_CAGTTAGTCTCTCCGA-1	Root	Whole root	Epidermis	Endodermis	0.450659	False	Epidermis	Endodermis	0.467717	False	S phase	Non-hair	Root endodermis
+2271	CS2_CAGTTCCGTAACGTTC-1	CS2_CAGTTCCGTAACGTTC-1	Root	Whole root	Xylem	Xylem	0.984209	True	Xylem	Xylem	0.985169	True	Unknow	Xylem	Xylem
+2291	CS2_CATCAAGAGGAAGTGA-1	CS2_CATCAAGAGGAAGTGA-1	Root	Whole root	Unknown	Endodermis	0.345286	False	Unknown	Endodermis	0.360916	False	Unknow	Unknow	Root endodermis
+2310	CS2_CATCGCTGTCAAGCGA-1	CS2_CATCGCTGTCAAGCGA-1	Root	Whole root	Epidermis	Epidermis	0.519603	True	Epidermis	Epidermis	0.495461	True	Unknow	Non-hair	Non-hair
+2318	CS2_CATGCCTCACCCTCTA-1	CS2_CATGCCTCACCCTCTA-1	Root	Whole root	Epidermis	Root Hair	0.467972	False	Epidermis	Root Hair	0.424394	False	Unknow	Non-hair	Root hair
+2324	CS2_CATGCGGCATTGGGAG-1	CS2_CATGCGGCATTGGGAG-1	Root	Whole root	Endodermis	Endodermis	0.507604	True	Endodermis	Endodermis	0.445319	True	S phase	Root endodermis	Root endodermis
+2327	CS2_CATGCTCTCCCTTCCC-1	CS2_CATGCTCTCCCTTCCC-1	Root	Whole root	Endodermis	Endodermis	0.283836	True	Endodermis	Endodermis	0.242259	True	Unknow	Root endodermis	Root endodermis
+2331	CS2_CATGGATTCACGATCA-1	CS2_CATGGATTCACGATCA-1	Root	Whole root	Unknown	Meristems	0.843994	False	Unknown	Meristems	0.839457	False	S phase	Unknow	__outside_direct_map__
+2337	CS2_CATTCCGCAGAACATA-1	CS2_CATTCCGCAGAACATA-1	Root	Whole root	Root Hair	Root Hair	0.981479	True	Root Hair	Root Hair	0.982396	True	Unknow	Root hair	Root hair
+2339	CS2_CATTCCGGTGATAGAT-1	CS2_CATTCCGGTGATAGAT-1	Root	Whole root	Root Hair	Root Hair	0.647551	True	Root Hair	Root Hair	0.606137	True	Unknow	Root hair	Root hair
+2351	CS2_CATTGCCCAATAGGGC-1	CS2_CATTGCCCAATAGGGC-1	Root	Whole root	Cortex	Cortex	0.479755	True	Cortex	Cortex	0.527318	True	Unknow	Root cortex	Root cortex
+2354	CS2_CATTGTTCAGGTTACT-1	CS2_CATTGTTCAGGTTACT-1	Root	Whole root	Endodermis	Unknown	0.574404	False	Endodermis	Unknown	0.604352	False	S phase	Root endodermis	Unknow
+2360	CS2_CCAATGACATTCTCTA-1	CS2_CCAATGACATTCTCTA-1	Root	Whole root	Cortex	Cortex	0.799253	True	Cortex	Cortex	0.783287	True	Non-hair	Root cortex	Root cortex
+2374	CS2_CCACCATGTTCTCTAT-1	CS2_CCACCATGTTCTCTAT-1	Root	Whole root	Endodermis	Endodermis	0.70133	True	Endodermis	Endodermis	0.690858	True	Non-hair	Root endodermis	Root endodermis
+2379	CS2_CCACGTTCAACGTTAC-1	CS2_CCACGTTCAACGTTAC-1	Root	Whole root	Phloem	Phloem	0.994797	True	Phloem	Phloem	0.994533	True	G1/G0 phase	Phloem	Phloem
+2384	CS2_CCACTTGTCAATCGGT-1	CS2_CCACTTGTCAATCGGT-1	Root	Whole root	Endodermis	Endodermis	0.905934	True	Endodermis	Endodermis	0.883286	True	G1/G0 phase	Root endodermis	Root endodermis
+2391	CS2_CCATCACAGCTGAAAT-1	CS2_CCATCACAGCTGAAAT-1	Root	Whole root	Unknown	Unknown	0.602836	True	Unknown	Unknown	0.575395	True	S phase	Unknow	Unknow
+2406	CS2_CCCTAACAGCTAAACA-1	CS2_CCCTAACAGCTAAACA-1	Root	Whole root	Unknown	Cortex	0.268213	False	Unknown	Unknown	0.359176	True	Unknow	Unknow	Root cortex
+2414	CS2_CCCTCTCTCACCTACC-1	CS2_CCCTCTCTCACCTACC-1	Root	Whole root	Unknown	Unknown	0.300756	True	Unknown	Epidermis	0.330026	False	Unknow	Unknow	Unknow
+2433	CS2_CCGCAAGGTACGGGAT-1	CS2_CCGCAAGGTACGGGAT-1	Root	Whole root	Xylem	Xylem	0.854875	True	Xylem	Xylem	0.861091	True	Unknow	Xylem	Xylem
+2441	CS2_CCGGTGAAGGAGTACC-1	CS2_CCGGTGAAGGAGTACC-1	Root	Whole root	Epidermis	Endodermis/Phloem	0.586746	False	Epidermis	Endodermis/Phloem	0.612105	False	Unknow	Non-hair	__outside_direct_map__
+2465	CS2_CCTATCGTCGTAGAGG-1	CS2_CCTATCGTCGTAGAGG-1	Root	Whole root	Epidermis	Provascular cells	0.297207	False	Epidermis	Provascular cells	0.232675	False	S phase	Non-hair	__outside_direct_map__
+2475	CS2_CCTCACAGTGGCTTAT-1	CS2_CCTCACAGTGGCTTAT-1	Root	Whole root	Xylem	Xylem	0.780125	True	Xylem	Xylem	0.728496	True	Unknow	Xylem	Xylem
+2483	CS2_CCTCATGCATCGGAGA-1	CS2_CCTCATGCATCGGAGA-1	Root	Whole root	Unknown	Cortex	0.576219	False	Unknown	Cortex	0.567394	False	Unknow	Unknow	Root cortex
+2485	CS2_CCTCATGTCGAAATCC-1	CS2_CCTCATGTCGAAATCC-1	Root	Whole root	Epidermis	Epidermis	0.310137	True	Epidermis	Epidermis	0.303844	True	Unknow	Non-hair	Non-hair
+2488	CS2_CCTCCAATCCTCAGAA-1	CS2_CCTCCAATCCTCAGAA-1	Root	Whole root	Endodermis	Endodermis	0.738338	True	Endodermis	Endodermis	0.740254	True	Root hair	Root endodermis	Root endodermis
+2493	CS2_CCTCTCCAGTCCCAAT-1	CS2_CCTCTCCAGTCCCAAT-1	Root	Whole root	Unknown	Pericycle	0.314009	False	Unknown	Pericycle	0.299486	False	Unknow	Unknow	__outside_direct_map__
+2495	CS2_CCTCTCCCAGATCCAT-1	CS2_CCTCTCCCAGATCCAT-1	Root	Whole root	Cortex	Cortex	0.810109	True	Cortex	Cortex	0.786666	True	Unknow	Root cortex	Root cortex
+2496	CS2_CCTCTCCTCGCGAAGA-1	CS2_CCTCTCCTCGCGAAGA-1	Root	Whole root	Epidermis	Root Cap	0.540887	False	Epidermis	Root Cap	0.439203	False	Unknow	Non-hair	Root cap
+2502	CS2_CCTTCAGAGCAGAAAG-1	CS2_CCTTCAGAGCAGAAAG-1	Root	Whole root	Endodermis	Endodermis	0.459043	True	Endodermis	Endodermis	0.50337	True	Unknow	Root endodermis	Root endodermis
+2504	CS2_CCTTCAGCAGATCACT-1	CS2_CCTTCAGCAGATCACT-1	Root	Whole root	Endodermis	Endodermis	0.870276	True	Endodermis	Endodermis	0.852584	True	Non-hair	Root endodermis	Root endodermis
+2512	CS2_CCTTGTGTCCTTCGAC-1	CS2_CCTTGTGTCCTTCGAC-1	Root	Whole root	Epidermis	Meristems	0.577035	False	Epidermis	Meristems	0.594027	False	S phase	Non-hair	__outside_direct_map__
+2517	CS2_CGAAGGACACCTTCGT-1	CS2_CGAAGGACACCTTCGT-1	Root	Whole root	Endodermis	Endodermis	0.930304	True	Endodermis	Endodermis	0.928251	True	Unknow	Root endodermis	Root endodermis
+2527	CS2_CGAATTGGTGCGCTCA-1	CS2_CGAATTGGTGCGCTCA-1	Root	Whole root	Unknown	Root Hair	0.305516	False	Unknown	Root Hair	0.302686	False	S phase	Unknow	Root hair
+2536	CS2_CGAGAAGTCACGGGAA-1	CS2_CGAGAAGTCACGGGAA-1	Root	Whole root	Unknown	Cortex	0.607359	False	Unknown	Cortex	0.614473	False	S phase	Unknow	Root cortex
+2548	CS2_CGAGTTAGTTGGAGGT-1	CS2_CGAGTTAGTTGGAGGT-1	Root	Whole root	Unknown	Pericycle	0.482575	False	Unknown	Pericycle	0.452819	False	S phase	Unknow	__outside_direct_map__
+2550	CS2_CGATCGGGTACTGACT-1	CS2_CGATCGGGTACTGACT-1	Root	Whole root	Unknown	Root Hair	0.284093	False	Unknown	Root Hair	0.297094	False	Unknow	Unknow	Root hair
+2554	CS2_CGATGGCAGACATAGT-1	CS2_CGATGGCAGACATAGT-1	Root	Whole root	Unknown	Endodermis	0.274805	False	Unknown	Unknown	0.236589	True	Non-hair	Unknow	Root endodermis
+2561	CS2_CGCAGGTGTGCCGAAA-1	CS2_CGCAGGTGTGCCGAAA-1	Root	Whole root	Unknown	Cortex	0.544339	False	Unknown	Cortex	0.529977	False	Unknow	Unknow	Root cortex
+2579	CS2_CGCGTGATCATTTCGT-1	CS2_CGCGTGATCATTTCGT-1	Root	Whole root	Root Hair	Root Hair	0.891027	True	Root Hair	Root Hair	0.903169	True	Unknow	Root hair	Root hair
+2584	CS2_CGGACACAGCTACAAA-1	CS2_CGGACACAGCTACAAA-1	Root	Whole root	Xylem	Xylem	0.98079	True	Xylem	Xylem	0.985372	True	Unknow	Xylem	Xylem
+2593	CS2_CGGCAGTCATCTATCT-1	CS2_CGGCAGTCATCTATCT-1	Root	Whole root	Cortex	Cortex	0.372571	True	Cortex	Cortex	0.341615	True	S phase	Root cortex	Root cortex
+2598	CS2_CGGGCATTCACTCGAA-1	CS2_CGGGCATTCACTCGAA-1	Root	Whole root	Epidermis	Meristems	0.937824	False	Epidermis	Meristems	0.928488	False	Unknow	Non-hair	__outside_direct_map__
+2602	CS2_CGGTCAGCAAGTGGTG-1	CS2_CGGTCAGCAAGTGGTG-1	Root	Whole root	Unknown	Unknown	0.855655	True	Unknown	Unknown	0.854944	True	Unknow	Unknow	Unknow
+2603	CS2_CGGTCAGCAATCTCTT-1	CS2_CGGTCAGCAATCTCTT-1	Root	Whole root	Epidermis	Unknown	0.350451	False	Epidermis	Unknown	0.41183	False	Unknow	Non-hair	Unknow
+2605	CS2_CGGTCAGTCGCAATGT-1	CS2_CGGTCAGTCGCAATGT-1	Root	Whole root	Unknown	Epidermis	0.317112	False	Unknown	Epidermis	0.371238	False	Unknow	Unknow	Non-hair
+2610	CS2_CGTAAGTTCGCGATCG-1	CS2_CGTAAGTTCGCGATCG-1	Root	Whole root	Unknown	Epidermis	0.559925	False	Unknown	Epidermis	0.490853	False	S phase	Unknow	Non-hair
+2612	CS2_CGTAATGGTCCAGCAC-1	CS2_CGTAATGGTCCAGCAC-1	Root	Whole root	Unknown	Unknown	0.581807	True	Unknown	Unknown	0.580892	True	S phase	Unknow	Unknow
+2621	CS2_CGTCCATAGGTGGTTG-1	CS2_CGTCCATAGGTGGTTG-1	Root	Whole root	Unknown	Unknown	0.309609	True	Unknown	Unknown	0.293525	True	Unknow	Unknow	Unknow
+2631	CS2_CGTGTCTAGACATCCT-1	CS2_CGTGTCTAGACATCCT-1	Root	Whole root	Cortex	Unknown	0.277884	False	Cortex	Endodermis	0.28707	False	Non-hair	Root cortex	Unknow
+2633	CS2_CGTTAGAAGCCAGACA-1	CS2_CGTTAGAAGCCAGACA-1	Root	Whole root	Endodermis	Endodermis	0.442307	True	Endodermis	Endodermis	0.449458	True	Unknow	Root endodermis	Root endodermis
+2635	CS2_CGTTAGAGTATTCTCT-1	CS2_CGTTAGAGTATTCTCT-1	Root	Whole root	Epidermis	Pericycle	0.39909	False	Epidermis	Pericycle	0.387539	False	Unknow	Non-hair	__outside_direct_map__
+2640	CS2_CGTTGGGGTACAGTCT-1	CS2_CGTTGGGGTACAGTCT-1	Root	Whole root	Epidermis	Root Hair	0.495856	False	Epidermis	Root Hair	0.4814	False	Unknow	Non-hair	Root hair
+2648	CS2_CTAACCCGTTGTGGCC-1	CS2_CTAACCCGTTGTGGCC-1	Root	Whole root	Unknown	Unknown	0.730783	True	Unknown	Unknown	0.676832	True	Unknow	Unknow	Unknow
+2656	CS2_CTACCTGCACTACGGC-1	CS2_CTACCTGCACTACGGC-1	Root	Whole root	Epidermis	Meristems	0.811834	False	Epidermis	Meristems	0.806861	False	G1/G0 phase	Non-hair	__outside_direct_map__
+2663	CS2_CTACGGGCAAACTCTG-1	CS2_CTACGGGCAAACTCTG-1	Root	Whole root	Root Cap	Root Cap	0.536037	True	Root Cap	Root Cap	0.552626	True	S phase	Root cap	Root cap
+2683	CS2_CTATCCGTCTGCGGAC-1	CS2_CTATCCGTCTGCGGAC-1	Root	Whole root	Root Hair	Cortex	0.296702	False	Root Hair	Epidermis	0.302115	False	Unknow	Root hair	Root cortex
+2686	CS2_CTATCTACACTTCAAG-1	CS2_CTATCTACACTTCAAG-1	Root	Whole root	Unknown	Unknown	0.411457	True	Unknown	Unknown	0.424116	True	S phase	Unknow	Unknow
+2687	CS2_CTATCTAGTGCATCTA-1	CS2_CTATCTAGTGCATCTA-1	Root	Whole root	Cortex	Cortex	0.69179	True	Cortex	Cortex	0.646843	True	Unknow	Root cortex	Root cortex
+2691	CS2_CTCAACCCAGAGGACT-1	CS2_CTCAACCCAGAGGACT-1	Root	Whole root	Cortex	Cortex	0.772981	True	Cortex	Cortex	0.785546	True	Unknow	Root cortex	Root cortex
+2697	CS2_CTCAACCTCAGCAATC-1	CS2_CTCAACCTCAGCAATC-1	Root	Whole root	Xylem	Xylem	0.991545	True	Xylem	Xylem	0.993051	True	Unknow	Xylem	Xylem
+2699	CS2_CTCAAGACATTAGGAA-1	CS2_CTCAAGACATTAGGAA-1	Root	Whole root	Epidermis	Root Hair	0.881638	False	Epidermis	Root Hair	0.89967	False	Non-hair	Non-hair	Root hair
+2713	CS2_CTCAGAAGTATTTCCT-1	CS2_CTCAGAAGTATTTCCT-1	Root	Whole root	Root Hair	Root Hair	0.985739	True	Root Hair	Root Hair	0.984172	True	Root hair	Root hair	Root hair
+2721	CS2_CTCATGCAGCGTCGAA-1	CS2_CTCATGCAGCGTCGAA-1	Root	Whole root	Unknown	Endodermis	0.311739	False	Unknown	Endodermis	0.26953	False	Unknow	Unknow	Root endodermis
+2725	CS2_CTCATTAAGAATAACC-1	CS2_CTCATTAAGAATAACC-1	Root	Whole root	Unknown	Meristems	0.679791	False	Unknown	Meristems	0.542023	False	S phase	Unknow	__outside_direct_map__
+2737	CS2_CTCCACACAGACCAGA-1	CS2_CTCCACACAGACCAGA-1	Root	Whole root	Unknown	Unknown	0.396013	True	Unknown	Pericycle	0.492088	False	Unknow	Unknow	Unknow
+2753	CS2_CTCCCTCCATCAGCGC-1	CS2_CTCCCTCCATCAGCGC-1	Root	Whole root	Unknown	Meristems	0.476227	False	Unknown	Meristems	0.523729	False	S phase	Unknow	__outside_direct_map__
+2764	CS2_CTCCGATGTTATTCCT-1	CS2_CTCCGATGTTATTCCT-1	Root	Whole root	Unknown	Endodermis	0.375533	False	Unknown	Endodermis	0.374929	False	Unknow	Unknow	Root endodermis
+2766	CS2_CTCCTCCAGACAACTA-1	CS2_CTCCTCCAGACAACTA-1	Root	Whole root	Root Cap	Root Cap	0.544155	True	Root Cap	Root Cap	0.541267	True	Unknow	Root cap	Root cap
+2769	CS2_CTCCTCCAGGTGCCAA-1	CS2_CTCCTCCAGGTGCCAA-1	Root	Whole root	Xylem	Root Cap	0.489357	False	Xylem	Root Cap	0.490414	False	Unknow	Xylem	Root cap
+2777	CS2_CTCGAGGCATCTTTCA-1	CS2_CTCGAGGCATCTTTCA-1	Root	Whole root	Unknown	Epidermis	0.423429	False	Unknown	Cortex	0.374511	False	Unknow	Unknow	Non-hair
+2788	CS2_CTGATCCCACTCTGCT-1	CS2_CTGATCCCACTCTGCT-1	Root	Whole root	Xylem	Xylem	0.948932	True	Xylem	Xylem	0.949694	True	Non-hair	Xylem	Xylem
+2790	CS2_CTGCAGGCATGGAATA-1	CS2_CTGCAGGCATGGAATA-1	Root	Whole root	Epidermis	Epidermis	0.483006	True	Epidermis	Epidermis	0.452801	True	Unknow	Non-hair	Non-hair
+2794	CS2_CTGCATCCAGACGATG-1	CS2_CTGCATCCAGACGATG-1	Root	Whole root	Unknown	Cortex	0.297294	False	Unknown	Root Hair	0.316236	False	Non-hair	Unknow	Root cortex
+2797	CS2_CTGCATCCAGTAGGAC-1	CS2_CTGCATCCAGTAGGAC-1	Root	Whole root	Unknown	Epidermis	0.386093	False	Unknown	Unknown	0.367985	True	S phase	Unknow	Non-hair
+2799	CS2_CTGCATCTCCGAAGGA-1	CS2_CTGCATCTCCGAAGGA-1	Root	Whole root	Root Cap	Root Cap	0.950901	True	Root Cap	Root Cap	0.935004	True	Unknow	Root cap	Root cap
+2806	CS2_CTGCCATCATGACACT-1	CS2_CTGCCATCATGACACT-1	Root	Whole root	Unknown	Root Hair	0.517365	False	Unknown	Root Hair	0.528976	False	Non-hair	Unknow	Root hair
+2807	CS2_CTGCCATGTGAAGCTG-1	CS2_CTGCCATGTGAAGCTG-1	Root	Whole root	Epidermis	Cortex	0.492649	False	Epidermis	Cortex	0.562362	False	Unknow	Non-hair	Root cortex
+2819	CS2_CTGGTCTGTCGTACAT-1	CS2_CTGGTCTGTCGTACAT-1	Root	Whole root	Epidermis	Unknown	0.367898	False	Epidermis	Unknown	0.412461	False	Unknow	Non-hair	Unknow
+2824	CS2_CTGTATTCATGAGATA-1	CS2_CTGTATTCATGAGATA-1	Root	Whole root	Unknown	Provascular cells	0.376033	False	Unknown	Provascular cells	0.320366	False	S phase	Unknow	__outside_direct_map__
+2826	CS2_CTGTCGTAGAGCCTGA-1	CS2_CTGTCGTAGAGCCTGA-1	Root	Whole root	Unknown	Pericycle	0.435012	False	Unknown	Unknown	0.410217	True	Unknow	Unknow	__outside_direct_map__
+2837	CS2_CTTACCGAGTCTTCGA-1	CS2_CTTACCGAGTCTTCGA-1	Root	Whole root	Root Hair	Epidermis	0.593602	False	Root Hair	Epidermis	0.700897	False	Unknow	Root hair	Non-hair
+2838	CS2_CTTACCGCACTACACA-1	CS2_CTTACCGCACTACACA-1	Root	Whole root	Xylem	Xylem	0.982717	True	Xylem	Xylem	0.983154	True	Unknow	Xylem	Xylem
+2839	CS2_CTTACCGTCCTGGGTG-1	CS2_CTTACCGTCCTGGGTG-1	Root	Whole root	Unknown	Pericycle	0.618214	False	Unknown	Pericycle	0.6104	False	S phase	Unknow	__outside_direct_map__
+2840	CS2_CTTAGGACATCGCTGG-1	CS2_CTTAGGACATCGCTGG-1	Root	Whole root	Phloem	Phloem	0.990053	True	Phloem	Phloem	0.990278	True	Unknow	Phloem	Phloem
+2863	CS2_CTTCTAACACTGTTCC-1	CS2_CTTCTAACACTGTTCC-1	Root	Whole root	Cortex	Cortex	0.457274	True	Cortex	Cortex	0.462385	True	Unknow	Root cortex	Root cortex
+2865	CS2_CTTCTAAGTATGTCCA-1	CS2_CTTCTAAGTATGTCCA-1	Root	Whole root	Cortex	Epidermis	0.375344	False	Cortex	Cortex	0.402667	True	Unknow	Root cortex	Non-hair
+2874	CS2_CTTGAGAAGGTTGTTC-1	CS2_CTTGAGAAGGTTGTTC-1	Root	Whole root	Endodermis	Meristems	0.349769	False	Endodermis	Unknown	0.294067	False	S phase	Root endodermis	__outside_direct_map__
+2889	CS2_GAAATGAGTCCTACAA-1	CS2_GAAATGAGTCCTACAA-1	Root	Whole root	Cortex	Cortex	0.578858	True	Cortex	Cortex	0.570041	True	Unknow	Root cortex	Root cortex
+2890	CS2_GAAATGATCATTTGCT-1	CS2_GAAATGATCATTTGCT-1	Root	Whole root	Cortex	Cortex	0.506502	True	Cortex	Cortex	0.468341	True	Unknow	Root cortex	Root cortex
+2901	CS2_GAAGAATCAGGTGACA-1	CS2_GAAGAATCAGGTGACA-1	Root	Whole root	Epidermis	Cortex	0.509685	False	Epidermis	Cortex	0.448713	False	Unknow	Non-hair	Root cortex
+2904	CS2_GAAGAATGTCTCGCGA-1	CS2_GAAGAATGTCTCGCGA-1	Root	Whole root	Epidermis	Cortex	0.386326	False	Epidermis	Epidermis	0.390322	True	Unknow	Non-hair	Root cortex
+2910	CS2_GAAGGGTTCATCTGTT-1	CS2_GAAGGGTTCATCTGTT-1	Root	Whole root	Xylem	Xylem	0.921314	True	Xylem	Xylem	0.929471	True	Unknow	Xylem	Xylem
+2913	CS2_GAATAGATCCACTTCG-1	CS2_GAATAGATCCACTTCG-1	Root	Whole root	Epidermis	Xylem	0.67198	False	Epidermis	Xylem	0.706845	False	Unknow	Non-hair	Xylem
+2917	CS2_GAATCGTAGTCAGCGA-1	CS2_GAATCGTAGTCAGCGA-1	Root	Whole root	Cortex	Cortex	0.385158	True	Cortex	Cortex	0.400141	True	Unknow	Root cortex	Root cortex
+2919	CS2_GAATCGTTCCGCACTT-1	CS2_GAATCGTTCCGCACTT-1	Root	Whole root	Root Hair	Root Hair	0.540727	True	Root Hair	Root Hair	0.494847	True	Non-hair	Root hair	Root hair
+2931	CS2_GACCAATGTTGTGGCC-1	CS2_GACCAATGTTGTGGCC-1	Root	Whole root	Epidermis	Epidermis	0.392565	True	Epidermis	Epidermis	0.426201	True	Unknow	Non-hair	Non-hair
+2936	CS2_GACCCAGGTATCCCTC-1	CS2_GACCCAGGTATCCCTC-1	Root	Whole root	Root Cap	Root Cap	0.992531	True	Root Cap	Root Cap	0.991558	True	S phase	Root cap	Root cap
+2955	CS2_GACGTTACACCCATAA-1	CS2_GACGTTACACCCATAA-1	Root	Whole root	Root Hair	Cortex	0.403203	False	Root Hair	Cortex	0.457137	False	Non-hair	Root hair	Root cortex
+2956	CS2_GACGTTAGTCCACACG-1	CS2_GACGTTAGTCCACACG-1	Root	Whole root	Phloem	Phloem	0.995228	True	Phloem	Phloem	0.995046	True	Unknow	Phloem	Phloem
+2968	CS2_GACTCTCCAACGTAAA-1	CS2_GACTCTCCAACGTAAA-1	Root	Whole root	Unknown	Pericycle	0.402903	False	Unknown	Pericycle	0.43045	False	S phase	Unknow	__outside_direct_map__
+2970	CS2_GACTCTCGTACGGTTT-1	CS2_GACTCTCGTACGGTTT-1	Root	Whole root	Epidermis	Meristems	0.568249	False	Epidermis	Meristems	0.483072	False	G1/G0 phase	Non-hair	__outside_direct_map__
+2981	CS2_GAGACCCTCATTCGGA-1	CS2_GAGACCCTCATTCGGA-1	Root	Whole root	Unknown	Epidermis	0.403178	False	Unknown	Epidermis	0.391203	False	S phase	Unknow	Non-hair
+2994	CS2_GAGAGGTTCTGAGGTT-1	CS2_GAGAGGTTCTGAGGTT-1	Root	Whole root	Epidermis	Epidermis	0.48407	True	Epidermis	Epidermis	0.483425	True	Unknow	Non-hair	Non-hair
+2998	CS2_GAGCCTGAGCTGGTGA-1	CS2_GAGCCTGAGCTGGTGA-1	Root	Whole root	Epidermis	Unknown	0.414678	False	Epidermis	Unknown	0.488229	False	Unknow	Non-hair	Unknow
+3000	CS2_GAGCCTGCACTGTCCT-1	CS2_GAGCCTGCACTGTCCT-1	Root	Whole root	Cortex	Epidermis	0.64044	False	Cortex	Epidermis	0.619451	False	Unknow	Root cortex	Non-hair
+3003	CS2_GAGCTGCAGAAGCTGC-1	CS2_GAGCTGCAGAAGCTGC-1	Root	Whole root	Endodermis	Provascular cells	0.307899	False	Endodermis	Provascular cells	0.380101	False	Non-hair	Root endodermis	__outside_direct_map__
+3020	CS2_GAGTCATTCAGGTAAA-1	CS2_GAGTCATTCAGGTAAA-1	Root	Whole root	Unknown	Cortex	0.500638	False	Unknown	Cortex	0.482649	False	Unknow	Unknow	Root cortex
+3030	CS2_GAGTTACGTGCTATTG-1	CS2_GAGTTACGTGCTATTG-1	Root	Whole root	Unknown	Unknown	0.448167	True	Unknown	Unknown	0.484359	True	Unknow	Unknow	Unknow
+3034	CS2_GAGTTGTTCAGTGTCA-1	CS2_GAGTTGTTCAGTGTCA-1	Root	Whole root	Root Hair	Root Hair	0.32252	True	Root Hair	Root Hair	0.28847	True	Unknow	Root hair	Root hair
+3037	CS2_GAGTTTGGTTGATGTC-1	CS2_GAGTTTGGTTGATGTC-1	Root	Whole root	Xylem	Xylem	0.332261	True	Xylem	Xylem	0.357383	True	S phase	Xylem	Xylem
+3038	CS2_GAGTTTGGTTTGTTGG-1	CS2_GAGTTTGGTTTGTTGG-1	Root	Whole root	Endodermis	Endodermis	0.301056	True	Endodermis	Endodermis	0.265425	True	S phase	Root endodermis	Root endodermis
+3045	CS2_GATCACAAGCTGCCAC-1	CS2_GATCACAAGCTGCCAC-1	Root	Whole root	Unknown	Unknown	0.568077	True	Unknown	Unknown	0.601873	True	S phase	Unknow	Unknow
+3053	CS2_GATCATGAGCGAAACC-1	CS2_GATCATGAGCGAAACC-1	Root	Whole root	Epidermis	Epidermis	0.41617	True	Epidermis	Unknown	0.424051	False	S phase	Non-hair	Non-hair
+3054	CS2_GATCATGAGCTGGCTC-1	CS2_GATCATGAGCTGGCTC-1	Root	Whole root	Phloem	Phloem	0.986514	True	Phloem	Phloem	0.984997	True	Lateral root cap	Phloem	Phloem
+3057	CS2_GATCATGTCTGGCTGG-1	CS2_GATCATGTCTGGCTGG-1	Root	Whole root	Epidermis	Epidermis	0.470756	True	Epidermis	Epidermis	0.478244	True	Non-hair	Non-hair	Non-hair
+3073	CS2_GATGATCGTAGTCACT-1	CS2_GATGATCGTAGTCACT-1	Root	Whole root	Xylem	Xylem	0.644085	True	Xylem	Xylem	0.622574	True	Unknow	Xylem	Xylem
+3105	CS2_GCACATAAGGGCGAAG-1	CS2_GCACATAAGGGCGAAG-1	Root	Whole root	Cortex	Cortex	0.67477	True	Cortex	Cortex	0.704732	True	G1/G0 phase	Root cortex	Root cortex
+3127	CS2_GCAGGCTCATCCCACT-1	CS2_GCAGGCTCATCCCACT-1	Root	Whole root	Unknown	Cortex	0.29472	False	Unknown	Cortex	0.303192	False	Unknow	Unknow	Root cortex
+3129	CS2_GCAGGCTTCTCATTTG-1	CS2_GCAGGCTTCTCATTTG-1	Root	Whole root	Epidermis	Epidermis	0.628486	True	Epidermis	Epidermis	0.623966	True	Unknow	Non-hair	Non-hair
+3135	CS2_GCATCGGGTCCGAAAG-1	CS2_GCATCGGGTCCGAAAG-1	Root	Whole root	Epidermis	Xylem	0.463011	False	Epidermis	Xylem	0.447531	False	Unknow	Non-hair	Xylem
+3146	CS2_GCATGATCAATCCAGT-1	CS2_GCATGATCAATCCAGT-1	Root	Whole root	Cortex	Epidermis	0.430229	False	Cortex	Epidermis	0.433175	False	Unknow	Root cortex	Non-hair
+3153	CS2_GCATTAGTCCACCTCA-1	CS2_GCATTAGTCCACCTCA-1	Root	Whole root	Endodermis	Unknown	0.39411	False	Endodermis	Unknown	0.414611	False	Unknow	Root endodermis	Unknow
+3154	CS2_GCATTAGTCGACGACC-1	CS2_GCATTAGTCGACGACC-1	Root	Whole root	Endodermis	Endodermis	0.463988	True	Endodermis	Endodermis	0.418222	True	S phase	Root endodermis	Root endodermis
+3158	CS2_GCCAACGTCAAAGACA-1	CS2_GCCAACGTCAAAGACA-1	Root	Whole root	Root Cap	Root Cap	0.882754	True	Root Cap	Root Cap	0.889853	True	S phase	Root cap	Root cap
+3176	CS2_GCCATTCCATGAATCC-1	CS2_GCCATTCCATGAATCC-1	Root	Whole root	Root Hair	Endodermis	0.709812	False	Root Hair	Endodermis	0.723814	False	Unknow	Root hair	Root endodermis
+3178	CS2_GCCATTCGTACGTGTT-1	CS2_GCCATTCGTACGTGTT-1	Root	Whole root	Phloem	Phloem	0.990605	True	Phloem	Phloem	0.98959	True	Unknow	Phloem	Phloem
+3179	CS2_GCCATTCGTAGGAGGG-1	CS2_GCCATTCGTAGGAGGG-1	Root	Whole root	Cortex	Epidermis	0.448755	False	Cortex	Epidermis	0.425384	False	Lateral root cap	Root cortex	Non-hair
+3180	CS2_GCCATTCGTGGCCCAT-1	CS2_GCCATTCGTGGCCCAT-1	Root	Whole root	Epidermis	Epidermis	0.490649	True	Epidermis	Epidermis	0.48921	True	Unknow	Non-hair	Non-hair
+3182	CS2_GCCCGAAAGAGGTGCT-1	CS2_GCCCGAAAGAGGTGCT-1	Root	Whole root	Unknown	Xylem	0.812428	False	Unknown	Xylem	0.836888	False	Unknow	Unknow	Xylem
+3189	CS2_GCCGATGTCACTCCGT-1	CS2_GCCGATGTCACTCCGT-1	Root	Whole root	Unknown	Unknown	0.786675	True	Unknown	Unknown	0.763491	True	Unknow	Unknow	Unknow
+3196	CS2_GCGATCGTCATCCTGC-1	CS2_GCGATCGTCATCCTGC-1	Root	Whole root	Epidermis	Epidermis	0.678348	True	Epidermis	Epidermis	0.704128	True	Unknow	Non-hair	Non-hair
+3197	CS2_GCGATCGTCCTCACCA-1	CS2_GCGATCGTCCTCACCA-1	Root	Whole root	Phloem	Phloem	0.996323	True	Phloem	Phloem	0.996738	True	G1/G0 phase	Phloem	Phloem
+3232	CS2_GGAACCCTCAGTCTTT-1	CS2_GGAACCCTCAGTCTTT-1	Root	Whole root	Unknown	Pericycle	0.581246	False	Unknown	Pericycle	0.511921	False	Unknow	Unknow	__outside_direct_map__
+3235	CS2_GGAAGTGCACTTGGCG-1	CS2_GGAAGTGCACTTGGCG-1	Root	Whole root	Unknown	Unknown	0.540546	True	Unknown	Unknown	0.537676	True	S phase	Unknow	Unknow
+3256	CS2_GGAGGATCACAGTACT-1	CS2_GGAGGATCACAGTACT-1	Root	Whole root	Phloem	Provascular cells	0.911441	False	Phloem	Provascular cells	0.905013	False	Non-hair	Phloem	__outside_direct_map__
+3265	CS2_GGATCTAGTTGGGCCT-1	CS2_GGATCTAGTTGGGCCT-1	Root	Whole root	Root Hair	Epidermis	0.588258	False	Root Hair	Epidermis	0.703363	False	Unknow	Root hair	Non-hair
+3266	CS2_GGATGTTAGTAAGACT-1	CS2_GGATGTTAGTAAGACT-1	Root	Whole root	Root Hair	Root Hair	0.666663	True	Root Hair	Root Hair	0.640158	True	Unknow	Root hair	Root hair
+3273	CS2_GGCACGTTCAGTGGGA-1	CS2_GGCACGTTCAGTGGGA-1	Root	Whole root	Unknown	Epidermis	0.44836	False	Unknown	Epidermis	0.415083	False	S phase	Unknow	Non-hair
+3274	CS2_GGCAGTCAGACTACGG-1	CS2_GGCAGTCAGACTACGG-1	Root	Whole root	Endodermis	Provascular cells	0.372142	False	Endodermis	Provascular cells	0.431267	False	S phase	Root endodermis	__outside_direct_map__
+3286	CS2_GGCTTTCTCCTACTGC-1	CS2_GGCTTTCTCCTACTGC-1	Root	Whole root	Epidermis	Epidermis	0.420992	True	Epidermis	Epidermis	0.359925	True	Unknow	Non-hair	Non-hair
+3288	CS2_GGGAAGTGTGTTCATG-1	CS2_GGGAAGTGTGTTCATG-1	Root	Whole root	Epidermis	Epidermis	0.556635	True	Epidermis	Epidermis	0.580079	True	Unknow	Non-hair	Non-hair
+3293	CS2_GGGACCTCAGAGTGTG-1	CS2_GGGACCTCAGAGTGTG-1	Root	Whole root	Unknown	Unknown	0.510595	True	Unknown	Unknown	0.48218	True	Unknow	Unknow	Unknow
+3322	CS2_GGGTAGAGTATAGGGC-1	CS2_GGGTAGAGTATAGGGC-1	Root	Whole root	Unknown	Cortex	0.816131	False	Unknown	Cortex	0.839099	False	S phase	Unknow	Root cortex
+3329	CS2_GGGTCTGAGTCGAGGT-1	CS2_GGGTCTGAGTCGAGGT-1	Root	Whole root	Root Cap	Root Cap	0.931235	True	Root Cap	Root Cap	0.934552	True	Unknow	Root cap	Root cap
+3337	CS2_GGGTTTAAGTTAGAAC-1	CS2_GGGTTTAAGTTAGAAC-1	Root	Whole root	Cortex	Epidermis	0.42261	False	Cortex	Epidermis	0.446589	False	Unknow	Root cortex	Non-hair
+3340	CS2_GGTAACTAGCTCCACG-1	CS2_GGTAACTAGCTCCACG-1	Root	Whole root	Endodermis	Endodermis	0.938022	True	Endodermis	Endodermis	0.945372	True	S phase	Root endodermis	Root endodermis
+3354	CS2_GGTCACGCACGGTGCT-1	CS2_GGTCACGCACGGTGCT-1	Root	Whole root	Unknown	Unknown	0.445377	True	Unknown	Unknown	0.45934	True	Non-hair	Unknow	Unknow
+3362	CS2_GGTGTCGAGCACTCCG-1	CS2_GGTGTCGAGCACTCCG-1	Root	Whole root	Unknown	Epidermis	0.501339	False	Unknown	Epidermis	0.462113	False	Unknow	Unknow	Non-hair
+3371	CS2_GGTTAACAGTGGACGT-1	CS2_GGTTAACAGTGGACGT-1	Root	Whole root	Unknown	Unknown	0.619169	True	Unknown	Unknown	0.569931	True	Unknow	Unknow	Unknow
+3373	CS2_GGTTAACGTTGCATAC-1	CS2_GGTTAACGTTGCATAC-1	Root	Whole root	Cortex	Unknown	0.502103	False	Cortex	Unknown	0.570405	False	S phase	Root cortex	Unknow
+3383	CS2_GTAACACCACAGTGTT-1	CS2_GTAACACCACAGTGTT-1	Root	Whole root	Unknown	Unknown	0.584189	True	Unknown	Unknown	0.593719	True	S phase	Unknow	Unknow
+3391	CS2_GTAATCGCAATGCAGG-1	CS2_GTAATCGCAATGCAGG-1	Root	Whole root	Unknown	Unknown	0.672359	True	Unknown	Unknown	0.648328	True	S phase	Unknow	Unknow
+3399	CS2_GTACAACGTCACAGAG-1	CS2_GTACAACGTCACAGAG-1	Root	Whole root	Unknown	Unknown	0.783598	True	Unknown	Unknown	0.75285	True	Unknow	Unknow	Unknow
+3410	CS2_GTAGATCTCCTCACCA-1	CS2_GTAGATCTCCTCACCA-1	Root	Whole root	Cortex	Cortex	0.329323	True	Cortex	Cortex	0.303305	True	Unknow	Root cortex	Root cortex
+3412	CS2_GTAGCTAGTGCTCCGA-1	CS2_GTAGCTAGTGCTCCGA-1	Root	Whole root	Xylem	Xylem	0.844294	True	Xylem	Xylem	0.869163	True	Unknow	Xylem	Xylem
+3416	CS2_GTAGGTTCAGGTTCGC-1	CS2_GTAGGTTCAGGTTCGC-1	Root	Whole root	Unknown	Epidermis	0.301273	False	Unknown	Epidermis	0.375231	False	Unknow	Unknow	Non-hair
+3425	CS2_GTAGTACTCCTTATGT-1	CS2_GTAGTACTCCTTATGT-1	Root	Whole root	Epidermis	Cortex	0.475729	False	Epidermis	Cortex	0.363461	False	Unknow	Non-hair	Root cortex
+3430	CS2_GTATTTCGTTCCTTGC-1	CS2_GTATTTCGTTCCTTGC-1	Root	Whole root	Epidermis	Epidermis	0.23056	True	Epidermis	Epidermis	0.233037	True	Non-hair	Non-hair	Non-hair
+3433	CS2_GTCACGGCATAGAATG-1	CS2_GTCACGGCATAGAATG-1	Root	Whole root	Unknown	Unknown	0.47817	True	Unknown	Unknown	0.471249	True	S phase	Unknow	Unknow
+3436	CS2_GTCACTCCAATCGCGC-1	CS2_GTCACTCCAATCGCGC-1	Root	Whole root	Root Cap	Root Cap	0.984199	True	Root Cap	Root Cap	0.983681	True	S phase	Root cap	Root cap
+3458	CS2_GTCCACTTCCTGTACC-1	CS2_GTCCACTTCCTGTACC-1	Root	Whole root	Cortex	Cortex	0.550638	True	Cortex	Cortex	0.524906	True	Non-hair	Root cortex	Root cortex
+3473	CS2_GTCTACCAGGGACACT-1	CS2_GTCTACCAGGGACACT-1	Root	Whole root	Phloem	Phloem	0.995628	True	Phloem	Phloem	0.994394	True	Unknow	Phloem	Phloem
+3475	CS2_GTCTACCGTATAGCTC-1	CS2_GTCTACCGTATAGCTC-1	Root	Whole root	Epidermis	Unknown	0.590375	False	Epidermis	Unknown	0.555837	False	S phase	Non-hair	Unknow
+3477	CS2_GTCTACCTCCTACGAA-1	CS2_GTCTACCTCCTACGAA-1	Root	Whole root	Endodermis	Unknown	0.554873	False	Endodermis	Unknown	0.593762	False	S phase	Root endodermis	Unknow
+3492	CS2_GTCTTTATCACTTTGT-1	CS2_GTCTTTATCACTTTGT-1	Root	Whole root	Unknown	Pericycle	0.453702	False	Unknown	Pericycle	0.310523	False	S phase	Unknow	__outside_direct_map__
+3499	CS2_GTGACGCGTGTTCGTA-1	CS2_GTGACGCGTGTTCGTA-1	Root	Whole root	Epidermis	Epidermis	0.365159	True	Epidermis	Root Hair	0.377043	False	Unknow	Non-hair	Non-hair
+3500	CS2_GTGACGCTCGCTCTAC-1	CS2_GTGACGCTCGCTCTAC-1	Root	Whole root	Root Hair	Root Hair	0.96722	True	Root Hair	Root Hair	0.966826	True	Root hair	Root hair	Root hair
+3511	CS2_GTGATGTGTCTGATCA-1	CS2_GTGATGTGTCTGATCA-1	Root	Whole root	Cortex	Cortex	0.395108	True	Cortex	Cortex	0.394673	True	Unknow	Root cortex	Root cortex
+3519	CS2_GTGCGTGTCGTAACAC-1	CS2_GTGCGTGTCGTAACAC-1	Root	Whole root	Unknown	Epidermis	0.486502	False	Unknown	Epidermis	0.454065	False	S phase	Unknow	Non-hair
+3524	CS2_GTGCTTCAGTGAGTTA-1	CS2_GTGCTTCAGTGAGTTA-1	Root	Whole root	Unknown	Cortex	0.398291	False	Unknown	Unknown	0.399823	True	Unknow	Unknow	Root cortex
+3531	CS2_GTGGCGTCACTCACTC-1	CS2_GTGGCGTCACTCACTC-1	Root	Whole root	Unknown	Cortex	0.317914	False	Unknown	Cortex	0.306916	False	S phase	Unknow	Root cortex
+3537	CS2_GTGGTTAGTAACCAGG-1	CS2_GTGGTTAGTAACCAGG-1	Root	Whole root	Root Cap	Root Cap	0.936051	True	Root Cap	Root Cap	0.939484	True	S phase	Root cap	Root cap
+3540	CS2_GTGTAACGTATCGCAT-1	CS2_GTGTAACGTATCGCAT-1	Root	Whole root	Unknown	Unknown	0.589469	True	Unknown	Unknown	0.555199	True	S phase	Unknow	Unknow
+3549	CS2_GTGTGGCCATACCATG-1	CS2_GTGTGGCCATACCATG-1	Root	Whole root	Epidermis	Meristems	0.768918	False	Epidermis	Meristems	0.751268	False	S phase	Non-hair	__outside_direct_map__
+3559	CS2_GTGTTCCTCCGTAGTA-1	CS2_GTGTTCCTCCGTAGTA-1	Root	Whole root	Epidermis	Root Hair	0.533003	False	Epidermis	Root Hair	0.450103	False	Unknow	Non-hair	Root hair
+3560	CS2_GTGTTCCTCGGAATTC-1	CS2_GTGTTCCTCGGAATTC-1	Root	Whole root	Root Hair	Root Hair	0.409624	True	Root Hair	Root Hair	0.368852	True	Unknow	Root hair	Root hair
+3593	CS2_GTTGAACTCGTAGCCG-1	CS2_GTTGAACTCGTAGCCG-1	Root	Whole root	Unknown	Endodermis	0.484835	False	Unknown	Endodermis	0.469529	False	Unknow	Unknow	Root endodermis
+3599	CS2_GTTGCGGTCCCTAGGG-1	CS2_GTTGCGGTCCCTAGGG-1	Root	Whole root	Unknown	Pericycle	0.931171	False	Unknown	Pericycle	0.919362	False	Unknow	Unknow	__outside_direct_map__
+3600	CS2_GTTGCGGTCGCACTCT-1	CS2_GTTGCGGTCGCACTCT-1	Root	Whole root	Epidermis	Unknown	0.515039	False	Epidermis	Unknown	0.533043	False	S phase	Non-hair	Unknow
+3612	CS2_GTTGTCCGTGTCTCCT-1	CS2_GTTGTCCGTGTCTCCT-1	Root	Whole root	Root Cap	Root Cap	0.995512	True	Root Cap	Root Cap	0.99522	True	Unknow	Root cap	Root cap
+3615	CS2_GTTTACTAGAAACCAT-1	CS2_GTTTACTAGAAACCAT-1	Root	Whole root	Endodermis	Endodermis	0.666782	True	Endodermis	Endodermis	0.582962	True	Non-hair	Root endodermis	Root endodermis
+3618	CS2_GTTTACTCAAGACCTT-1	CS2_GTTTACTCAAGACCTT-1	Root	Whole root	Root Hair	Cortex	0.345837	False	Root Hair	Cortex	0.329641	False	Non-hair	Root hair	Root cortex
+3628	CS2_TAACGACTCCTTGACC-1	CS2_TAACGACTCCTTGACC-1	Root	Whole root	Epidermis	Unknown	0.58047	False	Epidermis	Unknown	0.553362	False	S phase	Non-hair	Unknow
+3630	CS2_TAACTTCGTCCTACGG-1	CS2_TAACTTCGTCCTACGG-1	Root	Whole root	Endodermis	Root Hair	0.333445	False	Endodermis	Root Hair	0.289769	False	Unknow	Root endodermis	Root hair
+3631	CS2_TAACTTCGTTCCGCAG-1	CS2_TAACTTCGTTCCGCAG-1	Root	Whole root	Unknown	Unknown	0.45634	True	Unknown	Unknown	0.482517	True	S phase	Unknow	Unknow
+3641	CS2_TAAGCGTTCGTGCATA-1	CS2_TAAGCGTTCGTGCATA-1	Root	Whole root	Cortex	Xylem	0.905898	False	Cortex	Xylem	0.902368	False	Unknow	Root cortex	Xylem
+3655	CS2_TAATTCCCAGGCTTGC-1	CS2_TAATTCCCAGGCTTGC-1	Root	Whole root	Cortex	Cortex	0.695418	True	Cortex	Cortex	0.694685	True	Unknow	Root cortex	Root cortex
+3660	CS2_TACAACGTCCAGTGCG-1	CS2_TACAACGTCCAGTGCG-1	Root	Whole root	Epidermis	Root Hair	0.457746	False	Epidermis	Epidermis	0.428632	True	Non-hair	Non-hair	Root hair
+3665	CS2_TACAGGTCACCTCAGG-1	CS2_TACAGGTCACCTCAGG-1	Root	Whole root	Epidermis	Epidermis	0.625403	True	Epidermis	Epidermis	0.601284	True	Non-hair	Non-hair	Non-hair
+3674	CS2_TACCCACGTAGGATAT-1	CS2_TACCCACGTAGGATAT-1	Root	Whole root	Epidermis	Meristems	0.865196	False	Epidermis	Meristems	0.866273	False	S phase	Non-hair	__outside_direct_map__
+3681	CS2_TACCCGTCATCAGCAT-1	CS2_TACCCGTCATCAGCAT-1	Root	Whole root	Cortex	Endodermis	0.470959	False	Cortex	Endodermis	0.403691	False	Unknow	Root cortex	Root endodermis
+3694	CS2_TACCTGCAGTCCCGAC-1	CS2_TACCTGCAGTCCCGAC-1	Root	Whole root	Root Hair	Root Hair	0.970456	True	Root Hair	Root Hair	0.97	True	Root hair	Root hair	Root hair
+3696	CS2_TACGCTCAGATGATTG-1	CS2_TACGCTCAGATGATTG-1	Root	Whole root	Cortex	Cortex	0.56851	True	Cortex	Cortex	0.548052	True	Unknow	Root cortex	Root cortex
+3708	CS2_TACGGTATCATAGCAC-1	CS2_TACGGTATCATAGCAC-1	Root	Whole root	Cortex	Unknown	0.36096	False	Cortex	Unknown	0.461575	False	Unknow	Root cortex	Unknow
+3711	CS2_TACGTCCCACCAGACC-1	CS2_TACGTCCCACCAGACC-1	Root	Whole root	Epidermis	Dividing Cells	0.954216	False	Epidermis	Dividing Cells	0.942106	False	Non-hair	Non-hair	__outside_direct_map__
+3712	CS2_TACTGCCAGGTCTACT-1	CS2_TACTGCCAGGTCTACT-1	Root	Whole root	Cortex	Cortex	0.448924	True	Cortex	Cortex	0.417322	True	S phase	Root cortex	Root cortex
+3716	CS2_TACTGCCTCGAACCTA-1	CS2_TACTGCCTCGAACCTA-1	Root	Whole root	Cortex	Cortex	0.825505	True	Cortex	Cortex	0.831925	True	Non-hair	Root cortex	Root cortex
+3722	CS2_TACTTCACACCTATCC-1	CS2_TACTTCACACCTATCC-1	Root	Whole root	Epidermis	Epidermis	0.589712	True	Epidermis	Epidermis	0.610855	True	Unknow	Non-hair	Non-hair
+3725	CS2_TACTTGTGTTCGTAAC-1	CS2_TACTTGTGTTCGTAAC-1	Root	Whole root	Epidermis	Meristems	0.895463	False	Epidermis	Meristems	0.901639	False	G1/G0 phase	Non-hair	__outside_direct_map__
+3737	CS2_TAGATCGAGGGTTAAT-1	CS2_TAGATCGAGGGTTAAT-1	Root	Whole root	Root Hair	Root Hair	0.966671	True	Root Hair	Root Hair	0.955532	True	Non-hair	Root hair	Root hair
+3750	CS2_TAGGTTGAGGTTGGAC-1	CS2_TAGGTTGAGGTTGGAC-1	Root	Whole root	Epidermis	Epidermis	0.351752	True	Epidermis	Epidermis	0.369763	True	Non-hair	Non-hair	Non-hair
+3764	CS2_TATCGCCTCGAGTTGT-1	CS2_TATCGCCTCGAGTTGT-1	Root	Whole root	Epidermis	Epidermis	0.529889	True	Epidermis	Epidermis	0.517509	True	Unknow	Non-hair	Non-hair
+3768	CS2_TATCTGTAGTCGGGAT-1	CS2_TATCTGTAGTCGGGAT-1	Root	Whole root	Epidermis	Epidermis	0.350762	True	Epidermis	Epidermis	0.389409	True	Unknow	Non-hair	Non-hair
+3773	CS2_TATCTTGCAAAGCTCT-1	CS2_TATCTTGCAAAGCTCT-1	Root	Whole root	Cortex	Cortex	0.318346	True	Cortex	Cortex	0.370411	True	S phase	Root cortex	Root cortex
+3774	CS2_TATCTTGCATACATCG-1	CS2_TATCTTGCATACATCG-1	Root	Whole root	Epidermis	Epidermis	0.483173	True	Epidermis	Epidermis	0.491275	True	Lateral root cap	Non-hair	Non-hair
+3793	CS2_TATTTCGCACAGTGAG-1	CS2_TATTTCGCACAGTGAG-1	Root	Whole root	Xylem	Xylem	0.93947	True	Xylem	Xylem	0.948419	True	Non-hair	Xylem	Xylem
+3810	CS2_TCAATTCGTCAGGAGT-1	CS2_TCAATTCGTCAGGAGT-1	Root	Whole root	Root Cap	Root Cap	0.97909	True	Root Cap	Root Cap	0.979042	True	S phase	Root cap	Root cap
+3818	CS2_TCACAAGCAGACCGCT-1	CS2_TCACAAGCAGACCGCT-1	Root	Whole root	Cortex	Epidermis	0.588822	False	Cortex	Epidermis	0.563939	False	Unknow	Root cortex	Non-hair
+3824	CS2_TCACACCGTGGACTAG-1	CS2_TCACACCGTGGACTAG-1	Root	Whole root	Unknown	Unknown	0.623104	True	Unknown	Unknown	0.656949	True	Unknow	Unknow	Unknow
+3829	CS2_TCACGCTCATGTGGTT-1	CS2_TCACGCTCATGTGGTT-1	Root	Whole root	Epidermis	Epidermis	0.522648	True	Epidermis	Epidermis	0.501263	True	S phase	Non-hair	Non-hair
+3834	CS2_TCACTATCAGTCTCTC-1	CS2_TCACTATCAGTCTCTC-1	Root	Whole root	Xylem	Xylem	0.985363	True	Xylem	Xylem	0.984471	True	Unknow	Xylem	Xylem
+3836	CS2_TCACTATTCATTGCCC-1	CS2_TCACTATTCATTGCCC-1	Root	Whole root	Cortex	Meristems	0.915693	False	Cortex	Meristems	0.89624	False	S phase	Root cortex	__outside_direct_map__
+3852	CS2_TCAGGGCAGGGTGGGA-1	CS2_TCAGGGCAGGGTGGGA-1	Root	Whole root	Unknown	Unknown	0.38488	True	Unknown	Unknown	0.464751	True	S phase	Unknow	Unknow
+3857	CS2_TCAGTCCAGTCTGCGC-1	CS2_TCAGTCCAGTCTGCGC-1	Root	Whole root	Root Hair	Root Hair	0.985862	True	Root Hair	Root Hair	0.987474	True	Unknow	Root hair	Root hair
+3861	CS2_TCAGTGACATGGCTAT-1	CS2_TCAGTGACATGGCTAT-1	Root	Whole root	Unknown	Pericycle	0.402183	False	Unknown	Unknown	0.407809	True	Unknow	Unknow	__outside_direct_map__
+3862	CS2_TCAGTGAGTAGAATAC-1	CS2_TCAGTGAGTAGAATAC-1	Root	Whole root	Cortex	Epidermis	0.606297	False	Cortex	Epidermis	0.567478	False	Unknow	Root cortex	Non-hair
+3882	CS2_TCATGAGCAACACAAA-1	CS2_TCATGAGCAACACAAA-1	Root	Whole root	Unknown	Unknown	0.664745	True	Unknown	Unknown	0.706557	True	Unknow	Unknow	Unknow
+3892	CS2_TCATGGACAGGTGTGA-1	CS2_TCATGGACAGGTGTGA-1	Root	Whole root	Unknown	Unknown	0.690951	True	Unknown	Unknown	0.607968	True	Root cortex	Unknow	Unknow
+3901	CS2_TCATTCACAACGCCCA-1	CS2_TCATTCACAACGCCCA-1	Root	Whole root	Unknown	Dividing Cells	0.982529	False	Unknown	Dividing Cells	0.983215	False	S phase	Unknow	__outside_direct_map__
+3909	CS2_TCATTTGGTGTGTCCG-1	CS2_TCATTTGGTGTGTCCG-1	Root	Whole root	Root Cap	Unknown	0.545519	False	Root Cap	Unknown	0.562775	False	Unknow	Root cap	Unknow
+3913	CS2_TCCACCAGTATCTCTT-1	CS2_TCCACCAGTATCTCTT-1	Root	Whole root	Epidermis	Epidermis	0.306368	True	Epidermis	Epidermis	0.382907	True	S phase	Non-hair	Non-hair
+3920	CS2_TCCACGTGTGATGTAA-1	CS2_TCCACGTGTGATGTAA-1	Root	Whole root	Unknown	Cortex	0.300656	False	Unknown	Cortex	0.316176	False	Unknow	Unknow	Root cortex
+3936	CS2_TCCCACACATTGAGCT-1	CS2_TCCCACACATTGAGCT-1	Root	Whole root	Root Hair	Root Hair	0.336025	True	Root Hair	Root Hair	0.401142	True	Unknow	Root hair	Root hair
+3953	CS2_TCCGATCAGGGACTGT-1	CS2_TCCGATCAGGGACTGT-1	Root	Whole root	Cortex	Cortex	0.716837	True	Cortex	Cortex	0.700707	True	Root cortex	Root cortex	Root cortex
+3956	CS2_TCCGGGAAGCAGGTCA-1	CS2_TCCGGGAAGCAGGTCA-1	Root	Whole root	Xylem	Xylem	0.985531	True	Xylem	Xylem	0.988686	True	Unknow	Xylem	Xylem
+3963	CS2_TCCTAATCAAAGGGTC-1	CS2_TCCTAATCAAAGGGTC-1	Root	Whole root	Xylem	Xylem	0.958978	True	Xylem	Xylem	0.969771	True	Unknow	Xylem	Xylem
+3970	CS2_TCCTCGAAGCCATTCA-1	CS2_TCCTCGAAGCCATTCA-1	Root	Whole root	Root Hair	Root Hair	0.976693	True	Root Hair	Root Hair	0.980611	True	Root hair	Root hair	Root hair
+3973	CS2_TCCTCGATCTGGGTCG-1	CS2_TCCTCGATCTGGGTCG-1	Root	Whole root	Epidermis	Epidermis	0.616727	True	Epidermis	Epidermis	0.648119	True	Unknow	Non-hair	Non-hair
+3977	CS2_TCCTGCAGTTCTCAGA-1	CS2_TCCTGCAGTTCTCAGA-1	Root	Whole root	Cortex	Cortex	0.419961	True	Cortex	Cortex	0.390634	True	Unknow	Root cortex	Root cortex
+3989	CS2_TCCTTTCGTAAGAACT-1	CS2_TCCTTTCGTAAGAACT-1	Root	Whole root	Epidermis	Root Hair	0.792263	False	Epidermis	Root Hair	0.754818	False	Unknow	Non-hair	Root hair
+3990	CS2_TCCTTTCGTCGATTAC-1	CS2_TCCTTTCGTCGATTAC-1	Root	Whole root	Epidermis	Meristems	0.955889	False	Epidermis	Meristems	0.94861	False	Unknow	Non-hair	__outside_direct_map__
+3992	CS2_TCGAACATCGTCACCT-1	CS2_TCGAACATCGTCACCT-1	Root	Whole root	Epidermis	Meristems	0.647988	False	Epidermis	Meristems	0.651768	False	S phase	Non-hair	__outside_direct_map__
+4002	CS2_TCGACGGTCCAATCTT-1	CS2_TCGACGGTCCAATCTT-1	Root	Whole root	Epidermis	Meristems	0.961075	False	Epidermis	Meristems	0.955775	False	S phase	Non-hair	__outside_direct_map__
+4009	CS2_TCGCAGGGTCGCATGC-1	CS2_TCGCAGGGTCGCATGC-1	Root	Whole root	Unknown	Unknown	0.628769	True	Unknown	Unknown	0.615057	True	S phase	Unknow	Unknow
+4018	CS2_TCGCTTGAGTGGTTCT-1	CS2_TCGCTTGAGTGGTTCT-1	Root	Whole root	Epidermis	Root Hair	0.663479	False	Epidermis	Root Hair	0.663669	False	Root hair	Non-hair	Root hair
+4023	CS2_TCGGGACCATTCAGCA-1	CS2_TCGGGACCATTCAGCA-1	Root	Whole root	Unknown	Cortex	0.268699	False	Unknown	Cortex	0.256324	False	Unknow	Unknow	Root cortex
+4027	CS2_TCGGGCACAGATTCGT-1	CS2_TCGGGCACAGATTCGT-1	Root	Whole root	Endodermis	Endodermis	0.913308	True	Endodermis	Endodermis	0.91418	True	S phase	Root endodermis	Root endodermis
+4045	CS2_TCTAACTGTGTGCTTA-1	CS2_TCTAACTGTGTGCTTA-1	Root	Whole root	Root Hair	Root Hair	0.485887	True	Root Hair	Epidermis	0.46515	False	Unknow	Root hair	Root hair
+4047	CS2_TCTAACTTCCTGGGTG-1	CS2_TCTAACTTCCTGGGTG-1	Root	Whole root	Root Cap	Root Cap	0.983585	True	Root Cap	Root Cap	0.981558	True	Unknow	Root cap	Root cap
+4057	CS2_TCTATACAGTGGTTAA-1	CS2_TCTATACAGTGGTTAA-1	Root	Whole root	Unknown	Unknown	0.453224	True	Unknown	Unknown	0.448629	True	Unknow	Unknow	Unknow
+4070	CS2_TCTCCGACATGCCGCA-1	CS2_TCTCCGACATGCCGCA-1	Root	Whole root	Unknown	Unknown	0.489111	True	Unknown	Unknown	0.530689	True	S phase	Unknow	Unknow
+4074	CS2_TCTCTGGCACCTGATA-1	CS2_TCTCTGGCACCTGATA-1	Root	Whole root	Unknown	Pericycle	0.757757	False	Unknown	Pericycle	0.7579	False	Unknow	Unknow	__outside_direct_map__
+4092	CS2_TCTTTGAGTGCCTATA-1	CS2_TCTTTGAGTGCCTATA-1	Root	Whole root	Endodermis	Cortex	0.343872	False	Endodermis	Cortex	0.339861	False	Unknow	Root endodermis	Root cortex
+4107	CS2_TGACAGTGTTCCCAAA-1	CS2_TGACAGTGTTCCCAAA-1	Root	Whole root	Endodermis	Pericycle	0.80811	False	Endodermis	Pericycle	0.787496	False	S phase	Root endodermis	__outside_direct_map__
+4114	CS2_TGACGCGTCAAGTAAG-1	CS2_TGACGCGTCAAGTAAG-1	Root	Whole root	Unknown	Epidermis	0.440139	False	Unknown	Epidermis	0.416261	False	Unknow	Unknow	Non-hair
+4116	CS2_TGACGCGTCTGGCCAG-1	CS2_TGACGCGTCTGGCCAG-1	Root	Whole root	Endodermis	Endodermis	0.305381	True	Endodermis	Epidermis	0.260137	False	Unknow	Root endodermis	Root endodermis
+4118	CS2_TGACTCCAGCGAGTAC-1	CS2_TGACTCCAGCGAGTAC-1	Root	Whole root	Epidermis	Epidermis	0.481439	True	Epidermis	Epidermis	0.456389	True	Unknow	Non-hair	Non-hair
+4120	CS2_TGAGACTAGCTCGGCT-1	CS2_TGAGACTAGCTCGGCT-1	Root	Whole root	Epidermis	Epidermis	0.546073	True	Epidermis	Epidermis	0.495621	True	Unknow	Non-hair	Non-hair
+4122	CS2_TGAGACTCAGACCCGT-1	CS2_TGAGACTCAGACCCGT-1	Root	Whole root	Unknown	Unknown	0.545186	True	Unknown	Unknown	0.54405	True	S phase	Unknow	Unknow
+4125	CS2_TGAGACTTCATGTCAG-1	CS2_TGAGACTTCATGTCAG-1	Root	Whole root	Root Hair	Epidermis	0.524453	False	Root Hair	Epidermis	0.47745	False	Unknow	Root hair	Non-hair
+4134	CS2_TGAGGAGCATTCACAG-1	CS2_TGAGGAGCATTCACAG-1	Root	Whole root	Endodermis	Endodermis	0.829382	True	Endodermis	Endodermis	0.864415	True	Unknow	Root endodermis	Root endodermis
+4140	CS2_TGAGGTTCAGTTGTCA-1	CS2_TGAGGTTCAGTTGTCA-1	Root	Whole root	Epidermis	Root Hair	0.387931	False	Epidermis	Root Hair	0.42321	False	S phase	Non-hair	Root hair
+4160	CS2_TGCAGATAGCTCACTA-1	CS2_TGCAGATAGCTCACTA-1	Root	Whole root	Root Hair	Root Hair	0.963287	True	Root Hair	Root Hair	0.957242	True	Unknow	Root hair	Root hair
+4175	CS2_TGCATCCGTAGACTGG-1	CS2_TGCATCCGTAGACTGG-1	Root	Whole root	Endodermis	Endodermis	0.792761	True	Endodermis	Endodermis	0.813843	True	Unknow	Root endodermis	Root endodermis
+4181	CS2_TGCCGAGCACGGCCAT-1	CS2_TGCCGAGCACGGCCAT-1	Root	Whole root	Unknown	Endodermis	0.304997	False	Unknown	Unknown	0.290874	True	Unknow	Unknow	Root endodermis
+4184	CS2_TGCGATACAAGCCTGC-1	CS2_TGCGATACAAGCCTGC-1	Root	Whole root	Unknown	Pericycle	0.397003	False	Unknown	Pericycle	0.42036	False	S phase	Unknow	__outside_direct_map__
+4196	CS2_TGCTCCACAATGTTGC-1	CS2_TGCTCCACAATGTTGC-1	Root	Whole root	Endodermis	Endodermis	0.942263	True	Endodermis	Endodermis	0.945486	True	Unknow	Root endodermis	Root endodermis
+4202	CS2_TGCTCGTCACGCGGTT-1	CS2_TGCTCGTCACGCGGTT-1	Root	Whole root	Unknown	Unknown	0.542233	True	Unknown	Unknown	0.569279	True	Unknow	Unknow	Unknow
+4217	CS2_TGGAGAGGTTCAGCGC-1	CS2_TGGAGAGGTTCAGCGC-1	Root	Whole root	Root Hair	Endodermis	0.384121	False	Root Hair	Endodermis	0.396873	False	S phase	Root hair	Root endodermis
+4221	CS2_TGGATCATCGAGTACT-1	CS2_TGGATCATCGAGTACT-1	Root	Whole root	Epidermis	Epidermis	0.60283	True	Epidermis	Epidermis	0.561224	True	Unknow	Non-hair	Non-hair
+4223	CS2_TGGATGTCAGGTCAAG-1	CS2_TGGATGTCAGGTCAAG-1	Root	Whole root	Root Hair	Epidermis	0.656427	False	Root Hair	Epidermis	0.672787	False	Non-hair	Root hair	Non-hair
+4233	CS2_TGGGATTAGCCAACCC-1	CS2_TGGGATTAGCCAACCC-1	Root	Whole root	Endodermis	Pericycle	0.647632	False	Endodermis	Pericycle	0.628745	False	S phase	Root endodermis	__outside_direct_map__
+4238	CS2_TGGGCGTCACGCGGTT-1	CS2_TGGGCGTCACGCGGTT-1	Root	Whole root	Root Hair	Provascular cells	0.615117	False	Root Hair	Provascular cells	0.643268	False	S phase	Root hair	__outside_direct_map__
+4249	CS2_TGGTACATCCATCACC-1	CS2_TGGTACATCCATCACC-1	Root	Whole root	Xylem	Xylem	0.992627	True	Xylem	Xylem	0.993309	True	Unknow	Xylem	Xylem
+4254	CS2_TGGTAGTGTGGAAGTC-1	CS2_TGGTAGTGTGGAAGTC-1	Root	Whole root	Cortex	Cortex	0.455857	True	Cortex	Cortex	0.402079	True	Non-hair	Root cortex	Root cortex
+4259	CS2_TGGTTAGGTCCTGGGT-1	CS2_TGGTTAGGTCCTGGGT-1	Root	Whole root	Epidermis	Epidermis	0.481574	True	Epidermis	Epidermis	0.49634	True	Unknow	Non-hair	Non-hair
+4260	CS2_TGGTTAGGTGCCTAAT-1	CS2_TGGTTAGGTGCCTAAT-1	Root	Whole root	Cortex	Cortex	0.308559	True	Cortex	Cortex	0.270454	True	Unknow	Root cortex	Root cortex
+4263	CS2_TGTAAGCAGAGCATAT-1	CS2_TGTAAGCAGAGCATAT-1	Root	Whole root	Cortex	Cortex	0.962186	True	Cortex	Cortex	0.950246	True	Root cortex	Root cortex	Root cortex
+4272	CS2_TGTAGACGTCGGCTAC-1	CS2_TGTAGACGTCGGCTAC-1	Root	Whole root	Cortex	Epidermis	0.666786	False	Cortex	Epidermis	0.617413	False	Unknow	Root cortex	Non-hair
+4274	CS2_TGTCAGAAGAAAGTCT-1	CS2_TGTCAGAAGAAAGTCT-1	Root	Whole root	Epidermis	Cortex	0.295683	False	Epidermis	Unknown	0.325645	False	Unknow	Non-hair	Root cortex
+4275	CS2_TGTCAGAAGAGGATCC-1	CS2_TGTCAGAAGAGGATCC-1	Root	Whole root	Root Hair	Root Hair	0.543838	True	Root Hair	Root Hair	0.490295	True	S phase	Root hair	Root hair
+4286	CS2_TGTGAGTCAGACCATT-1	CS2_TGTGAGTCAGACCATT-1	Root	Whole root	Root Hair	Pericycle	0.360227	False	Root Hair	Pericycle	0.330879	False	S phase	Root hair	__outside_direct_map__
+4289	CS2_TGTGAGTGTGCACGCT-1	CS2_TGTGAGTGTGCACGCT-1	Root	Whole root	Phloem	Phloem	0.994146	True	Phloem	Phloem	0.992184	True	Unknow	Phloem	Phloem
+4290	CS2_TGTGAGTGTGGCACTC-1	CS2_TGTGAGTGTGGCACTC-1	Root	Whole root	Cortex	Cortex	0.913431	True	Cortex	Cortex	0.90603	True	Non-hair	Root cortex	Root cortex
+4298	CS2_TGTGATGGTCTCAAGT-1	CS2_TGTGATGGTCTCAAGT-1	Root	Whole root	Cortex	Cortex	0.531273	True	Cortex	Cortex	0.547731	True	Unknow	Root cortex	Root cortex
+4307	CS2_TGTGTGAGTGGATACG-1	CS2_TGTGTGAGTGGATACG-1	Root	Whole root	Unknown	Unknown	0.287584	True	Unknown	Unknown	0.293181	True	S phase	Unknow	Unknow
+4312	CS2_TGTTACTAGTGCACAG-1	CS2_TGTTACTAGTGCACAG-1	Root	Whole root	Epidermis	Cortex	0.487454	False	Epidermis	Cortex	0.450516	False	Unknow	Non-hair	Root cortex
+4313	CS2_TGTTACTCATCATCCC-1	CS2_TGTTACTCATCATCCC-1	Root	Whole root	Phloem	Phloem	0.993406	True	Phloem	Phloem	0.990111	True	S phase	Phloem	Phloem
+4320	CS2_TGTTCCGCAAATCGTC-1	CS2_TGTTCCGCAAATCGTC-1	Root	Whole root	Root Hair	Root Hair	0.636505	True	Root Hair	Root Hair	0.621743	True	Unknow	Root hair	Root hair
+4321	CS2_TGTTCCGCAAGACCTT-1	CS2_TGTTCCGCAAGACCTT-1	Root	Whole root	Xylem	Xylem	0.97698	True	Xylem	Xylem	0.980498	True	Unknow	Xylem	Xylem
+4332	CS2_TTAATCCAGACTTCCA-1	CS2_TTAATCCAGACTTCCA-1	Root	Whole root	Cortex	Cortex	0.346847	True	Cortex	Cortex	0.291835	True	Unknow	Root cortex	Root cortex
+4347	CS2_TTACCATTCAGAATAG-1	CS2_TTACCATTCAGAATAG-1	Root	Whole root	Epidermis	Root Hair	0.58269	False	Epidermis	Root Hair	0.514739	False	S phase	Non-hair	Root hair
+4350	CS2_TTACCGCCACGACAGA-1	CS2_TTACCGCCACGACAGA-1	Root	Whole root	Epidermis	Unknown	0.473535	False	Epidermis	Unknown	0.408616	False	S phase	Non-hair	Unknow
+4353	CS2_TTACCGCTCAGCCTTC-1	CS2_TTACCGCTCAGCCTTC-1	Root	Whole root	Unknown	Cortex	0.568402	False	Unknown	Cortex	0.547643	False	Unknow	Unknow	Root cortex
+4355	CS2_TTACGCCAGGCTCCCA-1	CS2_TTACGCCAGGCTCCCA-1	Root	Whole root	Epidermis	Cortex	0.335337	False	Epidermis	Cortex	0.295806	False	G1/G0 phase	Non-hair	Root cortex
+4359	CS2_TTACGCCTCGAATGCT-1	CS2_TTACGCCTCGAATGCT-1	Root	Whole root	Unknown	Root Hair	0.269023	False	Unknown	Epidermis	0.292845	False	Non-hair	Unknow	Root hair
+4364	CS2_TTACGTTGTATCATGC-1	CS2_TTACGTTGTATCATGC-1	Root	Whole root	Cortex	Unknown	0.279469	False	Cortex	Unknown	0.290453	False	Unknow	Root cortex	Unknow
+4370	CS2_TTACTGTCAGACAATA-1	CS2_TTACTGTCAGACAATA-1	Root	Whole root	Phloem	Phloem	0.993784	True	Phloem	Phloem	0.994064	True	G1/G0 phase	Phloem	Phloem
+4375	CS2_TTAGGCAAGGATTACA-1	CS2_TTAGGCAAGGATTACA-1	Root	Whole root	Unknown	Unknown	0.766894	True	Unknown	Unknown	0.731367	True	S phase	Unknow	Unknow
+4378	CS2_TTAGGGTGTTCTGAGT-1	CS2_TTAGGGTGTTCTGAGT-1	Root	Whole root	Root Cap	Root Cap	0.951588	True	Root Cap	Root Cap	0.946815	True	S phase	Root cap	Root cap
+4385	CS2_TTATTGCAGTCGGCCT-1	CS2_TTATTGCAGTCGGCCT-1	Root	Whole root	Unknown	Unknown	0.51877	True	Unknown	Unknown	0.544522	True	Unknow	Unknow	Unknow
+4390	CS2_TTCAATCGTATCTCTT-1	CS2_TTCAATCGTATCTCTT-1	Root	Whole root	Unknown	Cortex	0.397483	False	Unknown	Unknown	0.414132	True	S phase	Unknow	Root cortex
+4391	CS2_TTCAATCGTGGTAATA-1	CS2_TTCAATCGTGGTAATA-1	Root	Whole root	Unknown	Unknown	0.529125	True	Unknown	Unknown	0.549339	True	Unknow	Unknow	Unknow
+4401	CS2_TTCACGCGTACGATGG-1	CS2_TTCACGCGTACGATGG-1	Root	Whole root	Endodermis	Endodermis	0.74722	True	Endodermis	Endodermis	0.727134	True	Unknow	Root endodermis	Root endodermis
+4428	CS2_TTCCTCTTCTCCTGTG-1	CS2_TTCCTCTTCTCCTGTG-1	Root	Whole root	Endodermis	Provascular cells	0.331575	False	Endodermis	Provascular cells	0.339737	False	S phase	Root endodermis	__outside_direct_map__
+4439	CS2_TTCGGTCGTCACAGAG-1	CS2_TTCGGTCGTCACAGAG-1	Root	Whole root	Epidermis	Cortex	0.307337	False	Epidermis	Cortex	0.307298	False	S phase	Non-hair	Root cortex
+4441	CS2_TTCTAACAGTCTCCTC-1	CS2_TTCTAACAGTCTCCTC-1	Root	Whole root	Unknown	Unknown	0.332786	True	Unknown	Unknown	0.32824	True	Unknow	Unknow	Unknow
+4444	CS2_TTCTAGTCAAATACGA-1	CS2_TTCTAGTCAAATACGA-1	Root	Whole root	Unknown	Unknown	0.684654	True	Unknown	Unknown	0.635647	True	Unknow	Unknow	Unknow
+4450	CS2_TTCTAGTTCTGAGTCA-1	CS2_TTCTAGTTCTGAGTCA-1	Root	Whole root	Epidermis	Epidermis	0.364581	True	Epidermis	Unknown	0.314118	False	S phase	Non-hair	Non-hair
+4457	CS2_TTCTGTATCCCTGGTT-1	CS2_TTCTGTATCCCTGGTT-1	Root	Whole root	Cortex	Cortex	0.723391	True	Cortex	Cortex	0.752262	True	Non-hair	Root cortex	Root cortex
+4461	CS2_TTCTTCCGTTTCGACA-1	CS2_TTCTTCCGTTTCGACA-1	Root	Whole root	Epidermis	Epidermis	0.545469	True	Epidermis	Epidermis	0.597511	True	Unknow	Non-hair	Non-hair
+4468	CS2_TTGAACGCATGTGCTA-1	CS2_TTGAACGCATGTGCTA-1	Root	Whole root	Unknown	Unknown	0.622348	True	Unknown	Unknown	0.634629	True	Non-hair	Unknow	Unknow
+4469	CS2_TTGACCCAGCATAGGC-1	CS2_TTGACCCAGCATAGGC-1	Root	Whole root	Endodermis	Endodermis	0.839674	True	Endodermis	Endodermis	0.861922	True	Non-hair	Root endodermis	Root endodermis
+4479	CS2_TTGCATTAGCAGGCTA-1	CS2_TTGCATTAGCAGGCTA-1	Root	Whole root	Epidermis	Xylem	0.319947	False	Epidermis	Xylem	0.303245	False	Unknow	Non-hair	Xylem
+4486	CS2_TTGCCTGCACAGTGTT-1	CS2_TTGCCTGCACAGTGTT-1	Root	Whole root	Unknown	Unknown	0.722331	True	Unknown	Unknown	0.754721	True	Unknow	Unknow	Unknow
+4492	CS2_TTGGATGCAGTCAACT-1	CS2_TTGGATGCAGTCAACT-1	Root	Whole root	Unknown	Endodermis	0.429791	False	Unknown	Endodermis	0.515381	False	S phase	Unknow	Root endodermis
+4500	CS2_TTGGGTACAATTCTCT-1	CS2_TTGGGTACAATTCTCT-1	Root	Whole root	Epidermis	Xylem	0.722941	False	Epidermis	Xylem	0.736053	False	Unknow	Non-hair	Xylem
+4520	CS2_TTGTTTGAGGACTTCT-1	CS2_TTGTTTGAGGACTTCT-1	Root	Whole root	Phloem	Phloem	0.99552	True	Phloem	Phloem	0.995609	True	Lateral root cap	Phloem	Phloem
+4530	CS2_TTTAGTCAGCCTAGGA-1	CS2_TTTAGTCAGCCTAGGA-1	Root	Whole root	Endodermis	Endodermis	0.548324	True	Endodermis	Endodermis	0.535721	True	Unknow	Root endodermis	Root endodermis
+4531	CS2_TTTAGTCTCAATCCAG-1	CS2_TTTAGTCTCAATCCAG-1	Root	Whole root	Cortex	Meristems	0.901134	False	Cortex	Meristems	0.865813	False	Root hair	Root cortex	__outside_direct_map__
+4538	CS2_TTTCACACAACTCGTA-1	CS2_TTTCACACAACTCGTA-1	Root	Whole root	Endodermis	Endodermis/Phloem	0.820743	False	Endodermis	Endodermis/Phloem	0.814678	False	Unknow	Root endodermis	__outside_direct_map__
+4542	CS2_TTTCATGCAAGGAGTC-1	CS2_TTTCATGCAAGGAGTC-1	Root	Whole root	Epidermis	Epidermis	0.552923	True	Epidermis	Epidermis	0.580363	True	Unknow	Non-hair	Non-hair
+4558	CS2_TTTGATCTCTTACCAT-1	CS2_TTTGATCTCTTACCAT-1	Root	Whole root	Xylem	Xylem	0.987383	True	Xylem	Xylem	0.98575	True	Unknow	Xylem	Xylem
+4570	CS2_TTTGTTGGTGATACCT-1	CS2_TTTGTTGGTGATACCT-1	Root	Whole root	Unknown	Epidermis	0.600313	False	Unknown	Epidermis	0.567911	False	Non-hair	Unknow	Non-hair
+4571	CS2_TTTGTTGTCGCAGTGC-1	CS2_TTTGTTGTCGCAGTGC-1	Root	Whole root	Root Cap	Root Cap	0.922763	True	Root Cap	Root Cap	0.924411	True	Unknow	Root cap	Root cap
+4573	CS3_AAACCCAAGCGACTAG-1	CS3_AAACCCAAGCGACTAG-1	Root	Whole root	Epidermis	Epidermis	0.492362	True	Epidermis	Root Hair	0.478951	False	Unknow	Non-hair	Non-hair
+4576	CS3_AAACGAATCGCAGAGA-1	CS3_AAACGAATCGCAGAGA-1	Root	Whole root	Epidermis	Cortex	0.43454	False	Epidermis	Cortex	0.419737	False	S phase	Non-hair	Root cortex
+4577	CS3_AAACGCTGTAGGTTTC-1	CS3_AAACGCTGTAGGTTTC-1	Root	Whole root	Unknown	Unknown	0.753586	True	Unknown	Unknown	0.751476	True	Unknow	Unknow	Unknow
+4589	CS3_AAAGTCCAGCGCCATC-1	CS3_AAAGTCCAGCGCCATC-1	Root	Whole root	Phloem	Phloem	0.938122	True	Phloem	Phloem	0.922244	True	G1/G0 phase	Phloem	Phloem
+4600	CS3_AACAAAGTCCACGGAC-1	CS3_AACAAAGTCCACGGAC-1	Root	Whole root	Root Hair	Root Hair	0.967624	True	Root Hair	Root Hair	0.974568	True	Root hair	Root hair	Root hair
+4628	CS3_AACCTGACACGAGGTA-1	CS3_AACCTGACACGAGGTA-1	Root	Whole root	Epidermis	Epidermis	0.295421	True	Epidermis	Epidermis	0.305928	True	Unknow	Non-hair	Non-hair
+4642	CS3_AACGTCACACAGCCAC-1	CS3_AACGTCACACAGCCAC-1	Root	Whole root	Epidermis	Epidermis	0.284242	True	Epidermis	Epidermis	0.32589	True	S phase	Non-hair	Non-hair
+4645	CS3_AACTTCTCAGTACTAC-1	CS3_AACTTCTCAGTACTAC-1	Root	Whole root	Root Hair	Root Hair	0.495718	True	Root Hair	Root Hair	0.51012	True	Unknow	Root hair	Root hair
+4658	CS3_AAGATAGTCGACATAC-1	CS3_AAGATAGTCGACATAC-1	Root	Whole root	Unknown	Unknown	0.61304	True	Unknown	Unknown	0.577191	True	Unknow	Unknow	Unknow
+4660	CS3_AAGCATCGTTCGTGCG-1	CS3_AAGCATCGTTCGTGCG-1	Root	Whole root	Unknown	Pericycle	0.596371	False	Unknown	Pericycle	0.542889	False	Unknow	Unknow	__outside_direct_map__
+4670	CS3_AAGGTAAGTCATAAAG-1	CS3_AAGGTAAGTCATAAAG-1	Root	Whole root	Unknown	Unknown	0.630612	True	Unknown	Unknown	0.615795	True	Unknow	Unknow	Unknow
+4673	CS3_AAGTCGTAGCACTCCG-1	CS3_AAGTCGTAGCACTCCG-1	Root	Whole root	Cortex	Provascular cells	0.256012	False	Cortex	Epidermis	0.239939	False	S phase	Root cortex	__outside_direct_map__
+4679	CS3_AATAGAGAGAAGGGAT-1	CS3_AATAGAGAGAAGGGAT-1	Root	Whole root	Unknown	Unknown	0.648321	True	Unknown	Unknown	0.63869	True	Unknow	Unknow	Unknow
+4680	CS3_AATAGAGAGCTTTGTG-1	CS3_AATAGAGAGCTTTGTG-1	Root	Whole root	Unknown	Unknown	0.789164	True	Unknown	Unknown	0.789999	True	S phase	Unknow	Unknow
+4687	CS3_AATCACGTCACTGGGC-1	CS3_AATCACGTCACTGGGC-1	Root	Whole root	Unknown	Epidermis	0.425678	False	Unknown	Epidermis	0.430352	False	S phase	Unknow	Non-hair
+4691	CS3_AATGAAGAGAGCAGAA-1	CS3_AATGAAGAGAGCAGAA-1	Root	Whole root	Root Hair	Root Hair	0.982275	True	Root Hair	Root Hair	0.98456	True	Root hair	Root hair	Root hair
+4695	CS3_AATGACCTCACAAGGG-1	CS3_AATGACCTCACAAGGG-1	Root	Whole root	Epidermis	Epidermis	0.604347	True	Epidermis	Epidermis	0.662483	True	Root hair	Non-hair	Non-hair
+4696	CS3_AATGACCTCGAGTCCG-1	CS3_AATGACCTCGAGTCCG-1	Root	Whole root	Unknown	Unknown	0.707144	True	Unknown	Unknown	0.762005	True	Unknow	Unknow	Unknow
+4720	CS3_ACACGCGGTTCTTCAT-1	CS3_ACACGCGGTTCTTCAT-1	Root	Whole root	Cortex	Cortex	0.382105	True	Cortex	Cortex	0.388164	True	Non-hair	Root cortex	Root cortex
+4737	CS3_ACATCCCCAGCATGCC-1	CS3_ACATCCCCAGCATGCC-1	Root	Whole root	Epidermis	Root Hair	0.59499	False	Epidermis	Root Hair	0.580704	False	Non-hair	Non-hair	Root hair
+4738	CS3_ACATCCCCATAATCCG-1	CS3_ACATCCCCATAATCCG-1	Root	Whole root	Cortex	Cortex	0.506732	True	Cortex	Cortex	0.563787	True	Unknow	Root cortex	Root cortex
+4744	CS3_ACATGCAGTCCCTGAG-1	CS3_ACATGCAGTCCCTGAG-1	Root	Whole root	Root Hair	Root Hair	0.971549	True	Root Hair	Root Hair	0.9799	True	Unknow	Root hair	Root hair
+4764	CS3_ACCCAAACACCTCGTT-1	CS3_ACCCAAACACCTCGTT-1	Root	Whole root	Unknown	Unknown	0.393919	True	Unknown	Unknown	0.43328	True	Unknow	Unknow	Unknow
+4777	CS3_ACCTACCAGGCCCACT-1	CS3_ACCTACCAGGCCCACT-1	Root	Whole root	Cortex	Cortex	0.347387	True	Cortex	Cortex	0.360696	True	Unknow	Root cortex	Root cortex
+4787	CS3_ACCTGAATCCGGACGT-1	CS3_ACCTGAATCCGGACGT-1	Root	Whole root	Root Hair	Root Hair	0.97273	True	Root Hair	Root Hair	0.964941	True	S phase	Root hair	Root hair
+4791	CS3_ACGATCAGTATCACGT-1	CS3_ACGATCAGTATCACGT-1	Root	Whole root	Unknown	Unknown	0.309547	True	Unknown	Unknown	0.292889	True	Unknow	Unknow	Unknow
+4794	CS3_ACGGGTCCAGATTCGT-1	CS3_ACGGGTCCAGATTCGT-1	Root	Whole root	Endodermis	Endodermis	0.889738	True	Endodermis	Endodermis	0.866622	True	Non-hair	Root endodermis	Root endodermis
+4798	CS3_ACGGTCGTCCTACACC-1	CS3_ACGGTCGTCCTACACC-1	Root	Whole root	Unknown	Cortex	0.813472	False	Unknown	Cortex	0.747014	False	Root cortex	Unknow	Root cortex
+4799	CS3_ACGGTCGTCTCGGTAA-1	CS3_ACGGTCGTCTCGGTAA-1	Root	Whole root	Epidermis	Meristems	0.675408	False	Epidermis	Meristems	0.618212	False	S phase	Non-hair	__outside_direct_map__
+4800	CS3_ACGGTCGTCTGGGCGT-1	CS3_ACGGTCGTCTGGGCGT-1	Root	Whole root	Epidermis	Epidermis	0.41445	True	Epidermis	Epidermis	0.416722	True	S phase	Non-hair	Non-hair
+4820	CS3_ACTATCTCACAATGCT-1	CS3_ACTATCTCACAATGCT-1	Root	Whole root	Unknown	Endodermis	0.75732	False	Unknown	Endodermis	0.725661	False	S phase	Unknow	Root endodermis
+4822	CS3_ACTATCTGTCATAACC-1	CS3_ACTATCTGTCATAACC-1	Root	Whole root	Epidermis	Epidermis	0.595172	True	Epidermis	Epidermis	0.594301	True	Lateral root cap	Non-hair	Non-hair
+4832	CS3_ACTGCAATCCTGCCAT-1	CS3_ACTGCAATCCTGCCAT-1	Root	Whole root	Epidermis	Unknown	0.288908	False	Epidermis	Pericycle	0.266689	False	S phase	Non-hair	Unknow
+4835	CS3_ACTTATCAGGTTCTTG-1	CS3_ACTTATCAGGTTCTTG-1	Root	Whole root	Epidermis	Meristems	0.400974	False	Epidermis	Phloem	0.497957	False	G1/G0 phase	Non-hair	__outside_direct_map__
+4843	CS3_ACTTCCGTCCTACACC-1	CS3_ACTTCCGTCCTACACC-1	Root	Whole root	Epidermis	Cortex	0.355132	False	Epidermis	Cortex	0.339282	False	Unknow	Non-hair	Root cortex
+4845	CS3_ACTTTCAAGAGTCAGC-1	CS3_ACTTTCAAGAGTCAGC-1	Root	Whole root	Unknown	Unknown	0.503726	True	Unknown	Unknown	0.600673	True	S phase	Unknow	Unknow
+4850	CS3_ACTTTCAGTATCCTCC-1	CS3_ACTTTCAGTATCCTCC-1	Root	Whole root	Unknown	Epidermis	0.371023	False	Unknown	Epidermis	0.379905	False	Unknow	Unknow	Non-hair
+4862	CS3_AGAACAATCGAAGAAT-1	CS3_AGAACAATCGAAGAAT-1	Root	Whole root	Root Hair	Root Hair	0.966963	True	Root Hair	Root Hair	0.971312	True	Root hair	Root hair	Root hair
+4867	CS3_AGACAAAGTTTGAACC-1	CS3_AGACAAAGTTTGAACC-1	Root	Whole root	Xylem	Xylem	0.986118	True	Xylem	Xylem	0.988359	True	Unknow	Xylem	Xylem
+4870	CS3_AGACACTAGCCATTCA-1	CS3_AGACACTAGCCATTCA-1	Root	Whole root	Unknown	Unknown	0.386654	True	Unknown	Unknown	0.35265	True	S phase	Unknow	Unknow
+4872	CS3_AGACACTCAAACCATC-1	CS3_AGACACTCAAACCATC-1	Root	Whole root	Phloem	Meristems	0.645591	False	Phloem	Meristems	0.61208	False	G1/G0 phase	Phloem	__outside_direct_map__
+4874	CS3_AGACACTTCGATTGAC-1	CS3_AGACACTTCGATTGAC-1	Root	Whole root	Unknown	Endodermis	0.473102	False	Unknown	Endodermis	0.408764	False	Root cortex	Unknow	Root endodermis
+4876	CS3_AGACAGGGTGAAGCTG-1	CS3_AGACAGGGTGAAGCTG-1	Root	Whole root	Unknown	Epidermis	0.614302	False	Unknown	Epidermis	0.580713	False	Unknow	Unknow	Non-hair
+4885	CS3_AGACTCACACACGTGC-1	CS3_AGACTCACACACGTGC-1	Root	Whole root	Cortex	Epidermis	0.379559	False	Cortex	Cortex	0.358998	True	Unknow	Root cortex	Non-hair
+4892	CS3_AGATAGAAGACTCTTG-1	CS3_AGATAGAAGACTCTTG-1	Root	Whole root	Unknown	Pericycle	0.498549	False	Unknown	Pericycle	0.478467	False	Non-hair	Unknow	__outside_direct_map__
+4895	CS3_AGATAGAGTATCCCTC-1	CS3_AGATAGAGTATCCCTC-1	Root	Whole root	Endodermis	Endodermis	0.514453	True	Endodermis	Endodermis	0.512919	True	Root cortex	Root endodermis	Root endodermis
+4901	CS3_AGATGAAGTATACGGG-1	CS3_AGATGAAGTATACGGG-1	Root	Whole root	Xylem	Xylem	0.98834	True	Xylem	Xylem	0.990494	True	Unknow	Xylem	Xylem
+4902	CS3_AGATGAAGTGACTGAG-1	CS3_AGATGAAGTGACTGAG-1	Root	Whole root	Epidermis	Root Hair	0.245866	False	Epidermis	Root Hair	0.270403	False	Unknow	Non-hair	Root hair
+4907	CS3_AGCATCATCCGATAAC-1	CS3_AGCATCATCCGATAAC-1	Root	Whole root	Unknown	Unknown	0.410963	True	Unknown	Unknown	0.409109	True	Unknow	Unknow	Unknow
+4909	CS3_AGCATCATCTTCCGTG-1	CS3_AGCATCATCTTCCGTG-1	Root	Whole root	Xylem	Xylem	0.989929	True	Xylem	Xylem	0.992563	True	Unknow	Xylem	Xylem
+4910	CS3_AGCCAATCAAGAGTGC-1	CS3_AGCCAATCAAGAGTGC-1	Root	Whole root	Cortex	Provascular cells	0.242538	False	Cortex	Cortex	0.256466	True	Non-hair	Root cortex	__outside_direct_map__
+4935	CS3_AGCGTATGTTCTCTCG-1	CS3_AGCGTATGTTCTCTCG-1	Root	Whole root	Cortex	Cortex	0.570641	True	Cortex	Cortex	0.528947	True	S phase	Root cortex	Root cortex
+4938	CS3_AGCTACAGTGCCTGCA-1	CS3_AGCTACAGTGCCTGCA-1	Root	Whole root	Epidermis	Meristems	0.956944	False	Epidermis	Meristems	0.957126	False	S phase	Non-hair	__outside_direct_map__
+4942	CS3_AGCTCAAGTCCATACA-1	CS3_AGCTCAAGTCCATACA-1	Root	Whole root	Unknown	Cortex	0.323054	False	Unknown	Cortex	0.341091	False	Unknow	Unknow	Root cortex
+4949	CS3_AGGAAATAGGAATTAC-1	CS3_AGGAAATAGGAATTAC-1	Root	Whole root	Unknown	Unknown	0.719488	True	Unknown	Unknown	0.716983	True	S phase	Unknow	Unknow
+4953	CS3_AGGAATAAGAGCTGAC-1	CS3_AGGAATAAGAGCTGAC-1	Root	Whole root	Cortex	Cortex	0.885838	True	Cortex	Cortex	0.890925	True	Root cortex	Root cortex	Root cortex
+4962	CS3_AGGATAAGTCGAGTGA-1	CS3_AGGATAAGTCGAGTGA-1	Root	Whole root	Root Hair	Root Hair	0.986816	True	Root Hair	Root Hair	0.989835	True	Root hair	Root hair	Root hair
+4982	CS3_AGGGCCTGTAATTGGA-1	CS3_AGGGCCTGTAATTGGA-1	Root	Whole root	Endodermis	Endodermis	0.87895	True	Endodermis	Endodermis	0.90282	True	Unknow	Root endodermis	Root endodermis
+5000	CS3_AGGTCATCATCAGTGT-1	CS3_AGGTCATCATCAGTGT-1	Root	Whole root	Unknown	Cortex	0.548458	False	Unknown	Cortex	0.588397	False	Unknow	Unknow	Root cortex
+5006	CS3_AGGTTACCACTACAGT-1	CS3_AGGTTACCACTACAGT-1	Root	Whole root	Xylem	Xylem	0.459648	True	Xylem	Xylem	0.506432	True	Unknow	Xylem	Xylem
+5031	CS3_AGTCATGGTTACGTAC-1	CS3_AGTCATGGTTACGTAC-1	Root	Whole root	Cortex	Epidermis	0.442556	False	Cortex	Epidermis	0.367113	False	Unknow	Root cortex	Non-hair
+5033	CS3_AGTCTCCGTGTTCATG-1	CS3_AGTCTCCGTGTTCATG-1	Root	Whole root	Root Hair	Root Hair	0.975432	True	Root Hair	Root Hair	0.979267	True	Root hair	Root hair	Root hair
+5037	CS3_AGTGACTCAGCGAACA-1	CS3_AGTGACTCAGCGAACA-1	Root	Whole root	Cortex	Cortex	0.400597	True	Cortex	Cortex	0.403288	True	Unknow	Root cortex	Root cortex
+5038	CS3_AGTGACTGTGCCTTTC-1	CS3_AGTGACTGTGCCTTTC-1	Root	Whole root	Xylem	Xylem	0.934615	True	Xylem	Xylem	0.941891	True	Unknow	Xylem	Xylem
+5049	CS3_AGTGTTGGTGCATGAG-1	CS3_AGTGTTGGTGCATGAG-1	Root	Whole root	Unknown	Unknown	0.436164	True	Unknown	Unknown	0.428184	True	Unknow	Unknow	Unknow
+5064	CS3_ATACCTTCAAGCTACT-1	CS3_ATACCTTCAAGCTACT-1	Root	Whole root	Epidermis	Unknown	0.521606	False	Epidermis	Unknown	0.576114	False	S phase	Non-hair	Unknow
+5065	CS3_ATACCTTCAGCATACT-1	CS3_ATACCTTCAGCATACT-1	Root	Whole root	Cortex	Epidermis	0.284842	False	Cortex	Epidermis	0.296679	False	S phase	Root cortex	Non-hair
+5067	CS3_ATACCTTTCAGTCAGT-1	CS3_ATACCTTTCAGTCAGT-1	Root	Whole root	Cortex	Cortex	0.950961	True	Cortex	Cortex	0.949327	True	Non-hair	Root cortex	Root cortex
+5073	CS3_ATACTTCTCTTACCAT-1	CS3_ATACTTCTCTTACCAT-1	Root	Whole root	Epidermis	Epidermis	0.353916	True	Epidermis	Epidermis	0.352486	True	Non-hair	Non-hair	Non-hair
+5078	CS3_ATAGAGAAGTTTCGGT-1	CS3_ATAGAGAAGTTTCGGT-1	Root	Whole root	Epidermis	Root Hair	0.80286	False	Epidermis	Root Hair	0.820917	False	Unknow	Non-hair	Root hair
+5089	CS3_ATCACGACAACTAGAA-1	CS3_ATCACGACAACTAGAA-1	Root	Whole root	Unknown	Unknown	0.520599	True	Unknown	Unknown	0.546497	True	Unknow	Unknow	Unknow
+5102	CS3_ATCATTCTCTGCGGCA-1	CS3_ATCATTCTCTGCGGCA-1	Root	Whole root	Unknown	Unknown	0.548282	True	Unknown	Unknown	0.549299	True	S phase	Unknow	Unknow
+5106	CS3_ATCCATTCAGCTCGGT-1	CS3_ATCCATTCAGCTCGGT-1	Root	Whole root	Cortex	Epidermis	0.500347	False	Cortex	Epidermis	0.550961	False	Unknow	Root cortex	Non-hair
+5108	CS3_ATCCATTTCCTGTTGC-1	CS3_ATCCATTTCCTGTTGC-1	Root	Whole root	Unknown	Endodermis/Phloem	0.839719	False	Unknown	Endodermis/Phloem	0.825215	False	Non-hair	Unknow	__outside_direct_map__
+5122	CS3_ATCGGATTCTTGCAGA-1	CS3_ATCGGATTCTTGCAGA-1	Root	Whole root	Unknown	Unknown	0.563811	True	Unknown	Unknown	0.624453	True	S phase	Unknow	Unknow
+5158	CS3_ATGCCTCCATAGCTGT-1	CS3_ATGCCTCCATAGCTGT-1	Root	Whole root	Epidermis	Epidermis	0.617471	True	Epidermis	Epidermis	0.620884	True	Unknow	Non-hair	Non-hair
+5161	CS3_ATGCGATGTCGAGCTC-1	CS3_ATGCGATGTCGAGCTC-1	Root	Whole root	Unknown	Cortex	0.626826	False	Unknown	Cortex	0.661666	False	Unknow	Unknow	Root cortex
+5162	CS3_ATGGAGGAGAAACTGT-1	CS3_ATGGAGGAGAAACTGT-1	Root	Whole root	Root Hair	Root Hair	0.98039	True	Root Hair	Root Hair	0.980122	True	S phase	Root hair	Root hair
+5179	CS3_ATGTCTTTCTACGGGC-1	CS3_ATGTCTTTCTACGGGC-1	Root	Whole root	Endodermis	Endodermis	0.718689	True	Endodermis	Endodermis	0.631707	True	Unknow	Root endodermis	Root endodermis
+5181	CS3_ATTACCTCATCATCTT-1	CS3_ATTACCTCATCATCTT-1	Root	Whole root	Unknown	Endodermis	0.396439	False	Unknown	Endodermis	0.335718	False	Unknow	Unknow	Root endodermis
+5183	CS3_ATTACCTGTAGCGTTT-1	CS3_ATTACCTGTAGCGTTT-1	Root	Whole root	Xylem	Xylem	0.989496	True	Xylem	Xylem	0.991683	True	Unknow	Xylem	Xylem
+5195	CS3_ATTCCATAGCTGCCAC-1	CS3_ATTCCATAGCTGCCAC-1	Root	Whole root	Epidermis	Epidermis	0.246449	True	Epidermis	Epidermis	0.275181	True	Lateral root cap	Non-hair	Non-hair
+5201	CS3_ATTCCCGAGCTCGTGC-1	CS3_ATTCCCGAGCTCGTGC-1	Root	Whole root	Unknown	Unknown	0.358987	True	Unknown	Unknown	0.337505	True	S phase	Unknow	Unknow
+5206	CS3_ATTCCTAAGCGGATCA-1	CS3_ATTCCTAAGCGGATCA-1	Root	Whole root	Cortex	Cortex	0.426965	True	Cortex	Cortex	0.401487	True	Unknow	Root cortex	Root cortex
+5209	CS3_ATTCGTTTCTCGTTTA-1	CS3_ATTCGTTTCTCGTTTA-1	Root	Whole root	Unknown	Unknown	0.580924	True	Unknown	Unknown	0.583051	True	Unknow	Unknow	Unknow
+5217	CS3_ATTGGGTCACAGTCAT-1	CS3_ATTGGGTCACAGTCAT-1	Root	Whole root	Endodermis	Endodermis	0.957408	True	Endodermis	Endodermis	0.948669	True	Unknow	Root endodermis	Root endodermis
+5224	CS3_CAACAACCAAGCAATA-1	CS3_CAACAACCAAGCAATA-1	Root	Whole root	Root Hair	Root Hair	0.980814	True	Root Hair	Root Hair	0.984934	True	Root hair	Root hair	Root hair
+5233	CS3_CAACCTCCACACGGTC-1	CS3_CAACCTCCACACGGTC-1	Root	Whole root	Epidermis	Endodermis	0.247411	False	Epidermis	Epidermis	0.199204	True	Unknow	Non-hair	Root endodermis
+5234	CS3_CAACCTCTCAACCTCC-1	CS3_CAACCTCTCAACCTCC-1	Root	Whole root	Phloem	Meristems	0.770567	False	Phloem	Meristems	0.775056	False	G1/G0 phase	Phloem	__outside_direct_map__
+5241	CS3_CAACGGCTCGGCTTCT-1	CS3_CAACGGCTCGGCTTCT-1	Root	Whole root	Unknown	Epidermis	0.461882	False	Unknown	Epidermis	0.464659	False	Unknow	Unknow	Non-hair
+5243	CS3_CAAGAGGTCTGGAGAG-1	CS3_CAAGAGGTCTGGAGAG-1	Root	Whole root	Unknown	Cortex	0.361677	False	Unknown	Cortex	0.366376	False	Unknow	Unknow	Root cortex
+5245	CS3_CAAGCTACATGGAACG-1	CS3_CAAGCTACATGGAACG-1	Root	Whole root	Epidermis	Epidermis	0.441959	True	Epidermis	Cortex	0.369091	False	Unknow	Non-hair	Non-hair
+5292	CS3_CACGTGGCAAGATTGA-1	CS3_CACGTGGCAAGATTGA-1	Root	Whole root	Unknown	Unknown	0.372282	True	Unknown	Unknown	0.401527	True	S phase	Unknow	Unknow
+5303	CS3_CACTGGGGTAGGCTCC-1	CS3_CACTGGGGTAGGCTCC-1	Root	Whole root	Unknown	Epidermis	0.607366	False	Unknown	Epidermis	0.618808	False	Unknow	Unknow	Non-hair
+5306	CS3_CACTGTCGTAGTGTGG-1	CS3_CACTGTCGTAGTGTGG-1	Root	Whole root	Root Hair	Epidermis	0.536782	False	Root Hair	Epidermis	0.548893	False	Unknow	Root hair	Non-hair
+5312	CS3_CAGAGCCGTCTACGAT-1	CS3_CAGAGCCGTCTACGAT-1	Root	Whole root	Xylem	Xylem	0.990029	True	Xylem	Xylem	0.990841	True	Unknow	Xylem	Xylem
+5322	CS3_CAGCAATCATTCAGCA-1	CS3_CAGCAATCATTCAGCA-1	Root	Whole root	Unknown	Endodermis	0.321206	False	Unknown	Endodermis/Phloem	0.287247	False	Unknow	Unknow	Root endodermis
+5326	CS3_CAGCACGGTTGCATCA-1	CS3_CAGCACGGTTGCATCA-1	Root	Whole root	Unknown	Epidermis	0.456253	False	Unknown	Epidermis	0.37116	False	S phase	Unknow	Non-hair
+5335	CS3_CAGGGCTTCATGGTAC-1	CS3_CAGGGCTTCATGGTAC-1	Root	Whole root	Epidermis	Cortex	0.533051	False	Epidermis	Cortex	0.56305	False	S phase	Non-hair	Root cortex
+5349	CS3_CATACAGGTATGCGTT-1	CS3_CATACAGGTATGCGTT-1	Root	Whole root	Unknown	Unknown	0.699899	True	Unknown	Unknown	0.78201	True	Unknow	Unknow	Unknow
+5352	CS3_CATACAGTCTACACTT-1	CS3_CATACAGTCTACACTT-1	Root	Whole root	Unknown	Unknown	0.710402	True	Unknown	Unknown	0.701476	True	Root hair	Unknow	Unknow
+5355	CS3_CATACCCCACCTCGTT-1	CS3_CATACCCCACCTCGTT-1	Root	Whole root	Cortex	Cortex	0.640957	True	Cortex	Cortex	0.544501	True	Unknow	Root cortex	Root cortex
+5356	CS3_CATACCCTCTAGAACC-1	CS3_CATACCCTCTAGAACC-1	Root	Whole root	Unknown	Xylem	0.75669	False	Unknown	Xylem	0.694067	False	Lateral root cap	Unknow	Xylem
+5364	CS3_CATAGACAGCGCCTAC-1	CS3_CATAGACAGCGCCTAC-1	Root	Whole root	Epidermis	Epidermis	0.5594	True	Epidermis	Epidermis	0.613918	True	Unknow	Non-hair	Non-hair
+5367	CS3_CATAGACTCTCCGCAT-1	CS3_CATAGACTCTCCGCAT-1	Root	Whole root	Unknown	Unknown	0.299773	True	Unknown	Unknown	0.316061	True	Unknow	Unknow	Unknow
+5382	CS3_CATCGGGGTCGGTACC-1	CS3_CATCGGGGTCGGTACC-1	Root	Whole root	Epidermis	Endodermis	0.524222	False	Epidermis	Endodermis	0.515014	False	Unknow	Non-hair	Root endodermis
+5389	CS3_CATGAGTAGTGTTCCA-1	CS3_CATGAGTAGTGTTCCA-1	Root	Whole root	Unknown	Unknown	0.338986	True	Unknown	Unknown	0.354068	True	Unknow	Unknow	Unknow
+5393	CS3_CATGCCTGTGAGTAAT-1	CS3_CATGCCTGTGAGTAAT-1	Root	Whole root	Epidermis	Epidermis	0.301958	True	Epidermis	Epidermis	0.287439	True	Non-hair	Non-hair	Non-hair
+5402	CS3_CATGGATGTGGGACAT-1	CS3_CATGGATGTGGGACAT-1	Root	Whole root	Unknown	Cortex	0.458953	False	Unknown	Unknown	0.405293	True	Unknow	Unknow	Root cortex
+5418	CS3_CATTGCCTCTGAATGC-1	CS3_CATTGCCTCTGAATGC-1	Root	Whole root	Cortex	Dividing Cells	0.609628	False	Cortex	Dividing Cells	0.654675	False	Root hair	Root cortex	__outside_direct_map__
+5435	CS3_CCACACTCACGGCTAC-1	CS3_CCACACTCACGGCTAC-1	Root	Whole root	Unknown	Xylem	0.983194	False	Unknown	Xylem	0.981817	False	Lateral root cap	Unknow	Xylem
+5446	CS3_CCACGTTCACAGCCTG-1	CS3_CCACGTTCACAGCCTG-1	Root	Whole root	Unknown	Cortex	0.696461	False	Unknown	Cortex	0.760779	False	Unknow	Unknow	Root cortex
+5452	CS3_CCATCACCAGGGACTA-1	CS3_CCATCACCAGGGACTA-1	Root	Whole root	Epidermis	Phloem	0.757666	False	Epidermis	Phloem	0.733845	False	S phase	Non-hair	Phloem
+5456	CS3_CCCAACTAGGGCCCTT-1	CS3_CCCAACTAGGGCCCTT-1	Root	Whole root	Cortex	Xylem	0.337925	False	Cortex	Xylem	0.316966	False	Unknow	Root cortex	Xylem
+5459	CS3_CCCAACTTCCGATCTC-1	CS3_CCCAACTTCCGATCTC-1	Root	Whole root	Epidermis	Cortex	0.710664	False	Epidermis	Cortex	0.658911	False	Unknow	Non-hair	Root cortex
+5464	CS3_CCCGAAGAGATACGAT-1	CS3_CCCGAAGAGATACGAT-1	Root	Whole root	Unknown	Unknown	0.690914	True	Unknown	Unknown	0.664472	True	Unknow	Unknow	Unknow
+5486	CS3_CCCTTAGCAAATGAAC-1	CS3_CCCTTAGCAAATGAAC-1	Root	Whole root	Epidermis	Dividing Cells	0.956369	False	Epidermis	Dividing Cells	0.955999	False	S phase	Non-hair	__outside_direct_map__
+5511	CS3_CCTAAGAGTATGCAAA-1	CS3_CCTAAGAGTATGCAAA-1	Root	Whole root	Unknown	Unknown	0.347801	True	Unknown	Meristems	0.363116	False	S phase	Unknow	Unknow
+5514	CS3_CCTACGTAGGGACACT-1	CS3_CCTACGTAGGGACACT-1	Root	Whole root	Unknown	Meristems	0.63572	False	Unknown	Meristems	0.657343	False	S phase	Unknow	__outside_direct_map__
+5517	CS3_CCTACGTCACTCCTGT-1	CS3_CCTACGTCACTCCTGT-1	Root	Whole root	Unknown	Cortex	0.368645	False	Unknown	Unknown	0.321992	True	Unknow	Unknow	Root cortex
+5522	CS3_CCTCAGTAGTCACGAG-1	CS3_CCTCAGTAGTCACGAG-1	Root	Whole root	Epidermis	Provascular cells	0.77754	False	Epidermis	Provascular cells	0.77318	False	S phase	Non-hair	__outside_direct_map__
+5549	CS3_CCTTCAGAGGATACAT-1	CS3_CCTTCAGAGGATACAT-1	Root	Whole root	Endodermis	Endodermis	0.734886	True	Endodermis	Endodermis	0.715345	True	Unknow	Root endodermis	Root endodermis
+5557	CS3_CGAAGGATCAGCTGAT-1	CS3_CGAAGGATCAGCTGAT-1	Root	Whole root	Epidermis	Epidermis	0.379305	True	Epidermis	Epidermis	0.293115	True	S phase	Non-hair	Non-hair
+5564	CS3_CGAATTGGTAAGATCA-1	CS3_CGAATTGGTAAGATCA-1	Root	Whole root	Root Hair	Root Hair	0.975494	True	Root Hair	Root Hair	0.979012	True	Root hair	Root hair	Root hair
+5571	CS3_CGACAGCTCAAAGGAT-1	CS3_CGACAGCTCAAAGGAT-1	Root	Whole root	Epidermis	Epidermis	0.313358	True	Epidermis	Epidermis	0.297256	True	S phase	Non-hair	Non-hair
+5572	CS3_CGACAGCTCGCCAGAC-1	CS3_CGACAGCTCGCCAGAC-1	Root	Whole root	Root Hair	Endodermis/Phloem	0.991933	False	Root Hair	Endodermis/Phloem	0.992264	False	Root hair	Root hair	__outside_direct_map__
+5591	CS3_CGCATGGCAGGCCTGT-1	CS3_CGCATGGCAGGCCTGT-1	Root	Whole root	Unknown	Endodermis	0.304558	False	Unknown	Unknown	0.256267	True	Unknow	Unknow	Root endodermis
+5596	CS3_CGGAATTCAGCATCTA-1	CS3_CGGAATTCAGCATCTA-1	Root	Whole root	Unknown	Endodermis	0.330141	False	Unknown	Endodermis	0.301509	False	Unknow	Unknow	Root endodermis
+5598	CS3_CGGAATTGTATTCTCT-1	CS3_CGGAATTGTATTCTCT-1	Root	Whole root	Unknown	Pericycle	0.397028	False	Unknown	Pericycle	0.356804	False	Unknow	Unknow	__outside_direct_map__
+5612	CS3_CGGGCATGTGGAAGTC-1	CS3_CGGGCATGTGGAAGTC-1	Root	Whole root	Epidermis	Provascular cells	0.303285	False	Epidermis	Provascular cells	0.34848	False	Non-hair	Non-hair	__outside_direct_map__
+5614	CS3_CGGGTGTAGGAACGCT-1	CS3_CGGGTGTAGGAACGCT-1	Root	Whole root	Root Hair	Root Hair	0.987035	True	Root Hair	Root Hair	0.985428	True	Root hair	Root hair	Root hair
+5621	CS3_CGTAAGTAGGTTAGTA-1	CS3_CGTAAGTAGGTTAGTA-1	Root	Whole root	Cortex	Epidermis	0.289	False	Cortex	Epidermis	0.282937	False	S phase	Root cortex	Non-hair
+5625	CS3_CGTAATGAGGTTGGAC-1	CS3_CGTAATGAGGTTGGAC-1	Root	Whole root	Epidermis	Epidermis	0.395665	True	Epidermis	Epidermis	0.46793	True	Unknow	Non-hair	Non-hair
+5626	CS3_CGTAATGGTAGGCAAC-1	CS3_CGTAATGGTAGGCAAC-1	Root	Whole root	Unknown	Unknown	0.850918	True	Unknown	Unknown	0.844775	True	Unknow	Unknow	Unknow
+5634	CS3_CGTGAATCACAAGTGG-1	CS3_CGTGAATCACAAGTGG-1	Root	Whole root	Unknown	Endodermis/Phloem	0.830981	False	Unknown	Endodermis/Phloem	0.775007	False	Unknow	Unknow	__outside_direct_map__
+5647	CS3_CTAACCCAGGAGGGTG-1	CS3_CTAACCCAGGAGGGTG-1	Root	Whole root	Cortex	Cortex	0.920586	True	Cortex	Cortex	0.925204	True	Non-hair	Root cortex	Root cortex
+5656	CS3_CTACAGAAGCCATTCA-1	CS3_CTACAGAAGCCATTCA-1	Root	Whole root	Epidermis	Root Hair	0.558326	False	Epidermis	Root Hair	0.567638	False	Unknow	Non-hair	Root hair
+5665	CS3_CTACCTGAGGTAACTA-1	CS3_CTACCTGAGGTAACTA-1	Root	Whole root	Unknown	Dividing Cells	0.367972	False	Unknown	Dividing Cells	0.359231	False	Non-hair	Unknow	__outside_direct_map__
+5666	CS3_CTACCTGGTGGTCTTA-1	CS3_CTACCTGGTGGTCTTA-1	Root	Whole root	Epidermis	Dividing Cells	0.441348	False	Epidermis	Dividing Cells	0.492099	False	S phase	Non-hair	__outside_direct_map__
+5667	CS3_CTACCTGGTGTCATGT-1	CS3_CTACCTGGTGTCATGT-1	Root	Whole root	Root Hair	Root Hair	0.976151	True	Root Hair	Root Hair	0.982491	True	Unknow	Root hair	Root hair
+5670	CS3_CTACGGGGTATGTCTG-1	CS3_CTACGGGGTATGTCTG-1	Root	Whole root	Unknown	Endodermis	0.499187	False	Unknown	Endodermis	0.519156	False	Unknow	Unknow	Root endodermis
+5672	CS3_CTACGGGGTGGCAACA-1	CS3_CTACGGGGTGGCAACA-1	Root	Whole root	Cortex	Cortex	0.506647	True	Cortex	Cortex	0.508356	True	Unknow	Root cortex	Root cortex
+5687	CS3_CTATCCGAGGGCAAGG-1	CS3_CTATCCGAGGGCAAGG-1	Root	Whole root	Epidermis	Epidermis	0.529169	True	Epidermis	Epidermis	0.49416	True	Unknow	Non-hair	Non-hair
+5694	CS3_CTATCTAGTCACCTTC-1	CS3_CTATCTAGTCACCTTC-1	Root	Whole root	Unknown	Unknown	0.617694	True	Unknown	Unknown	0.695317	True	Lateral root cap	Unknow	Unknow
+5698	CS3_CTCAAGAAGCTCGTGC-1	CS3_CTCAAGAAGCTCGTGC-1	Root	Whole root	Root Hair	Root Hair	0.662424	True	Root Hair	Root Hair	0.624893	True	Root hair	Root hair	Root hair
+5708	CS3_CTCAGGGGTCTTGTCC-1	CS3_CTCAGGGGTCTTGTCC-1	Root	Whole root	Endodermis	Provascular cells	0.337358	False	Endodermis	Dividing Cells	0.393172	False	S phase	Root endodermis	__outside_direct_map__
+5710	CS3_CTCATTAAGGCGCTTC-1	CS3_CTCATTAAGGCGCTTC-1	Root	Whole root	Unknown	Provascular cells	0.317463	False	Unknown	Provascular cells	0.289559	False	S phase	Unknow	__outside_direct_map__
+5716	CS3_CTCCAACGTGTTTGCA-1	CS3_CTCCAACGTGTTTGCA-1	Root	Whole root	Epidermis	Epidermis	0.408576	True	Epidermis	Epidermis	0.367919	True	Non-hair	Non-hair	Non-hair
+5722	CS3_CTCCATGAGAATCGCG-1	CS3_CTCCATGAGAATCGCG-1	Root	Whole root	Cortex	Root Hair	0.747753	False	Cortex	Root Hair	0.818	False	Root cortex	Root cortex	Root hair
+5741	CS3_CTCCTTTTCTCTATAC-1	CS3_CTCCTTTTCTCTATAC-1	Root	Whole root	Xylem	Xylem	0.980268	True	Xylem	Xylem	0.981348	True	Unknow	Xylem	Xylem
+5750	CS3_CTCTGGTAGCCTGTGC-1	CS3_CTCTGGTAGCCTGTGC-1	Root	Whole root	Root Hair	Endodermis/Phloem	0.44771	False	Root Hair	Endodermis/Phloem	0.504809	False	Non-hair	Root hair	__outside_direct_map__
+5754	CS3_CTGAATGGTCGAGCTC-1	CS3_CTGAATGGTCGAGCTC-1	Root	Whole root	Epidermis	Epidermis	0.484907	True	Epidermis	Epidermis	0.460677	True	Unknow	Non-hair	Non-hair
+5761	CS3_CTGAGGCAGCGTGTCC-1	CS3_CTGAGGCAGCGTGTCC-1	Root	Whole root	Unknown	Epidermis	0.566587	False	Unknown	Epidermis	0.465463	False	S phase	Unknow	Non-hair
+5770	CS3_CTGCAGGAGTTGGAGC-1	CS3_CTGCAGGAGTTGGAGC-1	Root	Whole root	Epidermis	Unknown	0.467256	False	Epidermis	Unknown	0.556588	False	S phase	Non-hair	Unknow
+5771	CS3_CTGCAGGGTAGAGATT-1	CS3_CTGCAGGGTAGAGATT-1	Root	Whole root	Epidermis	Epidermis	0.562964	True	Epidermis	Epidermis	0.558364	True	Unknow	Non-hair	Non-hair
+5774	CS3_CTGCATCCAGCGTACC-1	CS3_CTGCATCCAGCGTACC-1	Root	Whole root	Root Hair	Root Hair	0.93821	True	Root Hair	Root Hair	0.93939	True	Unknow	Root hair	Root hair
+5801	CS3_CTGTACCGTCGACTTA-1	CS3_CTGTACCGTCGACTTA-1	Root	Whole root	Unknown	Unknown	0.820312	True	Unknown	Unknown	0.822507	True	S phase	Unknow	Unknow
+5806	CS3_CTGTATTGTCATATGC-1	CS3_CTGTATTGTCATATGC-1	Root	Whole root	Epidermis	Root Hair	0.258359	False	Epidermis	Root Hair	0.267041	False	Unknow	Non-hair	Root hair
+5810	CS3_CTGTCGTAGGCTCACC-1	CS3_CTGTCGTAGGCTCACC-1	Root	Whole root	Unknown	Pericycle	0.414155	False	Unknown	Pericycle	0.390106	False	Unknow	Unknow	__outside_direct_map__
+5818	CS3_CTGTGAAGTTGGCTAT-1	CS3_CTGTGAAGTTGGCTAT-1	Root	Whole root	Root Hair	Root Hair	0.963213	True	Root Hair	Root Hair	0.955335	True	Root hair	Root hair	Root hair
+5823	CS3_CTTACCGCACCTGAAT-1	CS3_CTTACCGCACCTGAAT-1	Root	Whole root	Unknown	Dividing Cells	0.575054	False	Unknown	Dividing Cells	0.563683	False	Root hair	Unknow	__outside_direct_map__
+5828	CS3_CTTCCGATCATGGTAC-1	CS3_CTTCCGATCATGGTAC-1	Root	Whole root	Root Hair	Root Hair	0.800314	True	Root Hair	Root Hair	0.852285	True	Root hair	Root hair	Root hair
+5835	CS3_CTTCCTTTCCAGCACG-1	CS3_CTTCCTTTCCAGCACG-1	Root	Whole root	Epidermis	Epidermis	0.504773	True	Epidermis	Epidermis	0.416914	True	Root hair	Non-hair	Non-hair
+5845	CS3_CTTCTCTTCCACACCT-1	CS3_CTTCTCTTCCACACCT-1	Root	Whole root	Unknown	Unknown	0.416945	True	Unknown	Unknown	0.427709	True	Unknow	Unknow	Unknow
+5847	CS3_CTTGAGAAGTCTGGTT-1	CS3_CTTGAGAAGTCTGGTT-1	Root	Whole root	Cortex	Cortex	0.59526	True	Cortex	Cortex	0.626186	True	Root hair	Root cortex	Root cortex
+5848	CS3_CTTGAGACATCGATGT-1	CS3_CTTGAGACATCGATGT-1	Root	Whole root	Endodermis	Xylem	0.891304	False	Endodermis	Xylem	0.890566	False	Unknow	Root endodermis	Xylem
+5855	CS3_CTTTCAATCCTAGCTC-1	CS3_CTTTCAATCCTAGCTC-1	Root	Whole root	Epidermis	Epidermis	0.502213	True	Epidermis	Epidermis	0.420128	True	Unknow	Non-hair	Non-hair
+5862	CS3_GAAGCCCCATCCTTCG-1	CS3_GAAGCCCCATCCTTCG-1	Root	Whole root	Unknown	Unknown	0.494503	True	Unknown	Unknown	0.486128	True	Unknow	Unknow	Unknow
+5875	CS3_GAATCGTTCCTCTGCA-1	CS3_GAATCGTTCCTCTGCA-1	Root	Whole root	Epidermis	Meristems	0.835904	False	Epidermis	Meristems	0.861572	False	S phase	Non-hair	__outside_direct_map__
+5876	CS3_GACACGCAGACCAACG-1	CS3_GACACGCAGACCAACG-1	Root	Whole root	Unknown	Root Hair	0.455326	False	Unknown	Root Hair	0.458335	False	Non-hair	Unknow	Root hair
+5894	CS3_GACGTTATCCTGGCTT-1	CS3_GACGTTATCCTGGCTT-1	Root	Whole root	Cortex	Meristems	0.88216	False	Cortex	Meristems	0.822666	False	Unknow	Root cortex	__outside_direct_map__
+5895	CS3_GACTATGCACAGACGA-1	CS3_GACTATGCACAGACGA-1	Root	Whole root	Unknown	Unknown	0.820958	True	Unknown	Unknown	0.796947	True	Unknow	Unknow	Unknow
+5897	CS3_GACTCAAAGTCTCTGA-1	CS3_GACTCAAAGTCTCTGA-1	Root	Whole root	Epidermis	Epidermis	0.508877	True	Epidermis	Epidermis	0.497814	True	Unknow	Non-hair	Non-hair
+5904	CS3_GACTGATCAATCTCTT-1	CS3_GACTGATCAATCTCTT-1	Root	Whole root	Cortex	Pericycle	0.328136	False	Cortex	Unknown	0.376269	False	Unknow	Root cortex	__outside_direct_map__
+5916	CS3_GAGATGGCAGCGCGTT-1	CS3_GAGATGGCAGCGCGTT-1	Root	Whole root	Root Hair	Cortex	0.475965	False	Root Hair	Root Hair	0.530453	True	Unknow	Root hair	Root cortex
+5921	CS3_GAGATGGTCCATATGG-1	CS3_GAGATGGTCCATATGG-1	Root	Whole root	Epidermis	Epidermis	0.65561	True	Epidermis	Epidermis	0.626805	True	Unknow	Non-hair	Non-hair
+5930	CS3_GAGGGTATCCCATAAG-1	CS3_GAGGGTATCCCATAAG-1	Root	Whole root	Cortex	Cortex	0.937107	True	Cortex	Cortex	0.943578	True	Root cortex	Root cortex	Root cortex
+5936	CS3_GAGTGAGGTTACGTAC-1	CS3_GAGTGAGGTTACGTAC-1	Root	Whole root	Unknown	Unknown	0.695369	True	Unknown	Unknown	0.679268	True	S phase	Unknow	Unknow
+5949	CS3_GATCACAGTGTGTTTG-1	CS3_GATCACAGTGTGTTTG-1	Root	Whole root	Epidermis	Meristems	0.771792	False	Epidermis	Meristems	0.769095	False	S phase	Non-hair	__outside_direct_map__
+5951	CS3_GATCACATCATCGGGC-1	CS3_GATCACATCATCGGGC-1	Root	Whole root	Epidermis	Epidermis	0.644266	True	Epidermis	Epidermis	0.657185	True	Unknow	Non-hair	Non-hair
+5954	CS3_GATCATGCAGGACGAT-1	CS3_GATCATGCAGGACGAT-1	Root	Whole root	Epidermis	Epidermis	0.700582	True	Epidermis	Epidermis	0.637385	True	S phase	Non-hair	Non-hair
+5956	CS3_GATCATGGTGTTATCG-1	CS3_GATCATGGTGTTATCG-1	Root	Whole root	Root Hair	Unknown	0.235538	False	Root Hair	Epidermis	0.250296	False	S phase	Root hair	Unknow
+5959	CS3_GATCCCTAGCCGAACA-1	CS3_GATCCCTAGCCGAACA-1	Root	Whole root	Unknown	Cortex	0.353914	False	Unknown	Cortex	0.3323	False	S phase	Unknow	Root cortex
+5986	CS3_GCAACATGTCTCAGGC-1	CS3_GCAACATGTCTCAGGC-1	Root	Whole root	Epidermis	Epidermis	0.608073	True	Epidermis	Epidermis	0.591938	True	Unknow	Non-hair	Non-hair
+5990	CS3_GCACATACAGGTTCGC-1	CS3_GCACATACAGGTTCGC-1	Root	Whole root	Epidermis	Endodermis	0.284146	False	Epidermis	Provascular cells	0.300724	False	Non-hair	Non-hair	Root endodermis
+5993	CS3_GCACGGTGTCTACGTA-1	CS3_GCACGGTGTCTACGTA-1	Root	Whole root	Epidermis	Epidermis	0.482085	True	Epidermis	Epidermis	0.470515	True	Unknow	Non-hair	Non-hair
+6013	CS3_GCATCTCTCGCACGGT-1	CS3_GCATCTCTCGCACGGT-1	Root	Whole root	Unknown	Endodermis	0.332089	False	Unknown	Endodermis	0.357159	False	Non-hair	Unknow	Root endodermis
+6021	CS3_GCCAACGGTCTCGCGA-1	CS3_GCCAACGGTCTCGCGA-1	Root	Whole root	Unknown	Unknown	0.59118	True	Unknown	Unknown	0.684334	True	Unknow	Unknow	Unknow
+6022	CS3_GCCAACGGTGCTCTCT-1	CS3_GCCAACGGTGCTCTCT-1	Root	Whole root	Root Hair	Root Hair	0.986014	True	Root Hair	Root Hair	0.988163	True	Root hair	Root hair	Root hair
+6023	CS3_GCCAACGGTTCGGTTA-1	CS3_GCCAACGGTTCGGTTA-1	Root	Whole root	Unknown	Unknown	0.75137	True	Unknown	Unknown	0.761012	True	S phase	Unknow	Unknow
+6030	CS3_GCCAGGTCAATAACCC-1	CS3_GCCAGGTCAATAACCC-1	Root	Whole root	Epidermis	Epidermis	0.603471	True	Epidermis	Epidermis	0.594971	True	Unknow	Non-hair	Non-hair
+6039	CS3_GCCATTCAGTTCGCAT-1	CS3_GCCATTCAGTTCGCAT-1	Root	Whole root	Unknown	Unknown	0.587098	True	Unknown	Unknown	0.654388	True	S phase	Unknow	Unknow
+6047	CS3_GCCGATGAGGATATAC-1	CS3_GCCGATGAGGATATAC-1	Root	Whole root	Cortex	Dividing Cells	0.686323	False	Cortex	Dividing Cells	0.550708	False	Root hair	Root cortex	__outside_direct_map__
+6050	CS3_GCCGATGCATTGGGAG-1	CS3_GCCGATGCATTGGGAG-1	Root	Whole root	Unknown	Unknown	0.57998	True	Unknown	Unknown	0.59565	True	S phase	Unknow	Unknow
+6059	CS3_GCGATCGAGGTAAGTT-1	CS3_GCGATCGAGGTAAGTT-1	Root	Whole root	Cortex	Cortex	0.532551	True	Cortex	Cortex	0.489237	True	Root cortex	Root cortex	Root cortex
+6061	CS3_GCGTGCAAGGGATCAC-1	CS3_GCGTGCAAGGGATCAC-1	Root	Whole root	Epidermis	Epidermis	0.530856	True	Epidermis	Epidermis	0.540287	True	Unknow	Non-hair	Non-hair
+6068	CS3_GCTACCTCATCAACCA-1	CS3_GCTACCTCATCAACCA-1	Root	Whole root	Epidermis	Epidermis	0.456389	True	Epidermis	Epidermis	0.376749	True	S phase	Non-hair	Non-hair
+6095	CS3_GGAATCTCAGTTTGGT-1	CS3_GGAATCTCAGTTTGGT-1	Root	Whole root	Cortex	Cortex	0.49527	True	Cortex	Cortex	0.442262	True	S phase	Root cortex	Root cortex
+6099	CS3_GGAATGGCATCAGCAT-1	CS3_GGAATGGCATCAGCAT-1	Root	Whole root	Epidermis	Epidermis	0.634023	True	Epidermis	Epidermis	0.618529	True	Unknow	Non-hair	Non-hair
+6113	CS3_GGATGTTGTTCTGACA-1	CS3_GGATGTTGTTCTGACA-1	Root	Whole root	Unknown	Epidermis	0.648987	False	Unknown	Epidermis	0.62699	False	Unknow	Unknow	Non-hair
+6115	CS3_GGCACGTAGCACCGTC-1	CS3_GGCACGTAGCACCGTC-1	Root	Whole root	Unknown	Unknown	0.284851	True	Unknown	Unknown	0.277377	True	S phase	Unknow	Unknow
+6126	CS3_GGCTGTGAGCATTGTC-1	CS3_GGCTGTGAGCATTGTC-1	Root	Whole root	Epidermis	Dividing Cells	0.775382	False	Epidermis	Dividing Cells	0.763114	False	S phase	Non-hair	__outside_direct_map__
+6127	CS3_GGCTGTGGTAGACGGT-1	CS3_GGCTGTGGTAGACGGT-1	Root	Whole root	Root Hair	Root Hair	0.966416	True	Root Hair	Root Hair	0.970133	True	S phase	Root hair	Root hair
+6128	CS3_GGCTGTGTCAAGAGGC-1	CS3_GGCTGTGTCAAGAGGC-1	Root	Whole root	Epidermis	Epidermis	0.662564	True	Epidermis	Epidermis	0.652256	True	Unknow	Non-hair	Non-hair
+6131	CS3_GGCTTGGGTGGGCTCT-1	CS3_GGCTTGGGTGGGCTCT-1	Root	Whole root	Epidermis	Cortex	0.424515	False	Epidermis	Unknown	0.409849	False	Unknow	Non-hair	Root cortex
+6132	CS3_GGCTTGGTCCAGTGCG-1	CS3_GGCTTGGTCCAGTGCG-1	Root	Whole root	Epidermis	Epidermis	0.619526	True	Epidermis	Epidermis	0.686862	True	Unknow	Non-hair	Non-hair
+6136	CS3_GGGACAACAATGTCAC-1	CS3_GGGACAACAATGTCAC-1	Root	Whole root	Cortex	Epidermis	0.393726	False	Cortex	Epidermis	0.395141	False	Unknow	Root cortex	Non-hair
+6141	CS3_GGGACCTCAGACCATT-1	CS3_GGGACCTCAGACCATT-1	Root	Whole root	Cortex	Cortex	0.545804	True	Cortex	Cortex	0.580087	True	Unknow	Root cortex	Root cortex
+6151	CS3_GGGATGAAGTCGCCCA-1	CS3_GGGATGAAGTCGCCCA-1	Root	Whole root	Unknown	Endodermis	0.485168	False	Unknown	Endodermis	0.543013	False	Unknow	Unknow	Root endodermis
+6158	CS3_GGGCGTTCACCTGAAT-1	CS3_GGGCGTTCACCTGAAT-1	Root	Whole root	Xylem	Xylem	0.983168	True	Xylem	Xylem	0.988715	True	Unknow	Xylem	Xylem
+6176	CS3_GGGTTTATCGCGATCG-1	CS3_GGGTTTATCGCGATCG-1	Root	Whole root	Cortex	Endodermis	0.404344	False	Cortex	Endodermis	0.339983	False	Unknow	Root cortex	Root endodermis
+6193	CS3_GGTGGCTGTTCTCCCA-1	CS3_GGTGGCTGTTCTCCCA-1	Root	Whole root	Epidermis	Epidermis	0.355952	True	Epidermis	Epidermis	0.342274	True	S phase	Non-hair	Non-hair
+6196	CS3_GGTGTCGGTAATGCTC-1	CS3_GGTGTCGGTAATGCTC-1	Root	Whole root	Unknown	Epidermis	0.602243	False	Unknown	Epidermis	0.573495	False	Unknow	Unknow	Non-hair
+6198	CS3_GGTGTCGGTCGTGCCA-1	CS3_GGTGTCGGTCGTGCCA-1	Root	Whole root	Unknown	Unknown	0.661164	True	Unknown	Unknown	0.688606	True	Unknow	Unknow	Unknow
+6206	CS3_GGTTCTCGTCTCGACG-1	CS3_GGTTCTCGTCTCGACG-1	Root	Whole root	Cortex	Cortex	0.395195	True	Cortex	Epidermis	0.450925	False	Unknow	Root cortex	Root cortex
+6219	CS3_GTAATGCCATAGGTAA-1	CS3_GTAATGCCATAGGTAA-1	Root	Whole root	Cortex	Cortex	0.433136	True	Cortex	Cortex	0.381089	True	Unknow	Root cortex	Root cortex
+6228	CS3_GTACAGTCATAGCACT-1	CS3_GTACAGTCATAGCACT-1	Root	Whole root	Epidermis	Pericycle	0.558872	False	Epidermis	Pericycle	0.52607	False	Unknow	Non-hair	__outside_direct_map__
+6232	CS3_GTAGAAATCGAGAGAC-1	CS3_GTAGAAATCGAGAGAC-1	Root	Whole root	Epidermis	Epidermis	0.570453	True	Epidermis	Epidermis	0.555894	True	Non-hair	Non-hair	Non-hair
+6240	CS3_GTAGCTACACCTCGTT-1	CS3_GTAGCTACACCTCGTT-1	Root	Whole root	Unknown	Unknown	0.417524	True	Unknown	Unknown	0.388574	True	Unknow	Unknow	Unknow
+6243	CS3_GTAGCTAGTTTAGACC-1	CS3_GTAGCTAGTTTAGACC-1	Root	Whole root	Unknown	Unknown	0.727948	True	Unknown	Unknown	0.687112	True	Unknow	Unknow	Unknow
+6250	CS3_GTAGTACCAGTAGAGC-1	CS3_GTAGTACCAGTAGAGC-1	Root	Whole root	Unknown	Unknown	0.785129	True	Unknown	Unknown	0.802975	True	Unknow	Unknow	Unknow
+6254	CS3_GTATTTCTCCTTACCG-1	CS3_GTATTTCTCCTTACCG-1	Root	Whole root	Cortex	Cortex	0.556149	True	Cortex	Cortex	0.624478	True	Unknow	Root cortex	Root cortex
+6264	CS3_GTCAGCGAGGCCTAGA-1	CS3_GTCAGCGAGGCCTAGA-1	Root	Whole root	Epidermis	Root Hair	0.485662	False	Epidermis	Root Hair	0.471524	False	Non-hair	Non-hair	Root hair
+6279	CS3_GTCCACTCACCTATCC-1	CS3_GTCCACTCACCTATCC-1	Root	Whole root	Unknown	Unknown	0.649974	True	Unknown	Unknown	0.625794	True	S phase	Unknow	Unknow
+6287	CS3_GTCCCATTCACTGCTC-1	CS3_GTCCCATTCACTGCTC-1	Root	Whole root	Root Hair	Root Hair	0.975056	True	Root Hair	Root Hair	0.970387	True	Unknow	Root hair	Root hair
+6291	CS3_GTCGAATTCTACGGGC-1	CS3_GTCGAATTCTACGGGC-1	Root	Whole root	Unknown	Unknown	0.672437	True	Unknown	Unknown	0.630181	True	Unknow	Unknow	Unknow
+6298	CS3_GTCTACCGTCGACGCT-1	CS3_GTCTACCGTCGACGCT-1	Root	Whole root	Unknown	Epidermis	0.687295	False	Unknown	Epidermis	0.685555	False	Unknow	Unknow	Non-hair
+6302	CS3_GTCTAGAGTGAGCGAT-1	CS3_GTCTAGAGTGAGCGAT-1	Root	Whole root	Unknown	Pericycle	0.479757	False	Unknown	Pericycle	0.463801	False	S phase	Unknow	__outside_direct_map__
+6310	CS3_GTGAGCCCAGCTTCGG-1	CS3_GTGAGCCCAGCTTCGG-1	Root	Whole root	Cortex	Endodermis	0.678443	False	Cortex	Endodermis	0.596181	False	Unknow	Root cortex	Root endodermis
+6340	CS3_GTGTGATAGCGCCTCA-1	CS3_GTGTGATAGCGCCTCA-1	Root	Whole root	Epidermis	Epidermis	0.653714	True	Epidermis	Epidermis	0.679318	True	Unknow	Non-hair	Non-hair
+6345	CS3_GTGTTAGCAGCGATTT-1	CS3_GTGTTAGCAGCGATTT-1	Root	Whole root	Epidermis	Cortex	0.561893	False	Epidermis	Root Hair	0.458204	False	Unknow	Non-hair	Root cortex
+6358	CS3_GTTACCCGTTGCTAGT-1	CS3_GTTACCCGTTGCTAGT-1	Root	Whole root	Epidermis	Epidermis	0.630158	True	Epidermis	Epidermis	0.656067	True	Unknow	Non-hair	Non-hair
+6367	CS3_GTTATGGGTAACTTCG-1	CS3_GTTATGGGTAACTTCG-1	Root	Whole root	Unknown	Unknown	0.335304	True	Unknown	Unknown	0.381154	True	Unknow	Unknow	Unknow
+6375	CS3_GTTCCGTTCTGCTTTA-1	CS3_GTTCCGTTCTGCTTTA-1	Root	Whole root	Root Hair	Endodermis/Phloem	0.875617	False	Root Hair	Endodermis/Phloem	0.878469	False	Root hair	Root hair	__outside_direct_map__
+6384	CS3_GTTGTAGAGTCTGCAT-1	CS3_GTTGTAGAGTCTGCAT-1	Root	Whole root	Unknown	Cortex	0.373864	False	Unknown	Cortex	0.395849	False	Unknow	Unknow	Root cortex
+6399	CS3_TAACACGTCGGTCGAC-1	CS3_TAACACGTCGGTCGAC-1	Root	Whole root	Endodermis	Endodermis	0.805915	True	Endodermis	Endodermis	0.797356	True	Unknow	Root endodermis	Root endodermis
+6403	CS3_TAACCAGGTCTGTGAT-1	CS3_TAACCAGGTCTGTGAT-1	Root	Whole root	Cortex	Unknown	0.404483	False	Cortex	Unknown	0.466689	False	Unknow	Root cortex	Unknow
+6405	CS3_TAACTTCCAAGTAGTA-1	CS3_TAACTTCCAAGTAGTA-1	Root	Whole root	Epidermis	Epidermis	0.518717	True	Epidermis	Epidermis	0.473664	True	Unknow	Non-hair	Non-hair
+6408	CS3_TAAGCACCAGAGTGTG-1	CS3_TAAGCACCAGAGTGTG-1	Root	Whole root	Unknown	Unknown	0.301985	True	Unknown	Meristems	0.319041	False	S phase	Unknow	Unknow
+6422	CS3_TAATCTCCAACCAATC-1	CS3_TAATCTCCAACCAATC-1	Root	Whole root	Unknown	Endodermis	0.468398	False	Unknown	Endodermis	0.515767	False	Unknow	Unknow	Root endodermis
+6424	CS3_TAATCTCGTATTTCCT-1	CS3_TAATCTCGTATTTCCT-1	Root	Whole root	Cortex	Cortex	0.754521	True	Cortex	Cortex	0.79236	True	Root cortex	Root cortex	Root cortex
+6434	CS3_TACATTCCAATGTTGC-1	CS3_TACATTCCAATGTTGC-1	Root	Whole root	Cortex	Unknown	0.364481	False	Cortex	Unknown	0.373572	False	Unknow	Root cortex	Unknow
+6441	CS3_TACCCGTGTAAGGAGA-1	CS3_TACCCGTGTAAGGAGA-1	Root	Whole root	Cortex	Dividing Cells	0.384388	False	Cortex	Dividing Cells	0.359577	False	S phase	Root cortex	__outside_direct_map__
+6444	CS3_TACCCGTTCCACAAGT-1	CS3_TACCCGTTCCACAAGT-1	Root	Whole root	Epidermis	Endodermis	0.50642	False	Epidermis	Endodermis	0.487805	False	Unknow	Non-hair	Root endodermis
+6446	CS3_TACCGGGAGTCGAGGT-1	CS3_TACCGGGAGTCGAGGT-1	Root	Whole root	Epidermis	Epidermis	0.428443	True	Epidermis	Epidermis	0.378673	True	Unknow	Non-hair	Non-hair
+6452	CS3_TACCTGCGTAGCTGCC-1	CS3_TACCTGCGTAGCTGCC-1	Root	Whole root	Cortex	Cortex	0.9438	True	Cortex	Cortex	0.928373	True	Root cortex	Root cortex	Root cortex
+6453	CS3_TACCTGCTCATGGTAC-1	CS3_TACCTGCTCATGGTAC-1	Root	Whole root	Unknown	Xylem	0.428026	False	Unknown	Xylem	0.471289	False	Unknow	Unknow	Xylem
+6457	CS3_TACGGTAGTCTCAAGT-1	CS3_TACGGTAGTCTCAAGT-1	Root	Whole root	Cortex	Epidermis	0.280081	False	Cortex	Epidermis	0.336262	False	Lateral root cap	Root cortex	Non-hair
+6458	CS3_TACGTCCAGGGCCCTT-1	CS3_TACGTCCAGGGCCCTT-1	Root	Whole root	Epidermis	Root Hair	0.654624	False	Epidermis	Root Hair	0.65885	False	Unknow	Non-hair	Root hair
+6463	CS3_TACTGCCTCTGCTTTA-1	CS3_TACTGCCTCTGCTTTA-1	Root	Whole root	Phloem	Meristems	0.526873	False	Phloem	Meristems	0.574953	False	S phase	Phloem	__outside_direct_map__
+6474	CS3_TAGACCACATAACCCA-1	CS3_TAGACCACATAACCCA-1	Root	Whole root	Unknown	Phloem	0.915981	False	Unknown	Phloem	0.934668	False	Unknow	Unknow	Phloem
+6500	CS3_TATACCTCAGCGTACC-1	CS3_TATACCTCAGCGTACC-1	Root	Whole root	Cortex	Cortex	0.303855	True	Cortex	Cortex	0.28948	True	S phase	Root cortex	Root cortex
+6507	CS3_TATCAGGTCAGCGCAC-1	CS3_TATCAGGTCAGCGCAC-1	Root	Whole root	Cortex	Cortex	0.929618	True	Cortex	Cortex	0.885631	True	Unknow	Root cortex	Root cortex
+6516	CS3_TATCTGTCAACGCATT-1	CS3_TATCTGTCAACGCATT-1	Root	Whole root	Cortex	Cortex	0.885082	True	Cortex	Cortex	0.844705	True	Unknow	Root cortex	Root cortex
+6527	CS3_TATTGCTCACACGTGC-1	CS3_TATTGCTCACACGTGC-1	Root	Whole root	Xylem	Xylem	0.990108	True	Xylem	Xylem	0.992138	True	Unknow	Xylem	Xylem
+6528	CS3_TATTGCTGTCAAATCC-1	CS3_TATTGCTGTCAAATCC-1	Root	Whole root	Epidermis	Endodermis/Phloem	0.809576	False	Epidermis	Endodermis/Phloem	0.77908	False	Non-hair	Non-hair	__outside_direct_map__
+6535	CS3_TCAAGACCACTTGTCC-1	CS3_TCAAGACCACTTGTCC-1	Root	Whole root	Unknown	Unknown	0.754365	True	Unknown	Unknown	0.800721	True	S phase	Unknow	Unknow
+6550	CS3_TCACAAGGTAGTTCCA-1	CS3_TCACAAGGTAGTTCCA-1	Root	Whole root	Cortex	Cortex	0.886316	True	Cortex	Cortex	0.855843	True	Root cortex	Root cortex	Root cortex
+6560	CS3_TCACATTTCGAACGCC-1	CS3_TCACATTTCGAACGCC-1	Root	Whole root	Xylem	Xylem	0.978578	True	Xylem	Xylem	0.976183	True	Unknow	Xylem	Xylem
+6574	CS3_TCACTCGCAGGTACGA-1	CS3_TCACTCGCAGGTACGA-1	Root	Whole root	Unknown	Endodermis	0.701743	False	Unknown	Endodermis	0.70622	False	Non-hair	Unknow	Root endodermis
+6578	CS3_TCAGCCTAGCGGCTCT-1	CS3_TCAGCCTAGCGGCTCT-1	Root	Whole root	Unknown	Cortex	0.574574	False	Unknown	Cortex	0.627478	False	S phase	Unknow	Root cortex
+6580	CS3_TCAGCCTCAGCGCGTT-1	CS3_TCAGCCTCAGCGCGTT-1	Root	Whole root	Unknown	Endodermis	0.301606	False	Unknown	Cortex	0.303151	False	Non-hair	Unknow	Root endodermis
+6585	CS3_TCAGGGCCACCATTCC-1	CS3_TCAGGGCCACCATTCC-1	Root	Whole root	Unknown	Epidermis	0.4901	False	Unknown	Epidermis	0.446961	False	S phase	Unknow	Non-hair
+6586	CS3_TCAGGGCCACCGTGAC-1	CS3_TCAGGGCCACCGTGAC-1	Root	Whole root	Endodermis	Endodermis	0.91664	True	Endodermis	Endodermis	0.9195	True	Unknow	Root endodermis	Root endodermis
+6588	CS3_TCAGGTAGTAGCGTTT-1	CS3_TCAGGTAGTAGCGTTT-1	Root	Whole root	Epidermis	Endodermis	0.296942	False	Epidermis	Root Hair	0.326278	False	Unknow	Non-hair	Root endodermis
+6608	CS3_TCATCATTCCATTTCA-1	CS3_TCATCATTCCATTTCA-1	Root	Whole root	Unknown	Unknown	0.30504	True	Unknown	Unknown	0.295675	True	Unknow	Unknow	Unknow
+6616	CS3_TCATGCCGTCCACACG-1	CS3_TCATGCCGTCCACACG-1	Root	Whole root	Epidermis	Epidermis	0.283168	True	Epidermis	Epidermis	0.322815	True	Non-hair	Non-hair	Non-hair
+6623	CS3_TCATTACCACGACGTC-1	CS3_TCATTACCACGACGTC-1	Root	Whole root	Epidermis	Epidermis	0.60586	True	Epidermis	Epidermis	0.677661	True	Unknow	Non-hair	Non-hair
+6631	CS3_TCATTCATCCTAAACG-1	CS3_TCATTCATCCTAAACG-1	Root	Whole root	Epidermis	Epidermis	0.262827	True	Epidermis	Epidermis	0.278697	True	Unknow	Non-hair	Non-hair
+6632	CS3_TCATTCATCTTGTGCC-1	CS3_TCATTCATCTTGTGCC-1	Root	Whole root	Epidermis	Endodermis	0.295081	False	Epidermis	Cortex	0.280661	False	Lateral root cap	Non-hair	Root endodermis
+6633	CS3_TCATTGTCAGACTGCC-1	CS3_TCATTGTCAGACTGCC-1	Root	Whole root	Cortex	Epidermis	0.60798	False	Cortex	Epidermis	0.614386	False	Non-hair	Root cortex	Non-hair
+6634	CS3_TCATTGTCAGATCACT-1	CS3_TCATTGTCAGATCACT-1	Root	Whole root	Xylem	Xylem	0.978884	True	Xylem	Xylem	0.981531	True	Unknow	Xylem	Xylem
+6641	CS3_TCCACGTAGATGGCGT-1	CS3_TCCACGTAGATGGCGT-1	Root	Whole root	Unknown	Unknown	0.299941	True	Unknown	Unknown	0.321723	True	Unknow	Unknow	Unknow
+6651	CS3_TCCATGCCATGCCGCA-1	CS3_TCCATGCCATGCCGCA-1	Root	Whole root	Cortex	Cortex	0.355907	True	Cortex	Cortex	0.330106	True	Unknow	Root cortex	Root cortex
+6657	CS3_TCCCAGTCATATGGCT-1	CS3_TCCCAGTCATATGGCT-1	Root	Whole root	Unknown	Unknown	0.471801	True	Unknown	Unknown	0.470199	True	S phase	Unknow	Unknow
+6663	CS3_TCCGATCCACTCCTTG-1	CS3_TCCGATCCACTCCTTG-1	Root	Whole root	Unknown	Unknown	0.507572	True	Unknown	Unknown	0.525366	True	Unknow	Unknow	Unknow
+6667	CS3_TCCGTGTTCTAGACCA-1	CS3_TCCGTGTTCTAGACCA-1	Root	Whole root	Unknown	Provascular cells	0.432415	False	Unknown	Pericycle	0.39558	False	Unknow	Unknow	__outside_direct_map__
+6676	CS3_TCCTCCCCATCCCGTT-1	CS3_TCCTCCCCATCCCGTT-1	Root	Whole root	Unknown	Epidermis	0.540225	False	Unknown	Epidermis	0.546215	False	S phase	Unknow	Non-hair
+6680	CS3_TCCTCGACAAGGCTTT-1	CS3_TCCTCGACAAGGCTTT-1	Root	Whole root	Unknown	Unknown	0.426556	True	Unknown	Unknown	0.461667	True	Unknow	Unknow	Unknow
+6687	CS3_TCCTGCATCCTGGGAC-1	CS3_TCCTGCATCCTGGGAC-1	Root	Whole root	Unknown	Unknown	0.723818	True	Unknown	Unknown	0.743421	True	Unknow	Unknow	Unknow
+6688	CS3_TCCTTCTCATTCAGCA-1	CS3_TCCTTCTCATTCAGCA-1	Root	Whole root	Unknown	Unknown	0.3801	True	Unknown	Unknown	0.447982	True	S phase	Unknow	Unknow
+6690	CS3_TCCTTCTGTTCGATTG-1	CS3_TCCTTCTGTTCGATTG-1	Root	Whole root	Epidermis	Phloem	0.695267	False	Epidermis	Phloem	0.632274	False	G1/G0 phase	Non-hair	Phloem
+6707	CS3_TCGACCTCACCAGACC-1	CS3_TCGACCTCACCAGACC-1	Root	Whole root	Cortex	Epidermis	0.511241	False	Cortex	Epidermis	0.494331	False	Unknow	Root cortex	Non-hair
+6708	CS3_TCGACCTCATGACTAC-1	CS3_TCGACCTCATGACTAC-1	Root	Whole root	Unknown	Unknown	0.271241	True	Unknown	Unknown	0.308631	True	Non-hair	Unknow	Unknow
+6711	CS3_TCGACCTTCCTCTCTT-1	CS3_TCGACCTTCCTCTCTT-1	Root	Whole root	Unknown	Unknown	0.435335	True	Unknown	Unknown	0.472686	True	Unknow	Unknow	Unknow
+6724	CS3_TCGGATACAACTCGAT-1	CS3_TCGGATACAACTCGAT-1	Root	Whole root	Unknown	Unknown	0.557261	True	Unknown	Unknown	0.556201	True	Unknow	Unknow	Unknow
+6728	CS3_TCGGGACAGTTATGGA-1	CS3_TCGGGACAGTTATGGA-1	Root	Whole root	Cortex	Cortex	0.430026	True	Cortex	Cortex	0.429879	True	Unknow	Root cortex	Root cortex
+6731	CS3_TCGGGACTCTCGTTTA-1	CS3_TCGGGACTCTCGTTTA-1	Root	Whole root	Cortex	Cortex	0.361203	True	Cortex	Cortex	0.284682	True	Unknow	Root cortex	Root cortex
+6732	CS3_TCGGGCAAGAGCAGAA-1	CS3_TCGGGCAAGAGCAGAA-1	Root	Whole root	Root Hair	Endodermis/Phloem	0.974537	False	Root Hair	Endodermis/Phloem	0.969856	False	Non-hair	Root hair	__outside_direct_map__
+6739	CS3_TCGTCCATCTTACACT-1	CS3_TCGTCCATCTTACACT-1	Root	Whole root	Endodermis	Endodermis	0.883824	True	Endodermis	Endodermis	0.893206	True	Unknow	Root endodermis	Root endodermis
+6748	CS3_TCTACATCAACTAGAA-1	CS3_TCTACATCAACTAGAA-1	Root	Whole root	Epidermis	Epidermis	0.559048	True	Epidermis	Epidermis	0.479108	True	Unknow	Non-hair	Non-hair
+6752	CS3_TCTACATCAGCATCTA-1	CS3_TCTACATCAGCATCTA-1	Root	Whole root	Epidermis	Meristems	0.864781	False	Epidermis	Meristems	0.874186	False	S phase	Non-hair	__outside_direct_map__
+6763	CS3_TCTATACGTCAAATCC-1	CS3_TCTATACGTCAAATCC-1	Root	Whole root	Root Hair	Root Hair	0.925075	True	Root Hair	Root Hair	0.919639	True	Non-hair	Root hair	Root hair
+6768	CS3_TCTCACGCATGACTTG-1	CS3_TCTCACGCATGACTTG-1	Root	Whole root	Epidermis	Epidermis	0.690503	True	Epidermis	Epidermis	0.651855	True	Unknow	Non-hair	Non-hair
+6770	CS3_TCTCACGTCAGCACCG-1	CS3_TCTCACGTCAGCACCG-1	Root	Whole root	Cortex	Epidermis	0.450478	False	Cortex	Epidermis	0.436918	False	Unknow	Root cortex	Non-hair
+6772	CS3_TCTCAGCAGCAACCAG-1	CS3_TCTCAGCAGCAACCAG-1	Root	Whole root	Epidermis	Root Hair	0.929278	False	Epidermis	Root Hair	0.94394	False	Root hair	Non-hair	Root hair
+6774	CS3_TCTCAGCCATAGGTAA-1	CS3_TCTCAGCCATAGGTAA-1	Root	Whole root	Unknown	Dividing Cells	0.874452	False	Unknown	Dividing Cells	0.87199	False	S phase	Unknow	__outside_direct_map__
+6782	CS3_TCTGCCATCCCAAGCG-1	CS3_TCTGCCATCCCAAGCG-1	Root	Whole root	Root Hair	Root Hair	0.955813	True	Root Hair	Root Hair	0.959299	True	Unknow	Root hair	Root hair
+6790	CS3_TCTTAGTAGTAGTCTC-1	CS3_TCTTAGTAGTAGTCTC-1	Root	Whole root	Unknown	Unknown	0.467239	True	Unknown	Unknown	0.486487	True	Unknow	Unknow	Unknow
+6804	CS3_TGACAGTCAAATGAGT-1	CS3_TGACAGTCAAATGAGT-1	Root	Whole root	Cortex	Epidermis	0.252947	False	Cortex	Epidermis	0.283595	False	S phase	Root cortex	Non-hair
+6818	CS3_TGAGACTAGAAGGTAG-1	CS3_TGAGACTAGAAGGTAG-1	Root	Whole root	Cortex	Cortex	0.910835	True	Cortex	Cortex	0.903404	True	Lateral root cap	Root cortex	Root cortex
+6845	CS3_TGATTTCAGGAAACGA-1	CS3_TGATTTCAGGAAACGA-1	Root	Whole root	Epidermis	Epidermis	0.56923	True	Epidermis	Epidermis	0.419392	True	S phase	Non-hair	Non-hair
+6853	CS3_TGCAGATGTAACAAGT-1	CS3_TGCAGATGTAACAAGT-1	Root	Whole root	Cortex	Cortex	0.934537	True	Cortex	Cortex	0.931983	True	Non-hair	Root cortex	Root cortex
+6857	CS3_TGCAGGCGTGGCCACT-1	CS3_TGCAGGCGTGGCCACT-1	Root	Whole root	Epidermis	Root Hair	0.929956	False	Epidermis	Root Hair	0.939358	False	Root hair	Non-hair	Root hair
+6865	CS3_TGCATCCTCTGCTCTG-1	CS3_TGCATCCTCTGCTCTG-1	Root	Whole root	Epidermis	Epidermis	0.409344	True	Epidermis	Epidermis	0.409042	True	Unknow	Non-hair	Non-hair
+6869	CS3_TGCCGAGCAATGTCTG-1	CS3_TGCCGAGCAATGTCTG-1	Root	Whole root	Unknown	Unknown	0.860091	True	Unknown	Unknown	0.834143	True	Unknow	Unknow	Unknow
+6891	CS3_TGCTTGCAGCGAGTCA-1	CS3_TGCTTGCAGCGAGTCA-1	Root	Whole root	Epidermis	Root Hair	0.430649	False	Epidermis	Root Hair	0.433751	False	Non-hair	Non-hair	Root hair
+6893	CS3_TGCTTGCCACTTCCTG-1	CS3_TGCTTGCCACTTCCTG-1	Root	Whole root	Cortex	Epidermis	0.444984	False	Cortex	Epidermis	0.449044	False	Non-hair	Root cortex	Non-hair
+6902	CS3_TGGATCATCTAAGCCA-1	CS3_TGGATCATCTAAGCCA-1	Root	Whole root	Unknown	Pericycle	0.613401	False	Unknown	Pericycle	0.643006	False	Unknow	Unknow	__outside_direct_map__
+6903	CS3_TGGATGTCACAGAGAC-1	CS3_TGGATGTCACAGAGAC-1	Root	Whole root	Root Hair	Root Hair	0.977082	True	Root Hair	Root Hair	0.981528	True	Root hair	Root hair	Root hair
+6905	CS3_TGGCGTGCACCTAAAC-1	CS3_TGGCGTGCACCTAAAC-1	Root	Whole root	Phloem	Meristems	0.546691	False	Phloem	Meristems	0.54469	False	S phase	Phloem	__outside_direct_map__
+6913	CS3_TGGGATTGTAAGTAGT-1	CS3_TGGGATTGTAAGTAGT-1	Root	Whole root	Unknown	Unknown	0.630667	True	Unknown	Unknown	0.583987	True	S phase	Unknow	Unknow
+6914	CS3_TGGGATTTCCACATAG-1	CS3_TGGGATTTCCACATAG-1	Root	Whole root	Xylem	Xylem	0.972907	True	Xylem	Xylem	0.974808	True	S phase	Xylem	Xylem
+6930	CS3_TGGTGATGTAGTTCCA-1	CS3_TGGTGATGTAGTTCCA-1	Root	Whole root	Unknown	Pericycle	0.873502	False	Unknown	Pericycle	0.847082	False	Unknow	Unknow	__outside_direct_map__
+6933	CS3_TGGTTAGGTTACGGAG-1	CS3_TGGTTAGGTTACGGAG-1	Root	Whole root	Unknown	Cortex	0.435735	False	Unknown	Unknown	0.445807	True	Unknow	Unknow	Root cortex
+6938	CS3_TGTAAGCCAGCATCTA-1	CS3_TGTAAGCCAGCATCTA-1	Root	Whole root	Epidermis	Unknown	0.351476	False	Epidermis	Unknown	0.410849	False	Unknow	Non-hair	Unknow
+6940	CS3_TGTACAGTCCCGAGTG-1	CS3_TGTACAGTCCCGAGTG-1	Root	Whole root	Epidermis	Provascular cells	0.477542	False	Epidermis	Provascular cells	0.525963	False	Non-hair	Non-hair	__outside_direct_map__
+6942	CS3_TGTAGACAGCGGCTCT-1	CS3_TGTAGACAGCGGCTCT-1	Root	Whole root	Unknown	Unknown	0.76488	True	Unknown	Unknown	0.751503	True	Unknow	Unknow	Unknow
+6943	CS3_TGTCAGACAACGTAAA-1	CS3_TGTCAGACAACGTAAA-1	Root	Whole root	Epidermis	Meristems	0.824534	False	Epidermis	Meristems	0.847848	False	S phase	Non-hair	__outside_direct_map__
+6944	CS3_TGTCAGACACCACATA-1	CS3_TGTCAGACACCACATA-1	Root	Whole root	Epidermis	Root Hair	0.40435	False	Epidermis	Root Hair	0.452126	False	Unknow	Non-hair	Root hair
+6945	CS3_TGTCAGATCAGGAACG-1	CS3_TGTCAGATCAGGAACG-1	Root	Whole root	Unknown	Epidermis	0.404604	False	Unknown	Epidermis	0.427397	False	Unknow	Unknow	Non-hair
+6953	CS3_TGTCCTGTCTCTGACC-1	CS3_TGTCCTGTCTCTGACC-1	Root	Whole root	Cortex	Epidermis	0.560441	False	Cortex	Epidermis	0.54567	False	Unknow	Root cortex	Non-hair
+6964	CS3_TGTGTGAGTGCATGAG-1	CS3_TGTGTGAGTGCATGAG-1	Root	Whole root	Endodermis	Endodermis	0.816044	True	Endodermis	Endodermis	0.799422	True	Unknow	Root endodermis	Root endodermis
+6968	CS3_TGTTCATCAAGCAGGT-1	CS3_TGTTCATCAAGCAGGT-1	Root	Whole root	Unknown	Unknown	0.639746	True	Unknown	Unknown	0.593831	True	Unknow	Unknow	Unknow
+6987	CS3_TTACCGCGTAACAAGT-1	CS3_TTACCGCGTAACAAGT-1	Root	Whole root	Epidermis	Unknown	0.556942	False	Epidermis	Unknown	0.595965	False	Non-hair	Non-hair	Unknow
+6994	CS3_TTACTGTTCCATAAGC-1	CS3_TTACTGTTCCATAAGC-1	Root	Whole root	Epidermis	Epidermis	0.327184	True	Epidermis	Epidermis	0.408138	True	Non-hair	Non-hair	Non-hair
+7000	CS3_TTAGGGTGTCTCAGAT-1	CS3_TTAGGGTGTCTCAGAT-1	Root	Whole root	Unknown	Root Cap	0.727598	False	Unknown	Root Cap	0.673009	False	S phase	Unknow	Root cap
+7010	CS3_TTCACCGGTCTCAGAT-1	CS3_TTCACCGGTCTCAGAT-1	Root	Whole root	Root Hair	Epidermis	0.373061	False	Root Hair	Epidermis	0.366847	False	S phase	Root hair	Non-hair
+7014	CS3_TTCACGCCACCGGCTA-1	CS3_TTCACGCCACCGGCTA-1	Root	Whole root	Root Hair	Endodermis/Phloem	0.973864	False	Root Hair	Endodermis/Phloem	0.975396	False	Root cortex	Root hair	__outside_direct_map__
+7021	CS3_TTCATGTAGCCTCAAT-1	CS3_TTCATGTAGCCTCAAT-1	Root	Whole root	Unknown	Unknown	0.872341	True	Unknown	Unknown	0.897293	True	Unknow	Unknow	Unknow
+7024	CS3_TTCATGTGTTTCTATC-1	CS3_TTCATGTGTTTCTATC-1	Root	Whole root	Epidermis	Epidermis	0.582661	True	Epidermis	Epidermis	0.602566	True	Root cortex	Non-hair	Non-hair
+7025	CS3_TTCCAATAGGCTGAAC-1	CS3_TTCCAATAGGCTGAAC-1	Root	Whole root	Epidermis	Root Hair	0.435492	False	Epidermis	Root Hair	0.456555	False	Unknow	Non-hair	Root hair
+7030	CS3_TTCCGTGTCCAACACA-1	CS3_TTCCGTGTCCAACACA-1	Root	Whole root	Unknown	Unknown	0.266181	True	Unknown	Unknown	0.274907	True	Unknow	Unknow	Unknow
+7036	CS3_TTCCTCTTCTTGAACG-1	CS3_TTCCTCTTCTTGAACG-1	Root	Whole root	Root Hair	Root Hair	0.302856	True	Root Hair	Root Hair	0.323991	True	Non-hair	Root hair	Root hair
+7047	CS3_TTCTAACTCAAATAGG-1	CS3_TTCTAACTCAAATAGG-1	Root	Whole root	Epidermis	Unknown	0.48623	False	Epidermis	Unknown	0.474912	False	Unknow	Non-hair	Unknow
+7049	CS3_TTCTAACTCGTGCGAC-1	CS3_TTCTAACTCGTGCGAC-1	Root	Whole root	Phloem	Phloem	0.993831	True	Phloem	Phloem	0.993691	True	Lateral root cap	Phloem	Phloem
+7052	CS3_TTCTAGTTCACTGCTC-1	CS3_TTCTAGTTCACTGCTC-1	Root	Whole root	Epidermis	Xylem	0.986421	False	Epidermis	Xylem	0.985273	False	Unknow	Non-hair	Xylem
+7058	CS3_TTCTGTACATAGGTTC-1	CS3_TTCTGTACATAGGTTC-1	Root	Whole root	Cortex	Cortex	0.957706	True	Cortex	Cortex	0.956494	True	Non-hair	Root cortex	Root cortex
+7073	CS3_TTCTTGATCTTCGGAA-1	CS3_TTCTTGATCTTCGGAA-1	Root	Whole root	Epidermis	Epidermis	0.691869	True	Epidermis	Epidermis	0.74033	True	Unknow	Non-hair	Non-hair
+7085	CS3_TTGATGGTCCGTCCTA-1	CS3_TTGATGGTCCGTCCTA-1	Root	Whole root	Unknown	Cortex	0.311683	False	Unknown	Cortex	0.289654	False	Unknow	Unknow	Root cortex
+7089	CS3_TTGCCTGAGCACTCTA-1	CS3_TTGCCTGAGCACTCTA-1	Root	Whole root	Epidermis	Cortex	0.296314	False	Epidermis	Cortex	0.319935	False	Unknow	Non-hair	Root cortex
+7095	CS3_TTGCCTGTCGGTAGAG-1	CS3_TTGCCTGTCGGTAGAG-1	Root	Whole root	Unknown	Unknown	0.540767	True	Unknown	Unknown	0.571482	True	Unknow	Unknow	Unknow
+7100	CS3_TTGCTGCAGCATCGAG-1	CS3_TTGCTGCAGCATCGAG-1	Root	Whole root	Xylem	Xylem	0.986575	True	Xylem	Xylem	0.988755	True	Unknow	Xylem	Xylem
+7103	CS3_TTGCTGCCAAGCCATT-1	CS3_TTGCTGCCAAGCCATT-1	Root	Whole root	Epidermis	Epidermis	0.230266	True	Epidermis	Epidermis	0.252889	True	Non-hair	Non-hair	Non-hair
+7111	CS3_TTGGGCGGTAGGACCA-1	CS3_TTGGGCGGTAGGACCA-1	Root	Whole root	Cortex	Cortex	0.950811	True	Cortex	Cortex	0.956523	True	Root cortex	Root cortex	Root cortex
+7120	CS3_TTGTTCACAAGAGGTC-1	CS3_TTGTTCACAAGAGGTC-1	Root	Whole root	Epidermis	Unknown	0.316954	False	Epidermis	Unknown	0.433098	False	G1/G0 phase	Non-hair	Unknow
+7129	CS3_TTTACCAGTTGCTGAT-1	CS3_TTTACCAGTTGCTGAT-1	Root	Whole root	Epidermis	Meristems	0.769938	False	Epidermis	Meristems	0.793463	False	S phase	Non-hair	__outside_direct_map__
+7142	CS3_TTTCAGTGTATGCGGA-1	CS3_TTTCAGTGTATGCGGA-1	Root	Whole root	Unknown	Unknown	0.540865	True	Unknown	Unknown	0.586979	True	Lateral root cap	Unknow	Unknow
+7147	CS3_TTTCCTCTCTCGCTCA-1	CS3_TTTCCTCTCTCGCTCA-1	Root	Whole root	Epidermis	Epidermis	0.578031	True	Epidermis	Epidermis	0.536133	True	Unknow	Non-hair	Non-hair
+7149	CS3_TTTCGATAGGGCTAAC-1	CS3_TTTCGATAGGGCTAAC-1	Root	Whole root	Epidermis	Dividing Cells	0.679559	False	Epidermis	Dividing Cells	0.744529	False	S phase	Non-hair	__outside_direct_map__
+7161	CS3_TTTGTTGCACAAATGA-1	CS3_TTTGTTGCACAAATGA-1	Root	Whole root	Unknown	Root Cap	0.69591	False	Unknown	Root Cap	0.686985	False	Unknow	Unknow	Root cap
+7163	CS3_TTTGTTGTCTAAACGC-1	CS3_TTTGTTGTCTAAACGC-1	Root	Whole root	Phloem	Meristems	0.819351	False	Phloem	Meristems	0.828684	False	G1/G0 phase	Phloem	__outside_direct_map__

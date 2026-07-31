@@ -93,6 +93,7 @@ function buildDocument() {
     ["plant_cellfm_v5_fig2_strict_transfer", "Figure 2 | Nested strict leave-species transfer with visible open-set coverage and denominators.", 480, figureDir],
     ["plant_cellfm_v5_fig3_target_adaptation", "Figure 3 | Repeated target-species adaptation response across labelled support budgets.", 480, figureDir],
     ["plant_cellfm_v5_fig4_external_root_evidence", "Figure 4 | Label-free external root execution and pre-specified marker-coherence audit.", 500, figureDir],
+    ["plant_cellfm_v5_fig5_wheat_adapter", "Figure 5 | Provenance-controlled allopolyploid wheat-root adaptation. Exact barcode overlap is excluded before inference and tuning; the LoRA result is same-study supervised adaptation, not zero-shot or independent validation.", 620, figureDir],
     ["plant_cellfm_v4_ed_fig1_label_integrity", "Extended Data Figure 1 | Explicit-identity and audit-only label denominator analysis.", 400, extendedFigureDir],
     ["plant_cellfm_v4_ed_fig2_nested_selection_audit", "Extended Data Figure 2 | Inner-fold rule-selection audit for the strict protocol.", 400, extendedFigureDir],
     ["plant_cellfm_v4_ed_fig3_matched_checkpoint_comparison", "Extended Data Figure 3 | Matched frozen v3-to-v9 checkpoint comparison.", 400, extendedFigureDir],

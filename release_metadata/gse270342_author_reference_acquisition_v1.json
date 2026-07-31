@@ -1,0 +1,18 @@
+{
+  "schema_version": "plant_cellfm_gse270342_author_reference_acquisition_v1",
+  "generated_utc": "2026-07-31T22:16:06.378213+00:00",
+  "dataset": "GSE270342",
+  "title": "A soil-grown wheat root atlas with validated cross-species cluster annotations",
+  "role": "author-annotated wheat-root reference candidate with reported spatial validation",
+  "remote": {
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE270nnn/GSE270342/suppl/GSE270342_seuratObj_for_publication.rds.gz",
+    "bytes": 584376378,
+    "accept_ranges": true,
+    "last_modified": "Wed, 30 Oct 2024 15:11:48 GMT"
+  },
+  "output": "data/external_validation/gse270342/GSE270342_seuratObj_for_publication.rds.gz",
+  "sha256": "7c0054b23b782e538ead563fb1cbe1688db89f185753cf5ff14ccd2cb72fd58f",
+  "workers": 8,
+  "chunk_mib": 16,
+  "claim_boundary": "The accession's raw count matrix appears in an earlier exploratory record. Before scoring, audit cell overlap, author annotations, gene identifiers and a frozen label mapping; do not present acquisition as an independent benchmark."
+}

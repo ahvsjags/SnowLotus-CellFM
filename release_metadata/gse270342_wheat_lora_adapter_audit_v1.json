@@ -1,0 +1,89 @@
+{
+  "schema_version": "plant_cellfm_gse270342_wheat_lora_adapter_audit_v1",
+  "generated_utc": "2026-07-31T22:54:37.623318+00:00",
+  "case_role": "Barcode-non-overlap, same-study author-label-supervised wheat root species adaptation using LoRA.",
+  "input": {
+    "path": "outputs/external_validation/gse270342/GSE270342_wheat_root_author_annotated_nonoverlap_diagnostic.h5ad",
+    "cells": 7164,
+    "nonzero_counts": 16232411,
+    "prior_strict_overlap_excluded": 224
+  },
+  "configuration": {
+    "path": "configs/gse270342_wheat_root_lora_adapter_4070.yaml",
+    "sha256": "837f7de378ca782242ad3357e027a46d471b8990df9cd24e1000ca45d31e8940",
+    "ortholog_map": "data/orthologs/gse270342_wheat_to_arabidopsis_author_orthogroups.tsv",
+    "ortholog_aggregation": "first",
+    "tuning_mode": "lora",
+    "seed": 20260801,
+    "base_checkpoint": "models/SnowLotus_CellFM_SRP169576_annotation_1024_best.pt"
+  },
+  "split": {
+    "strategy": "group_random",
+    "train_cells": 5014,
+    "validation_cells": 717,
+    "test_cells": 1433,
+    "test_cell_id_sha256": "cf2e3dacb0a7040801d771851a6f97389ef05fb3bc71ec4911e87ca7f95e0ab3"
+  },
+  "checkpoint": {
+    "path": "models/Plant_CellFM_GSE270342_wheat_root_lora_adapter_best.pt",
+    "sha256": "597b7e425b0355ddfa81e4f5c9c63e85987d6b72fe49a841736b200ea6c2c22e",
+    "training_path": "outputs/gse270342_wheat_root_lora_adapter_4070/best.pt",
+    "training_sha256": "597b7e425b0355ddfa81e4f5c9c63e85987d6b72fe49a841736b200ea6c2c22e",
+    "best_epoch": 8,
+    "validation_metrics_at_selection": {
+      "epoch": 8,
+      "train_coarse_loss": 0.9488631613326796,
+      "train_fine_loss": 0.9482616539301865,
+      "train_hierarchy_loss": 0.8240750144448197,
+      "train_loss": 1.2678849465158757,
+      "eval_coarse_loss": 1.3108023895157708,
+      "eval_fine_loss": 1.313281868563758,
+      "eval_hierarchy_loss": 1.1938507186041938,
+      "eval_loss": 1.7603675405184427,
+      "eval_batches": 45.0,
+      "fine_accuracy": 0.6206415620641562,
+      "fine_macro_f1": 0.6551244316046506,
+      "coarse_accuracy": 0.6094839609483961,
+      "coarse_macro_f1": 0.6404661833072087
+    }
+  },
+  "locked_full_13_class_test": {
+    "accuracy": 0.6224703419399861,
+    "macro_f1": 0.6660112830533416,
+    "weighted_f1": 0.614128409837729,
+    "class_count": 13,
+    "detailed_metrics_path": "outputs/gse270342_wheat_root_lora_adapter_4070/detailed_test/detailed_metrics.json",
+    "detailed_metrics_sha256": "d1c71920671b54cb862da321b8f18cd3fb3cf4f60d659a5a3afa84bb7d47697c",
+    "prediction_path": "outputs/gse270342_wheat_root_lora_adapter_4070/detailed_test/predictions.tsv",
+    "prediction_sha256": "2c2b286a9a7e710e34e9c9b396592bd11f108aece131ce90ab5499d317dec0bb"
+  },
+  "matched_direct_root_subset": {
+    "evaluated_cells": 964,
+    "author_labels": [
+      "Cortex",
+      "Endodermis",
+      "Epidermis",
+      "Phloem",
+      "Root Cap",
+      "Root Hair",
+      "Unknown",
+      "Xylem"
+    ],
+    "root_labels": [
+      "Non-hair",
+      "Phloem",
+      "Root cap",
+      "Root cortex",
+      "Root endodermis",
+      "Root hair",
+      "Unknow",
+      "Xylem"
+    ],
+    "frozen_first_projection_accuracy": 0.25933609958506226,
+    "frozen_first_projection_macro_f1": 0.15456244289944848,
+    "adapted_lora_accuracy": 0.5622406639004149,
+    "adapted_lora_macro_f1": 0.6847096122167515,
+    "accuracy_gain_percentage_points": 30.29045643153527
+  },
+  "claim_boundary": "The adapter is evaluated on a fixed, author-label-supervised cell-level test split from a public wheat root study after excluding exact barcode overlap with a prior strict-transfer subset. It is not a zero-shot or independent external validation result. The matched direct-root comparison is restricted to the predeclared eight-label map and does not replace the full 13-class author-label test metric."
+}

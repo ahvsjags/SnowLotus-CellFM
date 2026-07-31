@@ -1,6 +1,6 @@
 {
   "schema_version": "plant_cellfm_v5_figure_audit_v1",
-  "generated_utc": "2026-07-31T22:11:50.181852+00:00",
+  "generated_utc": "2026-07-31T23:42:45.381639+00:00",
   "state": "TECHNICALLY_READY_PENDING_EDITORIAL_AND_EVIDENCE_REVIEW",
   "technical_failures": [],
   "figures": {
@@ -16,10 +16,11 @@
           "plant_cellfm_v5_fig1_foundation_contract_strict_panel_organ_totals.tsv"
         ],
         "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
         "raster": {
           "pixels": [
-            4326,
-            2981
+            4401,
+            3090
           ],
           "dpi": [
             600.0,
@@ -38,10 +39,11 @@
           "plant_cellfm_v5_fig2_strict_transfer_v17_species_metrics.tsv"
         ],
         "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
         "raster": {
           "pixels": [
-            4798,
-            3093
+            4867,
+            3212
           ],
           "dpi": [
             600.0,
@@ -59,10 +61,11 @@
           "plant_cellfm_v5_fig3_target_adaptation_fewshot_species_draws.tsv"
         ],
         "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
         "raster": {
           "pixels": [
-            4381,
-            2951
+            4389,
+            3044
           ],
           "dpi": [
             600.0,
@@ -79,10 +82,38 @@
           "plant_cellfm_v5_fig4_external_root_evidence_external_prediction_distribution.tsv"
         ],
         "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
         "raster": {
           "pixels": [
             4276,
-            3198
+            3285
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        }
+      },
+      {
+        "stem": "plant_cellfm_v5_fig5_wheat_adapter",
+        "missing_exports": [],
+        "source_data_tables": [
+          "plant_cellfm_v5_fig5_wheat_adapter_frozen_projection_sensitivity.tsv",
+          "plant_cellfm_v5_fig5_wheat_adapter_locked_test_confusion.tsv",
+          "plant_cellfm_v5_fig5_wheat_adapter_locked_test_per_class.tsv",
+          "plant_cellfm_v5_fig5_wheat_adapter_mapping_contract.tsv",
+          "plant_cellfm_v5_fig5_wheat_adapter_matched_direct_root_bootstrap.tsv",
+          "plant_cellfm_v5_fig5_wheat_adapter_matched_direct_root_summary.tsv",
+          "plant_cellfm_v5_fig5_wheat_adapter_matched_direct_root_test_cells.tsv",
+          "plant_cellfm_v5_fig5_wheat_adapter_provenance_split.tsv",
+          "plant_cellfm_v5_fig5_wheat_adapter_validation_history.tsv"
+        ],
+        "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
+        "raster": {
+          "pixels": [
+            4618,
+            3892
           ],
           "dpi": [
             600.0,
@@ -102,10 +133,11 @@
           "plant_cellfm_v4_ed_fig1_label_integrity_v18_metrics.tsv"
         ],
         "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
         "raster": {
           "pixels": [
             4352,
-            2715
+            1874
           ],
           "dpi": [
             600.0,
@@ -121,10 +153,11 @@
           "plant_cellfm_v4_ed_fig2_nested_selection_audit_selected_candidate_counts.tsv"
         ],
         "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
         "raster": {
           "pixels": [
-            4455,
-            2645
+            4501,
+            1866
           ],
           "dpi": [
             600.0,
@@ -140,10 +173,11 @@
           "plant_cellfm_v4_ed_fig3_matched_checkpoint_comparison_matched_checkpoint_metrics.tsv"
         ],
         "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
         "raster": {
           "pixels": [
             4530,
-            2826
+            2027
           ],
           "dpi": [
             600.0,
@@ -159,6 +193,7 @@
           "plant_cellfm_v4_ed_fig4_literature_marker_concordance_literature_marker_concordance_summary.tsv"
         ],
         "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
         "raster": {
           "pixels": [
             4637,
@@ -179,9 +214,10 @@
           "plant_cellfm_v4_ed_fig5_external_root_blind_inference_external_prediction_distribution.tsv"
         ],
         "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
         "raster": {
           "pixels": [
-            4625,
+            4679,
             4195
           ],
           "dpi": [
@@ -204,10 +240,11 @@
           "plant_cellfm_v5_ed_fig6_secondary_root_adapter_validation_history.tsv"
         ],
         "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
         "raster": {
           "pixels": [
-            4306,
-            4146
+            4417,
+            3871
           ],
           "dpi": [
             600.0,
@@ -228,14 +265,31 @@
     "secondary_root_adapter_test_cells": 2352,
     "secondary_root_adapter_test_accuracy": 0.8397108843537415,
     "secondary_root_adapter_test_macro_f1": 0.8446817683258346,
-    "secondary_root_adapter_matched_semantic_accuracy": 0.9092838196286472
+    "secondary_root_adapter_matched_semantic_accuracy": 0.9092838196286472,
+    "wheat_adapter_test_cells": 1433,
+    "wheat_adapter_train_cells": 5014,
+    "wheat_adapter_validation_cells": 717,
+    "wheat_adapter_test_accuracy": 0.6224703419399861,
+    "wheat_adapter_test_macro_f1": 0.6660112830533416,
+    "wheat_adapter_matched_frozen_accuracy": 0.25933609958506226,
+    "wheat_adapter_matched_adapted_accuracy": 0.5622406639004149,
+    "wheat_adapter_supplementary_table": "supplementary_tables/submission_v4/Supplementary_Table_S20_GSE270342_wheat_root_adapter_audit.tsv"
   },
   "visual_contract": {
+    "vector_font_floor_pt": 5.0,
+    "required_exports": [
+      "SVG",
+      "PDF",
+      "PNG",
+      "TIFF"
+    ],
+    "source_data_policy": "Every panel-level figure must expose at least one tidy TSV source-data table.",
     "main_figure_story": [
       "Figure 1: corpus contract and shared evaluation representation",
       "Figure 2: strict transfer with explicit coverage and denominator",
       "Figure 3: target-species adaptation dose response",
       "Figure 4: label-free external root execution and fixed-marker coherence",
+      "Figure 5: provenance-aware allopolyploid wheat stress test and supervised LoRA adaptation",
       "Extended Data 6: labelled GSE270140 secondary-root adaptation and matched semantic recovery"
     ],
     "manual_review_required": [

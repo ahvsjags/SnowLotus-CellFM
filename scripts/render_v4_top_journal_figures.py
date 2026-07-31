@@ -23,6 +23,7 @@ import pandas as pd
 import umap
 from matplotlib.colors import LinearSegmentedColormap
 from matplotlib.patches import FancyArrowPatch, Rectangle
+from matplotlib.text import Text
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -133,6 +134,22 @@ def panel(ax: plt.Axes, letter: str, title: str, subtitle: str | None = None) ->
         ax.text(0, 1.014, subtitle, transform=ax.transAxes, fontsize=5.15, color=MUTED, va="bottom")
 
 
+def enforce_minimum_text_size(fig: plt.Figure, minimum_points: float = 5.0) -> None:
+    """Keep final artwork legible at journal-scale placement.
+
+    Exporters may use compact labels while composing dense panels.  The final
+    pass prevents an accidental sub-5 pt label from entering a vector or TIFF
+    release asset; panel-specific layouts remain responsible for avoiding
+    overlaps after this floor is applied.
+    """
+    # Some tick labels (notably colourbar ticks) are materialized only during
+    # the first draw, so draw before traversing the artists.
+    fig.canvas.draw()
+    for artist in fig.findobj(match=Text):
+        if artist.get_text() and artist.get_fontsize() < minimum_points:
+            artist.set_fontsize(minimum_points)
+
+
 def short_species(value: str) -> str:
     parts = str(value).split()
     return f"{parts[0][0]}. {parts[1]}" if len(parts) == 2 else str(value)
@@ -141,6 +158,7 @@ def short_species(value: str) -> str:
 def export(fig: plt.Figure, directory: Path, stem: str, tables: dict[str, pd.DataFrame]) -> None:
     for name, frame in tables.items():
         frame.to_csv(SOURCE / f"{stem}_{name}.tsv", sep="\t", index=False)
+    enforce_minimum_text_size(fig)
     for suffix, kwargs in (("svg", {}), ("pdf", {}), ("png", {"dpi": 350}), ("tiff", {"dpi": 600})):
         fig.savefig(directory / f"{stem}.{suffix}", bbox_inches="tight", pad_inches=0.028, **kwargs)
     plt.close(fig)
@@ -620,8 +638,10 @@ def render_ed1_label_integrity(v17: pd.DataFrame, v18: pd.DataFrame) -> None:
             "audit_only_unknown": [audit["excluded_cells_by_species"][s] for s in species],
         }
     )
-    fig = plt.figure(figsize=(7.25, 4.65))
-    grid = fig.add_gridspec(1, 3, width_ratios=(1.30, 1.10, 1.15), left=.07, right=.987, bottom=.12, top=.93, wspace=.48)
+    # This audit contains three compact comparisons; a shorter canvas avoids
+    # turning low-cardinality evidence into empty vertical space.
+    fig = plt.figure(figsize=(7.25, 3.55))
+    grid = fig.add_gridspec(1, 3, width_ratios=(1.30, 1.10, 1.15), left=.07, right=.987, bottom=.17, top=.86, wspace=.48)
     ax_a = fig.add_subplot(grid[0, 0])
     ax_b = fig.add_subplot(grid[0, 1])
     ax_c = fig.add_subplot(grid[0, 2])
@@ -640,13 +660,19 @@ def render_ed1_label_integrity(v17: pd.DataFrame, v18: pd.DataFrame) -> None:
             {"cohort": "v18 explicit-identity companion", **v18_summary},
         ]
     )
-    labels = ["public-label\nstress test", "explicit-identity\ncompanion"]
+    # A paired metric display is more information-dense than a two-point
+    # scatter while keeping the cohort denominator and accuracy visible on a
+    # common 0--1 scale.
+    audit_metrics = [("all-cell accuracy", "accuracy_all"), ("source-label coverage", "coverage")]
+    y_metrics = np.arange(len(audit_metrics))
     for index, row in methods.iterrows():
-        ax_b.scatter(row.coverage, row.accuracy_all, s=70, color=[GREY, TEAL][index], edgecolor="white", linewidth=.7, zorder=3)
-        dx, dy = [(-.055, -.018), (.014, .012)][index]
-        ax_b.text(row.coverage + dx, row.accuracy_all + dy, ["v17", "v18"][index], va="center", fontsize=5.2, fontweight="bold")
-    ax_b.set(xlim=(.30, 1.02), ylim=(-.02, .55), xlabel="source-label coverage", ylabel="all-cell accuracy")
-    clean(ax_b, "both")
+        metric_values = [float(row[key]) for _, key in audit_metrics]
+        ax_b.plot(metric_values, y_metrics, color=[GREY, TEAL][index], lw=1.15, alpha=.70, zorder=1)
+        ax_b.scatter(metric_values, y_metrics, s=42, color=[GREY, TEAL][index], edgecolor="white", linewidth=.55, label=["v17 public-label stress", "v18 explicit-identity companion"][index], zorder=3)
+    ax_b.set(xlim=(0, 1.03), yticks=y_metrics, yticklabels=[label for label, _ in audit_metrics], xlabel="reported fraction")
+    ax_b.tick_params(axis="y", labelsize=5.1)
+    ax_b.legend(loc="lower right", fontsize=4.8, frameon=False, handletextpad=.25)
+    clean(ax_b, "x")
     label_panel(ax_b, "b", "The companion cohort makes\nits denominator explicit")
     rows = v18.sort_values("accuracy_all")
     y2 = np.arange(len(rows))
@@ -677,8 +703,11 @@ def render_ed2_nested_selection() -> None:
     species = sorted(table.held_out_species.unique().tolist())
     matrix = table.pivot(index="candidate", columns="held_out_species", values="inner_accuracy_all").reindex(index=candidates, columns=species)
     selected = table[table.selected]
-    fig = plt.figure(figsize=(7.25, 4.65))
-    grid = fig.add_gridspec(1, 2, width_ratios=(1.35, .95), left=.07, right=.985, bottom=.15, top=.93, wspace=.52)
+    # The candidate grid is only eight source-species folds high.  Keep the
+    # panel deliberately shallow so the reader sees a comparison matrix, not
+    # a sparsely stretched dashboard.
+    fig = plt.figure(figsize=(7.25, 3.55))
+    grid = fig.add_gridspec(1, 2, width_ratios=(1.35, .95), left=.07, right=.985, bottom=.19, top=.86, wspace=.52)
     ax_a = fig.add_subplot(grid[0, 0]); ax_b = fig.add_subplot(grid[0, 1])
     image = ax_a.imshow(matrix.to_numpy(), aspect="auto", cmap=LinearSegmentedColormap.from_list("nested", ["#F4F7F8", "#C5E3E0", TEAL]), vmin=0, vmax=max(.62, float(np.nanmax(matrix.to_numpy()))))
     for yi, cand in enumerate(matrix.index):
@@ -723,8 +752,10 @@ def render_ed3_matched_checkpoint_comparison() -> None:
     baseline = "frozen v3"
     candidate = "Plant-CellFM v9"
 
-    fig = plt.figure(figsize=(7.25, 4.65))
-    grid = fig.add_gridspec(1, 3, width_ratios=(1.15, 1.12, .83), left=.075, right=.987, bottom=.16, top=.93, wspace=.54)
+    # Three matched protocols do not justify a tall canvas.  Compressing the
+    # layout makes the shared-denominator comparison read as one evidence row.
+    fig = plt.figure(figsize=(7.25, 3.55))
+    grid = fig.add_gridspec(1, 3, width_ratios=(1.15, 1.12, .83), left=.075, right=.987, bottom=.20, top=.86, wspace=.54)
     ax_a = fig.add_subplot(grid[0, 0])
     ax_b = fig.add_subplot(grid[0, 1])
     ax_c = fig.add_subplot(grid[0, 2])

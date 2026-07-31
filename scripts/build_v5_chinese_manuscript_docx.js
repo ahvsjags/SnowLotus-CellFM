@@ -82,6 +82,7 @@ function evidenceSnapshot() {
     ["身份完整性伴随队列（v18）", "2,324 显式身份细胞", "1,640 个无信息标签仅用于审计；伴随队列不替代 v17。"],
     ["少样本目标物种适配", "59.21% 至 75.89%", "每物种 8 至 64 个支持细胞，10 次独立抽样；支持与查询严格不重叠。"],
     ["外部无标签根系盲推理", "6,566 细胞；5/6 marker 顶位一致", "GSE152766 / GSM4626007 不在冻结 v4 profile；为 marker 一致性审计，不是外部准确率。"],
+    ["六倍体小麦 LoRA 适配", "62.25% 准确率；0.6660 macro-F1", "7,164 个条形码非重叠输入；1,433 个锁定作者标注测试细胞；同一研究内有监督适配。"],
     ["运行时全词表注释头", "66.25% 全细胞准确率", "部署分析，与严格零样本迁移分开报告。"],
   ];
   return new Table({
@@ -172,6 +173,7 @@ function main() {
     ["plant_cellfm_v5_fig2_strict_transfer", "图 2 | 嵌套严格留物种迁移、开放集覆盖与标签完整性。", 480],
     ["plant_cellfm_v5_fig3_target_adaptation", "图 3 | 少样本目标物种适配的重复抽样剂量响应。", 480],
     ["plant_cellfm_v5_fig4_external_root_evidence", "图 4 | 无标签外部拟南芥根系矩阵的盲推理与 marker 一致性。", 500],
+    ["plant_cellfm_v5_fig5_wheat_adapter", "图 5 | 条形码溯源约束下的六倍体小麦根系适配。重叠细胞在推理和调参前排除；LoRA 结果属于同一研究内的有监督适配。", 620],
   ];
   for (const [stem, caption, height] of figures) children.push(...figure(stem, caption, height));
   children.push(heading("关键扩展数据图", 1));

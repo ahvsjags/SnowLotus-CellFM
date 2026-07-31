@@ -60,6 +60,27 @@ def short_label(label: str) -> str:
     return replacements.get(label, label)
 
 
+def compact_label(label: str) -> str:
+    """Retain all author classes while keeping the 14-class audit printable."""
+    replacements = {
+        "Companion cell": "Companion",
+        "Conductive phloem parenchyma": "Conductive",
+        "Fiber": "Fiber",
+        "Late differentiating vessel": "Late vessel",
+        "Lateral root primordium/meristem": "LR primordium",
+        "Mature phloem parenchyma": "Mature phloem",
+        "Mature xylem parenchyma": "Mature xylem",
+        "Maturing xylem parenchyma": "Maturing xylem",
+        "Myrosin idioblasts": "Myrosin",
+        "Periderm": "Periderm",
+        "Sieve element": "Sieve",
+        "Vascular cambium": "Vascular cambium",
+        "Vessel identity cell/expanding vessel": "Expanding vessel",
+        "Young xylem parenchyma": "Young xylem",
+    }
+    return replacements.get(label, label)
+
+
 def bootstrap_interval(correct: np.ndarray, true: np.ndarray, predicted: np.ndarray, *, seed: int) -> pd.DataFrame:
     labels = np.asarray(["Phloem", "Root stele", "Xylem"], dtype=object)
     rng = np.random.default_rng(seed)
@@ -138,6 +159,7 @@ def export(fig: plt.Figure, tables: dict[str, pd.DataFrame]) -> None:
     SOURCE.mkdir(parents=True, exist_ok=True)
     for name, table in tables.items():
         table.to_csv(SOURCE / f"{STEM}_{name}.tsv", sep="\t", index=False)
+    v5.base.enforce_minimum_text_size(fig)
     for suffix, kwargs in (("svg", {}), ("pdf", {}), ("png", {"dpi": 350}), ("tiff", {"dpi": 600})):
         fig.savefig(EXTENDED / f"{STEM}.{suffix}", bbox_inches="tight", pad_inches=0.025, **kwargs)
     plt.close(fig)
@@ -164,23 +186,23 @@ def main() -> None:
     )
     semantic = semantic.merge(intervals, on="method", how="left", validate="one_to_one")
 
-    fig = plt.figure(figsize=(7.25, 7.15))
+    fig = plt.figure(figsize=(7.25, 6.65))
     grid = fig.add_gridspec(
         3,
         6,
-        height_ratios=(0.83, 1.24, 0.93),
+        height_ratios=(0.78, 1.45, 0.92),
         width_ratios=(0.94, 1.03, 1.04, 1.04, 1.04, 1.04),
         left=0.06,
         right=0.988,
         bottom=0.065,
         top=0.962,
-        hspace=0.80,
+        hspace=0.68,
         wspace=0.58,
     )
     ax_a = fig.add_subplot(grid[0, :3])
     ax_b = fig.add_subplot(grid[0, 3:])
-    ax_c = fig.add_subplot(grid[1, :4])
-    ax_d = fig.add_subplot(grid[1, 4:])
+    ax_c = fig.add_subplot(grid[1, :3])
+    ax_d = fig.add_subplot(grid[1, 3:])
     ax_e = fig.add_subplot(grid[2, :3])
     ax_f = fig.add_subplot(grid[2, 3:])
 
@@ -195,7 +217,7 @@ def main() -> None:
         ax_a.add_patch(Rectangle((x, y), width, height, transform=ax_a.transAxes, facecolor="#F4F7F8", edgecolor=color, linewidth=0.82, clip_on=False))
         ax_a.add_patch(Rectangle((x, y + height - 0.052), width, 0.052, transform=ax_a.transAxes, facecolor=color, edgecolor=color, clip_on=False))
         ax_a.text(x + width / 2, y + 0.158, headline, transform=ax_a.transAxes, ha="center", va="center", fontsize=5.35, fontweight="bold", color=INK)
-        ax_a.text(x + width / 2, y + 0.055, subline, transform=ax_a.transAxes, ha="center", va="center", fontsize=4.55, color=MUTED)
+        ax_a.text(x + width / 2, y + 0.055, subline, transform=ax_a.transAxes, ha="center", va="center", fontsize=5.0, color=MUTED)
     for left, right in zip(stages[:-1], stages[1:], strict=True):
         ax_a.add_patch(FancyArrowPatch((left[0] + left[2] + .01, .67), (right[0] - .015, .67), transform=ax_a.transAxes, arrowstyle="-|>", mutation_scale=8, lw=.75, color=MUTED))
     split_x = [0.10, 0.41, 0.72]
@@ -205,9 +227,9 @@ def main() -> None:
     for label, value, color in split_labels:
         width = .92 * value / total
         ax_a.add_patch(Rectangle((cursor, .16), width, .10, transform=ax_a.transAxes, facecolor=color, edgecolor="white", linewidth=.55))
-        ax_a.text(cursor + width / 2, .10, f"{label}: {value:,}", transform=ax_a.transAxes, ha="center", fontsize=4.4, color=INK)
+        ax_a.text(cursor + width / 2, .10, f"{label}: {value:,}", transform=ax_a.transAxes, ha="center", fontsize=5.0, color=INK)
         cursor += width
-    ax_a.text(.02, .33, "The new result is supervised adaptation, not a replacement for strict zero-shot transfer.", transform=ax_a.transAxes, fontsize=4.85, color=RED, fontweight="bold")
+    ax_a.text(.02, .33, "The new result is supervised adaptation, not a replacement for strict zero-shot transfer.", transform=ax_a.transAxes, fontsize=5.0, color=RED, fontweight="bold")
 
     methods = semantic.method.tolist()
     y = np.arange(len(methods))
@@ -216,55 +238,73 @@ def main() -> None:
     ax_b.scatter(semantic.accuracy, y, s=55, color=colors, edgecolor="white", linewidth=.7, zorder=3)
     for index, row in semantic.iterrows():
         ax_b.text(min(float(row.accuracy) + .04, .99), index + .10, f"{row.accuracy:.3f}", fontsize=5.55, fontweight="bold", color=INK)
-        ax_b.text(.01, index - .18, f"macro-F1 {row.macro_f1:.3f}", fontsize=4.55, color=MUTED)
+        ax_b.text(.01, index - .18, f"macro-F1 {row.macro_f1:.3f}", fontsize=5.0, color=MUTED)
     ax_b.set(yticks=y, yticklabels=methods, xlim=(-.05, 1.05), xlabel="matched three-state semantic accuracy")
     ax_b.tick_params(axis="y", labelsize=5.1, length=0)
     v5.clean(ax_b, "x")
-    v5.panel(ax_b, "b", "Labelled adaptation recovers held-out vascular states", "1,885 shared-state test cells; 3,000 fixed-seed nonparametric bootstrap resamples, 95% intervals")
-    ax_b.text(.99, -.43, "Base head: 2.0%  |  Adapter: 90.9%  |  +88.9 percentage points", transform=ax_b.transAxes, ha="right", fontsize=4.85, color=RED, fontweight="bold")
+    v5.panel(ax_b, "b", "Labelled adaptation recovers held-out vascular states", "1,885 shared-state cells; fixed-bootstrap 95% intervals")
+    ax_b.text(.99, -.36, "Base head: 2.0%  |  Adapter: 90.9%  |  +88.9 percentage points", transform=ax_b.transAxes, ha="right", fontsize=5.0, color=RED, fontweight="bold")
 
     labels = confusion.true_label.tolist()
     matrix = confusion.drop(columns="true_label").to_numpy(dtype=float)
     row_sum = matrix.sum(axis=1, keepdims=True)
     normalised = np.divide(matrix, row_sum, out=np.zeros_like(matrix), where=row_sum > 0)
     image = ax_c.imshow(normalised, cmap=LinearSegmentedColormap.from_list("adapter", ["#F6F8F9", "#B9DFDC", TEAL]), vmin=0, vmax=1, aspect="auto")
-    for yi in range(len(labels)):
-        for xi in range(len(labels)):
-            value = normalised[yi, xi]
-            if value >= .075:
-                ax_c.text(xi, yi, f"{value:.2f}", ha="center", va="center", fontsize=3.7, color="white" if value >= .58 else INK)
-    ax_c.set(xticks=range(len(labels)), xticklabels=[short_label(label) for label in labels], yticks=range(len(labels)), yticklabels=[short_label(label) for label in labels], xlabel="predicted author label")
-    ax_c.tick_params(axis="x", labelsize=3.7, rotation=0, length=0, pad=1.2)
-    ax_c.tick_params(axis="y", labelsize=3.7, length=0, pad=1.2)
+    ax_c.set(xticks=range(len(labels)), xticklabels=[compact_label(label) for label in labels], yticks=range(len(labels)), yticklabels=[compact_label(label) for label in labels], xlabel="predicted author label")
+    ax_c.tick_params(axis="x", labelsize=5.0, rotation=40, length=0, pad=1.4)
+    for tick in ax_c.get_xticklabels():
+        tick.set_horizontalalignment("right")
+    ax_c.tick_params(axis="y", labelsize=5.0, length=0, pad=1.4)
     for spine in ax_c.spines.values():
         spine.set_visible(False)
     colorbar = fig.colorbar(image, ax=ax_c, fraction=.032, pad=.02)
-    colorbar.ax.tick_params(labelsize=4.1, length=1.2)
-    v5.panel(ax_c, "c", "Fourteen author-defined secondary-root states are recoverable on the locked test partition", "Fine-label detailed recheck: 84.18% accuracy, macro-F1 84.64%; values below 0.075 are omitted for readability")
+    colorbar.ax.tick_params(labelsize=5.0, length=1.2)
+    v5.panel(ax_c, "c", "All 14 secondary-root states resolve\non the locked test", "Row-normalized locked-test matrix; complete values in source TSV")
 
     display = per_class.copy()
     y = np.arange(len(display))
     ax_d.hlines(y, 0, display.f1, color=LIGHT_GREY, lw=2.6, zorder=1)
     ax_d.scatter(display.f1, y, s=26 + display.support.to_numpy() / 18, color=[TEAL if value >= .84 else ORANGE for value in display.f1], edgecolor="white", linewidth=.5, zorder=3)
     for index, row in display.iterrows():
-        ax_d.text(min(float(row.f1) + .038, 1.0), index, f"{row.f1:.2f}", va="center", fontsize=4.15)
-    ax_d.set(yticks=y, yticklabels=[short_label(label) for label in display.label], xlim=(0, 1.12), xlabel="held-out per-class F1")
-    ax_d.tick_params(axis="y", labelsize=3.9, length=0, pad=1.1)
+        ax_d.text(min(float(row.f1) + .038, 1.0), index, f"{row.f1:.2f}", va="center", fontsize=5.0)
+    compact_f1_labels = {
+        "Companion cell": "Companion",
+        "Conductive phloem parenchyma": "Conductive",
+        "Fiber": "Fiber",
+        "Late differentiating vessel": "Late vessel",
+        "Lateral root primordium/meristem": "LR prim.",
+        "Mature phloem parenchyma": "Mature phl.",
+        "Mature xylem parenchyma": "Mature xyl.",
+        "Maturing xylem parenchyma": "Maturing xyl.",
+        "Myrosin idioblasts": "Myrosin",
+        "Periderm": "Periderm",
+        "Sieve element": "Sieve",
+        "Vascular cambium": "Cambium",
+        "Vessel identity cell/expanding vessel": "Expanding vsl.",
+        "Young xylem parenchyma": "Young xyl.",
+    }
+    # Reserve an in-panel label strip so the secondary-root names cannot
+    # intrude into the neighbouring confusion-matrix colourbar.
+    f1_labels = [compact_f1_labels.get(str(label), compact_label(label)) for label in display.label]
+    ax_d.set(yticks=y, yticklabels=[], xlim=(-.32, 1.12), xlabel="held-out per-class F1")
+    ax_d.tick_params(axis="y", length=0)
+    for index, label in enumerate(f1_labels):
+        ax_d.text(-.305, index, label, va="center", ha="left", fontsize=5.0, color=INK)
     v5.clean(ax_d, "x")
-    v5.panel(ax_d, "d", "Rare states remain visible in the held-out report", "Point area scales with test-cell support; no classes are omitted")
+    v5.panel(ax_d, "d", "Per-class F1 preserves\nrare-state visibility", "Point area scales with test-cell support; no classes are omitted")
 
     ax_e.plot(history.epoch, history.fine_macro_f1, color=PURPLE, marker="o", markersize=4.7, markeredgecolor="white", markeredgewidth=.6, lw=1.3, label="validation macro-F1")
     ax_e.plot(history.epoch, history.fine_accuracy, color=TEAL, marker="o", markersize=4.2, markeredgecolor="white", markeredgewidth=.6, lw=1.05, label="validation accuracy")
     best = history.loc[history.fine_macro_f1.idxmax()]
     ax_e.axvline(best.epoch, color=ORANGE, lw=.85, ls="--")
-    ax_e.annotate(f"selected epoch {int(best.epoch)}", xy=(best.epoch, best.fine_macro_f1), xytext=(best.epoch - 3.4, .48), arrowprops={"arrowstyle": "-|>", "lw": .65, "color": ORANGE}, fontsize=4.7, color=INK)
+    ax_e.annotate(f"selected epoch {int(best.epoch)}", xy=(best.epoch, best.fine_macro_f1), xytext=(best.epoch - 3.4, .48), arrowprops={"arrowstyle": "-|>", "lw": .65, "color": ORANGE}, fontsize=5.0, color=INK)
     ax_e.set(xticks=history.epoch.tolist(), ylim=(.20, .86), xlabel="training epoch", ylabel="validation score")
-    ax_e.legend(loc="lower right", fontsize=4.4, frameon=False, handlelength=1.8)
+    ax_e.legend(loc="lower right", fontsize=5.0, frameon=False, handlelength=1.8)
     v5.clean(ax_e, "y")
-    v5.panel(ax_e, "e", "Validation selection plateaus before the locked test evaluation", "Best checkpoint is selected exclusively by validation macro-F1")
+    v5.panel(ax_e, "e", "Validation plateaus before\nlocked-test evaluation", "Best checkpoint is selected exclusively by validation macro-F1")
 
     ax_f.set_axis_off()
-    v5.panel(ax_f, "f", "Held-out report is calibrated enough to support review-aware deployment", "Reported separately from strict transfer and from label-free external execution")
+    v5.panel(ax_f, "f", "Calibrated held-out results\nsupport review-aware use", "Reported separately from strict transfer and from label-free external execution")
     rows = [
         ("fine accuracy", 0.8397, TEAL),
         ("fine macro-F1", 0.8447, PURPLE),
@@ -273,11 +313,11 @@ def main() -> None:
     ]
     for index, (label, value, color) in enumerate(rows):
         y0 = .78 - index * .17
-        ax_f.text(.02, y0 + .055, label, transform=ax_f.transAxes, fontsize=4.8, color=MUTED, va="center")
+        ax_f.text(.02, y0 + .055, label, transform=ax_f.transAxes, fontsize=5.0, color=MUTED, va="center")
         ax_f.add_patch(Rectangle((.38, y0), .51, .10, transform=ax_f.transAxes, facecolor="#EDF2F4", edgecolor="none"))
         ax_f.add_patch(Rectangle((.38, y0), .51 * value, .10, transform=ax_f.transAxes, facecolor=color, edgecolor="none"))
         ax_f.text(.93, y0 + .05, f"{value:.3f}", transform=ax_f.transAxes, fontsize=5.15, fontweight="bold", va="center", ha="left")
-    ax_f.text(.02, .05, "Test evaluator: 2,352 cells; original one-sample study design is retained in the record.", transform=ax_f.transAxes, fontsize=4.45, color=RED)
+    ax_f.text(.02, .05, "Test evaluator: 2,352 cells; original one-sample study design is retained in the record.", transform=ax_f.transAxes, fontsize=5.0, color=RED)
 
     export(
         fig,

@@ -1,69 +1,29 @@
 {
   "schema_version": "plant_cellfm_visual_review_v3",
-  "status": "complete_data_first_draft_not_submission_approved",
-  "score_out_of_100": 78.0,
-  "summary": "The v3 suite replaces the dashboard-style v1 figures with six data-first main figures, four Extended Data figures and source-data exports. It is a coherent manuscript-draft visual system, but it is not submission approved because independent biological validation and closed third-party numerical benchmarks remain absent.",
-  "reviewed_outputs": [
-    "figures/plant_cellfm_submission_v3/drafts",
-    "figures/plant_cellfm_submission_v3/extended_data",
-    "supplementary_tables/submission_v3"
+  "scope": {
+    "main_figures": 5,
+    "extended_data_figures": 6,
+    "figure_directory": "figures/plant_cellfm_submission_v5"
+  },
+  "technical_contract": {
+    "minimum_svg_font_size_pt": 5.0,
+    "required_exports": ["SVG", "PDF", "PNG", "TIFF"],
+    "required_source_data": "one_or_more_tidy_tsv_files_per_figure",
+    "full_width_inches": 7.25,
+    "full_width_mm": 184.15,
+    "wheat_figure_height_inches": 6.55,
+    "wheat_figure_height_mm": 166.37
+  },
+  "review_method": [
+    "Automated figure export, source-data, editable-SVG, TIFF-DPI and minimum-font audit.",
+    "Manual original-resolution raster inspection after final re-render.",
+    "Figure claims cross-checked against the v17, v14, GSE270140 and GSE270342 audit records."
   ],
-  "completed_main_figure_drafts": [
-    {
-      "id": "Fig. 1",
-      "file": "plant_cellfm_v3_fig1_corpus_and_representation",
-      "score": 78.0,
-      "strengths": ["Direct frozen-H5AD composition and dataset provenance.", "Data contract and evaluation atlas are visible without an architecture-only dashboard.", "Panel-level TSV source data is exported."],
-      "remaining_repairs": ["Add directly measured ortholog-retention data when a wider corpus is frozen."]
-    },
-    {
-      "id": "Fig. 2",
-      "file": "plant_cellfm_v3_fig2_nested_strict_transfer",
-      "score": 84.0,
-      "strengths": ["Uses v17 nested selection as the strict primary result.", "Shows per-species heterogeneity, cell bootstrap and open-set coverage directly.", "Keeps v14 global selection visibly exploratory."],
-      "remaining_repairs": ["Add independent-collection and group-resampling uncertainty before final submission."]
-    },
-    {
-      "id": "Fig. 3",
-      "file": "plant_cellfm_v3_fig3_matched_comparisons",
-      "score": 79.0,
-      "strengths": ["Numerical comparisons are restricted to frozen matched v3-v9 protocols.", "External comparison status is explicitly presented as an audit, not as a performance ranking."],
-      "remaining_repairs": ["Replace pending audit rows with reproducible official third-party outputs."]
-    },
-    {
-      "id": "Fig. 4",
-      "file": "plant_cellfm_v3_fig4_fewshot_target_adaptation",
-      "score": 82.0,
-      "strengths": ["Shows support/query nonoverlap and ten-draw uncertainty.", "Makes support-budget and species-dependence interpretable in one figure."],
-      "remaining_repairs": ["Add an independent target-species collection and matched baseline."]
-    },
-    {
-      "id": "Fig. 5",
-      "file": "plant_cellfm_v3_fig5_arabidopsis_root_candidate_resource",
-      "score": 80.0,
-      "strengths": ["Dense biological identity and marker-candidate evidence.", "Distinguishes computational candidates from wet-lab validation."],
-      "remaining_repairs": ["Add independent query-cell replication or experimental validation."]
-    },
-    {
-      "id": "Fig. 6",
-      "file": "plant_cellfm_v3_fig6_runtime_confidence",
-      "score": 77.0,
-      "strengths": ["Shows calibration/selectivity and runtime species heterogeneity.", "Clearly isolates full-vocabulary deployment from strict zero-shot evaluation."],
-      "remaining_repairs": ["Validate runtime calibration on an independent deployment collection."]
-    }
-  ],
-  "completed_extended_data_drafts": [
-    "plant_cellfm_v3_ed_fig1_corpus_provenance",
-    "plant_cellfm_v3_ed_fig2_nested_selection_audit",
-    "plant_cellfm_v3_ed_fig3_open_set_audit",
-    "plant_cellfm_v3_ed_fig4_fewshot_stability"
-  ],
-  "completed_supplementary_tables": 10,
-  "unmet_package_requirements": [
-    "Independent public biological/query-cell replication is absent.",
-    "scPlantLLM and scPlantAnnotate official numeric outputs are not closed.",
-    "A final-size journal-template review and public immutable release remain required.",
-    "The figure suite must not be called a Nature Methods-level proof of universal plant annotation."
-  ],
-  "approval_rule": "Set status to approved only after a clean-environment rerun, immutable public release, independent data validation, journal-template inspection and closure of every numerical comparison displayed as a head-to-head result."
+  "non_negotiable_boundaries": [
+    "Strict v17 leave-species all-cell accuracy remains 0.39959636730575174.",
+    "The v14 context-aware result remains a global sensitivity analysis and not a nested primary result.",
+    "Both root adapters remain same-study supervised adaptation results.",
+    "The label-free external root case remains marker-coherence evidence without external accuracy.",
+    "Third-party scPlantLLM and scPlantAnnotate matched numerical comparisons remain incomplete."
+  ]
 }

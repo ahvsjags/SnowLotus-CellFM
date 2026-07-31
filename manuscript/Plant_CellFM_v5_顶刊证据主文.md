@@ -4,7 +4,7 @@
 
 植物单细胞与单核转录组正在从单一参考物种快速扩展到不同谱系、器官和胁迫场景，但细胞身份注释仍受三个彼此耦合的问题限制：物种间基因标识符和表达程序存在差异，目标物种常含有源标签词表未覆盖的细胞状态，且零样本迁移、少样本校准与已经训练好的部署分类器经常被混为同一种性能。我们构建 Plant-CellFM，一个将数据来源、基因迁移、物种适配、开放集标签边界和评估协议写入同一可复现链条的植物单细胞表达建模框架。当前冻结语料的可审计 profile 包含 272,732 个细胞、209,405 个基因、5 个物种、9 个数据集、31 个样本和 34 个原始细胞标签；独立严格评估面板包含 8 个留出物种和 3,964 个已对齐细胞。框架由 256 维四层表达编码器、基因标识符/同源基因映射契约、LoRA 物种适配接口、层级注释路径、marker 候选排序和运行时注释头组成。
 
-在嵌套严格留物种方案中，目标物种标签不参与模型拟合、候选规则选择或校准。v17 主分析在全部 3,964 个细胞上得到 39.96% 精确全细胞准确率；源标签覆盖率为 55.90%，在可覆盖标签子集中的准确率为 71.48%、macro-F1 为 0.2817。为避免将 `unknown`、`unknow` 和 `unannotated` 一类非身份标签误作生物学真值，我们进一步以 v18 建立显式身份伴随队列：从 3,964 个公开标签细胞中保留 2,324 个身份明确细胞，并将 1,640 个不具信息的标签固定为审计项。目标物种少样本适配显示稳定的剂量响应，在每物种 8、16、32 和 64 个标注支持细胞时，10 次独立抽样的查询全细胞准确率分别为 59.21%、67.34%、72.30% 和 75.89%，且支持细胞从不进入查询评分。我们还给出匹配冻结检查点比较、拟南芥根系 marker 候选资源及其预定义文献锚点一致性，以及对不在冻结 v4 语料 profile 中的无标签外部根系矩阵执行的盲推理与 marker 一致性审计。Plant-CellFM 的核心贡献不是以单一高分取代复杂的植物标签空间，而是提供一条能区分开放集迁移、少样本适配和部署推断的证据优先路线。
+在嵌套严格留物种方案中，目标物种标签不参与模型拟合、候选规则选择或校准。v17 主分析在全部 3,964 个细胞上得到 39.96% 精确全细胞准确率；源标签覆盖率为 55.90%，在可覆盖标签子集中的准确率为 71.48%、macro-F1 为 0.2817。为避免将 `unknown`、`unknow` 和 `unannotated` 一类非身份标签误作生物学真值，我们进一步以 v18 建立显式身份伴随队列：从 3,964 个公开标签细胞中保留 2,324 个身份明确细胞，并将 1,640 个不具信息的标签固定为审计项。目标物种少样本适配显示稳定的剂量响应，在每物种 8、16、32 和 64 个标注支持细胞时，10 次独立抽样的查询全细胞准确率分别为 59.21%、67.34%、72.30% 和 75.89%，且支持细胞从不进入查询评分。我们还给出匹配冻结检查点比较、拟南芥根系 marker 候选资源及其预定义文献锚点一致性，以及对不在冻结 v4 语料 profile 中的无标签外部根系矩阵执行的盲推理与 marker 一致性审计。在条形码非重叠的六倍体小麦根系案例中，作者同源组保留 76.33% 的输入 UMI；固定切分的 LoRA 适配器在 1,433 个锁定作者标注测试细胞上达到 62.25% 准确率和 0.6660 macro-F1。该作物结果与次生根案例均明确属于同一研究内的有监督适配，而非零样本或独立外部验证。Plant-CellFM 的核心贡献不是以单一高分取代复杂的植物标签空间，而是提供一条能区分开放集迁移、少样本适配和部署推断的证据优先路线。
 
 ## 关键词
 
@@ -72,13 +72,21 @@ Plant-CellFM 的表达骨架输出 256 维细胞嵌入，使用四层编码结�
 
 在锁定测试集中，该适配器的主训练评估得到 83.97% fine accuracy 和 84.47% fine macro-F1；独立的全精度复查得到 84.18% 和 84.64%。为了在不重写原始 14 类标签的前提下检验冻结根系本体的可恢复性，我们在训练前冻结原始标签到 Phloem、Xylem 和 Root stele 的三状态映射，并仅在 1,885 个兼容的锁定测试细胞上评分。冻结基础检查点在该语义集合上的准确率为 2.02%，适配后为 90.93%，macro-F1 为 0.9159（扩展数据图 6b–d,f；表 S18）。这一结果回答的是“获得作者标注后，框架能否以可审计的方式吸收次生根上下文”；它是同一样本内的有监督适配，不是零样本、留物种、独立外部验证或第三方模型排名，因而不改变本文 v17 的严格主结果。
 
-### 8. 拟南芥根系候选 marker 资源连接身份层级、实验优先级与公开审计表
+### 8. 条形码溯源与同源映射契约支撑六倍体小麦根系适配
+
+为检验框架在多倍体作物和跨参考基因组条件下的可迁移性，我们引入 GEO `GSE270342` 的作者标注小麦根系对象。该对象包含 7,388 个细胞；既往探索性严格迁移记录中有 256 行来自其 CS1 重复。我们按原始条形码进行精确匹配，识别出 224 个共享细胞，并在冻结推理、适配训练和测试评分之前全部剔除，形成 7,164 个细胞的非重叠输入（图 5a）。这一溯源门禁防止已经记录的探索性细胞再次进入适配结果；由于剩余细胞仍来自同一公开作者研究，案例始终被定位为同一研究内重审，而不被包装为独立外部基准。
+
+小麦基因标识符不能直接与冻结根系检查点形成足够的共同输入空间，因此我们使用该研究作者公开的 custom PLAZA orthogroup 表作为显式的多对多同源映射契约。78,115 个源特征中，41,987 个（53.75%）可解析到冻结检查点词表，保留 76.33% 的输入 UMI 计数。冻结诊断采用确定性的 first-target 投影，同时并列报告守恒计数的 mean-target 敏感性，而不在观察结果后选择更有利的映射。对预先声明的八类直接根系身份，冻结 first-target 诊断在 964 个锁定测试细胞上为 25.93% 准确率、0.1546 macro-F1（图 5b,c）。
+
+随后，我们从冻结 SRP169576 根系检查点初始化 LoRA-mode 小麦适配器，按固定随机种子将 7,164 个细胞划为 5,014 个训练、717 个验证和 1,433 个全程锁定测试细胞；最佳模型只按验证集 macro-F1 在第 8 个 epoch 选取。完整 13 类作者标注锁定测试的准确率为 62.25%，macro-F1 为 0.6660。对与冻结诊断相同的 964 个直接根系身份测试细胞，准确率升至 56.22%、macro-F1 为 0.6847，较冻结 first-target 诊断提高 30.29 个百分点（图 5c–f）。发布的适配器通过 Git LFS 管理，并以 SHA256 与审计时训练检查点逐字节关联。表 S20 将条形码排除门禁、同源映射覆盖、固定切分、锁定测试结果和发布权重哈希合并为一张可直接复核的证据表。该结果展示了在明示同源契约下吸收作物物种上下文的可复现路径，不替代 v17 严格零样本主结论，也不构成独立验证或第三方排名。
+
+### 9. 拟南芥根系候选 marker 资源连接身份层级、实验优先级与公开审计表
 
 为了将模型输出进一步连接到可检验的生物学假设，我们以拟南芥根系建立 10 类身份的候选 marker 资源，包括柱状根冠、侧根冠、根冠、根毛、非根毛、皮层、内皮层、中柱、韧皮部和木质部。每类身份保留 top-20 候选，因此表 S13 提供 200 条候选记录及其分数、检测率、效应量和身份归属；身份层级、前五候选、效应量与检测率分离度以及候选程序强度由扩展数据图 4a–d 系统呈现。
 
 为避免候选列表仅依赖内部排序，我们在查看候选排名前从拟南芥根系原始单细胞文献固定 6 个经典 marker-身份锚点；其中韧皮部 `APL`（AT1G79430）、内皮层 `CASP1`（AT2G36100）和木质部 `MYB46`（AT5G12870）分别在匹配身份程序的前 4、7 和 12 位被回收（扩展数据图 4，表 S16）。其余三个预定义锚点同样保留在审计表中而未被隐去，因而该结果是可复核的 3/6 文献一致性记录，而不是事后挑选的成功案例。研究者可以从身份层级进入候选基因，也可以从基因效应与检测分离度反查优先级。该资源严格定位为公共数据上的计算资源；文献一致性支持身份命名的生物学合理性，但候选 marker 仍代表可检验假设而非独立矩阵复现或湿实验验证结论。
 
-### 9. 从严格基准到部署服务的每一层输出均保留独立报告边界
+### 10. 从严格基准到部署服务的每一层输出均保留独立报告边界
 
 Plant-CellFM 同时提供运行时全词表注释头。该模式在已经具备部署标签词表和训练分类器的前提下运行，因而不等价于严格零样本跨物种迁移。全词表运行时分析在相同对齐细胞上的全细胞准确率为 66.25%，作为部署可用性记录独立保存。模型卡、补充表 S2 和图表审计均将它明确标记为 runtime 分析，防止被误读为 v17 的严格性能。
 
@@ -108,11 +116,15 @@ v18 对标签起始字符串为 unknown、unknow 或 unannotated 的记录实施
 
 `GSM4626007` 的原始 spliced MatrixMarket 文件经校验和记录后转换为 cells × genes H5AD 输入，并只保留 GEO 提供的细胞条形码、TAIR10 基因 ID、物种、组织、数据集和样本元数据；输入中不存在细胞身份字段。冻结注释检查点在 CUDA 上输出逐细胞 fine/coarse 标签、置信度和 256 维嵌入。对 6 个在分析前已固定的经典 marker，以原始 UMI 计数按每细胞 10,000 标准化并 log1p 转换；随后比较各 marker 在其预期预测群与所有其他预测群之间的平均表达和检出率，并报告该预期群在 13 个预测标签中的秩。外部数据集不在冻结 v4 corpus profile 中的结论只限定于该已记录 profile；本分析不据此推断任一历史上游模型从未访问过相关资源。由于没有专家真值标签，整个流程不计算准确率、macro-F1 或跨模型排名。
 
-全部主图与扩展数据图由 Matplotlib `Agg` 后端生成，逐图输出可编辑 SVG、PDF、PNG、600-dpi TIFF 及对应 TSV 源数据。发布前运行 v5 图表审计，检查图件存在性、源数据、SVG 可编辑文本、TIFF 分辨率和冻结指标一致性。审计只报告技术门禁是否通过，不以自评“期刊就绪分数”替代编辑和同行评审；第三方比较和独立实验验证仍列为开放证据项，不修改已完成结果的范围。
+全部主图与扩展数据图由 Matplotlib `Agg` 后端生成，逐图输出可编辑 SVG、PDF、PNG、600-dpi TIFF 及对应 TSV 源数据。发布前运行 v5 图表审计，检查图件存在性、源数据、SVG 可编辑文本、TIFF 分辨率、冻结指标一致性、两枚发布适配器的校验和，以及小麦案例的条形码排除和固定切分。审计只报告技术门禁是否通过，不以自评“期刊就绪分数”替代编辑和同行评审；第三方比较和独立实验验证仍列为开放证据项，不修改已完成结果的范围。
 
 ### 次生根有监督适配
 
 `GSE270140` / `GSM8335426` 的作者对象通过保留原始特征名、细胞 ID 和作者 `annotation` 字段的可审计导出链转为 cells × genes H5AD 输入；基因特征以 TAIR 主标识符进行规范化，同时保留原始名称供追溯。LoRA-mode 训练由 `configs/gse270140_secondary_root_lora_adapter_4070.yaml` 固定，使用 256 维四层根系检查点初始化、rank-8 适配路径、类别平衡损失和 10 个 epoch 的训练上限。训练、验证和测试按唯一 cell ID 固定分组；第 7 个 epoch 由验证 fine macro-F1 选为最佳模型。`scripts/audit_gse270140_secondary_root_adapter.py` 固化配置、检查点校验和、分割、逐类 F1、语义映射和详细测试复查，`scripts/render_v5_secondary_root_adapter_figure.py` 将这些记录连同 3,000 次固定种子 bootstrap 区间写入扩展数据图 6 的源数据。该路径的统计单元是同一样本中由作者标签监督的细胞，不能推断为跨物种独立验证。
+
+### 六倍体小麦根系同源映射与有监督适配
+
+`GSE270342` 作者 Seurat 对象被导出为保留细胞 ID、原始基因特征名和作者 `annotation` 的 cells × genes 计数输入。预处理流程仅以精确 CS1 条形码与历史探索性严格记录比对，并先行移除 224 个交集；同源映射流程从作者仓库获取 `orthogroups.csv`，建立包含来源、目标和 orthogroup ID 的可审计映射表。冻结推理固定使用 `first` 聚合；`mean` 聚合作为单独敏感性路径，二者均不使用作者标签选择映射。LoRA-mode 训练由固定配置控制，采用 rank-8、类别平衡损失、10 个 epoch 和 5,014 / 717 / 1,433 的 group-random 切分。模型推广步骤只在字节级 SHA256 相同的条件下将最佳训练检查点写入发布注册表；适配审计随后锁定发布检查点、测试 cell ID、完整 13 类测试、八类直接根系子集和此前条形码排除记录。表 S20 给出这一整条流程的数值和权重身份。统计单元是同一作者对象内由标签监督的细胞，不能外推为独立跨物种准确率。
 
 ## 图例
 
@@ -123,6 +135,8 @@ v18 对标签起始字符串为 unknown、unknow 或 unannotated 的记录实施
 **图 3 | 少样本目标物种适配的剂量响应。** a，支持与查询细胞严格分离的适配设计。b，4 个支持预算下 10 次独立抽样的查询全细胞准确率；点为单次抽样，误差线为标准差。c，查询 macro-F1 随支持预算的变化。d，按物种和支持预算汇总的查询全细胞准确率。
 
 **图 4 | 无标签外部拟南芥根系矩阵的盲推理与预定义 marker 一致性。** a，GEO `GSE152766` / `GSM4626007` 的 6,566 个细胞在冻结 256 维模型嵌入上的 UMAP；颜色为模型预测，绝非输入标签。b，13 个预测状态的细胞组成、平均置信度与细胞数。c，分析前固定的 6 个经典 marker 在其预期预测群相对于全部其他预测群的平均表达分离度；点大小表示预期群中的检出率，文字给出预测群细胞数与检出率分离度。该矩阵没有专家细胞类型标签，故该图不构成外部准确率、外部模型排名或独立实验验证。
+
+**图 5 | 条形码溯源约束下的六倍体小麦根系适配。** a，从 7,388 个作者对象细胞中排除与历史探索性严格迁移记录精确重叠的 224 个 CS1 条形码，形成 7,164 个非重叠输入，并展示固定 5,014 / 717 / 1,433 训练、验证和锁定测试切分。b，作者 custom PLAZA orthogroup 映射保留的检查点兼容特征和 UMI 计数，以及 frozen first/mean 聚合敏感性。c，在相同 964 个预定义直接根系测试细胞上，冻结 first-target 诊断与 LoRA 适配器的准确率、macro-F1 和 3,000 次固定种子 bootstrap 区间。d，完整 13 类锁定测试混淆矩阵。e，逐类 F1 与测试支持数。f，仅由验证集选择的训练轨迹。该图为同一公开作者研究中的标签监督适配，不构成严格零样本、独立外部准确率或第三方模型排名。
 
 **扩展数据图 1 | 标签完整性审计。** a，逐物种公开标签、显式身份和 audit-only 无信息标签的数量。b，v17 与 v18 的分母、覆盖率和全细胞准确率关系。c，v18 显式身份队列中各保留物种的全细胞准确率。
 
@@ -152,6 +166,14 @@ python scripts/extract_gse270140_external_assets.py
 python scripts/prepare_gse270140_external_validation.py
 python -m snowcell.cli train --config configs/gse270140_secondary_root_lora_adapter_4070.yaml --device cuda
 python scripts/audit_gse270140_secondary_root_adapter.py
+python scripts/download_gse270342_author_reference.py
+python scripts/fetch_gse270342_wheat_arabidopsis_orthologs.py
+python scripts/prepare_gse270342_wheat_root_case.py
+python -m snowcell.cli train --config configs/gse270342_wheat_root_lora_adapter_4070.yaml --device cuda
+python scripts/evaluate_checkpoint_detailed.py --config configs/gse270342_wheat_root_lora_adapter_4070.yaml --checkpoint outputs/gse270342_wheat_root_lora_adapter_4070/best.pt --split test --output-dir outputs/gse270342_wheat_root_lora_adapter_4070/detailed_test --device cuda --batch-size 16
+python scripts/promote_gse270342_wheat_adapter.py
+python scripts/audit_gse270342_wheat_lora_adapter.py
+python scripts/render_v5_wheat_root_adapter_figure.py
 python scripts/render_v5_top_journal_figures.py
 python scripts/render_v5_secondary_root_adapter_figure.py
 python scripts/write_submission_v4_supplementary_tables.py
@@ -175,3 +197,5 @@ npm run build:manuscript
 9. Shahan, R. *et al.* A single cell *Arabidopsis* root atlas reveals developmental trajectories in wild-type and cell identity mutants. *Developmental Cell* **57**, 543-560.e9 (2022). https://doi.org/10.1016/j.devcel.2022.01.008
 10. NCBI Gene Expression Omnibus. *Arabidopsis thaliana* `GSE152766`, sample `GSM4626007`. https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE152766
 11. Lyu, M. *et al.* The dynamic and diverse nature of parenchyma cells in the *Arabidopsis* root during secondary growth. *Nature Plants* (2025). https://doi.org/10.1038/s41477-025-01938-6
+12. Ke, Y. *et al.* A single-cell and spatial wheat root atlas with cross-species annotations delineates conserved tissue-specific marker genes and regulators. *Cell Reports* **44**, 115240 (2025). https://doi.org/10.1016/j.celrep.2025.115240
+13. NCBI Gene Expression Omnibus. *Triticum aestivum* `GSE270342`: a soil-grown wheat root atlas with validated cross-species cluster annotations. https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE270342

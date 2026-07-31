@@ -19,7 +19,7 @@ def test_v5_figure_audit_preserves_exports_and_frozen_evidence() -> None:
     report = json.loads((ROOT / "release_metadata" / "top_journal_figure_audit_v5.json").read_text(encoding="utf-8"))
     assert report["state"] == "TECHNICALLY_READY_PENDING_EDITORIAL_AND_EVIDENCE_REVIEW"
     assert report["technical_failures"] == []
-    assert report["frozen_evidence"] == {
+    expected_evidence = {
         "v17_all_cell_accuracy": 0.39959636730575177,
         "v14_context_sensitivity_all_cell_accuracy": 0.42356205852674067,
         "v14_context_sensitivity_coverage": 0.5590312815338042,
@@ -31,6 +31,20 @@ def test_v5_figure_audit_preserves_exports_and_frozen_evidence() -> None:
         "secondary_root_adapter_test_accuracy": 0.8397108843537415,
         "secondary_root_adapter_test_macro_f1": 0.8446817683258346,
         "secondary_root_adapter_matched_semantic_accuracy": 0.9092838196286472,
+        "wheat_adapter_test_cells": 1433,
+        "wheat_adapter_train_cells": 5014,
+        "wheat_adapter_validation_cells": 717,
+        "wheat_adapter_test_accuracy": 0.6224703419399861,
+        "wheat_adapter_test_macro_f1": 0.6660112830533416,
+        "wheat_adapter_matched_frozen_accuracy": 0.25933609958506226,
+        "wheat_adapter_matched_adapted_accuracy": 0.5622406639004149,
     }
-    assert len(report["figures"]["main"]) == 4
+    for key, value in expected_evidence.items():
+        assert report["frozen_evidence"][key] == value
+    assert report["frozen_evidence"]["wheat_adapter_supplementary_table"] == "supplementary_tables/submission_v4/Supplementary_Table_S20_GSE270342_wheat_root_adapter_audit.tsv"
+    assert len(report["figures"]["main"]) == 5
     assert len(report["figures"]["extended_data"]) == 6
+    assert report["visual_contract"]["vector_font_floor_pt"] == 5.0
+    for group in ("main", "extended_data"):
+        for figure in report["figures"][group]:
+            assert figure["minimum_svg_font_size_pt"] >= 5.0

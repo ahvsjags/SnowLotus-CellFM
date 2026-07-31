@@ -159,6 +159,56 @@
       },
       "source_record": "release_metadata/gse270140_secondary_root_adapter_audit_v1.json",
       "boundary": "Author-label-supervised cell-level adaptation inside one secondary-root sample. It is not zero-shot, leave-species evidence, independent external validation or a matched third-party benchmark."
+    },
+    "gse270342_wheat_root_labelled_adaptation": {
+      "role": "Barcode-non-overlap, same-study author-label-supervised allopolyploid wheat-root adaptation of the frozen root checkpoint.",
+      "series_accession": "GSE270342",
+      "publication_doi": "10.1016/j.celrep.2025.115240",
+      "author_object_cells": 7388,
+      "exact_prior_strict_barcode_overlap_excluded": 224,
+      "prepared_nonoverlap_cells": 7164,
+      "orthology_contract": {
+        "source_features": 78115,
+        "checkpoint_compatible_features": 41987,
+        "checkpoint_compatible_feature_fraction": 0.5375024003072393,
+        "checkpoint_compatible_umi_fraction": 0.763253,
+        "mapping_source": "Author-published custom PLAZA orthogroup table; deterministic first-target frozen projection with a separately reported count-conserving mean sensitivity."
+      },
+      "base_checkpoint": "models/SnowLotus_CellFM_SRP169576_annotation_1024_best.pt",
+      "adapter_checkpoint": "models/Plant_CellFM_GSE270342_wheat_root_lora_adapter_best.pt",
+      "adapter_checkpoint_sha256": "597b7e425b0355ddfa81e4f5c9c63e85987d6b72fe49a841736b200ea6c2c22e",
+      "tuning_mode": "LoRA-mode; rank 8; the recorded adapter configuration is initialized from the frozen 256-dimensional root checkpoint.",
+      "grouped_cell_split": {
+        "seed": 20260801,
+        "train_cells": 5014,
+        "validation_cells": 717,
+        "held_out_test_cells": 1433
+      },
+      "frozen_direct_root_diagnostic": {
+        "matched_locked_test_cells": 964,
+        "first_projection_accuracy": 0.25933609958506226,
+        "first_projection_macro_f1": 0.15456244289944848,
+        "all_nonoverlap_mapping_sensitivity": {
+          "direct_anatomical_cells": 4937,
+          "first_projection_accuracy": 0.26736884747822565,
+          "mean_projection_accuracy": 0.23921409763013976,
+          "mean_projection_macro_f1": 0.18386373374557
+        }
+      },
+      "primary_held_out_test": {
+        "fine_accuracy": 0.6224703419399861,
+        "fine_macro_f1": 0.6660112830533416,
+        "author_label_states": 13,
+        "best_epoch_selected_on_validation": 8
+      },
+      "matched_direct_root_recovery": {
+        "cells": 964,
+        "adapter_accuracy": 0.5622406639004149,
+        "adapter_macro_f1": 0.6847096122167515,
+        "accuracy_gain_percentage_points": 30.29045643153527
+      },
+      "source_record": "release_metadata/gse270342_wheat_lora_adapter_audit_v1.json",
+      "boundary": "A same-study author-label-supervised, cell-level split after excluding exact barcode overlap with a historical exploratory strict-transfer subset. This is not zero-shot, independent external validation or a matched third-party benchmark. The eight-label direct-root recovery is a predefined subset and does not replace the 13-class author-label test metric."
     }
   },
   "intended_uses": [
@@ -183,16 +233,17 @@
   "reproducibility": {
     "strict_v18_command": "python scripts/run_revision_v18_identity_curated_strict.py",
     "fewshot_command": "python scripts/run_revision_v11_fewshot_adapter_benchmark.py",
-    "main_and_extended_figure_command": "python scripts/render_v4_top_journal_figures.py",
+    "main_and_extended_figure_command": "python scripts/render_v5_top_journal_figures.py && python scripts/render_v5_secondary_root_adapter_figure.py && python scripts/render_v5_wheat_root_adapter_figure.py",
     "root_literature_concordance_command": "python scripts/build_v4_root_literature_concordance.py",
     "external_root_blind_inference_commands": "python scripts/download_gse152766_external_root_case.py && python scripts/prepare_gse152766_external_root_case.py && python -m snowcell.cli annotate-bundle --checkpoint models/SnowLotus_CellFM_SRP169576_annotation_1024_best.pt --data outputs/external_validation/gse152766_gsm4626007/GSM4626007_sc_52_spliced_external_root.h5ad --output-dir outputs/external_validation/gse152766_gsm4626007/annotation_bundle --batch-size 8 --device cuda && python scripts/audit_gse152766_external_root_case.py",
     "secondary_root_adapter_commands": "python scripts/download_gse270140_external_validation.py && python scripts/extract_gse270140_external_assets.py && python scripts/prepare_gse270140_external_validation.py && python -m snowcell.cli train --config configs/gse270140_secondary_root_lora_adapter_4070.yaml --device cuda && python scripts/evaluate_checkpoint_detailed.py --config configs/gse270140_secondary_root_lora_adapter_4070.yaml --checkpoint outputs/gse270140_secondary_root_lora_adapter_4070/best.pt --split test --output-dir outputs/gse270140_secondary_root_lora_adapter_4070/detailed_test --device cuda --batch-size 16 && python scripts/audit_gse270140_secondary_root_adapter.py && python scripts/render_v5_secondary_root_adapter_figure.py",
+    "wheat_root_adapter_commands": "python scripts/download_gse270342_author_reference.py && python scripts/fetch_gse270342_wheat_arabidopsis_orthologs.py && python scripts/prepare_gse270342_wheat_root_case.py && python -m snowcell.cli train --config configs/gse270342_wheat_root_lora_adapter_4070.yaml --device cuda && python scripts/evaluate_checkpoint_detailed.py --config configs/gse270342_wheat_root_lora_adapter_4070.yaml --checkpoint outputs/gse270342_wheat_root_lora_adapter_4070/best.pt --split test --output-dir outputs/gse270342_wheat_root_lora_adapter_4070/detailed_test --device cuda --batch-size 16 && python scripts/promote_gse270342_wheat_adapter.py && python scripts/audit_gse270342_wheat_lora_adapter.py && python scripts/render_v5_wheat_root_adapter_figure.py",
     "tables_command": "python scripts/write_submission_v4_supplementary_tables.py",
-    "figure_audit_command": "python scripts/audit_v4_submission_figure_suite.py",
+    "figure_audit_command": "python scripts/audit_v5_submission_figure_suite.py",
     "scplantllm_official_execution_command": "python scripts/run_scplantllm_embedding_centroid_probe.py --chunks-dir external/scPlantLLM/data/processed/has_celltype --scplantllm-dir external/scPlantLLM --weight-path model_params/scPlantLLM_model.pth --device cuda --batch-size 4 --max-train 256 --max-test 256 --output release_metadata/scplantllm_official_data_embedding_probe_256.json && python scripts/audit_scplantllm_official_execution.py",
-    "source_data_directory": "figures/plant_cellfm_submission_v4/source_data",
+    "source_data_directory": "figures/plant_cellfm_submission_v5/source_data",
     "supplementary_tables_directory": "supplementary_tables/submission_v4",
-    "hardware_record": "Historical training artefacts record RTX 4090 runs. Separately, the archived scPlantLLM and GSE152766 external executions, and the GSE270140 secondary-root LoRA-mode adaptation, ran on a local NVIDIA GeForce RTX 4070 Laptop GPU with CUDA; this card makes no claim of active remote GPU training.",
+    "hardware_record": "Historical training artefacts record RTX 4090 runs. Separately, the archived scPlantLLM and GSE152766 external executions, and the GSE270140 secondary-root and GSE270342 wheat-root LoRA-mode adaptations, ran on a local NVIDIA GeForce RTX 4070 Laptop GPU with CUDA; this card makes no claim of active remote GPU training.",
     "repository": "https://github.com/ahvsjags/SnowLotus-CellFM",
     "release_branch": "agent/remote-pipeline-20260728"
   }

@@ -1,0 +1,22 @@
+section	metric	value	unit	interpretation
+Source and provenance	GEO series	GSE270342	accession	public author-labelled wheat root study
+Source and provenance	Publication DOI	10.1016/j.celrep.2025.115240	DOI	source publication
+Source and provenance	Author object cells	7388	cells	before overlap exclusion
+Source and provenance	Historical strict-transfer rows	256	rows	recorded exploratory subset
+Source and provenance	Exact CS1 barcodes excluded	224	cells	removed before inference and tuning
+Source and provenance	Retained non-overlap cells	7164	cells	author-labelled same-study adaptation input
+Orthogroup mapping	Source genes	78115	features	author object RNA count matrix
+Orthogroup mapping	Checkpoint-compatible mapped genes	41987	features	mapped into frozen checkpoint vocabulary
+Orthogroup mapping	Checkpoint-compatible feature fraction	0.5375024003072393	fraction	feature-level mapping coverage
+Orthogroup mapping	Checkpoint-compatible UMI fraction	0.7632529502682207	fraction	count-weighted mapping coverage
+Locked split	Train cells	5014	cells	fixed group-random split; seed 20260801
+Locked split	Validation cells	717	cells	used for epoch selection
+Locked split	Test cells	1433	cells	locked author-label-supervised report
+Locked 13-class report	Accuracy	0.6224703419399861	fraction	full author-label test denominator
+Locked 13-class report	Macro-F1	0.6660112830533416	fraction	13 author labels
+Matched direct-root diagnostic	Comparable cells	964	cells	predeclared eight-label map only
+Matched direct-root diagnostic	Frozen first-projection accuracy	0.25933609958506226	fraction	frozen diagnostic, not the 13-class report
+Matched direct-root diagnostic	LoRA adapter accuracy	0.5622406639004149	fraction	same matched cells and mapping
+Matched direct-root diagnostic	Accuracy gain	30.29045643153527	percentage points	adapted minus frozen
+Release identity	Released adapter SHA256	597b7e425b0355ddfa81e4f5c9c63e85987d6b72fe49a841736b200ea6c2c22e	SHA256	models/Plant_CellFM_GSE270342_wheat_root_lora_adapter_best.pt
+Claim boundary	Interpretation	The adapter is evaluated on a fixed, author-label-supervised cell-level test split from a public wheat root study after excluding exact barcode overlap with a prior strict-transfer subset. It is not a zero-shot or independent external validation result. The matched direct-root comparison is restricted to the predeclared eight-label map and does not replace the full 13-class author-label test metric.	text	not zero-shot, independent external validation or a third-party ranking

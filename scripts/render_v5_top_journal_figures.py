@@ -82,7 +82,7 @@ def panel(ax: plt.Axes, letter: str, title: str, subtitle: str | None = None) ->
         ax.text(-0.065, 1.065, letter, transform=ax.transAxes, fontsize=7.6, fontweight="bold", va="bottom")
     ax.text(0, 1.065, title, transform=ax.transAxes, fontsize=6.55, fontweight="bold", va="bottom", color=INK)
     if subtitle:
-        ax.text(0, 1.012, subtitle, transform=ax.transAxes, fontsize=4.95, color=MUTED, va="bottom")
+        ax.text(0, 1.012, subtitle, transform=ax.transAxes, fontsize=5.15, color=MUTED, va="bottom")
 
 
 def short_species(value: str) -> str:
@@ -93,6 +93,7 @@ def short_species(value: str) -> str:
 def export(fig: plt.Figure, directory: Path, stem: str, tables: dict[str, pd.DataFrame]) -> None:
     for name, frame in tables.items():
         frame.to_csv(SOURCE / f"{stem}_{name}.tsv", sep="\t", index=False)
+    base.enforce_minimum_text_size(fig)
     for suffix, kwargs in (("svg", {}), ("pdf", {}), ("png", {"dpi": 350}), ("tiff", {"dpi": 600})):
         fig.savefig(directory / f"{stem}.{suffix}", bbox_inches="tight", pad_inches=0.025, **kwargs)
     plt.close(fig)
@@ -149,7 +150,7 @@ def render_fig1(frame: pd.DataFrame) -> None:
         .sort_index()
     )
 
-    fig = plt.figure(figsize=(7.25, 5.25))
+    fig = plt.figure(figsize=(7.25, 5.45))
     grid = fig.add_gridspec(
         2,
         6,
@@ -160,7 +161,7 @@ def render_fig1(frame: pd.DataFrame) -> None:
         bottom=0.075,
         top=0.95,
         wspace=0.48,
-        hspace=0.58,
+        hspace=0.68,
     )
     ax_a = fig.add_subplot(grid[0, :2])
     ax_b = fig.add_subplot(grid[0, 2:4])
@@ -170,7 +171,7 @@ def render_fig1(frame: pd.DataFrame) -> None:
     ax_d = fig.add_subplot(grid[1, :3])
     ax_e = fig.add_subplot(grid[1, 3:])
 
-    scatter_categories(ax_a, frame, "species", base.SPECIES, size=3.4, legend_columns=2, legend_size=3.95)
+    scatter_categories(ax_a, frame, "species", base.SPECIES, size=3.4, legend_columns=2, legend_size=5.0)
     panel(ax_a, "a", "Shared evaluation embedding", "3,964 cells across eight held-out species")
 
     ontology_order = list(base.ONTOLOGY)
@@ -185,23 +186,23 @@ def render_fig1(frame: pd.DataFrame) -> None:
         {**base.ONTOLOGY, "other": "#CBD5D8"},
         size=3.4,
         legend_columns=2,
-        legend_size=3.8,
+        legend_size=5.0,
     )
     panel(ax_b, "b", "Ontology states in the same coordinates", "State structure is separated from species identity")
 
     y = np.arange(len(species_total))
     ax_c1.barh(y, species_total.cells / 1000, color=[base.SPECIES.get(s, GREY) for s in species_total.species], height=0.58)
     ax_c1.set(yticks=y, yticklabels=[short_species(s) for s in species_total.species], xlabel="corpus cells (thousands)")
-    ax_c1.tick_params(axis="y", labelsize=4.7, length=0)
+    ax_c1.tick_params(axis="y", labelsize=5.0, length=0)
     clean(ax_c1, "x")
-    panel(ax_c1, "c", "Frozen corpus profile", f"{profile['shape']['cells']:,} cells; {profile['shape']['genes']:,} genes")
+    panel(ax_c1, "c", "Frozen corpus profile")
 
     organ_order = ["leaf", "root", "shoot_apex", "callus"]
     organ_total = organ_total.set_index("organ").reindex(organ_order).fillna(0).reset_index()
     colors = {"leaf": TEAL, "root": BLUE, "shoot_apex": ORANGE, "callus": PURPLE}
     ax_c2.barh(np.arange(len(organ_total)), organ_total.cells, color=[colors[o] for o in organ_total.organ], height=0.58)
     ax_c2.set(yticks=np.arange(len(organ_total)), yticklabels=[o.replace("_", " ") for o in organ_total.organ], xlabel="strict-panel cells")
-    ax_c2.tick_params(axis="y", labelsize=4.7, length=0)
+    ax_c2.tick_params(axis="y", labelsize=5.0, length=0)
     clean(ax_c2, "x")
 
     values = matrix.to_numpy(dtype=float)
@@ -210,14 +211,14 @@ def render_fig1(frame: pd.DataFrame) -> None:
         for xi, tissue in enumerate(matrix.columns):
             value = int(matrix.loc[species, tissue])
             if value:
-                ax_d.text(xi, yi, f"{value // 1000}k" if value >= 1000 else str(value), ha="center", va="center", fontsize=4.4, color="white" if value > values.max() * 0.45 else INK)
+                ax_d.text(xi, yi, f"{value // 1000}k" if value >= 1000 else str(value), ha="center", va="center", fontsize=5.0, color="white" if value > values.max() * 0.45 else INK)
     ax_d.set(xticks=range(len(matrix.columns)), xticklabels=[str(v).replace("_", " ") for v in matrix.columns], yticks=range(len(matrix.index)), yticklabels=[short_species(s) for s in matrix.index])
-    ax_d.tick_params(length=0, labelsize=4.6)
+    ax_d.tick_params(length=0, labelsize=5.0)
     for spine in ax_d.spines.values():
         spine.set_visible(False)
     colorbar = fig.colorbar(image, ax=ax_d, fraction=0.026, pad=0.02)
     colorbar.set_label("log10(cells + 1)", size=4.65)
-    colorbar.ax.tick_params(labelsize=4.4, length=1.3)
+    colorbar.ax.tick_params(labelsize=5.0, length=1.3)
     panel(ax_d, "d", "Training data are distributed across species and organs", "Each cell reports the traceable frozen corpus, not a historical catalogue entry")
 
     ax_e.set_axis_off()
@@ -232,10 +233,10 @@ def render_fig1(frame: pd.DataFrame) -> None:
         ax_e.add_patch(Rectangle((x, 0.24), 0.19, 0.45, transform=ax_e.transAxes, facecolor="#F4F7F8", edgecolor=color, linewidth=0.85, clip_on=False))
         ax_e.add_patch(Rectangle((x, 0.62), 0.19, 0.07, transform=ax_e.transAxes, facecolor=color, edgecolor=color, linewidth=0, clip_on=False))
         ax_e.text(x + 0.095, 0.52, head, transform=ax_e.transAxes, ha="center", va="center", fontsize=5.35, fontweight="bold", color=INK)
-        ax_e.text(x + 0.095, 0.34, sub, transform=ax_e.transAxes, ha="center", va="center", fontsize=4.45, color=MUTED)
+        ax_e.text(x + 0.095, 0.34, sub, transform=ax_e.transAxes, ha="center", va="center", fontsize=5.0, color=MUTED)
     for left, right in zip(stages[:-1], stages[1:], strict=True):
         ax_e.add_patch(FancyArrowPatch((left[0] + 0.195, 0.465), (right[0] - 0.012, 0.465), transform=ax_e.transAxes, arrowstyle="-|>", mutation_scale=7, lw=0.7, color=MUTED))
-    ax_e.text(0.5, 0.06, "The frozen profile, inner-fold choice, target support and deployment head are never presented as one metric.", transform=ax_e.transAxes, ha="center", fontsize=4.7, color=RED)
+    ax_e.text(0.5, 0.06, "The frozen profile, inner-fold choice, target support and deployment head are never presented as one metric.", transform=ax_e.transAxes, ha="center", fontsize=5.0, color=RED)
 
     export(
         fig,
@@ -261,8 +262,8 @@ def render_fig2(frame: pd.DataFrame, v17: pd.DataFrame) -> None:
     records = v17.sort_values("accuracy_all", ascending=True).reset_index(drop=True)
     strict = json.loads((ROOT / "release_metadata" / "revision_v17_nested_metadata_gate.json").read_text(encoding="utf-8"))["summary"]
 
-    fig = plt.figure(figsize=(7.25, 5.35))
-    grid = fig.add_gridspec(2, 6, width_ratios=(1, 1, 1, 1, 1.08, 1.08), height_ratios=(0.94, 1.06), left=0.055, right=0.988, bottom=0.085, top=0.95, wspace=0.48, hspace=0.64)
+    fig = plt.figure(figsize=(7.25, 5.58))
+    grid = fig.add_gridspec(2, 6, width_ratios=(1, 1, 1, 1, 1.08, 1.08), height_ratios=(0.94, 1.06), left=0.055, right=0.988, bottom=0.085, top=0.95, wspace=0.48, hspace=0.78)
     ax_a = fig.add_subplot(grid[0, :2])
     ax_b = fig.add_subplot(grid[0, 2:4])
     ax_c = fig.add_subplot(grid[0, 4:])
@@ -276,7 +277,7 @@ def render_fig2(frame: pd.DataFrame, v17: pd.DataFrame) -> None:
     ax_a.set(xticks=[], yticks=[])
     for spine in ax_a.spines.values():
         spine.set_visible(False)
-    ax_a.legend(loc="lower left", bbox_to_anchor=(-0.04, -0.31), ncol=2, fontsize=3.55, frameon=False, columnspacing=0.48, handletextpad=0.17, labelspacing=0.12, markerscale=1.0)
+    ax_a.legend(loc="lower left", bbox_to_anchor=(-0.04, -0.36), ncol=2, fontsize=5.0, frameon=False, columnspacing=0.58, handletextpad=0.20, labelspacing=0.20, markerscale=1.0)
     panel(ax_a, "a", "Held-out reference identities", "C. roseus: 256 leaf cells")
 
     for label in labels:
@@ -299,7 +300,7 @@ def render_fig2(frame: pd.DataFrame, v17: pd.DataFrame) -> None:
     max_cells = max(value for _, value, _ in stages)
     for yi, (label, value, color) in enumerate(stages):
         ax_c.add_patch(Rectangle((0.04, 0.71 - yi * 0.23), 0.70 * value / max_cells, 0.11, transform=ax_c.transAxes, facecolor=color, edgecolor="none"))
-        ax_c.text(0.04, 0.84 - yi * 0.23, label, transform=ax_c.transAxes, fontsize=4.75, color=MUTED, va="bottom")
+        ax_c.text(0.04, 0.84 - yi * 0.23, label, transform=ax_c.transAxes, fontsize=5.0, color=MUTED, va="bottom")
         ax_c.text(0.78, 0.765 - yi * 0.23, f"{value:,}", transform=ax_c.transAxes, fontsize=5.6, fontweight="bold", va="center")
     ax_c.text(0.04, 0.08, f"v17 all-cell accuracy 39.96%\nbootstrap central 95% interval {low:.3f}-{high:.3f}", transform=ax_c.transAxes, fontsize=5.0, color=INK)
 
@@ -310,7 +311,6 @@ def render_fig2(frame: pd.DataFrame, v17: pd.DataFrame) -> None:
     ax_d.scatter(records.coverage, y, color=ORANGE, marker="s", s=31, zorder=3, label="coverage")
     ax_d.set(yticks=y, yticklabels=[short_species(value) for value in records.held_out_species], xlim=(-0.03, 1.05), xlabel="fraction of held-out cells")
     ax_d.tick_params(axis="y", labelsize=5.0)
-    ax_d.legend(loc="lower right", ncol=3, fontsize=4.25, frameon=False, columnspacing=0.62, handletextpad=0.20)
     clean(ax_d, "x")
     panel(ax_d, "d", "Strict transfer is heterogeneous across all eight held-out species", "Teal: all-cell accuracy; blue: conditional accuracy; orange: source-label coverage")
 
@@ -337,14 +337,15 @@ def render_fig2(frame: pd.DataFrame, v17: pd.DataFrame) -> None:
     for index, (name, values, color) in enumerate(method_rows):
         ax_e.hlines(index, 0, values["all_cell_accuracy"], color=LIGHT_GREY, lw=2.0, zorder=1)
         ax_e.scatter(values["all_cell_accuracy"], index, s=34, color=color, edgecolor="white", linewidth=.55, zorder=3)
-        ax_e.text(values["all_cell_accuracy"] + .012, index, f"{values['all_cell_accuracy']:.1%}", va="center", fontsize=4.5, fontweight="bold" if index == len(method_rows) - 1 else "normal")
-    ax_e.set(yticks=y, yticklabels=[name for name, _, _ in method_rows], xlim=(-.015, .50), xlabel="all-cell accuracy")
-    ax_e.tick_params(axis="y", labelsize=4.3, pad=1.3, length=0)
+        ax_e.text(values["all_cell_accuracy"] + .012, index, f"{values['all_cell_accuracy']:.1%}", va="center", fontsize=5.0, fontweight="bold" if index == len(method_rows) - 1 else "normal")
+    method_display = ["centroid", "expression", "neural", "context gate"]
+    ax_e.set(yticks=y, yticklabels=method_display, xlim=(-.015, .50), xlabel="all-cell accuracy")
+    ax_e.tick_params(axis="y", labelsize=5.0, pad=1.3, length=0)
     clean(ax_e, "x")
     panel(ax_e, "e", "Context-aware calibration improves the frozen transfer panel", "Same cells and 55.90% coverage; global sensitivity analysis, not the nested primary result")
     best = method_rows[-1][1]
     gain = best["all_cell_accuracy"] - method_rows[0][1]["all_cell_accuracy"]
-    ax_e.text(.99, .06, f"+{gain:.1%} vs centroid\nknown-label accuracy {best['known_label_accuracy']:.1%}", transform=ax_e.transAxes, ha="right", va="bottom", fontsize=4.25, color=TEAL)
+    ax_e.text(.99, .06, f"+{gain:.1%} vs centroid\nknown-label accuracy {best['known_label_accuracy']:.1%}", transform=ax_e.transAxes, ha="right", va="bottom", fontsize=5.0, color=TEAL)
 
     export(
         fig,
@@ -374,8 +375,8 @@ def render_fig3() -> None:
         query_cells=("query_cells", "median"),
     )
 
-    fig = plt.figure(figsize=(7.25, 5.1))
-    grid = fig.add_gridspec(2, 6, width_ratios=(1.28, 1.28, 1.0, 1.0, 1.0, 1.0), height_ratios=(1.05, .95), left=.055, right=.988, bottom=.09, top=.95, wspace=.46, hspace=.70)
+    fig = plt.figure(figsize=(7.25, 5.28))
+    grid = fig.add_gridspec(2, 6, width_ratios=(1.28, 1.28, 1.0, 1.0, 1.0, 1.0), height_ratios=(1.05, .95), left=.055, right=.988, bottom=.09, top=.95, wspace=.46, hspace=.76)
     ax_a = fig.add_subplot(grid[0, :2])
     ax_b = fig.add_subplot(grid[0, 2:])
     ax_c = fig.add_subplot(grid[1, :3])
@@ -385,17 +386,17 @@ def render_fig3() -> None:
     panel(ax_a, "a", "Support and query cells are physically disjoint", "Eight held-out species; ten fixed-seed support draws at each budget")
     ax_a.add_patch(Rectangle((.04, .15), .20, .62, transform=ax_a.transAxes, facecolor="#F4F7F8", edgecolor=GREY, linewidth=.7))
     ax_a.text(.14, .61, "target\nspecies", transform=ax_a.transAxes, ha="center", va="center", fontsize=5.0, fontweight="bold")
-    ax_a.text(.14, .29, "labels locked\nuntil support draw", transform=ax_a.transAxes, ha="center", va="center", fontsize=3.75, color=MUTED)
+    ax_a.text(.14, .29, "labels locked\nuntil support draw", transform=ax_a.transAxes, ha="center", va="center", fontsize=5.0, color=MUTED)
     ax_a.add_patch(FancyArrowPatch((.25, .48), (.35, .48), transform=ax_a.transAxes, arrowstyle="-|>", mutation_scale=8, lw=.75, color=MUTED))
     ax_a.add_patch(Rectangle((.37, .53), .23, .24, transform=ax_a.transAxes, facecolor="#FFF4E9", edgecolor=ORANGE, linewidth=.85))
     ax_a.add_patch(Rectangle((.37, .15), .23, .24, transform=ax_a.transAxes, facecolor="#EAF5F4", edgecolor=TEAL, linewidth=.85))
-    ax_a.text(.485, .65, "labelled support", transform=ax_a.transAxes, ha="center", va="center", fontsize=4.45, fontweight="bold")
-    ax_a.text(.485, .27, "unlabelled query", transform=ax_a.transAxes, ha="center", va="center", fontsize=4.45, fontweight="bold")
+    ax_a.text(.485, .65, "labelled\nsupport", transform=ax_a.transAxes, ha="center", va="center", fontsize=5.0, fontweight="bold")
+    ax_a.text(.485, .27, "unlabelled\nquery", transform=ax_a.transAxes, ha="center", va="center", fontsize=5.0, fontweight="bold")
     ax_a.add_patch(FancyArrowPatch((.61, .48), (.70, .48), transform=ax_a.transAxes, arrowstyle="-|>", mutation_scale=8, lw=.75, color=MUTED))
     ax_a.add_patch(Rectangle((.72, .15), .24, .62, transform=ax_a.transAxes, facecolor="#F4F7F8", edgecolor=PURPLE, linewidth=.7))
-    ax_a.text(.84, .61, "target adapter", transform=ax_a.transAxes, ha="center", va="center", fontsize=4.7, fontweight="bold")
-    ax_a.text(.84, .32, "fit only on\nsupport labels", transform=ax_a.transAxes, ha="center", va="center", fontsize=4.0, color=MUTED)
-    ax_a.text(.5, .06, "No support cell is included in query scoring.", transform=ax_a.transAxes, ha="center", fontsize=4.2, color=RED, fontweight="bold")
+    ax_a.text(.84, .61, "target\nadapter", transform=ax_a.transAxes, ha="center", va="center", fontsize=5.0, fontweight="bold")
+    ax_a.text(.84, .32, "fit only on\nsupport labels", transform=ax_a.transAxes, ha="center", va="center", fontsize=5.0, color=MUTED)
+    ax_a.text(.5, .06, "No support cell is included in query scoring.", transform=ax_a.transAxes, ha="center", fontsize=5.0, color=RED, fontweight="bold")
 
     rng = np.random.default_rng(24)
     means = []
@@ -407,7 +408,7 @@ def render_fig3() -> None:
         ax_b.text(index, values.mean() + .028, f"{values.mean():.3f}", ha="center", fontsize=5.15, fontweight="bold")
     ax_b.plot(range(len(budgets)), means, color=TEAL, lw=1.1, zorder=1)
     ax_b.set(xticks=range(len(budgets)), xticklabels=budgets, ylim=(.49, .80), xlabel="labelled support cells per target species", ylabel="query all-cell accuracy")
-    ax_b.text(.99, .05, "10 independent support draws per budget\npoints: raw draws; bars: s.d.", transform=ax_b.transAxes, ha="right", va="bottom", fontsize=4.65, color=MUTED)
+    ax_b.text(.99, .05, "10 independent support draws per budget\npoints: raw draws; bars: s.d.", transform=ax_b.transAxes, ha="right", va="bottom", fontsize=5.0, color=MUTED)
     clean(ax_b, "y")
     panel(ax_b, "b", "Adaptation improves monotonically with a small labelled support set", "The 64-cell setting reaches 75.89% mean query all-cell accuracy")
 
@@ -420,13 +421,13 @@ def render_fig3() -> None:
     for yi, species in enumerate(heat.index):
         for xi, budget in enumerate(heat.columns):
             value = heat.loc[species, budget]
-            ax_d.text(xi, yi, f"{value:.2f}", ha="center", va="center", fontsize=4.7, color="white" if value >= .65 else INK)
+            ax_d.text(xi, yi, f"{value:.2f}", ha="center", va="center", fontsize=5.0, color="white" if value >= .65 else INK)
     ax_d.set(xticks=range(len(budgets)), xticklabels=budgets, yticks=range(len(heat.index)), yticklabels=[short_species(s) for s in heat.index])
-    ax_d.tick_params(length=0, labelsize=4.65)
+    ax_d.tick_params(length=0, labelsize=5.0)
     for spine in ax_d.spines.values():
         spine.set_visible(False)
     bar = fig.colorbar(image, ax=ax_d, fraction=.035, pad=.02)
-    bar.ax.tick_params(labelsize=4.35, length=1.2)
+    bar.ax.tick_params(labelsize=5.0, length=1.2)
     panel(ax_d, "d", "Species-specific gains remain visible", "Rows marked with * in the paper are single-label public records")
 
     export(
@@ -457,7 +458,7 @@ def render_fig4_external_root() -> None:
     plotted["UMAP1"] = coordinates[:, 0]
     plotted["UMAP2"] = coordinates[:, 1]
 
-    fig = plt.figure(figsize=(7.25, 5.35))
+    fig = plt.figure(figsize=(7.25, 5.5))
     grid = fig.add_gridspec(2, 6, width_ratios=(1.1, 1.1, 1.1, 1, 1, 1), height_ratios=(1.05, .95), left=.055, right=.988, bottom=.095, top=.95, wspace=.48, hspace=.65)
     ax_a = fig.add_subplot(grid[:, :3])
     ax_b = fig.add_subplot(grid[0, 3:])
@@ -470,16 +471,16 @@ def render_fig4_external_root() -> None:
     for spine in ax_a.spines.values():
         spine.set_visible(False)
     panel(ax_a, "a", "A label-free external root matrix resolves into structured predicted states", "GSE152766/GSM4626007: 6,566 cells; not listed in the frozen v4 corpus profile")
-    ax_a.text(.01, -.065, "Coordinates derive from frozen 256-dimensional model embeddings. Colours are model outputs, never supplied labels.", transform=ax_a.transAxes, fontsize=4.65, color=MUTED)
+    ax_a.text(.01, -.065, "Coordinates derive from frozen 256-dimensional model embeddings. Colours are model outputs, never supplied labels.", transform=ax_a.transAxes, fontsize=5.0, color=MUTED)
 
     display = states.sort_values("cells", ascending=True).reset_index(drop=True)
     y = np.arange(len(display))
     ax_b.barh(y, display["fraction"], color=[base.ROOT_STATE.get(label, GREY) for label in display.fine_label], height=.58, edgecolor="white", linewidth=.4)
     ax_b.scatter(display.mean_confidence, y, s=np.clip(display.cells.to_numpy() / 14, 10, 57), color=INK, edgecolor="white", linewidth=.45, zorder=3)
     for index, row in display.iterrows():
-        ax_b.text(max(float(row["fraction"]), float(row.mean_confidence)) + .015, index, f"{int(row.cells):,}", va="center", fontsize=4.25)
+        ax_b.text(max(float(row["fraction"]), float(row.mean_confidence)) + .015, index, f"{int(row.cells):,}", va="center", fontsize=5.0)
     ax_b.set(yticks=y, yticklabels=display.fine_label.tolist(), xlim=(0, 1.16), xlabel="bar: fraction; dot: mean confidence")
-    ax_b.tick_params(axis="y", labelsize=4.25, pad=1.2, length=0)
+    ax_b.tick_params(axis="y", labelsize=5.0, pad=1.2, length=0)
     clean(ax_b, "x")
     panel(ax_b, "b", "All 13 output states and confidences remain inspectable", "Numbers are predicted cells, not an external ground truth")
 
@@ -490,9 +491,9 @@ def render_fig4_external_root() -> None:
     ax_c.scatter(marker.mean_expression_delta, y_marker, s=36 + marker.target_detection_fraction.to_numpy() * 46, color=[base.ROOT_STATE.get(label, TEAL) for label in marker.expected_label], edgecolor="white", linewidth=.6, zorder=3)
     for index, row in marker.iterrows():
         rank = int(row.rank_among_predicted_labels_by_mean_expression)
-        ax_c.text(float(row.mean_expression_delta) + .018, index, f"rank {rank}/13; n={int(row.predicted_label_cells)}; detection delta {row.detection_fraction_delta:+.2f}", va="center", fontsize=4.35, color=INK if rank == 1 else MUTED)
-    ax_c.set(yticks=y_marker, yticklabels=[f"{row.marker_symbol} | {row.expected_label}" for row in marker.itertuples(index=False)], xlim=(-.04, max(1.22, float(marker.mean_expression_delta.max()) + .46)), xlabel="expected-group minus all-other-groups mean log1p expression")
-    ax_c.tick_params(axis="y", labelsize=4.55, pad=1.8, length=0)
+        ax_c.text(float(row.mean_expression_delta) + .018, index, f"rank {rank}/13; n={int(row.predicted_label_cells)}; detection delta {row.detection_fraction_delta:+.2f}", va="center", fontsize=5.0, color=INK if rank == 1 else MUTED)
+    ax_c.set(yticks=y_marker, yticklabels=[f"{row.marker_symbol} | {row.expected_label}" for row in marker.itertuples(index=False)], xlim=(-.04, max(1.22, float(marker.mean_expression_delta.max()) + .62)), xlabel="expected-group minus all-other-groups mean log1p expression")
+    ax_c.tick_params(axis="y", labelsize=5.0, pad=1.8, length=0)
     clean(ax_c, "x")
     panel(ax_c, "c", "Five of six fixed literature anchors peak in their expected predicted group", "Marker coherence is a biologic plausibility check, not external accuracy or experimental validation")
 

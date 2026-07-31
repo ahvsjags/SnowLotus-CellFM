@@ -20,6 +20,7 @@ This ledger is the claim-level index for the v5 submission package. Each stateme
 | C12 | scPlantLLM official weights execute under CUDA in a recorded official-chunk probe. | `release_metadata/scplantllm_official_execution_audit.json` | The probe does not share v17 inputs, ontology, split or score, and is not a direct rank. scPlantAnnotate matched prediction remains open. |
 | C13 | A GSE270140 secondary-root LoRA-mode adapter achieves 83.97% held-out fine accuracy and 84.47% macro-F1 across 2,352 test cells; matched three-state semantic accuracy is 90.93% on 1,885 compatible held-out cells. | `release_metadata/gse270140_secondary_root_adapter_audit_v1.json`; Extended Data 6 source data; Tables S18-S19 | This is author-label-supervised, one-sample cell-level adaptation. It is neither zero-shot/leave-species evidence nor an independent external validation. |
 | C14 | On the frozen 3,964-cell panel, context-aware transfer reaches 42.36% all-cell accuracy with 55.90% coverage, versus 23.64% for the centroid baseline. | `release_metadata/revision_v14_context_stc_benchmark.json`; Figure 2 context-method TSV | This is a global context-sensitivity analysis whose configuration aggregates outer-fold information. It is not a replacement for the v17 nested strict primary result. |
+| C15 | In a barcode-non-overlap allopolyploid wheat-root case, author orthogroups retain 76.33% of source UMI counts; a LoRA-mode wheat adapter obtains 62.25% accuracy and 0.6660 macro-F1 across 1,433 locked author-labelled test cells. | `release_metadata/gse270342_wheat_lora_adapter_audit_v1.json`; Figure 5 source data | This is one public study with author-label supervision and a cell-level split. The frozen diagnostic, matched direct-root recovery and adapted 13-class score are reported separately; none is zero-shot or independent external validation. |
 
 ## Release Gates
 
@@ -30,6 +31,7 @@ This ledger is the claim-level index for the v5 submission package. Each stateme
 | Strict primary metric frozen and automatically checked | Pass | `scripts/audit_v5_submission_figure_suite.py` |
 | Root candidate-count contract automatically checked | Pass: 200 rows | `scripts/audit_v5_submission_figure_suite.py` |
 | Secondary-root adaptation provenance, held-out test and figure exports | Pass | `release_metadata/gse270140_secondary_root_adapter_audit_v1.json`; Extended Data 6 |
+| Wheat allopolyploid adaptation provenance, barcode-overlap exclusion, held-out test and Figure 5 exports | Pass | `release_metadata/gse270342_wheat_lora_adapter_audit_v1.json`; Figure 5 |
 | Matched official third-party comparison | Open | Table S12 and model-card comparison status |
 | Independently expert-annotated external accuracy | Open | No label-bearing external matrix is included in v5 |
 | Orthogonal or experimental validation of marker candidates | Open | Candidate resource remains a computational prioritization resource |

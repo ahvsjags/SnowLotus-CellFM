@@ -183,7 +183,7 @@ def _require_obs(matrix: MatrixData, key: str, purpose: str) -> np.ndarray:
     return matrix.obs[key]
 
 
-def load_ortholog_table(path: str | Path, config: DataConfig) -> dict[str, str]:
+def load_ortholog_table(path: str | Path, config: DataConfig) -> dict[str, str | tuple[str, ...]]:
     table = pd.read_csv(path, sep="\t", dtype=str)
     required = {config.ortholog_source_column, config.ortholog_target_column}
     missing = required - set(table.columns)
@@ -201,52 +201,79 @@ def load_ortholog_table(path: str | Path, config: DataConfig) -> dict[str, str]:
         subset=[config.ortholog_source_column, config.ortholog_target_column]
     )
     # 多个候选时保留表中第一项；生产数据应事先按可信度与 1:1 关系排序。
-    table = table.drop_duplicates(subset=[config.ortholog_source_column], keep="first")
-    return dict(
-        zip(
-            table[config.ortholog_source_column].astype(str),
-            table[config.ortholog_target_column].astype(str),
-            strict=True,
+    if config.ortholog_aggregation == "first":
+        table = table.drop_duplicates(subset=[config.ortholog_source_column], keep="first")
+        return dict(
+            zip(
+                table[config.ortholog_source_column].astype(str),
+                table[config.ortholog_target_column].astype(str),
+                strict=True,
+            )
         )
-    )
+    if config.ortholog_aggregation == "mean":
+        pairs = table.drop_duplicates(
+            subset=[config.ortholog_source_column, config.ortholog_target_column], keep="first"
+        )
+        return {
+            str(source): tuple(targets.astype(str).tolist())
+            for source, targets in pairs.groupby(config.ortholog_source_column, sort=False)[
+                config.ortholog_target_column
+            ]
+        }
+    raise ValueError(f"Unsupported ortholog aggregation: {config.ortholog_aggregation}")
 
 
 def collapse_by_ortholog(
     matrix: MatrixData,
-    mapping: dict[str, str],
+    mapping: dict[str, str | tuple[str, ...]],
     keep_unmapped: bool = False,
+    aggregation: str = "first",
 ) -> tuple[MatrixData, dict[str, Any]]:
     targets: list[str] = []
-    kept_source_indices: list[int] = []
+    source_indices: list[int] = []
+    weights: list[float] = []
+    mapped_source_count = 0
     for index, gene in enumerate(matrix.genes):
         gene_text = str(gene)
-        target = mapping.get(gene_text)
-        if target is None and keep_unmapped:
-            target = gene_text
-        if target:
-            kept_source_indices.append(index)
+        candidate = mapping.get(gene_text)
+        if candidate is None:
+            candidate_targets = (gene_text,) if keep_unmapped else ()
+        elif isinstance(candidate, str):
+            candidate_targets = (candidate,)
+            mapped_source_count += 1
+        else:
+            candidate_targets = tuple(candidate)
+            mapped_source_count += 1
+        if not candidate_targets:
+            continue
+        weight = 1.0 / len(candidate_targets) if aggregation == "mean" and candidate is not None else 1.0
+        for target in candidate_targets:
+            source_indices.append(index)
             targets.append(str(target))
-    if not kept_source_indices:
+            weights.append(weight)
+    if not source_indices:
         raise ValueError("同源映射后没有保留任何基因，请检查 gene ID 命名空间")
 
     unique_targets = sorted(set(targets))
     target_index = {gene: index for index, gene in enumerate(unique_targets)}
-    rows = np.arange(len(kept_source_indices), dtype=np.int64)
+    rows = np.asarray(source_indices, dtype=np.int64)
     columns = np.asarray([target_index[target] for target in targets], dtype=np.int64)
     projector = sparse.csr_matrix(
-        (np.ones(len(rows), dtype=np.float32), (rows, columns)),
-        shape=(len(rows), len(unique_targets)),
+        (np.asarray(weights, dtype=np.float32), (rows, columns)),
+        shape=(matrix.n_genes, len(unique_targets)),
     )
-    source = matrix.X[:, np.asarray(kept_source_indices)]
-    if sparse.issparse(source):
-        collapsed: ArrayLike = (source @ projector).tocsr()
+    if sparse.issparse(matrix.X):
+        collapsed: ArrayLike = (matrix.X @ projector).tocsr()
     else:
-        collapsed = np.asarray(source @ projector, dtype=np.float32)
+        collapsed = np.asarray(matrix.X @ projector, dtype=np.float32)
     stats = {
         "source_gene_count": int(matrix.n_genes),
-        "mapped_source_gene_count": int(len(kept_source_indices)),
+        "mapped_source_gene_count": int(mapped_source_count),
         "target_gene_count": int(len(unique_targets)),
-        "mapping_rate": float(len(kept_source_indices) / max(matrix.n_genes, 1)),
+        "mapping_rate": float(mapped_source_count / max(matrix.n_genes, 1)),
+        "mapping_relationship_count": int(len(source_indices)),
+        "mean_targets_per_mapped_source": float(len(source_indices) / max(mapped_source_count, 1)),
+        "aggregation": aggregation,
     }
     return (
         MatrixData(
@@ -446,6 +473,7 @@ def preprocess_matrix(config: DataConfig) -> tuple[MatrixData, dict[str, Any]]:
             matrix,
             mapping,
             keep_unmapped=config.ortholog_keep_unmapped,
+            aggregation=config.ortholog_aggregation,
         )
     matrix, qc_stats = filter_and_normalize(matrix, config)
 
@@ -535,6 +563,22 @@ def prepare_inference_data(
     tissue_vocab: LabelVocabulary,
 ) -> InferenceData:
     matrix, stats = preprocess_matrix(config)
+    checkpoint_tokens = set(gene_vocab.tokens)
+    represented = np.asarray([str(gene) in checkpoint_tokens for gene in matrix.genes], dtype=bool)
+    if not represented.any():
+        raise ValueError("No input genes remain after applying the frozen checkpoint vocabulary contract.")
+    source_gene_count = int(matrix.n_genes)
+    matrix = MatrixData(
+        X=matrix.X[:, represented].tocsr() if sparse.issparse(matrix.X) else np.asarray(matrix.X)[:, represented],
+        genes=matrix.genes[represented].copy(),
+        obs={key: values.copy() for key, values in matrix.obs.items()},
+    )
+    stats["checkpoint_vocabulary"] = {
+        "source_gene_count": source_gene_count,
+        "represented_gene_count": int(matrix.n_genes),
+        "represented_gene_fraction": float(matrix.n_genes / source_gene_count),
+        "unrepresented_gene_count": int(source_gene_count - matrix.n_genes),
+    }
     return InferenceData(
         matrix=matrix,
         indices=np.arange(matrix.n_cells, dtype=np.int64),

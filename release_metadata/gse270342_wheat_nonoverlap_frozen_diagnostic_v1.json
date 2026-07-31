@@ -1,0 +1,246 @@
+{
+  "schema_version": "plant_cellfm_gse270342_frozen_wheat_nonoverlap_diagnostic_v1",
+  "generated_utc": "2026-07-31T22:35:49.658657+00:00",
+  "input": {
+    "path": "outputs/external_validation/gse270342/GSE270342_wheat_root_author_annotated_nonoverlap_diagnostic.h5ad",
+    "sha256": "f5321a76ccf4451604c7a1e4ad9cbfd697a33f2abc023ac4d408bf6b6abea5ef",
+    "cells": 7164
+  },
+  "declared_maps": {
+    "direct_anatomical": {
+      "Unknown": "Unknow",
+      "Epidermis": "Non-hair",
+      "Cortex": "Root cortex",
+      "Root Hair": "Root hair",
+      "Endodermis": "Root endodermis",
+      "Xylem": "Xylem",
+      "Phloem": "Phloem",
+      "Root Cap": "Root cap"
+    },
+    "extended_stele_sensitivity": {
+      "Unknown": "Unknow",
+      "Epidermis": "Non-hair",
+      "Cortex": "Root cortex",
+      "Root Hair": "Root hair",
+      "Endodermis": "Root endodermis",
+      "Xylem": "Xylem",
+      "Phloem": "Phloem",
+      "Root Cap": "Root cap",
+      "Pericycle": "Root stele",
+      "Provascular cells": "Root stele"
+    }
+  },
+  "modes": [
+    {
+      "mode": "first",
+      "prediction_path": "outputs/external_validation/gse270342/annotation_bundle_nonoverlap_author_orthogroups/predictions.csv",
+      "prediction_sha256": "942377a01b64cd9f1a3cb4a064d83c570c0cd8cb63987c61afb530cd7997df08",
+      "annotation_metadata_path": "outputs/external_validation/gse270342/annotation_bundle_nonoverlap_author_orthogroups/annotation_metadata.json",
+      "annotation_metadata_sha256": "a7ba088e61fa5e03f3ed33474c4bb3970773c9729ec7df25c6b52c66a2b6ff67",
+      "preprocessing_stats": {
+        "checkpoint_vocabulary": {
+          "represented_gene_count": 9784,
+          "represented_gene_fraction": 0.9719848996622293,
+          "source_gene_count": 10066,
+          "unrepresented_gene_count": 282
+        },
+        "ortholog_mapping": {
+          "mapped_source_gene_count": 43342,
+          "mapping_rate": 0.5548486206234398,
+          "source_gene_count": 78115,
+          "target_gene_count": 10181
+        },
+        "quality_control": {
+          "input_cells": 7164,
+          "input_genes": 10181,
+          "log1p": true,
+          "median_library_size_before_normalization": 6999.0,
+          "normalize_total": 10000.0,
+          "retained_cells": 7164,
+          "retained_genes": 10066
+        }
+      },
+      "all_cells_prediction_composition": {
+        "G1/G0 phase": 270,
+        "Lateral root cap": 120,
+        "Non-hair": 693,
+        "Root cap": 2,
+        "Root cortex": 312,
+        "Root endodermis": 1,
+        "Root hair": 409,
+        "Root stele": 4,
+        "S phase": 2067,
+        "Unknow": 3274,
+        "Xylem": 12
+      },
+      "all_cells_mean_confidence": 0.7623712225013959,
+      "direct_anatomical_map": {
+        "evaluated_cells": 4937,
+        "coverage_of_nonoverlap_input": 0.6891401451702959,
+        "accuracy": 0.26736884747822565,
+        "macro_f1_declared_targets": 0.15120709749738168,
+        "mean_confidence": 0.7759756297346567,
+        "median_confidence": 0.84776,
+        "author_labels": [
+          "Cortex",
+          "Endodermis",
+          "Epidermis",
+          "Phloem",
+          "Root Cap",
+          "Root Hair",
+          "Unknown",
+          "Xylem"
+        ],
+        "model_labels": [
+          "Non-hair",
+          "Phloem",
+          "Root cap",
+          "Root cortex",
+          "Root endodermis",
+          "Root hair",
+          "Unknow",
+          "Xylem"
+        ]
+      },
+      "extended_stele_sensitivity_map": {
+        "evaluated_cells": 6023,
+        "coverage_of_nonoverlap_input": 0.8407314349525404,
+        "accuracy": 0.2191598870994521,
+        "macro_f1_declared_targets": 0.12018626840984327,
+        "mean_confidence": 0.7717980843433506,
+        "median_confidence": 0.840384,
+        "author_labels": [
+          "Cortex",
+          "Endodermis",
+          "Epidermis",
+          "Pericycle",
+          "Phloem",
+          "Provascular cells",
+          "Root Cap",
+          "Root Hair",
+          "Unknown",
+          "Xylem"
+        ],
+        "model_labels": [
+          "Non-hair",
+          "Phloem",
+          "Root cap",
+          "Root cortex",
+          "Root endodermis",
+          "Root hair",
+          "Root stele",
+          "Unknow",
+          "Xylem"
+        ]
+      }
+    },
+    {
+      "mode": "mean",
+      "prediction_path": "outputs/external_validation/gse270342/annotation_bundle_nonoverlap_author_orthogroup_mean/predictions.csv",
+      "prediction_sha256": "8eb1fae34aebec2c27041d590b83aa36aeb94bce7443e9076e3593347d1aba48",
+      "annotation_metadata_path": "outputs/external_validation/gse270342/annotation_bundle_nonoverlap_author_orthogroup_mean/annotation_metadata.json",
+      "annotation_metadata_sha256": "35132b4d1abe196a9ddee09ddada154cbea24680396c4565f7aa44ac95e516ed",
+      "preprocessing_stats": {
+        "checkpoint_vocabulary": {
+          "represented_gene_count": 16303,
+          "represented_gene_fraction": 0.9472980825101686,
+          "source_gene_count": 17210,
+          "unrepresented_gene_count": 907
+        },
+        "ortholog_mapping": {
+          "aggregation": "mean",
+          "mapped_source_gene_count": 43342,
+          "mapping_rate": 0.5548486206234398,
+          "mapping_relationship_count": 96339,
+          "mean_targets_per_mapped_source": 2.2227631396797563,
+          "source_gene_count": 78115,
+          "target_gene_count": 17382
+        },
+        "quality_control": {
+          "input_cells": 7164,
+          "input_genes": 17382,
+          "log1p": true,
+          "median_library_size_before_normalization": 6999.0,
+          "normalize_total": 10000.0,
+          "retained_cells": 7164,
+          "retained_genes": 17210
+        }
+      },
+      "all_cells_prediction_composition": {
+        "Columella root cap": 21,
+        "G1/G0 phase": 117,
+        "Lateral root cap": 1138,
+        "Non-hair": 412,
+        "Root cap": 88,
+        "Root cortex": 71,
+        "Root endodermis": 7,
+        "Root hair": 394,
+        "Root stele": 29,
+        "S phase": 2002,
+        "Unknow": 2789,
+        "Xylem": 96
+      },
+      "all_cells_mean_confidence": 0.7827699115019542,
+      "direct_anatomical_map": {
+        "evaluated_cells": 4937,
+        "coverage_of_nonoverlap_input": 0.6891401451702959,
+        "accuracy": 0.23921409763013976,
+        "macro_f1_declared_targets": 0.18386373374557,
+        "mean_confidence": 0.7717726992100465,
+        "median_confidence": 0.830276,
+        "author_labels": [
+          "Cortex",
+          "Endodermis",
+          "Epidermis",
+          "Phloem",
+          "Root Cap",
+          "Root Hair",
+          "Unknown",
+          "Xylem"
+        ],
+        "model_labels": [
+          "Non-hair",
+          "Phloem",
+          "Root cap",
+          "Root cortex",
+          "Root endodermis",
+          "Root hair",
+          "Unknow",
+          "Xylem"
+        ]
+      },
+      "extended_stele_sensitivity_map": {
+        "evaluated_cells": 6023,
+        "coverage_of_nonoverlap_input": 0.8407314349525404,
+        "accuracy": 0.19790801925950524,
+        "macro_f1_declared_targets": 0.15531070070970399,
+        "mean_confidence": 0.7729176891914328,
+        "median_confidence": 0.831786,
+        "author_labels": [
+          "Cortex",
+          "Endodermis",
+          "Epidermis",
+          "Pericycle",
+          "Phloem",
+          "Provascular cells",
+          "Root Cap",
+          "Root Hair",
+          "Unknown",
+          "Xylem"
+        ],
+        "model_labels": [
+          "Non-hair",
+          "Phloem",
+          "Root cap",
+          "Root cortex",
+          "Root endodermis",
+          "Root hair",
+          "Root stele",
+          "Unknow",
+          "Xylem"
+        ]
+      }
+    }
+  ],
+  "claim_boundary": "A same-study, barcode-non-overlap frozen-model diagnostic. No author labels entered inference or policy selection. It is not independent external validation, a zero-shot headline, or a third-party ranking."
+}

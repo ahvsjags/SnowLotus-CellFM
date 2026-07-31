@@ -36,6 +36,7 @@ class DataConfig:
     ortholog_confidence_column: str | None = "confidence"
     min_ortholog_confidence: float = 0.0
     ortholog_keep_unmapped: bool = False
+    ortholog_aggregation: str = "first"
     normalize_total: float = 10_000.0
     log1p: bool = True
     max_genes: int = 512
@@ -143,6 +144,8 @@ class ExperimentConfig:
             raise ValueError("train.mixed_precision 必须是 no、fp16 或 bf16")
         if self.data.split_strategy not in {"group_random", "explicit_leaveout"}:
             raise ValueError("data.split_strategy 必须是 group_random 或 explicit_leaveout")
+        if self.data.ortholog_aggregation not in {"first", "mean"}:
+            raise ValueError("data.ortholog_aggregation 必须是 first 或 mean")
         if self.data.split_strategy == "explicit_leaveout":
             if not self.data.leaveout_key:
                 raise ValueError("explicit_leaveout 需要设置 data.leaveout_key")

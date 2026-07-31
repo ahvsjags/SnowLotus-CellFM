@@ -25,4 +25,13 @@ external/
 # vector/raster review copies and TSV source data are versioned instead.
 figures/plant_cellfm_submission_v3/**/*.tiff
 figures/plant_cellfm_submission_v4/**/*.tiff
+figures/plant_cellfm_submission_v5/**/*.tiff
+
+# Local execution inputs and renderer by-products are retained outside the
+# reproducible release package. Their provenance is captured in metadata.
+data/external_validation/
+data/orthologs/
+log/
+.r-library/
+tmp_*/
 

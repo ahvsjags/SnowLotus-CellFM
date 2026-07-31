@@ -25,6 +25,7 @@ MAIN = [
     "plant_cellfm_v5_fig2_strict_transfer",
     "plant_cellfm_v5_fig3_target_adaptation",
     "plant_cellfm_v5_fig4_external_root_evidence",
+    "plant_cellfm_v5_fig5_wheat_adapter",
 ]
 EXTENDED = [
     "plant_cellfm_v4_ed_fig1_label_integrity",
@@ -36,6 +37,9 @@ EXTENDED = [
 ]
 OUTPUT_JSON = ROOT / "release_metadata" / "top_journal_figure_audit_v5.json"
 OUTPUT_MD = ROOT / "release_metadata" / "top_journal_figure_audit_v5.md"
+WHEAT_SUPPLEMENTARY_TABLE = (
+    ROOT / "supplementary_tables" / "submission_v4" / "Supplementary_Table_S20_GSE270342_wheat_root_adapter_audit.tsv"
+)
 
 
 def sha256(path: Path) -> str:
@@ -50,6 +54,7 @@ def inspect(directory: Path, stem: str) -> dict[str, Any]:
     paths = {suffix: directory / f"{stem}{suffix}" for suffix in (".svg", ".pdf", ".png", ".tiff")}
     source = sorted((FIGURES / "source_data").glob(f"{stem}_*.tsv"))
     svg = paths[".svg"].read_text(encoding="utf-8", errors="replace") if paths[".svg"].exists() else ""
+    font_sizes = [float(value) for value in re.findall(r"font-size: ([0-9.]+)px", svg)]
     raster: dict[str, Any] = {"pixels": None, "dpi": None}
     if paths[".tiff"].exists():
         with Image.open(paths[".tiff"]) as image:
@@ -61,6 +66,7 @@ def inspect(directory: Path, stem: str) -> dict[str, Any]:
         "missing_exports": [suffix for suffix, path in paths.items() if not path.exists()],
         "source_data_tables": [path.name for path in source],
         "editable_svg_text": bool(re.search(r"<text(?: |>)", svg)),
+        "minimum_svg_font_size_pt": min(font_sizes) if font_sizes else None,
         "raster": raster,
     }
 
@@ -72,6 +78,7 @@ def audit() -> dict[str, Any]:
         "model_card": json.loads((ROOT / "release_metadata" / "plant_cellfm_model_card_v4.json").read_text(encoding="utf-8")),
         "external_root": json.loads((ROOT / "release_metadata" / "gse152766_external_root_blind_inference_v4.json").read_text(encoding="utf-8")),
         "secondary_root_adapter": json.loads((ROOT / "release_metadata" / "gse270140_secondary_root_adapter_audit_v1.json").read_text(encoding="utf-8")),
+        "wheat_adapter": json.loads((ROOT / "release_metadata" / "gse270342_wheat_lora_adapter_audit_v1.json").read_text(encoding="utf-8")),
     }
     main = [inspect(FIGURES / "main", stem) for stem in MAIN]
     extended = [inspect(FIGURES / "extended_data", stem) for stem in EXTENDED]
@@ -83,6 +90,8 @@ def audit() -> dict[str, Any]:
             failures.append(f"{item['stem']} has no source-data TSV.")
         if not item["editable_svg_text"]:
             failures.append(f"{item['stem']} SVG does not expose editable text.")
+        if item["minimum_svg_font_size_pt"] is None or item["minimum_svg_font_size_pt"] < 5.0:
+            failures.append(f"{item['stem']} SVG contains text below the 5-point journal-scale floor.")
         dpi = item["raster"]["dpi"]
         if dpi and min(dpi) < 599:
             failures.append(f"{item['stem']} TIFF is below 600 dpi.")
@@ -127,6 +136,41 @@ def audit() -> dict[str, Any]:
         table_path = ROOT / records["secondary_root_adapter"]["artifacts"][table_key]
         if not table_path.is_file():
             failures.append(f"Secondary-root adapter supplementary table missing: {table_key}.")
+    wheat = records["wheat_adapter"]
+    wheat_test = wheat["locked_full_13_class_test"]
+    wheat_matched = wheat["matched_direct_root_subset"]
+    if (
+        wheat["input"]["cells"] != 7164
+        or wheat["split"]["train_cells"] != 5014
+        or wheat["split"]["validation_cells"] != 717
+        or wheat["split"]["test_cells"] != 1433
+    ):
+        failures.append("Wheat adapter input or fixed train/validation/test split changed unexpectedly.")
+    if abs(wheat_test["accuracy"] - 0.6224703419399861) > 1e-10:
+        failures.append("Wheat adapter locked 13-class accuracy changed unexpectedly.")
+    if abs(wheat_test["macro_f1"] - 0.6660112830533416) > 1e-10:
+        failures.append("Wheat adapter locked 13-class macro-F1 changed unexpectedly.")
+    if abs(wheat_matched["frozen_first_projection_accuracy"] - 0.25933609958506226) > 1e-10:
+        failures.append("Wheat frozen matched-direct baseline changed unexpectedly.")
+    if abs(wheat_matched["adapted_lora_accuracy"] - 0.5622406639004149) > 1e-10:
+        failures.append("Wheat adapted matched-direct result changed unexpectedly.")
+    wheat_checkpoint = ROOT / wheat["checkpoint"]["path"]
+    if not wheat_checkpoint.is_file():
+        failures.append("Wheat LoRA adapter checkpoint is missing.")
+    elif sha256(wheat_checkpoint) != wheat["checkpoint"]["sha256"]:
+        failures.append("Wheat LoRA adapter checkpoint checksum does not match its audit.")
+    if not WHEAT_SUPPLEMENTARY_TABLE.is_file():
+        failures.append("Wheat adapter supplementary audit table is missing.")
+    else:
+        with WHEAT_SUPPLEMENTARY_TABLE.open(encoding="utf-8", newline="") as handle:
+            wheat_table_rows = list(csv.DictReader(handle, delimiter="\t"))
+        wheat_table = {row["metric"]: row["value"] for row in wheat_table_rows}
+        if wheat_table.get("Test cells") != "1433":
+            failures.append("Wheat adapter supplementary table has the wrong locked-test denominator.")
+        if abs(float(wheat_table.get("Accuracy", "nan")) - wheat_test["accuracy"]) > 1e-10:
+            failures.append("Wheat adapter supplementary table does not match locked 13-class accuracy.")
+        if wheat_table.get("Released adapter SHA256") != wheat["checkpoint"]["sha256"]:
+            failures.append("Wheat adapter supplementary table does not match released checkpoint identity.")
     comparisons = records["model_card"]["comparison_status"]
     if comparisons["scPlantLLM"] == "completed" or comparisons["scPlantAnnotate"] == "completed":
         failures.append("External comparator is marked complete without a matched official benchmark record.")
@@ -148,13 +192,25 @@ def audit() -> dict[str, Any]:
             "secondary_root_adapter_test_accuracy": adapter_test["fine_accuracy"],
             "secondary_root_adapter_test_macro_f1": adapter_test["fine_macro_f1"],
             "secondary_root_adapter_matched_semantic_accuracy": adapter_semantic["accuracy"],
+            "wheat_adapter_test_cells": wheat["split"]["test_cells"],
+            "wheat_adapter_train_cells": wheat["split"]["train_cells"],
+            "wheat_adapter_validation_cells": wheat["split"]["validation_cells"],
+            "wheat_adapter_test_accuracy": wheat_test["accuracy"],
+            "wheat_adapter_test_macro_f1": wheat_test["macro_f1"],
+            "wheat_adapter_matched_frozen_accuracy": wheat_matched["frozen_first_projection_accuracy"],
+            "wheat_adapter_matched_adapted_accuracy": wheat_matched["adapted_lora_accuracy"],
+            "wheat_adapter_supplementary_table": WHEAT_SUPPLEMENTARY_TABLE.relative_to(ROOT).as_posix(),
         },
         "visual_contract": {
+            "vector_font_floor_pt": 5.0,
+            "required_exports": ["SVG", "PDF", "PNG", "TIFF"],
+            "source_data_policy": "Every panel-level figure must expose at least one tidy TSV source-data table.",
             "main_figure_story": [
                 "Figure 1: corpus contract and shared evaluation representation",
                 "Figure 2: strict transfer with explicit coverage and denominator",
                 "Figure 3: target-species adaptation dose response",
                 "Figure 4: label-free external root execution and fixed-marker coherence",
+                "Figure 5: provenance-aware allopolyploid wheat stress test and supervised LoRA adaptation",
                 "Extended Data 6: labelled GSE270140 secondary-root adaptation and matched semantic recovery",
             ],
             "manual_review_required": [
@@ -175,14 +231,16 @@ def markdown(report: dict[str, Any]) -> str:
         "",
         "## Export Gate",
         "",
-        "| Figure | SVG/PDF/PNG/TIFF | Source TSV | Editable SVG text | TIFF pixels |",
-        "| --- | --- | --- | --- | --- |",
+        "| Figure | SVG/PDF/PNG/TIFF | Source TSV | Editable SVG text | Minimum SVG font (pt) | TIFF pixels |",
+        "| --- | --- | --- | --- | --- | --- |",
     ]
     for group in ("main", "extended_data"):
         for item in report["figures"][group]:
             exports = "pass" if not item["missing_exports"] else "missing " + ", ".join(item["missing_exports"])
             pixels = "x".join(map(str, item["raster"]["pixels"] or [])) or "missing"
-            lines.append(f"| {item['stem']} | {exports} | {len(item['source_data_tables'])} | {item['editable_svg_text']} | {pixels} |")
+            font_size = item["minimum_svg_font_size_pt"]
+            font_display = f"{font_size:.2f}" if font_size is not None else "missing"
+            lines.append(f"| {item['stem']} | {exports} | {len(item['source_data_tables'])} | {item['editable_svg_text']} | {font_display} | {pixels} |")
     lines.extend(["", "## Evidence Boundary", ""])
     lines.extend(f"- {item}" for item in report["visual_contract"]["manual_review_required"])
     if report["technical_failures"]:

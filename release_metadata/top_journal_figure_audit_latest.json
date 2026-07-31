@@ -1,0 +1,1001 @@
+{
+  "schema_version": "plant_cellfm_top_journal_figure_audit_v1",
+  "generated_utc": "2026-07-31T19:10:58.371106+00:00",
+  "state": "VISUAL_REBUILD_REQUIRED",
+  "overall_score": 78.0,
+  "technical_readiness_score": 97.8,
+  "anchor_corpus": {
+    "count": 8,
+    "scope": "Verified primary articles and official publisher guides relevant to plant cross-species single-cell foundation models, annotation benchmarks, atlas resources and supplementary-package design."
+  },
+  "package_counts": {
+    "main_figures": 6,
+    "extended_data_figures": 9,
+    "supplementary_figures": 13,
+    "supplementary_tables": 13,
+    "source_data_groups": 6,
+    "supplementary_notes": 5
+  },
+  "plan": {
+    "main_figures": {
+      "found": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "missing": [],
+      "complete": true
+    },
+    "extended_data": {
+      "found": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "missing": [],
+      "complete": true
+    },
+    "supplementary_figures": {
+      "found": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "missing": [],
+      "complete": true
+    },
+    "supplementary_tables": {
+      "found": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "missing": [],
+      "complete": true
+    },
+    "source_data": {
+      "found": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "missing": [],
+      "complete": true
+    },
+    "supplementary_notes": {
+      "found": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "missing": [],
+      "complete": true
+    }
+  },
+  "claim_integrity": {
+    "present": [
+      "42.36%",
+      "55.90%",
+      "60.09%",
+      "66.25%",
+      "scPlantLLM",
+      "scPlantAnnotate",
+      "Gossypium hirsutum",
+      "candidate"
+    ],
+    "missing": []
+  },
+  "visual_review": {
+    "status": "complete_data_first_draft_not_submission_approved",
+    "score_out_of_100": 78.0,
+    "summary": "The v3 suite replaces the dashboard-style v1 figures with six data-first main figures, four Extended Data figures and source-data exports. It is a coherent manuscript-draft visual system, but it is not submission approved because independent biological validation and closed third-party numerical benchmarks remain absent.",
+    "approved": false
+  },
+  "asset_coverage": {
+    "ready_groups": 15,
+    "required_groups": 15,
+    "assets": [
+      {
+        "id": "Figure 1",
+        "status": "rendered_from_versioned_metadata_v1",
+        "files": [
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_1\\plant_cellfm_fig1_overview.svg",
+            "suffix": ".svg",
+            "bytes": 28351,
+            "editable_svg_text_nodes": 58,
+            "panel_labels": [
+              "a",
+              "b",
+              "c",
+              "d"
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_1\\plant_cellfm_fig1_overview.pdf",
+            "suffix": ".pdf",
+            "bytes": 56090
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_1\\plant_cellfm_fig1_overview.tiff",
+            "suffix": ".tiff",
+            "bytes": 1175184,
+            "pixels": [
+              4650,
+              3341
+            ],
+            "dpi": [
+              600.0,
+              600.0
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_1\\plant_cellfm_fig1_overview.png",
+            "suffix": ".png",
+            "bytes": 415192,
+            "pixels": [
+              3488,
+              2506
+            ],
+            "dpi": [
+              450.0118,
+              450.0118
+            ]
+          }
+        ],
+        "ready": true,
+        "svg_text_ok": true,
+        "dpi_ok": true
+      },
+      {
+        "id": "Figure 2",
+        "status": "rendered_from_versioned_metadata_v1",
+        "files": [
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_2\\plant_cellfm_fig2_strict_zero_shot.svg",
+            "suffix": ".svg",
+            "bytes": 55086,
+            "editable_svg_text_nodes": 71,
+            "panel_labels": [
+              "a",
+              "b",
+              "c",
+              "d"
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_2\\plant_cellfm_fig2_strict_zero_shot.pdf",
+            "suffix": ".pdf",
+            "bytes": 59747
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_2\\plant_cellfm_fig2_strict_zero_shot.tiff",
+            "suffix": ".tiff",
+            "bytes": 1590166,
+            "pixels": [
+              4639,
+              3817
+            ],
+            "dpi": [
+              600.0,
+              600.0
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_2\\plant_cellfm_fig2_strict_zero_shot.png",
+            "suffix": ".png",
+            "bytes": 532346,
+            "pixels": [
+              3479,
+              2862
+            ],
+            "dpi": [
+              450.0118,
+              450.0118
+            ]
+          }
+        ],
+        "ready": true,
+        "svg_text_ok": true,
+        "dpi_ok": true
+      },
+      {
+        "id": "Figure 3",
+        "status": "rendered_from_versioned_metadata_v1",
+        "files": [
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_3\\plant_cellfm_fig3_benchmark.svg",
+            "suffix": ".svg",
+            "bytes": 26561,
+            "editable_svg_text_nodes": 39,
+            "panel_labels": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_3\\plant_cellfm_fig3_benchmark.pdf",
+            "suffix": ".pdf",
+            "bytes": 53645
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_3\\plant_cellfm_fig3_benchmark.tiff",
+            "suffix": ".tiff",
+            "bytes": 1353272,
+            "pixels": [
+              5524,
+              3259
+            ],
+            "dpi": [
+              600.0,
+              600.0
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_3\\plant_cellfm_fig3_benchmark.png",
+            "suffix": ".png",
+            "bytes": 347416,
+            "pixels": [
+              4143,
+              2444
+            ],
+            "dpi": [
+              450.0118,
+              450.0118
+            ]
+          }
+        ],
+        "ready": true,
+        "svg_text_ok": true,
+        "dpi_ok": true
+      },
+      {
+        "id": "Figure 4",
+        "status": "rendered_from_versioned_metadata_v1",
+        "files": [
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_4\\plant_cellfm_fig4_few_shot_adapter.svg",
+            "suffix": ".svg",
+            "bytes": 67040,
+            "editable_svg_text_nodes": 133,
+            "panel_labels": [
+              "a",
+              "b",
+              "c",
+              "d"
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_4\\plant_cellfm_fig4_few_shot_adapter.pdf",
+            "suffix": ".pdf",
+            "bytes": 55522
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_4\\plant_cellfm_fig4_few_shot_adapter.tiff",
+            "suffix": ".tiff",
+            "bytes": 2048616,
+            "pixels": [
+              4596,
+              3383
+            ],
+            "dpi": [
+              600.0,
+              600.0
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_4\\plant_cellfm_fig4_few_shot_adapter.png",
+            "suffix": ".png",
+            "bytes": 559307,
+            "pixels": [
+              3446,
+              2536
+            ],
+            "dpi": [
+              450.0118,
+              450.0118
+            ]
+          }
+        ],
+        "ready": true,
+        "svg_text_ok": true,
+        "dpi_ok": true
+      },
+      {
+        "id": "Figure 5",
+        "status": "rendered_from_versioned_metadata_v1",
+        "files": [
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_5\\plant_cellfm_fig5_root_case.svg",
+            "suffix": ".svg",
+            "bytes": 265531,
+            "editable_svg_text_nodes": 146,
+            "panel_labels": [
+              "a",
+              "b",
+              "c",
+              "d",
+              "e"
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_5\\plant_cellfm_fig5_root_case.pdf",
+            "suffix": ".pdf",
+            "bytes": 104876
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_5\\plant_cellfm_fig5_root_case.tiff",
+            "suffix": ".tiff",
+            "bytes": 2728264,
+            "pixels": [
+              4720,
+              3749
+            ],
+            "dpi": [
+              600.0,
+              600.0
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_5\\plant_cellfm_fig5_root_case.png",
+            "suffix": ".png",
+            "bytes": 986527,
+            "pixels": [
+              3540,
+              2811
+            ],
+            "dpi": [
+              450.0118,
+              450.0118
+            ]
+          }
+        ],
+        "ready": true,
+        "svg_text_ok": true,
+        "dpi_ok": true
+      },
+      {
+        "id": "Figure 6",
+        "status": "rendered_from_versioned_metadata_v1",
+        "files": [
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_6\\plant_cellfm_fig6_runtime_open_set.svg",
+            "suffix": ".svg",
+            "bytes": 57083,
+            "editable_svg_text_nodes": 74,
+            "panel_labels": [
+              "a",
+              "b",
+              "c",
+              "d",
+              "e"
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_6\\plant_cellfm_fig6_runtime_open_set.pdf",
+            "suffix": ".pdf",
+            "bytes": 61767
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_6\\plant_cellfm_fig6_runtime_open_set.tiff",
+            "suffix": ".tiff",
+            "bytes": 1451826,
+            "pixels": [
+              4577,
+              3387
+            ],
+            "dpi": [
+              600.0,
+              600.0
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\figure_6\\plant_cellfm_fig6_runtime_open_set.png",
+            "suffix": ".png",
+            "bytes": 491664,
+            "pixels": [
+              3433,
+              2540
+            ],
+            "dpi": [
+              450.0118,
+              450.0118
+            ]
+          }
+        ],
+        "ready": true,
+        "svg_text_ok": true,
+        "dpi_ok": true
+      },
+      {
+        "id": "Extended Data Figure 1",
+        "status": "rendered_from_versioned_metadata_v1",
+        "files": [
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig1_corpus_qc.svg",
+            "suffix": ".svg",
+            "bytes": 15651,
+            "editable_svg_text_nodes": 19,
+            "panel_labels": []
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig1_corpus_qc.pdf",
+            "suffix": ".pdf",
+            "bytes": 42426
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig1_corpus_qc.tiff",
+            "suffix": ".tiff",
+            "bytes": 550446,
+            "pixels": [
+              4338,
+              2015
+            ],
+            "dpi": [
+              600.0,
+              600.0
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig1_corpus_qc.png",
+            "suffix": ".png",
+            "bytes": 147258,
+            "pixels": [
+              3253,
+              1510
+            ],
+            "dpi": [
+              450.0118,
+              450.0118
+            ]
+          }
+        ],
+        "ready": true,
+        "svg_text_ok": true,
+        "dpi_ok": true
+      },
+      {
+        "id": "Extended Data Figure 2",
+        "status": "rendered_from_versioned_metadata_v1",
+        "files": [
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig2_ontology.svg",
+            "suffix": ".svg",
+            "bytes": 68150,
+            "editable_svg_text_nodes": 143,
+            "panel_labels": []
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig2_ontology.pdf",
+            "suffix": ".pdf",
+            "bytes": 49291
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig2_ontology.tiff",
+            "suffix": ".tiff",
+            "bytes": 931782,
+            "pixels": [
+              4343,
+              2011
+            ],
+            "dpi": [
+              600.0,
+              600.0
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig2_ontology.png",
+            "suffix": ".png",
+            "bytes": 338534,
+            "pixels": [
+              3257,
+              1508
+            ],
+            "dpi": [
+              450.0118,
+              450.0118
+            ]
+          }
+        ],
+        "ready": true,
+        "svg_text_ok": true,
+        "dpi_ok": true
+      },
+      {
+        "id": "Extended Data Figure 3",
+        "status": "rendered_from_versioned_metadata_v1",
+        "files": [
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig3_v14_folds.svg",
+            "suffix": ".svg",
+            "bytes": 14369,
+            "editable_svg_text_nodes": 20,
+            "panel_labels": []
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig3_v14_folds.pdf",
+            "suffix": ".pdf",
+            "bytes": 46704
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig3_v14_folds.tiff",
+            "suffix": ".tiff",
+            "bytes": 908828,
+            "pixels": [
+              4312,
+              2017
+            ],
+            "dpi": [
+              600.0,
+              600.0
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig3_v14_folds.png",
+            "suffix": ".png",
+            "bytes": 172998,
+            "pixels": [
+              3234,
+              1512
+            ],
+            "dpi": [
+              450.0118,
+              450.0118
+            ]
+          }
+        ],
+        "ready": true,
+        "svg_text_ok": true,
+        "dpi_ok": true
+      },
+      {
+        "id": "Extended Data Figure 4",
+        "status": "rendered_from_versioned_metadata_v1",
+        "files": [
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig4_context_ablation.svg",
+            "suffix": ".svg",
+            "bytes": 36498,
+            "editable_svg_text_nodes": 64,
+            "panel_labels": []
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig4_context_ablation.pdf",
+            "suffix": ".pdf",
+            "bytes": 44588
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig4_context_ablation.tiff",
+            "suffix": ".tiff",
+            "bytes": 1441858,
+            "pixels": [
+              4319,
+              2017
+            ],
+            "dpi": [
+              600.0,
+              600.0
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig4_context_ablation.png",
+            "suffix": ".png",
+            "bytes": 453587,
+            "pixels": [
+              3239,
+              1512
+            ],
+            "dpi": [
+              450.0118,
+              450.0118
+            ]
+          }
+        ],
+        "ready": true,
+        "svg_text_ok": true,
+        "dpi_ok": true
+      },
+      {
+        "id": "Extended Data Figure 5",
+        "status": "rendered_from_versioned_metadata_v1",
+        "files": [
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig5_benchmark_matrix.svg",
+            "suffix": ".svg",
+            "bytes": 136092,
+            "editable_svg_text_nodes": 281,
+            "panel_labels": []
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig5_benchmark_matrix.pdf",
+            "suffix": ".pdf",
+            "bytes": 56038
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig5_benchmark_matrix.tiff",
+            "suffix": ".tiff",
+            "bytes": 879152,
+            "pixels": [
+              4344,
+              2015
+            ],
+            "dpi": [
+              600.0,
+              600.0
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig5_benchmark_matrix.png",
+            "suffix": ".png",
+            "bytes": 258050,
+            "pixels": [
+              3257,
+              1511
+            ],
+            "dpi": [
+              450.0118,
+              450.0118
+            ]
+          }
+        ],
+        "ready": true,
+        "svg_text_ok": true,
+        "dpi_ok": true
+      },
+      {
+        "id": "Extended Data Figure 6",
+        "status": "rendered_from_versioned_metadata_v1",
+        "files": [
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig6_few_shot_stability.svg",
+            "suffix": ".svg",
+            "bytes": 14935,
+            "editable_svg_text_nodes": 22,
+            "panel_labels": []
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig6_few_shot_stability.pdf",
+            "suffix": ".pdf",
+            "bytes": 41747
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig6_few_shot_stability.tiff",
+            "suffix": ".tiff",
+            "bytes": 911326,
+            "pixels": [
+              4292,
+              2017
+            ],
+            "dpi": [
+              600.0,
+              600.0
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig6_few_shot_stability.png",
+            "suffix": ".png",
+            "bytes": 171265,
+            "pixels": [
+              3219,
+              1512
+            ],
+            "dpi": [
+              450.0118,
+              450.0118
+            ]
+          }
+        ],
+        "ready": true,
+        "svg_text_ok": true,
+        "dpi_ok": true
+      },
+      {
+        "id": "Extended Data Figure 7",
+        "status": "rendered_from_versioned_metadata_v1",
+        "files": [
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig7_root_markers.svg",
+            "suffix": ".svg",
+            "bytes": 17212,
+            "editable_svg_text_nodes": 26,
+            "panel_labels": []
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig7_root_markers.pdf",
+            "suffix": ".pdf",
+            "bytes": 46147
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig7_root_markers.tiff",
+            "suffix": ".tiff",
+            "bytes": 965272,
+            "pixels": [
+              4309,
+              2018
+            ],
+            "dpi": [
+              600.0,
+              600.0
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig7_root_markers.png",
+            "suffix": ".png",
+            "bytes": 181846,
+            "pixels": [
+              3232,
+              1512
+            ],
+            "dpi": [
+              450.0118,
+              450.0118
+            ]
+          }
+        ],
+        "ready": true,
+        "svg_text_ok": true,
+        "dpi_ok": true
+      },
+      {
+        "id": "Extended Data Figure 8",
+        "status": "rendered_from_versioned_metadata_v1",
+        "files": [
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig8_multispecies_case.svg",
+            "suffix": ".svg",
+            "bytes": 59978,
+            "editable_svg_text_nodes": 124,
+            "panel_labels": []
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig8_multispecies_case.pdf",
+            "suffix": ".pdf",
+            "bytes": 54099
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig8_multispecies_case.tiff",
+            "suffix": ".tiff",
+            "bytes": 994388,
+            "pixels": [
+              4343,
+              2011
+            ],
+            "dpi": [
+              600.0,
+              600.0
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig8_multispecies_case.png",
+            "suffix": ".png",
+            "bytes": 428000,
+            "pixels": [
+              3257,
+              1508
+            ],
+            "dpi": [
+              450.0118,
+              450.0118
+            ]
+          }
+        ],
+        "ready": true,
+        "svg_text_ok": true,
+        "dpi_ok": true
+      },
+      {
+        "id": "Extended Data Figure 9",
+        "status": "rendered_from_versioned_metadata_v1",
+        "files": [
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig9_runtime_audit.svg",
+            "suffix": ".svg",
+            "bytes": 82290,
+            "editable_svg_text_nodes": 103,
+            "panel_labels": []
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig9_runtime_audit.pdf",
+            "suffix": ".pdf",
+            "bytes": 65020
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig9_runtime_audit.tiff",
+            "suffix": ".tiff",
+            "bytes": 1721542,
+            "pixels": [
+              4340,
+              2016
+            ],
+            "dpi": [
+              600.0,
+              600.0
+            ]
+          },
+          {
+            "path": "figures\\plant_cellfm_submission\\extended_data\\plant_cellfm_ed_fig9_runtime_audit.png",
+            "suffix": ".png",
+            "bytes": 531623,
+            "pixels": [
+              3255,
+              1511
+            ],
+            "dpi": [
+              450.0118,
+              450.0118
+            ]
+          }
+        ],
+        "ready": true,
+        "svg_text_ok": true,
+        "dpi_ok": true
+      }
+    ]
+  },
+  "prototypes": [
+    {
+      "id": "Arabidopsis root marker prototype",
+      "status": "prototype",
+      "files": [
+        {
+          "path": "figures\\plant_cellfm_v9_arabidopsis_root_case\\plant_cellfm_v9_arabidopsis_root_case.svg",
+          "suffix": ".svg",
+          "bytes": 258645,
+          "editable_svg_text_nodes": 149,
+          "panel_labels": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ]
+        },
+        {
+          "path": "figures\\plant_cellfm_v9_arabidopsis_root_case\\plant_cellfm_v9_arabidopsis_root_case.pdf",
+          "suffix": ".pdf",
+          "bytes": 105673
+        },
+        {
+          "path": "figures\\plant_cellfm_v9_arabidopsis_root_case\\plant_cellfm_v9_arabidopsis_root_case.tiff",
+          "suffix": ".tiff",
+          "bytes": 3988252,
+          "pixels": [
+            4764,
+            3933
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        },
+        {
+          "path": "figures\\plant_cellfm_v9_arabidopsis_root_case\\plant_cellfm_v9_arabidopsis_root_case.png",
+          "suffix": ".png",
+          "bytes": 940660,
+          "pixels": [
+            3571,
+            2950
+          ],
+          "dpi": [
+            450.0118,
+            450.0118
+          ]
+        }
+      ]
+    }
+  ],
+  "score_components": {
+    "blueprint_completeness": 25.0,
+    "evidence_integrity": 15.0,
+    "supporting_package": 20.0,
+    "rendered_asset_coverage": 20.0,
+    "technical_export_quality": 10.0,
+    "visual_review": 7.8
+  },
+  "hard_blockers": [
+    "Visual quality is not approved: status=complete_data_first_draft_not_submission_approved, score=78.0/100. Technical export checks cannot substitute for editorial visual review."
+  ],
+  "next_actions": [
+    "Export the canonical Supplementary Tables before drawing quantitative panels.",
+    "Create final assets with the figure-asset manifest stems and SVG/PDF/TIFF/PNG exports.",
+    "Run this audit after every figure batch and record visual QA only after inspecting final-size exports."
+  ]
+}

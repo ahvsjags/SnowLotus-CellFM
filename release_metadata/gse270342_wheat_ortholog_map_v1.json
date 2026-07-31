@@ -1,0 +1,31 @@
+{
+  "schema_version": "plant_cellfm_gse270342_wheat_to_arabidopsis_author_orthogroup_map_v1",
+  "generated_utc": "2026-07-31T22:25:57.916045+00:00",
+  "source": {
+    "dataset": "GSE270342",
+    "gene_list": "outputs/external_validation/gse270342/seurat_export/GSE270342_seuratObj_for_publication/genes.txt",
+    "gene_list_sha256": "a7cf9244fc1b0b5b02eede25803e8d94ee7d918b1cc3958f7b593507916f5c8e",
+    "provider": "VIB-PSB/wheat_root_atlas author repository",
+    "repository": "VIB-PSB/wheat_root_atlas",
+    "branch": "main",
+    "path": "GRN_regulon_analysis/input/orthogroups.csv",
+    "raw_url": "https://raw.githubusercontent.com/VIB-PSB/wheat_root_atlas/main/GRN_regulon_analysis/input/orthogroups.csv",
+    "github_blob_sha": "54a5c1a45cfa4d687bdceb819805048edb5adbfc",
+    "download_sha256": "63ede47fdec74f7f7fedad4939ebba1ec26e405e88ff3c282b1e0a8e1641effc",
+    "source_identifier_contract": "IWGSC v2.1 style wheat gene identifiers used by GSE270342"
+  },
+  "output": {
+    "path": "data/orthologs/gse270342_wheat_to_arabidopsis_author_orthogroups.tsv",
+    "sha256": "3b2cb0f1ccbececb30093e396239fd805a228ba40de429c5966064a0bca35ead",
+    "all_relationships": 96339,
+    "source_gene_coverage_in_author_orthogroups": 0.816181271202714,
+    "source_gene_coverage_with_arabidopsis_target": 0.5548486206234398,
+    "source_genes": 78115,
+    "source_genes_in_author_orthogroups": 63756,
+    "source_genes_with_arabidopsis_target": 43342,
+    "deterministic_first_target_count": 43342,
+    "orthogroup_count_used": 10181,
+    "target_gene_count": 17382
+  },
+  "claim_boundary": "This mapping is derived from the author-published custom PLAZA orthogroups used in the associated cross-species annotation workflow. It preserves many-to-many relationships in the audit table; the Plant-CellFM loader deterministically collapses to the lexicographically first Arabidopsis target per wheat source gene. It is not a one-to-one identifier conversion, independent external validation, or a complete plant orthology resource."
+}

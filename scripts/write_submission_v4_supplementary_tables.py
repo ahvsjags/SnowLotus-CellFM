@@ -62,6 +62,57 @@ def fewshot_summary(payload: dict) -> pd.DataFrame:
     return pd.DataFrame(rows).sort_values("support_cells_per_species")
 
 
+def classification_report_rows(payload: dict) -> pd.DataFrame:
+    """Convert the full-precision held-out report into a stable table."""
+    report = payload["held_out_test"]["full_precision_detailed_recheck"]["classification_report"]
+    rows = [
+        {
+            "author_annotation": label,
+            "support": int(metrics["support"]),
+            "precision": metrics["precision"],
+            "recall": metrics["recall"],
+            "f1": metrics["f1-score"],
+        }
+        for label, metrics in report.items()
+        if label not in {"accuracy", "macro avg", "weighted avg"}
+    ]
+    return pd.DataFrame(rows).sort_values(["support", "author_annotation"], ascending=[False, True])
+
+
+def wheat_adapter_audit_rows(adapter: dict, prepared_input: dict) -> pd.DataFrame:
+    """Flatten the complete GSE270342 claim chain into one reviewable table."""
+    mapping = prepared_input["mapping_coverage"]
+    split = adapter["split"]
+    locked = adapter["locked_full_13_class_test"]
+    matched = adapter["matched_direct_root_subset"]
+    return pd.DataFrame(
+        [
+            ("Source and provenance", "GEO series", prepared_input["source"]["series_accession"], "accession", "public author-labelled wheat root study"),
+            ("Source and provenance", "Publication DOI", prepared_input["source"]["publication_doi"], "DOI", "source publication"),
+            ("Source and provenance", "Author object cells", prepared_input["overlap_audit"]["author_cells"], "cells", "before overlap exclusion"),
+            ("Source and provenance", "Historical strict-transfer rows", prepared_input["overlap_audit"]["historical_strict_prediction_rows"], "rows", "recorded exploratory subset"),
+            ("Source and provenance", "Exact CS1 barcodes excluded", prepared_input["overlap_audit"]["exact_cs1_barcode_overlap_excluded"], "cells", "removed before inference and tuning"),
+            ("Source and provenance", "Retained non-overlap cells", adapter["input"]["cells"], "cells", "author-labelled same-study adaptation input"),
+            ("Orthogroup mapping", "Source genes", mapping["source_gene_count"], "features", "author object RNA count matrix"),
+            ("Orthogroup mapping", "Checkpoint-compatible mapped genes", mapping["checkpoint_compatible_mapped_genes"], "features", "mapped into frozen checkpoint vocabulary"),
+            ("Orthogroup mapping", "Checkpoint-compatible feature fraction", mapping["checkpoint_compatible_gene_fraction"], "fraction", "feature-level mapping coverage"),
+            ("Orthogroup mapping", "Checkpoint-compatible UMI fraction", mapping["checkpoint_compatible_umi_fraction"], "fraction", "count-weighted mapping coverage"),
+            ("Locked split", "Train cells", split["train_cells"], "cells", "fixed group-random split; seed 20260801"),
+            ("Locked split", "Validation cells", split["validation_cells"], "cells", "used for epoch selection"),
+            ("Locked split", "Test cells", split["test_cells"], "cells", "locked author-label-supervised report"),
+            ("Locked 13-class report", "Accuracy", locked["accuracy"], "fraction", "full author-label test denominator"),
+            ("Locked 13-class report", "Macro-F1", locked["macro_f1"], "fraction", "13 author labels"),
+            ("Matched direct-root diagnostic", "Comparable cells", matched["evaluated_cells"], "cells", "predeclared eight-label map only"),
+            ("Matched direct-root diagnostic", "Frozen first-projection accuracy", matched["frozen_first_projection_accuracy"], "fraction", "frozen diagnostic, not the 13-class report"),
+            ("Matched direct-root diagnostic", "LoRA adapter accuracy", matched["adapted_lora_accuracy"], "fraction", "same matched cells and mapping"),
+            ("Matched direct-root diagnostic", "Accuracy gain", matched["accuracy_gain_percentage_points"], "percentage points", "adapted minus frozen"),
+            ("Release identity", "Released adapter SHA256", adapter["checkpoint"]["sha256"], "SHA256", "models/Plant_CellFM_GSE270342_wheat_root_lora_adapter_best.pt"),
+            ("Claim boundary", "Interpretation", adapter["claim_boundary"], "text", "not zero-shot, independent external validation or a third-party ranking"),
+        ],
+        columns=["section", "metric", "value", "unit", "interpretation"],
+    )
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     profile_dir = ROOT / "figure_data" / "corpus_profile_v1"
@@ -75,6 +126,14 @@ def main() -> None:
     scplantllm_audit = json.loads((ROOT / "release_metadata" / "scplantllm_official_execution_audit.json").read_text(encoding="utf-8"))
     root_literature = json.loads((ROOT / "release_metadata" / "arabidopsis_root_literature_concordance_v4.json").read_text(encoding="utf-8"))
     external_root = json.loads((ROOT / "release_metadata" / "gse152766_external_root_blind_inference_v4.json").read_text(encoding="utf-8"))
+    secondary_adapter = json.loads((ROOT / "release_metadata" / "gse270140_secondary_root_adapter_audit_v1.json").read_text(encoding="utf-8"))
+    secondary_detailed = json.loads(
+        (ROOT / "outputs" / "gse270140_secondary_root_lora_adapter_4070" / "detailed_test" / "detailed_metrics.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    wheat_adapter = json.loads((ROOT / "release_metadata" / "gse270342_wheat_lora_adapter_audit_v1.json").read_text(encoding="utf-8"))
+    wheat_input = json.loads((ROOT / "release_metadata" / "gse270342_wheat_nonoverlap_input_preparation_v1.json").read_text(encoding="utf-8"))
     audit = json.loads((ROOT / "release_metadata" / "top_journal_figure_audit_v4.json").read_text(encoding="utf-8"))
     runtime = json.loads((ROOT / "release_metadata" / "revision_v11_runtime_head_benchmark.json").read_text(encoding="utf-8"))
 
@@ -119,6 +178,9 @@ def main() -> None:
         ROOT / "scripts" / "download_gse152766_external_root_case.py",
         ROOT / "scripts" / "prepare_gse152766_external_root_case.py",
         ROOT / "scripts" / "audit_gse152766_external_root_case.py",
+        ROOT / "scripts" / "prepare_gse270342_wheat_root_case.py",
+        ROOT / "scripts" / "audit_gse270342_wheat_lora_adapter.py",
+        ROOT / "scripts" / "render_v5_wheat_root_adapter_figure.py",
         ROOT / "scripts" / "write_submission_v4_supplementary_tables.py",
         ROOT / "scripts" / "audit_v4_submission_figure_suite.py",
         ROOT / "scripts" / "audit_scplantllm_official_execution.py",
@@ -130,6 +192,9 @@ def main() -> None:
         ROOT / "release_metadata" / "arabidopsis_root_literature_concordance_v4.json",
         ROOT / "release_metadata" / "gse152766_external_input_acquisition_v4.json",
         ROOT / "release_metadata" / "gse152766_external_root_blind_inference_v4.json",
+        ROOT / "release_metadata" / "gse270140_secondary_root_adapter_audit_v1.json",
+        ROOT / "release_metadata" / "gse270342_wheat_nonoverlap_input_preparation_v1.json",
+        ROOT / "release_metadata" / "gse270342_wheat_lora_adapter_audit_v1.json",
     ]
     reproducibility = pd.DataFrame(
         [
@@ -147,6 +212,9 @@ def main() -> None:
                     "python scripts/download_gse152766_external_root_case.py" if path.name.startswith("download_gse152766_external") else
                     "python scripts/prepare_gse152766_external_root_case.py" if path.name.startswith("prepare_gse152766") else
                     "python scripts/audit_gse152766_external_root_case.py" if path.name.startswith("audit_gse152766") else
+                    "python scripts/prepare_gse270342_wheat_root_case.py" if path.name.startswith("prepare_gse270342") else
+                    "python scripts/audit_gse270342_wheat_lora_adapter.py" if path.name.startswith("audit_gse270342") else
+                    "python scripts/render_v5_wheat_root_adapter_figure.py" if path.name.startswith("render_v5_wheat") else
                     "frozen release record"
                 ),
             }
@@ -196,6 +264,16 @@ def main() -> None:
         "Supplementary_Table_S17_gse152766_external_root_blind_inference.tsv": pd.DataFrame(
             external_root["predefined_marker_coherence"]
         ),
+        "Supplementary_Table_S18_GSE270140_secondary_root_adapter_per_class.tsv": classification_report_rows(
+            {"held_out_test": {"full_precision_detailed_recheck": secondary_detailed["summary"]["fine"]}}
+        ),
+        "Supplementary_Table_S19_GSE270140_secondary_root_adapter_semantic_recovery.tsv": pd.DataFrame(
+            [
+                {"method": "Frozen base checkpoint", **secondary_adapter["matched_three_state_semantic_recovery"]["frozen_base_checkpoint"]},
+                {"method": "Secondary-root LoRA-mode adapter", **secondary_adapter["matched_three_state_semantic_recovery"]["secondary_root_adapter"]},
+            ]
+        ),
+        "Supplementary_Table_S20_GSE270342_wheat_root_adapter_audit.tsv": wheat_adapter_audit_rows(wheat_adapter, wheat_input),
     }
     for name, frame in tables.items():
         frame.to_csv(OUT / name, sep="\t", index=False)
@@ -203,13 +281,13 @@ def main() -> None:
         for name, frame in tables.items():
             frame.to_excel(writer, sheet_name=name.replace("Supplementary_Table_", "")[:31], index=False)
     manifest = {
-        "schema_version": "plant_cellfm_submission_v4_supplementary_tables",
+        "schema_version": "plant_cellfm_submission_v5_supplementary_tables",
         "corpus_profile": profile,
         "table_files": list(tables),
         "workbook": "Plant_CellFM_Supplementary_Tables_v4.xlsx",
         "primary_strict_protocol": "revision_v17_nested_metadata_gate",
         "label_integrity_companion": "revision_v18_identity_curated_strict",
-        "claim_boundary": "v17 is the only primary strict leave-species result. v18 is a pre-specified identity-curated companion; v14, few-shot adaptation and runtime-head outputs use distinct protocols. External methods with unavailable official matched predictions are recorded as pending, not numerically ranked. Arabidopsis literature-marker concordance supports biological plausibility but is neither wet-lab validation nor independent-matrix replication. The GSE152766 case is blind external inference on a label-free matrix, so its marker-coherence statistics are not external accuracy or an external model ranking.",
+        "claim_boundary": "v17 is the only primary strict leave-species result. v18 is a pre-specified identity-curated companion; v14, few-shot adaptation and runtime-head outputs use distinct protocols. External methods with unavailable official matched predictions are recorded as pending, not numerically ranked. Arabidopsis literature-marker concordance supports biological plausibility but is neither wet-lab validation nor independent-matrix replication. The GSE152766 case is blind external inference on a label-free matrix, so its marker-coherence statistics are not external accuracy or an external model ranking. GSE270140 and GSE270342 are same-study author-label-supervised adaptation reports with locked cell-level splits; neither is a zero-shot, independent external-validation or third-party-ranking claim.",
     }
     (OUT / "MANIFEST.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"out": str(OUT), "tables": len(tables)}, ensure_ascii=False))

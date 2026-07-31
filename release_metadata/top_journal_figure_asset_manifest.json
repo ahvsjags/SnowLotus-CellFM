@@ -1,0 +1,93 @@
+{
+  "schema_version": "plant_cellfm_top_journal_figure_asset_manifest_v1",
+  "generated": "2026-08-01 Asia/Shanghai",
+  "convention": "Final assets use figures/plant_cellfm_submission/{figure_id}/{stem}.{svg,pdf,tiff,png}; prototypes are not counted as final renders.",
+  "main_figures": [
+    {
+      "id": "Figure 1",
+      "stem": "figures/plant_cellfm_submission/figure_1/plant_cellfm_fig1_overview",
+      "status": "rendered_from_versioned_metadata_v1"
+    },
+    {
+      "id": "Figure 2",
+      "stem": "figures/plant_cellfm_submission/figure_2/plant_cellfm_fig2_strict_zero_shot",
+      "status": "rendered_from_versioned_metadata_v1"
+    },
+    {
+      "id": "Figure 3",
+      "stem": "figures/plant_cellfm_submission/figure_3/plant_cellfm_fig3_benchmark",
+      "status": "rendered_from_versioned_metadata_v1"
+    },
+    {
+      "id": "Figure 4",
+      "stem": "figures/plant_cellfm_submission/figure_4/plant_cellfm_fig4_few_shot_adapter",
+      "status": "rendered_from_versioned_metadata_v1"
+    },
+    {
+      "id": "Figure 5",
+      "stem": "figures/plant_cellfm_submission/figure_5/plant_cellfm_fig5_root_case",
+      "status": "rendered_from_versioned_metadata_v1"
+    },
+    {
+      "id": "Figure 6",
+      "stem": "figures/plant_cellfm_submission/figure_6/plant_cellfm_fig6_runtime_open_set",
+      "status": "rendered_from_versioned_metadata_v1"
+    }
+  ],
+  "extended_data": [
+    {
+      "id": "Extended Data Figure 1",
+      "stem": "figures/plant_cellfm_submission/extended_data/plant_cellfm_ed_fig1_corpus_qc",
+      "status": "rendered_from_versioned_metadata_v1"
+    },
+    {
+      "id": "Extended Data Figure 2",
+      "stem": "figures/plant_cellfm_submission/extended_data/plant_cellfm_ed_fig2_ontology",
+      "status": "rendered_from_versioned_metadata_v1"
+    },
+    {
+      "id": "Extended Data Figure 3",
+      "stem": "figures/plant_cellfm_submission/extended_data/plant_cellfm_ed_fig3_v14_folds",
+      "status": "rendered_from_versioned_metadata_v1"
+    },
+    {
+      "id": "Extended Data Figure 4",
+      "stem": "figures/plant_cellfm_submission/extended_data/plant_cellfm_ed_fig4_context_ablation",
+      "status": "rendered_from_versioned_metadata_v1"
+    },
+    {
+      "id": "Extended Data Figure 5",
+      "stem": "figures/plant_cellfm_submission/extended_data/plant_cellfm_ed_fig5_benchmark_matrix",
+      "status": "rendered_from_versioned_metadata_v1"
+    },
+    {
+      "id": "Extended Data Figure 6",
+      "stem": "figures/plant_cellfm_submission/extended_data/plant_cellfm_ed_fig6_few_shot_stability",
+      "status": "rendered_from_versioned_metadata_v1"
+    },
+    {
+      "id": "Extended Data Figure 7",
+      "stem": "figures/plant_cellfm_submission/extended_data/plant_cellfm_ed_fig7_root_markers",
+      "status": "rendered_from_versioned_metadata_v1"
+    },
+    {
+      "id": "Extended Data Figure 8",
+      "stem": "figures/plant_cellfm_submission/extended_data/plant_cellfm_ed_fig8_multispecies_case",
+      "status": "rendered_from_versioned_metadata_v1"
+    },
+    {
+      "id": "Extended Data Figure 9",
+      "stem": "figures/plant_cellfm_submission/extended_data/plant_cellfm_ed_fig9_runtime_audit",
+      "status": "rendered_from_versioned_metadata_v1"
+    }
+  ],
+  "prototypes": [
+    {
+      "id": "Arabidopsis root marker prototype",
+      "stem": "figures/plant_cellfm_v9_arabidopsis_root_case/plant_cellfm_v9_arabidopsis_root_case",
+      "status": "prototype",
+      "notes": "This is not counted as final Figure 5 until it includes query-cell annotation and follows the final figure contract."
+    }
+  ],
+  "render_note": "All listed groups were rendered by scripts/render_submission_figure_suite_v1.py from versioned release metadata; visual QA remains a separate gate."
+}

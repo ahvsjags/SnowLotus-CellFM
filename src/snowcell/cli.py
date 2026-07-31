@@ -43,6 +43,17 @@ def build_parser() -> argparse.ArgumentParser:
     predict.add_argument("--data", required=True, help=".npz or .h5ad expression matrix")
     predict.add_argument("--output", required=True, help="CSV output path")
     predict.add_argument("--layer", default=None, help="Optional AnnData layer")
+    predict.add_argument(
+        "--ortholog-map",
+        default=None,
+        help="Optional TSV mapping source-gene identifiers to checkpoint-vocabulary identifiers",
+    )
+    predict.add_argument(
+        "--ortholog-aggregation",
+        choices=("first", "mean"),
+        default=None,
+        help="How multi-target orthogroups are projected: first target or count-conserving mean",
+    )
     predict.add_argument("--batch-size", type=int, default=128)
     predict.add_argument("--device", default="auto", help="auto, cpu, cuda, or cuda:N")
 
@@ -54,6 +65,17 @@ def build_parser() -> argparse.ArgumentParser:
     annotate.add_argument("--data", required=True, help=".npz or .h5ad expression matrix")
     annotate.add_argument("--output-dir", required=True, help="Output directory for annotation bundle")
     annotate.add_argument("--layer", default=None, help="Optional AnnData layer")
+    annotate.add_argument(
+        "--ortholog-map",
+        default=None,
+        help="Optional TSV mapping source-gene identifiers to checkpoint-vocabulary identifiers",
+    )
+    annotate.add_argument(
+        "--ortholog-aggregation",
+        choices=("first", "mean"),
+        default=None,
+        help="How multi-target orthogroups are projected: first target or count-conserving mean",
+    )
     annotate.add_argument("--batch-size", type=int, default=128)
     annotate.add_argument("--device", default="auto", help="auto, cpu, cuda, or cuda:N")
 
@@ -109,6 +131,8 @@ def main(argv: list[str] | None = None) -> None:
             data_path=args.data,
             output_path=args.output,
             layer=args.layer,
+            ortholog_map=args.ortholog_map,
+            ortholog_aggregation=args.ortholog_aggregation,
             batch_size=args.batch_size,
             device=_device(args.device),
         )
@@ -120,6 +144,8 @@ def main(argv: list[str] | None = None) -> None:
             data_path=args.data,
             output_dir=args.output_dir,
             layer=args.layer,
+            ortholog_map=args.ortholog_map,
+            ortholog_aggregation=args.ortholog_aggregation,
             batch_size=args.batch_size,
             device=_device(args.device),
         )

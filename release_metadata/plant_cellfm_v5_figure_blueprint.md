@@ -12,6 +12,7 @@ Build a methods-and-resource figure sequence suitable for high-impact editorial 
 | Fig. 2 | Strict leave-species transfer must report open-set coverage alongside accuracy; a separately labelled context-sensitivity panel makes the prospective algorithmic module inspectable. | Eight-species v17 held-out records, 3,964-cell denominator, 3,000 fixed-seed bootstrap resamples, explicit nested-selection trace and the frozen v14 context-method record. | 39.96% is the all-cell v17 result; conditional accuracy is never substituted for it. The 42.36% context panel is a global sensitivity analysis, not a replacement nested primary result. |
 | Fig. 3 | A small labelled support set gives repeatable target-species adaptation gains. | Ten non-overlapping draws at four support budgets, macro-F1 and species-by-budget outcomes. | This is labelled adaptation, not zero-shot transfer. |
 | Fig. 4 | A frozen model can execute on a label-free external root matrix and yield auditable marker coherence. | 6,566 external cells, all 13 output states, confidence distribution and six fixed literature anchors. | The input has no expert labels; no external accuracy, external ranking or wet-lab validation is claimed. |
+| Fig. 5 | A provenance-controlled allopolyploid wheat stress test exposes frozen-transfer limits and demonstrates a supervised species-adaptation route. | 7,388 author-labelled wheat cells, 224 exact historical barcodes excluded, 7,164 retained cells, author orthogroup feature/UMI coverage, a 1,433-cell locked test and complete 13-class report. | This is a same-study, author-label-supervised cell-level split. It is not zero-shot, independent external validation or a third-party ranking. |
 
 ## Extended Data and Tables
 
@@ -23,7 +24,7 @@ Build a methods-and-resource figure sequence suitable for high-impact editorial 
 | Extended Data 4 | Predefined root-marker literature concordance. |
 | Extended Data 5 | Full external blind-inference audit. |
 | Extended Data 6 | GSE270140 author-label-supervised secondary-root LoRA-mode adaptation, including a matched three-state recovery audit, 14-class held-out confusion matrix and per-class F1. |
-| Tables S1-S19 | Corpus provenance, ontology, splits, adapter registry, benchmarks, root candidates, external-root audit and GSE270140 secondary-root adapter detail. |
+| Tables S1-S20 | Corpus provenance, ontology, splits, adapter registry, benchmarks, root candidates, external-root audit, GSE270140 secondary-root adapter detail and a complete GSE270342 wheat adaptation provenance/mapping/test/checkpoint audit. |
 
 ## Presentation Rules
 
@@ -44,3 +45,5 @@ Build a methods-and-resource figure sequence suitable for high-impact editorial 
 ## Post-hoc Adaptation Evidence
 
 GSE270140/GSM8335426 supplies 11,760 author-annotated secondary-root cells across 14 states. It is used here only for a labelled, one-sample, cell-level split adaptation exercise: 8,232 training cells, 1,176 validation cells and 2,352 locked test cells. The LoRA-mode adapter reaches 83.97% primary test-evaluator fine accuracy and 84.47% macro-F1; the detailed full-precision recheck is 84.18% / 84.64%. On 1,885 held-out cells whose author labels map to the frozen three-state vascular ontology, semantic accuracy rises from 2.02% for the frozen base checkpoint to 90.93% after adaptation. This is not a zero-shot or leave-species result, and it does not close the independent external validation gate.
+
+GSE270342 provides an additional allopolyploid wheat-root adaptation stress case. The author object has 7,388 cells; 224 exact `CS1` barcodes recorded in the earlier exploratory strict-transfer subset are excluded before inference and tuning, leaving 7,164 cells. The author-published custom PLAZA orthogroups map 53.75% of source features and 76.33% of source UMI counts into the frozen checkpoint vocabulary. The frozen first-target diagnostic reaches 25.93% direct-root accuracy on the 964 direct-comparable locked cells. A LoRA-mode wheat adapter, trained with author labels on a fixed 5,014 / 717 / 1,433 cell split, reaches 62.25% full 13-class locked-test accuracy and 0.6660 macro-F1; on the matched direct-root subset it reaches 56.22% accuracy. This is explicitly a same-study supervised adaptation result and does not replace the strict v17 headline.
