@@ -39,10 +39,11 @@
     "Supplementary_Table_S12_external_comparator_evidence_audit.tsv",
     "Supplementary_Table_S13_arabidopsis_root_marker_candidates.tsv",
     "Supplementary_Table_S14_figure_and_source_data_manifest.tsv",
-    "Supplementary_Table_S15_reproducibility_manifest.tsv"
+    "Supplementary_Table_S15_reproducibility_manifest.tsv",
+    "Supplementary_Table_S16_arabidopsis_root_literature_concordance.tsv"
   ],
   "workbook": "Plant_CellFM_Supplementary_Tables_v4.xlsx",
   "primary_strict_protocol": "revision_v17_nested_metadata_gate",
   "label_integrity_companion": "revision_v18_identity_curated_strict",
-  "claim_boundary": "v17 is the only primary strict leave-species result. v18 is a pre-specified identity-curated companion; v14, few-shot adaptation and runtime-head outputs use distinct protocols. External methods with unavailable official matched predictions are recorded as pending, not numerically ranked."
+  "claim_boundary": "v17 is the only primary strict leave-species result. v18 is a pre-specified identity-curated companion; v14, few-shot adaptation and runtime-head outputs use distinct protocols. External methods with unavailable official matched predictions are recorded as pending, not numerically ranked. Arabidopsis literature-marker concordance supports biological plausibility but is neither wet-lab validation nor independent-matrix replication."
 }

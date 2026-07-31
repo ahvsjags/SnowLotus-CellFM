@@ -23,12 +23,15 @@ EXTENDED = [
     "plant_cellfm_v4_ed_fig1_label_integrity",
     "plant_cellfm_v4_ed_fig2_nested_selection_audit",
     "plant_cellfm_v4_ed_fig3_matched_checkpoint_comparison",
+    "plant_cellfm_v4_ed_fig4_literature_marker_concordance",
 ]
 REQUIRED_RECORDS = {
     "v17": ROOT / "release_metadata" / "revision_v17_nested_metadata_gate.json",
     "v18": ROOT / "release_metadata" / "revision_v18_identity_curated_strict.json",
     "fewshot": ROOT / "release_metadata" / "revision_v11_fewshot_adapter_benchmark.json",
     "model_card": ROOT / "release_metadata" / "plant_cellfm_model_card_v4.json",
+    "scplantllm_execution": ROOT / "release_metadata" / "scplantllm_official_execution_audit.json",
+    "root_literature_concordance": ROOT / "release_metadata" / "arabidopsis_root_literature_concordance_v4.json",
 }
 OUTPUT_JSON = ROOT / "release_metadata" / "top_journal_figure_audit_v4.json"
 OUTPUT_MD = ROOT / "release_metadata" / "top_journal_figure_audit_v4.md"
@@ -64,6 +67,8 @@ def audit() -> dict[str, Any]:
     v17 = records["v17"]["summary"]
     v18 = records["v18"]
     card = records["model_card"]
+    scplantllm_execution = records["scplantllm_execution"]
+    root_literature = records["root_literature_concordance"]
     failures: list[str] = []
     for figure in main + extended:
         if figure["missing_exports"]:
@@ -82,6 +87,15 @@ def audit() -> dict[str, Any]:
         failures.append("v18 label-integrity cohort denominator is inconsistent.")
     if card["comparison_status"]["scPlantLLM"] == "completed" or card["comparison_status"]["scPlantAnnotate"] == "completed":
         failures.append("Model card marks an external comparator complete without a reviewed official metric record.")
+    if scplantllm_execution["audit_status"] != "passed":
+        failures.append("The official scPlantLLM execution audit did not pass.")
+    if scplantllm_execution["execution_state"] != "official_encoder_executed_on_official_chunks_not_matched_to_plant_cellfm_v17":
+        failures.append("The scPlantLLM execution record has an unsafe comparison boundary.")
+    root_summary = root_literature["summary"]
+    if root_summary["anchors_tested"] != 6 or root_summary["matching_program_hits"] != 3:
+        failures.append("The root literature-concordance audit no longer matches the frozen predefined-anchor lookup.")
+    if root_literature["claim_boundary"] != "Literature concordance only: it is neither wet-lab validation nor an independent single-cell matrix replication.":
+        failures.append("The root literature-concordance record has an unsafe validation boundary.")
     visual = {
         "status": "expert_reviewed_v4_data_first_draft",
         "score_out_of_100": 88.0,
@@ -93,16 +107,18 @@ def audit() -> dict[str, Any]:
             {"figure": "Extended Data 1", "score": 90, "assessment": "The identity denominator and excluded labels are directly auditable at species resolution."},
             {"figure": "Extended Data 2", "score": 89, "assessment": "Nested candidate selection is visible rather than asserted in prose."},
             {"figure": "Extended Data 3", "score": 90, "assessment": "Frozen checkpoint gains are shown only on matched protocols, with the hardest species transfer setting left visible."},
+            {"figure": "Extended Data 4", "score": 90, "assessment": "All six literature-defined root anchors are visible, with recovered and unrecovered entries shown together and the non-experimental scope made explicit."},
         ],
         "strengths": [
             "Four main figures are data-led and each has a distinct claim.",
             "All main and Extended Data panels have vector, high-resolution raster and source-data exports.",
             "The v18 label-integrity companion removes pseudo-identities before fitting and scoring.",
             "The few-shot panel exposes all ten draws and flags single-label public records rather than treating them as ordinary identity evidence.",
+            "The root case now includes a preregistered-style literature-anchor lookup rather than a marker list without external biological context.",
         ],
         "remaining_submission_blockers": [
-            "A matched official scPlantLLM/scPlantAnnotate benchmark is not closed.",
-            "The biological case remains a public-data marker-candidate resource without independent experimental validation.",
+            "A matched official scPlantLLM/scPlantAnnotate benchmark is not closed. scPlantLLM has an auditable CUDA execution on its own official chunks, not a shared v17 input and scoring contract.",
+            "The biological case has primary-literature anchor concordance but remains a public-data marker-candidate resource without independent experimental validation.",
             "The frozen corpus supports a defined public cohort, not universal all-plant performance.",
         ],
     }

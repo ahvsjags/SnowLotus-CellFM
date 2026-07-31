@@ -1,0 +1,123 @@
+{
+  "schema_version": "plant_cellfm_v4_root_literature_concordance_v1",
+  "scope": "Predefined canonical Arabidopsis root markers looked up in the Plant-CellFM public-data candidate table.",
+  "claim_boundary": "Literature concordance only: it is neither wet-lab validation nor an independent single-cell matrix replication.",
+  "candidate_source": "figures/plant_cellfm_submission_v4/source_data/plant_cellfm_v4_fig4_arabidopsis_root_candidate_resource_root_marker_candidates.tsv",
+  "sources": {
+    "jean_baptiste_2019": {
+      "citation": "Jean-Baptiste et al. Dynamics of Gene Expression in Single Root Cells of Arabidopsis thaliana. Plant Cell (2019).",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8516002/",
+      "evidence": "Reports high, cluster-specific expression for COBL9 in root hair, MYB46 in xylem, and APL in phloem; also discusses WER and GL2 heterogeneity."
+    },
+    "shahan_2022": {
+      "citation": "Shahan et al. A single cell Arabidopsis root atlas reveals developmental trajectories in wild-type and cell identity mutants. Developmental Cell (2022).",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9014886/",
+      "evidence": "Provides an organ-scale Arabidopsis root atlas with major root branches and literature-supported endodermis marker context including CASP1."
+    }
+  },
+  "summary": {
+    "anchors_tested": 6,
+    "candidate_top_n": 20,
+    "matching_program_hits": 3,
+    "matching_program_hit_rate": 0.5,
+    "recovered_marker_symbols": [
+      "CASP1",
+      "APL",
+      "MYB46"
+    ],
+    "candidate_rows_in_root_case": 200,
+    "root_identity_labels": 10
+  },
+  "anchors": [
+    {
+      "label": "Root hair",
+      "marker_symbol": "COBL9",
+      "gene": "AT5G49270",
+      "literature_identity": "root-hair epidermis",
+      "source_key": "jean_baptiste_2019",
+      "candidate_top_n": 20,
+      "recovered_in_matching_program": false,
+      "candidate_rank": null,
+      "candidate_score": null,
+      "candidate_log2fc": null,
+      "candidate_detection_in": null,
+      "candidate_detection_out": null,
+      "candidate_detection_delta": null
+    },
+    {
+      "label": "Non-hair",
+      "marker_symbol": "WER",
+      "gene": "AT5G14750",
+      "literature_identity": "non-hair / atrichoblast epidermis",
+      "source_key": "jean_baptiste_2019",
+      "candidate_top_n": 20,
+      "recovered_in_matching_program": false,
+      "candidate_rank": null,
+      "candidate_score": null,
+      "candidate_log2fc": null,
+      "candidate_detection_in": null,
+      "candidate_detection_out": null,
+      "candidate_detection_delta": null
+    },
+    {
+      "label": "Non-hair",
+      "marker_symbol": "GL2",
+      "gene": "AT1G79840",
+      "literature_identity": "non-hair / atrichoblast epidermis",
+      "source_key": "jean_baptiste_2019",
+      "candidate_top_n": 20,
+      "recovered_in_matching_program": false,
+      "candidate_rank": null,
+      "candidate_score": null,
+      "candidate_log2fc": null,
+      "candidate_detection_in": null,
+      "candidate_detection_out": null,
+      "candidate_detection_delta": null
+    },
+    {
+      "label": "Root endodermis",
+      "marker_symbol": "CASP1",
+      "gene": "AT2G36100",
+      "literature_identity": "endodermis",
+      "source_key": "shahan_2022",
+      "candidate_top_n": 20,
+      "recovered_in_matching_program": true,
+      "candidate_rank": 7.0,
+      "candidate_score": 2.394655227661133,
+      "candidate_log2fc": 4.255702018737793,
+      "candidate_detection_in": 0.6027033925056458,
+      "candidate_detection_out": 0.0400100350379943,
+      "candidate_detection_delta": 0.5626933574676515
+    },
+    {
+      "label": "Phloem",
+      "marker_symbol": "APL",
+      "gene": "AT1G79430",
+      "literature_identity": "phloem within the stele",
+      "source_key": "jean_baptiste_2019",
+      "candidate_top_n": 20,
+      "recovered_in_matching_program": true,
+      "candidate_rank": 4.0,
+      "candidate_score": 2.5453920364379883,
+      "candidate_log2fc": 7.071040630340576,
+      "candidate_detection_in": 0.3624161183834076,
+      "candidate_detection_out": 0.0024419331457465,
+      "candidate_detection_delta": 0.3599741852376611
+    },
+    {
+      "label": "Xylem",
+      "marker_symbol": "MYB46",
+      "gene": "AT5G12870",
+      "literature_identity": "xylem within the stele",
+      "source_key": "jean_baptiste_2019",
+      "candidate_top_n": 20,
+      "recovered_in_matching_program": true,
+      "candidate_rank": 12.0,
+      "candidate_score": 1.6415201425552368,
+      "candidate_log2fc": 7.205848217010498,
+      "candidate_detection_in": 0.2292609363794326,
+      "candidate_detection_out": 0.001457059639506,
+      "candidate_detection_delta": 0.2278038767399266
+    }
+  ]
+}

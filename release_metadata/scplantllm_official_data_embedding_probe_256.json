@@ -1,0 +1,196 @@
+{
+  "method": "scplantllm_frozen_embedding_nearest_centroid_probe",
+  "status": "completed",
+  "interpretation": "Frozen scPlantLLM encoder embeddings are evaluated with a nearest-centroid probe trained on the local train chunk labels. This is a reproducible external-model representation baseline, not a full supervised reproduction of the scPlantLLM classifier head.",
+  "limitations": [
+    "Official FlashMHA checkpoint keys are mapped to PyTorch MultiheadAttention keys.",
+    "The public sprint label vocabulary is local to the prepared chunks.",
+    "Metrics depend on the configured max_train/max_test subset sizes."
+  ],
+  "device": "cuda",
+  "model": {
+    "scplantllm_dir": "external/scPlantLLM",
+    "checkpoint": "external/scPlantLLM/model_params/scPlantLLM_model.pth",
+    "checkpoint_bytes": 431801156,
+    "shape": {
+      "ntoken": 185622,
+      "d_model": 512,
+      "nhead": 8,
+      "d_hid": 512,
+      "nlayers": 6,
+      "nlayers_cls": 3,
+      "n_cls": 44,
+      "n_input_bins": 103,
+      "pad_token_id": 0,
+      "value_pad_index": 101,
+      "cls_token_id": 185621
+    },
+    "state_dict_conversion": {
+      "converted_wqkv_weight_count": 6,
+      "converted_wqkv_bias_count": 6,
+      "skipped_key_count": 10,
+      "skipped_key_prefixes": [
+        "grad_reverse_discriminator."
+      ]
+    },
+    "missing_keys_count": 0,
+    "unexpected_keys_count": 0,
+    "missing_keys": [],
+    "unexpected_keys": []
+  },
+  "data": {
+    "chunks_dir": "external/scPlantLLM/data/processed/has_celltype",
+    "train_split": "train",
+    "test_split": "test",
+    "train_files": [
+      "external/scPlantLLM/data/processed/has_celltype/train_chunk_1.h5"
+    ],
+    "test_files": [
+      "external/scPlantLLM/data/processed/has_celltype/test_chunk_1.h5"
+    ],
+    "selected_train_cells": 256,
+    "selected_test_cells": 256,
+    "original_train_label_counts": {
+      "1": 2712,
+      "3": 3102,
+      "4": 1960,
+      "5": 1172,
+      "6": 2389,
+      "7": 3091,
+      "8": 3396,
+      "9": 3983,
+      "11": 597,
+      "12": 402
+    },
+    "original_test_label_counts": {
+      "1": 150,
+      "3": 173,
+      "4": 109,
+      "5": 65,
+      "6": 133,
+      "7": 172,
+      "8": 188,
+      "9": 221,
+      "11": 33,
+      "12": 23
+    },
+    "selected_train_label_counts": {
+      "1": 26,
+      "3": 25,
+      "4": 25,
+      "5": 25,
+      "6": 25,
+      "7": 27,
+      "8": 27,
+      "9": 26,
+      "11": 25,
+      "12": 25
+    },
+    "selected_test_label_counts": {
+      "1": 25,
+      "3": 26,
+      "4": 27,
+      "5": 27,
+      "6": 26,
+      "7": 26,
+      "8": 25,
+      "9": 26,
+      "11": 25,
+      "12": 23
+    },
+    "unseen_test_labels": []
+  },
+  "probe": {
+    "classifier": "cosine_nearest_centroid",
+    "centroid_train_counts": {
+      "1": 26,
+      "11": 25,
+      "12": 25,
+      "3": 25,
+      "4": 25,
+      "5": 25,
+      "6": 25,
+      "7": 27,
+      "8": 27,
+      "9": 26
+    }
+  },
+  "metrics": {
+    "accuracy": 0.83984375,
+    "macro_f1": 0.8408133143539664,
+    "micro_f1": 0.83984375,
+    "weighted_f1": 0.8383996050244138,
+    "per_class": [
+      {
+        "label": "1",
+        "precision": 0.8846153846153846,
+        "recall": 0.92,
+        "f1": 0.9019607843137255,
+        "support": 25
+      },
+      {
+        "label": "11",
+        "precision": 0.9545454545454546,
+        "recall": 0.84,
+        "f1": 0.8936170212765957,
+        "support": 25
+      },
+      {
+        "label": "12",
+        "precision": 0.8571428571428571,
+        "recall": 0.782608695652174,
+        "f1": 0.8181818181818182,
+        "support": 23
+      },
+      {
+        "label": "3",
+        "precision": 0.7352941176470589,
+        "recall": 0.9615384615384616,
+        "f1": 0.8333333333333334,
+        "support": 26
+      },
+      {
+        "label": "4",
+        "precision": 0.6538461538461539,
+        "recall": 0.6296296296296297,
+        "f1": 0.6415094339622641,
+        "support": 27
+      },
+      {
+        "label": "5",
+        "precision": 0.6666666666666666,
+        "recall": 0.5925925925925926,
+        "f1": 0.6274509803921569,
+        "support": 27
+      },
+      {
+        "label": "6",
+        "precision": 0.8928571428571429,
+        "recall": 0.9615384615384616,
+        "f1": 0.9259259259259259,
+        "support": 26
+      },
+      {
+        "label": "7",
+        "precision": 0.8461538461538461,
+        "recall": 0.8461538461538461,
+        "f1": 0.8461538461538461,
+        "support": 26
+      },
+      {
+        "label": "8",
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 25
+      },
+      {
+        "label": "9",
+        "precision": 0.9583333333333334,
+        "recall": 0.8846153846153846,
+        "f1": 0.92,
+        "support": 26
+      }
+    ]
+  }
+}

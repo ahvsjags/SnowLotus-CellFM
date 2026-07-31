@@ -1,0 +1,27 @@
+{
+  "schema_version": "scplantllm_official_execution_audit_v1",
+  "audit_status": "passed",
+  "execution_state": "official_encoder_executed_on_official_chunks_not_matched_to_plant_cellfm_v17",
+  "probe_record": "release_metadata/scplantllm_official_data_embedding_probe_256.json",
+  "checks": {
+    "official_checkpoint_bytes": 431801156,
+    "cuda_execution": true,
+    "state_dict_missing_keys": 0,
+    "state_dict_unexpected_keys": 0,
+    "stratified_train_cells": 256,
+    "stratified_test_cells": 256,
+    "unseen_test_labels": []
+  },
+  "reported_probe_metrics": {
+    "accuracy": 0.83984375,
+    "macro_f1": 0.8408133143539664,
+    "weighted_f1": 0.8383996050244138
+  },
+  "interpretation": [
+    "The official scPlantLLM checkpoint was loaded and executed on CUDA after documented FlashMHA-to-PyTorch attention-key conversion.",
+    "The recorded metric is a frozen-encoder cosine-nearest-centroid representation probe on scPlantLLM's own 256-cell stratified train and test subsets.",
+    "This is not the scPlantLLM classifier head, not a matched input to Plant-CellFM v17, and not evidence of numerical superiority by either method."
+  ],
+  "remaining_requirement_for_fair_external_comparison": "Acquire a frozen Plant-CellFM v17-compatible raw matrix and run both methods under a shared gene, label, split and open-set scoring contract.",
+  "failures": []
+}

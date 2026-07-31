@@ -71,6 +71,9 @@ def main() -> None:
     v14 = json.loads((ROOT / "release_metadata" / "revision_v14_context_stc_benchmark.json").read_text(encoding="utf-8"))
     v11 = json.loads((ROOT / "release_metadata" / "revision_v11_fewshot_adapter_benchmark.json").read_text(encoding="utf-8"))
     external = json.loads((ROOT / "release_metadata" / "external_benchmark_panel_v9.json").read_text(encoding="utf-8"))
+    scplantllm_probe = json.loads((ROOT / "release_metadata" / "scplantllm_official_data_embedding_probe_256.json").read_text(encoding="utf-8"))
+    scplantllm_audit = json.loads((ROOT / "release_metadata" / "scplantllm_official_execution_audit.json").read_text(encoding="utf-8"))
+    root_literature = json.loads((ROOT / "release_metadata" / "arabidopsis_root_literature_concordance_v4.json").read_text(encoding="utf-8"))
     audit = json.loads((ROOT / "release_metadata" / "top_journal_figure_audit_v4.json").read_text(encoding="utf-8"))
     runtime = json.loads((ROOT / "release_metadata" / "revision_v11_runtime_head_benchmark.json").read_text(encoding="utf-8"))
 
@@ -111,11 +114,16 @@ def main() -> None:
         ROOT / "scripts" / "run_revision_v18_identity_curated_strict.py",
         ROOT / "scripts" / "run_revision_v11_fewshot_adapter_benchmark.py",
         ROOT / "scripts" / "render_v4_top_journal_figures.py",
+        ROOT / "scripts" / "build_v4_root_literature_concordance.py",
         ROOT / "scripts" / "write_submission_v4_supplementary_tables.py",
         ROOT / "scripts" / "audit_v4_submission_figure_suite.py",
+        ROOT / "scripts" / "audit_scplantllm_official_execution.py",
         ROOT / "release_metadata" / "revision_v17_nested_metadata_gate.json",
         ROOT / "release_metadata" / "revision_v18_identity_curated_strict.json",
         ROOT / "release_metadata" / "plant_cellfm_model_card_v4.json",
+        ROOT / "release_metadata" / "scplantllm_official_data_embedding_probe_256.json",
+        ROOT / "release_metadata" / "scplantllm_official_execution_audit.json",
+        ROOT / "release_metadata" / "arabidopsis_root_literature_concordance_v4.json",
     ]
     reproducibility = pd.DataFrame(
         [
@@ -128,12 +136,37 @@ def main() -> None:
                     "python scripts/render_v4_top_journal_figures.py" if path.name.startswith("render_v4") else
                     "python scripts/write_submission_v4_supplementary_tables.py" if path.name.startswith("write_submission_v4") else
                     "python scripts/audit_v4_submission_figure_suite.py" if path.name.startswith("audit_v4") else
+                    "python scripts/audit_scplantllm_official_execution.py" if path.name.startswith("audit_scplantllm") else
+                    "python scripts/build_v4_root_literature_concordance.py" if path.name.startswith("build_v4_root") else
                     "frozen release record"
                 ),
             }
             for path in reproducibility_paths
         ]
     )
+    external_evidence = pd.DataFrame(external["comparisons"])
+    scplantllm_execution_row = pd.DataFrame(
+        [
+            {
+                "comparison": "scPlantLLM official checkpoint execution on official processed chunks",
+                "protocol": "official train/test chunks; stratified 256/256 frozen-encoder representation probe",
+                "status": "completed_execution_not_matched_to_v17",
+                "formal_comparison": False,
+                "evidence": "release_metadata/scplantllm_official_execution_audit.json",
+                "method": scplantllm_probe["method"],
+                "test_cells": scplantllm_probe["data"]["selected_test_cells"],
+                "train_cells": scplantllm_probe["data"]["selected_train_cells"],
+                "fine_accuracy": scplantllm_probe["metrics"]["accuracy"],
+                "fine_macro_f1": scplantllm_probe["metrics"]["macro_f1"],
+                "interpretation": (
+                    "Official scPlantLLM weight execution passed the release audit with zero missing or unexpected state keys. "
+                    "Metric is a frozen-encoder centroid probe on scPlantLLM's own chunks, not the classifier head and not a matched Plant-CellFM v17 comparison."
+                ),
+                "audit_status": scplantllm_audit["audit_status"],
+            }
+        ]
+    )
+    external_evidence = pd.concat([external_evidence, scplantllm_execution_row], ignore_index=True, sort=False)
     tables = {
         "Supplementary_Table_S1_current_corpus_manifest.tsv": pd.read_csv(profile_dir / "species_by_dataset.tsv", sep="\t"),
         "Supplementary_Table_S2_protocol_boundaries.tsv": protocol,
@@ -146,10 +179,11 @@ def main() -> None:
         "Supplementary_Table_S9_fewshot_raw_query_draws.tsv": pd.read_csv(SOURCE / "plant_cellfm_v4_fig3_fewshot_target_adaptation_fewshot_draws.tsv", sep="\t"),
         "Supplementary_Table_S10_fewshot_per_species_draws.tsv": pd.read_csv(SOURCE / "plant_cellfm_v4_fig3_fewshot_target_adaptation_fewshot_species_draws.tsv", sep="\t"),
         "Supplementary_Table_S11_matched_checkpoint_comparison.tsv": pd.read_csv(SOURCE / "plant_cellfm_v4_ed_fig3_matched_checkpoint_comparison_matched_checkpoint_metrics.tsv", sep="\t"),
-        "Supplementary_Table_S12_external_comparator_evidence_audit.tsv": pd.DataFrame(external["comparisons"]),
+        "Supplementary_Table_S12_external_comparator_evidence_audit.tsv": external_evidence,
         "Supplementary_Table_S13_arabidopsis_root_marker_candidates.tsv": pd.read_csv(SOURCE / "plant_cellfm_v4_fig4_arabidopsis_root_candidate_resource_root_marker_candidates.tsv", sep="\t"),
         "Supplementary_Table_S14_figure_and_source_data_manifest.tsv": pd.DataFrame(figure_manifest),
         "Supplementary_Table_S15_reproducibility_manifest.tsv": reproducibility,
+        "Supplementary_Table_S16_arabidopsis_root_literature_concordance.tsv": pd.DataFrame(root_literature["anchors"]),
     }
     for name, frame in tables.items():
         frame.to_csv(OUT / name, sep="\t", index=False)
@@ -163,7 +197,7 @@ def main() -> None:
         "workbook": "Plant_CellFM_Supplementary_Tables_v4.xlsx",
         "primary_strict_protocol": "revision_v17_nested_metadata_gate",
         "label_integrity_companion": "revision_v18_identity_curated_strict",
-        "claim_boundary": "v17 is the only primary strict leave-species result. v18 is a pre-specified identity-curated companion; v14, few-shot adaptation and runtime-head outputs use distinct protocols. External methods with unavailable official matched predictions are recorded as pending, not numerically ranked.",
+        "claim_boundary": "v17 is the only primary strict leave-species result. v18 is a pre-specified identity-curated companion; v14, few-shot adaptation and runtime-head outputs use distinct protocols. External methods with unavailable official matched predictions are recorded as pending, not numerically ranked. Arabidopsis literature-marker concordance supports biological plausibility but is neither wet-lab validation nor independent-matrix replication.",
     }
     (OUT / "MANIFEST.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"out": str(OUT), "tables": len(tables)}, ensure_ascii=False))

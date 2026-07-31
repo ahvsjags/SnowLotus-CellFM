@@ -100,6 +100,23 @@
     },
     "source_record": "release_metadata/external_benchmark_panel_v9.json"
   },
+  "biological_case_evidence": {
+    "arabidopsis_root_candidate_resource": {
+      "root_identity_labels": 10,
+      "candidate_rows": 200,
+      "literature_concordance": {
+        "predefined_canonical_anchors": 6,
+        "matching_identity_top20_recoveries": 3,
+        "recovered_markers": [
+          "CASP1",
+          "APL",
+          "MYB46"
+        ],
+        "source_record": "release_metadata/arabidopsis_root_literature_concordance_v4.json",
+        "boundary": "Canonical markers were fixed from primary literature before lookup. This supports biological plausibility only; it is not wet-lab validation or independent-matrix replication."
+      }
+    }
+  },
   "intended_uses": [
     "construct plant single-cell or single-nucleus embeddings under the documented gene contract",
     "run a correctly labelled strict-transfer, few-shot-adaptation or runtime-annotation workflow",
@@ -116,15 +133,17 @@
     "matched_frozen_v3": "completed_on_shared_protocols",
     "cosine_centroid": "completed_on_recorded_splits",
     "seurat_label_transfer": "completed_on_its_exported_split",
-    "scPlantLLM": "official_source_and_weights_obtained; matched_raw_input_and_official_probe_metric_pending",
+    "scPlantLLM": "official_checkpoint_execution_completed_on_its_own_processed_chunks_with_zero_state_key_mismatches; matched_v17_input_and_shared_external_comparison_pending",
     "scPlantAnnotate": "official_route_audited; authenticated_or_exported_official_predictions_pending"
   },
   "reproducibility": {
     "strict_v18_command": "python scripts/run_revision_v18_identity_curated_strict.py",
     "fewshot_command": "python scripts/run_revision_v11_fewshot_adapter_benchmark.py",
     "main_and_extended_figure_command": "python scripts/render_v4_top_journal_figures.py",
+    "root_literature_concordance_command": "python scripts/build_v4_root_literature_concordance.py",
     "tables_command": "python scripts/write_submission_v4_supplementary_tables.py",
     "figure_audit_command": "python scripts/audit_v4_submission_figure_suite.py",
+    "scplantllm_official_execution_command": "python scripts/run_scplantllm_embedding_centroid_probe.py --chunks-dir external/scPlantLLM/data/processed/has_celltype --scplantllm-dir external/scPlantLLM --weight-path model_params/scPlantLLM_model.pth --device cuda --batch-size 4 --max-train 256 --max-test 256 --output release_metadata/scplantllm_official_data_embedding_probe_256.json && python scripts/audit_scplantllm_official_execution.py",
     "source_data_directory": "figures/plant_cellfm_submission_v4/source_data",
     "supplementary_tables_directory": "supplementary_tables/submission_v4",
     "hardware_record": "Historical training artefacts record RTX 4090 runs. The currently accessible remote session did not expose a CUDA device on 2026-08-01; this card makes no claim of active remote GPU training.",

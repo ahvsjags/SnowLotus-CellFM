@@ -40,6 +40,7 @@ from run_species_ontology_label_benchmark_v9 import (  # noqa: E402
     UNKNOWN_ONTOLOGY,
     canonical_ontology,
 )
+from build_v4_root_literature_concordance import build_concordance, write_artifacts  # noqa: E402
 
 
 INK = "#18242E"
@@ -735,6 +736,78 @@ def render_ed3_matched_checkpoint_comparison() -> None:
     )
 
 
+def render_ed4_literature_marker_concordance() -> None:
+    """Show a predefined-literature lookup without overstating validation."""
+    anchors, payload = build_concordance()
+    # Keep the release record and figure source tables derived from exactly the
+    # same fixed anchor list and candidate source.
+    write_artifacts()
+    summary = payload["summary"]
+    display = anchors.copy()
+    display["anchor"] = display["marker_symbol"] + "  |  " + display["label"]
+    display = display.sort_values(["recovered_in_matching_program", "candidate_rank", "marker_symbol"], ascending=[False, True, True]).reset_index(drop=True)
+    hits = display.loc[display["recovered_in_matching_program"]].copy()
+
+    fig = plt.figure(figsize=(7.25, 3.85))
+    grid = fig.add_gridspec(1, 2, width_ratios=(1.32, .93), left=.085, right=.985, bottom=.19, top=.89, wspace=.55)
+    ax_a = fig.add_subplot(grid[0, 0])
+    ax_b = fig.add_subplot(grid[0, 1])
+    y = np.arange(len(display))
+    for index, row in display.iterrows():
+        ax_a.hlines(index, 1, summary["candidate_top_n"], color=LIGHT_GREY, lw=1.3, zorder=1)
+        if row.recovered_in_matching_program:
+            ax_a.scatter(row.candidate_rank, index, s=42, color=TEAL, edgecolor="white", linewidth=.6, zorder=3)
+            ax_a.text(row.candidate_rank + .45, index, f"rank {int(row.candidate_rank)}", va="center", fontsize=5.0, color=TEAL, fontweight="bold")
+        else:
+            ax_a.scatter(summary["candidate_top_n"] + .25, index, s=31, marker="x", color=GREY, linewidth=1.0, zorder=3)
+    ax_a.set(
+        xlim=(.4, summary["candidate_top_n"] + 2.1),
+        xticks=[1, 5, 10, 15, 20],
+        yticks=y,
+        yticklabels=display.anchor,
+        xlabel="rank within matching identity candidate program (top 20 stored)",
+    )
+    ax_a.invert_yaxis()
+    ax_a.text(.01, -.30, "filled circle: recovered canonical locus; x: not present in stored top-20 list", transform=ax_a.transAxes, fontsize=4.75, color=MUTED)
+    clean(ax_a, "x")
+    panel(ax_a, "a", "Predefined canonical markers are recovered\nin three matching root-identity programs", "Canonical loci were fixed from primary literature before candidate lookup")
+
+    if hits.empty:
+        raise ValueError("Expected at least one literature marker recovery for the v4 root concordance panel.")
+    hits = hits.sort_values("candidate_detection_delta")
+    y_hits = np.arange(len(hits))
+    colors = [BLUE if label in {"Phloem", "Xylem"} else TEAL for label in hits.label]
+    ax_b.barh(y_hits, hits.candidate_detection_delta, color=colors, edgecolor="white", linewidth=.5)
+    for index, row in hits.reset_index(drop=True).iterrows():
+        ax_b.text(row.candidate_detection_delta + .012, index, f"{row.marker_symbol}  r{int(row.candidate_rank)}", va="center", fontsize=5.05, fontweight="bold")
+    ax_b.set(
+        yticks=y_hits,
+        yticklabels=hits.label.tolist(),
+        xlim=(0, max(.66, float(hits.candidate_detection_delta.max()) + .14)),
+        xlabel="within-versus-outside detection-rate separation",
+    )
+    clean(ax_b, "x")
+    panel(ax_b, "b", "Recovered anchors retain\nquantitative separation", "Candidate evidence is calculated from the public-data root case")
+    fig.text(
+        .985,
+        .035,
+        f"Literature-concordance audit: {summary['matching_program_hits']}/{summary['anchors_tested']} predefined anchors recovered. Not wet-lab validation or an independent-matrix replication.",
+        ha="right",
+        va="bottom",
+        fontsize=4.85,
+        color=MUTED,
+    )
+    export(
+        fig,
+        EXTENDED,
+        "plant_cellfm_v4_ed_fig4_literature_marker_concordance",
+        {
+            "literature_marker_concordance": display,
+            "literature_marker_concordance_summary": pd.DataFrame([summary]),
+        },
+    )
+
+
 def main() -> None:
     setup()
     cells, v17, v18 = load_cells()
@@ -745,7 +818,8 @@ def main() -> None:
     render_ed1_label_integrity(v17, v18)
     render_ed2_nested_selection()
     render_ed3_matched_checkpoint_comparison()
-    print(json.dumps({"main_figures": 4, "extended_data_figures": 3, "output": str(OUT)}, ensure_ascii=False))
+    render_ed4_literature_marker_concordance()
+    print(json.dumps({"main_figures": 4, "extended_data_figures": 4, "output": str(OUT)}, ensure_ascii=False))
 
 
 if __name__ == "__main__":

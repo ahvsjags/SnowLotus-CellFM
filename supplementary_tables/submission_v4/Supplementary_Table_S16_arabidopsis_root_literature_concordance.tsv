@@ -1,0 +1,7 @@
+label	marker_symbol	gene	literature_identity	source_key	candidate_top_n	recovered_in_matching_program	candidate_rank	candidate_score	candidate_log2fc	candidate_detection_in	candidate_detection_out	candidate_detection_delta
+Root hair	COBL9	AT5G49270	root-hair epidermis	jean_baptiste_2019	20	False						
+Non-hair	WER	AT5G14750	non-hair / atrichoblast epidermis	jean_baptiste_2019	20	False						
+Non-hair	GL2	AT1G79840	non-hair / atrichoblast epidermis	jean_baptiste_2019	20	False						
+Root endodermis	CASP1	AT2G36100	endodermis	shahan_2022	20	True	7.0	2.394655227661133	4.255702018737793	0.6027033925056458	0.0400100350379943	0.5626933574676515
+Phloem	APL	AT1G79430	phloem within the stele	jean_baptiste_2019	20	True	4.0	2.5453920364379883	7.071040630340576	0.3624161183834076	0.0024419331457465	0.3599741852376611
+Xylem	MYB46	AT5G12870	xylem within the stele	jean_baptiste_2019	20	True	12.0	1.6415201425552368	7.205848217010498	0.2292609363794326	0.001457059639506	0.2278038767399266

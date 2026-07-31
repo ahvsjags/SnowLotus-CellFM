@@ -16,11 +16,12 @@
 | plant_cellfm_v4_ed_fig1_label_integrity | pass | 4 | True | 4352x2636 |
 | plant_cellfm_v4_ed_fig2_nested_selection_audit | pass | 2 | True | 4455x2567 |
 | plant_cellfm_v4_ed_fig3_matched_checkpoint_comparison | pass | 2 | True | 4609x2749 |
+| plant_cellfm_v4_ed_fig4_literature_marker_concordance | pass | 2 | True | 4649x2314 |
 
 ## Remaining Submission Blockers
 
-- A matched official scPlantLLM/scPlantAnnotate benchmark is not closed.
-- The biological case remains a public-data marker-candidate resource without independent experimental validation.
+- A matched official scPlantLLM/scPlantAnnotate benchmark is not closed. scPlantLLM has an auditable CUDA execution on its own official chunks, not a shared v17 input and scoring contract.
+- The biological case has primary-literature anchor concordance but remains a public-data marker-candidate resource without independent experimental validation.
 - The frozen corpus supports a defined public cohort, not universal all-plant performance.
 
 ## Per-Figure Review
@@ -34,3 +35,4 @@
 | Extended Data 1 | 90/100 | The identity denominator and excluded labels are directly auditable at species resolution. |
 | Extended Data 2 | 89/100 | Nested candidate selection is visible rather than asserted in prose. |
 | Extended Data 3 | 90/100 | Frozen checkpoint gains are shown only on matched protocols, with the hardest species transfer setting left visible. |
+| Extended Data 4 | 90/100 | All six literature-defined root anchors are visible, with recovered and unrecovered entries shown together and the non-experimental scope made explicit. |

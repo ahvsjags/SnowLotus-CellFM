@@ -1,6 +1,6 @@
 {
   "schema_version": "plant_cellfm_v4_figure_audit_v1",
-  "generated_utc": "2026-07-31T19:59:45.416571+00:00",
+  "generated_utc": "2026-07-31T20:16:40.089320+00:00",
   "state": "EVIDENCE_STRONG_DRAFT_NOT_SUBMISSION_APPROVED",
   "v17_primary_summary": {
     "groups": 8,
@@ -218,6 +218,26 @@
           ]
         },
         "ready": true
+      },
+      {
+        "stem": "plant_cellfm_v4_ed_fig4_literature_marker_concordance",
+        "missing_exports": [],
+        "source_tables": [
+          "plant_cellfm_v4_ed_fig4_literature_marker_concordance_literature_marker_concordance.tsv",
+          "plant_cellfm_v4_ed_fig4_literature_marker_concordance_literature_marker_concordance_summary.tsv"
+        ],
+        "editable_svg_text": true,
+        "raster": {
+          "pixels": [
+            4649,
+            2314
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        },
+        "ready": true
       }
     ]
   },
@@ -260,17 +280,23 @@
         "figure": "Extended Data 3",
         "score": 90,
         "assessment": "Frozen checkpoint gains are shown only on matched protocols, with the hardest species transfer setting left visible."
+      },
+      {
+        "figure": "Extended Data 4",
+        "score": 90,
+        "assessment": "All six literature-defined root anchors are visible, with recovered and unrecovered entries shown together and the non-experimental scope made explicit."
       }
     ],
     "strengths": [
       "Four main figures are data-led and each has a distinct claim.",
       "All main and Extended Data panels have vector, high-resolution raster and source-data exports.",
       "The v18 label-integrity companion removes pseudo-identities before fitting and scoring.",
-      "The few-shot panel exposes all ten draws and flags single-label public records rather than treating them as ordinary identity evidence."
+      "The few-shot panel exposes all ten draws and flags single-label public records rather than treating them as ordinary identity evidence.",
+      "The root case now includes a preregistered-style literature-anchor lookup rather than a marker list without external biological context."
     ],
     "remaining_submission_blockers": [
-      "A matched official scPlantLLM/scPlantAnnotate benchmark is not closed.",
-      "The biological case remains a public-data marker-candidate resource without independent experimental validation.",
+      "A matched official scPlantLLM/scPlantAnnotate benchmark is not closed. scPlantLLM has an auditable CUDA execution on its own official chunks, not a shared v17 input and scoring contract.",
+      "The biological case has primary-literature anchor concordance but remains a public-data marker-candidate resource without independent experimental validation.",
       "The frozen corpus supports a defined public cohort, not universal all-plant performance."
     ]
   }
