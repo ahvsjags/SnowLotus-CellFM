@@ -1,0 +1,5 @@
+stage	recorded_property
+gene IDs	exact IDs or ortholog map
+encoder	256-dimensional cell embedding
+evidence gate	coverage and open-set state
+output	hierarchy, markers and adapter record
