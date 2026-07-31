@@ -1,0 +1,9 @@
+held_out_species	name	kind	scope	minimum_family_support	k
+Arabidopsis thaliana	organ_context_prior	organ	none	0	9
+Brassica rapa	organ_context_prior	organ	none	0	9
+Catharanthus roseus	gate_leaf_support_64	gate	leaf	64	9
+Eutrema salsugineum	gate_leaf_support_64	gate	leaf	64	9
+Fragaria vesca	gate_leaf_support_64	gate	leaf	64	9
+Gossypium bickii	gate_leaf_support_64	gate	leaf	64	9
+Gossypium hirsutum	gate_leaf_support_64	gate	leaf	64	9
+Triticum aestivum	gate_leaf_support_64	gate	leaf	64	9

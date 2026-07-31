@@ -8,14 +8,14 @@ Audit the Plant-CellFM primary figures, Extended Data, supplementary figures, ta
 
 1. Read `references/top_journal_figure_anchors.json` for the verified visual-reference corpus.
 2. Read `references/audit_rubric.json` for scoring, blockers and evidence boundaries.
-3. Read `docs/top_journal_figure_study_and_blueprint_v1.md`, `release_metadata/top_journal_figure_asset_manifest.json`, `release_metadata/strict_evaluation_decision_v17.md` and the latest `release_metadata/top_journal_visual_review_v*.json`.
-4. Run `python scripts/audit_top_journal_figure_suite.py` before judging any new suite.
+3. Read `docs/top_journal_figure_study_and_blueprint_v1.md`, `release_metadata/strict_evaluation_decision_v17.md`, `release_metadata/revision_v18_identity_curated_strict.md` and the latest visual-review record.
+4. Run `python scripts/audit_v4_submission_figure_suite.py` before judging the v4 suite. Use the legacy v3 audit only for historical artifacts.
 
 ## Operating Procedure
 
 1. Before a major figure revision, search official publisher pages for newly published papers matching: plant single-cell atlas, cross-species annotation, single-cell foundation model, or data-resource paper. Add an anchor only after verifying its primary source, figure roles and reusable principle.
 2. Confirm every main figure has one sentence-level claim, one dominant panel and nonredundant supporting panels.
-3. Verify that all primary strict zero-shot panels use the nested v17 protocol and retain the exact-label denominator, 55.90% coverage boundary and Gossypium hirsutum open-set case. Treat the v14 42.36% globally selected result only as explicitly labelled exploratory sensitivity evidence.
+3. Verify that all primary strict zero-shot panels use the nested v17 protocol and retain the exact-label denominator, 55.90% coverage boundary and Gossypium hirsutum open-set case. Verify that the v18 identity-curated cohort is explicitly labelled as a five-species companion after removing unknown/unannotated labels before fitting and scoring. Treat the v14 42.36% globally selected result only as explicitly labelled exploratory sensitivity evidence.
 4. Verify that all v15 runtime-teacher values are labelled as deployment/readiness results, never as strict leave-species zero-shot results.
 5. Check that unclosed third-party comparators appear only as execution-status / contract evidence, not fabricated numerical baselines.
 6. Check that candidate markers remain candidates unless an independent literature or experimental evidence tier is supplied.

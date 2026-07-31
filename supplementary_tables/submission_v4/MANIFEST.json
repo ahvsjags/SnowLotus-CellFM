@@ -1,0 +1,48 @@
+{
+  "schema_version": "plant_cellfm_submission_v4_supplementary_tables",
+  "corpus_profile": {
+    "schema_version": "plant_cellfm_h5ad_corpus_profile_v1",
+    "input": "data/plant_foundation_corpus_current_scplantdb_v2.h5ad",
+    "shape": {
+      "cells": 272732,
+      "genes": 209405
+    },
+    "available_obs_columns": [
+      "species",
+      "tissue",
+      "dataset_id",
+      "sample_id",
+      "cell_type",
+      "cell_type_coarse"
+    ],
+    "unique_values": {
+      "species": 5,
+      "tissue": 6,
+      "dataset_id": 9,
+      "sample_id": 31,
+      "cell_type": 34,
+      "cell_type_coarse": 34
+    }
+  },
+  "table_files": [
+    "Supplementary_Table_S1_current_corpus_manifest.tsv",
+    "Supplementary_Table_S2_protocol_boundaries.tsv",
+    "Supplementary_Table_S3_primary_strict_v17_per_species.tsv",
+    "Supplementary_Table_S4_identity_curated_v18_per_species.tsv",
+    "Supplementary_Table_S5_label_integrity_audit.tsv",
+    "Supplementary_Table_S6_nested_inner_selection_audit.tsv",
+    "Supplementary_Table_S7_selected_nested_configurations.tsv",
+    "Supplementary_Table_S8_fewshot_aggregate_and_raw_draws.tsv",
+    "Supplementary_Table_S9_fewshot_raw_query_draws.tsv",
+    "Supplementary_Table_S10_fewshot_per_species_draws.tsv",
+    "Supplementary_Table_S11_matched_checkpoint_comparison.tsv",
+    "Supplementary_Table_S12_external_comparator_evidence_audit.tsv",
+    "Supplementary_Table_S13_arabidopsis_root_marker_candidates.tsv",
+    "Supplementary_Table_S14_figure_and_source_data_manifest.tsv",
+    "Supplementary_Table_S15_reproducibility_manifest.tsv"
+  ],
+  "workbook": "Plant_CellFM_Supplementary_Tables_v4.xlsx",
+  "primary_strict_protocol": "revision_v17_nested_metadata_gate",
+  "label_integrity_companion": "revision_v18_identity_curated_strict",
+  "claim_boundary": "v17 is the only primary strict leave-species result. v18 is a pre-specified identity-curated companion; v14, few-shot adaptation and runtime-head outputs use distinct protocols. External methods with unavailable official matched predictions are recorded as pending, not numerically ranked."
+}

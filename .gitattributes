@@ -4,3 +4,9 @@
 *.npz filter=lfs diff=lfs merge=lfs -text
 *.tar.gz filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
+
+# Matplotlib SVG path wrapping and sparse TSV rows are generated artifacts.
+# Their terminal spaces/tabs are non-semantic and should not fail source checks.
+figures/plant_cellfm_submission_v4/**/*.svg -whitespace
+figures/plant_cellfm_submission_v4/source_data/*.tsv -whitespace
+supplementary_tables/submission_v4/*.tsv -whitespace

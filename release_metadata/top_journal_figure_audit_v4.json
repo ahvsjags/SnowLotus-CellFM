@@ -1,0 +1,277 @@
+{
+  "schema_version": "plant_cellfm_v4_figure_audit_v1",
+  "generated_utc": "2026-07-31T19:59:45.416571+00:00",
+  "state": "EVIDENCE_STRONG_DRAFT_NOT_SUBMISSION_APPROVED",
+  "v17_primary_summary": {
+    "groups": 8,
+    "n_test": 3964,
+    "n_evaluable": 2216,
+    "open_set_cells": 1748,
+    "coverage": 0.5590312815338042,
+    "accuracy_all": 0.39959636730575177,
+    "accuracy": 0.7148014440433214,
+    "macro_f1": 0.28173155370900244
+  },
+  "v18_identity_integrity": {
+    "summary": {
+      "groups": 5,
+      "n_test": 2324,
+      "n_evaluable": 1344,
+      "open_set_cells": 980,
+      "coverage": 0.5783132530120482,
+      "accuracy_all": 0.4079173838209983,
+      "accuracy": 0.7053571428571429,
+      "macro_f1": 0.14974892435136075
+    },
+    "audit": {
+      "input_cells": 3964,
+      "identity_curated_cells": 2324,
+      "excluded_uninformative_cells": 1640,
+      "input_species": 8,
+      "identity_curated_species": 5,
+      "dropped_all_uninformative_species": [
+        "Eutrema salsugineum",
+        "Gossypium hirsutum",
+        "Triticum aestivum"
+      ],
+      "total_cells_by_species": {
+        "Arabidopsis thaliana": 2366,
+        "Brassica rapa": 256,
+        "Catharanthus roseus": 256,
+        "Eutrema salsugineum": 62,
+        "Fragaria vesca": 256,
+        "Gossypium bickii": 256,
+        "Gossypium hirsutum": 256,
+        "Triticum aestivum": 256
+      },
+      "kept_cells_by_species": {
+        "Arabidopsis thaliana": 1447,
+        "Brassica rapa": 137,
+        "Catharanthus roseus": 243,
+        "Eutrema salsugineum": 0,
+        "Fragaria vesca": 241,
+        "Gossypium bickii": 256,
+        "Gossypium hirsutum": 0,
+        "Triticum aestivum": 0
+      },
+      "excluded_cells_by_species": {
+        "Arabidopsis thaliana": 919,
+        "Brassica rapa": 119,
+        "Catharanthus roseus": 13,
+        "Eutrema salsugineum": 62,
+        "Fragaria vesca": 15,
+        "Gossypium bickii": 0,
+        "Gossypium hirsutum": 256,
+        "Triticum aestivum": 256
+      },
+      "filter_rule": "labels beginning with unknown, unknow or unannotated are audit-only, never fit or score identities"
+    }
+  },
+  "figures": {
+    "main": [
+      {
+        "stem": "plant_cellfm_v4_fig1_cross_species_atlas",
+        "missing_exports": [],
+        "source_tables": [
+          "plant_cellfm_v4_fig1_cross_species_atlas_cell_embedding.tsv",
+          "plant_cellfm_v4_fig1_cross_species_atlas_organ_counts.tsv",
+          "plant_cellfm_v4_fig1_cross_species_atlas_training_species_counts.tsv"
+        ],
+        "editable_svg_text": true,
+        "raster": {
+          "pixels": [
+            4487,
+            3430
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        },
+        "ready": true
+      },
+      {
+        "stem": "plant_cellfm_v4_fig2_nested_strict_transfer",
+        "missing_exports": [],
+        "source_tables": [
+          "plant_cellfm_v4_fig2_nested_strict_transfer_all_cell_bootstrap.tsv",
+          "plant_cellfm_v4_fig2_nested_strict_transfer_cell_predictions.tsv",
+          "plant_cellfm_v4_fig2_nested_strict_transfer_identity_integrity_cascade.tsv",
+          "plant_cellfm_v4_fig2_nested_strict_transfer_v17_species_metrics.tsv",
+          "plant_cellfm_v4_fig2_nested_strict_transfer_v18_identity_curated_metrics.tsv"
+        ],
+        "editable_svg_text": true,
+        "raster": {
+          "pixels": [
+            4762,
+            3622
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        },
+        "ready": true
+      },
+      {
+        "stem": "plant_cellfm_v4_fig3_fewshot_target_adaptation",
+        "missing_exports": [],
+        "source_tables": [
+          "plant_cellfm_v4_fig3_fewshot_target_adaptation_fewshot_draws.tsv",
+          "plant_cellfm_v4_fig3_fewshot_target_adaptation_fewshot_species_budget_means.tsv",
+          "plant_cellfm_v4_fig3_fewshot_target_adaptation_fewshot_species_draws.tsv"
+        ],
+        "editable_svg_text": true,
+        "raster": {
+          "pixels": [
+            4356,
+            3409
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        },
+        "ready": true
+      },
+      {
+        "stem": "plant_cellfm_v4_fig4_arabidopsis_root_candidate_resource",
+        "missing_exports": [],
+        "source_tables": [
+          "plant_cellfm_v4_fig4_arabidopsis_root_candidate_resource_root_identity_taxonomy.tsv",
+          "plant_cellfm_v4_fig4_arabidopsis_root_candidate_resource_root_marker_candidates.tsv",
+          "plant_cellfm_v4_fig4_arabidopsis_root_candidate_resource_root_marker_summary.tsv"
+        ],
+        "editable_svg_text": true,
+        "raster": {
+          "pixels": [
+            4243,
+            3515
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        },
+        "ready": true
+      }
+    ],
+    "extended_data": [
+      {
+        "stem": "plant_cellfm_v4_ed_fig1_label_integrity",
+        "missing_exports": [],
+        "source_tables": [
+          "plant_cellfm_v4_ed_fig1_label_integrity_cohort_comparison.tsv",
+          "plant_cellfm_v4_ed_fig1_label_integrity_label_integrity_by_species.tsv",
+          "plant_cellfm_v4_ed_fig1_label_integrity_v17_metrics.tsv",
+          "plant_cellfm_v4_ed_fig1_label_integrity_v18_metrics.tsv"
+        ],
+        "editable_svg_text": true,
+        "raster": {
+          "pixels": [
+            4352,
+            2636
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        },
+        "ready": true
+      },
+      {
+        "stem": "plant_cellfm_v4_ed_fig2_nested_selection_audit",
+        "missing_exports": [],
+        "source_tables": [
+          "plant_cellfm_v4_ed_fig2_nested_selection_audit_inner_candidate_scores.tsv",
+          "plant_cellfm_v4_ed_fig2_nested_selection_audit_selected_candidate_counts.tsv"
+        ],
+        "editable_svg_text": true,
+        "raster": {
+          "pixels": [
+            4455,
+            2567
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        },
+        "ready": true
+      },
+      {
+        "stem": "plant_cellfm_v4_ed_fig3_matched_checkpoint_comparison",
+        "missing_exports": [],
+        "source_tables": [
+          "plant_cellfm_v4_ed_fig3_matched_checkpoint_comparison_matched_checkpoint_deltas.tsv",
+          "plant_cellfm_v4_ed_fig3_matched_checkpoint_comparison_matched_checkpoint_metrics.tsv"
+        ],
+        "editable_svg_text": true,
+        "raster": {
+          "pixels": [
+            4609,
+            2749
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        },
+        "ready": true
+      }
+    ]
+  },
+  "technical_failures": [],
+  "visual_review": {
+    "status": "expert_reviewed_v4_data_first_draft",
+    "score_out_of_100": 88.0,
+    "per_figure_review": [
+      {
+        "figure": "Fig. 1",
+        "score": 90,
+        "assessment": "Dominant cell-level embedding, matched ontology view and compact corpus context make the biological scale visible without a decorative dashboard."
+      },
+      {
+        "figure": "Fig. 2",
+        "score": 89,
+        "assessment": "The strict protocol, held-out-cell view, all-species outcomes and label-integrity cascade form a connected causal argument; v17 and v18 remain explicitly separated."
+      },
+      {
+        "figure": "Fig. 3",
+        "score": 91,
+        "assessment": "All independent support draws, dose response, macro-F1 and species heterogeneity are visible. Single-label public records are explicitly marked."
+      },
+      {
+        "figure": "Fig. 4",
+        "score": 88,
+        "assessment": "Identity hierarchy, effect size, detection separation and ranked candidate programs are readable. The scientific evidence remains a public-data candidate resource pending independent validation."
+      },
+      {
+        "figure": "Extended Data 1",
+        "score": 90,
+        "assessment": "The identity denominator and excluded labels are directly auditable at species resolution."
+      },
+      {
+        "figure": "Extended Data 2",
+        "score": 89,
+        "assessment": "Nested candidate selection is visible rather than asserted in prose."
+      },
+      {
+        "figure": "Extended Data 3",
+        "score": 90,
+        "assessment": "Frozen checkpoint gains are shown only on matched protocols, with the hardest species transfer setting left visible."
+      }
+    ],
+    "strengths": [
+      "Four main figures are data-led and each has a distinct claim.",
+      "All main and Extended Data panels have vector, high-resolution raster and source-data exports.",
+      "The v18 label-integrity companion removes pseudo-identities before fitting and scoring.",
+      "The few-shot panel exposes all ten draws and flags single-label public records rather than treating them as ordinary identity evidence."
+    ],
+    "remaining_submission_blockers": [
+      "A matched official scPlantLLM/scPlantAnnotate benchmark is not closed.",
+      "The biological case remains a public-data marker-candidate resource without independent experimental validation.",
+      "The frozen corpus supports a defined public cohort, not universal all-plant performance."
+    ]
+  }
+}

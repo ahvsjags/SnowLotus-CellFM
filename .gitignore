@@ -15,7 +15,13 @@ outputs/
 checkpoints/
 wandb/
 
+# Downloaded third-party repositories and checkpoints are execution inputs,
+# not Plant-CellFM release assets.  The benchmark contract is versioned
+# separately in release metadata.
+external/
+
 # Submission TIFFs are retained locally for journal upload.  The renderers,
 # vector/raster review copies and TSV source data are versioned instead.
 figures/plant_cellfm_submission_v3/**/*.tiff
+figures/plant_cellfm_submission_v4/**/*.tiff
 

@@ -1,6 +1,6 @@
 # Plant-CellFM v11 Few-Shot Target Adapter Benchmark
 
-Generated: 2026-07-31 02:42 Asia/Shanghai
+Generated: 2026-08-01 03:33 Asia/Shanghai
 
 ## Protocol Boundary
 

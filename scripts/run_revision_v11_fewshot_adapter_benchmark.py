@@ -185,6 +185,8 @@ def summarize_runs(runs: list[dict[str, Any]]) -> dict[str, Any]:
         "mean_query_cells": float(np.mean([float(row["query_cells"]) for row in runs])),
         "representative_seed": runs[0]["seed"],
         "representative_per_species": runs[0]["per_species"],
+        # Keep every draw so figure uncertainty and source data are independently auditable.
+        "raw_runs": runs,
     }
 
 

@@ -1,0 +1,134 @@
+{
+  "schema_version": "plant_cellfm_model_card_v4_evidence_chain",
+  "generated": "2026-08-01 Asia/Shanghai",
+  "model_name": "Plant-CellFM",
+  "model_class": "protocol-aware plant single-cell expression encoder with species-adaptation interfaces, hierarchical annotation paths and a runtime annotation head",
+  "central_contribution": "Plant-CellFM treats cross-species plant annotation as an evidence-chain problem: gene-transfer assumptions, label-space coverage, nested selection, few-shot adaptation and deployment inference are recorded and reported as distinct protocols.",
+  "claim_scope": "The frozen evidence establishes reproducible behavior on a defined public plant single-cell corpus and an 8-species cross-species evaluation panel. It does not establish uniformly high-accuracy annotation for every plant, every tissue or every unobserved cell state.",
+  "architecture": {
+    "embedding_dimension": 256,
+    "encoder_layers": 4,
+    "adaptation": "LoRA adapters with a runtime adapter-resolution interface",
+    "gene_transfer": "exact gene identifiers followed by an explicit ortholog-mapping contract when a compatible map is supplied",
+    "implemented_outputs": [
+      "cell embedding",
+      "hierarchical cell-state annotation path",
+      "marker-candidate ranking",
+      "adapter and annotation metadata",
+      "runtime full-vocabulary annotation"
+    ]
+  },
+  "frozen_current_corpus": {
+    "profile_source": "figure_data/corpus_profile_v1/corpus_profile.json",
+    "cells": 272732,
+    "genes": 209405,
+    "species": 5,
+    "datasets": 9,
+    "samples": 31,
+    "cell_labels": 34,
+    "species_list": [
+      "Arabidopsis thaliana",
+      "Brassica rapa",
+      "Catharanthus roseus",
+      "Fragaria vesca",
+      "Gossypium bickii"
+    ],
+    "boundary": "Historical catalogue rows, adapter registry entries and evaluation-only species are not equivalent to cells in the frozen profiled corpus."
+  },
+  "evaluated_protocols": {
+    "primary_strict_leave_species_v17": {
+      "role": "primary strict cross-species stress test",
+      "test_cells": 3964,
+      "held_out_species": 8,
+      "target_labels_used_for_fitting_or_selection": false,
+      "selection": "nested source-species selection for every outer held-out species",
+      "all_cell_accuracy": 0.39959636730575177,
+      "known_label_accuracy": 0.7148014440433214,
+      "known_label_macro_f1": 0.28173155370900244,
+      "source_label_coverage": 0.5590312815338042,
+      "source_record": "release_metadata/revision_v17_nested_metadata_gate.json"
+    },
+    "identity_curated_companion_v18": {
+      "role": "label-integrity companion; never substitutes for v17",
+      "filter_rule": "labels beginning unknown, unknow or unannotated are audit-only and never fit or score identities",
+      "input_cells": 3964,
+      "identity_curated_cells": 2324,
+      "audit_only_uninformative_cells": 1640,
+      "held_out_species_after_filter": 5,
+      "all_cell_accuracy": 0.4079173838209983,
+      "known_label_accuracy": 0.7053571428571429,
+      "known_label_macro_f1": 0.14974892435136075,
+      "source_label_coverage": 0.5783132530120482,
+      "source_record": "release_metadata/revision_v18_identity_curated_strict.json"
+    },
+    "exploratory_global_context_v14": {
+      "all_cell_accuracy": 0.42356205852674067,
+      "reporting_boundary": "Exploratory sensitivity result only. It is not the primary strict headline because configuration choice pools information across outer folds.",
+      "source_record": "release_metadata/revision_v14_context_stc_benchmark.json"
+    },
+    "fewshot_target_adaptation_v11": {
+      "role": "target-species adaptation, not zero-shot transfer",
+      "support_query_nonoverlap": true,
+      "independent_support_draws_per_budget": 10,
+      "mean_query_all_cell_accuracy": {
+        "8_support_cells_per_species": 0.5921282051282051,
+        "16_support_cells_per_species": 0.6733646077664843,
+        "32_support_cells_per_species": 0.723006711409396,
+        "64_support_cells_per_species": 0.7588688946015425
+      },
+      "source_record": "release_metadata/revision_v11_fewshot_adapter_benchmark.json"
+    },
+    "runtime_full_vocabulary_head": {
+      "role": "deployment analysis, not strict zero-shot transfer",
+      "all_cell_accuracy": 0.6624621594349143,
+      "source_record": "release_metadata/revision_v11_runtime_head_benchmark.json"
+    }
+  },
+  "matched_checkpoint_evidence": {
+    "boundary": "These values compare frozen project checkpoints on the same benchmark contract. They are not external-model rankings.",
+    "leave_dataset_all_cell_accuracy": {
+      "frozen_v3": 0.2020686175580222,
+      "plant_cellfm_v9": 0.44904137235116043
+    },
+    "leave_sample_all_cell_accuracy": {
+      "frozen_v3": 0.41554886394744045,
+      "plant_cellfm_v9": 0.6200383246646591
+    },
+    "leave_species_all_cell_accuracy": {
+      "frozen_v3": 0.19122098890010092,
+      "plant_cellfm_v9": 0.2353683148335015
+    },
+    "source_record": "release_metadata/external_benchmark_panel_v9.json"
+  },
+  "intended_uses": [
+    "construct plant single-cell or single-nucleus embeddings under the documented gene contract",
+    "run a correctly labelled strict-transfer, few-shot-adaptation or runtime-annotation workflow",
+    "derive ranked marker candidates for experimental follow-up or atlas curation",
+    "instantiate a species adapter after supplying compatible gene identifiers or an ortholog map and validating on held-out cells"
+  ],
+  "not_established": [
+    "universal high-accuracy zero-shot annotation across all plants",
+    "official numerical superiority over scPlantLLM or scPlantAnnotate",
+    "a completed Saussurea involucrata single-cell atlas",
+    "wet-lab validation of the Arabidopsis root marker candidates"
+  ],
+  "comparison_status": {
+    "matched_frozen_v3": "completed_on_shared_protocols",
+    "cosine_centroid": "completed_on_recorded_splits",
+    "seurat_label_transfer": "completed_on_its_exported_split",
+    "scPlantLLM": "official_source_and_weights_obtained; matched_raw_input_and_official_probe_metric_pending",
+    "scPlantAnnotate": "official_route_audited; authenticated_or_exported_official_predictions_pending"
+  },
+  "reproducibility": {
+    "strict_v18_command": "python scripts/run_revision_v18_identity_curated_strict.py",
+    "fewshot_command": "python scripts/run_revision_v11_fewshot_adapter_benchmark.py",
+    "main_and_extended_figure_command": "python scripts/render_v4_top_journal_figures.py",
+    "tables_command": "python scripts/write_submission_v4_supplementary_tables.py",
+    "figure_audit_command": "python scripts/audit_v4_submission_figure_suite.py",
+    "source_data_directory": "figures/plant_cellfm_submission_v4/source_data",
+    "supplementary_tables_directory": "supplementary_tables/submission_v4",
+    "hardware_record": "Historical training artefacts record RTX 4090 runs. The currently accessible remote session did not expose a CUDA device on 2026-08-01; this card makes no claim of active remote GPU training.",
+    "repository": "https://github.com/ahvsjags/SnowLotus-CellFM",
+    "release_branch": "agent/remote-pipeline-20260728"
+  }
+}

@@ -1,0 +1,11 @@
+plant_cellfm_label	literature_identity	canonical_marker_examples
+Columella root cap	root cap / columella branch	
+Lateral root cap	lateral root cap	
+Root cap	root cap	
+Root hair	trichoblast / root-hair epidermis	['COBL9']
+Non-hair	atrichoblast / non-hair epidermis	['WER', 'GL2']
+Root cortex	cortex / ground tissue	['AT1G09750', 'NPF6.4', 'AT3G21670']
+Root endodermis	endodermis / ground tissue	['SCR', 'MYB36', 'CASP1']
+Root stele	stele / vascular cylinder	
+Phloem	phloem within stele	['APL', 'SUC2']
+Xylem	xylem within stele	['MYB46', 'VND7']
