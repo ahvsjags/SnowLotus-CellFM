@@ -2,7 +2,29 @@
 
 Plant-CellFM is the general-plant branch of SnowLotus-CellFM, a cross-species foundation model for plant single-cell and single-nucleus expression data. The model is not restricted to *Saussurea involucrata* (Snow Lotus): Snow Lotus is a target-species adapter and application scenario within a broader plant model.
 
-## Frozen v9 Release
+## Current v4 Evidence-First Submission Package
+
+The current reviewer-facing package is the evidence-first v4 release on [`agent/remote-pipeline-20260728`](https://github.com/ahvsjags/SnowLotus-CellFM/tree/agent/remote-pipeline-20260728), frozen at [`11ee274`](https://github.com/ahvsjags/SnowLotus-CellFM/commit/11ee274c0af497573a8787d7281e3a4baef42a0b). It supersedes the v9 narrative below for manuscript, figure and benchmark claims.
+
+- **Chinese manuscript**: [`Plant_CellFM_v4_顶刊证据主文.md`](manuscript/Plant_CellFM_v4_顶刊证据主文.md) and [`Word version`](manuscript/Plant_CellFM_v4_顶刊证据主文.docx).
+- **Strict primary result**: nested leave-species v17 uses 3,964 aligned cells across 8 held-out species, retains every test cell, and reports 39.96% all-cell accuracy, 55.90% source-label coverage, 71.48% accuracy and 0.2817 macro-F1 on the covered-label subset.
+- **Label-integrity companion**: v18 keeps 2,324 explicit-identity cells and audits 1,640 unknown/unannotated labels separately; it is a companion analysis, not a substitute headline.
+- **Target-species adaptation**: 8, 16, 32 and 64 labelled support cells per species give 59.21%, 67.34%, 72.30% and 75.89% mean query all-cell accuracy across ten non-overlapping support/query draws.
+- **Figures and source data**: four main figures, three Extended Data figures, editable SVG/PDF, PNG previews, local 600-dpi TIFF submission copies and a TSV table for every quantitative panel live in [`figures/plant_cellfm_submission_v4`](figures/plant_cellfm_submission_v4).
+- **Supplementary package**: 15 TSV tables plus an Excel workbook are in [`supplementary_tables/submission_v4`](supplementary_tables/submission_v4).
+- **Claim and reproducibility record**: [`v4 model card`](release_metadata/plant_cellfm_model_card_v4.json) and [`figure audit`](release_metadata/top_journal_figure_audit_v4.md). The audit passes all export/integrity checks; unmatched official scPlantLLM/scPlantAnnotate predictions and independent experimental marker validation remain explicitly open evidence items.
+
+Run the current package with:
+
+```bash
+python scripts/run_revision_v18_identity_curated_strict.py
+python scripts/run_revision_v11_fewshot_adapter_benchmark.py
+python scripts/render_v4_top_journal_figures.py
+python scripts/write_submission_v4_supplementary_tables.py
+python scripts/audit_v4_submission_figure_suite.py
+```
+
+## Historical v9 Checkpoint Release
 
 The current publication candidate is the v9 LoRA checkpoint trained on an audited public plant corpus with an NVIDIA RTX 4090. The release is frozen for reproducibility; later v10 data-expansion jobs are not part of this candidate.
 
@@ -15,11 +37,11 @@ Reviewer-facing entry point: `SUBMISSION_INDEX_v9.md`. That file lists the curre
 - Checkpoint: `best.pt` in the GitHub release asset and on the Matpool host at `/root/snowlotus_cellfm_v9_lora_shared_4090/best.pt`.
 - Service: Plant-CellFM inference service with embedding, annotation, ortholog-map transfer and runtime species-adapter resolution.
 
-## Submission Scope
+## Historical v9 Submission Scope
 
 Exploratory post-v9 continuation logs are kept outside the editor-facing v9 package. The current submission uses the frozen v9 checkpoint, v9 benchmarks, open-set calibration, third-party benchmark contracts, server verification and two public-data biology cases. The multi-species scPlantDB case is included as a biology demonstration and marker-candidate resource, not as a replacement performance claim for a new checkpoint.
 
-## Evaluation Snapshot
+## Archived v9 Evaluation Snapshot
 
 The release reports both an internal held-out test and stricter cross-group evaluations. The latter are the appropriate evidence for cross-species generalization.
 
@@ -55,6 +77,8 @@ The extended methods panel also includes transparent non-Plant-CellFM comparator
 ## Repositories and Release
 
 - Repository: https://github.com/ahvsjags/SnowLotus-CellFM
+- Current v4 reviewer branch: https://github.com/ahvsjags/SnowLotus-CellFM/tree/agent/remote-pipeline-20260728
+- Current v4 evidence commit: https://github.com/ahvsjags/SnowLotus-CellFM/commit/11ee274c0af497573a8787d7281e3a4baef42a0b
 - Frozen v9 release: https://github.com/ahvsjags/SnowLotus-CellFM/releases/tag/v0.9.0-plant-general-lora
 - Code branch used for the release: `agent/remote-pipeline-20260728`
 
@@ -81,6 +105,22 @@ snowcell predict --checkpoint outputs/smoke/best.pt --data data/demo.npz --outpu
 For the frozen model, download the v9 release asset and use the packaged configuration and scripts. The server-side API exposes `GET /health`, `GET /metadata`, `GET /capabilities`, `GET /adapters` and `POST /annotate`.
 
 ## Reproducibility Evidence
+
+### Current v4 evidence assets
+
+- `manuscript/Plant_CellFM_v4_顶刊证据主文.md`
+- `manuscript/Plant_CellFM_v4_顶刊证据主文.docx`
+- `release_metadata/plant_cellfm_model_card_v4.json`
+- `release_metadata/revision_v17_nested_metadata_gate.json`
+- `release_metadata/revision_v18_identity_curated_strict.json`
+- `release_metadata/top_journal_figure_audit_v4.md`
+- `figures/plant_cellfm_submission_v4/`
+- `supplementary_tables/submission_v4/`
+- `scripts/render_v4_top_journal_figures.py`
+- `scripts/write_submission_v4_supplementary_tables.py`
+- `scripts/audit_v4_submission_figure_suite.py`
+
+### Archived v9 evidence assets
 
 - `SUBMISSION_INDEX_v9.md`
 - `release_metadata/plant_cellfm_v9_model_card.md`
@@ -132,7 +172,7 @@ The local regression suite passes with `PYTHONPATH=src pytest -q`. The release p
 
 ## Evidence Boundary
 
-This release supports the claim that Plant-CellFM is a reproducible, auditable cross-species plant expression foundation-model implementation with a callable adapter layer and measured gains over the v3 extended baseline on public plant matrices. The normalized frozen leave-species benchmark remains 23.54% all-cell accuracy at 55.90% label coverage; the v10 expression-only STC layer improves the same frozen-embedding classifier layer to 30.10% all-cell and 53.84% known-label accuracy; the v14 context-aware zero-shot STC extension raises the same strict denominator to 42.36% all-cell and 75.77% known-label accuracy without held-out species labels. The v11 few-shot target-adapter benchmark is the separate species-adaptation result, reaching 59.21% query all-cell accuracy with 8 labeled support cells per target species. The ontology coverage audit, runtime-head benchmark and open-set calibration should be used as label-harmonization, selective-annotation and reviewer-triage supplements. The internal held-out accuracy and the 90+ evidence-readiness scorecard should not be presented as universal accuracy for every plant species.
+The v4 package supports the claim that Plant-CellFM is a reproducible, protocol-aware framework for cross-species plant single-cell annotation and target-species adaptation. The primary strict result is v17, not the historical v14 global-context sensitivity value: it reports 39.96% all-cell accuracy across all 3,964 held-out cells at 55.90% source-label coverage. v18 supplies a separate explicit-identity denominator rather than revising that strict headline. Few-shot adaptation and the runtime full-vocabulary head are distinct labelled protocols and must not be presented as zero-shot leave-species performance. The current package documents matched frozen v3-to-v9 checkpoint gains, but does not claim completed numerical superiority over scPlantLLM or scPlantAnnotate, universal performance across all plants, a Snow Lotus single-cell atlas, or wet-lab validation of marker candidates.
 
 ## Citation
 
