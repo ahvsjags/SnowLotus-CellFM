@@ -7,6 +7,7 @@ Plant-CellFM is the general-plant branch of SnowLotus-CellFM, a cross-species fo
 The current reviewer-facing package is the evidence-first v5 release on [`agent/remote-pipeline-20260728`](https://github.com/ahvsjags/SnowLotus-CellFM/tree/agent/remote-pipeline-20260728). It supersedes the v9 narrative below for manuscript, figure and benchmark claims, and keeps strict transfer, target-species adaptation, deployment and label-free external execution as separate evidence tiers.
 
 - **Chinese manuscript**: [`Plant_CellFM_v5_顶刊证据主文.md`](manuscript/Plant_CellFM_v5_顶刊证据主文.md) and [`Word version`](manuscript/Plant_CellFM_v5_顶刊证据主文.docx).
+- **English manuscript**: [`Plant_CellFM_v5_Manuscript_en.md`](manuscript/Plant_CellFM_v5_Manuscript_en.md) and the rendered Word manuscript produced by `npm run build:manuscript:en`.
 - **Strict primary result**: nested leave-species v17 uses 3,964 aligned cells across 8 held-out species, retains every test cell, and reports 39.96% all-cell accuracy, 55.90% source-label coverage, 71.48% accuracy and 0.2817 macro-F1 on the covered-label subset.
 - **Label-integrity companion**: v18 keeps 2,324 explicit-identity cells and audits 1,640 unknown/unannotated labels separately; it is a companion analysis, not a substitute headline.
 - **Target-species adaptation**: 8, 16, 32 and 64 labelled support cells per species give 59.21%, 67.34%, 72.30% and 75.89% mean query all-cell accuracy across ten non-overlapping support/query draws.

@@ -5,6 +5,7 @@
   "description": "Reproducible document tooling for the Plant-CellFM submission package.",
   "scripts": {
     "build:manuscript": "node scripts/build_v5_chinese_manuscript_docx.js",
+    "build:manuscript:en": "node scripts/build_v5_english_manuscript_docx.js",
     "build:manuscript:v4": "node scripts/build_v4_chinese_manuscript_docx.js"
   },
   "devDependencies": {
