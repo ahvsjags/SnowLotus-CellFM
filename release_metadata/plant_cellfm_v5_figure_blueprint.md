@@ -22,7 +22,8 @@ Build a methods-and-resource figure sequence suitable for high-impact editorial 
 | Extended Data 3 | Frozen v3-to-v9 matched checkpoint comparison. |
 | Extended Data 4 | Predefined root-marker literature concordance. |
 | Extended Data 5 | Full external blind-inference audit. |
-| Tables S1-S17 | Corpus provenance, ontology, splits, adapter registry, benchmarks, root candidates and external-root audit. |
+| Extended Data 6 | GSE270140 author-label-supervised secondary-root LoRA-mode adaptation, including a matched three-state recovery audit, 14-class held-out confusion matrix and per-class F1. |
+| Tables S1-S19 | Corpus provenance, ontology, splits, adapter registry, benchmarks, root candidates, external-root audit and GSE270140 secondary-root adapter detail. |
 
 ## Presentation Rules
 
@@ -37,3 +38,7 @@ Build a methods-and-resource figure sequence suitable for high-impact editorial 
 1. A raw, independently expert-annotated external matrix with a frozen label-mapping contract.
 2. Matched official scPlantLLM and scPlantAnnotate predictions on the same input, ontology mapping, split and open-set score.
 3. Independent experimental or orthogonal biological validation of the candidate marker resource.
+
+## Post-hoc Adaptation Evidence
+
+GSE270140/GSM8335426 supplies 11,760 author-annotated secondary-root cells across 14 states. It is used here only for a labelled, one-sample, cell-level split adaptation exercise: 8,232 training cells, 1,176 validation cells and 2,352 locked test cells. The LoRA-mode adapter reaches 83.97% primary test-evaluator fine accuracy and 84.47% macro-F1; the detailed full-precision recheck is 84.18% / 84.64%. On 1,885 held-out cells whose author labels map to the frozen three-state vascular ontology, semantic accuracy rises from 2.02% for the frozen base checkpoint to 90.93% after adaptation. This is not a zero-shot or leave-species result, and it does not close the independent external validation gate.

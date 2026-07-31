@@ -1,0 +1,44 @@
+{
+  "schema_version": "plant_cellfm_gse270140_external_input_v1",
+  "source": {
+    "series_accession": "GSE270140",
+    "sample_accession": "GSM8335426",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE270140",
+    "publication_doi": "10.1038/s41477-025-01938-6",
+    "source_object": "GSM8335426_JWE03_Seurat_object.rds.gz",
+    "assay": "RNA",
+    "slot": "counts",
+    "author_annotation_column": "annotation"
+  },
+  "input_files": {
+    "cells.txt": {
+      "bytes": 235200,
+      "sha256": "b459efc74df008637a5dfb59ff31823cfa553d5d7343547733e98db18cafb2c5"
+    },
+    "genes.txt": {
+      "bytes": 427881,
+      "sha256": "ebdd29653df4f60a528b3de8b273ec923a633edd784d9f526f9360578423d892"
+    },
+    "matrix_cells_by_genes.mtx": {
+      "bytes": 546029767,
+      "sha256": "0ae63cedacc0958cae0a1aab52b45acea051c8a86e8628ee8c1473dbe52f4a6f"
+    },
+    "metadata.csv": {
+      "bytes": 1811184,
+      "sha256": "32f20244ba459dda45ec3d419d4c50821c30cd0f6f70b1f6839744f506cced1c"
+    }
+  },
+  "prepared_h5ad": "outputs/external_validation/gse270140/GSM8335426_JWE03_author_annotated_secondary_root.h5ad",
+  "prepared_h5ad_sha256": "25ae23698444d9409b6984f0d899438afcfc63a0598cf362911cddb75d6ed440",
+  "matrix": {
+    "cells": 11760,
+    "genes": 22506,
+    "nonzero_counts": 39925895,
+    "canonical_tair_gene_ids": 22451
+  },
+  "frozen_inference_covariates": {
+    "Organ": "Root",
+    "Tissue": "Whole root"
+  },
+  "evidence_boundary": "This author-labelled secondary-root dataset is evaluated post hoc against the frozen published SRP169576 annotation checkpoint. GSE270140 exists in historical project corpus manifests, so this record is a provenance-aware external reference case rather than a claim of globally unseen training data."
+}

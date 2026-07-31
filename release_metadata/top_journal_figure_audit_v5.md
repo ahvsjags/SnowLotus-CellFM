@@ -16,6 +16,7 @@
 | plant_cellfm_v4_ed_fig3_matched_checkpoint_comparison | pass | 2 | True | 4530x2826 |
 | plant_cellfm_v4_ed_fig4_literature_marker_concordance | pass | 2 | True | 4637x2357 |
 | plant_cellfm_v4_ed_fig5_external_root_blind_inference | pass | 3 | True | 4625x4195 |
+| plant_cellfm_v5_ed_fig6_secondary_root_adapter | pass | 8 | True | 4306x4146 |
 
 ## Evidence Boundary
 

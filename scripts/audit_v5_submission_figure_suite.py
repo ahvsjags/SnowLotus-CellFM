@@ -8,6 +8,7 @@ new matched external evidence remain marked as open work.
 """
 
 import csv
+import hashlib
 import json
 import re
 from datetime import datetime, timezone
@@ -31,9 +32,18 @@ EXTENDED = [
     "plant_cellfm_v4_ed_fig3_matched_checkpoint_comparison",
     "plant_cellfm_v4_ed_fig4_literature_marker_concordance",
     "plant_cellfm_v4_ed_fig5_external_root_blind_inference",
+    "plant_cellfm_v5_ed_fig6_secondary_root_adapter",
 ]
 OUTPUT_JSON = ROOT / "release_metadata" / "top_journal_figure_audit_v5.json"
 OUTPUT_MD = ROOT / "release_metadata" / "top_journal_figure_audit_v5.md"
+
+
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def inspect(directory: Path, stem: str) -> dict[str, Any]:
@@ -60,6 +70,7 @@ def audit() -> dict[str, Any]:
         "v17": json.loads((ROOT / "release_metadata" / "revision_v17_nested_metadata_gate.json").read_text(encoding="utf-8")),
         "model_card": json.loads((ROOT / "release_metadata" / "plant_cellfm_model_card_v4.json").read_text(encoding="utf-8")),
         "external_root": json.loads((ROOT / "release_metadata" / "gse152766_external_root_blind_inference_v4.json").read_text(encoding="utf-8")),
+        "secondary_root_adapter": json.loads((ROOT / "release_metadata" / "gse270140_secondary_root_adapter_audit_v1.json").read_text(encoding="utf-8")),
     }
     main = [inspect(FIGURES / "main", stem) for stem in MAIN]
     extended = [inspect(FIGURES / "extended_data", stem) for stem in EXTENDED]
@@ -92,6 +103,24 @@ def audit() -> dict[str, Any]:
         failures.append("External marker-coherence record no longer matches the frozen six-anchor audit.")
     if root_candidate_rows != 200:
         failures.append("Root candidate resource no longer has the frozen 10-identity, top-20 (200-row) contract.")
+    adapter_test = records["secondary_root_adapter"]["held_out_test"]["training_evaluator"]
+    adapter_semantic = records["secondary_root_adapter"]["matched_three_state_semantic_recovery"]["secondary_root_adapter"]
+    if abs(adapter_test["fine_accuracy"] - 0.8397108843537415) > 1e-10:
+        failures.append("Secondary-root adapter held-out fine accuracy changed unexpectedly.")
+    if abs(adapter_test["fine_macro_f1"] - 0.8446817683258346) > 1e-10:
+        failures.append("Secondary-root adapter held-out macro-F1 changed unexpectedly.")
+    if abs(adapter_semantic["accuracy"] - 0.9092838196286472) > 1e-10:
+        failures.append("Secondary-root adapter matched semantic recovery changed unexpectedly.")
+    adapter_protocol = records["secondary_root_adapter"]["protocol"]
+    released_adapter = ROOT / adapter_protocol["adapter_checkpoint"]
+    if not released_adapter.is_file():
+        failures.append("Published secondary-root adapter checkpoint is missing.")
+    elif sha256(released_adapter) != adapter_protocol["adapter_checkpoint_sha256"]:
+        failures.append("Published secondary-root adapter checkpoint checksum does not match its audit.")
+    for table_key in ("per_class_table", "semantic_recovery_table"):
+        table_path = ROOT / records["secondary_root_adapter"]["artifacts"][table_key]
+        if not table_path.is_file():
+            failures.append(f"Secondary-root adapter supplementary table missing: {table_key}.")
     comparisons = records["model_card"]["comparison_status"]
     if comparisons["scPlantLLM"] == "completed" or comparisons["scPlantAnnotate"] == "completed":
         failures.append("External comparator is marked complete without a matched official benchmark record.")
@@ -107,6 +136,10 @@ def audit() -> dict[str, Any]:
             "external_root_label_free": not external["input_provenance"]["input_has_expert_cell_type_labels"],
             "external_root_top_mean_marker_hits": external["marker_coherence"]["expected_label_is_top_mean_expression"],
             "root_candidate_rows": root_candidate_rows,
+            "secondary_root_adapter_test_cells": records["secondary_root_adapter"]["protocol"]["split"]["test_cells"],
+            "secondary_root_adapter_test_accuracy": adapter_test["fine_accuracy"],
+            "secondary_root_adapter_test_macro_f1": adapter_test["fine_macro_f1"],
+            "secondary_root_adapter_matched_semantic_accuracy": adapter_semantic["accuracy"],
         },
         "visual_contract": {
             "main_figure_story": [
@@ -114,6 +147,7 @@ def audit() -> dict[str, Any]:
                 "Figure 2: strict transfer with explicit coverage and denominator",
                 "Figure 3: target-species adaptation dose response",
                 "Figure 4: label-free external root execution and fixed-marker coherence",
+                "Extended Data 6: labelled GSE270140 secondary-root adaptation and matched semantic recovery",
             ],
             "manual_review_required": [
                 "Confirm readability after final journal-scale placement.",

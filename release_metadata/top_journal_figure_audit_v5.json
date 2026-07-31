@@ -1,6 +1,6 @@
 {
   "schema_version": "plant_cellfm_v5_figure_audit_v1",
-  "generated_utc": "2026-07-31T21:07:28.414097+00:00",
+  "generated_utc": "2026-07-31T21:54:34.695172+00:00",
   "state": "TECHNICALLY_READY_PENDING_EDITORIAL_AND_EVIDENCE_REVIEW",
   "technical_failures": [],
   "figures": {
@@ -187,6 +187,31 @@
             600.0
           ]
         }
+      },
+      {
+        "stem": "plant_cellfm_v5_ed_fig6_secondary_root_adapter",
+        "missing_exports": [],
+        "source_data_tables": [
+          "plant_cellfm_v5_ed_fig6_secondary_root_adapter_fine_confusion_matrix.tsv",
+          "plant_cellfm_v5_ed_fig6_secondary_root_adapter_per_class_f1.tsv",
+          "plant_cellfm_v5_ed_fig6_secondary_root_adapter_semantic_bootstrap.tsv",
+          "plant_cellfm_v5_ed_fig6_secondary_root_adapter_semantic_recovery.tsv",
+          "plant_cellfm_v5_ed_fig6_secondary_root_adapter_shared_state_test_predictions.tsv",
+          "plant_cellfm_v5_ed_fig6_secondary_root_adapter_split_summary.tsv",
+          "plant_cellfm_v5_ed_fig6_secondary_root_adapter_test_predictions.tsv",
+          "plant_cellfm_v5_ed_fig6_secondary_root_adapter_validation_history.tsv"
+        ],
+        "editable_svg_text": true,
+        "raster": {
+          "pixels": [
+            4306,
+            4146
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        }
       }
     ]
   },
@@ -195,14 +220,19 @@
     "external_root_input_cells": 6566,
     "external_root_label_free": true,
     "external_root_top_mean_marker_hits": 5,
-    "root_candidate_rows": 200
+    "root_candidate_rows": 200,
+    "secondary_root_adapter_test_cells": 2352,
+    "secondary_root_adapter_test_accuracy": 0.8397108843537415,
+    "secondary_root_adapter_test_macro_f1": 0.8446817683258346,
+    "secondary_root_adapter_matched_semantic_accuracy": 0.9092838196286472
   },
   "visual_contract": {
     "main_figure_story": [
       "Figure 1: corpus contract and shared evaluation representation",
       "Figure 2: strict transfer with explicit coverage and denominator",
       "Figure 3: target-species adaptation dose response",
-      "Figure 4: label-free external root execution and fixed-marker coherence"
+      "Figure 4: label-free external root execution and fixed-marker coherence",
+      "Extended Data 6: labelled GSE270140 secondary-root adaptation and matched semantic recovery"
     ],
     "manual_review_required": [
       "Confirm readability after final journal-scale placement.",

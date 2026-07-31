@@ -1,0 +1,33 @@
+{
+  "schema_version": "plant_cellfm_gse270140_archive_inventory_v1",
+  "generated_utc": "2026-07-31T21:17:39.725740+00:00",
+  "dataset": "GSE270140",
+  "archive": {
+    "path": "data/external_validation/gse270140/GSE270140_RAW.tar",
+    "bytes": 2529976320,
+    "sha256": "bc83ad96202aa50905e59df173948ea2799d017c0677f66d6e1cf036a8d9d333"
+  },
+  "rds_member_count": 1,
+  "h5_member_count": 2,
+  "members": [
+    {
+      "archive_member": "GSM8335426_JWE03_Seurat_object.rds.gz",
+      "bytes": 2334828419,
+      "output": "outputs/external_validation/gse270140/raw_assets/GSM8335426_JWE03_Seurat_object.rds.gz",
+      "sha256": "771b355e0fd31778efa43a14c581fa389e1d6debe32b58f0f895f2a88980a4d8"
+    },
+    {
+      "archive_member": "GSM8335426_JWE03_filtered_feature_bc_matrix.h5",
+      "bytes": 68904043,
+      "output": "outputs/external_validation/gse270140/raw_assets/GSM8335426_JWE03_filtered_feature_bc_matrix.h5",
+      "sha256": "86c303967cd8d016ddc7e46d60d586e6c821300767f1baa814118665e362d2a1"
+    },
+    {
+      "archive_member": "GSM8335426_JWE03_raw_feature_bc_matrix.h5",
+      "bytes": 126239726,
+      "output": "outputs/external_validation/gse270140/raw_assets/GSM8335426_JWE03_raw_feature_bc_matrix.h5",
+      "sha256": "c96c8e09c93f65de689c4f5a29f942005d8a09bdab68231cefeede0e98ba9c9e"
+    }
+  ],
+  "claim_boundary": "These files are reserved for a frozen external evaluation. Their expression matrix, expert labels and label mapping must be inspected and versioned before any accuracy is computed."
+}

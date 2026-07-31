@@ -176,6 +176,24 @@ function main() {
   for (const [stem, caption, height] of figures) children.push(...figure(stem, caption, height));
   children.push(heading("关键扩展数据图", 1));
   children.push(...figure(
+    "plant_cellfm_v4_ed_fig1_label_integrity",
+    "\u6269\u5c55\u6570\u636e\u56fe 1 | \u8eab\u4efd\u5b8c\u6574\u6027\u5ba1\u8ba1\uff1a\u663e\u5f0f\u8eab\u4efd\u961f\u5217\u4e0e audit-only \u65e0\u4fe1\u606f\u6807\u7b7e\u7684\u5206\u6bcd\u62c6\u5206\u3002",
+    400,
+    extendedFigureDir,
+  ));
+  children.push(...figure(
+    "plant_cellfm_v4_ed_fig2_nested_selection_audit",
+    "\u6269\u5c55\u6570\u636e\u56fe 2 | \u5d4c\u5957\u7559\u7269\u79cd\u89c4\u5219\u9009\u62e9\u5ba1\u8ba1\uff1a\u6e90\u7269\u79cd\u5185\u5c42\u8bc4\u4f30\u3001\u89c4\u5219\u9009\u62e9\u4e0e\u5916\u5c42\u8ba1\u5206\u5206\u79bb\u3002",
+    400,
+    extendedFigureDir,
+  ));
+  children.push(...figure(
+    "plant_cellfm_v4_ed_fig3_matched_checkpoint_comparison",
+    "\u6269\u5c55\u6570\u636e\u56fe 3 | \u51bb\u7ed3 v3 \u4e0e Plant-CellFM v9 \u5728\u76f8\u540c\u534f\u8bae\u4e0b\u7684\u5339\u914d\u68c0\u67e5\u70b9\u6bd4\u8f83\uff1b\u4e0d\u4f5c\u4e3a\u5916\u90e8\u6a21\u578b\u6392\u540d\u3002",
+    400,
+    extendedFigureDir,
+  ));
+  children.push(...figure(
     "plant_cellfm_v4_ed_fig4_literature_marker_concordance",
     "扩展数据图 4 | 拟南芥根系候选 marker 的预定义文献锚点一致性。",
     420,
@@ -185,6 +203,12 @@ function main() {
     "plant_cellfm_v4_ed_fig5_external_root_blind_inference",
     "扩展数据图 5 | 无标签外部拟南芥根系矩阵的盲推理与 marker 一致性。",
     560,
+    extendedFigureDir,
+  ));
+  children.push(...figure(
+    "plant_cellfm_v5_ed_fig6_secondary_root_adapter",
+    "\u6269\u5c55\u6570\u636e\u56fe 6 | GSE270140 \u4f5c\u8005\u6807\u6ce8\u76d1\u7763\u7684\u6b21\u751f\u6839 LoRA-mode \u9002\u914d\u4e0e\u540c\u4e00\u9501\u5b9a\u6d4b\u8bd5\u7ec6\u80de\u4e0a\u7684\u4e09\u72b6\u6001\u8bed\u4e49\u6062\u590d\u3002\u8be5\u7ed3\u679c\u4e3a\u5355\u6837\u672c\u6709\u76d1\u7763\u9002\u914d\uff0c\u4e0d\u4f5c\u4e3a\u96f6\u6837\u672c\u6216\u72ec\u7acb\u5916\u90e8\u9a8c\u8bc1\u58f0\u660e\u3002",
+    620,
     extendedFigureDir,
   ));
 

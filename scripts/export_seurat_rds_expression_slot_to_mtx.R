@@ -1,6 +1,9 @@
 #!/usr/bin/env Rscript
 
 suppressPackageStartupMessages(library(Matrix))
+if (requireNamespace("SeuratObject", quietly = TRUE)) {
+  suppressPackageStartupMessages(library(SeuratObject))
+}
 
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args) < 2) {
@@ -86,7 +89,11 @@ child_value <- function(x, name) {
 }
 
 nonempty_matrix <- function(matrix) {
-  !is.null(matrix) && length(dim(matrix)) == 2 && nrow(matrix) > 0 && ncol(matrix) > 0
+  !is.null(matrix) &&
+    (is.matrix(matrix) || inherits(matrix, "Matrix")) &&
+    length(dim(matrix)) == 2 &&
+    nrow(matrix) > 0 &&
+    ncol(matrix) > 0
 }
 
 get_named_assay <- function(obj, assay_name) {

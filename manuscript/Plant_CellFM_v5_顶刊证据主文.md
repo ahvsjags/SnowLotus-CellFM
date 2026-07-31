@@ -66,13 +66,19 @@ Plant-CellFM 的表达骨架输出 256 维细胞嵌入，使用四层编码结�
 
 在读取外部表达矩阵之前，我们沿用根系原始文献中固定的 6 个 marker—身份锚点，并以与注释流程一致的每细胞 10,000 归一化与 log1p 转换计算预测群内外分离度。`COBL9`（根毛）、`GL2`（非根毛）、`CASP1`（内皮层）、`APL`（韧皮部）和 `MYB46`（木质部）均在相应预测群中同时取得 13 个输出状态中的最高平均表达和最高检出率；`WER` 在非根毛预测群中保持正向分离，但平均表达和检出率排名分别为第 4 和第 3（图 4c；扩展数据图 5c；表 S17）。`APL` 所在韧皮部预测群只有 4 个细胞，图中和源数据表中明确保留该分母。该结果提供了“模型分组与独立外部表达程序相一致”的可复算证据，而不是把 marker 一致性改写为真值准确率、独立实验验证或与第三方模型的数值排名。
 
-### 7. 拟南芥根系候选 marker 资源连接身份层级、实验优先级与公开审计表
+### 7. 作者标注的次生根适配把冻结模型连接到细分血管状态，但与严格零样本证据分层报告
+
+为检验适配接口是否能吸收具有细分次生根状态的高质量标注，我们以 GEO `GSE270140` 的 `GSM8335426` 次生根作者对象构建一个预注册的单样本适配案例。该研究以单细胞测序和谱系追踪刻画拟南芥次生生长过程中的细胞状态；经计数矩阵导出和 TAIR 基因标识符规范化后，输入包含 11,760 个细胞和 14 个作者标注状态。我们从冻结的 SRP169576 根系检查点初始化 LoRA-mode 适配，按唯一细胞 ID 进行固定随机种子（20260801）的 80/10/20 分组切分：8,232 个训练细胞、1,176 个验证细胞和 2,352 个全程锁定的测试细胞。最佳 epoch 仅由验证集 fine macro-F1 选择，不以测试集选择参数（扩展数据图 6a,e）。
+
+在锁定测试集中，该适配器的主训练评估得到 83.97% fine accuracy 和 84.47% fine macro-F1；独立的全精度复查得到 84.18% 和 84.64%。为了在不重写原始 14 类标签的前提下检验冻结根系本体的可恢复性，我们在训练前冻结原始标签到 Phloem、Xylem 和 Root stele 的三状态映射，并仅在 1,885 个兼容的锁定测试细胞上评分。冻结基础检查点在该语义集合上的准确率为 2.02%，适配后为 90.93%，macro-F1 为 0.9159（扩展数据图 6b–d,f；表 S18）。这一结果回答的是“获得作者标注后，框架能否以可审计的方式吸收次生根上下文”；它是同一样本内的有监督适配，不是零样本、留物种、独立外部验证或第三方模型排名，因而不改变本文 v17 的严格主结果。
+
+### 8. 拟南芥根系候选 marker 资源连接身份层级、实验优先级与公开审计表
 
 为了将模型输出进一步连接到可检验的生物学假设，我们以拟南芥根系建立 10 类身份的候选 marker 资源，包括柱状根冠、侧根冠、根冠、根毛、非根毛、皮层、内皮层、中柱、韧皮部和木质部。每类身份保留 top-20 候选，因此表 S13 提供 200 条候选记录及其分数、检测率、效应量和身份归属；身份层级、前五候选、效应量与检测率分离度以及候选程序强度由扩展数据图 4a–d 系统呈现。
 
 为避免候选列表仅依赖内部排序，我们在查看候选排名前从拟南芥根系原始单细胞文献固定 6 个经典 marker-身份锚点；其中韧皮部 `APL`（AT1G79430）、内皮层 `CASP1`（AT2G36100）和木质部 `MYB46`（AT5G12870）分别在匹配身份程序的前 4、7 和 12 位被回收（扩展数据图 4，表 S16）。其余三个预定义锚点同样保留在审计表中而未被隐去，因而该结果是可复核的 3/6 文献一致性记录，而不是事后挑选的成功案例。研究者可以从身份层级进入候选基因，也可以从基因效应与检测分离度反查优先级。该资源严格定位为公共数据上的计算资源；文献一致性支持身份命名的生物学合理性，但候选 marker 仍代表可检验假设而非独立矩阵复现或湿实验验证结论。
 
-### 8. 从严格基准到部署服务的每一层输出均保留独立报告边界
+### 9. 从严格基准到部署服务的每一层输出均保留独立报告边界
 
 Plant-CellFM 同时提供运行时全词表注释头。该模式在已经具备部署标签词表和训练分类器的前提下运行，因而不等价于严格零样本跨物种迁移。全词表运行时分析在相同对齐细胞上的全细胞准确率为 66.25%，作为部署可用性记录独立保存。模型卡、补充表 S2 和图表审计均将它明确标记为 runtime 分析，防止被误读为 v17 的严格性能。
 
@@ -104,6 +110,10 @@ v18 对标签起始字符串为 unknown、unknow 或 unannotated 的记录实施
 
 全部主图与扩展数据图由 Matplotlib `Agg` 后端生成，逐图输出可编辑 SVG、PDF、PNG、600-dpi TIFF 及对应 TSV 源数据。发布前运行 v5 图表审计，检查图件存在性、源数据、SVG 可编辑文本、TIFF 分辨率和冻结指标一致性。审计只报告技术门禁是否通过，不以自评“期刊就绪分数”替代编辑和同行评审；第三方比较和独立实验验证仍列为开放证据项，不修改已完成结果的范围。
 
+### 次生根有监督适配
+
+`GSE270140` / `GSM8335426` 的作者对象通过保留原始特征名、细胞 ID 和作者 `annotation` 字段的可审计导出链转为 cells × genes H5AD 输入；基因特征以 TAIR 主标识符进行规范化，同时保留原始名称供追溯。LoRA-mode 训练由 `configs/gse270140_secondary_root_lora_adapter_4070.yaml` 固定，使用 256 维四层根系检查点初始化、rank-8 适配路径、类别平衡损失和 10 个 epoch 的训练上限。训练、验证和测试按唯一 cell ID 固定分组；第 7 个 epoch 由验证 fine macro-F1 选为最佳模型。`scripts/audit_gse270140_secondary_root_adapter.py` 固化配置、检查点校验和、分割、逐类 F1、语义映射和详细测试复查，`scripts/render_v5_secondary_root_adapter_figure.py` 将这些记录连同 3,000 次固定种子 bootstrap 区间写入扩展数据图 6 的源数据。该路径的统计单元是同一样本中由作者标签监督的细胞，不能推断为跨物种独立验证。
+
 ## 图例
 
 **图 1 | 跨物种植物单细胞图谱的数据契约与共享表征。** a，3,964 个严格评估细胞按 8 个物种着色的共享 UMAP。b，同一细胞按细胞状态本体类别着色。c，严格面板中器官与物种覆盖概览。d，冻结训练语料 profile 的物种与组织分布；profile 含 272,732 个细胞和 209,405 个基因。e，从冻结语料到嵌套规则选择、目标物种支持和部署输出的分层协议；这些层不被报告为同一性能指标。每一散点为一个细胞。
@@ -124,6 +134,8 @@ v18 对标签起始字符串为 unknown、unknow 或 unannotated 的记录实施
 
 **扩展数据图 5 | 无标签外部拟南芥根系矩阵的盲推理与 marker 一致性。** a，GEO `GSE152766` / `GSM4626007` 的 6,566 个细胞在冻结 256 维模型嵌入上的 UMAP；颜色为模型预测，而非输入提供的标签。b，13 个预测状态的细胞组成、平均置信度与细胞数。c，分析前固定的 6 个经典 marker 在其预期预测群相对于全部其他预测群的平均表达分离度；点大小表示该 marker 在预期群中的检出率，文字同时给出预测群细胞数和检出率分离度。该矩阵没有专家细胞类型标签，故该图为盲推理与 marker 一致性案例，不构成准确率评估、外部模型排名或独立实验验证。
 
+**扩展数据图 6 | GSE270140 次生根作者标注监督的 LoRA-mode 适配。** a，从冻结 SRP169576 根系检查点到次生根 LoRA-mode 适配的工作流，以及按唯一 cell ID 固定的 8,232 / 1,176 / 2,352 训练、验证和锁定测试切分。b，在训练前冻结的三状态本体映射下，冻结基础检查点与适配器在相同 1,885 个兼容测试细胞上的语义恢复准确率；误差线为 3,000 次固定种子非参数 bootstrap 的 95% 区间。c，14 个原始作者状态的行标准化锁定测试混淆矩阵。d，逐类 F1 与测试细胞数。e，验证集选择轨迹。f，锁定测试的主评估与全精度复查。该图为单一样本的有监督适配，不构成严格零样本、留物种性能、独立外部准确率或第三方模型排名。
+
 ## 数据、代码与发布资产
 
 当前版本的代码仓库位于 [https://github.com/ahvsjags/SnowLotus-CellFM](https://github.com/ahvsjags/SnowLotus-CellFM)，发布分支为 `agent/remote-pipeline-20260728`。核心结果、图表、源数据与执行命令均在同一仓库中维护：
@@ -135,7 +147,13 @@ python scripts/build_v4_root_literature_concordance.py
 python scripts/download_gse152766_external_root_case.py
 python scripts/prepare_gse152766_external_root_case.py
 python scripts/audit_gse152766_external_root_case.py
+python scripts/download_gse270140_external_validation.py
+python scripts/extract_gse270140_external_assets.py
+python scripts/prepare_gse270140_external_validation.py
+python -m snowcell.cli train --config configs/gse270140_secondary_root_lora_adapter_4070.yaml --device cuda
+python scripts/audit_gse270140_secondary_root_adapter.py
 python scripts/render_v5_top_journal_figures.py
+python scripts/render_v5_secondary_root_adapter_figure.py
 python scripts/write_submission_v4_supplementary_tables.py
 python scripts/audit_v5_submission_figure_suite.py
 npm ci
@@ -156,3 +174,4 @@ npm run build:manuscript
 8. Jean-Baptiste, K. *et al.* Dynamics of Gene Expression in Single Root Cells of *Arabidopsis thaliana*. *Plant Cell* **31**, 993-1011 (2019). https://pmc.ncbi.nlm.nih.gov/articles/PMC8516002/
 9. Shahan, R. *et al.* A single cell *Arabidopsis* root atlas reveals developmental trajectories in wild-type and cell identity mutants. *Developmental Cell* **57**, 543-560.e9 (2022). https://doi.org/10.1016/j.devcel.2022.01.008
 10. NCBI Gene Expression Omnibus. *Arabidopsis thaliana* `GSE152766`, sample `GSM4626007`. https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE152766
+11. Lyu, M. *et al.* The dynamic and diverse nature of parenchyma cells in the *Arabidopsis* root during secondary growth. *Nature Plants* (2025). https://doi.org/10.1038/s41477-025-01938-6

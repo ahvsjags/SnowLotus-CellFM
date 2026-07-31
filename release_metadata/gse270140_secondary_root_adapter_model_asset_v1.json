@@ -1,0 +1,24 @@
+{
+  "schema_version": "plant_cellfm_context_adapter_asset_v1",
+  "model_name": "Plant-CellFM GSE270140 secondary-root LoRA-mode adapter",
+  "published_checkpoint": "models/Plant_CellFM_GSE270140_secondary_root_lora_adapter_best.pt",
+  "sha256": "1a306c4a5e21630a75a5a63d2867e86712b2da78eea3805eb5dc00b957134fd7",
+  "audited_training_checkpoint": "outputs/gse270140_secondary_root_lora_adapter_4070/best.pt",
+  "byte_identity_contract": "The published checkpoint must be byte-identical to the checkpoint audited in release_metadata/gse270140_secondary_root_adapter_audit_v1.json.",
+  "base_checkpoint": "models/SnowLotus_CellFM_SRP169576_annotation_1024_best.pt",
+  "source": {
+    "series_accession": "GSE270140",
+    "sample_accession": "GSM8335426",
+    "publication_doi": "10.1038/s41477-025-01938-6"
+  },
+  "intended_scope": "Author-label-supervised, within-dataset secondary-root state adaptation.",
+  "not_a_claim_of": [
+    "zero-shot transfer",
+    "leave-species transfer",
+    "independent external validation",
+    "matched third-party model superiority",
+    "universal plant annotation"
+  ],
+  "reproduction_config": "configs/gse270140_secondary_root_lora_adapter_4070.yaml",
+  "primary_evidence": "release_metadata/gse270140_secondary_root_adapter_audit_v1.json"
+}

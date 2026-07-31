@@ -1,0 +1,17 @@
+{
+  "schema_version": "plant_cellfm_gse270140_acquisition_v1",
+  "generated_utc": "2026-07-31T21:17:21.162885+00:00",
+  "dataset": "GSE270140",
+  "role": "external expert-label candidate; never a frozen-corpus training input",
+  "remote": {
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE270nnn/GSE270140/suppl/GSE270140_RAW.tar",
+    "bytes": 2529976320,
+    "accept_ranges": true,
+    "last_modified": "Wed, 15 Jan 2025 05:23:40 GMT"
+  },
+  "output": "data/external_validation/gse270140/GSE270140_RAW.tar",
+  "sha256": "bc83ad96202aa50905e59df173948ea2799d017c0677f66d6e1cf036a8d9d333",
+  "workers": 8,
+  "chunk_mib": 16,
+  "claim_boundary": "Acquisition alone does not establish an external benchmark. Expert labels, an ontology mapping and the frozen checkpoint must be audited before any score is reported."
+}

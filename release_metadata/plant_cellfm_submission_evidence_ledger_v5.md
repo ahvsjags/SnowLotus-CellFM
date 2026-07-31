@@ -18,6 +18,7 @@ This ledger is the claim-level index for the v5 submission package. Each stateme
 | C10 | Five of six pre-specified canonical root-marker anchors are top by mean expression in their expected predicted groups; `WER` remains a positive but non-top coherence signal. | `release_metadata/gse152766_external_root_blind_inference_v4.json`; Figure 4 and Extended Data 5 | This is marker coherence of a model partition, not ground-truth validation. The phloem group has only four cells and is explicitly retained. |
 | C11 | The root candidate resource covers 10 root identities with top-20 candidates per identity (200 rows); three of six literature-fixed anchors are recovered in matching top-20 programs. | `supplementary_tables/submission_v4/Supplementary_Table_S13_arabidopsis_root_marker_candidates.tsv`; `release_metadata/arabidopsis_root_literature_concordance_v4.json`; Extended Data 4 | Candidates are public-data hypotheses. This is neither an independent-matrix replication nor wet-lab validation. |
 | C12 | scPlantLLM official weights execute under CUDA in a recorded official-chunk probe. | `release_metadata/scplantllm_official_execution_audit.json` | The probe does not share v17 inputs, ontology, split or score, and is not a direct rank. scPlantAnnotate matched prediction remains open. |
+| C13 | A GSE270140 secondary-root LoRA-mode adapter achieves 83.97% held-out fine accuracy and 84.47% macro-F1 across 2,352 test cells; matched three-state semantic accuracy is 90.93% on 1,885 compatible held-out cells. | `release_metadata/gse270140_secondary_root_adapter_audit_v1.json`; Extended Data 6 source data; Tables S18-S19 | This is author-label-supervised, one-sample cell-level adaptation. It is neither zero-shot/leave-species evidence nor an independent external validation. |
 
 ## Release Gates
 
@@ -27,6 +28,7 @@ This ledger is the claim-level index for the v5 submission package. Each stateme
 | Figure claims expose denominators and protocol boundaries | Pass | `release_metadata/plant_cellfm_v5_figure_blueprint.md` |
 | Strict primary metric frozen and automatically checked | Pass | `scripts/audit_v5_submission_figure_suite.py` |
 | Root candidate-count contract automatically checked | Pass: 200 rows | `scripts/audit_v5_submission_figure_suite.py` |
+| Secondary-root adaptation provenance, held-out test and figure exports | Pass | `release_metadata/gse270140_secondary_root_adapter_audit_v1.json`; Extended Data 6 |
 | Matched official third-party comparison | Open | Table S12 and model-card comparison status |
 | Independently expert-annotated external accuracy | Open | No label-bearing external matrix is included in v5 |
 | Orthogonal or experimental validation of marker candidates | Open | Candidate resource remains a computational prioritization resource |

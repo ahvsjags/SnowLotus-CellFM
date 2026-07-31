@@ -1,0 +1,83 @@
+{
+  "schema_version": "plant_cellfm_gse270140_secondary_root_adapter_audit_v1",
+  "case_role": "Labelled, within-dataset secondary-root adaptation of the frozen root checkpoint using LoRA-mode tuning.",
+  "claim_boundary": "This is an author-label-supervised, cell-level held-out adaptation result from one GSE270140 sample. It is not a zero-shot result, not a leave-species result, not an independent external validation and not a matched third-party ranking.",
+  "source": {
+    "series_accession": "GSE270140",
+    "sample_accession": "GSM8335426",
+    "publication_doi": "10.1038/s41477-025-01938-6",
+    "cells": 11760,
+    "raw_author_labels": 14
+  },
+  "protocol": {
+    "config": "configs/gse270140_secondary_root_lora_adapter_4070.yaml",
+    "config_sha256": "aa23784989efe13dbac7efb372dc1fe5e1ccf895dedbcd915da7adb18e7dfbe2",
+    "base_checkpoint": "models/SnowLotus_CellFM_SRP169576_annotation_1024_best.pt",
+    "base_checkpoint_sha256": "e16564fa0a1aa74dd19ca007d9aedbe89a12fc7d1051b761c15d39705a3386fc",
+    "adapter_checkpoint": "models/Plant_CellFM_GSE270140_secondary_root_lora_adapter_best.pt",
+    "adapter_checkpoint_sha256": "1a306c4a5e21630a75a5a63d2867e86712b2da78eea3805eb5dc00b957134fd7",
+    "audited_training_checkpoint": "outputs/gse270140_secondary_root_lora_adapter_4070/best.pt",
+    "tuning_mode": "lora",
+    "lora_rank": 8,
+    "parameter_report": {
+      "total": 9347102,
+      "trainable": 5865501,
+      "trainable_fraction": 0.627520808053662
+    },
+    "split": {
+      "strategy": "group_random_by_unique_cell_id",
+      "seed": 20260801,
+      "train_cells": 8232,
+      "validation_cells": 1176,
+      "test_cells": 2352
+    },
+    "hardware": "NVIDIA GeForce RTX 4070 Laptop GPU (CUDA)"
+  },
+  "selection": {
+    "best_epoch": 7,
+    "validation_fine_macro_f1": 0.788786105561108,
+    "selection_metric": "validation fine macro-F1"
+  },
+  "held_out_test": {
+    "training_evaluator": {
+      "coarse_accuracy": 0.8375850340136054,
+      "coarse_macro_f1": 0.844319462002076,
+      "eval_batches": 147.0,
+      "eval_coarse_loss": 0.6594975179149991,
+      "eval_fine_loss": 0.6588552142081617,
+      "eval_hierarchy_loss": 0.4739739415901048,
+      "eval_loss": 0.8711269834414631,
+      "fine_accuracy": 0.8397108843537415,
+      "fine_macro_f1": 0.8446817683258346
+    },
+    "full_precision_detailed_recheck": {
+      "fine_accuracy": 0.8418367346938775,
+      "fine_macro_f1": 0.8463864370235671,
+      "weighted_f1": 0.8431374290222146,
+      "cells": 2352,
+      "note": "The detailed recheck runs model evaluation without mixed-precision autocast; the training evaluator value remains the primary protocol result."
+    }
+  },
+  "matched_three_state_semantic_recovery": {
+    "evaluation_definition": "On the same held-out adapter test cells, score only source labels pre-registered as Phloem, Xylem or Root stele. Adapter raw predictions are mapped through the same frozen mapping; predictions to ontology-external labels count as errors.",
+    "frozen_base_checkpoint": {
+      "cells": 1885,
+      "accuracy": 0.020159151193633953,
+      "macro_f1": 0.06033360236750066,
+      "weighted_f1": 0.03490112459136421
+    },
+    "secondary_root_adapter": {
+      "cells": 1885,
+      "accuracy": 0.9092838196286472,
+      "macro_f1": 0.9158917450162316,
+      "weighted_f1": 0.9204987447241185
+    },
+    "absolute_accuracy_gain": 0.8891246684350133,
+    "absolute_macro_f1_gain": 0.855558142648731
+  },
+  "artifacts": {
+    "detailed_test_metrics": "outputs/gse270140_secondary_root_lora_adapter_4070/detailed_test/detailed_metrics.json",
+    "per_class_table": "supplementary_tables/submission_v4/Supplementary_Table_S18_GSE270140_secondary_root_adapter_per_class.tsv",
+    "semantic_recovery_table": "supplementary_tables/submission_v4/Supplementary_Table_S19_GSE270140_secondary_root_adapter_semantic_recovery.tsv"
+  }
+}

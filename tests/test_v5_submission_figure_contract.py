@@ -24,6 +24,10 @@ def test_v5_figure_audit_preserves_exports_and_frozen_evidence() -> None:
         "external_root_label_free": True,
         "external_root_top_mean_marker_hits": 5,
         "root_candidate_rows": 200,
+        "secondary_root_adapter_test_cells": 2352,
+        "secondary_root_adapter_test_accuracy": 0.8397108843537415,
+        "secondary_root_adapter_test_macro_f1": 0.8446817683258346,
+        "secondary_root_adapter_matched_semantic_accuracy": 0.9092838196286472,
     }
     assert len(report["figures"]["main"]) == 4
-    assert len(report["figures"]["extended_data"]) == 5
+    assert len(report["figures"]["extended_data"]) == 6

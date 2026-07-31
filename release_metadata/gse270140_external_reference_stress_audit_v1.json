@@ -1,0 +1,278 @@
+{
+  "schema_version": "plant_cellfm_gse270140_external_reference_stress_audit_v1",
+  "case_role": "Author-labelled secondary-root stress test of a frozen root annotation checkpoint.",
+  "claim_boundary": "This is not the primary strict leave-species result, not an all-plant accuracy claim and not a matched third-party benchmark. GSE270140 appears in historical corpus manifests; it is retained as a provenance-aware post-hoc stress case. Shared-state scoring uses a frozen coarse semantic map, while ontology-external states remain in a separate rejection audit rather than being deleted from the record.",
+  "source": {
+    "series_accession": "GSE270140",
+    "sample_accession": "GSM8335426",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE270140",
+    "publication_doi": "10.1038/s41477-025-01938-6",
+    "source_object": "GSM8335426_JWE03_Seurat_object.rds.gz",
+    "assay": "RNA",
+    "slot": "counts",
+    "author_annotation_column": "annotation"
+  },
+  "provenance": {
+    "prepared_h5ad": "outputs/external_validation/gse270140/GSM8335426_JWE03_author_annotated_secondary_root.h5ad",
+    "prepared_h5ad_sha256": "25ae23698444d9409b6984f0d899438afcfc63a0598cf362911cddb75d6ed440",
+    "frozen_mapping": "release_metadata/gse270140_external_label_mapping_v1.tsv",
+    "frozen_mapping_sha256": "b1348ef26fa9457bf970db4cb9f00122aad192b1a4f84b80c8e90125642cbf6d",
+    "prediction_csv": "outputs/external_validation/gse270140/annotation_bundle_srp169576_1024/predictions.csv",
+    "prediction_csv_sha256": "41d940cb92df7067ef2a2cfd848092745c6c10c6d15fe4a4713ff70303c225d2",
+    "checkpoint": "models\\SnowLotus_CellFM_SRP169576_annotation_1024_best.pt",
+    "checkpoint_sha256": "e16564fa0a1aa74dd19ca007d9aedbe89a12fc7d1051b761c15d39705a3386fc"
+  },
+  "data": {
+    "cells": 11760,
+    "genes": 22506,
+    "author_annotation_labels": 14,
+    "shared_state_cells": 9481,
+    "ontology_external_cells": 2279,
+    "shared_state_fraction": 0.8062074829931973
+  },
+  "shared_state_score": {
+    "accuracy": 0.01603206412825651,
+    "macro_f1": 0.013017938770537309,
+    "weighted_f1": 0.0284143028819441,
+    "scored_cells": 9481,
+    "evaluation_labels": [
+      "Phloem",
+      "Root stele",
+      "Xylem"
+    ],
+    "interpretation": "Low recovery identifies an out-of-domain secondary-growth failure mode; this score is retained as a diagnostic, not promoted as a generalization headline."
+  },
+  "ontology_external_rejection": {
+    "cells": 2279,
+    "predicted_unknow_fraction": 0.7959631417288284,
+    "shared_state_predicted_unknow_fraction": 0.852125303238055,
+    "unknow_precision_for_ontology_external_state": 0.18336197311230162,
+    "interpretation": "The frozen Unknow head rejects many ontology-external states but also rejects many mapped shared vascular states, showing incomplete calibration for secondary root growth."
+  },
+  "per_author_annotation": [
+    {
+      "expert_annotation_raw": "Mature phloem parenchyma",
+      "mapped_model_label": "Phloem",
+      "evaluation_tier": "shared_state",
+      "mapping_rationale": "Published label is a phloem parenchyma state.",
+      "cells": 3306,
+      "predicted_unknown_fraction": 0.8339382940108893,
+      "mean_confidence": 0.8464297277676952
+    },
+    {
+      "expert_annotation_raw": "Periderm",
+      "mapped_model_label": "not_in_frozen_ontology",
+      "evaluation_tier": "no_direct_model_state",
+      "mapping_rationale": "The frozen output ontology has no periderm state.",
+      "cells": 2156,
+      "predicted_unknown_fraction": 0.8000927643784786,
+      "mean_confidence": 0.8669530797773655
+    },
+    {
+      "expert_annotation_raw": "Vascular cambium",
+      "mapped_model_label": "Root stele",
+      "evaluation_tier": "shared_state",
+      "mapping_rationale": "Cambium is assessed at the frozen model's broader root-stele state.",
+      "cells": 1668,
+      "predicted_unknown_fraction": 0.7607913669064749,
+      "mean_confidence": 0.8303092607913669
+    },
+    {
+      "expert_annotation_raw": "Conductive phloem parenchyma",
+      "mapped_model_label": "Phloem",
+      "evaluation_tier": "shared_state",
+      "mapping_rationale": "Published label is a phloem parenchyma state.",
+      "cells": 1217,
+      "predicted_unknown_fraction": 0.932621199671323,
+      "mean_confidence": 0.928728677074774
+    },
+    {
+      "expert_annotation_raw": "Maturing xylem parenchyma",
+      "mapped_model_label": "Xylem",
+      "evaluation_tier": "shared_state",
+      "mapping_rationale": "Published label is a xylem parenchyma maturation state.",
+      "cells": 795,
+      "predicted_unknown_fraction": 0.9044025157232705,
+      "mean_confidence": 0.8784579471698113
+    },
+    {
+      "expert_annotation_raw": "Young xylem parenchyma",
+      "mapped_model_label": "Xylem",
+      "evaluation_tier": "shared_state",
+      "mapping_rationale": "Published label is a xylem parenchyma maturation state.",
+      "cells": 735,
+      "predicted_unknown_fraction": 0.9482993197278912,
+      "mean_confidence": 0.9390891006802722
+    },
+    {
+      "expert_annotation_raw": "Fiber",
+      "mapped_model_label": "Xylem",
+      "evaluation_tier": "shared_state",
+      "mapping_rationale": "Secondary-root fibre is evaluated at the model's broader xylem state.",
+      "cells": 664,
+      "predicted_unknown_fraction": 0.8734939759036144,
+      "mean_confidence": 0.8482396385542167
+    },
+    {
+      "expert_annotation_raw": "Mature xylem parenchyma",
+      "mapped_model_label": "Xylem",
+      "evaluation_tier": "shared_state",
+      "mapping_rationale": "Published label is a xylem parenchyma state.",
+      "cells": 661,
+      "predicted_unknown_fraction": 0.913767019667171,
+      "mean_confidence": 0.9085549803328291
+    },
+    {
+      "expert_annotation_raw": "Vessel identity cell/expanding vessel",
+      "mapped_model_label": "Xylem",
+      "evaluation_tier": "shared_state",
+      "mapping_rationale": "Published label is a vessel state.",
+      "cells": 147,
+      "predicted_unknown_fraction": 0.7959183673469388,
+      "mean_confidence": 0.8130115782312924
+    },
+    {
+      "expert_annotation_raw": "Companion cell",
+      "mapped_model_label": "Phloem",
+      "evaluation_tier": "shared_state",
+      "mapping_rationale": "Companion cells are a conductive phloem-associated state.",
+      "cells": 127,
+      "predicted_unknown_fraction": 0.7874015748031497,
+      "mean_confidence": 0.8492135905511812
+    },
+    {
+      "expert_annotation_raw": "Sieve element",
+      "mapped_model_label": "Phloem",
+      "evaluation_tier": "shared_state",
+      "mapping_rationale": "Published label is a conductive phloem state.",
+      "cells": 104,
+      "predicted_unknown_fraction": 0.6923076923076923,
+      "mean_confidence": 0.8717223942307692
+    },
+    {
+      "expert_annotation_raw": "Myrosin idioblasts",
+      "mapped_model_label": "not_in_frozen_ontology",
+      "evaluation_tier": "no_direct_model_state",
+      "mapping_rationale": "The frozen output ontology has no myrosin idioblast state.",
+      "cells": 84,
+      "predicted_unknown_fraction": 0.7261904761904762,
+      "mean_confidence": 0.7741050476190475
+    },
+    {
+      "expert_annotation_raw": "Late differentiating vessel",
+      "mapped_model_label": "Xylem",
+      "evaluation_tier": "shared_state",
+      "mapping_rationale": "Published label is a vessel differentiation state.",
+      "cells": 57,
+      "predicted_unknown_fraction": 0.5087719298245614,
+      "mean_confidence": 0.7894351403508773
+    },
+    {
+      "expert_annotation_raw": "Lateral root primordium/meristem",
+      "mapped_model_label": "not_in_frozen_ontology",
+      "evaluation_tier": "no_direct_model_state",
+      "mapping_rationale": "The frozen output ontology has no lateral-root-primordium or meristem state.",
+      "cells": 39,
+      "predicted_unknown_fraction": 0.717948717948718,
+      "mean_confidence": 0.7983435128205127
+    }
+  ],
+  "per_shared_model_state": [
+    {
+      "mapped_model_label": "Phloem",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 4754
+    },
+    {
+      "mapped_model_label": "Root stele",
+      "precision": 0.6255506607929515,
+      "recall": 0.08513189448441247,
+      "f1": 0.14986807387862797,
+      "support": 1668
+    },
+    {
+      "mapped_model_label": "Xylem",
+      "precision": 0.10869565217391304,
+      "recall": 0.0032690421706440013,
+      "f1": 0.006347191367819739,
+      "support": 3059
+    }
+  ],
+  "prediction_distribution": [
+    {
+      "fine_label": "Unknow",
+      "cells": 9893,
+      "mean_confidence": 0.8999518669766501,
+      "fraction": 0.8412414965986394
+    },
+    {
+      "fine_label": "Lateral root cap",
+      "cells": 1124,
+      "mean_confidence": 0.7227406183274021,
+      "fraction": 0.09557823129251701
+    },
+    {
+      "fine_label": "Root stele",
+      "cells": 236,
+      "mean_confidence": 0.670789754237288,
+      "fraction": 0.020068027210884354
+    },
+    {
+      "fine_label": "Root cortex",
+      "cells": 165,
+      "mean_confidence": 0.7134158303030304,
+      "fraction": 0.01403061224489796
+    },
+    {
+      "fine_label": "Root endodermis",
+      "cells": 138,
+      "mean_confidence": 0.5823311304347827,
+      "fraction": 0.01173469387755102
+    },
+    {
+      "fine_label": "Xylem",
+      "cells": 120,
+      "mean_confidence": 0.5508783833333333,
+      "fraction": 0.01020408163265306
+    },
+    {
+      "fine_label": "S phase",
+      "cells": 34,
+      "mean_confidence": 0.8107460588235293,
+      "fraction": 0.002891156462585034
+    },
+    {
+      "fine_label": "Non-hair",
+      "cells": 22,
+      "mean_confidence": 0.6223697727272728,
+      "fraction": 0.0018707482993197278
+    },
+    {
+      "fine_label": "G1/G0 phase",
+      "cells": 17,
+      "mean_confidence": 0.5299299411764705,
+      "fraction": 0.001445578231292517
+    },
+    {
+      "fine_label": "Columella root cap",
+      "cells": 6,
+      "mean_confidence": 0.5553545,
+      "fraction": 0.0005102040816326531
+    },
+    {
+      "fine_label": "Root hair",
+      "cells": 3,
+      "mean_confidence": 0.412901,
+      "fraction": 0.00025510204081632655
+    },
+    {
+      "fine_label": "Root cap",
+      "cells": 2,
+      "mean_confidence": 0.664078,
+      "fraction": 0.00017006802721088434
+    }
+  ],
+  "supplementary_table": "supplementary_tables/gse270140_external_reference_per_label_v1.tsv"
+}

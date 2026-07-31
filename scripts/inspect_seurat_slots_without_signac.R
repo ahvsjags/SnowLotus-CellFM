@@ -12,6 +12,9 @@ if (is.na(max_names) || max_names < 1) {
 }
 
 suppressPackageStartupMessages(library(Matrix))
+if (requireNamespace("SeuratObject", quietly = TRUE)) {
+  suppressPackageStartupMessages(library(SeuratObject))
+}
 
 print_value <- function(key, value) {
   cat(key, "=", value, "\n", sep = "")

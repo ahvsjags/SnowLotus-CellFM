@@ -1,0 +1,15 @@
+source_label	mapped_model_label	evaluation_tier	mapping_rationale	mapping_frozen_before_inference
+Companion cell	Phloem	shared_state	Companion cells are a conductive phloem-associated state.	true
+Conductive phloem parenchyma	Phloem	shared_state	Published label is a phloem parenchyma state.	true
+Fiber	Xylem	shared_state	Secondary-root fibre is evaluated at the model's broader xylem state.	true
+Late differentiating vessel	Xylem	shared_state	Published label is a vessel differentiation state.	true
+Lateral root primordium/meristem		no_direct_model_state	The frozen output ontology has no lateral-root-primordium or meristem state.	true
+Mature phloem parenchyma	Phloem	shared_state	Published label is a phloem parenchyma state.	true
+Mature xylem parenchyma	Xylem	shared_state	Published label is a xylem parenchyma state.	true
+Maturing xylem parenchyma	Xylem	shared_state	Published label is a xylem parenchyma maturation state.	true
+Myrosin idioblasts		no_direct_model_state	The frozen output ontology has no myrosin idioblast state.	true
+Periderm		no_direct_model_state	The frozen output ontology has no periderm state.	true
+Sieve element	Phloem	shared_state	Published label is a conductive phloem state.	true
+Vascular cambium	Root stele	shared_state	Cambium is assessed at the frozen model's broader root-stele state.	true
+Vessel identity cell/expanding vessel	Xylem	shared_state	Published label is a vessel state.	true
+Young xylem parenchyma	Xylem	shared_state	Published label is a xylem parenchyma maturation state.	true
