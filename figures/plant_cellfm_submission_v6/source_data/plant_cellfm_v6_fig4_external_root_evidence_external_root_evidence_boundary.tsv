@@ -1,0 +1,5 @@
+scope_field	value	colour_role
+input	label-free root matrix	#2E6FAD
+model	frozen checkpoint	#007C83
+anchor plan	six loci fixed before scoring	#D97524
+not claimed	accuracy or wet-lab validation	#B34D5B

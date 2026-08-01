@@ -1,0 +1,5 @@
+method	all_cell_accuracy	coverage	known_label_accuracy	known_label_macro_f1
+centroid	0.2364	0.559	0.4228	0.1922
+expression	0.301	0.559	0.5384	0.2663
+neural	0.3184	0.559	0.5695	0.3079
+context gate	0.4236	0.559	0.7577	0.3045

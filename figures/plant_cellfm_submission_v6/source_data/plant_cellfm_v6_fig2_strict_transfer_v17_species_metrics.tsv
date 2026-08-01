@@ -1,0 +1,9 @@
+n_test	n_evaluable	open_set_cells	coverage	accuracy_all	macro_f1_all	accuracy	macro_f1	held_out_species	selected_candidate	decision	open_or_unavailable	cells
+256	0	256	0.0	0.0	0.0			Gossypium hirsutum	gate_leaf_support_64	expression_scope=leaf;same_family_support=256	1.0	256
+256	240	16	0.9375	0.17578125	0.03737541528239203	0.1875	0.045112781954887216	Brassica rapa	organ_context_prior	organ_context_prior	0.0625	256
+2366	1024	1342	0.4327979712595097	0.3241758241758242	0.034233542076163345	0.7490234375	0.1908012056658264	Arabidopsis thaliana	organ_context_prior	organ_context_prior	0.5672020287404903	2366
+256	161	95	0.62890625	0.53515625	0.0871501272264631	0.8509316770186336	0.22986577181208054	Fragaria vesca	gate_leaf_support_64	organ_scope=leaf;same_family_support=0	0.37109375	256
+256	232	24	0.90625	0.54296875	0.0879746835443038	0.5991379310344828	0.12488769092542677	Gossypium bickii	gate_leaf_support_64	organ_scope=leaf;same_family_support=0	0.09375	256
+256	241	15	0.94140625	0.6953125	0.11718235681369323	0.7385892116182573	0.14160700079554495	Catharanthus roseus	gate_leaf_support_64	organ_scope=leaf;same_family_support=0	0.05859375	256
+62	62	0	1.0	1.0	1.0	1.0	1.0	Eutrema salsugineum	gate_leaf_support_64	organ_scope=leaf;same_family_support=1584	0.0	62
+256	256	0	1.0	1.0	1.0	1.0	1.0	Triticum aestivum	gate_leaf_support_64	organ_scope=leaf;same_family_support=0	0.0	256

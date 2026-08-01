@@ -1,0 +1,493 @@
+{
+  "schema_version": "plant_cellfm_gse270140_to_gse270342_zero_target_transfer_audit_v1",
+  "claim_boundary": "This is a source-only, zero-target-label, three-state Arabidopsis-to-wheat stress test. It is not an independent external benchmark because both studies are registered in historical provenance, not a strict leave-species replacement, and not a matched third-party ranking. Target labels are read only after source-only decoder predictions are written for scoring.",
+  "interpretation": "The source-trained adapter does not improve the primary three-state macro-F1 over the frozen root checkpoint. The record is retained to prevent selective reporting and to identify cross-species vascular-state alignment as an open research problem.",
+  "protocol": {
+    "source": {
+      "dataset": "GSE270140/GSM8335426",
+      "species": "Arabidopsis thaliana",
+      "label_key": "expert_annotation_raw"
+    },
+    "target": {
+      "dataset": "GSE270342",
+      "species": "Triticum aestivum",
+      "label_key": "expert_annotation_raw",
+      "labels_used_for_fitting": false
+    },
+    "source_state_map": {
+      "phloem": [
+        "Companion cell",
+        "Conductive phloem parenchyma",
+        "Mature phloem parenchyma",
+        "Sieve element"
+      ],
+      "xylem": [
+        "Expanding vessel",
+        "Fiber",
+        "Late differentiating vessel",
+        "Mature xylem parenchyma",
+        "Maturing xylem parenchyma",
+        "Vessel identity",
+        "Young xylem parenchyma"
+      ],
+      "stele": [
+        "Vascular cambium"
+      ]
+    },
+    "target_primary_state_map": {
+      "Phloem": "phloem",
+      "Xylem": "xylem",
+      "Provascular cells": "stele"
+    },
+    "target_pericycle_sensitivity_map": {
+      "Phloem": "phloem",
+      "Xylem": "xylem",
+      "Provascular cells": "stele",
+      "Pericycle": "stele"
+    },
+    "decoders": [
+      "distance-weighted cosine kNN, k=9",
+      "distance-weighted cosine kNN, k=31",
+      "distance-weighted cosine kNN, k=101"
+    ],
+    "orthology": "Target embeddings use the released author wheat-to-Arabidopsis orthogroup map with deterministic first-target projection.",
+    "bundle_id_order_verified": true
+  },
+  "results": {
+    "primary_three_state": {
+      "source_cells": 9334,
+      "target_cells": 1020,
+      "source_class_counts": {
+        "phloem": 4754,
+        "stele": 1668,
+        "xylem": 2912
+      },
+      "target_class_counts": {
+        "phloem": 129,
+        "stele": 637,
+        "xylem": 254
+      },
+      "source_only_decoders": {
+        "frozen_root_checkpoint": {
+          "knn_9": {
+            "accuracy": 0.6137254901960785,
+            "balanced_accuracy": 0.43029824440868986,
+            "macro_f1": 0.4230552091778434,
+            "class_counts": {
+              "phloem": 129,
+              "stele": 637,
+              "xylem": 254
+            },
+            "predicted_class_counts": {
+              "phloem": 175,
+              "stele": 784,
+              "xylem": 61
+            },
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                33,
+                96,
+                0
+              ],
+              [
+                71,
+                549,
+                17
+              ],
+              [
+                71,
+                139,
+                44
+              ]
+            ]
+          },
+          "knn_31": {
+            "accuracy": 0.5901960784313726,
+            "balanced_accuracy": 0.411603114522517,
+            "macro_f1": 0.3930706254325585,
+            "class_counts": {
+              "phloem": 129,
+              "stele": 637,
+              "xylem": 254
+            },
+            "predicted_class_counts": {
+              "phloem": 196,
+              "stele": 775,
+              "xylem": 49
+            },
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                35,
+                92,
+                2
+              ],
+              [
+                85,
+                536,
+                16
+              ],
+              [
+                76,
+                147,
+                31
+              ]
+            ]
+          },
+          "knn_101": {
+            "accuracy": 0.5754901960784313,
+            "balanced_accuracy": 0.4059906516285516,
+            "macro_f1": 0.3809203757395319,
+            "class_counts": {
+              "phloem": 129,
+              "stele": 637,
+              "xylem": 254
+            },
+            "predicted_class_counts": {
+              "phloem": 227,
+              "stele": 751,
+              "xylem": 42
+            },
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                38,
+                89,
+                2
+              ],
+              [
+                100,
+                523,
+                14
+              ],
+              [
+                89,
+                139,
+                26
+              ]
+            ]
+          }
+        },
+        "gse270140_source_adapter": {
+          "knn_9": {
+            "accuracy": 0.6088235294117647,
+            "balanced_accuracy": 0.3986559723735019,
+            "macro_f1": 0.4035913021321366,
+            "class_counts": {
+              "phloem": 129,
+              "stele": 637,
+              "xylem": 254
+            },
+            "predicted_class_counts": {
+              "phloem": 31,
+              "stele": 865,
+              "xylem": 124
+            },
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                17,
+                112,
+                0
+              ],
+              [
+                7,
+                555,
+                75
+              ],
+              [
+                7,
+                198,
+                49
+              ]
+            ]
+          },
+          "knn_31": {
+            "accuracy": 0.6088235294117647,
+            "balanced_accuracy": 0.40150571518452866,
+            "macro_f1": 0.4089233079403852,
+            "class_counts": {
+              "phloem": 129,
+              "stele": 637,
+              "xylem": 254
+            },
+            "predicted_class_counts": {
+              "phloem": 29,
+              "stele": 862,
+              "xylem": 129
+            },
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                18,
+                111,
+                0
+              ],
+              [
+                5,
+                553,
+                79
+              ],
+              [
+                6,
+                198,
+                50
+              ]
+            ]
+          },
+          "knn_101": {
+            "accuracy": 0.6098039215686275,
+            "balanced_accuracy": 0.3960230597293406,
+            "macro_f1": 0.39949321925085074,
+            "class_counts": {
+              "phloem": 129,
+              "stele": 637,
+              "xylem": 254
+            },
+            "predicted_class_counts": {
+              "phloem": 30,
+              "stele": 875,
+              "xylem": 115
+            },
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                17,
+                112,
+                0
+              ],
+              [
+                7,
+                560,
+                70
+              ],
+              [
+                6,
+                203,
+                45
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "pericycle_inclusive_sensitivity": {
+      "source_cells": 9334,
+      "target_cells": 1469,
+      "source_class_counts": {
+        "phloem": 4754,
+        "stele": 1668,
+        "xylem": 2912
+      },
+      "target_class_counts": {
+        "phloem": 129,
+        "stele": 1086,
+        "xylem": 254
+      },
+      "source_only_decoders": {
+        "frozen_root_checkpoint": {
+          "knn_9": {
+            "accuracy": 0.6548672566371682,
+            "balanced_accuracy": 0.4146531423389627,
+            "macro_f1": 0.40723148374549006,
+            "class_counts": {
+              "phloem": 129,
+              "stele": 1086,
+              "xylem": 254
+            },
+            "predicted_class_counts": {
+              "phloem": 226,
+              "stele": 1120,
+              "xylem": 123
+            },
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                33,
+                96,
+                0
+              ],
+              [
+                122,
+                885,
+                79
+              ],
+              [
+                71,
+                139,
+                44
+              ]
+            ]
+          },
+          "knn_31": {
+            "accuracy": 0.6337644656228727,
+            "balanced_accuracy": 0.3966219981207219,
+            "macro_f1": 0.3809716442245801,
+            "class_counts": {
+              "phloem": 129,
+              "stele": 1086,
+              "xylem": 254
+            },
+            "predicted_class_counts": {
+              "phloem": 268,
+              "stele": 1104,
+              "xylem": 97
+            },
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                35,
+                92,
+                2
+              ],
+              [
+                157,
+                865,
+                64
+              ],
+              [
+                76,
+                147,
+                31
+              ]
+            ]
+          },
+          "knn_101": {
+            "accuracy": 0.6133424098025868,
+            "balanced_accuracy": 0.38921802672648703,
+            "macro_f1": 0.36709262178353524,
+            "class_counts": {
+              "phloem": 129,
+              "stele": 1086,
+              "xylem": 254
+            },
+            "predicted_class_counts": {
+              "phloem": 319,
+              "stele": 1065,
+              "xylem": 85
+            },
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                38,
+                89,
+                2
+              ],
+              [
+                192,
+                837,
+                57
+              ],
+              [
+                89,
+                139,
+                26
+              ]
+            ]
+          }
+        },
+        "gse270140_source_adapter": {
+          "knn_9": {
+            "accuracy": 0.6548672566371682,
+            "balanced_accuracy": 0.38324745735961985,
+            "macro_f1": 0.39348263492647045,
+            "class_counts": {
+              "phloem": 129,
+              "stele": 1086,
+              "xylem": 254
+            },
+            "predicted_class_counts": {
+              "phloem": 52,
+              "stele": 1206,
+              "xylem": 211
+            },
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                17,
+                112,
+                0
+              ],
+              [
+                28,
+                896,
+                162
+              ],
+              [
+                7,
+                198,
+                49
+              ]
+            ]
+          },
+          "knn_31": {
+            "accuracy": 0.6562287270251872,
+            "balanced_accuracy": 0.3871437726457905,
+            "macro_f1": 0.3979420260616336,
+            "class_counts": {
+              "phloem": 129,
+              "stele": 1086,
+              "xylem": 254
+            },
+            "predicted_class_counts": {
+              "phloem": 55,
+              "stele": 1205,
+              "xylem": 209
+            },
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                18,
+                111,
+                0
+              ],
+              [
+                31,
+                896,
+                159
+              ],
+              [
+                6,
+                198,
+                50
+              ]
+            ]
+          },
+          "knn_101": {
+            "accuracy": 0.6575901974132062,
+            "balanced_accuracy": 0.3804536076958002,
+            "macro_f1": 0.38950658651526376,
+            "class_counts": {
+              "phloem": 129,
+              "stele": 1086,
+              "xylem": 254
+            },
+            "predicted_class_counts": {
+              "phloem": 57,
+              "stele": 1219,
+              "xylem": 193
+            },
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                17,
+                112,
+                0
+              ],
+              [
+                34,
+                904,
+                148
+              ],
+              [
+                6,
+                203,
+                45
+              ]
+            ]
+          }
+        }
+      }
+    }
+  },
+  "artifacts": {
+    "supplementary_table": "supplementary_tables/submission_v4/Supplementary_Table_S21_GSE270140_to_GSE270342_zero_target_transfer.tsv",
+    "source_bundles": {
+      "frozen_root_checkpoint": "outputs/external_validation/gse270140/annotation_bundle_srp169576_1024",
+      "gse270140_source_adapter": "outputs/external_validation/gse270140/annotation_bundle_gse270140_source_adapter"
+    },
+    "target_bundles": {
+      "frozen_root_checkpoint": "outputs/external_validation/gse270342/annotation_bundle_nonoverlap_author_orthogroups",
+      "gse270140_source_adapter": "outputs/external_validation/gse270342/annotation_bundle_gse270140_source_adapter_zero_target"
+    }
+  }
+}

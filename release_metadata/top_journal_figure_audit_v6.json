@@ -1,0 +1,242 @@
+{
+  "schema_version": "plant_cellfm_v6_figure_audit_v1",
+  "generated_utc": "2026-08-01T00:34:15.377718+00:00",
+  "state": "TECHNICALLY_READY_PENDING_EVIDENCE_COMPLETION",
+  "technical_failures": [],
+  "figures": {
+    "main": [
+      {
+        "stem": "plant_cellfm_v6_fig1_foundation_contract",
+        "sha256": {
+          "svg": "166a4a2e594a09b2b99c4214a2cbf440bdc3141ac7bc874581dd62df95cf619a",
+          "pdf": "c53da93d9b16d2c6ca2f28a28e5f213be7558ba81b0ea52f0064bab5b4feef09",
+          "png": "09498412aa372fe5e676de1cc2acd812ec36d6caaf90d93e8e20c750723b9580",
+          "tiff": "8728d1029f0cb740c36b8d0f730695537493ea0a413723767c83daeacab46828"
+        },
+        "missing_exports": [],
+        "source_data_tables": [
+          "plant_cellfm_v6_fig1_foundation_contract_frozen_profile_species.tsv",
+          "plant_cellfm_v6_fig1_foundation_contract_frozen_profile_species_by_tissue.tsv",
+          "plant_cellfm_v6_fig1_foundation_contract_strict_embedding.tsv",
+          "plant_cellfm_v6_fig1_foundation_contract_strict_species_counts.tsv",
+          "plant_cellfm_v6_fig1_foundation_contract_workflow_contract.tsv"
+        ],
+        "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
+        "raster": {
+          "pixels": [
+            4386,
+            3469
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        }
+      },
+      {
+        "stem": "plant_cellfm_v6_fig2_strict_transfer",
+        "sha256": {
+          "svg": "e39041ff190baf2bec8f287f16115cf233110d0f9b57a73a0f4887473a69bcc6",
+          "pdf": "1df3b76c776a6b0aad29188386f4e2172e58340b2d5e499d7f410993b0e55669",
+          "png": "16d78f933e477db12448fb6073d113753321586164ab0555045d059a74c96752",
+          "tiff": "2350bcf6f506d26915445809e32551a38b0a3ad7a39f2f4450f386f338d0c4b8"
+        },
+        "missing_exports": [],
+        "source_data_tables": [
+          "plant_cellfm_v6_fig2_strict_transfer_all_cell_bootstrap.tsv",
+          "plant_cellfm_v6_fig2_strict_transfer_historical_matched_v3_to_v9.tsv",
+          "plant_cellfm_v6_fig2_strict_transfer_primary_denominator.tsv",
+          "plant_cellfm_v6_fig2_strict_transfer_v14_context_sensitivity.tsv",
+          "plant_cellfm_v6_fig2_strict_transfer_v17_species_metrics.tsv"
+        ],
+        "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
+        "raster": {
+          "pixels": [
+            4453,
+            3915
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        }
+      },
+      {
+        "stem": "plant_cellfm_v6_fig3_target_adaptation",
+        "sha256": {
+          "svg": "e148bfc4b8fe56fde57d4a3de94d173c8244e0a52d4291f516b103a151bfcae3",
+          "pdf": "0dcbe715497168f4d8aecf0f69aee622cc86b271f8a0f3f00c2e6765043b6a25",
+          "png": "92892f51712f5c52bfb52ce7bc062bf4e7fc1ac670f0198d776ef1d597397323",
+          "tiff": "26adb7c47969f44e5bbcbdd6ecb029ded9a287f49d83101d935e399567938d88"
+        },
+        "missing_exports": [],
+        "source_data_tables": [
+          "plant_cellfm_v6_fig3_target_adaptation_fewshot_accuracy_summary.tsv",
+          "plant_cellfm_v6_fig3_target_adaptation_fewshot_draws.tsv",
+          "plant_cellfm_v6_fig3_target_adaptation_fewshot_macro_f1_summary.tsv",
+          "plant_cellfm_v6_fig3_target_adaptation_fewshot_protocol_summary.tsv",
+          "plant_cellfm_v6_fig3_target_adaptation_fewshot_species_budget_means.tsv",
+          "plant_cellfm_v6_fig3_target_adaptation_fewshot_species_draws.tsv"
+        ],
+        "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
+        "raster": {
+          "pixels": [
+            4385,
+            3126
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        }
+      },
+      {
+        "stem": "plant_cellfm_v6_fig4_external_root_evidence",
+        "sha256": {
+          "svg": "bcb080d2544c62be113baf5ecb3acd889129f039dc4d619465676e75465a71c7",
+          "pdf": "7ab21b80c82ee24f535976c527275faa547283f95ed2187199aa0b1d97f962dd",
+          "png": "d85f73f5c2d2fb1962ab2d90666498acab73d0149337408e0528dea0073c364d",
+          "tiff": "05b611da3e0134f7ace89f082c84cb0f5cf9fa40621cfad5f0ed09c630f0fd11"
+        },
+        "missing_exports": [],
+        "source_data_tables": [
+          "plant_cellfm_v6_fig4_external_root_evidence_external_embedding_umap.tsv",
+          "plant_cellfm_v6_fig4_external_root_evidence_external_marker_coherence.tsv",
+          "plant_cellfm_v6_fig4_external_root_evidence_external_prediction_distribution.tsv",
+          "plant_cellfm_v6_fig4_external_root_evidence_external_root_evidence_boundary.tsv"
+        ],
+        "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
+        "raster": {
+          "pixels": [
+            4332,
+            3366
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        }
+      },
+      {
+        "stem": "plant_cellfm_v6_fig5_wheat_adapter",
+        "sha256": {
+          "svg": "1533506754a1ed0d5beb974572bd1369d27fd62c4b919d795569918ed4f12885",
+          "pdf": "27436b743fa1219bbf9bfae1adeba844f2a06b8161f4a1d1e877452718c58ae2",
+          "png": "aeed55d1c0d4731244d94888c911cc266524d688e3740848844ce623d7b0b6b0",
+          "tiff": "1ad7789588dcc642d5b058575c5c327c238d8e611739892efbccdbf7a211c631"
+        },
+        "missing_exports": [],
+        "source_data_tables": [
+          "plant_cellfm_v6_fig5_wheat_adapter_frozen_projection_sensitivity.tsv",
+          "plant_cellfm_v6_fig5_wheat_adapter_interpretation_guardrail.tsv",
+          "plant_cellfm_v6_fig5_wheat_adapter_locked_test_confusion.tsv",
+          "plant_cellfm_v6_fig5_wheat_adapter_locked_test_per_class.tsv",
+          "plant_cellfm_v6_fig5_wheat_adapter_mapping_contract.tsv",
+          "plant_cellfm_v6_fig5_wheat_adapter_matched_direct_root_bootstrap.tsv",
+          "plant_cellfm_v6_fig5_wheat_adapter_matched_direct_root_summary.tsv",
+          "plant_cellfm_v6_fig5_wheat_adapter_matched_direct_root_test_cells.tsv",
+          "plant_cellfm_v6_fig5_wheat_adapter_provenance_split.tsv",
+          "plant_cellfm_v6_fig5_wheat_adapter_validation_history.tsv"
+        ],
+        "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
+        "raster": {
+          "pixels": [
+            4365,
+            3850
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        }
+      }
+    ],
+    "extended_data": [
+      {
+        "stem": "plant_cellfm_v6_ed_fig7_zero_target_transfer",
+        "sha256": {
+          "svg": "b843f02668202173e75ead9cf8b38c07159081c75d3e745f5a37f4011595e505",
+          "pdf": "a4783e50d070d4f4fd547ce6c185d1f8307bcb1967220bb455c90bc06c102227",
+          "png": "e7b5a5f3c8dc6bd031e72bd99f6eb0433ce26c9824d48e6b56d4b126efc3afe7",
+          "tiff": "9fa14e58eeb7e6439122500c1b02b56e58a57a16742063a00adc30d07831836e"
+        },
+        "missing_exports": [],
+        "source_data_tables": [
+          "plant_cellfm_v6_ed_fig7_zero_target_transfer_all_source_only_decoder_metrics.tsv",
+          "plant_cellfm_v6_ed_fig7_zero_target_transfer_claim_boundary.tsv",
+          "plant_cellfm_v6_ed_fig7_zero_target_transfer_frozen_k9_confusion.tsv",
+          "plant_cellfm_v6_ed_fig7_zero_target_transfer_primary_target_class_counts.tsv",
+          "plant_cellfm_v6_ed_fig7_zero_target_transfer_source_adapter_k9_confusion.tsv"
+        ],
+        "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
+        "raster": {
+          "pixels": [
+            4430,
+            2913
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        }
+      },
+      {
+        "stem": "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference",
+        "sha256": {
+          "svg": "c7dcb7bc086533b61018eeafd3e6dc28a6c0bd74760c0e911ad4ecb8cb9c23bf",
+          "pdf": "f9d7e4e17441d48ba6aefb5744128f0de5be43ef4fd8de6340a1135ebf5bf73b",
+          "png": "2b75609d3b5ccbc4756703ec23de87f71efe2ae3243e0dad3c4bf0f716fbd819",
+          "tiff": "e81a001451305e8fec24e414d033d695cee479b7575aeb884d05a4f58461f68e"
+        },
+        "missing_exports": [],
+        "source_data_tables": [
+          "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference_claim_boundary.tsv",
+          "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference_headline_metrics.tsv",
+          "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference_per_class_locked_test_metrics.tsv",
+          "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference_reference_contract.tsv"
+        ],
+        "editable_svg_text": true,
+        "minimum_svg_font_size_pt": 5.0,
+        "raster": {
+          "pixels": [
+            4379,
+            3021
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ]
+        }
+      }
+    ]
+  },
+  "frozen_evidence": {
+    "v17_primary_all_cell_accuracy": 0.39959636730575177,
+    "v17_primary_coverage": 0.5590312815338042,
+    "v14_sensitivity_all_cell_accuracy": 0.42356205852674067,
+    "external_root_label_free_cells": 6566,
+    "external_root_fixed_marker_top_mean_hits": 5,
+    "wheat_locked_test_accuracy": 0.6224703419399861,
+    "wheat_locked_test_macro_f1": 0.6660112830533416,
+    "zero_target_frozen_k9_macro_f1": 0.4230552091778434,
+    "zero_target_source_adapter_k9_macro_f1": 0.4035913021321366,
+    "scplantllm_frozen_reference_accuracy": 0.2107466852756455,
+    "scplantllm_frozen_reference_macro_f1": 0.20006846967732808
+  },
+  "evidence_open_items": [
+    "Fine-tuned matched scPlantLLM and a runnable scPlantAnnotate comparison remain open; the present scPlantLLM page is a frozen encoder plus centroid reference, not a full head-to-head ranking.",
+    "The label-free external-root execution has no expert ground truth and no wet-lab validation; it remains a fixed-marker coherence case.",
+    "The strict leave-species score is a transparent primary benchmark, but is not yet sufficient to claim universal high-accuracy plant annotation."
+  ],
+  "manual_editorial_checks": [
+    "Inspect final figure scale in the target journal template and confirm colour conversion after production export.",
+    "Verify caption prose uses the scope boundaries shown directly in Figures 2, 4, 5 and Extended Data 7-8.",
+    "Do not turn this technical audit into a self-assigned journal-quality or acceptance score."
+  ]
+}
