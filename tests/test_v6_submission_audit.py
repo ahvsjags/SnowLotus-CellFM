@@ -20,3 +20,5 @@ def test_v6_audit_keeps_export_and_evidence_boundaries_separate() -> None:
     assert len(report["figures"]["extended_data"]) == 2
     assert report["frozen_evidence"]["zero_target_source_adapter_k9_macro_f1"] < report["frozen_evidence"]["zero_target_frozen_k9_macro_f1"]
     assert report["frozen_evidence"]["scplantllm_frozen_reference_accuracy"] == 0.2107466852756455
+    assert report["frozen_evidence"]["scplantllm_partial_reference_accuracy"] == 0.34263782274947663
+    assert report["frozen_evidence"]["scplantllm_partial_best_validation_epoch"] == 4

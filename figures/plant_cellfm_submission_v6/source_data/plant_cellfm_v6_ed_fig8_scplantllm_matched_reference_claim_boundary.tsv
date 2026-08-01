@@ -1,5 +1,5 @@
 scope_field	value	colour_role
 shared	object, mapping and locked test	#2E6FAD
 official	431 MB official checkpoint	#8064A7
-readout	centroids fit on train only	#007C83
-not claimed	fine-tuning superiority	#B34D5B
+partial	final block + new head only	#007C83
+not claimed	full-backbone or compute-matched rank	#B34D5B

@@ -13,8 +13,8 @@ def test_v6_contract_preserves_the_main_evidence_boundaries() -> None:
     assert "no external expert annotation" in contract
     assert "not independent external validation" in contract
     assert "zero-target-label transfer results" in contract
-    assert "frozen scPlantLLM encoder" in contract
-    assert "not a full fine-tuning head-to-head" in contract
+    assert "frozen and partial-adaptation" in contract
+    assert "not a full-backbone or compute-matched ranking" in contract
 
 
 def test_v6_renderer_uses_only_the_frozen_evidence_records() -> None:

@@ -2,7 +2,30 @@
 
 Plant-CellFM is the general-plant branch of SnowLotus-CellFM, a cross-species foundation model for plant single-cell and single-nucleus expression data. The model is not restricted to *Saussurea involucrata* (Snow Lotus): Snow Lotus is a target-species adapter and application scenario within a broader plant model.
 
-## Current v5 Evidence-First Submission Package
+## Current v6 Evidence-First Submission Package
+
+The reviewer-facing package is the evidence-first v6 release on [`agent/remote-pipeline-20260728`](https://github.com/ahvsjags/SnowLotus-CellFM/tree/agent/remote-pipeline-20260728). It keeps strict transfer, target-labelled adaptation, label-free biological coherence and matched third-party references as different evidence tiers, with each headline result bound to its source data and evaluation protocol.
+
+- **English submission manuscript**: [`Plant_CellFM_v6_submission_evidence_manuscript.md`](manuscript/Plant_CellFM_v6_submission_evidence_manuscript.md).
+- **Five-figure visual narrative**: [`v6 main figures`](figures/plant_cellfm_submission_v6/main) plus [`Extended Data 7-8`](figures/plant_cellfm_submission_v6/extended_data), each with editable SVG/PDF, PNG preview, 600-dpi TIFF and panel-level TSV source data.
+- **Strict primary result**: nested leave-species v17 retains all 3,964 cells from eight held-out species and reports 39.96% all-cell accuracy, 55.90% source-label coverage, 71.48% covered-label accuracy and 0.2817 covered-label macro-F1. The 42.36% context-gate value is retained only as a global sensitivity analysis.
+- **Adaptation results**: support/query-separated adaptation reaches 75.89% mean all-cell query accuracy at 64 labelled support cells; a provenance-controlled wheat adapter reaches 62.25% accuracy and 0.6660 macro-F1 on a locked 1,433-cell same-study test after removal of 224 overlapping barcodes.
+- **Matched official third-party reference**: an official scPlantLLM checkpoint is evaluated on the same GSE270342 prepared object, first-target mapping and locked 1,433-cell test. Frozen centroid readout reaches 0.2107 accuracy / 0.2001 macro-F1; final-block-plus-new-head partial adaptation reaches 0.3426 / 0.2998 and is independently replayed. This is a matched partial-adaptation reference, not full-backbone fine-tuning or a compute-matched ranking.
+- **Evidence and production record**: [`v6 evidence ledger`](release_metadata/plant_cellfm_v6_submission_evidence_ledger.md), [`figure contract`](release_metadata/plant_cellfm_v6_top_journal_figure_contract.md), [`top-journal convergence plan`](release_metadata/plant_cellfm_top_journal_convergence_plan_v1.md), [`technical audit`](release_metadata/top_journal_figure_audit_v6.md), [`partial-adapter replay audit`](release_metadata/scplantllm_gse270342_partial_finetune_audit_v1.json), and [`Tables S1-S23`](supplementary_tables/submission_v4).
+
+Run the v6 evidence package with:
+
+```bash
+python scripts/run_scplantllm_gse270342_matched_baseline.py
+python scripts/run_scplantllm_gse270342_partial_finetune.py
+python scripts/audit_scplantllm_gse270342_partial_finetune.py
+python scripts/render_v6_editorial_core_figures.py
+python scripts/render_v6_extended_evidence_figures.py
+python scripts/audit_v6_submission_figure_suite.py
+pytest -q
+```
+
+## Archived v5 Evidence-First Submission Package
 
 The current reviewer-facing package is the evidence-first v5 release on [`agent/remote-pipeline-20260728`](https://github.com/ahvsjags/SnowLotus-CellFM/tree/agent/remote-pipeline-20260728). It supersedes the v9 narrative below for manuscript, figure and benchmark claims, and keeps strict transfer, target-species adaptation, deployment and label-free external execution as separate evidence tiers.
 

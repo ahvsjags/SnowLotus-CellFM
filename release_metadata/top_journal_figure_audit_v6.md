@@ -13,11 +13,11 @@
 | plant_cellfm_v6_fig4_external_root_evidence | pass | 4 | True | 5.00 | 4332x3366 |
 | plant_cellfm_v6_fig5_wheat_adapter | pass | 10 | True | 5.00 | 4365x3850 |
 | plant_cellfm_v6_ed_fig7_zero_target_transfer | pass | 5 | True | 5.00 | 4430x2913 |
-| plant_cellfm_v6_ed_fig8_scplantllm_matched_reference | pass | 4 | True | 5.00 | 4379x3021 |
+| plant_cellfm_v6_ed_fig8_scplantllm_matched_reference | pass | 7 | True | 5.00 | 4472x3060 |
 
 ## Evidence Still Open
 
-- Fine-tuned matched scPlantLLM and a runnable scPlantAnnotate comparison remain open; the present scPlantLLM page is a frozen encoder plus centroid reference, not a full head-to-head ranking.
+- The matched scPlantLLM partial adaptation closes the frozen-reference gap, but full-backbone or compute-budget-matched scPlantLLM and a runnable scPlantAnnotate comparison remain open.
 - The label-free external-root execution has no expert ground truth and no wet-lab validation; it remains a fixed-marker coherence case.
 - The strict leave-species score is a transparent primary benchmark, but is not yet sufficient to claim universal high-accuracy plant annotation.
 

@@ -19,7 +19,7 @@ This ledger separates the evidence that can be displayed as a main conclusion fr
 | Asset | What it resolves | What it does not resolve |
 | --- | --- | --- |
 | Extended Data 7 and Table S21 | Source-only Arabidopsis-to-wheat three-state transfer. The frozen root checkpoint reaches macro-F1 0.4231 while the GSE270140 source adapter reaches 0.4036 under k=9, so the adapter is not promoted. | It is not strict leave-species replacement, independent external validation or third-party comparison. |
-| Extended Data 8 and Table S22 | A matched GSE270342 scPlantLLM frozen-encoder reference with the same prepared object, author first-target mapping and exact 1,433-cell locked test. Frozen encoder plus train-only centroid readout reaches 0.2107 accuracy and 0.2001 macro-F1. | It is not scPlantLLM fine-tuning and cannot support a full model-ranking claim. |
+| Extended Data 8 and Tables S22-S23 | Matched GSE270342 scPlantLLM references with the same prepared object, author first-target mapping and exact 1,433-cell locked test. Frozen encoder plus train-only centroid readout reaches 0.2107 accuracy and 0.2001 macro-F1; final-block-plus-new-head partial adaptation reaches 0.3426 accuracy and 0.2998 macro-F1 after validation-only epoch selection. | The adapted run leaves the first five transformer blocks frozen and is not full-backbone fine-tuning or a compute-matched universal model-ranking claim. |
 | Extended Data 1-6 and Tables S1-S20 | Identity, nested-selection, historical checkpoint, marker, label-free root and secondary-root adaptation audits. | These do not replace an independent multi-study ground-truth benchmark. |
 
 ## Reproducibility Assets
@@ -32,7 +32,7 @@ This ledger separates the evidence that can be displayed as a main conclusion fr
 
 ## Evidence Still Needed for a Stronger Revision
 
-1. A fine-tuned, same-input scPlantLLM comparison and an executable scPlantAnnotate benchmark under a shared label/open-set protocol.
+1. A full-backbone or compute-budget-matched scPlantLLM comparison and an executable scPlantAnnotate benchmark under a shared label/open-set protocol.
 2. At least one independently labelled multi-species external cohort, ideally accompanied by orthogonal biological validation for a selected root or stress trajectory.
 3. A strict leave-species improvement that survives the retained open-set denominator and improves macro-F1, not only accuracy on a filtered label subset.
 

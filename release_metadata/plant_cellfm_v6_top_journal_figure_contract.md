@@ -114,10 +114,11 @@ The v6 composition follows the page-level pattern used in current high-impact fo
 | Extended Data 5 | Full 13-state label-free external-root audit. |
 | Extended Data 6 | GSE270140 secondary-root supervised adapter and its full 14-class locked test. |
 | Extended Data 7 | Source-only Arabidopsis-to-wheat three-state transfer audit, including the negative source-adapter result. |
-| Extended Data 8 | Matched GSE270342 frozen scPlantLLM encoder plus train-only centroid readout reference; explicitly not a full fine-tuning head-to-head. |
+| Extended Data 8 | Matched GSE270342 scPlantLLM frozen and partial-adaptation references on the identical locked test; explicitly not a full-backbone or compute-matched ranking. |
 | Table S1–S20 | Existing corpus, ontology, split, adapter and per-class contracts. |
 | Table S21 | GSE270140-to-GSE270342 zero-target-label transfer results, retaining all tested kNN decoders. |
 | Table S22 | Per-class results for the matched GSE270342 frozen scPlantLLM representation reference. |
+| Table S23 | Per-class results for the matched GSE270342 scPlantLLM final-block-plus-head partial adaptation reference. |
 
 ## Visual System
 

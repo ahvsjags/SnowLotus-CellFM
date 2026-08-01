@@ -1,0 +1,159 @@
+{
+  "schema_version": "plant_cellfm_scplantllm_gse270342_partial_finetune_v1",
+  "status": "COMPLETED_MATCHED_PARTIAL_BACKBONE_ADAPTATION",
+  "claim_boundary": "This is a matched-data partial scPlantLLM adaptation baseline on the GSE270342 wheat stress test. It uses the same author object, first-target orthogroup mapping and exact released Plant-CellFM locked test barcodes. Only the final scPlantLLM transformer block and a new 13-class head are trainable; all earlier backbone layers stay frozen. It is an adaptation reference, not a strict leave-species result, independent external validation or full-backbone fine-tuning reproduction.",
+  "input_contract": {
+    "dataset": "GSE270342",
+    "species": "Triticum aestivum",
+    "prepared_cells": 7164,
+    "prepared_genes": 78115,
+    "author_label_key": "expert_annotation_raw",
+    "orthology": {
+      "author_relationships": 96339,
+      "first_target_source_genes": 43335,
+      "scplantllm_target_vocab": 185622,
+      "mapping_mode": "author_orthogroups_first_target_then_scplantllm_vocabulary_intersection"
+    },
+    "scplantllm_tokenization": {
+      "sequence_length": 1500,
+      "selected_nonpadding_tokens_when_available": 1125,
+      "selection": "deterministic seeded 75% nonzero-token selection",
+      "value_handling": "raw collapsed UMI counts rounded and clipped to [0, 100]"
+    }
+  },
+  "split_contract": {
+    "strategy": "GroupShuffleSplit over unique cell_id values, seed 20260801 then seed+1 for validation",
+    "train_cells": 5014,
+    "validation_cells": 717,
+    "locked_test_cells": 1433,
+    "locked_test_barcode_match_to_plantcellm": true,
+    "debug_limits": {
+      "train": null,
+      "validation": null,
+      "test": null
+    }
+  },
+  "model": {
+    "official_checkpoint": "external/scPlantLLM/model_params/scPlantLLM_model.pth",
+    "checkpoint_sha256": "baa24dc1e686b94aa08e7e7b08df17e1bb53e479416acf7f50cd032b0fabf416",
+    "checkpoint_load": {
+      "missing_keys": 0,
+      "unexpected_keys": 0,
+      "conversion": {
+        "converted_wqkv_weight_count": 6,
+        "converted_wqkv_bias_count": 6,
+        "skipped_key_count": 10,
+        "skipped_key_prefixes": [
+          "grad_reverse_discriminator."
+        ]
+      }
+    },
+    "shape": {
+      "ntoken": 185622,
+      "d_model": 512,
+      "nhead": 8,
+      "d_hid": 512,
+      "nlayers": 6,
+      "nlayers_cls": 3,
+      "n_cls": 44,
+      "n_input_bins": 103,
+      "pad_token_id": 0,
+      "value_pad_index": 101,
+      "cls_token_id": 185621
+    },
+    "adaptation": {
+      "mode": "new_13_class_head_plus_final_transformer_block",
+      "trainable_final_transformer_layer": 5,
+      "trainable_backbone_parameter_names": [
+        "transformer_encoder.layers.5.self_attn.in_proj_weight",
+        "transformer_encoder.layers.5.self_attn.in_proj_bias",
+        "transformer_encoder.layers.5.self_attn.out_proj.weight",
+        "transformer_encoder.layers.5.self_attn.out_proj.bias",
+        "transformer_encoder.layers.5.linear1.weight",
+        "transformer_encoder.layers.5.linear1.bias",
+        "transformer_encoder.layers.5.linear2.weight",
+        "transformer_encoder.layers.5.linear2.bias",
+        "transformer_encoder.layers.5.norm1.weight",
+        "transformer_encoder.layers.5.norm1.bias",
+        "transformer_encoder.layers.5.norm2.weight",
+        "transformer_encoder.layers.5.norm2.bias"
+      ],
+      "trainable_parameter_count": 1585677,
+      "frozen_backbone_layers": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  "selection": {
+    "metric": "validation_macro_f1",
+    "best_epoch": 4,
+    "best_validation_macro_f1": 0.3253858797278509,
+    "epochs_considered": 8
+  },
+  "execution": {
+    "device": "cuda",
+    "batch_size": 8,
+    "epochs": 8,
+    "elapsed_seconds": 380.1158625999815,
+    "peak_cuda_memory_mb": 759.0908203125,
+    "train_sequence_stats": {
+      "cells": 5014,
+      "min_tokens": 358,
+      "median_tokens": 1125.0,
+      "max_tokens": 1125,
+      "capped_cells": 4220,
+      "sequence_length": 1500,
+      "max_nonpadding_tokens": 1125
+    },
+    "validation_sequence_stats": {
+      "cells": 717,
+      "min_tokens": 385,
+      "median_tokens": 1125.0,
+      "max_tokens": 1125,
+      "capped_cells": 598,
+      "sequence_length": 1500,
+      "max_nonpadding_tokens": 1125
+    },
+    "test_sequence_stats": {
+      "cells": 1433,
+      "min_tokens": 367,
+      "median_tokens": 1125.0,
+      "max_tokens": 1125,
+      "capped_cells": 1183,
+      "sequence_length": 1500,
+      "max_nonpadding_tokens": 1125
+    }
+  },
+  "locked_test": {
+    "accuracy": 0.34263782274947663,
+    "macro_f1": 0.2997591328009322,
+    "weighted_f1": 0.32989895535872465,
+    "class_count": 13,
+    "class_counts": {
+      "Epidermis": 274,
+      "Endodermis/Phloem": 43,
+      "Cortex": 127,
+      "Provascular cells": 128,
+      "Endodermis": 75,
+      "Unknown": 310,
+      "Root Hair": 87,
+      "Meristems": 139,
+      "Dividing Cells": 52,
+      "Xylem": 47,
+      "Pericycle": 107,
+      "Phloem": 26,
+      "Root Cap": 18
+    }
+  },
+  "artifacts": {
+    "adapter_checkpoint": "outputs/external_benchmarks/scplantllm_gse270342_partial_finetune/best_partial_adapter.pt",
+    "adapter_checkpoint_sha256": "e11e52ef9cfbae024203134cdbfb5c64f45e602d9f0d1528c17d672d15e3755e",
+    "validation_history": "outputs/external_benchmarks/scplantllm_gse270342_partial_finetune/validation_history.tsv",
+    "locked_test_predictions": "outputs/external_benchmarks/scplantllm_gse270342_partial_finetune/locked_test_predictions.tsv",
+    "locked_test_per_class": "outputs/external_benchmarks/scplantllm_gse270342_partial_finetune/locked_test_per_class.tsv"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": "plant_cellfm_v6_figure_audit_v1",
-  "generated_utc": "2026-08-01T00:34:15.377718+00:00",
+  "generated_utc": "2026-08-01T00:53:39.676241+00:00",
   "state": "TECHNICALLY_READY_PENDING_EVIDENCE_COMPLETION",
   "technical_failures": [],
   "figures": {
@@ -160,8 +160,8 @@
       {
         "stem": "plant_cellfm_v6_ed_fig7_zero_target_transfer",
         "sha256": {
-          "svg": "b843f02668202173e75ead9cf8b38c07159081c75d3e745f5a37f4011595e505",
-          "pdf": "a4783e50d070d4f4fd547ce6c185d1f8307bcb1967220bb455c90bc06c102227",
+          "svg": "5d6ed3fb861ae79a8db21fc1b8285ad2e44cf475036363e45dd8cdc783e954f8",
+          "pdf": "ddb11ba0dd8d78aef0364057d2f268f8699b3f2df9b758ffa38307cb9fcb63e8",
           "png": "e7b5a5f3c8dc6bd031e72bd99f6eb0433ce26c9824d48e6b56d4b126efc3afe7",
           "tiff": "9fa14e58eeb7e6439122500c1b02b56e58a57a16742063a00adc30d07831836e"
         },
@@ -189,15 +189,18 @@
       {
         "stem": "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference",
         "sha256": {
-          "svg": "c7dcb7bc086533b61018eeafd3e6dc28a6c0bd74760c0e911ad4ecb8cb9c23bf",
-          "pdf": "f9d7e4e17441d48ba6aefb5744128f0de5be43ef4fd8de6340a1135ebf5bf73b",
-          "png": "2b75609d3b5ccbc4756703ec23de87f71efe2ae3243e0dad3c4bf0f716fbd819",
-          "tiff": "e81a001451305e8fec24e414d033d695cee479b7575aeb884d05a4f58461f68e"
+          "svg": "dd7edc8730bb86ee27baa8b8c9156e91169ccf203395c22f3076427d95d8ccbd",
+          "pdf": "6e61a3f7acfd7cc0708a189bea879d3fc336e7ad3cebd8940f125f288ea16479",
+          "png": "aa60d1c4725a0a45dbac7fafedb74eec6ddb1f472a3f9148f0e197a93d0d7025",
+          "tiff": "ddad9cf5088ca4a7e95619480d89377b1e2fc9c1b28ece45995198bcac4cadc6"
         },
         "missing_exports": [],
         "source_data_tables": [
           "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference_claim_boundary.tsv",
           "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference_headline_metrics.tsv",
+          "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference_matched_locked_test_comparison.tsv",
+          "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference_partial_replay_audit.tsv",
+          "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference_per_class_frozen_and_partial_metrics.tsv",
           "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference_per_class_locked_test_metrics.tsv",
           "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference_reference_contract.tsv"
         ],
@@ -205,8 +208,8 @@
         "minimum_svg_font_size_pt": 5.0,
         "raster": {
           "pixels": [
-            4379,
-            3021
+            4472,
+            3060
           ],
           "dpi": [
             600.0,
@@ -227,10 +230,13 @@
     "zero_target_frozen_k9_macro_f1": 0.4230552091778434,
     "zero_target_source_adapter_k9_macro_f1": 0.4035913021321366,
     "scplantllm_frozen_reference_accuracy": 0.2107466852756455,
-    "scplantllm_frozen_reference_macro_f1": 0.20006846967732808
+    "scplantllm_frozen_reference_macro_f1": 0.20006846967732808,
+    "scplantllm_partial_reference_accuracy": 0.34263782274947663,
+    "scplantllm_partial_reference_macro_f1": 0.2997591328009322,
+    "scplantllm_partial_best_validation_epoch": 4
   },
   "evidence_open_items": [
-    "Fine-tuned matched scPlantLLM and a runnable scPlantAnnotate comparison remain open; the present scPlantLLM page is a frozen encoder plus centroid reference, not a full head-to-head ranking.",
+    "The matched scPlantLLM partial adaptation closes the frozen-reference gap, but full-backbone or compute-budget-matched scPlantLLM and a runnable scPlantAnnotate comparison remain open.",
     "The label-free external-root execution has no expert ground truth and no wet-lab validation; it remains a fixed-marker coherence case.",
     "The strict leave-species score is a transparent primary benchmark, but is not yet sufficient to claim universal high-accuracy plant annotation."
   ],

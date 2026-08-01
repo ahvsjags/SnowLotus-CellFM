@@ -168,17 +168,33 @@ def render_ed7_zero_target_transfer() -> None:
 
 
 def render_ed8_scplantllm_reference() -> None:
-    record = json.loads((ROOT / "release_metadata" / "scplantllm_gse270342_matched_embedding_probe_v1.json").read_text(encoding="utf-8"))
-    table_path = ROOT / "supplementary_tables" / "submission_v4" / "Supplementary_Table_S22_scPlantLLM_GSE270342_matched_embedding_probe.tsv"
-    per_class = pd.read_csv(table_path, sep="\t")
-    if len(per_class) != 13 or int(per_class.support.sum()) != 1433:
-        raise ValueError("The matched scPlantLLM per-class table does not match its locked test contract.")
-    per_class = per_class.sort_values("f1", ascending=True, kind="mergesort").reset_index(drop=True)
-    metrics = record["metrics"]
-    split = record["split_contract"]
-    tokens = record["input_contract"]["scplantllm_tokenization"]
+    frozen = json.loads((ROOT / "release_metadata" / "scplantllm_gse270342_matched_embedding_probe_v1.json").read_text(encoding="utf-8"))
+    partial = json.loads((ROOT / "release_metadata" / "scplantllm_gse270342_partial_finetune_v1.json").read_text(encoding="utf-8"))
+    replay = json.loads((ROOT / "release_metadata" / "scplantllm_gse270342_partial_finetune_audit_v1.json").read_text(encoding="utf-8"))
+    wheat = json.loads((ROOT / "release_metadata" / "gse270342_wheat_lora_adapter_audit_v1.json").read_text(encoding="utf-8"))
+    frozen_table = ROOT / "supplementary_tables" / "submission_v4" / "Supplementary_Table_S22_scPlantLLM_GSE270342_matched_embedding_probe.tsv"
+    partial_table = ROOT / "supplementary_tables" / "submission_v4" / "Supplementary_Table_S23_scPlantLLM_GSE270342_partial_finetune.tsv"
+    frozen_per_class = pd.read_csv(frozen_table, sep="\t").rename(columns={"f1": "f1_frozen", "support": "support_frozen"})
+    partial_per_class = pd.read_csv(partial_table, sep="\t").rename(columns={"f1": "f1_partial", "support": "support_partial"})
+    per_class = frozen_per_class[["author_label", "f1_frozen", "support_frozen"]].merge(
+        partial_per_class[["author_label", "f1_partial", "support_partial"]], on="author_label", how="outer", validate="one_to_one"
+    )
+    if len(per_class) != 13 or int(per_class.support_frozen.sum()) != 1433 or int(per_class.support_partial.sum()) != 1433:
+        raise ValueError("The matched frozen or partial scPlantLLM tables do not match their locked test contract.")
+    if replay["state"] != "REPLAY_CONFIRMED":
+        raise ValueError("The partial scPlantLLM reference does not have a confirmed replay audit.")
+    per_class = per_class.sort_values("f1_partial", ascending=True, kind="mergesort").reset_index(drop=True)
+    split = partial["split_contract"]
+    tokens = partial["input_contract"]["scplantllm_tokenization"]
+    comparison = pd.DataFrame(
+        [
+            {"method": "scPlantLLM frozen centroid", "accuracy": frozen["metrics"]["accuracy"], "macro_f1": frozen["metrics"]["macro_f1"], "scope": "frozen encoder + train centroid", "colour": v6.GREY},
+            {"method": "scPlantLLM partial adaptation", "accuracy": partial["locked_test"]["accuracy"], "macro_f1": partial["locked_test"]["macro_f1"], "scope": "final block + new head", "colour": v6.PURPLE},
+            {"method": "Plant-CellFM wheat LoRA", "accuracy": wheat["locked_full_13_class_test"]["accuracy"], "macro_f1": wheat["locked_full_13_class_test"]["macro_f1"], "scope": "wheat-specific LoRA", "colour": v6.TEAL},
+        ]
+    )
 
-    fig = plt.figure(figsize=(7.25, 5.18))
+    fig = plt.figure(figsize=(7.25, 5.25))
     grid = fig.add_gridspec(2, 12, height_ratios=(0.80, 1.20), left=0.055, right=0.988, bottom=0.075, top=0.95, hspace=0.80, wspace=0.64)
     ax_a = fig.add_subplot(grid[0, :7])
     ax_b = fig.add_subplot(grid[0, 7:])
@@ -186,12 +202,12 @@ def render_ed8_scplantllm_reference() -> None:
     ax_d = fig.add_subplot(grid[1, 7:])
 
     ax_a.set_axis_off()
-    v6.panel(ax_a, "a", "A matched frozen scPlantLLM reference is now auditable", "Same GSE270342 object, first-target mapping and exact Plant-CellFM locked test barcodes")
+    v6.panel(ax_a, "a", "Matched scPlantLLM references now include partial adaptation", "Same GSE270342 object, first-target mapping and exact Plant-CellFM locked test barcodes")
     stages = [
         (0.02, "GSE270342", "7,164 prepared", v6.BLUE),
         (0.27, "orthogroup + vocab", "43,335 mapped", v6.ORANGE),
-        (0.52, "frozen encoder", "512-d embeddings", v6.PURPLE),
-        (0.77, "centroid readout", "train-only labels", v6.TEAL),
+        (0.52, "official backbone", "6 transformer blocks", v6.PURPLE),
+        (0.77, "adapter", "last block + 13-class head", v6.TEAL),
     ]
     for x, title, detail, color in stages:
         ax_a.add_patch(Rectangle((x, 0.35), 0.20, 0.35, transform=ax_a.transAxes, facecolor="#F5F8F8", edgecolor=color, linewidth=0.9))
@@ -200,36 +216,39 @@ def render_ed8_scplantllm_reference() -> None:
         ax_a.text(x + 0.10, 0.42, detail, transform=ax_a.transAxes, ha="center", va="center", fontsize=4.65, color=v6.MUTED)
     for left, right in zip(stages[:-1], stages[1:], strict=True):
         ax_a.add_patch(FancyArrowPatch((left[0] + 0.207, 0.52), (right[0] - 0.009, 0.52), transform=ax_a.transAxes, arrowstyle="-|>", mutation_scale=8, lw=0.75, color=v6.MUTED))
-    ax_a.text(0.50, 0.095, "No scPlantLLM fine-tuning occurs; this is a frozen representation readout only.", transform=ax_a.transAxes, ha="center", fontsize=4.85, color=v6.RED, fontweight="bold")
+    ax_a.text(0.50, 0.095, "Partial adaptation leaves the first five transformer blocks frozen; best epoch is selected only by validation macro-F1.", transform=ax_a.transAxes, ha="center", fontsize=4.75, color=v6.RED, fontweight="bold")
 
-    ax_b.set_axis_off()
-    v6.panel(ax_b, "b", "Locked-test reference metrics", "1,433 cells; labels used only to train the centroid on 5,014 training cells")
-    metric_rows = [("accuracy", metrics["accuracy"], v6.TEAL), ("macro-F1", metrics["macro_f1"], v6.PURPLE), ("weighted F1", metrics["weighted_f1"], v6.BLUE)]
-    for index, (label, value, color) in enumerate(metric_rows):
-        y0 = 0.70 - index * 0.22
-        ax_b.plot([0.02, 0.13], [y0, y0], transform=ax_b.transAxes, color=color, lw=3.0, solid_capstyle="round")
-        ax_b.text(0.18, y0 + 0.015, label, transform=ax_b.transAxes, fontsize=5.15, color=v6.MUTED)
-        ax_b.text(0.18, y0 - 0.075, f"{value:.4f}", transform=ax_b.transAxes, fontsize=6.6, color=v6.INK, fontweight="bold")
-    ax_b.text(0.02, 0.035, "Checkpoint: 0 missing keys / 0 unexpected keys", transform=ax_b.transAxes, fontsize=4.65, color=v6.MUTED)
+    y = np.arange(len(comparison))
+    ax_b.hlines(y, comparison.macro_f1, comparison.accuracy, color="#D7E2E6", lw=2.5, zorder=1)
+    ax_b.scatter(comparison.macro_f1, y, marker="s", s=44, color=comparison.colour.tolist(), edgecolor="white", linewidth=0.55, zorder=3)
+    ax_b.scatter(comparison.accuracy, y, s=48, color=comparison.colour.tolist(), edgecolor="white", linewidth=0.55, zorder=4)
+    for index, row in comparison.iterrows():
+        ax_b.text(max(float(row.accuracy), float(row.macro_f1)) + 0.018, index, f"{row.macro_f1:.3f} / {row.accuracy:.3f}", va="center", fontsize=4.75, color=v6.INK)
+    # Keep the method names compact here: panel a carries the full adaptation
+    # contract, while short labels preserve a clean boundary between panels.
+    ax_b.set(yticks=y, yticklabels=["frozen", "partial", "Plant-CellFM"], xlim=(0.14, 0.74), xlabel="square: macro-F1 | circle: accuracy")
+    ax_b.tick_params(axis="y", labelsize=4.75, length=0)
+    v6.clean(ax_b, "x")
+    v6.panel(ax_b, "b", "One locked test, distinct adaptation scopes", "1,433 cells; values are macro-F1 / accuracy, not a compute-budget-matched ranking")
 
     y = np.arange(len(per_class))
-    colours = [v6.TEAL if value >= 0.25 else v6.ORANGE for value in per_class.f1]
-    ax_c.hlines(y, 0, per_class.f1, color=v6.LIGHT_GREY, lw=2.5, zorder=1)
-    ax_c.scatter(per_class.f1, y, s=20 + per_class.support.to_numpy() / 10, color=colours, edgecolor="white", linewidth=0.5, zorder=3)
+    ax_c.hlines(y, per_class.f1_frozen, per_class.f1_partial, color="#D7E2E6", lw=2.4, zorder=1)
+    ax_c.scatter(per_class.f1_frozen, y, marker="s", s=30, color=v6.GREY, edgecolor="white", linewidth=0.45, zorder=3)
+    ax_c.scatter(per_class.f1_partial, y, s=22 + per_class.support_partial.to_numpy() / 10, color=v6.PURPLE, edgecolor="white", linewidth=0.5, zorder=4)
     for index, row in per_class.iterrows():
-        ax_c.text(min(float(row.f1) + 0.014, 0.49), index, f"{row.f1:.2f}", va="center", fontsize=4.75, color=v6.INK)
-    ax_c.set(yticks=y, yticklabels=[v6.compact_author_label(value) for value in per_class.author_label], xlim=(0, 0.52), xlabel="frozen scPlantLLM centroid-readout F1")
+        ax_c.text(min(max(float(row.f1_frozen), float(row.f1_partial)) + 0.014, 0.87), index, f"{row.f1_frozen:.2f} / {row.f1_partial:.2f}", va="center", fontsize=4.55, color=v6.INK)
+    ax_c.set(yticks=y, yticklabels=[v6.compact_author_label(value) for value in per_class.author_label], xlim=(-0.02, 0.90), xlabel="square: frozen centroid F1 | circle: partial-adapter F1")
     ax_c.tick_params(axis="y", labelsize=4.75, length=0, pad=1.0)
     v6.clean(ax_c, "x")
-    v6.panel(ax_c, "c", "Per-class behaviour remains visible rather than summarized by one score", "Point area is locked-test support; all 13 author labels are retained")
+    v6.panel(ax_c, "c", "The partial adapter changes per-class behaviour visibly", "Grey / violet labels show frozen / partial F1; point area is locked-test support")
 
     ax_d.set_axis_off()
-    v6.panel(ax_d, "d", "Comparator boundary", "This closes a matched frozen-reference gap, not the full head-to-head question")
+    v6.panel(ax_d, "d", "Comparator boundary", "A matched adaptation reference, not a universal ranking")
     boundaries = [
         ("shared", "object, mapping and locked test", v6.BLUE),
         ("official", "431 MB official checkpoint", v6.PURPLE),
-        ("readout", "centroids fit on train only", v6.TEAL),
-        ("not claimed", "fine-tuning superiority", v6.RED),
+        ("partial", "final block + new head only", v6.TEAL),
+        ("not claimed", "full-backbone or compute-matched rank", v6.RED),
     ]
     for index, (label, detail, color) in enumerate(boundaries):
         y0 = 0.78 - index * 0.20
@@ -239,8 +258,8 @@ def render_ed8_scplantllm_reference() -> None:
 
     contracts = pd.DataFrame(
         [
-            {"field": "prepared_cells", "value": record["input_contract"]["prepared_cells"]},
-            {"field": "mapped_source_genes", "value": record["input_contract"]["orthology"]["first_target_source_genes"]},
+            {"field": "prepared_cells", "value": partial["input_contract"]["prepared_cells"]},
+            {"field": "mapped_source_genes", "value": partial["input_contract"]["orthology"]["first_target_source_genes"]},
             {"field": "train_cells", "value": split["train_cells"]},
             {"field": "validation_cells", "value": split["validation_cells"]},
             {"field": "locked_test_cells", "value": split["locked_test_cells"]},
@@ -251,9 +270,10 @@ def render_ed8_scplantllm_reference() -> None:
         fig,
         "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference",
         {
-            "per_class_locked_test_metrics": per_class,
+            "per_class_frozen_and_partial_metrics": per_class,
             "reference_contract": contracts,
-            "headline_metrics": pd.DataFrame(metric_rows, columns=["metric", "value", "colour_role"]),
+            "matched_locked_test_comparison": comparison.drop(columns="colour"),
+            "partial_replay_audit": pd.DataFrame([replay["replay"]]),
             "claim_boundary": pd.DataFrame(boundaries, columns=["scope_field", "value", "colour_role"]),
         },
     )
