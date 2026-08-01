@@ -2,16 +2,17 @@
 
 Plant-CellFM is the general-plant branch of SnowLotus-CellFM, a cross-species foundation model for plant single-cell and single-nucleus expression data. The model is not restricted to *Saussurea involucrata* (Snow Lotus): Snow Lotus is a target-species adapter and application scenario within a broader plant model.
 
-## Current v6 Evidence-First Submission Package
+## Current v7 Evidence-First Submission Package
 
-The reviewer-facing package is the evidence-first v6 release on [`agent/remote-pipeline-20260728`](https://github.com/ahvsjags/SnowLotus-CellFM/tree/agent/remote-pipeline-20260728). It keeps strict transfer, target-labelled adaptation, label-free biological coherence and matched third-party references as different evidence tiers, with each headline result bound to its source data and evaluation protocol.
+The reviewer-facing package is the evidence-first v7 release on [`agent/remote-pipeline-20260728`](https://github.com/ahvsjags/SnowLotus-CellFM/tree/agent/remote-pipeline-20260728). It keeps strict transfer, frozen external screening, target-labelled adaptation, label-free biological coherence and matched third-party references as different evidence tiers, with each headline result bound to its source data and evaluation protocol.
 
-- **English submission manuscript**: [source Markdown](manuscript/Plant_CellFM_v6_submission_evidence_manuscript.md), [validated Word document](manuscript/Plant_CellFM_v6_submission_evidence_manuscript.docx) and [PDF preview](manuscript/Plant_CellFM_v6_submission_evidence_manuscript.pdf).
-- **Five-figure visual narrative**: [`v6 main figures`](figures/plant_cellfm_submission_v6/main) plus [`Extended Data 7-8`](figures/plant_cellfm_submission_v6/extended_data), each with editable SVG/PDF, PNG preview, 600-dpi TIFF and panel-level TSV source data.
+- **English submission manuscript**: [source Markdown](manuscript/Plant_CellFM_v7_submission_evidence_manuscript.md), [validated Word document](manuscript/Plant_CellFM_v7_submission_evidence_manuscript.docx) and [PDF preview](manuscript/Plant_CellFM_v7_submission_evidence_manuscript.pdf).
+- **Five-figure visual narrative**: [`v6 core figures`](figures/plant_cellfm_submission_v6/main), [`v6 Extended Data 7-8`](figures/plant_cellfm_submission_v6/extended_data) and the new [`v7 Sorghum external-adaptation figure`](figures/plant_cellfm_submission_v7/main), each with editable SVG/PDF, PNG preview, 600-dpi TIFF and panel-level TSV source data.
 - **Strict primary result**: nested leave-species v17 retains all 3,964 cells from eight held-out species and reports 39.96% all-cell accuracy, 55.90% source-label coverage, 71.48% covered-label accuracy and 0.2817 covered-label macro-F1. The 42.36% context-gate value is retained only as a global sensitivity analysis.
 - **Adaptation results**: support/query-separated adaptation reaches 75.89% mean all-cell query accuracy at 64 labelled support cells; a provenance-controlled wheat adapter reaches 62.25% accuracy and 0.6660 macro-F1 on a locked 1,433-cell same-study test after removal of 224 overlapping barcodes.
-- **Matched official third-party reference**: an official scPlantLLM checkpoint is evaluated on the same GSE270342 prepared object, first-target mapping and locked 1,433-cell test. Frozen centroid readout reaches 0.2107 accuracy / 0.2001 macro-F1; final-block-plus-new-head partial adaptation reaches 0.3426 / 0.2998 and is independently replayed. This is a matched partial-adaptation reference, not full-backbone fine-tuning or a compute-matched ranking.
-- **Evidence and production record**: [`v6 evidence ledger`](release_metadata/plant_cellfm_v6_submission_evidence_ledger.md), [`figure contract`](release_metadata/plant_cellfm_v6_top_journal_figure_contract.md), [`top-journal convergence plan`](release_metadata/plant_cellfm_top_journal_convergence_plan_v1.md), [`technical audit`](release_metadata/top_journal_figure_audit_v6.md), [`partial-adapter replay audit`](release_metadata/scplantllm_gse270342_partial_finetune_audit_v1.json), and [`Tables S1-S23`](supplementary_tables/submission_v4).
+- **External screen and sealed-library adaptation**: a source-pinned, author-labelled *Sorghum bicolor* root atlas (GSE297576; 19,316 cells) is absent from the frozen five-species corpus. Frozen zero-shot inference, run without author labels, reaches 14.56% accuracy and 0.1083 macro-F1 across 14,909 predeclared comparable cells while returning `Unknow` for 63.39%. A rank-8 LoRA adapter trained on two libraries, selected on a third and evaluated once on the sealed fourth library reaches 76.02% 27-state accuracy and 0.7535 macro-F1 across 4,150 cells; on the same 3,549 comparable test cells, broad-identity accuracy rises from 14.79% to 84.98%. This is target-species adaptation, not a replacement for strict zero-shot transfer or an external-model ranking.
+- **Matched official third-party reference**: an official scPlantLLM checkpoint is evaluated on the same GSE270342 prepared object, first-target mapping and locked 1,433-cell test. Frozen centroid readout reaches 0.2107 accuracy / 0.2001 macro-F1; final-block-plus-new-head partial adaptation reaches 0.3426 / 0.2998; full-backbone-plus-new-head adaptation reaches 0.4501 / 0.4588. Both adapted prediction records replay exactly. This is a same-study adaptation reference, not independent validation, a strict transfer result or a compute-matched ranking.
+- **Evidence and production record**: [`v6 evidence ledger`](release_metadata/plant_cellfm_v6_submission_evidence_ledger.md), [`v7 visual argument contract`](release_metadata/plant_cellfm_v7_visual_argument_contract.md), [`Sorghum frozen audit`](release_metadata/gse297576_bicolor_root_frozen_external_audit_v1.md), [`Sorghum adapter audit`](release_metadata/gse297576_sorghum_root_lora_adapter_audit_v1.md), [`v7 figure audit`](release_metadata/plant_cellfm_v7_sorghum_figure_audit.md), [`full-adapter replay audit`](release_metadata/scplantllm_gse270342_full_finetune_audit_v1.json), and [`Tables S1-S27`](supplementary_tables/submission_v4/Plant_CellFM_Supplementary_Tables_v7.xlsx).
 
 Run the v6 evidence package with:
 
@@ -19,6 +20,19 @@ Run the v6 evidence package with:
 python scripts/run_scplantllm_gse270342_matched_baseline.py
 python scripts/run_scplantllm_gse270342_partial_finetune.py
 python scripts/audit_scplantllm_gse270342_partial_finetune.py
+python scripts/run_scplantllm_gse270342_full_finetune.py --publish
+python scripts/audit_scplantllm_gse270342_full_finetune.py
+python scripts/prepare_gse297576_bicolor_root_external.py --overwrite
+python scripts/build_gse297576_sorghum_arabidopsis_ortholog_map.py
+python -m snowcell.cli annotate-bundle --checkpoint models/SnowLotus_CellFM_SRP169576_annotation_1024_best.pt --data outputs/external_validation/gse297576_bicolor_root/GSE297576_bicolor_root_author_atlas.h5ad --output-dir outputs/external_validation/gse297576_bicolor_root/plantcellfm_frozen_bundle --ortholog-map data/orthologs/gse297576_sorghum_to_arabidopsis_author_orthogroups.tsv --ortholog-aggregation first --batch-size 64 --device cuda
+python scripts/audit_gse297576_bicolor_root_external.py
+python -m snowcell.cli train --config configs/gse297576_sorghum_root_lora_adapter_4070.yaml --device cuda
+python scripts/evaluate_checkpoint_detailed.py --config configs/gse297576_sorghum_root_lora_adapter_4070.yaml --checkpoint outputs/gse297576_sorghum_root_lora_adapter_4070_oughw_holdout/best.pt --split test --output-dir outputs/gse297576_sorghum_root_lora_adapter_4070_oughw_holdout/detailed_test --device cuda --batch-size 16
+python scripts/promote_gse297576_sorghum_adapter.py
+python scripts/audit_gse297576_sorghum_root_adapter.py
+python scripts/render_v7_sorghum_external_adaptation_figure.py
+python scripts/audit_v7_sorghum_external_figure.py
+python scripts/build_v7_supplementary_tables.py
 python scripts/render_v6_editorial_core_figures.py
 python scripts/render_v6_extended_evidence_figures.py
 python scripts/audit_v6_submission_figure_suite.py

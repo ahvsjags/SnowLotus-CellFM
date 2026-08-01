@@ -23,10 +23,12 @@ dependencies = [
 singlecell = [
   "anndata>=0.10",
   "h5py>=3.10",
+  "rdata>=1.0",
 ]
 pipeline = [
   "anndata>=0.10",
   "h5py>=3.10",
+  "rdata>=1.0",
   "tqdm>=4.66",
 ]
 dev = [

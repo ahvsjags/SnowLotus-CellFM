@@ -1,0 +1,139 @@
+{
+  "schema_version": "plant_cellfm_gse297576_sorghum_root_lora_adapter_audit_v1",
+  "status": "COMPLETED_LOCKED_LIBRARY_SPECIES_ADAPTATION",
+  "case_role": "Author-label-supervised Sorghum bicolor root adaptation with a sealed library-level test set.",
+  "claim_boundary": "A within-atlas, library-held-out target-species adaptation result. It is not a zero-shot external metric, not leave-species evidence, not wet-lab validation and not a third-party comparison.",
+  "source": {
+    "series_accession": "GSE297576",
+    "species": "Sorghum bicolor",
+    "tissue": "root",
+    "author_label_states": 27,
+    "source_cells": 19316,
+    "frozen_external_audit": "release_metadata/gse297576_bicolor_root_frozen_external_audit_v1.json",
+    "frozen_external_species_absent_from_profile": true
+  },
+  "protocol": {
+    "config": "configs/gse297576_sorghum_root_lora_adapter_4070.yaml",
+    "config_sha256": "c53d62fa51d9af812175de2edb56aa0d0713fec01e2adb35ed918bb163319406",
+    "base_checkpoint": "models/SnowLotus_CellFM_SRP169576_annotation_1024_best.pt",
+    "adapter_checkpoint": "models/Plant_CellFM_GSE297576_sorghum_root_lora_adapter_oughw_holdout_best.pt",
+    "adapter_checkpoint_sha256": "f6f3da3dbfb9eda48973c041fc07fa019b6f03229ae57f072afc054d8a52755f",
+    "audited_training_checkpoint": "outputs/gse297576_sorghum_root_lora_adapter_4070_oughw_holdout/best.pt",
+    "tuning_mode": "lora",
+    "lora_rank": 8,
+    "parameter_report": {
+      "total": 6510124,
+      "trainable": 3028523,
+      "trainable_fraction": 0.4652020453066639
+    },
+    "split": {
+      "strategy": "explicit_leaveout",
+      "leaveout_key": "library",
+      "leaveout_test_values": [
+        "OUGHW"
+      ],
+      "leaveout_validation_values": [
+        "OWGSB"
+      ],
+      "train_cells": 13620,
+      "validation_cells": 1546,
+      "test_cells": 4150,
+      "train_groups": [
+        "OUGHX",
+        "OWGSC"
+      ],
+      "validation_groups": [
+        "OWGSB"
+      ],
+      "test_groups": [
+        "OUGHW"
+      ],
+      "train_leaveout_values": [
+        "OUGHX",
+        "OWGSC"
+      ],
+      "validation_leaveout_values": [
+        "OWGSB"
+      ],
+      "test_leaveout_values": [
+        "OUGHW"
+      ]
+    },
+    "hardware": "NVIDIA GeForce RTX 4070 Laptop GPU (CUDA)"
+  },
+  "selection": {
+    "selection_metric": "validation fine macro-F1",
+    "best_epoch": 10,
+    "validation_fine_macro_f1": 0.7864037333659146,
+    "test_labels_used_for_selection": false
+  },
+  "sealed_library_test": {
+    "training_evaluator": {
+      "coarse_accuracy": 0.8286746987951807,
+      "coarse_macro_f1": 0.7941637712625946,
+      "eval_batches": 260.0,
+      "eval_coarse_loss": 0.7597737861367372,
+      "eval_fine_loss": 0.9953043724481876,
+      "eval_hierarchy_loss": 0.5674415331190595,
+      "eval_loss": 1.2419919709746654,
+      "fine_accuracy": 0.76,
+      "fine_macro_f1": 0.754141380257876
+    },
+    "full_precision_detailed_recheck": {
+      "cells": 4150,
+      "fine_accuracy": 0.7602409638554217,
+      "fine_macro_f1": 0.7534856286687621,
+      "fine_weighted_f1": 0.7622603886083474,
+      "coarse_accuracy": 0.8281927710843373,
+      "coarse_macro_f1": 0.7935411037407211
+    }
+  },
+  "matched_broad_identity_recovery_on_sealed_test_library": {
+    "evaluation_definition": "On the same sealed test-library cells, keep all author labels with a predeclared broad frozen-root counterpart. Map adapted raw labels and frozen predictions through the same ontology; an adapter prediction to a non-comparable state counts as an error.",
+    "frozen_root_head": {
+      "cells": 3549,
+      "coverage_of_sealed_test_library": 0.8551807228915662,
+      "accuracy": 0.14792899408284024,
+      "macro_f1": 0.12183428514167423,
+      "weighted_f1": 0.1639983572968582,
+      "labels": [
+        "Columella root cap",
+        "Lateral root cap",
+        "Non-hair",
+        "Phloem",
+        "Root cortex",
+        "Root endodermis",
+        "Root hair",
+        "Root stele",
+        "S phase",
+        "Xylem"
+      ]
+    },
+    "sorghum_lora_adapter": {
+      "cells": 3549,
+      "coverage_of_sealed_test_library": 0.8551807228915662,
+      "accuracy": 0.8498168498168498,
+      "macro_f1": 0.8361953440297466,
+      "weighted_f1": 0.864013086610599,
+      "labels": [
+        "Columella root cap",
+        "Lateral root cap",
+        "Non-hair",
+        "Phloem",
+        "Root cortex",
+        "Root endodermis",
+        "Root hair",
+        "Root stele",
+        "S phase",
+        "Xylem"
+      ]
+    },
+    "absolute_accuracy_gain": 0.7018878557340096,
+    "absolute_macro_f1_gain": 0.7143610588880723
+  },
+  "artifacts": {
+    "detailed_test": "outputs/gse297576_sorghum_root_lora_adapter_4070_oughw_holdout/detailed_test/detailed_metrics.json",
+    "per_class_table": "supplementary_tables/submission_v4/Supplementary_Table_S26_GSE297576_sorghum_adapter_per_class.tsv",
+    "matched_recovery_table": "supplementary_tables/submission_v4/Supplementary_Table_S27_GSE297576_sorghum_adapter_matched_recovery.tsv"
+  }
+}

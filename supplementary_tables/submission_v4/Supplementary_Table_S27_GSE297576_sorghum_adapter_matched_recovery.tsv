@@ -1,0 +1,3 @@
+method	cells	coverage_of_sealed_test_library	accuracy	macro_f1	weighted_f1	labels
+Frozen Plant-CellFM root head	3549	0.8551807228915662	0.14792899408284024	0.12183428514167423	0.1639983572968582	['Columella root cap', 'Lateral root cap', 'Non-hair', 'Phloem', 'Root cortex', 'Root endodermis', 'Root hair', 'Root stele', 'S phase', 'Xylem']
+Sorghum 27-state LoRA adapter	3549	0.8551807228915662	0.8498168498168498	0.8361953440297466	0.864013086610599	['Columella root cap', 'Lateral root cap', 'Non-hair', 'Phloem', 'Root cortex', 'Root endodermis', 'Root hair', 'Root stele', 'S phase', 'Xylem']

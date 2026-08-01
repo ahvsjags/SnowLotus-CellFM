@@ -1,0 +1,47 @@
+{
+  "schema_version": "plant_cellfm_scplantllm_gse270342_full_finetune_audit_v1",
+  "state": "REPLAY_CONFIRMED",
+  "claim_boundary": "This is a matched-data full-backbone scPlantLLM adaptation baseline on the GSE270342 wheat stress test. It uses the same author object, first-target orthogroup mapping and exact released Plant-CellFM locked test barcodes. Every scPlantLLM backbone parameter and a new 13-class head are trainable. It is a same-study adaptation reference, not a strict leave-species result, independent external validation, compute-budget-matched comparison or universal model ranking.",
+  "replay": {
+    "device": "cuda",
+    "batch_size": 16,
+    "official_checkpoint_sha256": "baa24dc1e686b94aa08e7e7b08df17e1bb53e479416acf7f50cd032b0fabf416",
+    "full_finetune_checkpoint_sha256": "075ec53fc08044f8fb921d909ca87428c1519a282c1222e32f5261273055965f",
+    "official_checkpoint_load": {
+      "missing_keys": 0,
+      "unexpected_keys": 0,
+      "conversion": {
+        "converted_wqkv_weight_count": 6,
+        "converted_wqkv_bias_count": 6,
+        "skipped_key_count": 10,
+        "skipped_key_prefixes": [
+          "grad_reverse_discriminator."
+        ]
+      }
+    },
+    "locked_test_cells": 1433,
+    "exact_prediction_match": true,
+    "metric_match": true
+  },
+  "metrics": {
+    "accuracy": 0.45010467550593164,
+    "macro_f1": 0.45876358287427327,
+    "weighted_f1": 0.4501937767873176,
+    "class_count": 13,
+    "class_counts": {
+      "Epidermis": 274,
+      "Endodermis/Phloem": 43,
+      "Cortex": 127,
+      "Provascular cells": 128,
+      "Endodermis": 75,
+      "Unknown": 310,
+      "Root Hair": 87,
+      "Meristems": 139,
+      "Dividing Cells": 52,
+      "Xylem": 47,
+      "Pericycle": 107,
+      "Phloem": 26,
+      "Root Cap": 18
+    }
+  }
+}

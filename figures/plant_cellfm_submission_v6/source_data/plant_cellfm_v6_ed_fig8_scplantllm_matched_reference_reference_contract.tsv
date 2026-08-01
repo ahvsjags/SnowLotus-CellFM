@@ -5,3 +5,5 @@ train_cells	5014
 validation_cells	717
 locked_test_cells	1433
 max_nonpadding_tokens	1125
+full_trainable_parameters	107294398
+full_best_validation_epoch	8

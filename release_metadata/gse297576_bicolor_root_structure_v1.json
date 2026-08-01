@@ -1,0 +1,1000 @@
+{
+  "schema_version": "plant_cellfm_gse297576_seurat_structure_v1",
+  "generated_utc": "2026-08-01T01:36:40.102915+00:00",
+  "input": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\tmp\\gse297576_rds_probe.bin",
+  "object": {
+    "type": "types.SimpleNamespace",
+    "attributes": [
+      "assays",
+      "meta.data",
+      "active.assay",
+      "active.ident",
+      "graphs",
+      "neighbors",
+      "reductions",
+      "images",
+      "project.name",
+      "misc",
+      "version",
+      "commands",
+      "tools",
+      "class"
+    ],
+    "children": {
+      "assays": {
+        "type": "builtins.dict",
+        "keys": [
+          "RNA",
+          "SCT"
+        ],
+        "children": {
+          "RNA": {
+            "type": "types.SimpleNamespace",
+            "attributes": [
+              "layers",
+              "cells",
+              "features",
+              "default",
+              "assay.orig",
+              "meta.data",
+              "misc",
+              "key",
+              "class"
+            ],
+            "children": {
+              "layers": {
+                "type": "builtins.dict",
+                "keys": [
+                  "counts"
+                ]
+              },
+              "cells": {
+                "type": "xarray.core.dataarray.DataArray"
+              },
+              "features": {
+                "type": "xarray.core.dataarray.DataArray"
+              },
+              "default": {
+                "type": "numpy.ndarray"
+              },
+              "assay.orig": {
+                "type": "numpy.ndarray"
+              },
+              "meta.data": {
+                "type": "pandas.core.frame.DataFrame",
+                "shape": [
+                  25464,
+                  0
+                ],
+                "columns": [],
+                "index_name": null
+              },
+              "misc": {
+                "type": "builtins.list",
+                "length": 0
+              },
+              "key": {
+                "type": "numpy.ndarray"
+              },
+              "class": {
+                "type": "numpy.ndarray"
+              }
+            }
+          },
+          "SCT": {
+            "type": "types.SimpleNamespace",
+            "attributes": [
+              "SCTModel.list",
+              "counts",
+              "data",
+              "scale.data",
+              "assay.orig",
+              "var.features",
+              "meta.features",
+              "misc",
+              "key",
+              "class"
+            ],
+            "children": {
+              "SCTModel.list": {
+                "type": "builtins.dict",
+                "keys": [
+                  "OUGHW_Bdistachyon-Phallii-Sbicolor_monocot-mix-frz-root-50k",
+                  "OUGHX_Bdistachyon-Phallii-Sbicolor_monocot-mix-frz-root-150k",
+                  "OWGSB_Athaliana-Bdistachyon-Crubella-Phallii-Sbicolor-Tarvense_6spec-mix-fz-RT-60k",
+                  "OWGSC_Athaliana-Bdistachyon-Crubella-Phallii-Sbicolor-Tarvense_6spec-mix-fz-RT-150k"
+                ]
+              },
+              "counts": {
+                "type": "types.SimpleNamespace",
+                "attributes": [
+                  "i",
+                  "p",
+                  "Dim",
+                  "Dimnames",
+                  "x",
+                  "factors",
+                  "class"
+                ]
+              },
+              "data": {
+                "type": "types.SimpleNamespace",
+                "attributes": [
+                  "i",
+                  "p",
+                  "Dim",
+                  "Dimnames",
+                  "x",
+                  "factors",
+                  "class"
+                ]
+              },
+              "scale.data": {
+                "type": "xarray.core.dataarray.DataArray"
+              },
+              "assay.orig": {
+                "type": "numpy.ndarray"
+              },
+              "var.features": {
+                "type": "numpy.ndarray"
+              },
+              "meta.features": {
+                "type": "pandas.core.frame.DataFrame",
+                "shape": [
+                  23974,
+                  0
+                ],
+                "columns": [],
+                "index_name": null
+              },
+              "misc": {
+                "type": "builtins.dict",
+                "keys": []
+              },
+              "key": {
+                "type": "numpy.ndarray"
+              },
+              "class": {
+                "type": "numpy.ndarray"
+              }
+            }
+          }
+        }
+      },
+      "meta.data": {
+        "type": "pandas.core.frame.DataFrame",
+        "shape": [
+          19316,
+          25
+        ],
+        "columns": [
+          "orig.ident",
+          "nCount_RNA",
+          "nFeature_RNA",
+          "pct.organelle",
+          "score.debris",
+          "pct.unspliced",
+          "nCount_SCT",
+          "nFeature_SCT",
+          "SCT_snn_res.0.6",
+          "seurat_clusters",
+          "UMAP_1",
+          "UMAP_2",
+          "cluster",
+          "score.doublet",
+          "doublet",
+          "cluster_label",
+          "cluster_label_score",
+          "cluster_label.long",
+          "cellBC",
+          "starsolo_umis",
+          "SCT_snn_res.1",
+          "library",
+          "celltype",
+          "SCT_snn_res.2",
+          "layer"
+        ],
+        "index_name": null
+      },
+      "active.assay": {
+        "type": "numpy.ndarray"
+      },
+      "active.ident": {
+        "type": "pandas.core.arrays.categorical.Categorical",
+        "attributes": [],
+        "children": {}
+      },
+      "graphs": {
+        "type": "builtins.dict",
+        "keys": [
+          "SCT_nn",
+          "SCT_snn"
+        ],
+        "children": {
+          "SCT_nn": {
+            "type": "types.SimpleNamespace",
+            "attributes": [
+              "assay.used",
+              "i",
+              "p",
+              "Dim",
+              "Dimnames",
+              "x",
+              "factors",
+              "class"
+            ],
+            "children": {
+              "assay.used": {
+                "type": "numpy.ndarray"
+              },
+              "i": {
+                "type": "numpy.ndarray"
+              },
+              "p": {
+                "type": "numpy.ndarray"
+              },
+              "Dim": {
+                "type": "numpy.ndarray"
+              },
+              "Dimnames": {
+                "type": "builtins.list",
+                "length": 2
+              },
+              "x": {
+                "type": "numpy.ndarray"
+              },
+              "factors": {
+                "type": "builtins.list",
+                "length": 0
+              },
+              "class": {
+                "type": "numpy.ndarray"
+              }
+            }
+          },
+          "SCT_snn": {
+            "type": "types.SimpleNamespace",
+            "attributes": [
+              "assay.used",
+              "i",
+              "p",
+              "Dim",
+              "Dimnames",
+              "x",
+              "factors",
+              "class"
+            ],
+            "children": {
+              "assay.used": {
+                "type": "numpy.ndarray"
+              },
+              "i": {
+                "type": "numpy.ndarray"
+              },
+              "p": {
+                "type": "numpy.ndarray"
+              },
+              "Dim": {
+                "type": "numpy.ndarray"
+              },
+              "Dimnames": {
+                "type": "builtins.list",
+                "length": 2
+              },
+              "x": {
+                "type": "numpy.ndarray"
+              },
+              "factors": {
+                "type": "builtins.list",
+                "length": 0
+              },
+              "class": {
+                "type": "numpy.ndarray"
+              }
+            }
+          }
+        }
+      },
+      "neighbors": {
+        "type": "builtins.list",
+        "length": 0
+      },
+      "reductions": {
+        "type": "builtins.dict",
+        "keys": [
+          "pca",
+          "umap"
+        ],
+        "children": {
+          "pca": {
+            "type": "types.SimpleNamespace",
+            "attributes": [
+              "cell.embeddings",
+              "feature.loadings",
+              "feature.loadings.projected",
+              "assay.used",
+              "global",
+              "stdev",
+              "jackstraw",
+              "misc",
+              "key",
+              "class"
+            ],
+            "children": {
+              "cell.embeddings": {
+                "type": "xarray.core.dataarray.DataArray"
+              },
+              "feature.loadings": {
+                "type": "xarray.core.dataarray.DataArray"
+              },
+              "feature.loadings.projected": {
+                "type": "numpy.ndarray"
+              },
+              "assay.used": {
+                "type": "numpy.ndarray"
+              },
+              "global": {
+                "type": "numpy.ndarray"
+              },
+              "stdev": {
+                "type": "numpy.ndarray"
+              },
+              "jackstraw": {
+                "type": "types.SimpleNamespace",
+                "attributes": [
+                  "empirical.p.values",
+                  "fake.reduction.scores",
+                  "empirical.p.values.full",
+                  "overall.p.values",
+                  "class"
+                ]
+              },
+              "misc": {
+                "type": "builtins.dict",
+                "keys": [
+                  "total.variance"
+                ]
+              },
+              "key": {
+                "type": "numpy.ndarray"
+              },
+              "class": {
+                "type": "numpy.ndarray"
+              }
+            }
+          },
+          "umap": {
+            "type": "types.SimpleNamespace",
+            "attributes": [
+              "cell.embeddings",
+              "feature.loadings",
+              "feature.loadings.projected",
+              "assay.used",
+              "global",
+              "stdev",
+              "jackstraw",
+              "misc",
+              "key",
+              "class"
+            ],
+            "children": {
+              "cell.embeddings": {
+                "type": "xarray.core.dataarray.DataArray"
+              },
+              "feature.loadings": {
+                "type": "numpy.ndarray"
+              },
+              "feature.loadings.projected": {
+                "type": "numpy.ndarray"
+              },
+              "assay.used": {
+                "type": "numpy.ndarray"
+              },
+              "global": {
+                "type": "numpy.ndarray"
+              },
+              "stdev": {
+                "type": "numpy.ndarray"
+              },
+              "jackstraw": {
+                "type": "types.SimpleNamespace",
+                "attributes": [
+                  "empirical.p.values",
+                  "fake.reduction.scores",
+                  "empirical.p.values.full",
+                  "overall.p.values",
+                  "class"
+                ]
+              },
+              "misc": {
+                "type": "builtins.dict",
+                "keys": [
+                  "model"
+                ]
+              },
+              "key": {
+                "type": "numpy.ndarray"
+              },
+              "class": {
+                "type": "numpy.ndarray"
+              }
+            }
+          }
+        }
+      },
+      "images": {
+        "type": "builtins.list",
+        "length": 0
+      },
+      "project.name": {
+        "type": "numpy.ndarray"
+      },
+      "misc": {
+        "type": "builtins.dict",
+        "keys": [
+          "var_genes",
+          "PCs",
+          "resolution",
+          "cluster_markers"
+        ],
+        "children": {
+          "var_genes": {
+            "type": "numpy.ndarray"
+          },
+          "PCs": {
+            "type": "numpy.ndarray"
+          },
+          "resolution": {
+            "type": "numpy.ndarray"
+          },
+          "cluster_markers": {
+            "type": "pandas.core.frame.DataFrame",
+            "shape": [
+              1482,
+              7
+            ],
+            "columns": [
+              "gene",
+              "cluster",
+              "avg_log2FC",
+              "pct.1",
+              "pct.2",
+              "p_val_adj",
+              "power"
+            ],
+            "index_name": null
+          }
+        }
+      },
+      "version": {
+        "type": "builtins.list",
+        "length": 1
+      },
+      "commands": {
+        "type": "builtins.dict",
+        "keys": [
+          "SCTransform.RNA",
+          "RunPCA.SCT",
+          "FindNeighbors.SCT.pca",
+          "FindClusters",
+          "RunUMAP.SCT.pca"
+        ],
+        "children": {
+          "SCTransform.RNA": {
+            "type": "types.SimpleNamespace",
+            "attributes": [
+              "name",
+              "time.stamp",
+              "assay.used",
+              "call.string",
+              "params",
+              "class"
+            ],
+            "children": {
+              "name": {
+                "type": "numpy.ndarray"
+              },
+              "time.stamp": {
+                "type": "numpy.ndarray"
+              },
+              "assay.used": {
+                "type": "numpy.ndarray"
+              },
+              "call.string": {
+                "type": "numpy.ndarray"
+              },
+              "params": {
+                "type": "builtins.dict",
+                "keys": [
+                  "assay",
+                  "new.assay.name",
+                  "do.correct.umi",
+                  "ncells",
+                  "variable.features.n",
+                  "variable.features.rv.th",
+                  "do.scale",
+                  "do.center",
+                  "clip.range",
+                  "vst.flavor",
+                  "conserve.memory",
+                  "return.only.var.genes",
+                  "seed.use",
+                  "verbose"
+                ]
+              },
+              "class": {
+                "type": "numpy.ndarray"
+              }
+            }
+          },
+          "RunPCA.SCT": {
+            "type": "types.SimpleNamespace",
+            "attributes": [
+              "name",
+              "time.stamp",
+              "assay.used",
+              "call.string",
+              "params",
+              "class"
+            ],
+            "children": {
+              "name": {
+                "type": "numpy.ndarray"
+              },
+              "time.stamp": {
+                "type": "numpy.ndarray"
+              },
+              "assay.used": {
+                "type": "numpy.ndarray"
+              },
+              "call.string": {
+                "type": "numpy.ndarray"
+              },
+              "params": {
+                "type": "builtins.dict",
+                "keys": [
+                  "assay",
+                  "npcs",
+                  "rev.pca",
+                  "weight.by.var",
+                  "verbose",
+                  "ndims.print",
+                  "nfeatures.print",
+                  "reduction.name",
+                  "reduction.key",
+                  "seed.use"
+                ]
+              },
+              "class": {
+                "type": "numpy.ndarray"
+              }
+            }
+          },
+          "FindNeighbors.SCT.pca": {
+            "type": "types.SimpleNamespace",
+            "attributes": [
+              "name",
+              "time.stamp",
+              "assay.used",
+              "call.string",
+              "params",
+              "class"
+            ],
+            "children": {
+              "name": {
+                "type": "numpy.ndarray"
+              },
+              "time.stamp": {
+                "type": "numpy.ndarray"
+              },
+              "assay.used": {
+                "type": "numpy.ndarray"
+              },
+              "call.string": {
+                "type": "numpy.ndarray"
+              },
+              "params": {
+                "type": "builtins.dict",
+                "keys": [
+                  "reduction",
+                  "dims",
+                  "assay",
+                  "k.param",
+                  "return.neighbor",
+                  "compute.SNN",
+                  "prune.SNN",
+                  "nn.method",
+                  "n.trees",
+                  "annoy.metric",
+                  "nn.eps",
+                  "verbose",
+                  "do.plot",
+                  "graph.name",
+                  "l2.norm",
+                  "cache.index"
+                ]
+              },
+              "class": {
+                "type": "numpy.ndarray"
+              }
+            }
+          },
+          "FindClusters": {
+            "type": "types.SimpleNamespace",
+            "attributes": [
+              "name",
+              "time.stamp",
+              "assay.used",
+              "call.string",
+              "params",
+              "class"
+            ],
+            "children": {
+              "name": {
+                "type": "numpy.ndarray"
+              },
+              "time.stamp": {
+                "type": "numpy.ndarray"
+              },
+              "assay.used": {
+                "type": "numpy.ndarray"
+              },
+              "call.string": {
+                "type": "numpy.ndarray"
+              },
+              "params": {
+                "type": "builtins.dict",
+                "keys": [
+                  "graph.name",
+                  "cluster.name",
+                  "modularity.fxn",
+                  "resolution",
+                  "method",
+                  "algorithm",
+                  "n.start",
+                  "n.iter",
+                  "random.seed",
+                  "group.singletons",
+                  "verbose"
+                ]
+              },
+              "class": {
+                "type": "numpy.ndarray"
+              }
+            }
+          },
+          "RunUMAP.SCT.pca": {
+            "type": "types.SimpleNamespace",
+            "attributes": [
+              "name",
+              "time.stamp",
+              "assay.used",
+              "call.string",
+              "params",
+              "class"
+            ],
+            "children": {
+              "name": {
+                "type": "numpy.ndarray"
+              },
+              "time.stamp": {
+                "type": "numpy.ndarray"
+              },
+              "assay.used": {
+                "type": "numpy.ndarray"
+              },
+              "call.string": {
+                "type": "numpy.ndarray"
+              },
+              "params": {
+                "type": "builtins.dict",
+                "keys": [
+                  "dims",
+                  "reduction",
+                  "assay",
+                  "slot",
+                  "umap.method",
+                  "return.model",
+                  "n.neighbors",
+                  "n.components",
+                  "metric",
+                  "learning.rate",
+                  "min.dist",
+                  "spread",
+                  "set.op.mix.ratio",
+                  "local.connectivity",
+                  "repulsion.strength",
+                  "negative.sample.rate",
+                  "uwot.sgd",
+                  "seed.use",
+                  "angular.rp.forest",
+                  "densmap",
+                  "dens.lambda",
+                  "dens.frac",
+                  "dens.var.shift",
+                  "verbose",
+                  "reduction.name"
+                ]
+              },
+              "class": {
+                "type": "numpy.ndarray"
+              }
+            }
+          }
+        }
+      },
+      "tools": {
+        "type": "builtins.list",
+        "length": 0
+      },
+      "class": {
+        "type": "numpy.ndarray"
+      }
+    }
+  },
+  "metadata": {
+    "cells": 19316,
+    "columns": [
+      "orig.ident",
+      "nCount_RNA",
+      "nFeature_RNA",
+      "pct.organelle",
+      "score.debris",
+      "pct.unspliced",
+      "nCount_SCT",
+      "nFeature_SCT",
+      "SCT_snn_res.0.6",
+      "seurat_clusters",
+      "UMAP_1",
+      "UMAP_2",
+      "cluster",
+      "score.doublet",
+      "doublet",
+      "cluster_label",
+      "cluster_label_score",
+      "cluster_label.long",
+      "cellBC",
+      "starsolo_umis",
+      "SCT_snn_res.1",
+      "library",
+      "celltype",
+      "SCT_snn_res.2",
+      "layer"
+    ],
+    "celltype_candidates": [
+      "seurat_clusters",
+      "cluster",
+      "cluster_label",
+      "cluster_label_score",
+      "cluster_label.long",
+      "celltype"
+    ],
+    "value_counts": {
+      "seurat_clusters": {
+        "0": 1475,
+        "1": 948,
+        "2": 891,
+        "3": 801,
+        "4": 775,
+        "5": 765,
+        "6": 760,
+        "7": 715,
+        "8": 700,
+        "9": 682,
+        "10": 670,
+        "11": 630,
+        "12": 588,
+        "13": 531,
+        "14": 526,
+        "15": 515,
+        "16": 510,
+        "17": 449,
+        "18": 443,
+        "19": 434,
+        "20": 420,
+        "21": 371,
+        "22": 366,
+        "23": 362,
+        "24": 348,
+        "25": 332,
+        "26": 291,
+        "27": 283,
+        "28": 280,
+        "29": 278,
+        "30": 276,
+        "31": 244,
+        "32": 241,
+        "33": 219,
+        "34": 195,
+        "35": 180,
+        "36": 176,
+        "37": 174,
+        "38": 161,
+        "39": 157
+      },
+      "cluster": {
+        "4:1909 cells|16 markers": 1830,
+        "1:2418 cells|2 markers": 1704,
+        "7:1438 cells|30 markers": 1361,
+        "9:1237 cells|27 markers": 1136,
+        "5:1858 cells|49 markers": 1119,
+        "9:1192 cells|16 markers": 1117,
+        "5:2006 cells|35 markers": 793,
+        "13:823 cells|15 markers": 766,
+        "12:824 cells|21 markers": 741,
+        "0:791 cells|14 markers": 576,
+        "14:804 cells|22 markers": 467,
+        "1:623 cells|3 markers": 411,
+        "15:779 cells|26 markers": 363,
+        "16:611 cells|71 markers": 354,
+        "2:470 cells|2 markers": 343,
+        "4:409 cells|17 markers": 302,
+        "13:1004 cells|130 markers": 298,
+        "0:349 cells|15 markers": 296,
+        "6:1571 cells|18 markers": 296,
+        "12:1014 cells|7 markers": 275,
+        "5:370 cells|3 markers": 269,
+        "8:313 cells|16 markers": 248,
+        "7:334 cells|26 markers": 242,
+        "8:1263 cells|22 markers": 223,
+        "6:356 cells|9 markers": 222,
+        "10:279 cells|46 markers": 202,
+        "9:304 cells|17 markers": 199,
+        "4:203 cells|2 markers": 180,
+        "2:216 cells|1 markers": 155,
+        "20:179 cells|71 markers": 153,
+        "12:187 cells|10 markers": 150,
+        "19:273 cells|31 markers": 139,
+        "5:180 cells|7 markers": 133,
+        "13:166 cells|40 markers": 132,
+        "16:588 cells|7 markers": 131,
+        "3:203 cells|9 markers": 127,
+        "6:149 cells|50 markers": 120,
+        "11:189 cells|23 markers": 114,
+        "10:1100 cells|6 markers": 113,
+        "10:1069 cells|10 markers": 112
+      },
+      "cluster_label": {
+        "cortex(c0)": 1475,
+        "atrichoblast(c1)": 948,
+        "pericycle(c2)": 891,
+        "s-phase(c3)": 801,
+        "procambium(c4)": 775,
+        "meristem(c5)": 765,
+        "early-epidermis(c6)": 760,
+        "cortical sclerenchyma(c7)": 715,
+        "meristem(c8)": 700,
+        "cortex(c9)": 682,
+        "dividing cells(c10)": 670,
+        "early-cortex(c11)": 630,
+        "phloem(c12)": 588,
+        "early-stele(c13)": 531,
+        "crown root initials(c14)": 526,
+        "procambium(c15)": 515,
+        "elongating-xylem(c16)": 510,
+        "trichoblast(c17)": 449,
+        "pericycle(c18)": 443,
+        "mature-endodermis(c19)": 434,
+        "elongating-xylem(c20)": 420,
+        "exodermis(c21)": 371,
+        "lignified-xylem(c22)": 366,
+        "cortical aerenchyma(c23)": 362,
+        "lignified-xylem(c24)": 348,
+        "LRC(c25)": 332,
+        "LRC(c26)": 291,
+        "cortex(c27)": 283,
+        "dividing cells(c28)": 280,
+        "elongating-endodermis(c29)": 278,
+        "phloem/SE(c30)": 276,
+        "atrichoblast(c31)": 244,
+        "lignified-xylem(c32)": 241,
+        "pericycle(c33)": 219,
+        "mature-xylem(c34)": 195,
+        "senescent cortex(c35)": 180,
+        "lignified-endodermis(c36)": 176,
+        "sclerenchyma(c37)": 174,
+        "meristem(c38)": 161,
+        "columella(c39)": 157
+      },
+      "cluster_label_score": {
+        "nan": 3625,
+        "1.0": 2141,
+        "4.297888293158802": 1656,
+        "3.824718273313576": 1215,
+        "3.2372590371384478": 1172,
+        "45.37453708981171": 1129,
+        "6.6925984031877": 944,
+        "2.58328794289813": 744,
+        "3.07906545616562": 728,
+        "42.044801742198615": 682,
+        "5.66420844852701": 467,
+        "7.033315602086507": 363,
+        "4.59780376211968": 298,
+        "100.90172925499652": 295,
+        "5.973358937073927": 292,
+        "1.969242961804218": 267,
+        "79.90246662368935": 249,
+        "4.860203104326685": 238,
+        "3.163585205444178": 223,
+        "1.3917667863307823": 212,
+        "1.3031283419693318": 180,
+        "6.263498449547358": 153,
+        "10.77009347995921": 139,
+        "3.088700928910682": 135,
+        "3.6973585422666475": 133,
+        "46.275556843812254": 120,
+        "19.024669189851135": 112,
+        "3.686955321129279": 99,
+        "5.5092197584756075": 96,
+        "16.320450885650686": 89,
+        "6.459874530155791": 83,
+        "6.574475950299656": 77,
+        "3.246214019675509": 76,
+        "5.266625456597735": 75,
+        "5.404920988106049": 71,
+        "9.73434209095548": 60,
+        "4.423449615964426": 56,
+        "3.4737767474878387": 53,
+        "10.55823275288393": 46,
+        "69.07091477796328": 46
+      },
+      "cluster_label.long": {
+        "<NA>": 3625,
+        "stele": 2404,
+        "meristematic cell": 2211,
+        "unknown": 2141,
+        "xylem": 2026,
+        "subsidiary cell": 1791,
+        "pith": 1268,
+        "guard cell": 744,
+        "protophloem": 640,
+        "exodermis": 587,
+        "g2/m phase": 415,
+        "companion cell": 267,
+        "shoot system epidermis": 223,
+        "mesophyll": 180,
+        "cortex": 154,
+        "vascular tissue": 139,
+        "hair": 128,
+        "stem cell niche": 89,
+        "primordium": 83,
+        "meristem epidermis": 75,
+        "pavement cell-n": 35,
+        "epidermis": 32,
+        "pavement cell-a": 25,
+        "phloem": 22,
+        "s phase": 12
+      },
+      "celltype": {
+        "cortex": 2440,
+        "meristem": 1626,
+        "pericycle": 1553,
+        "procambium": 1290,
+        "atrichoblast": 1192,
+        "lignified-xylem": 955,
+        "dividing cells": 950,
+        "elongating-xylem": 930,
+        "s-phase": 801,
+        "early-epidermis": 760,
+        "cortical sclerenchyma": 715,
+        "early-cortex": 630,
+        "LRC": 623,
+        "trichoblast": 603,
+        "phloem": 588,
+        "early-stele": 531,
+        "crown root initials": 526,
+        "mature-endodermis": 434,
+        "exodermis": 371,
+        "cortical aerenchyma": 362,
+        "elongating-endodermis": 278,
+        "phloem/SE": 276,
+        "mature-xylem": 195,
+        "senescent cortex": 180,
+        "lignified-endodermis": 176,
+        "sclerenchyma": 174,
+        "columella": 157
+      }
+    }
+  },
+  "claim_boundary": "This is object-structure and author-metadata inspection only. It is not a converted count matrix, a frozen external evaluation or a performance result."
+}

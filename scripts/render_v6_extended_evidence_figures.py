@@ -279,10 +279,133 @@ def render_ed8_scplantllm_reference() -> None:
     )
 
 
+def render_ed8_scplantllm_full_reference() -> None:
+    """Render the full-scope continuation of the matched scPlantLLM reference."""
+    frozen = json.loads((ROOT / "release_metadata" / "scplantllm_gse270342_matched_embedding_probe_v1.json").read_text(encoding="utf-8"))
+    partial = json.loads((ROOT / "release_metadata" / "scplantllm_gse270342_partial_finetune_v1.json").read_text(encoding="utf-8"))
+    partial_replay = json.loads((ROOT / "release_metadata" / "scplantllm_gse270342_partial_finetune_audit_v1.json").read_text(encoding="utf-8"))
+    full = json.loads((ROOT / "release_metadata" / "scplantllm_gse270342_full_finetune_v1.json").read_text(encoding="utf-8"))
+    full_replay = json.loads((ROOT / "release_metadata" / "scplantllm_gse270342_full_finetune_audit_v1.json").read_text(encoding="utf-8"))
+    wheat = json.loads((ROOT / "release_metadata" / "gse270342_wheat_lora_adapter_audit_v1.json").read_text(encoding="utf-8"))
+    table_root = ROOT / "supplementary_tables" / "submission_v4"
+    frozen_per_class = pd.read_csv(table_root / "Supplementary_Table_S22_scPlantLLM_GSE270342_matched_embedding_probe.tsv", sep="\t").rename(columns={"f1": "f1_frozen", "support": "support_frozen"})
+    partial_per_class = pd.read_csv(table_root / "Supplementary_Table_S23_scPlantLLM_GSE270342_partial_finetune.tsv", sep="\t").rename(columns={"f1": "f1_partial", "support": "support_partial"})
+    full_per_class = pd.read_csv(table_root / "Supplementary_Table_S24_scPlantLLM_GSE270342_full_finetune.tsv", sep="\t").rename(columns={"f1": "f1_full", "support": "support_full"})
+    per_class = frozen_per_class[["author_label", "f1_frozen", "support_frozen"]].merge(
+        partial_per_class[["author_label", "f1_partial", "support_partial"]], on="author_label", how="outer", validate="one_to_one"
+    ).merge(full_per_class[["author_label", "f1_full", "support_full"]], on="author_label", how="outer", validate="one_to_one")
+    if len(per_class) != 13 or any(int(per_class[column].sum()) != 1433 for column in ("support_frozen", "support_partial", "support_full")):
+        raise ValueError("The matched scPlantLLM tables do not match the 1,433-cell locked-test contract.")
+    if partial_replay["state"] != "REPLAY_CONFIRMED" or full_replay["state"] != "REPLAY_CONFIRMED":
+        raise ValueError("Every adapted scPlantLLM reference requires a confirmed replay audit.")
+    per_class = per_class.sort_values("f1_full", ascending=True, kind="mergesort").reset_index(drop=True)
+    comparison = pd.DataFrame(
+        [
+            {"method": "scPlantLLM frozen", "accuracy": frozen["metrics"]["accuracy"], "macro_f1": frozen["metrics"]["macro_f1"], "colour": v6.GREY},
+            {"method": "scPlantLLM partial", "accuracy": partial["locked_test"]["accuracy"], "macro_f1": partial["locked_test"]["macro_f1"], "colour": v6.PURPLE},
+            {"method": "scPlantLLM full", "accuracy": full["locked_test"]["accuracy"], "macro_f1": full["locked_test"]["macro_f1"], "colour": v6.ORANGE},
+            {"method": "Plant-CellFM LoRA", "accuracy": wheat["locked_full_13_class_test"]["accuracy"], "macro_f1": wheat["locked_full_13_class_test"]["macro_f1"], "colour": v6.TEAL},
+        ]
+    )
+    fig = plt.figure(figsize=(7.25, 5.25))
+    grid = fig.add_gridspec(2, 12, height_ratios=(0.80, 1.20), left=0.055, right=0.988, bottom=0.075, top=0.95, hspace=0.80, wspace=0.66)
+    ax_a = fig.add_subplot(grid[0, :6])
+    ax_b = fig.add_subplot(grid[0, 6:])
+    ax_c = fig.add_subplot(grid[1, :8])
+    ax_d = fig.add_subplot(grid[1, 8:])
+
+    ax_a.set_axis_off()
+    v6.panel(ax_a, "a", "One shared object, mapping and locked test", "GSE270342 and 1,433 Plant-CellFM locked test barcodes are held constant")
+    stages = [
+        (0.02, "author object", "7,164 cells", v6.BLUE),
+        (0.27, "orthogroup map", "43,335 genes", v6.ORANGE),
+        (0.52, "official model", "six blocks", v6.PURPLE),
+        (0.77, "locked test", "1,433 cells", v6.TEAL),
+    ]
+    for x, title, detail, color in stages:
+        ax_a.add_patch(Rectangle((x, 0.35), 0.20, 0.35, transform=ax_a.transAxes, facecolor="#F5F8F8", edgecolor=color, linewidth=0.9))
+        ax_a.add_patch(Rectangle((x, 0.65), 0.20, 0.05, transform=ax_a.transAxes, facecolor=color, edgecolor="none"))
+        ax_a.text(x + 0.10, 0.53, title, transform=ax_a.transAxes, ha="center", va="center", fontsize=4.95, color=v6.INK, fontweight="bold")
+        ax_a.text(x + 0.10, 0.42, detail, transform=ax_a.transAxes, ha="center", va="center", fontsize=4.65, color=v6.MUTED)
+    for left, right in zip(stages[:-1], stages[1:], strict=True):
+        ax_a.add_patch(FancyArrowPatch((left[0] + 0.207, 0.52), (right[0] - 0.009, 0.52), transform=ax_a.transAxes, arrowstyle="-|>", mutation_scale=8, lw=0.75, color=v6.MUTED))
+    ax_a.text(0.50, 0.095, "Partial and full runs select epoch on validation macro-F1 only, then replay their locked predictions exactly.", transform=ax_a.transAxes, ha="center", fontsize=4.55, color=v6.RED, fontweight="bold")
+
+    y = np.arange(len(comparison))
+    ax_b.hlines(y, comparison.macro_f1, comparison.accuracy, color="#D7E2E6", lw=2.5, zorder=1)
+    ax_b.scatter(comparison.macro_f1, y, marker="s", s=44, color=comparison.colour.tolist(), edgecolor="white", linewidth=0.55, zorder=3)
+    ax_b.scatter(comparison.accuracy, y, s=48, color=comparison.colour.tolist(), edgecolor="white", linewidth=0.55, zorder=4)
+    for index, row in comparison.iterrows():
+        ax_b.text(max(float(row.accuracy), float(row.macro_f1)) + 0.018, index, f"{row.macro_f1:.3f} / {row.accuracy:.3f}", va="center", fontsize=4.75, color=v6.INK)
+    ax_b.set(yticks=y, yticklabels=["frozen", "partial", "full", "Plant-CellFM"], xlim=(0.14, 0.74), xlabel="square: macro-F1 | circle: accuracy")
+    ax_b.tick_params(axis="y", labelsize=4.75, length=0)
+    v6.clean(ax_b, "x")
+    v6.panel(ax_b, "b", "Full scPlantLLM adaptation improves this same-study reference", "Macro-F1 / accuracy; this is not a compute-budget-matched model rank")
+
+    y = np.arange(len(per_class))
+    ax_c.hlines(y, per_class.f1_frozen, per_class.f1_full, color="#D7E2E6", lw=2.4, zorder=1)
+    ax_c.scatter(per_class.f1_frozen, y, marker="s", s=30, color=v6.GREY, edgecolor="white", linewidth=0.45, zorder=3)
+    ax_c.scatter(per_class.f1_partial, y, marker="D", s=21 + per_class.support_partial.to_numpy() / 11, color=v6.PURPLE, edgecolor="white", linewidth=0.5, zorder=4)
+    ax_c.scatter(per_class.f1_full, y, s=20 + per_class.support_full.to_numpy() / 12, color=v6.ORANGE, edgecolor="white", linewidth=0.5, zorder=5)
+    ax_c.set(yticks=y, yticklabels=[v6.compact_author_label(value) for value in per_class.author_label], xlim=(-0.02, 0.90), xlabel="square / diamond / circle: frozen / partial / full F1")
+    ax_c.tick_params(axis="y", labelsize=4.75, length=0, pad=1.0)
+    v6.clean(ax_c, "x")
+    v6.panel(ax_c, "c", "Full adaptation changes the per-class profile beyond partial adaptation", "Point area is locked-test support; all 13 author labels and exact F1 values are in source data")
+
+    ax_d.set_axis_off()
+    v6.panel(ax_d, "d", "Comparator boundary", "A replayed adaptation reference, not a universal ranking")
+    boundaries = [
+        ("shared", "object, mapping and locked test", v6.BLUE),
+        ("official", "431 MB checkpoint; clean state load", v6.PURPLE),
+        ("full", "107.3 M trainable parameters + head", v6.ORANGE),
+        ("replay", "partial and full predictions reproduced", v6.TEAL),
+        ("not claimed", "independent, strict or compute-matched rank", v6.RED),
+    ]
+    for index, (label, detail, color) in enumerate(boundaries):
+        y0 = 0.80 - index * 0.16
+        ax_d.plot([0.03, 0.105], [y0, y0], transform=ax_d.transAxes, color=color, lw=2.8, solid_capstyle="round")
+        ax_d.text(0.15, y0 + 0.012, label, transform=ax_d.transAxes, fontsize=4.85, color=v6.MUTED)
+        ax_d.text(0.15, y0 - 0.06, detail, transform=ax_d.transAxes, fontsize=4.85, color=v6.INK, fontweight="bold" if label == "not claimed" else "normal")
+
+    split = full["split_contract"]
+    tokens = full["input_contract"]["scplantllm_tokenization"]
+    contracts = pd.DataFrame(
+        [
+            {"field": "prepared_cells", "value": full["input_contract"]["prepared_cells"]},
+            {"field": "mapped_source_genes", "value": full["input_contract"]["orthology"]["first_target_source_genes"]},
+            {"field": "train_cells", "value": split["train_cells"]},
+            {"field": "validation_cells", "value": split["validation_cells"]},
+            {"field": "locked_test_cells", "value": split["locked_test_cells"]},
+            {"field": "max_nonpadding_tokens", "value": tokens["selected_nonpadding_tokens_when_available"]},
+            {"field": "full_trainable_parameters", "value": full["model"]["adaptation"]["trainable_parameter_count"]},
+            {"field": "full_best_validation_epoch", "value": full["selection"]["best_epoch"]},
+        ]
+    )
+    export(
+        fig,
+        "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference",
+        {
+            "per_class_frozen_partial_full_metrics": per_class,
+            "reference_contract": contracts,
+            "matched_locked_test_comparison": comparison.drop(columns="colour"),
+            "partial_replay_audit": pd.DataFrame([partial_replay["replay"]]),
+            "full_replay_audit": pd.DataFrame([full_replay["replay"]]),
+            "claim_boundary": pd.DataFrame(boundaries, columns=["scope_field", "value", "colour_role"]),
+        },
+    )
+    source_root = ROOT / "figures" / "plant_cellfm_submission_v6" / "source_data"
+    for obsolete in (
+        "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference_headline_metrics.tsv",
+        "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference_per_class_frozen_and_partial_metrics.tsv",
+        "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference_per_class_locked_test_metrics.tsv",
+    ):
+        (source_root / obsolete).unlink(missing_ok=True)
+
+
 def main() -> None:
     v6.setup()
     render_ed7_zero_target_transfer()
-    render_ed8_scplantllm_reference()
+    render_ed8_scplantllm_full_reference()
     normalise_svg_whitespace()
     print(json.dumps({"figure_suite": "v6_extended_evidence", "extended_figures": 2}, ensure_ascii=False))
 

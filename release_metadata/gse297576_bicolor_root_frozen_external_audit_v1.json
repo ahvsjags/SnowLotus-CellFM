@@ -1,0 +1,145 @@
+{
+  "schema_version": "plant_cellfm_gse297576_bicolor_root_frozen_external_audit_v1",
+  "status": "COMPLETED_FROZEN_EXTERNAL_ZERO_SHOT_AUDIT",
+  "generated_utc": "2026-08-01T02:26:21.081218+00:00",
+  "input": {
+    "dataset": "GSE297576",
+    "species": "Sorghum bicolor",
+    "tissue": "root",
+    "atlas": "outputs/external_validation/gse297576_bicolor_root/GSE297576_bicolor_root_author_atlas.h5ad",
+    "atlas_sha256": "8cda0c37c3c25f2047e329b66dc22f8ed4dff86fa14af3b86ea6b327954982ef",
+    "author_reference_label_key": "celltype",
+    "cells": 19316,
+    "frozen_species_absent_from_profile": true,
+    "profiled_species": [
+      "Arabidopsis thaliana",
+      "Brassica rapa",
+      "Catharanthus roseus",
+      "Fragaria vesca",
+      "Gossypium bickii"
+    ]
+  },
+  "frozen_inference": {
+    "checkpoint": "models\\SnowLotus_CellFM_SRP169576_annotation_1024_best.pt",
+    "checkpoint_epoch": 4,
+    "annotation_metadata": "outputs/external_validation/gse297576_bicolor_root/plantcellfm_frozen_bundle/annotation_metadata.json",
+    "annotation_metadata_sha256": "38feeda261c849112f96906b209cc0a0c076648651a0aa1942d8680015f65039",
+    "predictions": "outputs/external_validation/gse297576_bicolor_root/plantcellfm_frozen_bundle/predictions.csv",
+    "predictions_sha256": "dc6d6f7d9379e23a38dfc6d262801cf05239aa358972c8b5df0b0ba841692b59",
+    "preprocessing_stats": {
+      "checkpoint_vocabulary": {
+        "represented_gene_count": 10325,
+        "represented_gene_fraction": 0.9736891738966428,
+        "source_gene_count": 10604,
+        "unrepresented_gene_count": 279
+      },
+      "ortholog_mapping": {
+        "aggregation": "first",
+        "mapped_source_gene_count": 15940,
+        "mapping_rate": 0.6259817781966698,
+        "mapping_relationship_count": 15940,
+        "mean_targets_per_mapped_source": 1.0,
+        "source_gene_count": 25464,
+        "target_gene_count": 10706
+      },
+      "quality_control": {
+        "input_cells": 19316,
+        "input_genes": 10706,
+        "log1p": true,
+        "median_library_size_before_normalization": 1230.0,
+        "normalize_total": 10000.0,
+        "retained_cells": 19316,
+        "retained_genes": 10604
+      }
+    },
+    "author_labels_used_for_inference": false
+  },
+  "orthology_contract": {
+    "mapping": {
+      "mapping": "data/orthologs/gse297576_sorghum_to_arabidopsis_author_orthogroups.tsv",
+      "mapping_sha256": "d36e0951bd55e3e69975ad17ba22e3b3a08e6ba1f9fbd11b15843bf34df99351",
+      "ordering": "source_gene, orthogroup_id, target_gene ascending; first row is the declared deterministic loader target"
+    },
+    "coverage": {
+      "source_gene_count": 25464,
+      "source_genes_in_author_orthogroups": 22811,
+      "source_genes_with_arabidopsis_target": 15940,
+      "mapping_relationship_count": 31627,
+      "arabidopsis_target_gene_count": 17150,
+      "source_genes_in_author_orthogroups_fraction": 0.8958136977693999,
+      "source_genes_with_arabidopsis_target_fraction": 0.6259817781966698
+    },
+    "mapping_record_sha256": "36d2115f6f98607a9b204caaaca14843ff23e5500a772c8c592f1e358c2e1bd8"
+  },
+  "ontology_contract": {
+    "path": "release_metadata/gse297576_bicolor_root_ontology_contract_v1.json",
+    "sha256": "9b01d440555cd48c5c01d72688a39fd20887f60c43d20b072235d88b83905cbb",
+    "evaluable_author_labels": [
+      "LRC",
+      "atrichoblast",
+      "columella",
+      "cortex",
+      "cortical aerenchyma",
+      "cortical sclerenchyma",
+      "early-cortex",
+      "early-stele",
+      "elongating-endodermis",
+      "elongating-xylem",
+      "lignified-endodermis",
+      "lignified-xylem",
+      "mature-endodermis",
+      "mature-xylem",
+      "pericycle",
+      "phloem",
+      "phloem/SE",
+      "procambium",
+      "s-phase",
+      "senescent cortex",
+      "trichoblast"
+    ],
+    "non_comparable_author_labels": [
+      "crown root initials",
+      "dividing cells",
+      "early-epidermis",
+      "exodermis",
+      "meristem",
+      "sclerenchyma"
+    ]
+  },
+  "metrics": {
+    "input_cells": 19316,
+    "evaluable_cells": 14909,
+    "evaluable_coverage": 0.7718471733278112,
+    "non_comparable_cells": 4407,
+    "all_evaluable_accuracy": 0.14561674156549734,
+    "macro_f1_declared_targets": 0.10826505898806744,
+    "unassigned_prediction_rate_evaluable": 0.6339124019048896,
+    "model_known_prediction_rate_evaluable": 0.3660875980951103,
+    "selective_accuracy_when_model_assigns_a_known_label": 0.39776474899230485,
+    "selective_cells": 5458,
+    "mean_confidence_evaluable": 0.8497295781071836,
+    "median_confidence_evaluable": 0.933247,
+    "unassigned_prediction_rate_non_comparable": 0.36759700476514634,
+    "all_cell_prediction_composition": {
+      "Columella root cap": 2,
+      "G1/G0 phase": 316,
+      "Lateral root cap": 545,
+      "Non-hair": 174,
+      "Root cap": 23,
+      "Root cortex": 3949,
+      "Root endodermis": 36,
+      "Root hair": 71,
+      "Root stele": 47,
+      "S phase": 3059,
+      "Unknow": 11071,
+      "Xylem": 23
+    }
+  },
+  "outputs": {
+    "per_cell": "outputs/external_validation/gse297576_bicolor_root/frozen_external_audit/cell_predictions_with_author_labels.tsv",
+    "per_class": "outputs/external_validation/gse297576_bicolor_root/frozen_external_audit/per_class_metrics.tsv",
+    "confusion": "outputs/external_validation/gse297576_bicolor_root/frozen_external_audit/confusion_matrix.tsv",
+    "supplementary_table": "supplementary_tables/submission_v4/Supplementary_Table_S25_GSE297576_frozen_external.tsv"
+  },
+  "claim_boundary": "A source-pinned, author-labelled, species-held-out frozen Plant-CellFM audit with a predeclared coarse ontology. It is not a target-species adaptation result, a universal all-plant accuracy claim, or a third-party model comparison."
+}

@@ -1,0 +1,11 @@
+model_label	support	precision	recall	f1	author_labels	dataset	species	evaluation
+Columella root cap	157	0.0	0.0	0.0	columella	GSE297576	Sorghum bicolor	frozen_external_predeclared_coarse_ontology
+Lateral root cap	623	0.07860262008733625	0.05778491171749599	0.0666049953746531	LRC	GSE297576	Sorghum bicolor	frozen_external_predeclared_coarse_ontology
+Non-hair	1192	0.10256410256410256	0.010067114093959731	0.01833460656990069	atrichoblast	GSE297576	Sorghum bicolor	frozen_external_predeclared_coarse_ontology
+Phloem	864	0.0	0.0	0.0	phloem;phloem/SE	GSE297576	Sorghum bicolor	frozen_external_predeclared_coarse_ontology
+Root cortex	4327	0.4588829637945552	0.37785994915645943	0.4144486692015209	cortex;cortical aerenchyma;cortical sclerenchyma;early-cortex;senescent cortex	GSE297576	Sorghum bicolor	frozen_external_predeclared_coarse_ontology
+Root endodermis	888	0.5428571428571428	0.021396396396396396	0.041170097508125676	elongating-endodermis;lignified-endodermis;mature-endodermis	GSE297576	Sorghum bicolor	frozen_external_predeclared_coarse_ontology
+Root hair	603	0.21739130434782608	0.01658374792703151	0.030816640986132512	trichoblast	GSE297576	Sorghum bicolor	frozen_external_predeclared_coarse_ontology
+Root stele	3374	0.3333333333333333	0.0035566093657379964	0.007038123167155425	early-stele;pericycle;procambium	GSE297576	Sorghum bicolor	frozen_external_predeclared_coarse_ontology
+S phase	801	0.45181347150259066	0.5443196004993758	0.49377123442808607	s-phase	GSE297576	Sorghum bicolor	frozen_external_predeclared_coarse_ontology
+Xylem	2080	0.5	0.005288461538461539	0.010466222645099905	elongating-xylem;lignified-xylem;mature-xylem	GSE297576	Sorghum bicolor	frozen_external_predeclared_coarse_ontology

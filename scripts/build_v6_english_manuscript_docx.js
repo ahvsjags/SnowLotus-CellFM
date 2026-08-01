@@ -6,9 +6,11 @@ const JSZip = require("jszip");
 const { AlignmentType, BorderStyle, Document, Footer, HeadingLevel, ImageRun, Packer, PageBreak, Paragraph, ShadingType, TextRun } = require("docx");
 
 const root = path.resolve(__dirname, "..");
-const inputPath = path.join(root, "manuscript", "Plant_CellFM_v6_submission_evidence_manuscript.md");
-const outputPath = path.join(root, "manuscript", "Plant_CellFM_v6_submission_evidence_manuscript.docx");
-const figureDir = path.join(root, "figures", "plant_cellfm_submission_v6", "main");
+const edition = process.env.PLANT_CELLFM_EDITION || "v6";
+const isV7 = edition === "v7";
+const inputPath = path.join(root, "manuscript", `Plant_CellFM_${edition}_submission_evidence_manuscript.md`);
+const outputPath = path.join(root, "manuscript", `Plant_CellFM_${edition}_submission_evidence_manuscript.docx`);
+const figureDir = path.join(root, "figures", `plant_cellfm_submission_${edition}`, "main");
 const extendedFigureDir = path.join(root, "figures", "plant_cellfm_submission_v6", "extended_data");
 const font = "Arial";
 const ink = "18242E";
@@ -55,7 +57,7 @@ function buildDocument() {
   const lines = fs.readFileSync(inputPath, "utf8").replace(/\r/g, "").split("\n");
   const children = [
     new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 100, after: 70 }, children: [new TextRun({ text: "PLANT-CELLFM", font, size: 24, color: teal, bold: true })] }),
-    new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 245 }, children: [new TextRun({ text: "Protocol-aware cross-species annotation and context adaptation | Evidence-first manuscript v6", font, size: 19, color: muted, italics: true })] }),
+    new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 245 }, children: [new TextRun({ text: `Protocol-aware cross-species annotation and context adaptation | Evidence-first manuscript ${edition}`, font, size: 19, color: muted, italics: true })] }),
   ];
   let code = false;
   let codeLines = [];
@@ -90,13 +92,15 @@ function buildDocument() {
 
   children.push(heading("Submission Figure Suite", 1));
   const figures = [
-    ["plant_cellfm_v6_fig1_foundation_contract", "Figure 1 | Input contract, shared representation and auditable species-adaptation record.", 480, figureDir],
-    ["plant_cellfm_v6_fig2_strict_transfer", "Figure 2 | Nested leave-species transfer with the open-set denominator shown explicitly.", 480, figureDir],
-    ["plant_cellfm_v6_fig3_target_adaptation", "Figure 3 | Repeated target-labelled support response with strict support/query separation.", 480, figureDir],
-    ["plant_cellfm_v6_fig4_external_root_evidence", "Figure 4 | Label-free external root execution and prespecified marker-coherence evidence.", 500, figureDir],
-    ["plant_cellfm_v6_fig5_wheat_adapter", "Figure 5 | Provenance-controlled wheat adaptation. The locked-test result is same-study supervised adaptation, not zero-shot or independent validation.", 620, figureDir],
+    ["plant_cellfm_v6_fig1_foundation_contract", "Figure 1 | Input contract, shared representation and auditable species-adaptation record.", 480, isV7 ? path.join(root, "figures", "plant_cellfm_submission_v6", "main") : figureDir],
+    ["plant_cellfm_v6_fig2_strict_transfer", "Figure 2 | Nested leave-species transfer with the open-set denominator shown explicitly.", 480, isV7 ? path.join(root, "figures", "plant_cellfm_submission_v6", "main") : figureDir],
+    ["plant_cellfm_v6_fig3_target_adaptation", "Figure 3 | Repeated target-labelled support response with strict support/query separation.", 480, isV7 ? path.join(root, "figures", "plant_cellfm_submission_v6", "main") : figureDir],
+    ["plant_cellfm_v6_fig4_external_root_evidence", "Figure 4 | Label-free external root execution and prespecified marker-coherence evidence.", 500, isV7 ? path.join(root, "figures", "plant_cellfm_submission_v6", "main") : figureDir],
+    isV7
+      ? ["plant_cellfm_v7_fig5_sorghum_external_adaptation", "Figure 5 | Source-pinned external Sorghum screen and sealed-library recovery. The frozen result is species-absent and zero-shot; the high recovery is target-species supervised adaptation on the same sealed test library, not zero-shot or a third-party ranking.", 525, figureDir]
+      : ["plant_cellfm_v6_fig5_wheat_adapter", "Figure 5 | Provenance-controlled wheat adaptation. The locked-test result is same-study supervised adaptation, not zero-shot or independent validation.", 620, figureDir],
     ["plant_cellfm_v6_ed_fig7_zero_target_transfer", "Extended Data Figure 7 | Source-only Arabidopsis-to-wheat transfer audit, retaining the negative source-adapter result.", 430, extendedFigureDir],
-    ["plant_cellfm_v6_ed_fig8_scplantllm_matched_reference", "Extended Data Figure 8 | Official scPlantLLM reference on the same locked test, including frozen and partial-adaptation paths. This is not full-backbone fine-tuning or a compute-matched rank.", 480, extendedFigureDir],
+    ["plant_cellfm_v6_ed_fig8_scplantllm_matched_reference", "Extended Data Figure 8 | Official scPlantLLM reference on the same locked test, including frozen, partial-adaptation and full-backbone-plus-new-head paths. This is a same-study adaptation reference, not independent validation or a compute-matched rank.", 480, extendedFigureDir],
   ];
   figures.forEach(([stem, caption, height, directory], index) => {
     if (index > 0) children.push(new Paragraph({ children: [new PageBreak()] }));
@@ -105,7 +109,7 @@ function buildDocument() {
 
   return new Document({
     creator: "Plant-CellFM project",
-    title: "Plant-CellFM evidence-first manuscript v6",
+    title: `Plant-CellFM evidence-first manuscript ${edition}`,
     description: "Protocol-aware cross-species plant single-cell annotation and context adaptation.",
     styles: {
       default: { document: { run: { font, size: 20, color: ink } } },
@@ -116,7 +120,7 @@ function buildDocument() {
     },
     sections: [{
       properties: { page: { size: { width: 11906, height: 16838 }, margin: { top: 1030, right: 1030, bottom: 1030, left: 1030 } } },
-      footers: { default: new Footer({ children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Plant-CellFM v6 | Evidence-first English manuscript", font, size: 15, color: muted })] })] }) },
+      footers: { default: new Footer({ children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: `Plant-CellFM ${edition} | Evidence-first English manuscript`, font, size: 15, color: muted })] })] }) },
       children,
     }],
   });

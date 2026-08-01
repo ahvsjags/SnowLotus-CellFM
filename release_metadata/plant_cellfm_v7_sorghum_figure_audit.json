@@ -1,0 +1,74 @@
+{
+  "schema_version": "plant_cellfm_v7_sorghum_external_figure_audit_v1",
+  "status": "PASS_MECHANICAL_EXPORT_AND_SOURCE_DATA_CHECKS",
+  "figure": "plant_cellfm_v7_fig5_sorghum_external_adaptation",
+  "exports": {
+    "svg": {
+      "path": "figures/plant_cellfm_submission_v7/main/plant_cellfm_v7_fig5_sorghum_external_adaptation.svg",
+      "bytes": 126054,
+      "sha256": "ee0388f6b792ec8c80261befb85465f2e9a14bcdd0982614481ecfdb25d6bf8c"
+    },
+    "pdf": {
+      "path": "figures/plant_cellfm_submission_v7/main/plant_cellfm_v7_fig5_sorghum_external_adaptation.pdf",
+      "bytes": 106902,
+      "sha256": "6305c7bfa5e22648451ac5b8db87f25c6f089d860378cc9d53ad9a2151193e94"
+    },
+    "png": {
+      "path": "figures/plant_cellfm_submission_v7/main/plant_cellfm_v7_fig5_sorghum_external_adaptation.png",
+      "bytes": 794143,
+      "sha256": "af21fdf599f4b74324f1c03a650793b6a480eaec01f90559e7a8ed9946ac0e04"
+    },
+    "tiff": {
+      "path": "figures/plant_cellfm_submission_v7/main/plant_cellfm_v7_fig5_sorghum_external_adaptation.tiff",
+      "bytes": 60679790,
+      "sha256": "5a3e1b26efdc9612ddcc5191de4632001581ec0e8f0f7799842b1881c3d6b34c"
+    }
+  },
+  "raster": {
+    "png_pixels": [
+      2844,
+      2371
+    ],
+    "tiff_pixels": [
+      4266,
+      3556
+    ],
+    "tiff_dpi": [
+      600.0,
+      600.0
+    ]
+  },
+  "editable_svg_text": {
+    "required_strings": [
+      "Sealed-library adaptation restores external annotation",
+      "Author topology is preserved in the sealed library",
+      "Target-species adaptation; not a zero-shot or third-party ranking."
+    ],
+    "panel_labels": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "source_data_rows": {
+    "matched_recovery_bootstrap": 4000,
+    "matched_recovery_metrics": 4,
+    "sealed_test_predictions_and_umap": 4150,
+    "sealed_test_per_class": 27,
+    "feature_transfer_audit": 3,
+    "evidence_provenance": 6,
+    "claim_boundary": 1
+  },
+  "human_visual_review": {
+    "status": "PASS_AFTER_100_PERCENT_PREVIEW",
+    "checked": [
+      "one dominant evidence ladder in panel a",
+      "frozen and adapted evidence tiers are visually separated",
+      "all panel labels a-e are present and non-overlapping",
+      "author and adapter maps use a stable shared palette",
+      "27-state detail and feature-transfer counts remain readable at full-width preview"
+    ]
+  }
+}

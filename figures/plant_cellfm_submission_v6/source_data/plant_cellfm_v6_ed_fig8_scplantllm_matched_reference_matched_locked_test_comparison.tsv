@@ -1,4 +1,5 @@
-method	accuracy	macro_f1	scope
-scPlantLLM frozen centroid	0.2107466852756455	0.20006846967732808	frozen encoder + train centroid
-scPlantLLM partial adaptation	0.34263782274947663	0.2997591328009322	final block + new head
-Plant-CellFM wheat LoRA	0.6224703419399861	0.6660112830533416	wheat-specific LoRA
+method	accuracy	macro_f1
+scPlantLLM frozen	0.2107466852756455	0.20006846967732808
+scPlantLLM partial	0.34263782274947663	0.2997591328009322
+scPlantLLM full	0.45010467550593164	0.45876358287427327
+Plant-CellFM LoRA	0.6224703419399861	0.6660112830533416

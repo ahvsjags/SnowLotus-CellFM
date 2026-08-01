@@ -1,0 +1,200 @@
+{
+  "schema_version": "plant_cellfm_submission_v7_supplementary_inventory_v1",
+  "status": "S1_TO_S27_PACKAGED",
+  "workbook": {
+    "path": "supplementary_tables/submission_v4/Plant_CellFM_Supplementary_Tables_v7.xlsx",
+    "sha256": "91cde29deabdc14f8426fa12d0f6b7280a7fb046221f22c61a02eea695deb3ba"
+  },
+  "tables": [
+    {
+      "table": "Supplementary_Table_S1_current_corpus_manifest.tsv",
+      "sheet": "S1_current_corpus_manifest",
+      "rows": 9,
+      "columns": 4,
+      "sha256": "698433d780101ae1f2608ba6919234f131b577849cc3b9c76f0ade8b9bd059a5"
+    },
+    {
+      "table": "Supplementary_Table_S2_protocol_boundaries.tsv",
+      "sheet": "S2_protocol_boundaries",
+      "rows": 5,
+      "columns": 9,
+      "sha256": "e61dbce9e967b90bb17077fd1b42a5897b7d97c25295598e12ef017f38e22863"
+    },
+    {
+      "table": "Supplementary_Table_S3_primary_strict_v17_per_species.tsv",
+      "sheet": "S3_primary_strict_v17_per_speci",
+      "rows": 8,
+      "columns": 11,
+      "sha256": "6a406aa8653a1527677492b2a7470425ca3a65725af8666ca977615ec6905c59"
+    },
+    {
+      "table": "Supplementary_Table_S4_identity_curated_v18_per_species.tsv",
+      "sheet": "S4_identity_curated_v18_per_spe",
+      "rows": 5,
+      "columns": 11,
+      "sha256": "56d994156e3ed6ad5f27e67b38666f214ef598c228b90e334b514310c8ca8591"
+    },
+    {
+      "table": "Supplementary_Table_S5_label_integrity_audit.tsv",
+      "sheet": "S5_label_integrity_audit",
+      "rows": 8,
+      "columns": 4,
+      "sha256": "541f5a6c1d535a0aef4e9285b0e0b21e31fbf0d8f81ea6a29b8baf02584a233d"
+    },
+    {
+      "table": "Supplementary_Table_S6_nested_inner_selection_audit.tsv",
+      "sheet": "S6_nested_inner_selection_audit",
+      "rows": 72,
+      "columns": 16,
+      "sha256": "94f50fcd31d54cf73658ee4e4b4522fa464ff4080c9d8640c492a07622e15ba0"
+    },
+    {
+      "table": "Supplementary_Table_S7_selected_nested_configurations.tsv",
+      "sheet": "S7_selected_nested_configuratio",
+      "rows": 8,
+      "columns": 6,
+      "sha256": "8a1f77fdc01792412a257d86b98964f1368bbb144317235ca318b3735b665e9d"
+    },
+    {
+      "table": "Supplementary_Table_S8_fewshot_aggregate_and_raw_draws.tsv",
+      "sheet": "S8_fewshot_aggregate_and_raw_dr",
+      "rows": 4,
+      "columns": 9,
+      "sha256": "7d0d9375fdded662d7e8652c5aeff34efc544134a28e79bca99bd40cd6492531"
+    },
+    {
+      "table": "Supplementary_Table_S9_fewshot_raw_query_draws.tsv",
+      "sheet": "S9_fewshot_raw_query_draws",
+      "rows": 40,
+      "columns": 6,
+      "sha256": "58b411dc66ead2444494d758c420e71c0f159597cef256d0ea10f7c8dc16197b"
+    },
+    {
+      "table": "Supplementary_Table_S10_fewshot_per_species_draws.tsv",
+      "sheet": "S10_fewshot_per_species_draws",
+      "rows": 320,
+      "columns": 11,
+      "sha256": "3a621d3fc60480590846019736a8b333c60c2aee5aa523538683ca8b4fa9a840"
+    },
+    {
+      "table": "Supplementary_Table_S11_matched_checkpoint_comparison.tsv",
+      "sheet": "S11_matched_checkpoint_comparis",
+      "rows": 6,
+      "columns": 5,
+      "sha256": "2e9eef2f4a354ca941611195abbefc7b6f762436b67b2e9a2d0de20dc6533e3e"
+    },
+    {
+      "table": "Supplementary_Table_S12_external_comparator_evidence_audit.tsv",
+      "sheet": "S12_external_comparator_evidenc",
+      "rows": 9,
+      "columns": 32,
+      "sha256": "5e37a55d6d59a6d964077ba621694c54ecdb6ae4b411023ae4f908d6110aac23"
+    },
+    {
+      "table": "Supplementary_Table_S13_arabidopsis_root_marker_candidates.tsv",
+      "sheet": "S13_arabidopsis_root_marker_can",
+      "rows": 200,
+      "columns": 15,
+      "sha256": "b29f8384213905fdb42b2d0763977f7943b44e5b1ef98721c59f69b71338e8c5"
+    },
+    {
+      "table": "Supplementary_Table_S14_figure_and_source_data_manifest.tsv",
+      "sheet": "S14_figure_and_source_data_mani",
+      "rows": 9,
+      "columns": 7,
+      "sha256": "736c494ecc20a9104bb2f23ff94754356a624de222b9adbccfd9ca31e6266e16"
+    },
+    {
+      "table": "Supplementary_Table_S15_reproducibility_manifest.tsv",
+      "sheet": "S15_reproducibility_manifest",
+      "rows": 24,
+      "columns": 3,
+      "sha256": "973bf47c489c4ec0b3a5b240ac28a76b408bf38f2895eb94435d6424365d3bf8"
+    },
+    {
+      "table": "Supplementary_Table_S16_arabidopsis_root_literature_concordance.tsv",
+      "sheet": "S16_arabidopsis_root_literature",
+      "rows": 6,
+      "columns": 13,
+      "sha256": "3bf2acf9a307bf331e6e86bfe51f47b0439ba2c2512df8051234cfda370af9a0"
+    },
+    {
+      "table": "Supplementary_Table_S17_gse152766_external_root_blind_inference.tsv",
+      "sheet": "S17_gse152766_external_root_bli",
+      "rows": 6,
+      "columns": 15,
+      "sha256": "7aba881c79b061b8b04321bdae09d66017fcd6d7c9b981b6ec1a4fd72690d135"
+    },
+    {
+      "table": "Supplementary_Table_S18_GSE270140_secondary_root_adapter_per_class.tsv",
+      "sheet": "S18_GSE270140_secondary_root_ad",
+      "rows": 14,
+      "columns": 5,
+      "sha256": "532ade5b2a755143d460aefc5ee15d99e2e1a252d422603753ed1242f10c06f2"
+    },
+    {
+      "table": "Supplementary_Table_S19_GSE270140_secondary_root_adapter_semantic_recovery.tsv",
+      "sheet": "S19_GSE270140_secondary_root_ad",
+      "rows": 2,
+      "columns": 5,
+      "sha256": "1c522c07b7e5b5eb6e407722ebe75a4601c4feaf7785fbf907e953f1eb014321"
+    },
+    {
+      "table": "Supplementary_Table_S20_GSE270342_wheat_root_adapter_audit.tsv",
+      "sheet": "S20_GSE270342_wheat_root_adapte",
+      "rows": 21,
+      "columns": 5,
+      "sha256": "639b2f52e9ab0c846deeb64b43ca4cdd511fc65a8737827e1ff7b00dc824096c"
+    },
+    {
+      "table": "Supplementary_Table_S21_GSE270140_to_GSE270342_zero_target_transfer.tsv",
+      "sheet": "S21_GSE270140_to_GSE270342_zero",
+      "rows": 12,
+      "columns": 8,
+      "sha256": "08ec832a481a3bff8e586dd53ea2acf81f060c9387ab205bccbe04761ee160fc"
+    },
+    {
+      "table": "Supplementary_Table_S22_scPlantLLM_GSE270342_matched_embedding_probe.tsv",
+      "sheet": "S22_scPlantLLM_GSE270342_matche",
+      "rows": 13,
+      "columns": 5,
+      "sha256": "24abb65c1873d3096d6bb7acfbe5712b7db9cf533506f61deb212800a740dc0c"
+    },
+    {
+      "table": "Supplementary_Table_S23_scPlantLLM_GSE270342_partial_finetune.tsv",
+      "sheet": "S23_scPlantLLM_GSE270342_partia",
+      "rows": 13,
+      "columns": 5,
+      "sha256": "b8f6fd4a073c15c8033551a9141460a0ad002b7b2b5e7f72928e49105e7f8797"
+    },
+    {
+      "table": "Supplementary_Table_S24_scPlantLLM_GSE270342_full_finetune.tsv",
+      "sheet": "S24_scPlantLLM_GSE270342_full_f",
+      "rows": 13,
+      "columns": 5,
+      "sha256": "c415040ad2c07b3449bb94500e91436393949f34bfcf45f698107987afaf887e"
+    },
+    {
+      "table": "Supplementary_Table_S25_GSE297576_frozen_external.tsv",
+      "sheet": "S25_GSE297576_frozen_external",
+      "rows": 10,
+      "columns": 9,
+      "sha256": "62c87d534de3a662a260818b21fceeeb2ca9e5d115229d0c17bc97320f9344c9"
+    },
+    {
+      "table": "Supplementary_Table_S26_GSE297576_sorghum_adapter_per_class.tsv",
+      "sheet": "S26_GSE297576_sorghum_adapter_p",
+      "rows": 27,
+      "columns": 5,
+      "sha256": "fc46911bb2d23915088feda16f1ee02de489a95068bc1cbedb6d95caef0a2c90"
+    },
+    {
+      "table": "Supplementary_Table_S27_GSE297576_sorghum_adapter_matched_recovery.tsv",
+      "sheet": "S27_GSE297576_sorghum_adapter_m",
+      "rows": 2,
+      "columns": 7,
+      "sha256": "294fe4b66905025d36713809d8c7daf06e1dbeaf0ad76bdd9ffc1fbe3e8be0c6"
+    }
+  ],
+  "claim_boundary": "Tables S25-S27 record the GSE297576 frozen external audit and sealed-library Sorghum adaptation. Their results are target-species adaptation evidence, not a replacement for the primary strict leave-species protocol or a third-party ranking."
+}

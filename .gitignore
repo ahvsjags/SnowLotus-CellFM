@@ -13,6 +13,7 @@ data/*.h5ad
 data/*.h5
 data/*.npz
 outputs/
+manuscript/rendered_v7/
 checkpoints/
 wandb/
 
@@ -26,11 +27,15 @@ external/
 figures/plant_cellfm_submission_v3/**/*.tiff
 figures/plant_cellfm_submission_v4/**/*.tiff
 figures/plant_cellfm_submission_v5/**/*.tiff
+figures/plant_cellfm_submission_v6/**/*.tiff
+figures/plant_cellfm_submission_v7/**/*.tiff
 
 # Local execution inputs and renderer by-products are retained outside the
 # reproducible release package. Their provenance is captured in metadata.
 data/external_validation/
 data/orthologs/
+!data/orthologs/
+!data/orthologs/gse297576_sorghum_to_arabidopsis_author_orthogroups.tsv
 log/
 .r-library/
 tmp_*/

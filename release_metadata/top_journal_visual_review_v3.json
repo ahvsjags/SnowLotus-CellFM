@@ -1,10 +1,39 @@
 {
   "schema_version": "plant_cellfm_visual_review_v3",
   "scope": {
-    "main_figures": 5,
-    "extended_data_figures": 6,
-    "figure_directory": "figures/plant_cellfm_submission_v5"
+    "main_figures": 6,
+    "extended_data_figures": 9,
+    "supplementary_figures": 13,
+    "figure_directory": "figures/plant_cellfm_submission"
   },
+  "reviewed_at": "2026-08-01 Asia/Shanghai",
+  "status": "needs_revision",
+  "score_out_of_100": 35.0,
+  "summary": "Technical exports are complete, but final-size visual QA found clipped wide tables, severe long-label collisions in heatmaps, and local panel/text crowding; the suite is not visually approved.",
+  "per_figure_review": [
+    {"id": "Figure 1", "status": "pass_with_minor_spacing", "finding": "Hierarchy and protocol color semantics are clear; no blocking overlap observed."},
+    {"id": "Figure 2", "status": "pass_with_minor_spacing", "finding": "Panels are readable; dense species labels and legend require final-size check."},
+    {"id": "Figure 3", "status": "pass_with_minor_spacing", "finding": "Panel structure is clear; external-status boxes are intentionally non-quantitative."},
+    {"id": "Figure 4", "status": "fail", "finding": "Panel d species labels collide/compete with bars and the color scale; re-layout required."},
+    {"id": "Figure 5", "status": "fail", "finding": "Panel a evidence-scale text overlaps within the box; reflow or widen the box."},
+    {"id": "Figure 6", "status": "fail", "finding": "Panel d has crowded species labels/legend; improve left margin and label placement."},
+    {"id": "Extended Data Figure 2", "status": "fail", "finding": "Adapter registry is a wide table with clipped columns and unreadable cell content."},
+    {"id": "Extended Data Figure 4", "status": "fail", "finding": "Heatmap y-axis method labels overlap into an unreadable block."},
+    {"id": "Extended Data Figure 5", "status": "fail", "finding": "Benchmark matrix columns are clipped and text is not readable at final size."},
+    {"id": "Extended Data Figure 8", "status": "fail", "finding": "Marker-summary table is clipped on the right and long values are not legible."},
+    {"id": "Extended Data Figure 9", "status": "fail", "finding": "Per-species heatmap labels overlap severely; split or abbreviate labels."},
+    {"id": "Supplementary Figures 1-13", "status": "fail", "finding": "Wide source tables are clipped; Supplementary Figures 5 and 6 also have severe heatmap/table label collisions."}
+  ],
+  "hard_blockers": [
+    "At least five final figures contain clipped table columns or right-edge content.",
+    "At least four heatmap/table panels have overlapping labels that prevent reliable reading.",
+    "The main-figure suite is not approved for editorial visual quality despite complete exports."
+  ],
+  "minimum_revision_actions": [
+    "Re-render wide tables with wrapped/shortened headers, sufficient canvas width, and no clipped right edge.",
+    "Split or abbreviate long heatmap y-axis labels and verify readability at final journal size.",
+    "Re-layout Figure 4d, Figure 5a, and Figure 6d to remove local text/panel crowding, then rerun the audit."
+  ],
   "technical_contract": {
     "minimum_svg_font_size_pt": 5.0,
     "required_exports": ["SVG", "PDF", "PNG", "TIFF"],

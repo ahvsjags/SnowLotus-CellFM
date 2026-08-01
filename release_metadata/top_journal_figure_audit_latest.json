@@ -1,9 +1,9 @@
 {
   "schema_version": "plant_cellfm_top_journal_figure_audit_v1",
-  "generated_utc": "2026-07-31T19:10:58.371106+00:00",
+  "generated_utc": "2026-08-01T02:03:05.543901+00:00",
   "state": "VISUAL_REBUILD_REQUIRED",
-  "overall_score": 78.0,
-  "technical_readiness_score": 97.8,
+  "overall_score": 35.0,
+  "technical_readiness_score": 93.5,
   "anchor_corpus": {
     "count": 8,
     "scope": "Verified primary articles and official publisher guides relevant to plant cross-species single-cell foundation models, annotation benchmarks, atlas resources and supplementary-package design."
@@ -184,9 +184,9 @@
     "missing": []
   },
   "visual_review": {
-    "status": "complete_data_first_draft_not_submission_approved",
-    "score_out_of_100": 78.0,
-    "summary": "The v3 suite replaces the dashboard-style v1 figures with six data-first main figures, four Extended Data figures and source-data exports. It is a coherent manuscript-draft visual system, but it is not submission approved because independent biological validation and closed third-party numerical benchmarks remain absent.",
+    "status": "needs_revision",
+    "score_out_of_100": 35.0,
+    "summary": "Technical exports are complete, but final-size visual QA found clipped wide tables, severe long-label collisions in heatmaps, and local panel/text crowding; the suite is not visually approved.",
     "approved": false
   },
   "asset_coverage": {
@@ -988,10 +988,10 @@
     "supporting_package": 20.0,
     "rendered_asset_coverage": 20.0,
     "technical_export_quality": 10.0,
-    "visual_review": 7.8
+    "visual_review": 3.5
   },
   "hard_blockers": [
-    "Visual quality is not approved: status=complete_data_first_draft_not_submission_approved, score=78.0/100. Technical export checks cannot substitute for editorial visual review."
+    "Visual quality is not approved: status=needs_revision, score=35.0/100. Technical export checks cannot substitute for editorial visual review."
   ],
   "next_actions": [
     "Export the canonical Supplementary Tables before drawing quantitative panels.",

@@ -68,6 +68,8 @@ def audit() -> dict[str, Any]:
     scplantllm = json.loads((ROOT / "release_metadata" / "scplantllm_gse270342_matched_embedding_probe_v1.json").read_text(encoding="utf-8"))
     scplantllm_partial = json.loads((ROOT / "release_metadata" / "scplantllm_gse270342_partial_finetune_v1.json").read_text(encoding="utf-8"))
     scplantllm_partial_replay = json.loads((ROOT / "release_metadata" / "scplantllm_gse270342_partial_finetune_audit_v1.json").read_text(encoding="utf-8"))
+    scplantllm_full = json.loads((ROOT / "release_metadata" / "scplantllm_gse270342_full_finetune_v1.json").read_text(encoding="utf-8"))
+    scplantllm_full_replay = json.loads((ROOT / "release_metadata" / "scplantllm_gse270342_full_finetune_audit_v1.json").read_text(encoding="utf-8"))
     main = [inspect(FIGURES / "main", stem) for stem in MAIN]
     extended = [inspect(FIGURES / "extended_data", stem) for stem in EXTENDED]
     failures: list[str] = []
@@ -118,6 +120,22 @@ def audit() -> dict[str, Any]:
         failures.append("Partial scPlantLLM adapter checkpoint is missing or fails its checksum.")
     if scplantllm_partial_replay["state"] != "REPLAY_CONFIRMED":
         failures.append("Partial scPlantLLM adapter does not have an exact replay confirmation.")
+    full_metrics = scplantllm_full["locked_test"]
+    full_adapter = ROOT / scplantllm_full["artifacts"]["full_finetune_checkpoint"]
+    if scplantllm_full["status"] != "COMPLETED_MATCHED_FULL_BACKBONE_ADAPTATION":
+        failures.append("Matched full-backbone scPlantLLM adaptation is not release eligible.")
+    if scplantllm_full["split_contract"]["locked_test_cells"] != 1433 or not scplantllm_full["split_contract"]["locked_test_barcode_match_to_plantcellm"]:
+        failures.append("Matched full-backbone scPlantLLM adaptation no longer has the shared locked test contract.")
+    if scplantllm_full["model"]["checkpoint_load"]["missing_keys"] or scplantllm_full["model"]["checkpoint_load"]["unexpected_keys"]:
+        failures.append("Official scPlantLLM checkpoint no longer loads cleanly before full adaptation.")
+    if scplantllm_full["model"]["adaptation"]["mode"] != "new_13_class_head_plus_full_scplantllm_backbone":
+        failures.append("Full scPlantLLM adaptation mode changed unexpectedly.")
+    if abs(full_metrics["accuracy"] - 0.45010467550593164) > 1e-10 or abs(full_metrics["macro_f1"] - 0.45876358287427327) > 1e-10:
+        failures.append("Matched full-backbone scPlantLLM locked-test metrics changed unexpectedly.")
+    if not full_adapter.is_file() or sha256(full_adapter) != scplantllm_full["artifacts"]["full_finetune_checkpoint_sha256"]:
+        failures.append("Full scPlantLLM checkpoint is missing or fails its checksum.")
+    if scplantllm_full_replay["state"] != "REPLAY_CONFIRMED":
+        failures.append("Full scPlantLLM checkpoint does not have an exact replay confirmation.")
     wheat_checkpoint = ROOT / wheat["checkpoint"]["path"]
     if not wheat_checkpoint.is_file() or sha256(wheat_checkpoint) != wheat["checkpoint"]["sha256"]:
         failures.append("Released wheat adapter checkpoint is missing or fails its checksum.")
@@ -147,9 +165,12 @@ def audit() -> dict[str, Any]:
             "scplantllm_partial_reference_accuracy": partial_metrics["accuracy"],
             "scplantllm_partial_reference_macro_f1": partial_metrics["macro_f1"],
             "scplantllm_partial_best_validation_epoch": scplantllm_partial["selection"]["best_epoch"],
+            "scplantllm_full_reference_accuracy": full_metrics["accuracy"],
+            "scplantllm_full_reference_macro_f1": full_metrics["macro_f1"],
+            "scplantllm_full_best_validation_epoch": scplantllm_full["selection"]["best_epoch"],
         },
         "evidence_open_items": [
-            "The matched scPlantLLM partial adaptation closes the frozen-reference gap, but full-backbone or compute-budget-matched scPlantLLM and a runnable scPlantAnnotate comparison remain open.",
+            "The matched scPlantLLM full-backbone adaptation closes the frozen-reference gap, but a compute-budget-matched scPlantLLM and a runnable scPlantAnnotate comparison remain open.",
             "The label-free external-root execution has no expert ground truth and no wet-lab validation; it remains a fixed-marker coherence case.",
             "The strict leave-species score is a transparent primary benchmark, but is not yet sufficient to claim universal high-accuracy plant annotation.",
         ],

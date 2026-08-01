@@ -1,5 +1,6 @@
 scope_field	value	colour_role
 shared	object, mapping and locked test	#2E6FAD
-official	431 MB official checkpoint	#8064A7
-partial	final block + new head only	#007C83
-not claimed	full-backbone or compute-matched rank	#B34D5B
+official	431 MB checkpoint; clean state load	#8064A7
+full	107.3 M trainable parameters + head	#D97524
+replay	partial and full predictions reproduced	#007C83
+not claimed	independent, strict or compute-matched rank	#B34D5B

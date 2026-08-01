@@ -1,0 +1,78 @@
+{
+  "schema_version": "plant_cellfm_gse297576_bicolor_root_external_conversion_v1",
+  "status": "CONVERTED_AUTHOR_LABELLED_EXTERNAL_CANDIDATE",
+  "generated_utc": "2026-08-01T01:44:50.970513+00:00",
+  "input": {
+    "dataset": "GSE297576",
+    "species": "Sorghum bicolor",
+    "tissue": "root",
+    "geo_source": "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE297576&format=file&file=GSE297576_seurat_object.bicolor_root_atlas.RDS",
+    "jgi_repository": "https://code.jgi.doe.gov/LBaumgart/plant-multidap-and-single-cell",
+    "jgi_commit": "8a7e6cccb12ea45c32f8e42c75b439106ca22ffb",
+    "seurat_rds": "data/external_validation/gse297576/GSE297576_seurat_object.bicolor_root_atlas.RDS",
+    "seurat_rds_sha256": "3e0ea3745aa742a2acf141bbc733f239d7b8dbfd0d08198db95d1fb0674cb378"
+  },
+  "matrix": {
+    "cells": 19316,
+    "genes": 25464,
+    "nonzero_counts": 24184481,
+    "cell_identifier": "author meta.data/cellBC, matched exactly to RNA matrix column order",
+    "gene_identifier": "author RNA Assay5 feature coordinate",
+    "count_source": "RNA/layers/counts raw UMI layer"
+  },
+  "frozen_inference_covariates": {
+    "Organ": "Root",
+    "Tissue": "Whole root",
+    "source": "fixed root-tissue descriptors required by the frozen checkpoint vocabulary; not derived from author celltype labels"
+  },
+  "author_reference": {
+    "label_key": "celltype",
+    "label_count": 27,
+    "label_counts": {
+      "cortex": 2440,
+      "meristem": 1626,
+      "pericycle": 1553,
+      "procambium": 1290,
+      "atrichoblast": 1192,
+      "lignified-xylem": 955,
+      "dividing cells": 950,
+      "elongating-xylem": 930,
+      "s-phase": 801,
+      "early-epidermis": 760,
+      "cortical sclerenchyma": 715,
+      "early-cortex": 630,
+      "LRC": 623,
+      "trichoblast": 603,
+      "phloem": 588,
+      "early-stele": 531,
+      "crown root initials": 526,
+      "mature-endodermis": 434,
+      "exodermis": 371,
+      "cortical aerenchyma": 362,
+      "elongating-endodermis": 278,
+      "phloem/SE": 276,
+      "mature-xylem": 195,
+      "senescent cortex": 180,
+      "lignified-endodermis": 176,
+      "sclerenchyma": 174,
+      "columella": 157
+    }
+  },
+  "frozen_profile_disjointness": {
+    "profile_source": "figure_data/corpus_profile_v1/corpus_profile.json",
+    "profiled_species": [
+      "Arabidopsis thaliana",
+      "Brassica rapa",
+      "Catharanthus roseus",
+      "Fragaria vesca",
+      "Gossypium bickii"
+    ],
+    "candidate_species_not_in_profiled_species": true,
+    "boundary": "Species absence from the frozen profiled corpus supports an external-species contract, but source-level dataset disjointness and a frozen inference protocol must still be audited before reporting an external metric."
+  },
+  "output": {
+    "h5ad": "outputs/external_validation/gse297576_bicolor_root/GSE297576_bicolor_root_author_atlas.h5ad",
+    "h5ad_sha256": "8cda0c37c3c25f2047e329b66dc22f8ed4dff86fa14af3b86ea6b327954982ef"
+  },
+  "claim_boundary": "This conversion preserves author labels and raw UMI counts for a future frozen external evaluation. It does not yet establish model-input orthology coverage, label-ontology alignment, frozen inference, a comparator result or any accuracy metric."
+}

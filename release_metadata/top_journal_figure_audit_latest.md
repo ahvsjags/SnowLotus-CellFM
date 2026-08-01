@@ -1,10 +1,10 @@
 # Plant-CellFM Top-Journal Figure Audit
 
 - State: `VISUAL_REBUILD_REQUIRED`
-- Overall score: `78.00/100`
-- Technical / metadata readiness: `97.80/100`
-- Visual review: `78.0/100` (complete_data_first_draft_not_submission_approved)
-- Visual review summary: The v3 suite replaces the dashboard-style v1 figures with six data-first main figures, four Extended Data figures and source-data exports. It is a coherent manuscript-draft visual system, but it is not submission approved because independent biological validation and closed third-party numerical benchmarks remain absent.
+- Overall score: `35.00/100`
+- Technical / metadata readiness: `93.50/100`
+- Visual review: `35.0/100` (needs_revision)
+- Visual review summary: Technical exports are complete, but final-size visual QA found clipped wide tables, severe long-label collisions in heatmaps, and local panel/text crowding; the suite is not visually approved.
 - Verified reference anchors: `8`
 
 ## Package Coverage
@@ -27,11 +27,11 @@
 | supporting_package | 20.00 |
 | rendered_asset_coverage | 20.00 |
 | technical_export_quality | 10.00 |
-| visual_review | 7.80 |
+| visual_review | 3.50 |
 
 ## Hard Blockers
 
-- Visual quality is not approved: status=complete_data_first_draft_not_submission_approved, score=78.0/100. Technical export checks cannot substitute for editorial visual review.
+- Visual quality is not approved: status=needs_revision, score=35.0/100. Technical export checks cannot substitute for editorial visual review.
 
 ## Next Actions
 

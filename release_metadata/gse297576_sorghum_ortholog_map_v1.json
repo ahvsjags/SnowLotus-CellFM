@@ -1,0 +1,32 @@
+{
+  "schema_version": "plant_cellfm_gse297576_sorghum_to_arabidopsis_author_orthogroup_map_v1",
+  "status": "AUTHOR_ORTHOGROUP_MAP_BUILT",
+  "generated_utc": "2026-08-01T01:44:54.306309+00:00",
+  "source": {
+    "dataset": "GSE297576",
+    "atlas": "outputs/external_validation/gse297576_bicolor_root/GSE297576_bicolor_root_author_atlas.h5ad",
+    "atlas_sha256": "8cda0c37c3c25f2047e329b66dc22f8ed4dff86fa14af3b86ea6b327954982ef",
+    "author_repository": "https://code.jgi.doe.gov/LBaumgart/plant-multidap-and-single-cell",
+    "author_commit": "8a7e6cccb12ea45c32f8e42c75b439106ca22ffb",
+    "author_table_path": "dapseq/orthogroup_tables/10sp_orthology_table.tsv",
+    "orthogroups": "tmp/plant-multidap-and-single-cell/dapseq/orthogroup_tables/10sp_orthology_table.tsv",
+    "orthogroups_sha256": "bee701d37146258ba359a55fb36632f9060643a6b1e3cd2be3577386e42d8453",
+    "source_species_key": "Sorghum_bicolor_RTx430",
+    "target_species_key": "Arabidopsis_thaliana_Col-0"
+  },
+  "coverage": {
+    "source_gene_count": 25464,
+    "source_genes_in_author_orthogroups": 22811,
+    "source_genes_with_arabidopsis_target": 15940,
+    "mapping_relationship_count": 31627,
+    "arabidopsis_target_gene_count": 17150,
+    "source_genes_in_author_orthogroups_fraction": 0.8958136977693999,
+    "source_genes_with_arabidopsis_target_fraction": 0.6259817781966698
+  },
+  "output": {
+    "mapping": "data/orthologs/gse297576_sorghum_to_arabidopsis_author_orthogroups.tsv",
+    "mapping_sha256": "d36e0951bd55e3e69975ad17ba22e3b3a08e6ba1f9fbd11b15843bf34df99351",
+    "ordering": "source_gene, orthogroup_id, target_gene ascending; first row is the declared deterministic loader target"
+  },
+  "claim_boundary": "The table preserves all author-published many-to-many orthogroup relations. It is an input-provenance and feature-coverage artifact, not evidence of annotation accuracy."
+}

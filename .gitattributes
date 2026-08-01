@@ -9,4 +9,8 @@
 # Their terminal spaces/tabs are non-semantic and should not fail source checks.
 figures/plant_cellfm_submission_v4/**/*.svg -whitespace
 figures/plant_cellfm_submission_v4/source_data/*.tsv -whitespace
+figures/plant_cellfm_submission_v6/**/*.svg -whitespace
+figures/plant_cellfm_submission_v6/source_data/*.tsv -whitespace
+figures/plant_cellfm_submission_v7/**/*.svg -whitespace
+figures/plant_cellfm_submission_v7/source_data/*.tsv -whitespace
 supplementary_tables/submission_v4/*.tsv -whitespace
