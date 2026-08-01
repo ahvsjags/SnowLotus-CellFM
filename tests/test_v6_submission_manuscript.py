@@ -40,6 +40,17 @@ def test_readme_exposes_the_current_v6_entry_points() -> None:
 
     assert "## Current v6 Evidence-First Submission Package" in readme
     assert "Plant_CellFM_v6_submission_evidence_manuscript.md" in readme
+    assert "Plant_CellFM_v6_submission_evidence_manuscript.docx" in readme
+    assert "Plant_CellFM_v6_submission_evidence_manuscript.pdf" in readme
     assert "render_v6_editorial_core_figures.py" in readme
     assert "render_v6_extended_evidence_figures.py" in readme
     assert "audit_v6_submission_figure_suite.py" in readme
+
+
+def test_v6_word_builder_targets_the_current_evidence_manuscript_and_figures() -> None:
+    builder = (ROOT / "scripts" / "build_v6_english_manuscript_docx.js").read_text(encoding="utf-8")
+
+    assert "Plant_CellFM_v6_submission_evidence_manuscript.md" in builder
+    assert "Plant_CellFM_v6_submission_evidence_manuscript.docx" in builder
+    assert "plant_cellfm_submission_v6" in builder
+    assert "plant_cellfm_v6_ed_fig8_scplantllm_matched_reference" in builder
