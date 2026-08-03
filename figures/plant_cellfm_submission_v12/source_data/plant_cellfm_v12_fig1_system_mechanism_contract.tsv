@@ -1,0 +1,6 @@
+stage	cells	species	embedding_dimension	layers	attention_heads	ffn_width	live_adapters	lora_rank	tasks
+frozen_corpus	272732.0	5.0							
+orthology_rank_tokens			256.0						
+shared_backbone				4.0	8.0	768.0			
+adapter_bank							24.0	8.0	
+output_tasks									coverage_audit|context_routing|annotation|markers|adaptation

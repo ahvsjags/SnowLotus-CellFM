@@ -1,0 +1,8 @@
+method	label	all_cell_accuracy	covered_label_accuracy	macro_f1	coverage
+centroid_baseline	centroid	0.2364	0.4228	0.1922	0.559
+v10_expression_stc	"expression
+STC"	0.301	0.5384	0.2663	0.559
+v13_neural_stc	"neural
+STC"	0.3184	0.5695	0.3079	0.559
+v14_context_aware_stc	"phylo-organ
+gate"	0.4236	0.7577	0.3045	0.559

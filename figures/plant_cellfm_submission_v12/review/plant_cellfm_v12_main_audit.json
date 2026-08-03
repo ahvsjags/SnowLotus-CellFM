@@ -1,0 +1,377 @@
+{
+  "suite": "plant_cellfm_submission_v12",
+  "status": "PASS",
+  "scope": "seven main figures; four-format 600-dpi exports; editable vector typography and data layers; SVG/PDF embedded-raster effective dpi; source-data completeness; key row counts; visual occupancy; scripted vector schematics",
+  "figures": {
+    "plant_cellfm_v12_fig1_system": {
+      "exports": {
+        "svg": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.svg",
+        "pdf": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.pdf",
+        "png": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.png",
+        "tiff": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.tiff"
+      },
+      "missing": [],
+      "source_tables": 7,
+      "expected_source_tables": 7,
+      "min_svg_font_pt": 3.0,
+      "median_svg_font_pt": 3.0,
+      "svg_embedded_raster": {
+        "embedded_raster_count": 0,
+        "min_effective_dpi": null,
+        "max_effective_dpi": null
+      },
+      "pdf_embedded_raster": {
+        "embedded_raster_count": 0,
+        "min_effective_dpi": null,
+        "max_effective_dpi": null
+      },
+      "png": {
+        "pixels": [
+          4330,
+          4390
+        ],
+        "dpi": [
+          600.0,
+          600.0
+        ],
+        "mode": "RGBA",
+        "bytes": 1494133,
+        "nonwhite_fraction": 0.3238,
+        "very_dark_fraction": 1e-05
+      },
+      "tiff": {
+        "pixels": [
+          4330,
+          4390
+        ],
+        "dpi": [
+          600.0,
+          600.0
+        ],
+        "mode": "RGBA",
+        "bytes": 76035006,
+        "nonwhite_fraction": 0.3238,
+        "very_dark_fraction": 1e-05
+      }
+    },
+    "plant_cellfm_v12_fig2_strict_transfer": {
+      "exports": {
+        "svg": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.svg",
+        "pdf": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.pdf",
+        "png": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.png",
+        "tiff": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.tiff"
+      },
+      "missing": [],
+      "source_tables": 8,
+      "expected_source_tables": 8,
+      "min_svg_font_pt": 3.0,
+      "median_svg_font_pt": 3.0,
+      "svg_embedded_raster": {
+        "embedded_raster_count": 0,
+        "min_effective_dpi": null,
+        "max_effective_dpi": null
+      },
+      "pdf_embedded_raster": {
+        "embedded_raster_count": 0,
+        "min_effective_dpi": null,
+        "max_effective_dpi": null
+      },
+      "png": {
+        "pixels": [
+          4316,
+          4456
+        ],
+        "dpi": [
+          600.0,
+          600.0
+        ],
+        "mode": "RGBA",
+        "bytes": 1358454,
+        "nonwhite_fraction": 0.3457,
+        "very_dark_fraction": 0.0
+      },
+      "tiff": {
+        "pixels": [
+          4316,
+          4456
+        ],
+        "dpi": [
+          600.0,
+          600.0
+        ],
+        "mode": "RGBA",
+        "bytes": 76928590,
+        "nonwhite_fraction": 0.3457,
+        "very_dark_fraction": 0.0
+      }
+    },
+    "plant_cellfm_v12_fig3_context_stc": {
+      "exports": {
+        "svg": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.svg",
+        "pdf": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.pdf",
+        "png": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.png",
+        "tiff": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.tiff"
+      },
+      "missing": [],
+      "source_tables": 6,
+      "expected_source_tables": 6,
+      "min_svg_font_pt": 3.0,
+      "median_svg_font_pt": 3.0,
+      "svg_embedded_raster": {
+        "embedded_raster_count": 0,
+        "min_effective_dpi": null,
+        "max_effective_dpi": null
+      },
+      "pdf_embedded_raster": {
+        "embedded_raster_count": 0,
+        "min_effective_dpi": null,
+        "max_effective_dpi": null
+      },
+      "png": {
+        "pixels": [
+          4330,
+          4549
+        ],
+        "dpi": [
+          600.0,
+          600.0
+        ],
+        "mode": "RGBA",
+        "bytes": 1517303,
+        "nonwhite_fraction": 0.286,
+        "very_dark_fraction": 0.0
+      },
+      "tiff": {
+        "pixels": [
+          4330,
+          4549
+        ],
+        "dpi": [
+          600.0,
+          600.0
+        ],
+        "mode": "RGBA",
+        "bytes": 78788886,
+        "nonwhite_fraction": 0.286,
+        "very_dark_fraction": 0.0
+      }
+    },
+    "plant_cellfm_v12_fig4_target_adaptation": {
+      "exports": {
+        "svg": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.svg",
+        "pdf": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.pdf",
+        "png": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.png",
+        "tiff": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.tiff"
+      },
+      "missing": [],
+      "source_tables": 7,
+      "expected_source_tables": 7,
+      "min_svg_font_pt": 3.0,
+      "median_svg_font_pt": 3.0,
+      "svg_embedded_raster": {
+        "embedded_raster_count": 0,
+        "min_effective_dpi": null,
+        "max_effective_dpi": null
+      },
+      "pdf_embedded_raster": {
+        "embedded_raster_count": 0,
+        "min_effective_dpi": null,
+        "max_effective_dpi": null
+      },
+      "png": {
+        "pixels": [
+          4330,
+          4454
+        ],
+        "dpi": [
+          600.0,
+          600.0
+        ],
+        "mode": "RGBA",
+        "bytes": 1355376,
+        "nonwhite_fraction": 0.2466,
+        "very_dark_fraction": 0.0
+      },
+      "tiff": {
+        "pixels": [
+          4330,
+          4454
+        ],
+        "dpi": [
+          600.0,
+          600.0
+        ],
+        "mode": "RGBA",
+        "bytes": 77143486,
+        "nonwhite_fraction": 0.2466,
+        "very_dark_fraction": 0.0
+      }
+    },
+    "plant_cellfm_v12_fig5_root_biology": {
+      "exports": {
+        "svg": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.svg",
+        "pdf": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.pdf",
+        "png": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.png",
+        "tiff": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.tiff"
+      },
+      "missing": [],
+      "source_tables": 9,
+      "expected_source_tables": 9,
+      "min_svg_font_pt": 3.0,
+      "median_svg_font_pt": 3.0,
+      "svg_embedded_raster": {
+        "embedded_raster_count": 0,
+        "min_effective_dpi": null,
+        "max_effective_dpi": null
+      },
+      "pdf_embedded_raster": {
+        "embedded_raster_count": 0,
+        "min_effective_dpi": null,
+        "max_effective_dpi": null
+      },
+      "png": {
+        "pixels": [
+          4364,
+          4454
+        ],
+        "dpi": [
+          600.0,
+          600.0
+        ],
+        "mode": "RGBA",
+        "bytes": 1666083,
+        "nonwhite_fraction": 0.3459,
+        "very_dark_fraction": 0.0
+      },
+      "tiff": {
+        "pixels": [
+          4364,
+          4454
+        ],
+        "dpi": [
+          600.0,
+          600.0
+        ],
+        "mode": "RGBA",
+        "bytes": 77749230,
+        "nonwhite_fraction": 0.3459,
+        "very_dark_fraction": 0.0
+      }
+    },
+    "plant_cellfm_v12_fig6_wheat_benchmark": {
+      "exports": {
+        "svg": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.svg",
+        "pdf": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.pdf",
+        "png": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.png",
+        "tiff": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.tiff"
+      },
+      "missing": [],
+      "source_tables": 8,
+      "expected_source_tables": 8,
+      "min_svg_font_pt": 3.0,
+      "median_svg_font_pt": 3.0,
+      "svg_embedded_raster": {
+        "embedded_raster_count": 1,
+        "min_effective_dpi": 600.0,
+        "max_effective_dpi": 600.0
+      },
+      "pdf_embedded_raster": {
+        "embedded_raster_count": 1,
+        "min_effective_dpi": 600.0,
+        "max_effective_dpi": 600.0
+      },
+      "png": {
+        "pixels": [
+          4180,
+          4517
+        ],
+        "dpi": [
+          600.0,
+          600.0
+        ],
+        "mode": "RGBA",
+        "bytes": 926333,
+        "nonwhite_fraction": 0.2514,
+        "very_dark_fraction": 0.0
+      },
+      "tiff": {
+        "pixels": [
+          4180,
+          4517
+        ],
+        "dpi": [
+          600.0,
+          600.0
+        ],
+        "mode": "RGBA",
+        "bytes": 75524446,
+        "nonwhite_fraction": 0.2514,
+        "very_dark_fraction": 0.0
+      }
+    },
+    "plant_cellfm_v12_fig7_sorghum_recovery": {
+      "exports": {
+        "svg": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.svg",
+        "pdf": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.pdf",
+        "png": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.png",
+        "tiff": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.tiff"
+      },
+      "missing": [],
+      "source_tables": 8,
+      "expected_source_tables": 8,
+      "min_svg_font_pt": 3.0,
+      "median_svg_font_pt": 3.0,
+      "svg_embedded_raster": {
+        "embedded_raster_count": 0,
+        "min_effective_dpi": null,
+        "max_effective_dpi": null
+      },
+      "pdf_embedded_raster": {
+        "embedded_raster_count": 0,
+        "min_effective_dpi": null,
+        "max_effective_dpi": null
+      },
+      "png": {
+        "pixels": [
+          4142,
+          4522
+        ],
+        "dpi": [
+          600.0,
+          600.0
+        ],
+        "mode": "RGBA",
+        "bytes": 2184158,
+        "nonwhite_fraction": 0.4526,
+        "very_dark_fraction": 0.0
+      },
+      "tiff": {
+        "pixels": [
+          4142,
+          4522
+        ],
+        "dpi": [
+          600.0,
+          600.0
+        ],
+        "mode": "RGBA",
+        "bytes": 74920702,
+        "nonwhite_fraction": 0.4526,
+        "very_dark_fraction": 0.0
+      }
+    }
+  },
+  "assets": {
+    "scripted_vector_schematics": "No generative-image assets are required by the v12 renderers."
+  },
+  "renderer_data_layers_vector": {
+    "render_v12_system_figure.py": true,
+    "render_v12_strict_transfer_figure.py": true,
+    "render_v12_context_stc_hero.py": true,
+    "render_v12_target_adaptation_figure.py": true,
+    "render_v12_root_biology_figure.py": true,
+    "render_v12_wheat_benchmark_figure.py": true,
+    "render_v12_sorghum_recovery_figure.py": true
+  },
+  "failures": []
+}

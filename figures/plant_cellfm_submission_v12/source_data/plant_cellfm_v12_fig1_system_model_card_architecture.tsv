@@ -1,0 +1,7 @@
+component	value	color
+embedding	256	#1E70B7
+encoder layers	4	#00877E
+attention heads	8	#7B5DA7
+FFN width	768	#EE7B27
+live adapters	24	#C5555C
+LoRA rank	8	#153B63

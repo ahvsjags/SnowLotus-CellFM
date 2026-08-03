@@ -1,0 +1,74 @@
+{
+  "package": "Plant-CellFM Plant Methods submission v1 - coverage-aware revision",
+  "generated": "2026-08-03",
+  "repository": "https://github.com/ahvsjags/SnowLotus-CellFM",
+  "planned_public_tag": "plant-methods-submission-v1-20260803",
+  "figure_policy": "Main figures use table-driven quantitative panels and scripted vector schematics; no generative-image assets are included.",
+  "files": [
+    {
+      "path": "main_figures/Figure_1.pdf",
+      "bytes": 251865,
+      "sha256": "7757549ecd17b465b085632ea7cb3e7e38a5b42e2aa8c762c329fabb2be9b95c"
+    },
+    {
+      "path": "main_figures/Figure_2.pdf",
+      "bytes": 150888,
+      "sha256": "e1dd40bae52343352388aadfe7ab34cbb6b1ff916c33e166cf6ef3aac1b793b6"
+    },
+    {
+      "path": "main_figures/Figure_3.pdf",
+      "bytes": 193451,
+      "sha256": "619a5c8cf00bc2d10fde43642b827b44ab18e1cabd69099a25917b4440ea9e4a"
+    },
+    {
+      "path": "main_figures/Figure_4.pdf",
+      "bytes": 242921,
+      "sha256": "7b046501dcb42b93884fa82a90b7e2edb9a86992afc732da3221a687222bfcd0"
+    },
+    {
+      "path": "main_figures/Figure_5.pdf",
+      "bytes": 186266,
+      "sha256": "511a5c11977f34d583adc68fc89f8493efe3f20449b450faa0b50e08a7d639e7"
+    },
+    {
+      "path": "main_figures/Figure_6.pdf",
+      "bytes": 107754,
+      "sha256": "256d1fdc3c9a2aa0a5fa0a7cc54fcdd4bf6748ddf27ed61137017fadb3b71864"
+    },
+    {
+      "path": "main_figures/Figure_7.pdf",
+      "bytes": 297743,
+      "sha256": "b3833ee2189ceb10ca226c6d53069cbd1a4265c79c705d7c4c3f53818dd2da4c"
+    },
+    {
+      "path": "Plant_CellFM_Figure_Supplementary_Tables_v8.xlsx",
+      "bytes": 32657,
+      "sha256": "5fcc3b4b93695937f74e767d9318c4ae90d7961e3212b7637723224ae2085e5e"
+    },
+    {
+      "path": "Plant_CellFM_Plant_Methods_cover_letter_v1.docx",
+      "bytes": 10800,
+      "sha256": "c4f4e820e0effc4ab4474673858e4cd00480ea066d34a5d1feacedc3bc85bd26"
+    },
+    {
+      "path": "Plant_CellFM_Plant_Methods_manuscript_v1.docx",
+      "bytes": 32884,
+      "sha256": "432ae93f2aa6e67e0ffc151e3b01584b0954ecd23b1096d786ab6686e48bb299"
+    },
+    {
+      "path": "Plant_CellFM_Plant_Methods_supplementary_figures_v1.pdf",
+      "bytes": 806300,
+      "sha256": "d6dbdd01c8cd789baa759a7e14ce93e1fdcb72f98505324f45272baddd033410"
+    },
+    {
+      "path": "Plant_CellFM_Plant_Methods_supporting_information_v1.docx",
+      "bytes": 22826,
+      "sha256": "d8f6e96c83f7b2b3c78a4ac0e8b818106678fd3437e5a2310d3d3859a74421c5"
+    },
+    {
+      "path": "Plant_CellFM_Supplementary_Tables_v7.xlsx",
+      "bytes": 94880,
+      "sha256": "91cde29deabdc14f8426fa12d0f6b7280a7fb046221f22c61a02eea695deb3ba"
+    }
+  ]
+}

@@ -1,0 +1,335 @@
+{
+  "schema_version": "plant_cellfm_v12_main_figure_manifest",
+  "visual_policy": "All seven pages are exported at 600 dpi. Quantitative panels are table driven and non-quantitative mechanism panels are scripted vector schematics.",
+  "n_main_figures": 7,
+  "figures": [
+    {
+      "figure": "Fig. 1",
+      "title": "Plant-CellFM system",
+      "stem": "plant_cellfm_v12_fig1_system",
+      "provenance": "v12 mechanism-led redesign",
+      "files": {
+        "svg": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.svg",
+          "bytes": 1192727,
+          "sha256": "8d057418f8b67d3ed6c08ddc8f91afe5024c2c94d0dc15c70e644be266baf927"
+        },
+        "pdf": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.pdf",
+          "bytes": 251865,
+          "sha256": "7757549ecd17b465b085632ea7cb3e7e38a5b42e2aa8c762c329fabb2be9b95c"
+        },
+        "png": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.png",
+          "bytes": 1494133,
+          "sha256": "4b611271f851733abafed3b539ec60afd76c7747a916b21aa4ff9ba3c64e0b92"
+        },
+        "tiff": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.tiff",
+          "bytes": 76035006,
+          "sha256": "cd83dcaf7e33d30098040d92fe82a3d8986f4baf4fc9bf43ed405510219095c8"
+        }
+      },
+      "source_tables": [
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig1_system_adapter_registry.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig1_system_corpus_cell_state_coverage.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig1_system_corpus_species.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig1_system_evaluation_routes.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig1_system_heldout_embedding.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig1_system_mechanism_contract.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig1_system_model_card_architecture.tsv"
+      ]
+    },
+    {
+      "figure": "Fig. 2",
+      "title": "Strict cross-species transfer",
+      "stem": "plant_cellfm_v12_fig2_strict_transfer",
+      "provenance": "v12 outcome-atlas redesign",
+      "files": {
+        "svg": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.svg",
+          "bytes": 599794,
+          "sha256": "3dcc0735ac44b0a2392ef16a4943375289efddaee5f957296a81da7a2f8fb80f"
+        },
+        "pdf": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.pdf",
+          "bytes": 150888,
+          "sha256": "e1dd40bae52343352388aadfe7ab34cbb6b1ff916c33e166cf6ef3aac1b793b6"
+        },
+        "png": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.png",
+          "bytes": 1358454,
+          "sha256": "263d6c9ab8254e5f75bde4ccb3f72c85026f78ea173bae1a4d81dd8a306dde1a"
+        },
+        "tiff": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.tiff",
+          "bytes": 76928590,
+          "sha256": "fcd444eec6bcb65b1c0d835e47cc7f0edf47ad68d0eeaeca0d070d3d4787e5ab"
+        }
+      },
+      "source_tables": [
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig2_strict_transfer_bootstrap_interval_field.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig2_strict_transfer_context_sensitivity.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig2_strict_transfer_coverage_accuracy.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig2_strict_transfer_holdout_protocol.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig2_strict_transfer_matched_checkpoint_comparison.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig2_strict_transfer_per_species_metric_matrix.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig2_strict_transfer_per_species_outcome_composition.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig2_strict_transfer_strict_embedding_outcomes.tsv"
+      ]
+    },
+    {
+      "figure": "Fig. 3",
+      "title": "Source-context transfer routing",
+      "stem": "plant_cellfm_v12_fig3_context_stc",
+      "provenance": "v12 vector mechanism and retained data panels",
+      "files": {
+        "svg": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.svg",
+          "bytes": 811274,
+          "sha256": "dd96737d3541514018e03b1e7b0d933c4d96802d5f6cb0188fccf04d7fb62b50"
+        },
+        "pdf": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.pdf",
+          "bytes": 193451,
+          "sha256": "619a5c8cf00bc2d10fde43642b827b44ab18e1cabd69099a25917b4440ea9e4a"
+        },
+        "png": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.png",
+          "bytes": 1517303,
+          "sha256": "d9e68e6eb37e5b38e67979f6673279a21a778be5e3adfb84330bbe304c083d50"
+        },
+        "tiff": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.tiff",
+          "bytes": 78788886,
+          "sha256": "357310cfd930aa6febb91b82ef13a5476a961094a6f3febe59ad3235916f5651"
+        }
+      },
+      "source_tables": [
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig3_context_stc_cellwise_rescue_atlas.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig3_context_stc_context_ablation_landscape.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig3_context_stc_mechanism_contract.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig3_context_stc_method_progression.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig3_context_stc_paired_stratified_bootstrap.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig3_context_stc_species_response.tsv"
+      ]
+    },
+    {
+      "figure": "Fig. 4",
+      "title": "Sparse target adaptation",
+      "stem": "plant_cellfm_v12_fig4_target_adaptation",
+      "provenance": "v12 adaptation-landscape redesign",
+      "files": {
+        "svg": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.svg",
+          "bytes": 1154471,
+          "sha256": "973eb0112c1a56c881612080c354a969d5e3ebcc961d3225c045edc139d5a0c3"
+        },
+        "pdf": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.pdf",
+          "bytes": 242921,
+          "sha256": "7b046501dcb42b93884fa82a90b7e2edb9a86992afc732da3221a687222bfcd0"
+        },
+        "png": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.png",
+          "bytes": 1355376,
+          "sha256": "1f0b58c485f1ac3b8ed12474db90bb89b5e7df22834ce6d8105373276f210012"
+        },
+        "tiff": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.tiff",
+          "bytes": 77143486,
+          "sha256": "c4897807bb9364c2e662c67b83767c1331dd1b6554619c0c935317adc2b9e036"
+        }
+      },
+      "source_tables": [
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig4_target_adaptation_allocation_strategy_summary.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig4_target_adaptation_fewshot_summary.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig4_target_adaptation_per_species_budget_means.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig4_target_adaptation_per_species_draw_metrics.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig4_target_adaptation_raw_draw_metrics.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig4_target_adaptation_support_query_contract.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig4_target_adaptation_target_cohort_embedding.tsv"
+      ]
+    },
+    {
+      "figure": "Fig. 5",
+      "title": "Arabidopsis root biology",
+      "stem": "plant_cellfm_v12_fig5_root_biology",
+      "provenance": "v12 biology-led redesign",
+      "files": {
+        "svg": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.svg",
+          "bytes": 897206,
+          "sha256": "0964c0acbfea75ef333d2e607730bf9c032f6816f6cd3347ac4f16340671a6e9"
+        },
+        "pdf": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.pdf",
+          "bytes": 186266,
+          "sha256": "511a5c11977f34d583adc68fc89f8493efe3f20449b450faa0b50e08a7d639e7"
+        },
+        "png": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.png",
+          "bytes": 1666083,
+          "sha256": "1de6b08fa34afb864b1ddd6cbd0499560b7e2b9adb2a488f5552dd80b51e8ab7"
+        },
+        "tiff": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.tiff",
+          "bytes": 77749230,
+          "sha256": "b2658aa2e84b74f5524b74084d6a178667ecb60c1c70e31ee3ab4861ff8ba672"
+        }
+      },
+      "source_tables": [
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig5_root_biology_blind_embedding.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig5_root_biology_blind_state_summary.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig5_root_biology_fixed_marker_contrast.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig5_root_biology_marker_identity_links.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig5_root_biology_secondary_root_confusion.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig5_root_biology_secondary_root_per_class_f1.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig5_root_biology_secondary_root_semantic_recovery.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig5_root_biology_secondary_root_split.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig5_root_biology_secondary_root_validation_history.tsv"
+      ]
+    },
+    {
+      "figure": "Fig. 6",
+      "title": "Wheat matched benchmark",
+      "stem": "plant_cellfm_v12_fig6_wheat_benchmark",
+      "provenance": "v12 allopolyploid benchmark redesign",
+      "files": {
+        "svg": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.svg",
+          "bytes": 210596,
+          "sha256": "910dd05fa50049c56e40b39f5dc9593670640ea37fc57bfc2f521f97297db791"
+        },
+        "pdf": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.pdf",
+          "bytes": 107754,
+          "sha256": "256d1fdc3c9a2aa0a5fa0a7cc54fcdd4bf6748ddf27ed61137017fadb3b71864"
+        },
+        "png": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.png",
+          "bytes": 926333,
+          "sha256": "730248f20ffc57bdd513a2733631a63e8848f498c53cb35871c4189686a34dca"
+        },
+        "tiff": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.tiff",
+          "bytes": 75524446,
+          "sha256": "8603d866655f281ae24f385755c6df84f76beeb003c2fc3cbdeddc4dcee8026f"
+        }
+      },
+      "source_tables": [
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig6_wheat_benchmark_error_route_delta.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig6_wheat_benchmark_locked_test_bootstrap.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig6_wheat_benchmark_locked_test_metrics.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig6_wheat_benchmark_locked_test_per_state_f1.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig6_wheat_benchmark_locked_test_per_state_f1_all_methods.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig6_wheat_benchmark_orthology_and_split_contract.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig6_wheat_benchmark_plantcellfm_confusion.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig6_wheat_benchmark_scplantllm_full_confusion.tsv"
+      ]
+    },
+    {
+      "figure": "Fig. 7",
+      "title": "Sorghum sealed-library recovery",
+      "stem": "plant_cellfm_v12_fig7_sorghum_recovery",
+      "provenance": "v12 sealed-validation redesign",
+      "files": {
+        "svg": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.svg",
+          "bytes": 1800692,
+          "sha256": "14ec11cf0883910bc5a636765f794ba6203e202ef378c5acd12ab9ba7980ca87"
+        },
+        "pdf": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.pdf",
+          "bytes": 297743,
+          "sha256": "b3833ee2189ceb10ca226c6d53069cbd1a4265c79c705d7c4c3f53818dd2da4c"
+        },
+        "png": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.png",
+          "bytes": 2184158,
+          "sha256": "7feccb165f1c2307e35a2c8ef9e6046d771fd9b6d4a55849fd0903875c9ca50b"
+        },
+        "tiff": {
+          "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.tiff",
+          "bytes": 74920702,
+          "sha256": "096e650517a6d5725bc2522efa59ea0a6864841d98962dc53e4db08da9e9e3cd"
+        }
+      },
+      "source_tables": [
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig7_sorghum_recovery_feature_transfer.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig7_sorghum_recovery_layer_recovery.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig7_sorghum_recovery_library_split.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig7_sorghum_recovery_matched_recovery.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig7_sorghum_recovery_per_state_f1.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig7_sorghum_recovery_root_layer_agreement.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig7_sorghum_recovery_sealed_test_cells.tsv",
+        "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig7_sorghum_recovery_state_support_geometry.tsv"
+      ]
+    }
+  ],
+  "assets": [],
+  "asset_provenance": "No generative-image assets are used in the submission figures.",
+  "fig3_reexport_records": [
+    {
+      "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.svg",
+      "bytes": 811274,
+      "sha256": "dd96737d3541514018e03b1e7b0d933c4d96802d5f6cb0188fccf04d7fb62b50",
+      "policy": "accepted layout and source tables retained; re-exported at 600 dpi"
+    },
+    {
+      "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.pdf",
+      "bytes": 193451,
+      "sha256": "619a5c8cf00bc2d10fde43642b827b44ab18e1cabd69099a25917b4440ea9e4a",
+      "policy": "accepted layout and source tables retained; re-exported at 600 dpi"
+    },
+    {
+      "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.png",
+      "bytes": 1517303,
+      "sha256": "d9e68e6eb37e5b38e67979f6673279a21a778be5e3adfb84330bbe304c083d50",
+      "policy": "accepted layout and source tables retained; re-exported at 600 dpi"
+    },
+    {
+      "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.tiff",
+      "bytes": 78788886,
+      "sha256": "357310cfd930aa6febb91b82ef13a5476a961094a6f3febe59ad3235916f5651",
+      "policy": "accepted layout and source tables retained; re-exported at 600 dpi"
+    },
+    {
+      "artifact": "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig3_context_stc_cellwise_rescue_atlas.tsv",
+      "bytes": 673664,
+      "sha256": "c99ca7f95ace2d26de4acfacf2c2305931539e9ea049495c0295608f2e03a124",
+      "policy": "accepted source table retained"
+    },
+    {
+      "artifact": "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig3_context_stc_context_ablation_landscape.tsv",
+      "bytes": 4860,
+      "sha256": "0e18f6e73bc95bf7fd1172b060e3dc0e73eff314831a3a3b174494f8f7a3de39",
+      "policy": "accepted source table retained"
+    },
+    {
+      "artifact": "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig3_context_stc_mechanism_contract.tsv",
+      "bytes": 196,
+      "sha256": "77b56946630e84f6751c81d35da5d5b79025088e9e44f86fd8d0490cdbe707c7",
+      "policy": "accepted source table retained"
+    },
+    {
+      "artifact": "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig3_context_stc_method_progression.tsv",
+      "bytes": 316,
+      "sha256": "4d10895944ec2d3b3d5e4c37f7708a26bb58334be9b04c324f2f6cac91ee3bf5",
+      "policy": "accepted source table retained"
+    },
+    {
+      "artifact": "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig3_context_stc_paired_stratified_bootstrap.tsv",
+      "bytes": 52953,
+      "sha256": "0da607854a83611b0cb9c02ffbe0190bf2a3fb40d322308fd57fecaf67fd772f",
+      "policy": "accepted source table retained"
+    },
+    {
+      "artifact": "figures/plant_cellfm_submission_v12/source_data/plant_cellfm_v12_fig3_context_stc_species_response.tsv",
+      "bytes": 1309,
+      "sha256": "5a95b00ec7b526ae5514cffe4749ea696d6e4afb21b671dac42f4fc5b7659cdf",
+      "policy": "accepted source table retained"
+    }
+  ],
+  "contact_sheet": "figures/plant_cellfm_submission_v12/review/plant_cellfm_v12_main_contact_sheet.png"
+}

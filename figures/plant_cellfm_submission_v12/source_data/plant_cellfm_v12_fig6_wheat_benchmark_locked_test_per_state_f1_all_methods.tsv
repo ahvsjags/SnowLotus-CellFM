@@ -1,0 +1,53 @@
+author_label	method	f1	support
+Cortex	Plant-CellFM	0.5342465753424658	127
+Cortex	frozen	0.1196581196581196	127
+Cortex	full	0.3508771929824561	127
+Cortex	partial	0.2265193370165746	127
+Dividing Cells	Plant-CellFM	0.65625	52
+Dividing Cells	frozen	0.12	52
+Dividing Cells	full	0.4869565217391304	52
+Dividing Cells	partial	0.15625	52
+Endodermis	Plant-CellFM	0.5894736842105263	75
+Endodermis	frozen	0.192090395480226	75
+Endodermis	full	0.4790419161676646	75
+Endodermis	partial	0.074074074074074	75
+Endodermis/Phloem	Plant-CellFM	0.6788990825688074	43
+Endodermis/Phloem	frozen	0.1392405063291139	43
+Endodermis/Phloem	full	0.3636363636363636	43
+Endodermis/Phloem	partial	0.0727272727272727	43
+Epidermis	Plant-CellFM	0.5319587628865979	274
+Epidermis	frozen	0.1132075471698113	274
+Epidermis	full	0.44921875	274
+Epidermis	partial	0.3309352517985611	274
+Meristems	Plant-CellFM	0.7936507936507936	139
+Meristems	frozen	0.1909090909090909	139
+Meristems	full	0.39568345323741	139
+Meristems	partial	0.2578397212543554	139
+Pericycle	Plant-CellFM	0.6724137931034483	107
+Pericycle	frozen	0.1538461538461538	107
+Pericycle	full	0.4731182795698925	107
+Pericycle	partial	0.2712933753943217	107
+Phloem	Plant-CellFM	0.7272727272727273	26
+Phloem	frozen	0.293103448275862	26
+Phloem	full	0.78125	26
+Phloem	partial	0.8214285714285714	26
+Provascular cells	Plant-CellFM	0.6017699115044248	128
+Provascular cells	frozen	0.1164021164021164	128
+Provascular cells	full	0.4405286343612334	128
+Provascular cells	partial	0.3009708737864077	128
+Root Cap	Plant-CellFM	0.8717948717948718	18
+Root Cap	frozen	0.116504854368932	18
+Root Cap	full	0.2295081967213114	18
+Root Cap	partial	0.0	18
+Root Hair	Plant-CellFM	0.6236559139784946	87
+Root Hair	frozen	0.3451776649746192	87
+Root Hair	full	0.5316455696202531	87
+Root Hair	partial	0.4275862068965517	87
+Unknown	Plant-CellFM	0.5553319919517102	310
+Unknown	frozen	0.3728813559322034	310
+Unknown	full	0.4627766599597585	310
+Unknown	partial	0.4925975773889636	310
+Xylem	Plant-CellFM	0.8214285714285714	47
+Xylem	frozen	0.3278688524590163	47
+Xylem	full	0.5196850393700787	47
+Xylem	partial	0.4646464646464646	47

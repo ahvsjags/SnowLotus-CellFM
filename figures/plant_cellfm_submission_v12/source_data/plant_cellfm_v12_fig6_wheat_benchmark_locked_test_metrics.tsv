@@ -1,0 +1,13 @@
+method	metric	score	locked_test_cells
+scPlantLLM frozen	accuracy	0.2107466852756455	1433
+scPlantLLM frozen	macro-F1	0.200068469677328	1433
+scPlantLLM frozen	weighted-F1	0.2103965344332262	1433
+scPlantLLM partial	accuracy	0.3426378227494766	1433
+scPlantLLM partial	macro-F1	0.2997591328009322	1433
+scPlantLLM partial	weighted-F1	0.3298989553587246	1433
+scPlantLLM full	accuracy	0.4501046755059316	1433
+scPlantLLM full	macro-F1	0.4587635828742732	1433
+scPlantLLM full	weighted-F1	0.4501937767873176	1433
+Plant-CellFM LoRA	accuracy	0.6224703419399861	1433
+Plant-CellFM LoRA	macro-F1	0.6660112830533416	1433
+Plant-CellFM LoRA	weighted-F1	0.614128409837729	1433

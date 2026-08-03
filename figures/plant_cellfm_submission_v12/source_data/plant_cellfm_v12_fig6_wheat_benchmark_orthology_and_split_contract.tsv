@@ -1,0 +1,10 @@
+stage	items	unit
+author_source_features	78115	features
+author_orthogroup_source_genes	43342	source genes
+author_orthogroups	10181	orthogroups
+orthology_relations	96339	relations
+checkpoint_vocabulary_resolved	41987	source features
+author_cells	7388	cells
+overlap_excluded	224	cells
+nonoverlap_cells	7164	cells
+locked_test	1433	cells

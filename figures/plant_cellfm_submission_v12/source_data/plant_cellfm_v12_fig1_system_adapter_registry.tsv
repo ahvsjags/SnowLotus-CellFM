@@ -1,0 +1,57 @@
+component	embedding_dimension	heads	ffn	known_adapters	detail	adapter_id	species	status	evidence_datasets	transfer_mode	registry_ready	supporting_datasets	aliases	tasks
+encoder_layer_1	256.0	8.0	768.0		shared context encoder									
+encoder_layer_2	256.0	8.0	768.0		shared context encoder									
+encoder_layer_3	256.0	8.0	768.0		shared context encoder									
+encoder_layer_4	256.0	8.0	768.0		shared context encoder									
+runtime_adapter_bank	256.0			24.0	LoRA r=8; alpha=16									
+output_embedding	256.0				embedding									
+output_annotation					annotation									
+output_markers					markers									
+adapter						plant_9311	9311	general_backbone_ready	1.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_arabidopsis_thaliana	Arabidopsis thaliana	general_backbone_ready	10.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_brassica_rapa	Brassica rapa	general_backbone_ready	1.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_brassicaceae	Brassicaceae	general_backbone_ready	0.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_camelina_sativa	Camelina sativa	general_backbone_ready	1.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_catharanthus_roseus	Catharanthus roseus	general_backbone_ready	1.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_eutrema_salsugineum	Eutrema salsugineum	general_backbone_ready	1.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_fragaria_vesca	Fragaria vesca	general_backbone_ready	1.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_gossypium_bickii	Gossypium bickii	general_backbone_ready	1.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_gossypium_hirsutum	Gossypium hirsutum	general_backbone_ready	1.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_marchantia_polymorpha	Marchantia polymorpha	general_backbone_ready	0.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_nip	Nip	general_backbone_ready	1.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_oryza_sativa	Oryza sativa	general_backbone_ready	3.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_oryza_sativa_japonica_group	Oryza sativa Japonica Group	general_backbone_ready	0.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_saussurea_hypsipeta	Saussurea hypsipeta	general_backbone_ready	0.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_saussurea_involucrata	Saussurea involucrata	general_backbone_ready	0.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_saussurea_lyrata	Saussurea lyrata	general_backbone_ready	0.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_saussurea_medusa	Saussurea medusa	general_backbone_ready	0.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_sisymbrium_irio	Sisymbrium irio	general_backbone_ready	1.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_solanum_lycopersicum	Solanum lycopersicum	general_backbone_ready	1.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_stevia_rebaudiana	Stevia rebaudiana	general_backbone_ready	1.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_triticum_aestivum	Triticum aestivum	general_backbone_ready	1.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_zea_mays	Zea mays	general_backbone_ready	1.0	exact_gene_ids_then_ortholog_map				
+adapter						plant_universal	__unregistered_plant__	universal_fallback	0.0	exact_gene_ids_then_ortholog_map				
+adapter_registry							Arabidopsis thaliana	general_backbone_ready			1.0	10.0	1.0	4.0
+adapter_registry							Oryza sativa	general_backbone_ready			1.0	3.0	1.0	4.0
+adapter_registry							9311	general_backbone_ready			1.0	1.0	1.0	4.0
+adapter_registry							Brassica rapa	general_backbone_ready			1.0	1.0	1.0	4.0
+adapter_registry							Camelina sativa	general_backbone_ready			1.0	1.0	1.0	4.0
+adapter_registry							Catharanthus roseus	general_backbone_ready			1.0	1.0	1.0	4.0
+adapter_registry							Eutrema salsugineum	general_backbone_ready			1.0	1.0	1.0	4.0
+adapter_registry							Fragaria vesca	general_backbone_ready			1.0	1.0	1.0	4.0
+adapter_registry							Gossypium bickii	general_backbone_ready			1.0	1.0	1.0	4.0
+adapter_registry							Gossypium hirsutum	general_backbone_ready			1.0	1.0	1.0	4.0
+adapter_registry							Nip	general_backbone_ready			1.0	1.0	1.0	4.0
+adapter_registry							Sisymbrium irio	general_backbone_ready			1.0	1.0	1.0	4.0
+adapter_registry							Solanum lycopersicum	general_backbone_ready			1.0	1.0	1.0	4.0
+adapter_registry							Stevia rebaudiana	general_backbone_ready			1.0	1.0	1.0	4.0
+adapter_registry							Triticum aestivum	general_backbone_ready			1.0	1.0	1.0	4.0
+adapter_registry							Zea mays	general_backbone_ready			1.0	1.0	1.0	4.0
+adapter_registry							Brassicaceae	general_backbone_ready			1.0	0.0	1.0	4.0
+adapter_registry							Marchantia polymorpha	general_backbone_ready			1.0	0.0	1.0	4.0
+adapter_registry							Oryza sativa Japonica Group	general_backbone_ready			1.0	0.0	1.0	4.0
+adapter_registry							Saussurea hypsipeta	general_backbone_ready			1.0	0.0	1.0	4.0
+adapter_registry							Saussurea involucrata	general_backbone_ready			1.0	0.0	1.0	4.0
+adapter_registry							Saussurea lyrata	general_backbone_ready			1.0	0.0	1.0	4.0
+adapter_registry							Saussurea medusa	general_backbone_ready			1.0	0.0	1.0	4.0
+adapter_registry							__unregistered_plant__	universal_fallback			0.0	0.0	3.0	4.0

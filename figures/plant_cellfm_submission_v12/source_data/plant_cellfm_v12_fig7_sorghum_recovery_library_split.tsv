@@ -1,0 +1,5 @@
+library	role	fit_access	cells	states
+OUGHX	train	fit		
+OWGSC	train	fit		
+OWGSB	validation	select		
+OUGHW	sealed test	locked	4150.0	27.0

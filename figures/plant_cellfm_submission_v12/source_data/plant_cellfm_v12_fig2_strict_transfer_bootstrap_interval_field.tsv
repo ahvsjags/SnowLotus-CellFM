@@ -1,0 +1,17 @@
+held_out_species	metric	point	ci_low	ci_high	n_test	n_covered
+Gossypium hirsutum	all_cell_accuracy	0.0	0.0	0.0	256	0
+Gossypium hirsutum	coverage	0.0	0.0	0.0	256	0
+Brassica rapa	all_cell_accuracy	0.17538671875	0.12890625	0.22265625	256	240
+Brassica rapa	coverage	0.93716015625	0.90625	0.96484375	256	240
+Arabidopsis thaliana	all_cell_accuracy	0.3241798393913778	0.305991124260355	0.3436179205409975	2366	1024
+Arabidopsis thaliana	coverage	0.4326498309382925	0.4125105663567202	0.4526627218934911	2366	1024
+Fragaria vesca	all_cell_accuracy	0.535513671875	0.47265625	0.59765625	256	161
+Fragaria vesca	coverage	0.62984375	0.5703125	0.69140625	256	161
+Gossypium bickii	all_cell_accuracy	0.543416015625	0.484375	0.60546875	256	232
+Gossypium bickii	coverage	0.9060625	0.8671875	0.94140625	256	232
+Catharanthus roseus	all_cell_accuracy	0.695587890625	0.63671875	0.75	256	241
+Catharanthus roseus	coverage	0.941609375	0.9140625	0.96875	256	241
+Eutrema salsugineum	all_cell_accuracy	1.0	1.0	1.0	62	62
+Eutrema salsugineum	coverage	1.0	1.0	1.0	62	62
+Triticum aestivum	all_cell_accuracy	1.0	1.0	1.0	256	256
+Triticum aestivum	coverage	1.0	1.0	1.0	256	256

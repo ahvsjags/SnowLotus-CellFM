@@ -1,0 +1,7 @@
+stage	dimension	target_label_access	layers
+rank_tokenization	256.0	0	
+frozen_embedding		0	4.0
+organ_context		0	
+phylogeny_context		0	
+source_context_router		0	
+coverage_retained_output		0	

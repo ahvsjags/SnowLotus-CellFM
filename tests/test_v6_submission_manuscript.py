@@ -38,16 +38,17 @@ def test_v7_convergence_plan_cannot_be_read_as_an_acceptance_claim() -> None:
     assert "required for a stronger revision rather than claimed complete" in plan
 
 
-def test_readme_exposes_the_current_v7_entry_points() -> None:
+def test_readme_exposes_the_current_plant_methods_entry_points() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
 
-    assert "## Current v7 Evidence-First Submission Package" in readme
-    assert "Plant_CellFM_v7_submission_evidence_manuscript.md" in readme
-    assert "Plant_CellFM_v7_submission_evidence_manuscript.docx" in readme
-    assert "Plant_CellFM_v7_submission_evidence_manuscript.pdf" in readme
-    assert "render_v6_editorial_core_figures.py" in readme
-    assert "render_v6_extended_evidence_figures.py" in readme
-    assert "audit_v6_submission_figure_suite.py" in readme
+    assert "## Current Plant Methods v1 Submission Package" in readme
+    assert "Plant_CellFM_Plant_Methods_manuscript_v1.md" in readme
+    assert "Plant_CellFM_Plant_Methods_manuscript_v1.docx" in readme
+    assert "Plant_CellFM_Plant_Methods_submission_v1.zip" in readme
+    assert "figures/plant_cellfm_submission_v12" in readme
+    assert "render_v12_system_figure.py" in readme
+    assert "audit_v12_main_figure_suite.py" in readme
+    assert "build_plant_methods_submission_docs.js" in readme
 
 
 def test_v7_word_builder_targets_the_current_evidence_manuscript_and_figures() -> None:
