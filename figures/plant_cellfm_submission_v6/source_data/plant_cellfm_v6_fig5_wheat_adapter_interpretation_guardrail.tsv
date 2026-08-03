@@ -1,5 +1,0 @@
-scope_field	value	colour_role
-input	wheat author-labelled study	#2E6FAD
-split	same-study cell-level	#D97524
-adapter	target-supervised LoRA	#8064A7
-claim	adaptation, not zero-shot	#B34D5B

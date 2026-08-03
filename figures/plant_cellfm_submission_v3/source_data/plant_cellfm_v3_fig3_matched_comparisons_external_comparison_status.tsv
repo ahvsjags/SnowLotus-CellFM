@@ -1,6 +1,0 @@
-method	protocol	status
-matched v3-v9	three grouped holdouts	completed
-cosine centroid	SRP169576 sample holdout	completed
-Seurat transfer	exported train/test split	completed
-scPlantLLM probe	official input contract	contract_ready_metric_pending
-scPlantAnnotate	official access route	contract_ready_auth_limited

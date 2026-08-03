@@ -1,2 +1,0 @@
-device	batch_size	official_checkpoint_sha256	full_finetune_checkpoint_sha256	official_checkpoint_load	locked_test_cells	exact_prediction_match	metric_match
-cuda	16	baa24dc1e686b94aa08e7e7b08df17e1bb53e479416acf7f50cd032b0fabf416	075ec53fc08044f8fb921d909ca87428c1519a282c1222e32f5261273055965f	{'missing_keys': 0, 'unexpected_keys': 0, 'conversion': {'converted_wqkv_weight_count': 6, 'converted_wqkv_bias_count': 6, 'skipped_key_count': 10, 'skipped_key_prefixes': ['grad_reverse_discriminator.']}}	1433	True	True

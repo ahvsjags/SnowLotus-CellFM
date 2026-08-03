@@ -1,7 +1,0 @@
-field	value
-frozen_external_role	GSE297576 author-labelled Sorghum bicolor root; no target labels during inference
-adapter_train_libraries	OUGHX; OWGSC
-adapter_validation_library	OWGSB
-sealed_test_library	OUGHW
-adapter_selection	validation fine macro-F1; epoch 10
-claim_boundary	within-atlas library-held-out species adaptation; not zero-shot or third-party ranking

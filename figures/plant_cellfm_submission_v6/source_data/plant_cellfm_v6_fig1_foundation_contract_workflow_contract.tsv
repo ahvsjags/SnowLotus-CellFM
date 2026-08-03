@@ -1,5 +1,0 @@
-stage	recorded_property
-input genes	counts + IDs per cell
-orthology	deterministic projection
-Plant-CellFM	256-dim cell state
-evidence record	coverage + adapter + markers

@@ -1,2 +1,0 @@
-anchors_tested	candidate_top_n	matching_program_hits	matching_program_hit_rate	recovered_marker_symbols	candidate_rows_in_root_case	root_identity_labels
-6	20	3	0.5	['CASP1', 'APL', 'MYB46']	200	10

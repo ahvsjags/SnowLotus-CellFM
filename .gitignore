@@ -29,6 +29,7 @@ figures/plant_cellfm_submission_v4/**/*.tiff
 figures/plant_cellfm_submission_v5/**/*.tiff
 figures/plant_cellfm_submission_v6/**/*.tiff
 figures/plant_cellfm_submission_v7/**/*.tiff
+figures/plant_cellfm_submission_v12/**/*.tiff
 
 # Local execution inputs and renderer by-products are retained outside the
 # reproducible release package. Their provenance is captured in metadata.
