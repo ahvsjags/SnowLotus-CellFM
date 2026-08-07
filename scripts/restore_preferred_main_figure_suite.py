@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-"""Restore the preferred editorial main-figure composition.
+"""Restore the earlier Imagen-integrated v12 main-figure composition.
 
 The quantitative source tables remain the current v12 records.  This script
-only swaps the page-level artwork with the preserved, white-background
-editorial composition that was used for the earlier preferred review set.
-Fig. 3 and Fig. 7 stay on the current v12 render because their newer
-context-routing and sealed-library panels contain the current endpoint text.
+restores the complete seven-figure suite in which the mechanism schematics
+and the data panels were composed as one visual narrative.  All seven pages
+come from the preserved v12 artwork so that figures are not mixed across
+different data generations.
 """
 
 import hashlib
@@ -37,13 +37,13 @@ ZIP_SHA = ZIP_PATH.with_suffix(ZIP_PATH.suffix + ".sha256")
 
 SUFFIXES = ("svg", "pdf", "png", "tiff")
 FIGURES = [
-    ("Fig. 1", "Universal Plant-CellFM system", "plant_cellfm_v12_fig1_system", "preferred v6 editorial composition", "preferred_editorial/plant_cellfm_v6_fig1_foundation_contract"),
-    ("Fig. 2", "Strict cross-species transfer", "plant_cellfm_v12_fig2_strict_transfer", "preferred v6 editorial composition", "preferred_editorial/plant_cellfm_v6_fig2_strict_transfer"),
-    ("Fig. 3", "Source-context transfer routing", "plant_cellfm_v12_fig3_context_stc", "current v12 context-routing endpoint", None),
-    ("Fig. 4", "Sparse target adaptation", "plant_cellfm_v12_fig4_target_adaptation", "preferred v6 editorial composition", "preferred_editorial/plant_cellfm_v6_fig3_target_adaptation"),
-    ("Fig. 5", "Arabidopsis root biology", "plant_cellfm_v12_fig5_root_biology", "preferred v6 editorial composition", "preferred_editorial/plant_cellfm_v6_fig4_external_root_evidence"),
-    ("Fig. 6", "Wheat matched benchmark", "plant_cellfm_v12_fig6_wheat_benchmark", "preferred v6 editorial composition", "preferred_editorial/plant_cellfm_v6_fig5_wheat_adapter"),
-    ("Fig. 7", "Sorghum sealed-library recovery", "plant_cellfm_v12_fig7_sorghum_recovery", "current v12 sealed-library endpoint", None),
+    ("Fig. 1", "Universal Plant-CellFM system", "plant_cellfm_v12_fig1_system", "Imagen-integrated v12 composition", "imagen_integrated_v12/plant_cellfm_v12_fig1_system"),
+    ("Fig. 2", "Strict cross-species transfer", "plant_cellfm_v12_fig2_strict_transfer", "Imagen-integrated v12 composition", "imagen_integrated_v12/plant_cellfm_v12_fig2_strict_transfer"),
+    ("Fig. 3", "Source-context transfer routing", "plant_cellfm_v12_fig3_context_stc", "Imagen-integrated v12 composition", "imagen_integrated_v12/plant_cellfm_v12_fig3_context_stc"),
+    ("Fig. 4", "Sparse target adaptation", "plant_cellfm_v12_fig4_target_adaptation", "Imagen-integrated v12 composition", "imagen_integrated_v12/plant_cellfm_v12_fig4_target_adaptation"),
+    ("Fig. 5", "Arabidopsis root biology", "plant_cellfm_v12_fig5_root_biology", "Imagen-integrated v12 composition", "imagen_integrated_v12/plant_cellfm_v12_fig5_root_biology"),
+    ("Fig. 6", "Wheat matched benchmark", "plant_cellfm_v12_fig6_wheat_benchmark", "Imagen-integrated v12 composition", "imagen_integrated_v12/plant_cellfm_v12_fig6_wheat_benchmark"),
+    ("Fig. 7", "Sorghum sealed-library recovery", "plant_cellfm_v12_fig7_sorghum_recovery", "Imagen-integrated v12 composition", "imagen_integrated_v12/plant_cellfm_v12_fig7_sorghum_recovery"),
 ]
 
 
@@ -113,7 +113,7 @@ def build_contact_sheet() -> Path:
     ax = fig.add_subplot(grid[3, 1])
     ax.set_axis_off()
     ax.text(0.05, 0.78, "Plant-CellFM", color="white", fontsize=21, fontweight="bold")
-    ax.text(0.05, 0.67, "preferred editorial main suite", color="#79C7C2", fontsize=12)
+    ax.text(0.05, 0.67, "Imagen-integrated v12 main suite", color="#79C7C2", fontsize=12)
     ax.text(
         0.05,
         0.46,
@@ -122,8 +122,8 @@ def build_contact_sheet() -> Path:
         fontsize=11,
         linespacing=1.55,
     )
-    ax.text(0.05, 0.21, "White-background editorial composition restored.\nCurrent v12 source tables and endpoints retained.", color="#91A7B2", fontsize=8.8, linespacing=1.45)
-    output = REVIEW / "plant_cellfm_preferred_main_contact_sheet.png"
+    ax.text(0.05, 0.21, "Mechanism schematics and current v12 results restored as one suite.", color="#91A7B2", fontsize=8.8, linespacing=1.45)
+    output = REVIEW / "plant_cellfm_imagen_integrated_main_contact_sheet.png"
     fig.savefig(output, dpi=240, facecolor=fig.get_facecolor())
     plt.close(fig)
     return output
@@ -153,19 +153,19 @@ def write_figure_manifest(records: list[dict[str, object]], contact_sheet: Path)
     payload = {
         "schema_version": "plant_cellfm_preferred_main_figure_manifest",
         "generated": date.today().isoformat(),
-        "visual_policy": "All seven pages use the preferred white-background editorial composition; quantitative panels remain table-driven and current v12 source tables are retained; SVG/PDF remain vector and PNG/TIFF are 600 dpi exports.",
+        "visual_policy": "All seven pages use the preserved Imagen-integrated v12 composition; quantitative panels remain table-driven and current v12 source tables are retained; SVG/PDF remain vector and PNG/TIFF are 600 dpi exports.",
         "n_main_figures": len(figure_records),
         "figures": figure_records,
         "assets": [],
         "contact_sheet": contact_sheet.relative_to(ROOT).as_posix(),
         "artwork_records": records,
-        "asset_provenance": "No generative-image assets are used in the submission figures.",
+        "asset_provenance": "The preserved v12 suite combines mechanism schematics with data-driven panels; no newly generated image was substituted during restoration.",
     }
     (V12 / "MAIN_FIGURE_MANIFEST.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     lines = [
-        "# Plant-CellFM preferred main figure suite",
+        "# Plant-CellFM Imagen-integrated v12 main figure suite",
         "",
-        "The preferred white-background editorial composition has been restored for the main submission figures. Current v12 quantitative source tables and endpoint definitions remain unchanged.",
+        "The earlier Imagen-integrated v12 composition has been restored for all seven main submission figures. Current v12 quantitative source tables and endpoint definitions remain unchanged.",
         "",
         "| Figure | Title | Visual composition | Source tables |",
         "| --- | --- | --- | ---: |",
@@ -187,7 +187,7 @@ def update_submission_manifest_and_zip() -> None:
     manifest_path = SUBMISSION / "SUBMISSION_FILE_MANIFEST.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     manifest["generated"] = date.today().isoformat()
-    manifest["figure_policy"] = "Main figures use the preferred white-background editorial composition; current v12 table-driven quantitative panels and vector schematics are retained; no generative-image assets are included."
+    manifest["figure_policy"] = "Main figures use the preserved Imagen-integrated v12 composition; current v12 table-driven quantitative panels and vector schematics are retained; no new image asset was substituted."
     for item in manifest.get("files", []):
         relative = item.get("path")
         if relative:
@@ -207,9 +207,9 @@ def write_review_metadata(records: list[dict[str, object]], contact_sheet: Path)
     payload = {
         "schema_version": "plant_cellfm_preferred_main_visual_review",
         "generated": date.today().isoformat(),
-        "visual_target": "previously preferred white-background editorial composition",
+        "visual_target": "earlier Imagen-integrated v12 composition",
         "server": "px1-jcy.matpool.com:26506",
-        "server_role": "model/data verification only; preferred image assets were restored from the preserved local historical review set",
+        "server_role": "model/data verification only; image assets were restored from the preserved local historical v12 review set",
         "contact_sheet": contact_sheet.relative_to(ROOT).as_posix(),
         "current_source_policy": "All current v12 source tables remain in figures/plant_cellfm_submission_v12/source_data.",
         "records": records,
@@ -221,13 +221,13 @@ def write_review_metadata(records: list[dict[str, object]], contact_sheet: Path)
         "",
         f"Generated: {date.today().isoformat()}",
         "",
-        "The main submission pages now use the preserved white-background editorial composition requested by the author. Current v12 source tables, primary nested strict estimate (39.96%), and context-aware sensitivity endpoint (42.36%) remain the controlling records.",
+        "The main submission pages now use the earlier Imagen-integrated v12 composition requested by the author. Current v12 source tables, primary nested strict estimate (39.96%), and context-aware sensitivity endpoint (42.36%) remain the controlling records.",
         "",
         "The new server endpoint `px1-jcy.matpool.com:26506` was verified for connectivity and model/data presence. It did not contain a complete v11/v12 image suite, so no remote artwork was substituted.",
         "",
         f"Review sheet: `{contact_sheet.relative_to(ROOT).as_posix()}`",
         "",
-        "No generative-image assets were used; all figure pages remain scripted/vector or data-derived.",
+        "The restored suite combines mechanism schematics with data-derived panels; no newly generated asset was substituted.",
     ]
     (metadata_dir / "plant_cellfm_preferred_main_visual_review_latest.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 

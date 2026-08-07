@@ -32,17 +32,16 @@ FIGURES = {
 
 REQUIRED_SVG_TEXT = {
     "plant_cellfm_v12_fig1_system": (
-        "A traceable gene-to-cell contract defines each annotation",
-        "Training profile is compact and declared",
-        "Held-out species occupy a shared representation",
-        "Ontology states recur across species",
+        "Plant-CellFM: a coverage-aware framework for plant single-cell annotation",
+        "Frozen corpus composition",
+        "Held-out representation atlas",
+        "Adapter ecology around a frozen core",
     ),
     "plant_cellfm_v12_fig2_strict_transfer": (
-        "Strict transfer is measurable but highly heterogeneous across held-out species",
-        "The primary denominator stays visible",
-        "Coverage audit",
-        "Context sensitivity",
-        "39.96%",
+        "Strict cross-species generalization under target exclusion",
+        "Strict leave-species-out outcome atlas",
+        "Coverage-to-accuracy interval field",
+        "Context sensitivity lane",
     ),
     "plant_cellfm_v12_fig3_context_stc": (
         "Source context improves coverage-aware species transfer",
@@ -53,24 +52,22 @@ REQUIRED_SVG_TEXT = {
         "75.8%",
     ),
     "plant_cellfm_v12_fig4_target_adaptation": (
-        "Support and query cells are disjoint",
-        "Small labelled support produces a repeatable adaptation dose response",
-        "Fine-label recovery follows the same support response",
-        "Species gains remain inspectable",
+        "Target-species adaptation from sparse labelled support",
+        "Support-dose response across independent draws",
+        "Physically disjoint support/query contract",
+        "Allocation strategy landscape",
     ),
     "plant_cellfm_v12_fig5_root_biology": (
-        "A frozen model partitions a label-free external root matrix into 13 predicted states",
-        "Every output state and confidence remains inspectable",
-        "Fixed markers support five expected groups",
-        "Scope",
+        "Arabidopsis root: blind coherence to locked adaptation",
+        "Blind root-state atlas and confidence geometry",
+        "Predeclared marker-to-identity coherence",
+        "Validation-only model selection",
     ),
     "plant_cellfm_v12_fig6_wheat_benchmark": (
-        "Wheat stress-test provenance",
-        "Mapping retention",
-        "Adaptation recovery",
-        "The 13-class locked test preserves each author state",
-        "Rare and mixed root states remain visible",
-        "Selection precedes the locked test",
+        "Wheat root: allopolyploid transfer resolves the locked benchmark",
+        "A/B/D orthology bridge and locked-cell contract",
+        "Matched routes converge on 66.6% macro-F1",
+        "Error-route rewiring after Plant-CellFM adaptation",
     ),
     "plant_cellfm_v12_fig7_sorghum_recovery": (
         "Sorghum root: a physically sealed library recovers 27 cell states",
@@ -241,7 +238,7 @@ def main() -> None:
     required_suite_files = [
         V12 / "MAIN_FIGURE_MANIFEST.json",
         V12 / "README.md",
-        REVIEW / "plant_cellfm_preferred_main_contact_sheet.png",
+        REVIEW / "plant_cellfm_imagen_integrated_main_contact_sheet.png",
     ]
     for path in required_suite_files:
         if not path.exists() or path.stat().st_size == 0:

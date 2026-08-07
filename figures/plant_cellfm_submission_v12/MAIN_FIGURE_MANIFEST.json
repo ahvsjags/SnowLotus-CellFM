@@ -1,34 +1,34 @@
 {
   "schema_version": "plant_cellfm_preferred_main_figure_manifest",
   "generated": "2026-08-07",
-  "visual_policy": "All seven pages use the preferred white-background editorial composition; quantitative panels remain table-driven and current v12 source tables are retained; SVG/PDF remain vector and PNG/TIFF are 600 dpi exports.",
+  "visual_policy": "All seven pages use the preserved Imagen-integrated v12 composition; quantitative panels remain table-driven and current v12 source tables are retained; SVG/PDF remain vector and PNG/TIFF are 600 dpi exports.",
   "n_main_figures": 7,
   "figures": [
     {
       "figure": "Fig. 1",
       "title": "Universal Plant-CellFM system",
       "stem": "plant_cellfm_v12_fig1_system",
-      "provenance": "preferred v6 editorial composition",
+      "provenance": "Imagen-integrated v12 composition",
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.svg",
-          "bytes": 76647,
-          "sha256": "166a4a2e594a09b2b99c4214a2cbf440bdc3141ac7bc874581dd62df95cf619a"
+          "bytes": 1192727,
+          "sha256": "8d057418f8b67d3ed6c08ddc8f91afe5024c2c94d0dc15c70e644be266baf927"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.pdf",
-          "bytes": 76313,
-          "sha256": "c53da93d9b16d2c6ca2f28a28e5f213be7558ba81b0ea52f0064bab5b4feef09"
+          "bytes": 251865,
+          "sha256": "7757549ecd17b465b085632ea7cb3e7e38a5b42e2aa8c762c329fabb2be9b95c"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.png",
-          "bytes": 475923,
-          "sha256": "4fc0814c083671ae1db421222fb43c160ac3a78c4f77df83160de458a673ebe1"
+          "bytes": 1167208,
+          "sha256": "9e3fb868495407269e1584ac51827aa5b4edaa5a095b4bcbcc48b5ea1ab36633"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.tiff",
-          "bytes": 1440528,
-          "sha256": "7d486af9f3769984d8daf82f39a65ff2cb1fc23adcf881357cf4a65c22bb75fd"
+          "bytes": 2204950,
+          "sha256": "77d9ecfb0dc30bb896684bf24e28a99d0842901e3bf0c95c53126a6358bdfa8a"
         }
       },
       "source_tables": [
@@ -45,27 +45,27 @@
       "figure": "Fig. 2",
       "title": "Strict cross-species transfer",
       "stem": "plant_cellfm_v12_fig2_strict_transfer",
-      "provenance": "preferred v6 editorial composition",
+      "provenance": "Imagen-integrated v12 composition",
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.svg",
-          "bytes": 49424,
-          "sha256": "e39041ff190baf2bec8f287f16115cf233110d0f9b57a73a0f4887473a69bcc6"
+          "bytes": 599794,
+          "sha256": "3dcc0735ac44b0a2392ef16a4943375289efddaee5f957296a81da7a2f8fb80f"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.pdf",
-          "bytes": 59199,
-          "sha256": "1df3b76c776a6b0aad29188386f4e2172e58340b2d5e499d7f410993b0e55669"
+          "bytes": 150888,
+          "sha256": "e1dd40bae52343352388aadfe7ab34cbb6b1ff916c33e166cf6ef3aac1b793b6"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.png",
-          "bytes": 465326,
-          "sha256": "8d7626d2ad676d908536243dc935ae4a845668c24d6a7bd8390037723d448fbe"
+          "bytes": 1122876,
+          "sha256": "00ff35e52f36550400cf5104f9e0775010988b3dfbea595c6c89d963f1da2005"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.tiff",
-          "bytes": 1168486,
-          "sha256": "e27037bd1883e30d6d961b6c0365de0c77d5319709da77d383a8c3443dfffade"
+          "bytes": 1878852,
+          "sha256": "45a3131c52f45900fd4de9aa75d45d5e42a58852b3d9bef8cf74367e914f35f5"
         }
       },
       "source_tables": [
@@ -83,7 +83,7 @@
       "figure": "Fig. 3",
       "title": "Source-context transfer routing",
       "stem": "plant_cellfm_v12_fig3_context_stc",
-      "provenance": "current v12 context-routing endpoint",
+      "provenance": "Imagen-integrated v12 composition",
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.svg",
@@ -97,13 +97,13 @@
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.png",
-          "bytes": 1517303,
-          "sha256": "d9e68e6eb37e5b38e67979f6673279a21a778be5e3adfb84330bbe304c083d50"
+          "bytes": 1194909,
+          "sha256": "b32e12688957526bd38f9ab73ea36b5816b52fc5a187d857ce735a3f476e3172"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.tiff",
-          "bytes": 78788886,
-          "sha256": "357310cfd930aa6febb91b82ef13a5476a961094a6f3febe59ad3235916f5651"
+          "bytes": 2321976,
+          "sha256": "2d998fdb33e24cad6ffbc616090afc53af1c43996a5fec66a5da753249d3a9d8"
         }
       },
       "source_tables": [
@@ -119,27 +119,27 @@
       "figure": "Fig. 4",
       "title": "Sparse target adaptation",
       "stem": "plant_cellfm_v12_fig4_target_adaptation",
-      "provenance": "preferred v6 editorial composition",
+      "provenance": "Imagen-integrated v12 composition",
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.svg",
-          "bytes": 71597,
-          "sha256": "e148bfc4b8fe56fde57d4a3de94d173c8244e0a52d4291f516b103a151bfcae3"
+          "bytes": 1154471,
+          "sha256": "973eb0112c1a56c881612080c354a969d5e3ebcc961d3225c045edc139d5a0c3"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.pdf",
-          "bytes": 63866,
-          "sha256": "0dcbe715497168f4d8aecf0f69aee622cc86b271f8a0f3f00c2e6765043b6a25"
+          "bytes": 242921,
+          "sha256": "7b046501dcb42b93884fa82a90b7e2edb9a86992afc732da3221a687222bfcd0"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.png",
-          "bytes": 543909,
-          "sha256": "773dc894902312e6fb4e44fd9927ed95273e7a934f16b78c8e6174e8365b1a33"
+          "bytes": 1119526,
+          "sha256": "99b232d9d87d45cde0774792e116d990f9e2e728c82a52918f4f1d10cb3fd389"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.tiff",
-          "bytes": 1295508,
-          "sha256": "c84793b9968a27cd1c60db1127a65f14f5ae33911e84d7e71b8cb7c4eeaab331"
+          "bytes": 2039574,
+          "sha256": "448e30dc2b1a3507d8f1cf35e3636bd74d4ac8fd4a148ee11a6f91d365f437f6"
         }
       },
       "source_tables": [
@@ -156,27 +156,27 @@
       "figure": "Fig. 5",
       "title": "Arabidopsis root biology",
       "stem": "plant_cellfm_v12_fig5_root_biology",
-      "provenance": "preferred v6 editorial composition",
+      "provenance": "Imagen-integrated v12 composition",
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.svg",
-          "bytes": 139403,
-          "sha256": "bcb080d2544c62be113baf5ecb3acd889129f039dc4d619465676e75465a71c7"
+          "bytes": 897206,
+          "sha256": "0964c0acbfea75ef333d2e607730bf9c032f6816f6cd3347ac4f16340671a6e9"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.pdf",
-          "bytes": 113174,
-          "sha256": "7ab21b80c82ee24f535976c527275faa547283f95ed2187199aa0b1d97f962dd"
+          "bytes": 186266,
+          "sha256": "511a5c11977f34d583adc68fc89f8493efe3f20449b450faa0b50e08a7d639e7"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.png",
-          "bytes": 579363,
-          "sha256": "1d96b64c1bbab3e2fdfee739b4baf2cb01fb14ad2d553a0c2828501e2e46b003"
+          "bytes": 1611464,
+          "sha256": "f7a0afdfe4bcf1be5ac2cf207763de2c851281e882bf4de6e4786950ccfc2e28"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.tiff",
-          "bytes": 1847110,
-          "sha256": "6d2d059fba4804d856530c675b21e913e72d79f562ee6310193fc8ad44f2a1e4"
+          "bytes": 3026624,
+          "sha256": "592db8b10738c165227fd08afe972550faa0b9e96786b9fcd992389085485950"
         }
       },
       "source_tables": [
@@ -195,27 +195,27 @@
       "figure": "Fig. 6",
       "title": "Wheat matched benchmark",
       "stem": "plant_cellfm_v12_fig6_wheat_benchmark",
-      "provenance": "preferred v6 editorial composition",
+      "provenance": "Imagen-integrated v12 composition",
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.svg",
-          "bytes": 82656,
-          "sha256": "1533506754a1ed0d5beb974572bd1369d27fd62c4b919d795569918ed4f12885"
+          "bytes": 210596,
+          "sha256": "910dd05fa50049c56e40b39f5dc9593670640ea37fc57bfc2f521f97297db791"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.pdf",
-          "bytes": 69559,
-          "sha256": "27436b743fa1219bbf9bfae1adeba844f2a06b8161f4a1d1e877452718c58ae2"
+          "bytes": 107754,
+          "sha256": "256d1fdc3c9a2aa0a5fa0a7cc54fcdd4bf6748ddf27ed61137017fadb3b71864"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.png",
-          "bytes": 722371,
-          "sha256": "582c15f2b6361d193f2a9b00187a156fa890fd8c686c4fe3442b219281328b4d"
+          "bytes": 789522,
+          "sha256": "b97854e47e41258f53021d3df9fe99d58ba21487e9ca650f8b6c5d8a6c9060d8"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.tiff",
-          "bytes": 1554046,
-          "sha256": "5f0614be328c6b397035cca7ece3ff69795543e03b29bebd6762252365bf729a"
+          "bytes": 1918058,
+          "sha256": "f86444004fe557e00ad677399363174811f1525bb6cb9e43a42ce4225deb7570"
         }
       },
       "source_tables": [
@@ -233,7 +233,7 @@
       "figure": "Fig. 7",
       "title": "Sorghum sealed-library recovery",
       "stem": "plant_cellfm_v12_fig7_sorghum_recovery",
-      "provenance": "current v12 sealed-library endpoint",
+      "provenance": "Imagen-integrated v12 composition",
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.svg",
@@ -247,13 +247,13 @@
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.png",
-          "bytes": 2184158,
-          "sha256": "7feccb165f1c2307e35a2c8ef9e6046d771fd9b6d4a55849fd0903875c9ca50b"
+          "bytes": 1906210,
+          "sha256": "1e657f821b98b8eff797764af12a8501db8672a8cf4084bfbef4f4736389177a"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.tiff",
-          "bytes": 74920702,
-          "sha256": "096e650517a6d5725bc2522efa59ea0a6864841d98962dc53e4db08da9e9e3cd"
+          "bytes": 3299910,
+          "sha256": "8017793fd3178df9e293eee6b309f48f4e2c98ec1ac9e07665bcfe202efbb715"
         }
       },
       "source_tables": [
@@ -269,95 +269,95 @@
     }
   ],
   "assets": [],
-  "contact_sheet": "figures/plant_cellfm_submission_v12/review/plant_cellfm_preferred_main_contact_sheet.png",
+  "contact_sheet": "figures/plant_cellfm_submission_v12/review/plant_cellfm_imagen_integrated_main_contact_sheet.png",
   "artwork_records": [
     {
       "figure": "Fig. 1",
       "title": "Universal Plant-CellFM system",
       "format": "svg",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.svg",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig1_foundation_contract.svg",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 76647,
-      "sha256": "166a4a2e594a09b2b99c4214a2cbf440bdc3141ac7bc874581dd62df95cf619a"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig1_system.svg",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 1192727,
+      "sha256": "8d057418f8b67d3ed6c08ddc8f91afe5024c2c94d0dc15c70e644be266baf927"
     },
     {
       "figure": "Fig. 1",
       "title": "Universal Plant-CellFM system",
       "format": "pdf",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.pdf",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig1_foundation_contract.pdf",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 76313,
-      "sha256": "c53da93d9b16d2c6ca2f28a28e5f213be7558ba81b0ea52f0064bab5b4feef09"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig1_system.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 251865,
+      "sha256": "7757549ecd17b465b085632ea7cb3e7e38a5b42e2aa8c762c329fabb2be9b95c"
     },
     {
       "figure": "Fig. 1",
       "title": "Universal Plant-CellFM system",
       "format": "png",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.png",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig1_foundation_contract.pdf",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 475923,
-      "sha256": "4fc0814c083671ae1db421222fb43c160ac3a78c4f77df83160de458a673ebe1"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig1_system.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 1167208,
+      "sha256": "9e3fb868495407269e1584ac51827aa5b4edaa5a095b4bcbcc48b5ea1ab36633"
     },
     {
       "figure": "Fig. 1",
       "title": "Universal Plant-CellFM system",
       "format": "tiff",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.tiff",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig1_foundation_contract.pdf",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 1440528,
-      "sha256": "7d486af9f3769984d8daf82f39a65ff2cb1fc23adcf881357cf4a65c22bb75fd"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig1_system.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 2204950,
+      "sha256": "77d9ecfb0dc30bb896684bf24e28a99d0842901e3bf0c95c53126a6358bdfa8a"
     },
     {
       "figure": "Fig. 2",
       "title": "Strict cross-species transfer",
       "format": "svg",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.svg",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig2_strict_transfer.svg",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 49424,
-      "sha256": "e39041ff190baf2bec8f287f16115cf233110d0f9b57a73a0f4887473a69bcc6"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig2_strict_transfer.svg",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 599794,
+      "sha256": "3dcc0735ac44b0a2392ef16a4943375289efddaee5f957296a81da7a2f8fb80f"
     },
     {
       "figure": "Fig. 2",
       "title": "Strict cross-species transfer",
       "format": "pdf",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.pdf",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig2_strict_transfer.pdf",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 59199,
-      "sha256": "1df3b76c776a6b0aad29188386f4e2172e58340b2d5e499d7f410993b0e55669"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig2_strict_transfer.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 150888,
+      "sha256": "e1dd40bae52343352388aadfe7ab34cbb6b1ff916c33e166cf6ef3aac1b793b6"
     },
     {
       "figure": "Fig. 2",
       "title": "Strict cross-species transfer",
       "format": "png",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.png",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig2_strict_transfer.pdf",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 465326,
-      "sha256": "8d7626d2ad676d908536243dc935ae4a845668c24d6a7bd8390037723d448fbe"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig2_strict_transfer.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 1122876,
+      "sha256": "00ff35e52f36550400cf5104f9e0775010988b3dfbea595c6c89d963f1da2005"
     },
     {
       "figure": "Fig. 2",
       "title": "Strict cross-species transfer",
       "format": "tiff",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.tiff",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig2_strict_transfer.pdf",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 1168486,
-      "sha256": "e27037bd1883e30d6d961b6c0365de0c77d5319709da77d383a8c3443dfffade"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig2_strict_transfer.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 1878852,
+      "sha256": "45a3131c52f45900fd4de9aa75d45d5e42a58852b3d9bef8cf74367e914f35f5"
     },
     {
       "figure": "Fig. 3",
       "title": "Source-context transfer routing",
       "format": "svg",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.svg",
-      "source": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.svg",
-      "provenance": "current v12 context-routing endpoint",
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig3_context_stc.svg",
+      "provenance": "Imagen-integrated v12 composition",
       "bytes": 811274,
       "sha256": "dd96737d3541514018e03b1e7b0d933c4d96802d5f6cb0188fccf04d7fb62b50"
     },
@@ -366,8 +366,8 @@
       "title": "Source-context transfer routing",
       "format": "pdf",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.pdf",
-      "source": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.pdf",
-      "provenance": "current v12 context-routing endpoint",
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig3_context_stc.pdf",
+      "provenance": "Imagen-integrated v12 composition",
       "bytes": 193451,
       "sha256": "619a5c8cf00bc2d10fde43642b827b44ab18e1cabd69099a25917b4440ea9e4a"
     },
@@ -376,148 +376,148 @@
       "title": "Source-context transfer routing",
       "format": "png",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.png",
-      "source": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.png",
-      "provenance": "current v12 context-routing endpoint",
-      "bytes": 1517303,
-      "sha256": "d9e68e6eb37e5b38e67979f6673279a21a778be5e3adfb84330bbe304c083d50"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig3_context_stc.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 1194909,
+      "sha256": "b32e12688957526bd38f9ab73ea36b5816b52fc5a187d857ce735a3f476e3172"
     },
     {
       "figure": "Fig. 3",
       "title": "Source-context transfer routing",
       "format": "tiff",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.tiff",
-      "source": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.tiff",
-      "provenance": "current v12 context-routing endpoint",
-      "bytes": 78788886,
-      "sha256": "357310cfd930aa6febb91b82ef13a5476a961094a6f3febe59ad3235916f5651"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig3_context_stc.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 2321976,
+      "sha256": "2d998fdb33e24cad6ffbc616090afc53af1c43996a5fec66a5da753249d3a9d8"
     },
     {
       "figure": "Fig. 4",
       "title": "Sparse target adaptation",
       "format": "svg",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.svg",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig3_target_adaptation.svg",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 71597,
-      "sha256": "e148bfc4b8fe56fde57d4a3de94d173c8244e0a52d4291f516b103a151bfcae3"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig4_target_adaptation.svg",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 1154471,
+      "sha256": "973eb0112c1a56c881612080c354a969d5e3ebcc961d3225c045edc139d5a0c3"
     },
     {
       "figure": "Fig. 4",
       "title": "Sparse target adaptation",
       "format": "pdf",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.pdf",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig3_target_adaptation.pdf",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 63866,
-      "sha256": "0dcbe715497168f4d8aecf0f69aee622cc86b271f8a0f3f00c2e6765043b6a25"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig4_target_adaptation.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 242921,
+      "sha256": "7b046501dcb42b93884fa82a90b7e2edb9a86992afc732da3221a687222bfcd0"
     },
     {
       "figure": "Fig. 4",
       "title": "Sparse target adaptation",
       "format": "png",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.png",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig3_target_adaptation.pdf",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 543909,
-      "sha256": "773dc894902312e6fb4e44fd9927ed95273e7a934f16b78c8e6174e8365b1a33"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig4_target_adaptation.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 1119526,
+      "sha256": "99b232d9d87d45cde0774792e116d990f9e2e728c82a52918f4f1d10cb3fd389"
     },
     {
       "figure": "Fig. 4",
       "title": "Sparse target adaptation",
       "format": "tiff",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.tiff",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig3_target_adaptation.pdf",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 1295508,
-      "sha256": "c84793b9968a27cd1c60db1127a65f14f5ae33911e84d7e71b8cb7c4eeaab331"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig4_target_adaptation.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 2039574,
+      "sha256": "448e30dc2b1a3507d8f1cf35e3636bd74d4ac8fd4a148ee11a6f91d365f437f6"
     },
     {
       "figure": "Fig. 5",
       "title": "Arabidopsis root biology",
       "format": "svg",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.svg",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig4_external_root_evidence.svg",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 139403,
-      "sha256": "bcb080d2544c62be113baf5ecb3acd889129f039dc4d619465676e75465a71c7"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig5_root_biology.svg",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 897206,
+      "sha256": "0964c0acbfea75ef333d2e607730bf9c032f6816f6cd3347ac4f16340671a6e9"
     },
     {
       "figure": "Fig. 5",
       "title": "Arabidopsis root biology",
       "format": "pdf",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.pdf",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig4_external_root_evidence.pdf",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 113174,
-      "sha256": "7ab21b80c82ee24f535976c527275faa547283f95ed2187199aa0b1d97f962dd"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig5_root_biology.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 186266,
+      "sha256": "511a5c11977f34d583adc68fc89f8493efe3f20449b450faa0b50e08a7d639e7"
     },
     {
       "figure": "Fig. 5",
       "title": "Arabidopsis root biology",
       "format": "png",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.png",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig4_external_root_evidence.pdf",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 579363,
-      "sha256": "1d96b64c1bbab3e2fdfee739b4baf2cb01fb14ad2d553a0c2828501e2e46b003"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig5_root_biology.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 1611464,
+      "sha256": "f7a0afdfe4bcf1be5ac2cf207763de2c851281e882bf4de6e4786950ccfc2e28"
     },
     {
       "figure": "Fig. 5",
       "title": "Arabidopsis root biology",
       "format": "tiff",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.tiff",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig4_external_root_evidence.pdf",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 1847110,
-      "sha256": "6d2d059fba4804d856530c675b21e913e72d79f562ee6310193fc8ad44f2a1e4"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig5_root_biology.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 3026624,
+      "sha256": "592db8b10738c165227fd08afe972550faa0b9e96786b9fcd992389085485950"
     },
     {
       "figure": "Fig. 6",
       "title": "Wheat matched benchmark",
       "format": "svg",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.svg",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig5_wheat_adapter.svg",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 82656,
-      "sha256": "1533506754a1ed0d5beb974572bd1369d27fd62c4b919d795569918ed4f12885"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig6_wheat_benchmark.svg",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 210596,
+      "sha256": "910dd05fa50049c56e40b39f5dc9593670640ea37fc57bfc2f521f97297db791"
     },
     {
       "figure": "Fig. 6",
       "title": "Wheat matched benchmark",
       "format": "pdf",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.pdf",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig5_wheat_adapter.pdf",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 69559,
-      "sha256": "27436b743fa1219bbf9bfae1adeba844f2a06b8161f4a1d1e877452718c58ae2"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig6_wheat_benchmark.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 107754,
+      "sha256": "256d1fdc3c9a2aa0a5fa0a7cc54fcdd4bf6748ddf27ed61137017fadb3b71864"
     },
     {
       "figure": "Fig. 6",
       "title": "Wheat matched benchmark",
       "format": "png",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.png",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig5_wheat_adapter.pdf",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 722371,
-      "sha256": "582c15f2b6361d193f2a9b00187a156fa890fd8c686c4fe3442b219281328b4d"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig6_wheat_benchmark.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 789522,
+      "sha256": "b97854e47e41258f53021d3df9fe99d58ba21487e9ca650f8b6c5d8a6c9060d8"
     },
     {
       "figure": "Fig. 6",
       "title": "Wheat matched benchmark",
       "format": "tiff",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.tiff",
-      "source": "figures/plant_cellfm_submission_v12/reference_designs/preferred_editorial/plant_cellfm_v6_fig5_wheat_adapter.pdf",
-      "provenance": "preferred v6 editorial composition",
-      "bytes": 1554046,
-      "sha256": "5f0614be328c6b397035cca7ece3ff69795543e03b29bebd6762252365bf729a"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig6_wheat_benchmark.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 1918058,
+      "sha256": "f86444004fe557e00ad677399363174811f1525bb6cb9e43a42ce4225deb7570"
     },
     {
       "figure": "Fig. 7",
       "title": "Sorghum sealed-library recovery",
       "format": "svg",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.svg",
-      "source": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.svg",
-      "provenance": "current v12 sealed-library endpoint",
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig7_sorghum_recovery.svg",
+      "provenance": "Imagen-integrated v12 composition",
       "bytes": 1800692,
       "sha256": "14ec11cf0883910bc5a636765f794ba6203e202ef378c5acd12ab9ba7980ca87"
     },
@@ -526,8 +526,8 @@
       "title": "Sorghum sealed-library recovery",
       "format": "pdf",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.pdf",
-      "source": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.pdf",
-      "provenance": "current v12 sealed-library endpoint",
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig7_sorghum_recovery.pdf",
+      "provenance": "Imagen-integrated v12 composition",
       "bytes": 297743,
       "sha256": "b3833ee2189ceb10ca226c6d53069cbd1a4265c79c705d7c4c3f53818dd2da4c"
     },
@@ -536,21 +536,21 @@
       "title": "Sorghum sealed-library recovery",
       "format": "png",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.png",
-      "source": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.png",
-      "provenance": "current v12 sealed-library endpoint",
-      "bytes": 2184158,
-      "sha256": "7feccb165f1c2307e35a2c8ef9e6046d771fd9b6d4a55849fd0903875c9ca50b"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig7_sorghum_recovery.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 1906210,
+      "sha256": "1e657f821b98b8eff797764af12a8501db8672a8cf4084bfbef4f4736389177a"
     },
     {
       "figure": "Fig. 7",
       "title": "Sorghum sealed-library recovery",
       "format": "tiff",
       "artifact": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.tiff",
-      "source": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.tiff",
-      "provenance": "current v12 sealed-library endpoint",
-      "bytes": 74920702,
-      "sha256": "096e650517a6d5725bc2522efa59ea0a6864841d98962dc53e4db08da9e9e3cd"
+      "source": "figures/plant_cellfm_submission_v12/reference_designs/imagen_integrated_v12/plant_cellfm_v12_fig7_sorghum_recovery.pdf",
+      "provenance": "Imagen-integrated v12 composition",
+      "bytes": 3299910,
+      "sha256": "8017793fd3178df9e293eee6b309f48f4e2c98ec1ac9e07665bcfe202efbb715"
     }
   ],
-  "asset_provenance": "No generative-image assets are used in the submission figures."
+  "asset_provenance": "The preserved v12 suite combines mechanism schematics with data-driven panels; no newly generated image was substituted during restoration."
 }

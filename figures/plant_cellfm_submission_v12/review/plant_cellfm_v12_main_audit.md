@@ -7,10 +7,10 @@
 
 | Figure | Formats | Source TSV | Min font | PNG/TIFF dpi | SVG/PDF embedded raster dpi | Nonwhite |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
-| `plant_cellfm_v12_fig1_system` | 4/4 | 7 | 5.00 | 600.0 / 600.0 / 600.0 / 600.0 | 100.0 / 100.0 | 0.211 |
-| `plant_cellfm_v12_fig2_strict_transfer` | 4/4 | 8 | 5.00 | 600.0 / 600.0 / 600.0 / 600.0 | None / None | 0.126 |
-| `plant_cellfm_v12_fig3_context_stc` | 4/4 | 6 | 3.00 | 600.0 / 600.0 / 600.0 / 600.0 | None / None | 0.286 |
-| `plant_cellfm_v12_fig4_target_adaptation` | 4/4 | 7 | 5.00 | 600.0 / 600.0 / 600.0 / 600.0 | 100.0 / 100.0 | 0.260 |
-| `plant_cellfm_v12_fig5_root_biology` | 4/4 | 9 | 5.00 | 600.0 / 600.0 / 600.0 / 600.0 | 100.0 / 100.0 | 0.182 |
-| `plant_cellfm_v12_fig6_wheat_benchmark` | 4/4 | 8 | 5.00 | 600.0 / 600.0 / 600.0 / 600.0 | 100.0 / 100.0 | 0.258 |
+| `plant_cellfm_v12_fig1_system` | 4/4 | 7 | 3.00 | 600.0 / 600.0 / 600.0 / 600.0 | None / None | 0.323 |
+| `plant_cellfm_v12_fig2_strict_transfer` | 4/4 | 8 | 3.00 | 600.0 / 600.0 / 600.0 / 600.0 | None / None | 0.346 |
+| `plant_cellfm_v12_fig3_context_stc` | 4/4 | 6 | 3.00 | 600.0 / 600.0 / 600.0 / 600.0 | None / None | 0.288 |
+| `plant_cellfm_v12_fig4_target_adaptation` | 4/4 | 7 | 3.00 | 600.0 / 600.0 / 600.0 / 600.0 | None / None | 0.246 |
+| `plant_cellfm_v12_fig5_root_biology` | 4/4 | 9 | 3.00 | 600.0 / 600.0 / 600.0 / 600.0 | None / None | 0.347 |
+| `plant_cellfm_v12_fig6_wheat_benchmark` | 4/4 | 8 | 3.00 | 600.0 / 600.0 / 600.0 / 600.0 | 600.0 / 600.0 | 0.252 |
 | `plant_cellfm_v12_fig7_sorghum_recovery` | 4/4 | 8 | 3.00 | 600.0 / 600.0 / 600.0 / 600.0 | None / None | 0.453 |

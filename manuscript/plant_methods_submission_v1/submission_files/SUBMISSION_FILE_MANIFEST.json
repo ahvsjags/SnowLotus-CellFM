@@ -3,17 +3,17 @@
   "generated": "2026-08-07",
   "repository": "https://github.com/ahvsjags/SnowLotus-CellFM",
   "planned_public_tag": "plant-methods-submission-v1-20260803",
-  "figure_policy": "Main figures use the preferred white-background editorial composition; current v12 table-driven quantitative panels and vector schematics are retained; no generative-image assets are included.",
+  "figure_policy": "Main figures use the preserved Imagen-integrated v12 composition; current v12 table-driven quantitative panels and vector schematics are retained; no new image asset was substituted.",
   "files": [
     {
       "path": "main_figures/Figure_1.pdf",
-      "bytes": 76313,
-      "sha256": "c53da93d9b16d2c6ca2f28a28e5f213be7558ba81b0ea52f0064bab5b4feef09"
+      "bytes": 251865,
+      "sha256": "7757549ecd17b465b085632ea7cb3e7e38a5b42e2aa8c762c329fabb2be9b95c"
     },
     {
       "path": "main_figures/Figure_2.pdf",
-      "bytes": 59199,
-      "sha256": "1df3b76c776a6b0aad29188386f4e2172e58340b2d5e499d7f410993b0e55669"
+      "bytes": 150888,
+      "sha256": "e1dd40bae52343352388aadfe7ab34cbb6b1ff916c33e166cf6ef3aac1b793b6"
     },
     {
       "path": "main_figures/Figure_3.pdf",
@@ -22,18 +22,18 @@
     },
     {
       "path": "main_figures/Figure_4.pdf",
-      "bytes": 63866,
-      "sha256": "0dcbe715497168f4d8aecf0f69aee622cc86b271f8a0f3f00c2e6765043b6a25"
+      "bytes": 242921,
+      "sha256": "7b046501dcb42b93884fa82a90b7e2edb9a86992afc732da3221a687222bfcd0"
     },
     {
       "path": "main_figures/Figure_5.pdf",
-      "bytes": 113174,
-      "sha256": "7ab21b80c82ee24f535976c527275faa547283f95ed2187199aa0b1d97f962dd"
+      "bytes": 186266,
+      "sha256": "511a5c11977f34d583adc68fc89f8493efe3f20449b450faa0b50e08a7d639e7"
     },
     {
       "path": "main_figures/Figure_6.pdf",
-      "bytes": 69559,
-      "sha256": "27436b743fa1219bbf9bfae1adeba844f2a06b8161f4a1d1e877452718c58ae2"
+      "bytes": 107754,
+      "sha256": "256d1fdc3c9a2aa0a5fa0a7cc54fcdd4bf6748ddf27ed61137017fadb3b71864"
     },
     {
       "path": "main_figures/Figure_7.pdf",
