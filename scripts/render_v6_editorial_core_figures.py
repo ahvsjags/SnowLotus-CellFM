@@ -98,7 +98,9 @@ def export(fig: plt.Figure, stem: str, tables: dict[str, pd.DataFrame]) -> None:
     for name, table in tables.items():
         table.to_csv(SOURCE / f"{stem}_{name}.tsv", sep="\t", index=False)
     base.enforce_minimum_text_size(fig)
-    for suffix, options in (("svg", {}), ("pdf", {}), ("png", {"dpi": 350}), ("tiff", {"dpi": 600})):
+    # Use the same 600-dpi raster contract for rasterized scatter/heatmap
+    # artists embedded in the otherwise editable vector pages.
+    for suffix, options in (("svg", {"dpi": 600}), ("pdf", {"dpi": 600}), ("png", {"dpi": 600}), ("tiff", {"dpi": 600})):
         fig.savefig(MAIN / f"{stem}.{suffix}", bbox_inches="tight", pad_inches=0.025, **options)
     plt.close(fig)
 
