@@ -1,7 +1,7 @@
 {
   "suite": "plant_cellfm_submission_v12",
   "status": "PASS",
-  "scope": "seven main figures; four-format 600-dpi exports; editable vector typography and data layers; SVG/PDF embedded-raster effective dpi; source-data completeness; key row counts; visual occupancy; scripted vector schematics",
+  "scope": "seven main figures; four-format 600-dpi exports; editable vector typography and data layers; SVG/PDF embedded-raster effective dpi; source-data completeness; key row counts; visual occupancy; recovered Imagen mechanism assets",
   "figures": {
     "plant_cellfm_v12_fig1_system": {
       "exports": {
@@ -16,14 +16,14 @@
       "min_svg_font_pt": 3.0,
       "median_svg_font_pt": 3.0,
       "svg_embedded_raster": {
-        "embedded_raster_count": 0,
-        "min_effective_dpi": null,
-        "max_effective_dpi": null
+        "embedded_raster_count": 1,
+        "min_effective_dpi": 275.4,
+        "max_effective_dpi": 321.38
       },
       "pdf_embedded_raster": {
-        "embedded_raster_count": 0,
-        "min_effective_dpi": null,
-        "max_effective_dpi": null
+        "embedded_raster_count": 1,
+        "min_effective_dpi": 321.38,
+        "max_effective_dpi": 321.38
       },
       "png": {
         "pixels": [
@@ -35,8 +35,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 1167208,
-        "nonwhite_fraction": 0.323,
+        "bytes": 3139514,
+        "nonwhite_fraction": 0.3127,
         "very_dark_fraction": 1e-05
       },
       "tiff": {
@@ -49,8 +49,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 2204950,
-        "nonwhite_fraction": 0.323,
+        "bytes": 4573868,
+        "nonwhite_fraction": 0.3127,
         "very_dark_fraction": 1e-05
       }
     },
@@ -67,14 +67,14 @@
       "min_svg_font_pt": 3.0,
       "median_svg_font_pt": 3.0,
       "svg_embedded_raster": {
-        "embedded_raster_count": 0,
-        "min_effective_dpi": null,
-        "max_effective_dpi": null
+        "embedded_raster_count": 1,
+        "min_effective_dpi": 277.65,
+        "max_effective_dpi": 318.75
       },
       "pdf_embedded_raster": {
-        "embedded_raster_count": 0,
-        "min_effective_dpi": null,
-        "max_effective_dpi": null
+        "embedded_raster_count": 1,
+        "min_effective_dpi": 318.75,
+        "max_effective_dpi": 318.75
       },
       "png": {
         "pixels": [
@@ -86,8 +86,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 1122876,
-        "nonwhite_fraction": 0.3465,
+        "bytes": 4297190,
+        "nonwhite_fraction": 0.2275,
         "very_dark_fraction": 0.0
       },
       "tiff": {
@@ -100,8 +100,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 1878852,
-        "nonwhite_fraction": 0.3465,
+        "bytes": 7502578,
+        "nonwhite_fraction": 0.2275,
         "very_dark_fraction": 0.0
       }
     },
@@ -118,14 +118,14 @@
       "min_svg_font_pt": 3.0,
       "median_svg_font_pt": 3.0,
       "svg_embedded_raster": {
-        "embedded_raster_count": 0,
-        "min_effective_dpi": null,
-        "max_effective_dpi": null
+        "embedded_raster_count": 1,
+        "min_effective_dpi": 288.3,
+        "max_effective_dpi": 306.75
       },
       "pdf_embedded_raster": {
-        "embedded_raster_count": 0,
-        "min_effective_dpi": null,
-        "max_effective_dpi": null
+        "embedded_raster_count": 1,
+        "min_effective_dpi": 306.75,
+        "max_effective_dpi": 306.75
       },
       "png": {
         "pixels": [
@@ -137,8 +137,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 1194909,
-        "nonwhite_fraction": 0.2876,
+        "bytes": 4116502,
+        "nonwhite_fraction": 0.3031,
         "very_dark_fraction": 0.0
       },
       "tiff": {
@@ -151,8 +151,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 2321976,
-        "nonwhite_fraction": 0.2876,
+        "bytes": 6741338,
+        "nonwhite_fraction": 0.3031,
         "very_dark_fraction": 0.0
       }
     },
@@ -169,14 +169,14 @@
       "min_svg_font_pt": 3.0,
       "median_svg_font_pt": 3.0,
       "svg_embedded_raster": {
-        "embedded_raster_count": 0,
-        "min_effective_dpi": null,
-        "max_effective_dpi": null
+        "embedded_raster_count": 1,
+        "min_effective_dpi": 271.5,
+        "max_effective_dpi": 325.8
       },
       "pdf_embedded_raster": {
-        "embedded_raster_count": 0,
-        "min_effective_dpi": null,
-        "max_effective_dpi": null
+        "embedded_raster_count": 1,
+        "min_effective_dpi": 325.8,
+        "max_effective_dpi": 325.8
       },
       "png": {
         "pixels": [
@@ -188,8 +188,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 1119526,
-        "nonwhite_fraction": 0.2459,
+        "bytes": 2914661,
+        "nonwhite_fraction": 0.185,
         "very_dark_fraction": 0.0
       },
       "tiff": {
@@ -202,8 +202,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 2039574,
-        "nonwhite_fraction": 0.2459,
+        "bytes": 4891210,
+        "nonwhite_fraction": 0.185,
         "very_dark_fraction": 0.0
       }
     },
@@ -220,14 +220,14 @@
       "min_svg_font_pt": 3.0,
       "median_svg_font_pt": 3.0,
       "svg_embedded_raster": {
-        "embedded_raster_count": 0,
-        "min_effective_dpi": null,
-        "max_effective_dpi": null
+        "embedded_raster_count": 2,
+        "min_effective_dpi": 342.21,
+        "max_effective_dpi": 604.33
       },
       "pdf_embedded_raster": {
-        "embedded_raster_count": 0,
-        "min_effective_dpi": null,
-        "max_effective_dpi": null
+        "embedded_raster_count": 2,
+        "min_effective_dpi": 398.09,
+        "max_effective_dpi": 604.33
       },
       "png": {
         "pixels": [
@@ -239,8 +239,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 1611464,
-        "nonwhite_fraction": 0.347,
+        "bytes": 3410476,
+        "nonwhite_fraction": 0.2372,
         "very_dark_fraction": 0.0
       },
       "tiff": {
@@ -253,8 +253,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 3026624,
-        "nonwhite_fraction": 0.347,
+        "bytes": 5902274,
+        "nonwhite_fraction": 0.2372,
         "very_dark_fraction": 0.0
       }
     },
@@ -271,13 +271,13 @@
       "min_svg_font_pt": 3.0,
       "median_svg_font_pt": 3.0,
       "svg_embedded_raster": {
-        "embedded_raster_count": 1,
-        "min_effective_dpi": 600.0,
+        "embedded_raster_count": 2,
+        "min_effective_dpi": 260.25,
         "max_effective_dpi": 600.0
       },
       "pdf_embedded_raster": {
-        "embedded_raster_count": 1,
-        "min_effective_dpi": 600.0,
+        "embedded_raster_count": 2,
+        "min_effective_dpi": 339.75,
         "max_effective_dpi": 600.0
       },
       "png": {
@@ -290,8 +290,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 789522,
-        "nonwhite_fraction": 0.2518,
+        "bytes": 3178944,
+        "nonwhite_fraction": 0.2676,
         "very_dark_fraction": 0.0
       },
       "tiff": {
@@ -304,8 +304,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 1918058,
-        "nonwhite_fraction": 0.2518,
+        "bytes": 4824092,
+        "nonwhite_fraction": 0.2676,
         "very_dark_fraction": 0.0
       }
     },
@@ -322,14 +322,14 @@
       "min_svg_font_pt": 3.0,
       "median_svg_font_pt": 3.0,
       "svg_embedded_raster": {
-        "embedded_raster_count": 0,
-        "min_effective_dpi": null,
-        "max_effective_dpi": null
+        "embedded_raster_count": 2,
+        "min_effective_dpi": 325.27,
+        "max_effective_dpi": 604.33
       },
       "pdf_embedded_raster": {
-        "embedded_raster_count": 0,
-        "min_effective_dpi": null,
-        "max_effective_dpi": null
+        "embedded_raster_count": 2,
+        "min_effective_dpi": 460.8,
+        "max_effective_dpi": 604.33
       },
       "png": {
         "pixels": [
@@ -341,8 +341,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 1906210,
-        "nonwhite_fraction": 0.4527,
+        "bytes": 5549321,
+        "nonwhite_fraction": 0.3569,
         "very_dark_fraction": 0.0
       },
       "tiff": {
@@ -355,14 +355,28 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 3299910,
-        "nonwhite_fraction": 0.4527,
+        "bytes": 8315390,
+        "nonwhite_fraction": 0.3569,
         "very_dark_fraction": 0.0
       }
     }
   },
   "assets": {
-    "scripted_vector_schematics": "No generative-image assets are required by the v12 renderers."
+    "imagen_recovered": [
+      "figures/plant_cellfm_submission_v12/assets/imagen_recovered/adapter.png",
+      "figures/plant_cellfm_submission_v12/assets/imagen_recovered/anatomy_transfer.png",
+      "figures/plant_cellfm_submission_v12/assets/imagen_recovered/cross_species.png",
+      "figures/plant_cellfm_submission_v12/assets/imagen_recovered/foundation.png",
+      "figures/plant_cellfm_submission_v12/assets/imagen_recovered/genomics.png",
+      "figures/plant_cellfm_submission_v12/assets/imagen_recovered/plant_network.png",
+      "figures/plant_cellfm_submission_v12/assets/imagen_recovered/root_cell.png",
+      "figures/plant_cellfm_submission_v12/assets/imagen_recovered/root_states.png",
+      "figures/plant_cellfm_submission_v12/assets/imagen_recovered/routing.png",
+      "figures/plant_cellfm_submission_v12/assets/imagen_recovered/sorghum_root.png",
+      "figures/plant_cellfm_submission_v12/assets/imagen_recovered/tissue_transfer.png",
+      "figures/plant_cellfm_submission_v12/assets/imagen_recovered/wheat.png"
+    ],
+    "scripted_vector_schematics": "Quantitative and data layers remain generated by the v12 renderers."
   },
   "renderer_data_layers_vector": {
     "render_v12_system_figure.py": true,

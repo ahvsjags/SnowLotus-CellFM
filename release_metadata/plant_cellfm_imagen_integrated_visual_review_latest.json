@@ -1,0 +1,21 @@
+{
+  "schema_version": "plant_cellfm_imagen_integrated_visual_review",
+  "generated": "2026-08-08",
+  "visual_target": "earlier Imagen-generated mechanism + current-data composite suite",
+  "generated_assets": [
+    "figures/plant_cellfm_submission_v12/assets/imagen_recovered/adapter.png",
+    "figures/plant_cellfm_submission_v12/assets/imagen_recovered/anatomy_transfer.png",
+    "figures/plant_cellfm_submission_v12/assets/imagen_recovered/cross_species.png",
+    "figures/plant_cellfm_submission_v12/assets/imagen_recovered/foundation.png",
+    "figures/plant_cellfm_submission_v12/assets/imagen_recovered/genomics.png",
+    "figures/plant_cellfm_submission_v12/assets/imagen_recovered/plant_network.png",
+    "figures/plant_cellfm_submission_v12/assets/imagen_recovered/root_cell.png",
+    "figures/plant_cellfm_submission_v12/assets/imagen_recovered/root_states.png",
+    "figures/plant_cellfm_submission_v12/assets/imagen_recovered/routing.png",
+    "figures/plant_cellfm_submission_v12/assets/imagen_recovered/sorghum_root.png",
+    "figures/plant_cellfm_submission_v12/assets/imagen_recovered/tissue_transfer.png",
+    "figures/plant_cellfm_submission_v12/assets/imagen_recovered/wheat.png"
+  ],
+  "contact_sheet": "figures/plant_cellfm_submission_v12/review/plant_cellfm_imagen_integrated_main_contact_sheet.png",
+  "data_policy": "All benchmark data, source tables, denominators and endpoint values remain current v12."
+}

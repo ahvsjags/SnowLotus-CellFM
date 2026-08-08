@@ -1,34 +1,34 @@
 {
   "schema_version": "plant_cellfm_preferred_main_figure_manifest",
-  "generated": "2026-08-07",
-  "visual_policy": "All seven pages use the preserved Imagen-integrated v12 composition; quantitative panels remain table-driven and current v12 source tables are retained; SVG/PDF remain vector and PNG/TIFF are 600 dpi exports.",
+  "generated": "2026-08-08",
+  "visual_policy": "Imagen-generated mechanism layers are composited into the top narrative panels; all quantitative panels and source tables remain the current v12 records; PDF/SVG retain editable source layers and PNG/TIFF are 600 dpi exports.",
   "n_main_figures": 7,
   "figures": [
     {
       "figure": "Fig. 1",
       "title": "Universal Plant-CellFM system",
       "stem": "plant_cellfm_v12_fig1_system",
-      "provenance": "Imagen-integrated v12 composition",
+      "provenance": "Recovered Imagen mechanism layer + current v12 quantitative panels",
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.svg",
-          "bytes": 1192727,
-          "sha256": "8d057418f8b67d3ed6c08ddc8f91afe5024c2c94d0dc15c70e644be266baf927"
+          "bytes": 3776970,
+          "sha256": "2ad00c1c7fa4d328cda99b45a6d78ee596d4596b6833619b7daa28326b341d97"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.pdf",
-          "bytes": 251865,
-          "sha256": "7757549ecd17b465b085632ea7cb3e7e38a5b42e2aa8c762c329fabb2be9b95c"
+          "bytes": 1165072,
+          "sha256": "e91277a58f301f6bf4af8b57265576e7204d833522dd63d95e1822a772d1b7fa"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.png",
-          "bytes": 1167208,
-          "sha256": "9e3fb868495407269e1584ac51827aa5b4edaa5a095b4bcbcc48b5ea1ab36633"
+          "bytes": 3139514,
+          "sha256": "90e5ec8ff598bf5812ed978ec7b622f52ce4bf5ce03e02053ae67424a8175fe4"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.tiff",
-          "bytes": 2204950,
-          "sha256": "77d9ecfb0dc30bb896684bf24e28a99d0842901e3bf0c95c53126a6358bdfa8a"
+          "bytes": 4573868,
+          "sha256": "873101ec66779f2fab2730a0d63e6ab209c66ed32304238cd5259021002aef33"
         }
       },
       "source_tables": [
@@ -45,27 +45,27 @@
       "figure": "Fig. 2",
       "title": "Strict cross-species transfer",
       "stem": "plant_cellfm_v12_fig2_strict_transfer",
-      "provenance": "Imagen-integrated v12 composition",
+      "provenance": "Recovered Imagen mechanism layer + current v12 quantitative panels",
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.svg",
-          "bytes": 599794,
-          "sha256": "3dcc0735ac44b0a2392ef16a4943375289efddaee5f957296a81da7a2f8fb80f"
+          "bytes": 4126085,
+          "sha256": "41a42bfc8319c4a310806c2d8817701e5eec75983c30f3e9dc5077ad205c0910"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.pdf",
-          "bytes": 150888,
-          "sha256": "e1dd40bae52343352388aadfe7ab34cbb6b1ff916c33e166cf6ef3aac1b793b6"
+          "bytes": 1614546,
+          "sha256": "65a2438d59cd0b638b56c359b9ed96d0c35dc5129aca043e4ee251a13fca4f24"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.png",
-          "bytes": 1122876,
-          "sha256": "00ff35e52f36550400cf5104f9e0775010988b3dfbea595c6c89d963f1da2005"
+          "bytes": 4297190,
+          "sha256": "10df8243b67ea75172a4009e7ab13f8b1560e0630c2f292579765b2506431b23"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.tiff",
-          "bytes": 1878852,
-          "sha256": "45a3131c52f45900fd4de9aa75d45d5e42a58852b3d9bef8cf74367e914f35f5"
+          "bytes": 7502578,
+          "sha256": "81c25c09670be58b5138d99be55356bc7a5efe896daa478d31b08c0db9205e93"
         }
       },
       "source_tables": [
@@ -83,27 +83,27 @@
       "figure": "Fig. 3",
       "title": "Source-context transfer routing",
       "stem": "plant_cellfm_v12_fig3_context_stc",
-      "provenance": "Imagen-integrated v12 composition",
+      "provenance": "Recovered Imagen mechanism layer + current v12 quantitative panels",
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.svg",
-          "bytes": 811274,
-          "sha256": "dd96737d3541514018e03b1e7b0d933c4d96802d5f6cb0188fccf04d7fb62b50"
+          "bytes": 3313741,
+          "sha256": "0118f874379d13b9b74f53f01f50105f6b157e336dd3321ef77fef30777f70bf"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.pdf",
-          "bytes": 193451,
-          "sha256": "619a5c8cf00bc2d10fde43642b827b44ab18e1cabd69099a25917b4440ea9e4a"
+          "bytes": 1236315,
+          "sha256": "1e34bd24369cf01cbd0eb392580545842b2499924855ac93e2c572db4efef6c6"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.png",
-          "bytes": 1194909,
-          "sha256": "b32e12688957526bd38f9ab73ea36b5816b52fc5a187d857ce735a3f476e3172"
+          "bytes": 4116502,
+          "sha256": "a0ddcf67fd51471cbc24213d8b40d4b2567335cc69912e2291665aa80359d99a"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.tiff",
-          "bytes": 2321976,
-          "sha256": "2d998fdb33e24cad6ffbc616090afc53af1c43996a5fec66a5da753249d3a9d8"
+          "bytes": 6741338,
+          "sha256": "04387cc98dd1fea78cd436eb8372be6a57c3eaf6b2e80e6e733f98b2f8cdb2de"
         }
       },
       "source_tables": [
@@ -119,27 +119,27 @@
       "figure": "Fig. 4",
       "title": "Sparse target adaptation",
       "stem": "plant_cellfm_v12_fig4_target_adaptation",
-      "provenance": "Imagen-integrated v12 composition",
+      "provenance": "Recovered Imagen mechanism layer + current v12 quantitative panels",
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.svg",
-          "bytes": 1154471,
-          "sha256": "973eb0112c1a56c881612080c354a969d5e3ebcc961d3225c045edc139d5a0c3"
+          "bytes": 3394146,
+          "sha256": "85d589430bc5b2efde3977229e073f13b07f3676e11da52935c04eeb3efd10ac"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.pdf",
-          "bytes": 242921,
-          "sha256": "7b046501dcb42b93884fa82a90b7e2edb9a86992afc732da3221a687222bfcd0"
+          "bytes": 1164695,
+          "sha256": "237f9465f5775146ffa0769838b786eab7b379303517a0272a548bec126d2340"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.png",
-          "bytes": 1119526,
-          "sha256": "99b232d9d87d45cde0774792e116d990f9e2e728c82a52918f4f1d10cb3fd389"
+          "bytes": 2914661,
+          "sha256": "d5d0536aee8410800cfb9609e032859e1f7bb7e7c3543260c2621416536b4c8d"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.tiff",
-          "bytes": 2039574,
-          "sha256": "448e30dc2b1a3507d8f1cf35e3636bd74d4ac8fd4a148ee11a6f91d365f437f6"
+          "bytes": 4891210,
+          "sha256": "23c4639d443ef85c3a5ae17838dd4e2069529e5ef906e79f8613c2c8fcc35454"
         }
       },
       "source_tables": [
@@ -156,27 +156,27 @@
       "figure": "Fig. 5",
       "title": "Arabidopsis root biology",
       "stem": "plant_cellfm_v12_fig5_root_biology",
-      "provenance": "Imagen-integrated v12 composition",
+      "provenance": "Recovered Imagen mechanism layer + current v12 quantitative panels",
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.svg",
-          "bytes": 897206,
-          "sha256": "0964c0acbfea75ef333d2e607730bf9c032f6816f6cd3347ac4f16340671a6e9"
+          "bytes": 6347881,
+          "sha256": "52ca3d79c6ab4fe278a5c6ca8776dcf8d050433f955189d5705067300b465322"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.pdf",
-          "bytes": 186266,
-          "sha256": "511a5c11977f34d583adc68fc89f8493efe3f20449b450faa0b50e08a7d639e7"
+          "bytes": 2569650,
+          "sha256": "0eba50233a27e40034d886fdaa3ccf2fb9c7cecad7d8636ffffff941c065b22f"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.png",
-          "bytes": 1611464,
-          "sha256": "f7a0afdfe4bcf1be5ac2cf207763de2c851281e882bf4de6e4786950ccfc2e28"
+          "bytes": 3410476,
+          "sha256": "59877abd379181b2fd2e8250962bfb8b2a07e4bc4eb44872ce80178352b3594b"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.tiff",
-          "bytes": 3026624,
-          "sha256": "592db8b10738c165227fd08afe972550faa0b9e96786b9fcd992389085485950"
+          "bytes": 5902274,
+          "sha256": "3767a6617c4e17ecb1498771377774e53d93fb6be4dc8fbf15164c9aac661f74"
         }
       },
       "source_tables": [
@@ -195,27 +195,27 @@
       "figure": "Fig. 6",
       "title": "Wheat matched benchmark",
       "stem": "plant_cellfm_v12_fig6_wheat_benchmark",
-      "provenance": "Imagen-integrated v12 composition",
+      "provenance": "Recovered Imagen mechanism layer + current v12 quantitative panels",
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.svg",
-          "bytes": 210596,
-          "sha256": "910dd05fa50049c56e40b39f5dc9593670640ea37fc57bfc2f521f97297db791"
+          "bytes": 3598527,
+          "sha256": "6e0b6a5af36a915d45fb893c2a8da0a773a2f50eb985381a5b386643ee3a2b26"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.pdf",
-          "bytes": 107754,
-          "sha256": "256d1fdc3c9a2aa0a5fa0a7cc54fcdd4bf6748ddf27ed61137017fadb3b71864"
+          "bytes": 1333510,
+          "sha256": "1f5ced7b05c15b4cbf9fca415c5e50531ad4dc1ff38c690d94a1a20dc0d85736"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.png",
-          "bytes": 789522,
-          "sha256": "b97854e47e41258f53021d3df9fe99d58ba21487e9ca650f8b6c5d8a6c9060d8"
+          "bytes": 3178944,
+          "sha256": "94df2d9f8af996fba54217c726eef55781c0c097ada77bb36c5d64bbf18fb780"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.tiff",
-          "bytes": 1918058,
-          "sha256": "f86444004fe557e00ad677399363174811f1525bb6cb9e43a42ce4225deb7570"
+          "bytes": 4824092,
+          "sha256": "a16a00be19599db4f6a21b4f1f21d6f6a1d5258a9796c58f80919e5335aa4b8f"
         }
       },
       "source_tables": [
@@ -233,27 +233,27 @@
       "figure": "Fig. 7",
       "title": "Sorghum sealed-library recovery",
       "stem": "plant_cellfm_v12_fig7_sorghum_recovery",
-      "provenance": "Imagen-integrated v12 composition",
+      "provenance": "Recovered Imagen mechanism layer + current v12 quantitative panels",
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.svg",
-          "bytes": 1800692,
-          "sha256": "14ec11cf0883910bc5a636765f794ba6203e202ef378c5acd12ab9ba7980ca87"
+          "bytes": 9992455,
+          "sha256": "89328691798a90e5fcb537920289ee542d40c81da88ae15572574b1079dd478b"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.pdf",
-          "bytes": 297743,
-          "sha256": "b3833ee2189ceb10ca226c6d53069cbd1a4265c79c705d7c4c3f53818dd2da4c"
+          "bytes": 3654625,
+          "sha256": "0c61ec491014b25f06591a13e622738d8b863f65a8a0ed8e23f455487d539fc3"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.png",
-          "bytes": 1906210,
-          "sha256": "1e657f821b98b8eff797764af12a8501db8672a8cf4084bfbef4f4736389177a"
+          "bytes": 5549321,
+          "sha256": "1a4938993b15227954c4b1ea283309fd3a0d40200ff8c77b66758f252b3c373c"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.tiff",
-          "bytes": 3299910,
-          "sha256": "8017793fd3178df9e293eee6b309f48f4e2c98ec1ac9e07665bcfe202efbb715"
+          "bytes": 8315390,
+          "sha256": "20fa3eab876464f81bc3af80290fe1f4fe5d4eaaf598ad2592e8b6a3c0121b6d"
         }
       },
       "source_tables": [
@@ -552,5 +552,5 @@
       "sha256": "8017793fd3178df9e293eee6b309f48f4e2c98ec1ac9e07665bcfe202efbb715"
     }
   ],
-  "asset_provenance": "The preserved v12 suite combines mechanism schematics with data-driven panels; no newly generated image was substituted during restoration."
+  "asset_provenance": "Recovered from the Codex generated-image cache dated 2026-08-02, background-removed locally, and composited without changing benchmark data."
 }
