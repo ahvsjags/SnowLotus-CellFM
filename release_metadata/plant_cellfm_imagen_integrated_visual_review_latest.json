@@ -17,5 +17,6 @@
     "figures/plant_cellfm_submission_v12/assets/imagen_recovered/wheat.png"
   ],
   "contact_sheet": "figures/plant_cellfm_submission_v12/review/plant_cellfm_imagen_integrated_main_contact_sheet.png",
-  "data_policy": "All benchmark data, source tables, denominators and endpoint values remain current v12."
+  "data_policy": "All benchmark data, source tables, denominators and endpoint values remain current v12.",
+  "layout_policy": "Each mechanism asset is alpha-trimmed and clipped to a declared inner panel region; no asset covers an unrelated result panel, title, or legend."
 }

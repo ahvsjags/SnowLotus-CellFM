@@ -17,13 +17,13 @@
       "median_svg_font_pt": 3.0,
       "svg_embedded_raster": {
         "embedded_raster_count": 1,
-        "min_effective_dpi": 275.4,
-        "max_effective_dpi": 321.38
+        "min_effective_dpi": 272.0,
+        "max_effective_dpi": 380.7
       },
       "pdf_embedded_raster": {
         "embedded_raster_count": 1,
-        "min_effective_dpi": 321.38,
-        "max_effective_dpi": 321.38
+        "min_effective_dpi": 380.7,
+        "max_effective_dpi": 380.7
       },
       "png": {
         "pixels": [
@@ -35,8 +35,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 3139514,
-        "nonwhite_fraction": 0.3127,
+        "bytes": 2587048,
+        "nonwhite_fraction": 0.2875,
         "very_dark_fraction": 1e-05
       },
       "tiff": {
@@ -49,8 +49,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 4573868,
-        "nonwhite_fraction": 0.3127,
+        "bytes": 3749810,
+        "nonwhite_fraction": 0.2875,
         "very_dark_fraction": 1e-05
       }
     },
@@ -68,13 +68,13 @@
       "median_svg_font_pt": 3.0,
       "svg_embedded_raster": {
         "embedded_raster_count": 1,
-        "min_effective_dpi": 277.65,
-        "max_effective_dpi": 318.75
+        "min_effective_dpi": 316.12,
+        "max_effective_dpi": 406.16
       },
       "pdf_embedded_raster": {
         "embedded_raster_count": 1,
-        "min_effective_dpi": 318.75,
-        "max_effective_dpi": 318.75
+        "min_effective_dpi": 406.16,
+        "max_effective_dpi": 406.16
       },
       "png": {
         "pixels": [
@@ -86,8 +86,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 4297190,
-        "nonwhite_fraction": 0.2275,
+        "bytes": 3197413,
+        "nonwhite_fraction": 0.2177,
         "very_dark_fraction": 0.0
       },
       "tiff": {
@@ -100,8 +100,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 7502578,
-        "nonwhite_fraction": 0.2275,
+        "bytes": 5495330,
+        "nonwhite_fraction": 0.2177,
         "very_dark_fraction": 0.0
       }
     },
@@ -119,13 +119,13 @@
       "median_svg_font_pt": 3.0,
       "svg_embedded_raster": {
         "embedded_raster_count": 1,
-        "min_effective_dpi": 288.3,
-        "max_effective_dpi": 306.75
+        "min_effective_dpi": 282.62,
+        "max_effective_dpi": 360.93
       },
       "pdf_embedded_raster": {
         "embedded_raster_count": 1,
-        "min_effective_dpi": 306.75,
-        "max_effective_dpi": 306.75
+        "min_effective_dpi": 360.93,
+        "max_effective_dpi": 360.93
       },
       "png": {
         "pixels": [
@@ -137,8 +137,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 4116502,
-        "nonwhite_fraction": 0.3031,
+        "bytes": 3365983,
+        "nonwhite_fraction": 0.2809,
         "very_dark_fraction": 0.0
       },
       "tiff": {
@@ -151,8 +151,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 6741338,
-        "nonwhite_fraction": 0.3031,
+        "bytes": 5423458,
+        "nonwhite_fraction": 0.2809,
         "very_dark_fraction": 0.0
       }
     },
@@ -170,13 +170,13 @@
       "median_svg_font_pt": 3.0,
       "svg_embedded_raster": {
         "embedded_raster_count": 1,
-        "min_effective_dpi": 271.5,
-        "max_effective_dpi": 325.8
+        "min_effective_dpi": 334.73,
+        "max_effective_dpi": 619.67
       },
       "pdf_embedded_raster": {
         "embedded_raster_count": 1,
-        "min_effective_dpi": 325.8,
-        "max_effective_dpi": 325.8
+        "min_effective_dpi": 619.67,
+        "max_effective_dpi": 619.67
       },
       "png": {
         "pixels": [
@@ -188,8 +188,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 2914661,
-        "nonwhite_fraction": 0.185,
+        "bytes": 1867457,
+        "nonwhite_fraction": 0.2481,
         "very_dark_fraction": 0.0
       },
       "tiff": {
@@ -202,8 +202,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 4891210,
-        "nonwhite_fraction": 0.185,
+        "bytes": 3053478,
+        "nonwhite_fraction": 0.2481,
         "very_dark_fraction": 0.0
       }
     },
@@ -221,13 +221,13 @@
       "median_svg_font_pt": 3.0,
       "svg_embedded_raster": {
         "embedded_raster_count": 2,
-        "min_effective_dpi": 342.21,
-        "max_effective_dpi": 604.33
+        "min_effective_dpi": 307.88,
+        "max_effective_dpi": 1170.31
       },
       "pdf_embedded_raster": {
         "embedded_raster_count": 2,
-        "min_effective_dpi": 398.09,
-        "max_effective_dpi": 604.33
+        "min_effective_dpi": 525.95,
+        "max_effective_dpi": 1170.31
       },
       "png": {
         "pixels": [
@@ -239,8 +239,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 3410476,
-        "nonwhite_fraction": 0.2372,
+        "bytes": 2015267,
+        "nonwhite_fraction": 0.2112,
         "very_dark_fraction": 0.0
       },
       "tiff": {
@@ -253,8 +253,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 5902274,
-        "nonwhite_fraction": 0.2372,
+        "bytes": 3661082,
+        "nonwhite_fraction": 0.2112,
         "very_dark_fraction": 0.0
       }
     },
@@ -272,12 +272,12 @@
       "median_svg_font_pt": 3.0,
       "svg_embedded_raster": {
         "embedded_raster_count": 2,
-        "min_effective_dpi": 260.25,
+        "min_effective_dpi": 436.78,
         "max_effective_dpi": 600.0
       },
       "pdf_embedded_raster": {
         "embedded_raster_count": 2,
-        "min_effective_dpi": 339.75,
+        "min_effective_dpi": 554.33,
         "max_effective_dpi": 600.0
       },
       "png": {
@@ -290,8 +290,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 3178944,
-        "nonwhite_fraction": 0.2676,
+        "bytes": 1751415,
+        "nonwhite_fraction": 0.2569,
         "very_dark_fraction": 0.0
       },
       "tiff": {
@@ -304,8 +304,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 4824092,
-        "nonwhite_fraction": 0.2676,
+        "bytes": 3026558,
+        "nonwhite_fraction": 0.2569,
         "very_dark_fraction": 0.0
       }
     },
@@ -323,13 +323,13 @@
       "median_svg_font_pt": 3.0,
       "svg_embedded_raster": {
         "embedded_raster_count": 2,
-        "min_effective_dpi": 325.27,
-        "max_effective_dpi": 604.33
+        "min_effective_dpi": 473.93,
+        "max_effective_dpi": 708.32
       },
       "pdf_embedded_raster": {
         "embedded_raster_count": 2,
-        "min_effective_dpi": 460.8,
-        "max_effective_dpi": 604.33
+        "min_effective_dpi": 495.91,
+        "max_effective_dpi": 708.32
       },
       "png": {
         "pixels": [
@@ -341,8 +341,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 5549321,
-        "nonwhite_fraction": 0.3569,
+        "bytes": 4871353,
+        "nonwhite_fraction": 0.356,
         "very_dark_fraction": 0.0
       },
       "tiff": {
@@ -355,8 +355,8 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 8315390,
-        "nonwhite_fraction": 0.3569,
+        "bytes": 7443436,
+        "nonwhite_fraction": 0.356,
         "very_dark_fraction": 0.0
       }
     }

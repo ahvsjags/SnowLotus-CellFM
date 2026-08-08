@@ -3,6 +3,7 @@ from __future__ import annotations
 """Compose the recovered Imagen mechanism layers with the v12 data figures."""
 
 import base64
+import io
 import hashlib
 import json
 import shutil
@@ -40,19 +41,22 @@ FIGURES = [
 ]
 
 LAYOUTS = {
-    "plant_cellfm_v12_fig1_system": ((8, 26, 503, 218), [("foundation", 18, 32, 480, 192)]),
-    "plant_cellfm_v12_fig2_strict_transfer": ((8, 26, 503, 218), [("cross_species", 18, 32, 480, 192)]),
-    "plant_cellfm_v12_fig3_context_stc": ((8, 26, 503, 218), [("routing", 18, 32, 480, 192)]),
-    "plant_cellfm_v12_fig4_target_adaptation": ((8, 26, 503, 218), [("adapter", 18, 32, 480, 192)]),
-    "plant_cellfm_v12_fig5_root_biology": (
-        (8, 26, 503, 230),
-        [("root_states", 18, 31, 122, 196), ("tissue_transfer", 150, 42, 344, 174)],
-    ),
-    "plant_cellfm_v12_fig6_wheat_benchmark": ((8, 26, 503, 218), [("wheat", 18, 32, 480, 192)]),
-    "plant_cellfm_v12_fig7_sorghum_recovery": (
-        (8, 26, 503, 220),
-        [("sorghum_root", 20, 30, 122, 192), ("root_cell", 155, 45, 340, 160)],
-    ),
+    # Covers and layers are declared per original panel. This prevents a
+    # mechanism asset from painting over an unrelated result panel, title or
+    # legend in the reference composition.
+    "plant_cellfm_v12_fig1_system": {"covers": [(22, 46, 520, 214)], "layers": [("foundation", 38, 53, 486, 160)]},
+    "plant_cellfm_v12_fig2_strict_transfer": {"covers": [(25, 47, 345, 232)], "layers": [("cross_species", 34, 55, 326, 169)]},
+    "plant_cellfm_v12_fig3_context_stc": {"covers": [(25, 51, 100, 219), (100, 51, 517, 215)], "layers": [("routing", 37, 57, 482, 155)]},
+    "plant_cellfm_v12_fig4_target_adaptation": {"covers": [(29, 50, 299, 219)], "layers": [("adapter", 42, 61, 244, 151)]},
+    "plant_cellfm_v12_fig5_root_biology": {
+        "covers": [(35, 49, 100, 217), (116, 43, 374, 222)],
+        "layers": [("root_states", 38, 54, 59, 157), ("tissue_transfer", 122, 49, 246, 163)],
+    },
+    "plant_cellfm_v12_fig6_wheat_benchmark": {"covers": [(20, 50, 317, 166)], "layers": [("wheat", 29, 57, 286, 103)]},
+    "plant_cellfm_v12_fig7_sorghum_recovery": {
+        "covers": [(13, 43, 111, 207), (117, 43, 319, 207)],
+        "layers": [("sorghum_root", 17, 51, 91, 148), ("root_cell", 124, 55, 187, 139)],
+    },
 }
 
 
@@ -68,18 +72,33 @@ def asset_bytes(name: str) -> bytes:
     path = ASSETS / f"{name}.png"
     if not path.exists():
         raise FileNotFoundError(path)
-    return path.read_bytes()
+    # Remove transparent margins before fitting so the visible illustration,
+    # rather than its empty canvas, is aligned to the declared panel box.
+    with Image.open(path).convert("RGBA") as image:
+        mask = image.getchannel("A").point(lambda value: 255 if value > 12 else 0)
+        bbox = mask.getbbox()
+        if bbox:
+            pad = max(4, int(max(image.size) * 0.012))
+            left = max(0, bbox[0] - pad)
+            top = max(0, bbox[1] - pad)
+            right = min(image.width, bbox[2] + pad)
+            bottom = min(image.height, bbox[3] + pad)
+            image = image.crop((left, top, right, bottom))
+        stream = io.BytesIO()
+        image.save(stream, format="PNG", optimize=True)
+        return stream.getvalue()
 
 
 def compose_pdf(stem: str) -> None:
     source = REFERENCE / f"{stem}.pdf"
     target = MAIN / f"{stem}.pdf"
-    cover, layers = LAYOUTS[stem]
+    layout = LAYOUTS[stem]
     document = fitz.open(source)
     try:
         page = document[0]
-        page.draw_rect(fitz.Rect(*cover), color=(0.83, 0.90, 0.94), fill=(0.97, 0.985, 0.99), width=0.65, overlay=True)
-        for name, x, y, width, height in layers:
+        for cover in layout["covers"]:
+            page.draw_rect(fitz.Rect(*cover), color=None, fill=(0.97, 0.985, 0.99), width=0, overlay=True)
+        for name, x, y, width, height in layout["layers"]:
             page.insert_image(
                 fitz.Rect(x, y, x + width, y + height),
                 stream=asset_bytes(name),
@@ -94,13 +113,16 @@ def compose_pdf(stem: str) -> None:
 def compose_svg(stem: str) -> None:
     source = REFERENCE / f"{stem}.svg"
     target = MAIN / f"{stem}.svg"
-    cover, layers = LAYOUTS[stem]
+    layout = LAYOUTS[stem]
     body = source.read_text(encoding="utf-8")
     tags = [
         '<g id="imagen-integrated-mechanism-layer">',
-        f'<rect x="{cover[0]}" y="{cover[1]}" width="{cover[2] - cover[0]}" height="{cover[3] - cover[1]}" rx="5" fill="#f7fbfd" stroke="#d5e4eb" stroke-width="0.65"/>',
+        *[
+            f'<rect x="{cover[0]}" y="{cover[1]}" width="{cover[2] - cover[0]}" height="{cover[3] - cover[1]}" fill="#f7fbfd"/>'
+            for cover in layout["covers"]
+        ],
     ]
-    for name, x, y, width, height in layers:
+    for name, x, y, width, height in layout["layers"]:
         encoded = base64.b64encode(asset_bytes(name)).decode("ascii")
         tags.append(
             f'<image x="{x}" y="{y}" width="{width}" height="{height}" preserveAspectRatio="xMidYMid meet" href="data:image/png;base64,{encoded}" xlink:href="data:image/png;base64,{encoded}"/>'
@@ -149,7 +171,7 @@ def update_manifests(contact_sheet: Path) -> None:
     manifest_path = V12 / "MAIN_FIGURE_MANIFEST.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     manifest["generated"] = date.today().isoformat()
-    manifest["visual_policy"] = "Imagen-generated mechanism layers are composited into the top narrative panels; all quantitative panels and source tables remain the current v12 records; PDF/SVG retain editable source layers and PNG/TIFF are 600 dpi exports."
+    manifest["visual_policy"] = "Imagen-generated mechanism layers are panel-locked into the top narrative regions; original titles, legends and independent result panels remain visible; all quantitative panels and source tables remain the current v12 records; PDF/SVG retain editable source layers and PNG/TIFF are 600 dpi exports."
     manifest["asset_provenance"] = "Recovered from the Codex generated-image cache dated 2026-08-02, background-removed locally, and composited without changing benchmark data."
     manifest["contact_sheet"] = contact_sheet.relative_to(ROOT).as_posix()
     for record in manifest.get("figures", []):
@@ -177,7 +199,7 @@ def update_submission_bundle() -> None:
     manifest_path = SUBMISSION / "SUBMISSION_FILE_MANIFEST.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     manifest["generated"] = date.today().isoformat()
-    manifest["figure_policy"] = "Main figures combine recovered Imagen mechanism layers with current v12 quantitative panels; source tables, denominators and benchmark results are unchanged."
+    manifest["figure_policy"] = "Main figures combine panel-locked recovered Imagen mechanism layers with current v12 quantitative panels; source tables, denominators and benchmark results are unchanged."
     for item in manifest.get("files", []):
         relative = item.get("path")
         if relative and (SUBMISSION / relative).exists():
@@ -201,11 +223,12 @@ def write_review(contact_sheet: Path) -> None:
         "generated_assets": sorted(path.relative_to(ROOT).as_posix() for path in ASSETS.glob("*.png")),
         "contact_sheet": contact_sheet.relative_to(ROOT).as_posix(),
         "data_policy": "All benchmark data, source tables, denominators and endpoint values remain current v12.",
+        "layout_policy": "Each mechanism asset is alpha-trimmed and clipped to a declared inner panel region; no asset covers an unrelated result panel, title, or legend.",
     }
     (metadata_dir / "plant_cellfm_imagen_integrated_visual_review_latest.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (metadata_dir / "plant_cellfm_imagen_integrated_visual_review_latest.md").write_text(
         f"# Imagen-integrated visual review\n\nGenerated: {date.today().isoformat()}\n\n"
-        "Recovered Imagen mechanism assets are composited into the top narrative panels of all seven main figures. Quantitative panels and source data remain current v12.\n\n"
+        "Recovered Imagen mechanism assets are alpha-trimmed and panel-locked into the top narrative regions of all seven main figures. Quantitative panels and source data remain current v12.\n\n"
         f"Contact sheet: `{contact_sheet.relative_to(ROOT).as_posix()}`\n",
         encoding="utf-8",
     )

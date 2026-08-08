@@ -1,7 +1,7 @@
 {
   "schema_version": "plant_cellfm_preferred_main_figure_manifest",
   "generated": "2026-08-08",
-  "visual_policy": "Imagen-generated mechanism layers are composited into the top narrative panels; all quantitative panels and source tables remain the current v12 records; PDF/SVG retain editable source layers and PNG/TIFF are 600 dpi exports.",
+  "visual_policy": "Imagen-generated mechanism layers are panel-locked into the top narrative regions; original titles, legends and independent result panels remain visible; all quantitative panels and source tables remain the current v12 records; PDF/SVG retain editable source layers and PNG/TIFF are 600 dpi exports.",
   "n_main_figures": 7,
   "figures": [
     {
@@ -12,23 +12,23 @@
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.svg",
-          "bytes": 3776970,
-          "sha256": "2ad00c1c7fa4d328cda99b45a6d78ee596d4596b6833619b7daa28326b341d97"
+          "bytes": 3757447,
+          "sha256": "18631670c9bc06e2b1215b757e535bc497072da1b76fc7f31a3d99802ce51d32"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.pdf",
-          "bytes": 1165072,
-          "sha256": "e91277a58f301f6bf4af8b57265576e7204d833522dd63d95e1822a772d1b7fa"
+          "bytes": 1164889,
+          "sha256": "033376ff1867130132b3e908cb23f38b7ba9ada2d9200a06300429dc44a5f181"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.png",
-          "bytes": 3139514,
-          "sha256": "90e5ec8ff598bf5812ed978ec7b622f52ce4bf5ce03e02053ae67424a8175fe4"
+          "bytes": 2587048,
+          "sha256": "7bbecbde094959d25757a044518658572fae4932861c6795386701c581a056e9"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.tiff",
-          "bytes": 4573868,
-          "sha256": "873101ec66779f2fab2730a0d63e6ab209c66ed32304238cd5259021002aef33"
+          "bytes": 3749810,
+          "sha256": "c0629ca7f0e939bb36bf86f617b95631eb9b93fdf6dcf6378492aa49a2e641f5"
         }
       },
       "source_tables": [
@@ -49,23 +49,23 @@
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.svg",
-          "bytes": 4126085,
-          "sha256": "41a42bfc8319c4a310806c2d8817701e5eec75983c30f3e9dc5077ad205c0910"
+          "bytes": 3954514,
+          "sha256": "d33c69dc712e8a1791b75963ab260da07c80aa80b8bf7a0f7007f7c253a98d35"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.pdf",
-          "bytes": 1614546,
-          "sha256": "65a2438d59cd0b638b56c359b9ed96d0c35dc5129aca043e4ee251a13fca4f24"
+          "bytes": 1612391,
+          "sha256": "94c33784422fb5476c5b37f26b9bf3b77dffb6b1c327b8bc5e4f129dba29e798"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.png",
-          "bytes": 4297190,
-          "sha256": "10df8243b67ea75172a4009e7ab13f8b1560e0630c2f292579765b2506431b23"
+          "bytes": 3197413,
+          "sha256": "0de51eccea0ba3a4581556e4b1c7ad2c54c1490830c6dcc244dcfed1e9b94297"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig2_strict_transfer.tiff",
-          "bytes": 7502578,
-          "sha256": "81c25c09670be58b5138d99be55356bc7a5efe896daa478d31b08c0db9205e93"
+          "bytes": 5495330,
+          "sha256": "3518e4eacca479581c65c111c153c17dd09020322fe85fca85894c0897a6370f"
         }
       },
       "source_tables": [
@@ -87,23 +87,23 @@
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.svg",
-          "bytes": 3313741,
-          "sha256": "0118f874379d13b9b74f53f01f50105f6b157e336dd3321ef77fef30777f70bf"
+          "bytes": 3228489,
+          "sha256": "8db41fde1cd94320469373556b876ac55135798bbaa7f8a7f7bb58dca3aa6874"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.pdf",
-          "bytes": 1236315,
-          "sha256": "1e34bd24369cf01cbd0eb392580545842b2499924855ac93e2c572db4efef6c6"
+          "bytes": 1235454,
+          "sha256": "3e090b12e233074d5d440f0d97ae125b87c61714071092a1eb831f11e27d32ea"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.png",
-          "bytes": 4116502,
-          "sha256": "a0ddcf67fd51471cbc24213d8b40d4b2567335cc69912e2291665aa80359d99a"
+          "bytes": 3365983,
+          "sha256": "cb4d204855364808c242ab9d65403f75a9abfe49e65a2706f58c08f8e1324eb7"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig3_context_stc.tiff",
-          "bytes": 6741338,
-          "sha256": "04387cc98dd1fea78cd436eb8372be6a57c3eaf6b2e80e6e733f98b2f8cdb2de"
+          "bytes": 5423458,
+          "sha256": "9cd7f06881a5a47532f9f37c02b8acb0ac03a448568e6b10dd7aee0fe3529df0"
         }
       },
       "source_tables": [
@@ -123,23 +123,23 @@
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.svg",
-          "bytes": 3394146,
-          "sha256": "85d589430bc5b2efde3977229e073f13b07f3676e11da52935c04eeb3efd10ac"
+          "bytes": 3303287,
+          "sha256": "68825a73eea5fd6d69a14f2324c5cfd61beb0b86b06e9655fa7b00c586bd1a4e"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.pdf",
-          "bytes": 1164695,
-          "sha256": "237f9465f5775146ffa0769838b786eab7b379303517a0272a548bec126d2340"
+          "bytes": 1161870,
+          "sha256": "961b8ce79d12e633c3fab206c1070432e9e12d3437ea787c0562692297698158"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.png",
-          "bytes": 2914661,
-          "sha256": "d5d0536aee8410800cfb9609e032859e1f7bb7e7c3543260c2621416536b4c8d"
+          "bytes": 1867457,
+          "sha256": "ec49e9a8aecbc36b5f008384459f8434c435ec635cf1d68b529716d47b317822"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig4_target_adaptation.tiff",
-          "bytes": 4891210,
-          "sha256": "23c4639d443ef85c3a5ae17838dd4e2069529e5ef906e79f8613c2c8fcc35454"
+          "bytes": 3053478,
+          "sha256": "184b335352b3d5e024e55b0ed06fa42428fb6a19e871b48d4cb35028e6060309"
         }
       },
       "source_tables": [
@@ -160,23 +160,23 @@
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.svg",
-          "bytes": 6347881,
-          "sha256": "52ca3d79c6ab4fe278a5c6ca8776dcf8d050433f955189d5705067300b465322"
+          "bytes": 6084924,
+          "sha256": "4d016fd895b2d2a60b728ce3c40f3d268ad7145f9200eca3bce89da74b9e42c3"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.pdf",
-          "bytes": 2569650,
-          "sha256": "0eba50233a27e40034d886fdaa3ccf2fb9c7cecad7d8636ffffff941c065b22f"
+          "bytes": 2552184,
+          "sha256": "1bb59f6a66e806df9a949e3d8861cb90d234e27c7cd61e9fe3684b4bd1dba2a6"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.png",
-          "bytes": 3410476,
-          "sha256": "59877abd379181b2fd2e8250962bfb8b2a07e4bc4eb44872ce80178352b3594b"
+          "bytes": 2015267,
+          "sha256": "dbaf338f4cde3a94f52ba09770ef6363a196745935667416b6dfc984249dfc6b"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig5_root_biology.tiff",
-          "bytes": 5902274,
-          "sha256": "3767a6617c4e17ecb1498771377774e53d93fb6be4dc8fbf15164c9aac661f74"
+          "bytes": 3661082,
+          "sha256": "cd36d59286089ff9d980911180141541624a1cc75179aedb124471095bfc2774"
         }
       },
       "source_tables": [
@@ -199,23 +199,23 @@
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.svg",
-          "bytes": 3598527,
-          "sha256": "6e0b6a5af36a915d45fb893c2a8da0a773a2f50eb985381a5b386643ee3a2b26"
+          "bytes": 3591820,
+          "sha256": "8263af9f5125b3c32eb96b95fc645a3a28bb6bcfadda6dbdb2e4ebdf62e403fe"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.pdf",
-          "bytes": 1333510,
-          "sha256": "1f5ced7b05c15b4cbf9fca415c5e50531ad4dc1ff38c690d94a1a20dc0d85736"
+          "bytes": 1332035,
+          "sha256": "9b3b83a6b212543b596634bbfd6e166a2fb2f01383bd885bd405c654d45567e5"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.png",
-          "bytes": 3178944,
-          "sha256": "94df2d9f8af996fba54217c726eef55781c0c097ada77bb36c5d64bbf18fb780"
+          "bytes": 1751415,
+          "sha256": "cc27f58ed829094e03f917559aef99c279f5c759affb25cd6bf914a976e5d1c1"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig6_wheat_benchmark.tiff",
-          "bytes": 4824092,
-          "sha256": "a16a00be19599db4f6a21b4f1f21d6f6a1d5258a9796c58f80919e5335aa4b8f"
+          "bytes": 3026558,
+          "sha256": "74da2c22b97e408f5ab03bc94dd331e24198fd271eb636e9a717168259635f72"
         }
       },
       "source_tables": [
@@ -237,23 +237,23 @@
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.svg",
-          "bytes": 9992455,
-          "sha256": "89328691798a90e5fcb537920289ee542d40c81da88ae15572574b1079dd478b"
+          "bytes": 9739842,
+          "sha256": "465e19fa5460998da25a621af3f31e101fce020fb334445e5fdf69af7e5730be"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.pdf",
-          "bytes": 3654625,
-          "sha256": "0c61ec491014b25f06591a13e622738d8b863f65a8a0ed8e23f455487d539fc3"
+          "bytes": 3613814,
+          "sha256": "8c1eabaa8b68fd9b8684e4aa04c4431e495011f6fdcb972174cfb0dea0f1efa1"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.png",
-          "bytes": 5549321,
-          "sha256": "1a4938993b15227954c4b1ea283309fd3a0d40200ff8c77b66758f252b3c373c"
+          "bytes": 4871353,
+          "sha256": "56241341d3585fd060b4fbb2532ba27385289314007c53e04fffb9de7e63f6e4"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig7_sorghum_recovery.tiff",
-          "bytes": 8315390,
-          "sha256": "20fa3eab876464f81bc3af80290fe1f4fe5d4eaaf598ad2592e8b6a3c0121b6d"
+          "bytes": 7443436,
+          "sha256": "c7d0f4fb91b3a993ee9470b476c920b7c9cff6424799b04ae1309473e0f53974"
         }
       },
       "source_tables": [
