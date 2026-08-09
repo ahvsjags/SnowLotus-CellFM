@@ -13,3 +13,4 @@
 | Sorghum fine-state adaptation | 76.02% accuracy; 0.7535 macro-F1 on 4,150 cells | Fig. 7; Table S26 | Sealed-library supervised adaptation |
 | Sorghum broad recovery | 14.79% to 84.98% accuracy on 3,549 matched cells | Fig. 7; Table S27 | Same-cell frozen-to-adapted comparison |
 | Runtime selective annotation | 66.25% all-cell; 96.64% top-30%; 92.81% top-40% | Supplementary Fig. S2 | Deployment route, not leave-species decoder transfer |
+| Agent selective reliability | At threshold 0.70, review error exceeds accepted error by 31.00-44.72 percentage points across four cases; ECE 0.0104-0.0769 | Supplementary Fig. S13; Table S29 | Strict case is locked-output replay; reference-backed audit, not independent expert validation |

@@ -1,34 +1,34 @@
 {
   "schema_version": "plant_cellfm_preferred_main_figure_manifest",
   "generated": "2026-08-08",
-  "visual_policy": "Imagen-generated mechanism layers are panel-locked into the top narrative regions; original titles, legends and independent result panels remain visible; all quantitative panels and source tables remain the current v12 records; PDF/SVG retain editable source layers and PNG/TIFF are 600 dpi exports.",
+  "visual_policy": "All seven pages retain the current v12 narrative and quantitative records. Imagen-generated mechanism layers are panel-locked into the top narrative regions; original titles, legends and independent result panels remain visible; PDF/SVG retain editable source layers and PNG/TIFF are 600 dpi exports.",
   "n_main_figures": 7,
   "figures": [
     {
       "figure": "Fig. 1",
       "title": "Universal Plant-CellFM system",
       "stem": "plant_cellfm_v12_fig1_system",
-      "provenance": "Recovered Imagen mechanism layer + current v12 quantitative panels",
+      "provenance": "Recovered Imagen mechanism layer + current v12 quantitative panels + PlantCell-Agent outer loop; quantitative panels unchanged",
       "files": {
         "svg": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.svg",
-          "bytes": 3757447,
-          "sha256": "18631670c9bc06e2b1215b757e535bc497072da1b76fc7f31a3d99802ce51d32"
+          "bytes": 3758284,
+          "sha256": "9746d5b8f21dd012787f801fe0f403359a6381fc667fb1909cb04d2783f64432"
         },
         "pdf": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.pdf",
-          "bytes": 1164889,
-          "sha256": "033376ff1867130132b3e908cb23f38b7ba9ada2d9200a06300429dc44a5f181"
+          "bytes": 1575120,
+          "sha256": "4043070516b8a2f52371448e8f24bf1bc0c39284352e4312a069b5751c4d39f7"
         },
         "png": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.png",
-          "bytes": 2587048,
-          "sha256": "7bbecbde094959d25757a044518658572fae4932861c6795386701c581a056e9"
+          "bytes": 1815098,
+          "sha256": "e4b002f1f6c048a2fce8e6f533148e0f5bc214247742dac9d698af8e10af547a"
         },
         "tiff": {
           "path": "figures/plant_cellfm_submission_v12/main/plant_cellfm_v12_fig1_system.tiff",
-          "bytes": 3749810,
-          "sha256": "c0629ca7f0e939bb36bf86f617b95631eb9b93fdf6dcf6378492aa49a2e641f5"
+          "bytes": 2551508,
+          "sha256": "17fdab6fb2a33e98dea3331f6dcbfa0af30be9e1eeda94aa404fd08bf32e44d4"
         }
       },
       "source_tables": [

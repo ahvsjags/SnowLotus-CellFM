@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940">
+  <rect width="1600" height="940" fill="#fbfcfd"/>
+  <style>
+    @page{size:1600px 940px;margin:0}
+    .title{font:700 34px Arial,sans-serif;fill:#172b3a}.subtitle{font:400 17px Arial,sans-serif;fill:#607482}
+    .panel{fill:#fff;stroke:#d8e2e8;stroke-width:2}.paneltitle{font:700 21px Arial,sans-serif;fill:#173242}
+    .label{font:700 16px Arial,sans-serif;fill:#173242}.small{font:400 14px Arial,sans-serif;fill:#536875}.tiny{font:400 12px Arial,sans-serif;fill:#607482}
+    .box{stroke-width:2}.arrow{fill:none;stroke:#587585;stroke-width:3;marker-end:url(#arrow)}
+    .blue{fill:#e0effa;stroke:#2d77b3}.purple{fill:#eee7fa;stroke:#7956ab}.green{fill:#d8f0eb;stroke:#168d83}.amber{fill:#fff0d5;stroke:#d58a25}.red{fill:#fbe2e1;stroke:#c45656}
+    .loop{fill:none;stroke:#168d83;stroke-width:4;stroke-dasharray:12 9;marker-end:url(#loopArrow)}
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 Z" fill="#587585"/></marker>
+    <marker id="loopArrow" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto"><path d="M0,0 L11,4 L0,8 Z" fill="#168d83"/></marker>
+  </defs>
+  <text x="70" y="70" class="title">PlantCell-Agent: evidence-aware annotation loop</text>
+  <text x="70" y="103" class="subtitle">Frozen Plant-CellFM inference with explicit routing, selective acceptance and review trace</text>
+
+  <rect x="65" y="145" width="1470" height="210" rx="18" class="panel"/>
+  <text x="95" y="184" class="paneltitle">a  Plan</text>
+  <rect x="105" y="220" width="215" height="82" rx="12" class="box blue"/><text x="130" y="255" class="label">Input audit</text><text x="130" y="279" class="small">cells / genes / QC / metadata</text>
+  <path d="M320 261 H385" class="arrow"/>
+  <rect x="400" y="220" width="250" height="82" rx="12" class="box purple"/><text x="425" y="255" class="label">Species / adapter</text><text x="425" y="279" class="small">registered or runtime plant adapter</text>
+  <path d="M650 261 H720" class="arrow"/>
+  <rect x="735" y="205" width="300" height="112" rx="12" class="box green"/><text x="760" y="242" class="label">Route policy</text><text x="760" y="266" class="small">support &gt;= 8 -&gt; prototype</text><text x="760" y="288" class="small">ortholog -&gt; transfer; else -&gt; open set</text>
+  <path d="M1035 261 H1105" class="arrow"/>
+  <rect x="1120" y="220" width="300" height="82" rx="12" class="box amber"/><text x="1145" y="255" class="label">agent_plan.json</text><text x="1145" y="279" class="small">decision is saved before inference</text>
+
+  <rect x="65" y="385" width="1470" height="230" rx="18" class="panel"/>
+  <text x="95" y="424" class="paneltitle">b  Act</text>
+  <rect x="105" y="466" width="300" height="98" rx="12" class="box blue"/><text x="135" y="507" class="label">Frozen checkpoint</text><text x="135" y="532" class="small">labels + embeddings</text><text x="135" y="552" class="tiny">predictions_direct.csv</text>
+  <path d="M405 515 H500" class="arrow"/>
+  <rect x="515" y="466" width="300" height="98" rx="12" class="box purple"/><text x="545" y="507" class="label">Optional support action</text><text x="545" y="532" class="small">cosine class prototypes</text><text x="545" y="552" class="tiny">no gradient update</text>
+  <path d="M815 515 H910" class="arrow"/>
+  <rect x="925" y="466" width="270" height="98" rx="12" class="box green"/><text x="955" y="507" class="label">Final prediction</text><text x="955" y="532" class="small">direct or calibrated</text><text x="955" y="552" class="tiny">predictions.csv</text>
+  <path d="M1195 515 H1290" class="arrow"/>
+  <rect x="1305" y="466" width="170" height="98" rx="12" class="box amber"/><text x="1333" y="507" class="label">Trace</text><text x="1333" y="532" class="small">JSONL</text><text x="1333" y="552" class="tiny">every action</text>
+
+  <rect x="65" y="645" width="1470" height="220" rx="18" class="panel"/>
+  <text x="95" y="684" class="paneltitle">c  Verify</text>
+  <rect x="105" y="726" width="255" height="90" rx="12" class="box blue"/><text x="135" y="763" class="label">Confidence gate</text><text x="135" y="788" class="small">accepted coverage</text>
+  <path d="M360 771 H430" class="arrow"/>
+  <rect x="445" y="726" width="255" height="90" rx="12" class="box red"/><text x="475" y="763" class="label">Open-set / low score</text><text x="475" y="788" class="small">uncertainty_review.tsv</text>
+  <path d="M700 771 H770" class="arrow"/>
+  <rect x="785" y="726" width="255" height="90" rx="12" class="box green"/><text x="815" y="763" class="label">Marker evidence</text><text x="815" y="788" class="small">predicted-label candidates</text>
+  <path d="M1040 771 H1110" class="arrow"/>
+  <rect x="1125" y="726" width="300" height="90" rx="12" class="box amber"/><text x="1155" y="763" class="label">Release or review</text><text x="1155" y="788" class="small">agent_report.md + route decision</text>
+  <path d="M1275 726 C1530 675 1530 335 1190 300" class="loop"/>
+  <text x="1280" y="695" class="tiny" fill="#168d83">one declared retry when orthology aggregation fails</text>
+  <text x="95" y="898" class="tiny">Direct predictions are retained; selective acceptance is reported separately from all-cell accuracy.</text>
+</svg>

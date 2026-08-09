@@ -30,8 +30,8 @@
 - [x] English main manuscript in Markdown and Word.
 - [x] Supporting Information in Markdown and Word.
 - [x] Cover letter in Markdown and Word.
-- [x] Supplementary Figs. S1-S11 combined into one PDF.
-- [x] Supplementary Tables S1-S27 workbook identified.
+- [x] Supplementary Figs. S1-S13 source set identified; S12 is the central-model specialist-agent architecture and S13 is the selective-reliability evidence figure.
+- [x] Supplementary Tables S1-S29 source descriptions identified; S28 is the replay contract and S29 is the selective-risk/expert-audit evidence contract.
 - [x] Figure source-data workbook identified.
 - [x] Seven main figures identified as upload-ready PDF files.
 
@@ -56,7 +56,7 @@
 | Main manuscript | `Plant_CellFM_Plant_Methods_manuscript_v1.docx` |
 | Cover letter | `Plant_CellFM_Plant_Methods_cover_letter_v1.docx` |
 | Additional file 1 | `Plant_CellFM_Plant_Methods_supporting_information_v1.docx` |
-| Additional file 2 | `Plant_CellFM_Plant_Methods_supplementary_figures_v1.pdf` |
+| Additional file 2 | `Plant_CellFM_Plant_Methods_supplementary_figures_v4.pdf` |
 | Additional file 3 | `Plant_CellFM_Supplementary_Tables_v7.xlsx` |
 | Additional file 4 | `Plant_CellFM_Figure_Supplementary_Tables_v8.xlsx` |
 | Main figures | `submission_files/main_figures/Figure_1.pdf` through `Figure_7.pdf` |

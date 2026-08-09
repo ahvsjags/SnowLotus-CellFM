@@ -1,6 +1,6 @@
 {
   "schema_version": "plant_cellfm_gse270342_wheat_to_arabidopsis_author_orthogroup_map_v1",
-  "generated_utc": "2026-07-31T22:25:57.916045+00:00",
+  "generated_utc": "2026-08-08T17:20:44.391786+00:00",
   "source": {
     "dataset": "GSE270342",
     "gene_list": "outputs/external_validation/gse270342/seurat_export/GSE270342_seuratObj_for_publication/genes.txt",

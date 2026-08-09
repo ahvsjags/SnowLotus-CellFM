@@ -1,0 +1,157 @@
+{
+  "schema_version": "plantcell_agent_evidence_audit_v1",
+  "review_threshold": 0.7,
+  "expert_sample_per_group": 25,
+  "cases": [
+    {
+      "case_id": "strict_heldout_3964",
+      "label": "Strict held-out 3,964-cell locked bundle",
+      "mode": "locked_bundle_replay",
+      "status": "locked_bundle_replay",
+      "raw_input_available": false,
+      "raw_input_end_to_end": false,
+      "n_matched": 3964,
+      "direct_agent_label_agreement": 1.0,
+      "direct_calibration": {
+        "case_id": "strict_heldout_3964",
+        "n_cells": 3964,
+        "expected_calibration_error": 0.07690168466195761,
+        "mean_confidence": 0.7206258567103936,
+        "observed_accuracy": 0.6624621594349143
+      },
+      "agent_calibration": {
+        "case_id": "strict_heldout_3964",
+        "n_cells": 3964,
+        "expected_calibration_error": 0.07690168466195761,
+        "mean_confidence": 0.7206258567103936,
+        "observed_accuracy": 0.6624621594349143
+      },
+      "reference_backed_audit": {
+        "case_id": "strict_heldout_3964",
+        "threshold": 0.7,
+        "accepted_cells": 2239,
+        "accepted_accuracy": 0.8570790531487271,
+        "accepted_error_rate": 0.14292094685127288,
+        "review_cells": 1725,
+        "review_accuracy": 0.4098550724637681,
+        "review_error_rate": 0.5901449275362319,
+        "review_error_rate_minus_accepted_error_rate": 0.44722398068495905,
+        "reference_type": "author_label_reference_not_independent_blind_review"
+      }
+    },
+    {
+      "case_id": "arabidopsis_secondary_root",
+      "label": "Arabidopsis secondary root",
+      "mode": "agent_replay",
+      "status": "ok",
+      "raw_input_available": true,
+      "raw_input_end_to_end": true,
+      "n_matched": 11760,
+      "direct_agent_label_agreement": 1.0,
+      "direct_calibration": {
+        "case_id": "arabidopsis_secondary_root",
+        "n_cells": 11760,
+        "expected_calibration_error": 0.010398526445578265,
+        "mean_confidence": 0.8733630279761905,
+        "observed_accuracy": 0.8664115646258503
+      },
+      "agent_calibration": {
+        "case_id": "arabidopsis_secondary_root",
+        "n_cells": 11760,
+        "expected_calibration_error": 0.010398526445578265,
+        "mean_confidence": 0.8733630279761905,
+        "observed_accuracy": 0.8664115646258503
+      },
+      "reference_backed_audit": {
+        "case_id": "arabidopsis_secondary_root",
+        "threshold": 0.7,
+        "accepted_cells": 9898,
+        "accepted_accuracy": 0.9241260860779955,
+        "accepted_error_rate": 0.07587391392200445,
+        "review_cells": 1862,
+        "review_accuracy": 0.5596133190118152,
+        "review_error_rate": 0.44038668098818473,
+        "review_error_rate_minus_accepted_error_rate": 0.3645127670661803,
+        "reference_type": "author_label_reference_not_independent_blind_review"
+      }
+    },
+    {
+      "case_id": "wheat_nonoverlap",
+      "label": "Wheat root",
+      "mode": "agent_replay",
+      "status": "ok",
+      "raw_input_available": true,
+      "raw_input_end_to_end": true,
+      "n_matched": 7164,
+      "direct_agent_label_agreement": 1.0,
+      "direct_calibration": {
+        "case_id": "wheat_nonoverlap",
+        "n_cells": 7164,
+        "expected_calibration_error": 0.03426860804020104,
+        "mean_confidence": 0.6609392448352875,
+        "observed_accuracy": 0.6471245114461195
+      },
+      "agent_calibration": {
+        "case_id": "wheat_nonoverlap",
+        "n_cells": 7164,
+        "expected_calibration_error": 0.03426860804020104,
+        "mean_confidence": 0.6609392448352875,
+        "observed_accuracy": 0.6471245114461195
+      },
+      "reference_backed_audit": {
+        "case_id": "wheat_nonoverlap",
+        "threshold": 0.7,
+        "accepted_cells": 2963,
+        "accepted_accuracy": 0.8288896388795141,
+        "accepted_error_rate": 0.171110361120486,
+        "review_cells": 4201,
+        "review_accuracy": 0.5189240656986431,
+        "review_error_rate": 0.4810759343013568,
+        "review_error_rate_minus_accepted_error_rate": 0.3099655731808708,
+        "reference_type": "author_label_reference_not_independent_blind_review"
+      }
+    },
+    {
+      "case_id": "sorghum_sealed_library",
+      "label": "Sorghum root",
+      "mode": "agent_replay",
+      "status": "ok",
+      "raw_input_available": true,
+      "raw_input_end_to_end": true,
+      "n_matched": 19316,
+      "direct_agent_label_agreement": 1.0,
+      "direct_calibration": {
+        "case_id": "sorghum_sealed_library",
+        "n_cells": 19316,
+        "expected_calibration_error": 0.013339005694760802,
+        "mean_confidence": 0.8349583006833713,
+        "observed_accuracy": 0.8219092979913025
+      },
+      "agent_calibration": {
+        "case_id": "sorghum_sealed_library",
+        "n_cells": 19316,
+        "expected_calibration_error": 0.013339005694760802,
+        "mean_confidence": 0.8349583006833713,
+        "observed_accuracy": 0.8219092979913025
+      },
+      "reference_backed_audit": {
+        "case_id": "sorghum_sealed_library",
+        "threshold": 0.7,
+        "accepted_cells": 14986,
+        "accepted_accuracy": 0.9081809689043107,
+        "accepted_error_rate": 0.09181903109568931,
+        "review_cells": 4330,
+        "review_accuracy": 0.523325635103926,
+        "review_error_rate": 0.4766743648960739,
+        "review_error_rate_minus_accepted_error_rate": 0.3848553338003846,
+        "reference_type": "author_label_reference_not_independent_blind_review"
+      }
+    }
+  ],
+  "interpretation": {
+    "strict_case": "locked_bundle_replay; raw H5AD unavailable, so this is not an end-to-end input replay",
+    "reference_audit": "author-label reference-backed audit; independent blind expert worksheet is exported separately",
+    "baseline": "accept_all_baseline retains the complete denominator",
+    "agent": "agent_threshold rejects low-confidence or open-set predictions"
+  }
+}

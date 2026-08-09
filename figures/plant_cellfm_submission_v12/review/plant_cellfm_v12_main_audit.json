@@ -22,8 +22,8 @@
       },
       "pdf_embedded_raster": {
         "embedded_raster_count": 1,
-        "min_effective_dpi": 380.7,
-        "max_effective_dpi": 380.7
+        "min_effective_dpi": 380.44,
+        "max_effective_dpi": 380.62
       },
       "png": {
         "pixels": [
@@ -35,9 +35,9 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 2587048,
-        "nonwhite_fraction": 0.2875,
-        "very_dark_fraction": 1e-05
+        "bytes": 1815098,
+        "nonwhite_fraction": 0.1741,
+        "very_dark_fraction": 0.0
       },
       "tiff": {
         "pixels": [
@@ -49,9 +49,9 @@
           600.0
         ],
         "mode": "RGB",
-        "bytes": 3749810,
-        "nonwhite_fraction": 0.2875,
-        "very_dark_fraction": 1e-05
+        "bytes": 2551508,
+        "nonwhite_fraction": 0.1741,
+        "very_dark_fraction": 0.0
       }
     },
     "plant_cellfm_v12_fig2_strict_transfer": {

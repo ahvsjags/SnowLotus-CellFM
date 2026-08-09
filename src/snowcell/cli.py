@@ -8,6 +8,7 @@ import torch
 
 from .corpus import build_corpus
 from .adapters import load_registry
+from .agent import run_agent
 from .baselines import run_centroid_baseline
 from .markers import run_marker_candidates
 from .report import generate_markdown_report
@@ -79,6 +80,46 @@ def build_parser() -> argparse.ArgumentParser:
     annotate.add_argument("--batch-size", type=int, default=128)
     annotate.add_argument("--device", default="auto", help="auto, cpu, cuda, or cuda:N")
 
+    agent = subparsers.add_parser(
+        "agent-annotate",
+        help="Run the auditable PlantCell-Agent around a frozen checkpoint",
+    )
+    agent.add_argument("--checkpoint", required=True)
+    agent.add_argument("--data", required=True, help=".npz or .h5ad expression matrix")
+    agent.add_argument("--output-dir", required=True, help="Output directory for the agent bundle")
+    agent.add_argument("--species", default=None, help="Optional species override for adapter resolution")
+    agent.add_argument(
+        "--registry",
+        default="release_metadata/plant_species_adapters.json",
+        help="JSON species-adapter registry",
+    )
+    agent.add_argument(
+        "--specialist-manifest",
+        default=None,
+        help="Optional output path for the versioned specialist-agent capability manifest",
+    )
+    agent.add_argument("--layer", default=None, help="Optional AnnData layer")
+    agent.add_argument(
+        "--ortholog-map",
+        default=None,
+        help="Optional TSV mapping source-gene identifiers to checkpoint-vocabulary identifiers",
+    )
+    agent.add_argument(
+        "--ortholog-aggregation",
+        choices=("first", "mean"),
+        default=None,
+        help="How multi-target orthogroups are projected",
+    )
+    agent.add_argument(
+        "--support-labels",
+        default=None,
+        help="Optional TSV/CSV with cell_id and fine_label/label/cell_type for prototype calibration",
+    )
+    agent.add_argument("--review-threshold", type=float, default=0.70)
+    agent.add_argument("--coverage-target", type=float, default=0.80)
+    agent.add_argument("--batch-size", type=int, default=128)
+    agent.add_argument("--device", default="auto", help="auto, cpu, cuda, or cuda:N")
+
     corpus = subparsers.add_parser("build-corpus", help="Merge multiple h5ad/npz datasets")
     corpus.add_argument("--manifest", required=True, help="TSV with path, dataset_id, species columns")
     corpus.add_argument("--output", required=True, help="Merged h5ad path")
@@ -146,6 +187,25 @@ def main(argv: list[str] | None = None) -> None:
             layer=args.layer,
             ortholog_map=args.ortholog_map,
             ortholog_aggregation=args.ortholog_aggregation,
+            batch_size=args.batch_size,
+            device=_device(args.device),
+        )
+        print(json.dumps(output, ensure_ascii=False, indent=2))
+        return
+    if args.command == "agent-annotate":
+        output = run_agent(
+            checkpoint_path=args.checkpoint,
+            data_path=args.data,
+            output_dir=args.output_dir,
+            species=args.species,
+            registry_path=args.registry,
+            specialist_manifest_path=args.specialist_manifest,
+            layer=args.layer,
+            ortholog_map=args.ortholog_map,
+            ortholog_aggregation=args.ortholog_aggregation,
+            support_labels=args.support_labels,
+            review_threshold=args.review_threshold,
+            accepted_coverage_target=args.coverage_target,
             batch_size=args.batch_size,
             device=_device(args.device),
         )

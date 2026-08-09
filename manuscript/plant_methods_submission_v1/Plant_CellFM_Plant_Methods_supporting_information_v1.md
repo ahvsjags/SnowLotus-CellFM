@@ -10,8 +10,8 @@
 
 1. Supplementary Methods
 2. Supplementary Results
-3. Supplementary Figure Legends S1-S11
-4. Supplementary Table Descriptions S1-S27
+3. Supplementary Figure Legends S1-S13
+4. Supplementary Table Descriptions S1-S29
 5. Data and code availability
 
 ## Supplementary Methods
@@ -105,6 +105,12 @@ $$f(x)=Wx+\frac{\alpha}{r}BA\,\mathrm{Dropout}(x),\qquad r=8,\ \alpha=16. \tag{S
 with \(B\) initialized to zero so that adaptation began exactly at the base transformation. In LoRA mode, trainable parameters comprised the low-rank matrices, normalization layers, gene/value/species/tissue embeddings, the context scale and both annotation heads; the remaining base linear weights stayed fixed.
 
 Cell-level output includes the selected adapter, fallback status, orthology map and aggregation rule, prediction probabilities, fine and coarse labels, 256-dimensional embeddings and ranked marker candidates. The same output schema is used by command-line and CUDA inference.
+
+### S4a. Evidence-aware PlantCell-Agent
+
+PlantCell-Agent is an optional, deterministic workflow layer around the Plant-CellFM inference interface. It does not retrain the model, modify a checkpoint or change the denominator of any primary benchmark. The input audit records the expression layer, matrix dimensions, identifier overlap, metadata fields, canonical species, tissue context and available support labels. The central model produces the shared embedding and direct prediction, after which the orchestrator selects a capability-scoped specialist agent: a registered species adapter, organ-context agent, orthology-transfer agent, support-prototype agent or universal open-set agent. Each specialist declares required inputs, outputs, evidence requirements and an explicit fallback chain in `plantcell_specialist_agents_v1.json`. The post-inference evidence agent validates confidence, coverage, artifact integrity, open-set and ontology signals, exports ranked marker evidence, and writes a review table for cells that fail the declared acceptance contract. For orthology-routed runs, the only retry is an alternate declared aggregation rule; it is retained only if accepted coverage and accepted confidence both improve. The complete state trace is stored as JSONL, and the direct prediction file is preserved beside the final prediction file.
+
+The replay contract was evaluated on Arabidopsis secondary root, wheat root and Sorghum root objects. The agent selected the expected registered-adapter, registered-adapter and orthology-STC routes, respectively. Exact SHA-256 matches were obtained for direct predictions, final predictions and embeddings across independent repeats. A strict held-out replay was marked unavailable because the declared 3,964-cell H5AD object was not present in the execution workspace; no substitute object was used.
 
 ### S5. Nested strict evaluation
 
@@ -231,6 +237,10 @@ The OUGHW adapter recovered most broad root layers, but fine-state F1 varied wit
 
 Seurat transfer, centroid baselines and the matched scPlantLLM analysis were completed. Official scPlantLLM weights loaded on CUDA with zero missing or unexpected encoder keys, and saved predictions reproduced the reported results. scPlantAnnotate was accessible through an online service, but authenticated batch execution and cell-level prediction export were unavailable for the test set; no numerical comparison is therefore reported.
 
+### S9. PlantCell-Agent replay and audit outputs
+
+The replay manifest in `release_metadata/plantcell_agent_replay_v1.json` records the input paths, checkpoint paths, expected routes, preprocessing statistics, direct-versus-agent metrics, review decisions, retry outcomes, runtime and repeatability hashes. The three available end-to-end replays produced the following all-cell accuracy values: Arabidopsis secondary root, 0.8664; wheat root, 0.6471; and Sorghum root, 0.8219. The workflow layer leaves these direct values unchanged; its measurable output is accepted-cell coverage and the explicit review partition. The raw strict H5AD remains unavailable, but the complete 3,964-cell prediction/embedding bundle was replayed against cell-level author labels and is reported separately as `locked_bundle_replay` in Supplementary Fig. S13 and Table S29. This is not described as an end-to-end input replay.
+
 ## Supplementary Figure Legends
 
 **Supplementary Fig. S1 Leave-species uncertainty.** Point estimates, cell-bootstrap intervals, label coverage, unsupported-label composition and held-out species sizes for nested evaluation.
@@ -254,6 +264,10 @@ Seurat transfer, centroid baselines and the matched scPlantLLM analysis were com
 **Supplementary Fig. S10 Multi-species scPlantDB resource.** Cell and marker-candidate coverage across four species and four tissues in a separately versioned post-training resource.
 
 **Supplementary Fig. S11 Annotation-task topology.** Target information used in leave-species transfer, blind inference, target adaptation, library-held-out testing and matched-data comparison.
+
+**Supplementary Fig. S12 Central Plant-CellFM model with specialist adapter agents.** Vector schematic (`figures/plantcell_agent/plantcell_agent_extended_data_fig1_v3.svg`) of the shared central model, PlantCell-Agent orchestrator, capability-scoped species/organ/orthology/support/open-set/marker agents, evidence verification, Review Agent and reproducible output bundle. The figure is a workflow specification; it contains no new performance estimate.
+
+**Supplementary Fig. S13 Selective reliability of PlantCell-Agent.** Coverage--accuracy, selective risk, confidence calibration and review error-capture curves for the strict 3,964-cell locked bundle and three end-to-end H5AD replays. Squares mark the accept-all baseline; circles show Agent threshold policies. The strict panel is explicitly a locked-output replay because the raw H5AD object was unavailable.
 
 ## Supplementary Table Descriptions
 
@@ -311,6 +325,10 @@ Seurat transfer, centroid baselines and the matched scPlantLLM analysis were com
 
 **Table S27.** Pretrained-to-adapted matched Sorghum broad-root recovery.
 
+**Table S28.** PlantCell-Agent replay contract, route decisions, direct-versus-agent metrics, accepted-cell metrics, review fractions, runtime, GPU peak memory, retry outcomes and exact-repeat hashes.
+
+**Table S29.** PlantCell-Agent selective-risk metrics, ten-bin calibration curves, expected calibration error, reference-backed accepted-versus-review audit and the blinded expert-audit worksheet/key contract.
+
 ## Data and code availability
 
-Code, model configurations, processed data manifests and figure source tables are available from `https://github.com/ahvsjags/SnowLotus-CellFM`. Supplementary Figs. S1-S11 are provided in citation order, and Tables S1-S27 contain the data provenance, task definitions, species-resolved metrics, external analyses and reproducibility information used in this study. The article version is prepared for the public tag `plant-methods-submission-v1-20260803`; a persistent archive DOI will be added after the repository release is linked to an archive record.
+Code, model configurations, processed data manifests and figure source tables are available from `https://github.com/ahvsjags/SnowLotus-CellFM`. Supplementary Figs. S1-S13 are provided in citation order, and Tables S1-S29 contain the data provenance, task definitions, species-resolved metrics, external analyses, Agent replay contract, selective-risk evidence and reproducibility information used in this study. The article version is prepared for the public tag `plant-methods-submission-v1-20260803`; a persistent archive DOI will be added after the repository release is linked to an archive record.

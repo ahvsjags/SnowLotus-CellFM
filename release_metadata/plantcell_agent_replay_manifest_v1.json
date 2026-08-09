@@ -1,0 +1,47 @@
+{
+  "schema_version": "plantcell_agent_replay_manifest_v1",
+  "review_threshold": 0.7,
+  "accepted_coverage_target": 0.8,
+  "cases": [
+    {
+      "case_id": "strict_heldout_3964",
+      "label": "Strict held-out species",
+      "checkpoint": "models/SnowLotus_CellFM_SRP169576_annotation_1024_best.pt",
+      "data": "data/external_validation/v9_benchmark_subset_256_shared_genes.h5ad",
+      "species": null,
+      "expected_route": "universal_open_set",
+      "output_dir": "outputs/agent_replay_v1/strict_heldout_3964"
+    },
+    {
+      "case_id": "arabidopsis_secondary_root",
+      "label": "Arabidopsis secondary root",
+      "checkpoint": "models/Plant_CellFM_GSE270140_secondary_root_lora_adapter_best.pt",
+      "data": "outputs/external_validation/gse270140/GSM8335426_JWE03_author_annotated_secondary_root.h5ad",
+      "species": "Arabidopsis thaliana",
+      "expected_route": "registered_adapter",
+      "output_dir": "outputs/agent_replay_v2/arabidopsis"
+    },
+    {
+      "case_id": "wheat_nonoverlap",
+      "label": "Wheat non-overlap benchmark",
+      "checkpoint": "models/Plant_CellFM_GSE270342_wheat_root_lora_adapter_best.pt",
+      "data": "outputs/external_validation/gse270342/GSE270342_wheat_root_author_annotated_nonoverlap_diagnostic.h5ad",
+      "species": "Triticum aestivum",
+      "ortholog_map": "data/orthologs/gse270342_wheat_to_arabidopsis_author_orthogroups.tsv",
+      "ortholog_aggregation": "first",
+      "expected_route": "registered_adapter",
+      "output_dir": "outputs/agent_replay_v2/wheat"
+    },
+    {
+      "case_id": "sorghum_sealed_library",
+      "label": "Sorghum root atlas",
+      "checkpoint": "models/Plant_CellFM_GSE297576_sorghum_root_lora_adapter_oughw_holdout_best.pt",
+      "data": "outputs/external_validation/gse297576_bicolor_root/GSE297576_bicolor_root_author_atlas.h5ad",
+      "species": "Sorghum bicolor",
+      "ortholog_map": "data/orthologs/gse297576_sorghum_to_arabidopsis_author_orthogroups.tsv",
+      "ortholog_aggregation": "first",
+      "expected_route": "ortholog_stc",
+      "output_dir": "outputs/agent_replay_v2/sorghum"
+    }
+  ]
+}

@@ -1,0 +1,1049 @@
+{
+  "schema_version": "plantcell-specialist-agents-v1",
+  "central_model": {
+    "model_id": "plant_cellfm.central_model",
+    "role": "shared_plant_expression_encoder",
+    "embedding_dim": 256,
+    "checkpoint_contract": "frozen_checkpoint_inference",
+    "outputs": [
+      "cell_embeddings",
+      "fine_labels",
+      "coarse_labels",
+      "confidence"
+    ]
+  },
+  "orchestrator": {
+    "agent_id": "plantcell.orchestrator",
+    "role": "route_audit_verify",
+    "selection_order": [
+      "support_calibration",
+      "species_adapter",
+      "orthology_transfer",
+      "open_set_detection"
+    ],
+    "always_on": [
+      "evidence_verification",
+      "human_review"
+    ],
+    "no_silent_fallback": true
+  },
+  "fallback_policy": {
+    "failed_specialist": "review.human",
+    "missing_contract_evidence": "review.human",
+    "open_set_label": "review.human",
+    "direct_predictions_preserved": true
+  },
+  "agents": [
+    {
+      "agent_id": "specialist.adapter.plant_9311",
+      "role": "species_adapter",
+      "scope": "9311",
+      "route": "registered_adapter",
+      "adapter_id": "plant_9311",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_arabidopsis_thaliana",
+      "role": "species_adapter",
+      "scope": "Arabidopsis thaliana",
+      "route": "registered_adapter",
+      "adapter_id": "plant_arabidopsis_thaliana",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_brassica_rapa",
+      "role": "species_adapter",
+      "scope": "Brassica rapa",
+      "route": "registered_adapter",
+      "adapter_id": "plant_brassica_rapa",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_brassicaceae",
+      "role": "species_adapter",
+      "scope": "Brassicaceae",
+      "route": "registered_adapter",
+      "adapter_id": "plant_brassicaceae",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_camelina_sativa",
+      "role": "species_adapter",
+      "scope": "Camelina sativa",
+      "route": "registered_adapter",
+      "adapter_id": "plant_camelina_sativa",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_catharanthus_roseus",
+      "role": "species_adapter",
+      "scope": "Catharanthus roseus",
+      "route": "registered_adapter",
+      "adapter_id": "plant_catharanthus_roseus",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_eutrema_salsugineum",
+      "role": "species_adapter",
+      "scope": "Eutrema salsugineum",
+      "route": "registered_adapter",
+      "adapter_id": "plant_eutrema_salsugineum",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_fragaria_vesca",
+      "role": "species_adapter",
+      "scope": "Fragaria vesca",
+      "route": "registered_adapter",
+      "adapter_id": "plant_fragaria_vesca",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_gossypium_bickii",
+      "role": "species_adapter",
+      "scope": "Gossypium bickii",
+      "route": "registered_adapter",
+      "adapter_id": "plant_gossypium_bickii",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_gossypium_hirsutum",
+      "role": "species_adapter",
+      "scope": "Gossypium hirsutum",
+      "route": "registered_adapter",
+      "adapter_id": "plant_gossypium_hirsutum",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_marchantia_polymorpha",
+      "role": "species_adapter",
+      "scope": "Marchantia polymorpha",
+      "route": "registered_adapter",
+      "adapter_id": "plant_marchantia_polymorpha",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_nip",
+      "role": "species_adapter",
+      "scope": "Nip",
+      "route": "registered_adapter",
+      "adapter_id": "plant_nip",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_oryza_sativa",
+      "role": "species_adapter",
+      "scope": "Oryza sativa",
+      "route": "registered_adapter",
+      "adapter_id": "plant_oryza_sativa",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_oryza_sativa_japonica_group",
+      "role": "species_adapter",
+      "scope": "Oryza sativa Japonica Group",
+      "route": "registered_adapter",
+      "adapter_id": "plant_oryza_sativa_japonica_group",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_saussurea_hypsipeta",
+      "role": "species_adapter",
+      "scope": "Saussurea hypsipeta",
+      "route": "registered_adapter",
+      "adapter_id": "plant_saussurea_hypsipeta",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_saussurea_involucrata",
+      "role": "species_adapter",
+      "scope": "Saussurea involucrata",
+      "route": "registered_adapter",
+      "adapter_id": "plant_saussurea_involucrata",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_saussurea_lyrata",
+      "role": "species_adapter",
+      "scope": "Saussurea lyrata",
+      "route": "registered_adapter",
+      "adapter_id": "plant_saussurea_lyrata",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_saussurea_medusa",
+      "role": "species_adapter",
+      "scope": "Saussurea medusa",
+      "route": "registered_adapter",
+      "adapter_id": "plant_saussurea_medusa",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_sisymbrium_irio",
+      "role": "species_adapter",
+      "scope": "Sisymbrium irio",
+      "route": "registered_adapter",
+      "adapter_id": "plant_sisymbrium_irio",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_solanum_lycopersicum",
+      "role": "species_adapter",
+      "scope": "Solanum lycopersicum",
+      "route": "registered_adapter",
+      "adapter_id": "plant_solanum_lycopersicum",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_stevia_rebaudiana",
+      "role": "species_adapter",
+      "scope": "Stevia rebaudiana",
+      "route": "registered_adapter",
+      "adapter_id": "plant_stevia_rebaudiana",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_triticum_aestivum",
+      "role": "species_adapter",
+      "scope": "Triticum aestivum",
+      "route": "registered_adapter",
+      "adapter_id": "plant_triticum_aestivum",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.adapter.plant_zea_mays",
+      "role": "species_adapter",
+      "scope": "Zea mays",
+      "route": "registered_adapter",
+      "adapter_id": "plant_zea_mays",
+      "capabilities": [
+        "embedding",
+        "mlm",
+        "annotation_transfer",
+        "marker_candidates",
+        "species_adapter_execution",
+        "shared_embedding_inference"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "cell_embeddings",
+        "marker_candidates"
+      ],
+      "evidence_requirements": [
+        "adapter_manifest",
+        "gene_identifier_audit",
+        "prediction_contract"
+      ],
+      "fallback_chain": [
+        "specialist.orthology_transfer",
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.support_prototype",
+      "role": "support_calibration",
+      "scope": "target-labelled support cells",
+      "route": "fewshot_adapter",
+      "adapter_id": null,
+      "capabilities": [
+        "fewshot_calibration",
+        "prototype_readout",
+        "label_space_recovery"
+      ],
+      "required_inputs": [
+        "central_embedding",
+        "support_labels",
+        "support_cell_ids"
+      ],
+      "outputs": [
+        "calibrated_labels",
+        "calibrated_confidence",
+        "prototype_table"
+      ],
+      "evidence_requirements": [
+        "support_count",
+        "support_label_count",
+        "disjoint_query_contract"
+      ],
+      "fallback_chain": [
+        "specialist.open_set",
+        "review.human"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.orthology_transfer",
+      "role": "orthology_transfer",
+      "scope": "species with explicit gene projection",
+      "route": "ortholog_stc",
+      "adapter_id": null,
+      "capabilities": [
+        "orthology_projection",
+        "cross_species_transfer",
+        "aggregation_retry"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "ortholog_map",
+        "central_embedding"
+      ],
+      "outputs": [
+        "projected_expression",
+        "cell_labels",
+        "cell_confidence"
+      ],
+      "evidence_requirements": [
+        "mapped_gene_fraction",
+        "count_retention",
+        "aggregation_rule"
+      ],
+      "fallback_chain": [
+        "specialist.open_set",
+        "review.human"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.open_set",
+      "role": "open_set_detection",
+      "scope": "unregistered or unsupported plant species",
+      "route": "universal_open_set",
+      "adapter_id": "plant_universal",
+      "capabilities": [
+        "universal_inference",
+        "open_set_detection",
+        "unsupported_label_review"
+      ],
+      "required_inputs": [
+        "cell_expression",
+        "central_embedding",
+        "label_vocabulary"
+      ],
+      "outputs": [
+        "cell_labels",
+        "cell_confidence",
+        "open_set_flags"
+      ],
+      "evidence_requirements": [
+        "label_coverage",
+        "open_set_fraction",
+        "confidence_summary"
+      ],
+      "fallback_chain": [
+        "review.human"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "specialist.organ_context",
+      "role": "organ_context",
+      "scope": "organ and tissue metadata",
+      "route": "context_auxiliary",
+      "adapter_id": null,
+      "capabilities": [
+        "organ_context_routing",
+        "tissue_prior",
+        "phylogeny_context"
+      ],
+      "required_inputs": [
+        "organ_metadata",
+        "species_context",
+        "central_embedding"
+      ],
+      "outputs": [
+        "context_evidence",
+        "routing_prior"
+      ],
+      "evidence_requirements": [
+        "tissue_metadata_presence",
+        "species_alias_normalization"
+      ],
+      "fallback_chain": [
+        "specialist.open_set"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "evidence.verification",
+      "role": "evidence_verification",
+      "scope": "all PlantCell-Agent runs",
+      "route": "post_inference",
+      "adapter_id": null,
+      "capabilities": [
+        "artifact_validation",
+        "confidence_calibration",
+        "marker_evidence",
+        "ontology_check"
+      ],
+      "required_inputs": [
+        "predictions",
+        "embeddings",
+        "route_decision"
+      ],
+      "outputs": [
+        "verification_report",
+        "evidence_record"
+      ],
+      "evidence_requirements": [
+        "row_count_match",
+        "unique_cell_ids",
+        "confidence_bounds"
+      ],
+      "fallback_chain": [
+        "review.human"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "agent_id": "review.human",
+      "role": "human_review",
+      "scope": "low-confidence, open-set or failed-contract cells",
+      "route": "manual_review",
+      "adapter_id": null,
+      "capabilities": [
+        "review_queue",
+        "expert_audit",
+        "abstention"
+      ],
+      "required_inputs": [
+        "predictions",
+        "review_reasons",
+        "marker_evidence"
+      ],
+      "outputs": [
+        "uncertainty_review",
+        "expert_audit_sheet"
+      ],
+      "evidence_requirements": [
+        "review_threshold",
+        "open_set_flags",
+        "blinded_audit_contract"
+      ],
+      "fallback_chain": [],
+      "version": "1.0.0"
+    }
+  ]
+}

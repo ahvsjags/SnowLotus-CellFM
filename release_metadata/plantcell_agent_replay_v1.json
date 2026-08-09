@@ -1,0 +1,959 @@
+{
+  "schema_version": "plantcell_agent_replay_v1",
+  "manifest": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\release_metadata\\plantcell_agent_replay_manifest_v1.json",
+  "review_threshold": 0.7,
+  "accepted_coverage_target": 0.8,
+  "cases": [
+    {
+      "case_id": "strict_heldout_3964",
+      "label": "Strict held-out species",
+      "status": "NOT_REPLAYED_INPUT_MISSING",
+      "missing_inputs": [
+        "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\data\\external_validation\\v9_benchmark_subset_256_shared_genes.h5ad"
+      ],
+      "expected_route": "universal_open_set"
+    },
+    {
+      "case_id": "arabidopsis_secondary_root",
+      "label": "Arabidopsis secondary root",
+      "status": "auto_annotation_pass",
+      "route": "registered_adapter",
+      "expected_route": "registered_adapter",
+      "route_correct": true,
+      "species_metadata_mismatch": false,
+      "primary_specialist_agent": "specialist.adapter.plant_arabidopsis_thaliana",
+      "specialist_evidence_status": "passed",
+      "direct": {
+        "status": "ok",
+        "data_path": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\external_validation\\gse270140\\GSM8335426_JWE03_author_annotated_secondary_root.h5ad",
+        "label_key": "expert_annotation_raw",
+        "n_reference": 11760,
+        "n_matched": 11760,
+        "all_cell_accuracy": 0.8664115646258503,
+        "macro_f1": 0.8740179054001792,
+        "coverage": 0.8416666666666667,
+        "accepted_cells": 9898,
+        "accepted_cell_accuracy": 0.9241260860779955,
+        "accepted_macro_f1": 0.9253125191282073,
+        "review_fraction": 0.15833333333333333,
+        "open_set_fraction": 0.0,
+        "unknown_reference_cells": 0,
+        "unknown_state_recall": null,
+        "mean_confidence": 0.8733630279761905,
+        "accepted_mean_confidence": 0.9308007872297432,
+        "preprocessing_stats": {
+          "quality_control": {
+            "input_cells": 11760,
+            "input_genes": 22506,
+            "retained_cells": 11760,
+            "retained_genes": 21700,
+            "median_library_size_before_normalization": 14708.5,
+            "normalize_total": 10000.0,
+            "log1p": true
+          }
+        }
+      },
+      "agent": {
+        "status": "ok",
+        "data_path": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\external_validation\\gse270140\\GSM8335426_JWE03_author_annotated_secondary_root.h5ad",
+        "label_key": "expert_annotation_raw",
+        "n_reference": 11760,
+        "n_matched": 11760,
+        "all_cell_accuracy": 0.8664115646258503,
+        "macro_f1": 0.8740179054001792,
+        "coverage": 0.8416666666666667,
+        "accepted_cells": 9898,
+        "accepted_cell_accuracy": 0.9241260860779955,
+        "accepted_macro_f1": 0.9253125191282073,
+        "review_fraction": 0.15833333333333333,
+        "open_set_fraction": 0.0,
+        "unknown_reference_cells": 0,
+        "unknown_state_recall": null,
+        "mean_confidence": 0.8733630279761905,
+        "accepted_mean_confidence": 0.9308007872297432,
+        "preprocessing_stats": {
+          "quality_control": {
+            "input_cells": 11760,
+            "input_genes": 22506,
+            "retained_cells": 11760,
+            "retained_genes": 21700,
+            "median_library_size_before_normalization": 14708.5,
+            "normalize_total": 10000.0,
+            "log1p": true
+          }
+        }
+      },
+      "quality": {
+        "n_cells": 11760,
+        "accepted_cells": 9898,
+        "accepted_coverage": 0.8416666666666667,
+        "review_cells": 1862,
+        "review_fraction": 0.15833333333333333,
+        "open_set_cells": 0,
+        "open_set_fraction": 0.0,
+        "mean_confidence": 0.8733630279761905,
+        "accepted_mean_confidence": 0.9308007872297432,
+        "label_count": 14,
+        "top_labels": {
+          "Mature phloem parenchyma": 3124,
+          "Periderm": 2058,
+          "Vascular cambium": 1638,
+          "Conductive phloem parenchyma": 1283,
+          "Maturing xylem parenchyma": 797,
+          "Young xylem parenchyma": 753,
+          "Fiber": 709,
+          "Mature xylem parenchyma": 698,
+          "Vessel identity cell/expanding vessel": 210,
+          "Sieve element": 161,
+          "Companion cell": 138,
+          "Myrosin idioblasts": 92,
+          "Late differentiating vessel": 57,
+          "Lateral root primordium/meristem": 42
+        },
+        "review_threshold": 0.7,
+        "retry": null,
+        "decision": {
+          "status": "auto_annotation_pass",
+          "passed": true,
+          "review_threshold": 0.7,
+          "accepted_coverage_target": 0.8,
+          "accepted_coverage": 0.8416666666666667,
+          "mean_confidence": 0.8733630279761905,
+          "review_fraction": 0.15833333333333333,
+          "reason": "accepted cells meet the configured coverage and confidence contract"
+        },
+        "specialist_verification": {
+          "status": "passed",
+          "checks": [
+            {
+              "check": "prediction_columns",
+              "passed": true,
+              "missing": []
+            },
+            {
+              "check": "prediction_row_count",
+              "passed": true,
+              "observed": 11760,
+              "expected": 11760
+            },
+            {
+              "check": "unique_cell_ids",
+              "passed": true
+            },
+            {
+              "check": "confidence_bounds",
+              "passed": true
+            },
+            {
+              "check": "embedding_shape",
+              "passed": true,
+              "shape": [
+                11760,
+                256
+              ],
+              "expected_cells": 11760,
+              "expected_embedding_dim": 256
+            },
+            {
+              "check": "direct_prediction_preserved",
+              "passed": true
+            }
+          ],
+          "errors": [],
+          "fallback_agent": null,
+          "force_review": false
+        },
+        "runtime_seconds": 70.70818210000289,
+        "device": "cuda",
+        "cuda_peak_memory_mb": 1107.8828125,
+        "marker_evidence": {
+          "matched_cells": 11760,
+          "marker_rows": 140,
+          "marker_labels": 14,
+          "status": "ok"
+        }
+      },
+      "artifacts": {
+        "predictions": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\arabidopsis\\predictions.csv",
+        "predictions_direct": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\arabidopsis\\predictions_direct.csv",
+        "embeddings": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\arabidopsis\\embeddings.npy",
+        "annotation_metadata": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\arabidopsis\\annotation_metadata.json",
+        "agent_plan": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\arabidopsis\\agent_plan.json",
+        "route_decision": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\arabidopsis\\route_decision.json",
+        "specialist_capabilities": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\arabidopsis\\specialist_capabilities.json",
+        "specialist_plan": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\arabidopsis\\specialist_plan.json",
+        "evidence_verification": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\arabidopsis\\evidence_verification.json",
+        "agent_trace": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\arabidopsis\\agent_trace.jsonl",
+        "uncertainty_review": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\arabidopsis\\uncertainty_review.tsv",
+        "marker_evidence": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\arabidopsis\\marker_evidence.tsv",
+        "agent_report": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\arabidopsis\\agent_report.md"
+      },
+      "input_audit": {
+        "path": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\external_validation\\gse270140\\GSM8335426_JWE03_author_annotated_secondary_root.h5ad",
+        "format": ".h5ad",
+        "layer": null,
+        "n_cells": 11760,
+        "n_genes": 22506,
+        "nonzero_entries": 39925895,
+        "matrix_density": 0.1508512884848243,
+        "gene_id_unique_fraction": 1.0,
+        "cell_id_unique_fraction": 1.0,
+        "detected_genes_per_cell": {
+          "n": 11760,
+          "min": 979.0,
+          "median": 3159.5,
+          "mean": 3395.059098639456,
+          "max": 8464.0
+        },
+        "library_size": {
+          "n": 11760,
+          "min": 4001.0,
+          "median": 14708.5,
+          "mean": 19411.505357142858,
+          "max": 83418.0
+        },
+        "obs_keys": [
+          "Organ",
+          "Tissue",
+          "cell_id",
+          "dataset_id",
+          "expert_annotation_raw",
+          "sample_id",
+          "source_orig_ident",
+          "source_phase",
+          "source_seurat_cluster",
+          "species",
+          "tissue"
+        ],
+        "species": {
+          "key": "species",
+          "configured_key": "Organ",
+          "values": [
+            "Arabidopsis thaliana"
+          ],
+          "counts": {
+            "Arabidopsis thaliana": 11760
+          }
+        },
+        "tissue": {
+          "key": "tissue",
+          "configured_key": "Tissue",
+          "values": [
+            "secondary root"
+          ],
+          "counts": {
+            "secondary root": 11760
+          }
+        },
+        "missing_required_obs": []
+      },
+      "repeatability": {
+        "status": "exact_match",
+        "files": {
+          "predictions_direct.csv": {
+            "first_sha256": "68c21550ec4a4b101fb13be4ca16eae62e45fe03862c8c21ba9da0480cf7a171",
+            "repeat_sha256": "68c21550ec4a4b101fb13be4ca16eae62e45fe03862c8c21ba9da0480cf7a171"
+          },
+          "predictions.csv": {
+            "first_sha256": "68c21550ec4a4b101fb13be4ca16eae62e45fe03862c8c21ba9da0480cf7a171",
+            "repeat_sha256": "68c21550ec4a4b101fb13be4ca16eae62e45fe03862c8c21ba9da0480cf7a171"
+          },
+          "embeddings.npy": {
+            "first_sha256": "b1833395a164200926ccd79da9493e2e9e4a9c93fc2b8c622d0464844ddf2ac2",
+            "repeat_sha256": "b1833395a164200926ccd79da9493e2e9e4a9c93fc2b8c622d0464844ddf2ac2"
+          }
+        },
+        "repeat_run_id": "agent-26e8428eaf2d"
+      }
+    },
+    {
+      "case_id": "wheat_nonoverlap",
+      "label": "Wheat non-overlap benchmark",
+      "status": "manual_review_required",
+      "route": "registered_adapter",
+      "expected_route": "registered_adapter",
+      "route_correct": true,
+      "species_metadata_mismatch": false,
+      "primary_specialist_agent": "specialist.adapter.plant_triticum_aestivum",
+      "specialist_evidence_status": "passed",
+      "direct": {
+        "status": "ok",
+        "data_path": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\external_validation\\gse270342\\GSE270342_wheat_root_author_annotated_nonoverlap_diagnostic.h5ad",
+        "label_key": "expert_annotation_raw",
+        "n_reference": 7164,
+        "n_matched": 7164,
+        "all_cell_accuracy": 0.6471245114461195,
+        "macro_f1": 0.693481942163703,
+        "coverage": 0.4135957565605807,
+        "accepted_cells": 2963,
+        "accepted_cell_accuracy": 0.8288896388795141,
+        "accepted_macro_f1": 0.7699114775844953,
+        "review_fraction": 0.5864042434394193,
+        "open_set_fraction": 0.1360971524288107,
+        "unknown_reference_cells": 1667,
+        "unknown_state_recall": 0.45830833833233353,
+        "mean_confidence": 0.6609392448352875,
+        "accepted_mean_confidence": 0.900406038474519,
+        "preprocessing_stats": {
+          "quality_control": {
+            "input_cells": 7164,
+            "input_genes": 10181,
+            "retained_cells": 7164,
+            "retained_genes": 10066,
+            "median_library_size_before_normalization": 6999.0,
+            "normalize_total": 10000.0,
+            "log1p": true
+          },
+          "ortholog_mapping": {
+            "source_gene_count": 78115,
+            "mapped_source_gene_count": 43342,
+            "target_gene_count": 10181,
+            "mapping_rate": 0.5548486206234398,
+            "mapping_relationship_count": 43342,
+            "mean_targets_per_mapped_source": 1.0,
+            "aggregation": "first"
+          }
+        }
+      },
+      "agent": {
+        "status": "ok",
+        "data_path": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\external_validation\\gse270342\\GSE270342_wheat_root_author_annotated_nonoverlap_diagnostic.h5ad",
+        "label_key": "expert_annotation_raw",
+        "n_reference": 7164,
+        "n_matched": 7164,
+        "all_cell_accuracy": 0.6471245114461195,
+        "macro_f1": 0.693481942163703,
+        "coverage": 0.4135957565605807,
+        "accepted_cells": 2963,
+        "accepted_cell_accuracy": 0.8288896388795141,
+        "accepted_macro_f1": 0.7699114775844953,
+        "review_fraction": 0.5864042434394193,
+        "open_set_fraction": 0.1360971524288107,
+        "unknown_reference_cells": 1667,
+        "unknown_state_recall": 0.45830833833233353,
+        "mean_confidence": 0.6609392448352875,
+        "accepted_mean_confidence": 0.900406038474519,
+        "preprocessing_stats": {
+          "quality_control": {
+            "input_cells": 7164,
+            "input_genes": 10181,
+            "retained_cells": 7164,
+            "retained_genes": 10066,
+            "median_library_size_before_normalization": 6999.0,
+            "normalize_total": 10000.0,
+            "log1p": true
+          },
+          "ortholog_mapping": {
+            "source_gene_count": 78115,
+            "mapped_source_gene_count": 43342,
+            "target_gene_count": 10181,
+            "mapping_rate": 0.5548486206234398,
+            "mapping_relationship_count": 43342,
+            "mean_targets_per_mapped_source": 1.0,
+            "aggregation": "first"
+          }
+        }
+      },
+      "quality": {
+        "n_cells": 7164,
+        "accepted_cells": 2963,
+        "accepted_coverage": 0.4135957565605807,
+        "review_cells": 4201,
+        "review_fraction": 0.5864042434394193,
+        "open_set_cells": 975,
+        "open_set_fraction": 0.1360971524288107,
+        "mean_confidence": 0.6609392448352875,
+        "accepted_mean_confidence": 0.900406038474519,
+        "label_count": 13,
+        "top_labels": {
+          "Epidermis": 1051,
+          "Unknown": 975,
+          "Cortex": 879,
+          "Meristems": 837,
+          "Endodermis": 587,
+          "Pericycle": 549,
+          "Provascular cells": 509,
+          "Root Hair": 463,
+          "Dividing Cells": 365,
+          "Endodermis/Phloem": 340,
+          "Xylem": 328,
+          "Phloem": 167,
+          "Root Cap": 114
+        },
+        "review_threshold": 0.7,
+        "retry": {
+          "status": "complete",
+          "current_aggregation": "first",
+          "alternate_aggregation": "mean",
+          "quality": {
+            "n_cells": 7164,
+            "accepted_cells": 1753,
+            "accepted_coverage": 0.24469570072585148,
+            "review_cells": 5411,
+            "review_fraction": 0.7553042992741485,
+            "open_set_cells": 1562,
+            "open_set_fraction": 0.21803461753210496,
+            "mean_confidence": 0.5633418579006142,
+            "accepted_mean_confidence": 0.8925583742156303,
+            "label_count": 13,
+            "top_labels": {
+              "Unknown": 1562,
+              "Cortex": 799,
+              "Pericycle": 751,
+              "Epidermis": 664,
+              "Endodermis/Phloem": 625,
+              "Root Hair": 617,
+              "Endodermis": 542,
+              "Root Cap": 346,
+              "Xylem": 345,
+              "Dividing Cells": 307,
+              "Provascular cells": 289,
+              "Phloem": 167,
+              "Meristems": 150
+            },
+            "review_threshold": 0.7,
+            "annotation": {
+              "output_dir": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\retry_ortholog_mean",
+              "prediction_csv": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\retry_ortholog_mean\\predictions.csv",
+              "embedding_npy": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\retry_ortholog_mean\\embeddings.npy",
+              "metadata_json": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\retry_ortholog_mean\\annotation_metadata.json",
+              "n_cells": 7164,
+              "embedding_dim": 256
+            }
+          },
+          "decision": {
+            "status": "manual_review_required",
+            "passed": false,
+            "review_threshold": 0.7,
+            "accepted_coverage_target": 0.8,
+            "accepted_coverage": 0.24469570072585148,
+            "mean_confidence": 0.5633418579006142,
+            "review_fraction": 0.7553042992741485,
+            "reason": "low-confidence or open-set cells remain and are exported for review"
+          },
+          "output_dir": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\retry_ortholog_mean",
+          "selected": false
+        },
+        "decision": {
+          "status": "manual_review_required",
+          "passed": false,
+          "review_threshold": 0.7,
+          "accepted_coverage_target": 0.8,
+          "accepted_coverage": 0.4135957565605807,
+          "mean_confidence": 0.6609392448352875,
+          "review_fraction": 0.5864042434394193,
+          "reason": "low-confidence or open-set cells remain and are exported for review"
+        },
+        "specialist_verification": {
+          "status": "passed",
+          "checks": [
+            {
+              "check": "prediction_columns",
+              "passed": true,
+              "missing": []
+            },
+            {
+              "check": "prediction_row_count",
+              "passed": true,
+              "observed": 7164,
+              "expected": 7164
+            },
+            {
+              "check": "unique_cell_ids",
+              "passed": true
+            },
+            {
+              "check": "confidence_bounds",
+              "passed": true
+            },
+            {
+              "check": "embedding_shape",
+              "passed": true,
+              "shape": [
+                7164,
+                256
+              ],
+              "expected_cells": 7164,
+              "expected_embedding_dim": 256
+            },
+            {
+              "check": "direct_prediction_preserved",
+              "passed": true
+            }
+          ],
+          "errors": [],
+          "fallback_agent": null,
+          "force_review": false
+        },
+        "runtime_seconds": 93.10071290000633,
+        "device": "cuda",
+        "cuda_peak_memory_mb": 1107.8828125,
+        "marker_evidence": {
+          "matched_cells": 7164,
+          "marker_rows": 130,
+          "marker_labels": 13,
+          "status": "ok"
+        }
+      },
+      "artifacts": {
+        "predictions": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\predictions.csv",
+        "predictions_direct": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\predictions_direct.csv",
+        "embeddings": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\embeddings.npy",
+        "annotation_metadata": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\annotation_metadata.json",
+        "agent_plan": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\agent_plan.json",
+        "route_decision": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\route_decision.json",
+        "specialist_capabilities": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\specialist_capabilities.json",
+        "specialist_plan": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\specialist_plan.json",
+        "evidence_verification": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\evidence_verification.json",
+        "agent_trace": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\agent_trace.jsonl",
+        "uncertainty_review": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\uncertainty_review.tsv",
+        "marker_evidence": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\marker_evidence.tsv",
+        "agent_report": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\agent_report.md",
+        "retry_output_dir": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\wheat\\retry_ortholog_mean"
+      },
+      "input_audit": {
+        "path": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\external_validation\\gse270342\\GSE270342_wheat_root_author_annotated_nonoverlap_diagnostic.h5ad",
+        "format": ".h5ad",
+        "layer": null,
+        "n_cells": 7164,
+        "n_genes": 78115,
+        "nonzero_entries": 37939189,
+        "matrix_density": 0.06779505677340882,
+        "gene_id_unique_fraction": 1.0,
+        "cell_id_unique_fraction": 1.0,
+        "detected_genes_per_cell": {
+          "n": 7164,
+          "min": 615.0,
+          "median": 5085.0,
+          "mean": 5295.81085985483,
+          "max": 26029.0
+        },
+        "library_size": {
+          "n": 7164,
+          "min": 801.0,
+          "median": 8974.5,
+          "mean": 12584.689838079285,
+          "max": 276741.0
+        },
+        "obs_keys": [
+          "Organ",
+          "Tissue",
+          "cell_id",
+          "dataset_id",
+          "expert_annotation_raw",
+          "sample_id",
+          "source_doublet_finder",
+          "source_orig_ident",
+          "source_seurat_cluster",
+          "species",
+          "tissue"
+        ],
+        "species": {
+          "key": "species",
+          "configured_key": "Organ",
+          "values": [
+            "Triticum aestivum"
+          ],
+          "counts": {
+            "Triticum aestivum": 7164
+          }
+        },
+        "tissue": {
+          "key": "tissue",
+          "configured_key": "Tissue",
+          "values": [
+            "root apical meristem"
+          ],
+          "counts": {
+            "root apical meristem": 7164
+          }
+        },
+        "missing_required_obs": []
+      },
+      "repeatability": {
+        "status": "exact_match",
+        "files": {
+          "predictions_direct.csv": {
+            "first_sha256": "9cbf9c5bd009f4b95583309db500cef351726bde7faa534c235cfb82cb9f4739",
+            "repeat_sha256": "9cbf9c5bd009f4b95583309db500cef351726bde7faa534c235cfb82cb9f4739"
+          },
+          "predictions.csv": {
+            "first_sha256": "9cbf9c5bd009f4b95583309db500cef351726bde7faa534c235cfb82cb9f4739",
+            "repeat_sha256": "9cbf9c5bd009f4b95583309db500cef351726bde7faa534c235cfb82cb9f4739"
+          },
+          "embeddings.npy": {
+            "first_sha256": "38bbc07026a93a948c2fc90d308237136714c1f5b340ac1296f9e842b22447a9",
+            "repeat_sha256": "38bbc07026a93a948c2fc90d308237136714c1f5b340ac1296f9e842b22447a9"
+          }
+        },
+        "repeat_run_id": "agent-6e90367b2325"
+      }
+    },
+    {
+      "case_id": "sorghum_sealed_library",
+      "label": "Sorghum root atlas",
+      "status": "manual_review_required",
+      "route": "ortholog_stc",
+      "expected_route": "ortholog_stc",
+      "route_correct": true,
+      "species_metadata_mismatch": false,
+      "primary_specialist_agent": "specialist.orthology_transfer",
+      "specialist_evidence_status": "passed",
+      "direct": {
+        "status": "ok",
+        "data_path": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\external_validation\\gse297576_bicolor_root\\GSE297576_bicolor_root_author_atlas.h5ad",
+        "label_key": "celltype",
+        "n_reference": 19316,
+        "n_matched": 19316,
+        "all_cell_accuracy": 0.8219092979913025,
+        "macro_f1": 0.8321547595291394,
+        "coverage": 0.7758335059018431,
+        "accepted_cells": 14986,
+        "accepted_cell_accuracy": 0.9081809689043107,
+        "accepted_macro_f1": 0.9095089028903891,
+        "review_fraction": 0.22416649409815698,
+        "open_set_fraction": 0.0,
+        "unknown_reference_cells": 0,
+        "unknown_state_recall": null,
+        "mean_confidence": 0.8349583006833713,
+        "accepted_mean_confidence": 0.9203754933271053,
+        "preprocessing_stats": {
+          "quality_control": {
+            "input_cells": 19316,
+            "input_genes": 10706,
+            "retained_cells": 19316,
+            "retained_genes": 10604,
+            "median_library_size_before_normalization": 1230.0,
+            "normalize_total": 10000.0,
+            "log1p": true
+          },
+          "ortholog_mapping": {
+            "source_gene_count": 25464,
+            "mapped_source_gene_count": 15940,
+            "target_gene_count": 10706,
+            "mapping_rate": 0.6259817781966698,
+            "mapping_relationship_count": 15940,
+            "mean_targets_per_mapped_source": 1.0,
+            "aggregation": "first"
+          }
+        }
+      },
+      "agent": {
+        "status": "ok",
+        "data_path": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\external_validation\\gse297576_bicolor_root\\GSE297576_bicolor_root_author_atlas.h5ad",
+        "label_key": "celltype",
+        "n_reference": 19316,
+        "n_matched": 19316,
+        "all_cell_accuracy": 0.8219092979913025,
+        "macro_f1": 0.8321547595291394,
+        "coverage": 0.7758335059018431,
+        "accepted_cells": 14986,
+        "accepted_cell_accuracy": 0.9081809689043107,
+        "accepted_macro_f1": 0.9095089028903891,
+        "review_fraction": 0.22416649409815698,
+        "open_set_fraction": 0.0,
+        "unknown_reference_cells": 0,
+        "unknown_state_recall": null,
+        "mean_confidence": 0.8349583006833713,
+        "accepted_mean_confidence": 0.9203754933271053,
+        "preprocessing_stats": {
+          "quality_control": {
+            "input_cells": 19316,
+            "input_genes": 10706,
+            "retained_cells": 19316,
+            "retained_genes": 10604,
+            "median_library_size_before_normalization": 1230.0,
+            "normalize_total": 10000.0,
+            "log1p": true
+          },
+          "ortholog_mapping": {
+            "source_gene_count": 25464,
+            "mapped_source_gene_count": 15940,
+            "target_gene_count": 10706,
+            "mapping_rate": 0.6259817781966698,
+            "mapping_relationship_count": 15940,
+            "mean_targets_per_mapped_source": 1.0,
+            "aggregation": "first"
+          }
+        }
+      },
+      "quality": {
+        "n_cells": 19316,
+        "accepted_cells": 14986,
+        "accepted_coverage": 0.7758335059018431,
+        "review_cells": 4330,
+        "review_fraction": 0.22416649409815698,
+        "open_set_cells": 0,
+        "open_set_fraction": 0.0,
+        "mean_confidence": 0.8349583006833713,
+        "accepted_mean_confidence": 0.9203754933271053,
+        "label_count": 27,
+        "top_labels": {
+          "cortex": 1590,
+          "pericycle": 1526,
+          "meristem": 1383,
+          "atrichoblast": 1235,
+          "dividing cells": 1126,
+          "procambium": 1070,
+          "lignified-xylem": 963,
+          "elongating-xylem": 936,
+          "cortical sclerenchyma": 936,
+          "s-phase": 887,
+          "early-epidermis": 740,
+          "LRC": 650,
+          "early-cortex": 628,
+          "phloem": 622,
+          "early-stele": 614,
+          "trichoblast": 602,
+          "crown root initials": 514,
+          "senescent cortex": 501,
+          "mature-endodermis": 482,
+          "cortical aerenchyma": 431,
+          "exodermis": 431,
+          "phloem/SE": 318,
+          "elongating-endodermis": 314,
+          "mature-xylem": 225,
+          "columella": 203
+        },
+        "review_threshold": 0.7,
+        "retry": {
+          "status": "complete",
+          "current_aggregation": "first",
+          "alternate_aggregation": "mean",
+          "quality": {
+            "n_cells": 19316,
+            "accepted_cells": 12255,
+            "accepted_coverage": 0.6344481259059847,
+            "review_cells": 7061,
+            "review_fraction": 0.36555187409401535,
+            "open_set_cells": 0,
+            "open_set_fraction": 0.0,
+            "mean_confidence": 0.7587480505280597,
+            "accepted_mean_confidence": 0.8977703458996328,
+            "label_count": 27,
+            "top_labels": {
+              "LRC": 1422,
+              "dividing cells": 1417,
+              "meristem": 1316,
+              "procambium": 1271,
+              "atrichoblast": 1251,
+              "pericycle": 1090,
+              "elongating-xylem": 1056,
+              "cortex": 1016,
+              "s-phase": 1004,
+              "lignified-xylem": 916,
+              "trichoblast": 698,
+              "early-stele": 685,
+              "cortical sclerenchyma": 588,
+              "phloem": 571,
+              "early-epidermis": 548,
+              "early-cortex": 503,
+              "sclerenchyma": 463,
+              "mature-xylem": 462,
+              "columella": 419,
+              "mature-endodermis": 411,
+              "cortical aerenchyma": 398,
+              "senescent cortex": 356,
+              "crown root initials": 356,
+              "phloem/SE": 347,
+              "exodermis": 331
+            },
+            "review_threshold": 0.7,
+            "annotation": {
+              "output_dir": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\retry_ortholog_mean",
+              "prediction_csv": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\retry_ortholog_mean\\predictions.csv",
+              "embedding_npy": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\retry_ortholog_mean\\embeddings.npy",
+              "metadata_json": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\retry_ortholog_mean\\annotation_metadata.json",
+              "n_cells": 19316,
+              "embedding_dim": 256
+            }
+          },
+          "decision": {
+            "status": "manual_review_required",
+            "passed": false,
+            "review_threshold": 0.7,
+            "accepted_coverage_target": 0.8,
+            "accepted_coverage": 0.6344481259059847,
+            "mean_confidence": 0.7587480505280597,
+            "review_fraction": 0.36555187409401535,
+            "reason": "low-confidence or open-set cells remain and are exported for review"
+          },
+          "output_dir": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\retry_ortholog_mean",
+          "selected": false
+        },
+        "decision": {
+          "status": "manual_review_required",
+          "passed": false,
+          "review_threshold": 0.7,
+          "accepted_coverage_target": 0.8,
+          "accepted_coverage": 0.7758335059018431,
+          "mean_confidence": 0.8349583006833713,
+          "review_fraction": 0.22416649409815698,
+          "reason": "low-confidence or open-set cells remain and are exported for review"
+        },
+        "specialist_verification": {
+          "status": "passed",
+          "checks": [
+            {
+              "check": "prediction_columns",
+              "passed": true,
+              "missing": []
+            },
+            {
+              "check": "prediction_row_count",
+              "passed": true,
+              "observed": 19316,
+              "expected": 19316
+            },
+            {
+              "check": "unique_cell_ids",
+              "passed": true
+            },
+            {
+              "check": "confidence_bounds",
+              "passed": true
+            },
+            {
+              "check": "embedding_shape",
+              "passed": true,
+              "shape": [
+                19316,
+                256
+              ],
+              "expected_cells": 19316,
+              "expected_embedding_dim": 256
+            },
+            {
+              "check": "direct_prediction_preserved",
+              "passed": true
+            }
+          ],
+          "errors": [],
+          "fallback_agent": null,
+          "force_review": false
+        },
+        "runtime_seconds": 213.6978822999954,
+        "device": "cuda",
+        "cuda_peak_memory_mb": 1107.8828125,
+        "marker_evidence": {
+          "matched_cells": 19316,
+          "marker_rows": 270,
+          "marker_labels": 27,
+          "status": "ok"
+        }
+      },
+      "artifacts": {
+        "predictions": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\predictions.csv",
+        "predictions_direct": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\predictions_direct.csv",
+        "embeddings": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\embeddings.npy",
+        "annotation_metadata": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\annotation_metadata.json",
+        "agent_plan": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\agent_plan.json",
+        "route_decision": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\route_decision.json",
+        "specialist_capabilities": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\specialist_capabilities.json",
+        "specialist_plan": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\specialist_plan.json",
+        "evidence_verification": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\evidence_verification.json",
+        "agent_trace": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\agent_trace.jsonl",
+        "uncertainty_review": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\uncertainty_review.tsv",
+        "marker_evidence": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\marker_evidence.tsv",
+        "agent_report": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\agent_report.md",
+        "retry_output_dir": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\agent_replay_v2\\sorghum\\retry_ortholog_mean"
+      },
+      "input_audit": {
+        "path": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\external_validation\\gse297576_bicolor_root\\GSE297576_bicolor_root_author_atlas.h5ad",
+        "format": ".h5ad",
+        "layer": null,
+        "n_cells": 19316,
+        "n_genes": 25464,
+        "nonzero_entries": 24184481,
+        "matrix_density": 0.049169178180938584,
+        "gene_id_unique_fraction": 1.0,
+        "cell_id_unique_fraction": 1.0,
+        "detected_genes_per_cell": {
+          "n": 19316,
+          "min": 352.0,
+          "median": 1157.0,
+          "mean": 1252.0439531994202,
+          "max": 5454.0
+        },
+        "library_size": {
+          "n": 19316,
+          "min": 494.0,
+          "median": 1563.0,
+          "mean": 1799.7669807413542,
+          "max": 13654.0
+        },
+        "obs_keys": [
+          "Organ",
+          "SCT_snn_res.0.6",
+          "SCT_snn_res.1",
+          "SCT_snn_res.2",
+          "Tissue",
+          "UMAP_1",
+          "UMAP_2",
+          "cellBC",
+          "celltype",
+          "cluster",
+          "cluster_label",
+          "cluster_label.long",
+          "cluster_label_score",
+          "dataset_id",
+          "doublet",
+          "layer",
+          "library",
+          "nCount_RNA",
+          "nCount_SCT",
+          "nFeature_RNA",
+          "nFeature_SCT",
+          "orig.ident",
+          "pct.organelle",
+          "pct.unspliced",
+          "sample_id",
+          "score.debris",
+          "score.doublet",
+          "seurat_clusters",
+          "species",
+          "starsolo_umis"
+        ],
+        "species": {
+          "key": "species",
+          "configured_key": "Organ",
+          "values": [
+            "Sorghum bicolor"
+          ],
+          "counts": {
+            "Sorghum bicolor": 19316
+          }
+        },
+        "tissue": {
+          "key": "Tissue",
+          "configured_key": "Tissue",
+          "values": [
+            "Whole root"
+          ],
+          "counts": {
+            "Whole root": 19316
+          }
+        },
+        "missing_required_obs": []
+      },
+      "repeatability": {
+        "status": "exact_match",
+        "files": {
+          "predictions_direct.csv": {
+            "first_sha256": "8a2323c4e5b52538eb37de367793dc295a6e07abd25773436d90b9e72a6de8de",
+            "repeat_sha256": "8a2323c4e5b52538eb37de367793dc295a6e07abd25773436d90b9e72a6de8de"
+          },
+          "predictions.csv": {
+            "first_sha256": "8a2323c4e5b52538eb37de367793dc295a6e07abd25773436d90b9e72a6de8de",
+            "repeat_sha256": "8a2323c4e5b52538eb37de367793dc295a6e07abd25773436d90b9e72a6de8de"
+          },
+          "embeddings.npy": {
+            "first_sha256": "ee1f8641563e508fb79782da28389190ebb8506c855d9baab693ef173a8b672c",
+            "repeat_sha256": "ee1f8641563e508fb79782da28389190ebb8506c855d9baab693ef173a8b672c"
+          }
+        },
+        "repeat_run_id": "agent-d244925152ff"
+      }
+    }
+  ]
+}

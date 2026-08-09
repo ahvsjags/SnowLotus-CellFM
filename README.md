@@ -41,3 +41,25 @@ Public repository tag:
 ```text
 plant-methods-submission-v1-20260803
 ```
+
+## PlantCell-Agent Upgrade
+
+The checkpoint-preserving upgrade is a central-model plus specialist-agent
+architecture. Plant-CellFM remains the shared expression encoder and direct
+prediction service; PlantCell-Agent orchestrates capability-scoped species,
+organ-context, orthology, support-prototype, open-set and evidence specialists.
+Each specialist declares its contract and fallback chain, while low-confidence,
+open-set or failed-contract cells are routed to Review Agent. Direct predictions
+and all evidence traces remain visible.
+
+```bash
+snowcell agent-annotate \
+  --checkpoint models/SnowLotus_CellFM_SRP169576_annotation_1024_best.pt \
+  --data input.h5ad \
+  --output-dir outputs/plantcell_agent_run \
+  --device cuda
+```
+
+See [`docs/plantcell_agent.md`](docs/plantcell_agent.md), the
+[`Agent model card`](release_metadata/plantcell_agent_model_card_v1.md) and
+the vector [`specialist-agent architecture`](figures/plantcell_agent/plantcell_agent_extended_data_fig1_v3.svg).

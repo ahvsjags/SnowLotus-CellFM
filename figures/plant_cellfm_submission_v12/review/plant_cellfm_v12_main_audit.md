@@ -7,7 +7,7 @@
 
 | Figure | Formats | Source TSV | Min font | PNG/TIFF dpi | SVG/PDF embedded raster dpi | Nonwhite |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
-| `plant_cellfm_v12_fig1_system` | 4/4 | 7 | 3.00 | 600.0 / 600.0 / 600.0 / 600.0 | 272.0 / 380.7 | 0.287 |
+| `plant_cellfm_v12_fig1_system` | 4/4 | 7 | 3.00 | 600.0 / 600.0 / 600.0 / 600.0 | 272.0 / 380.44 | 0.174 |
 | `plant_cellfm_v12_fig2_strict_transfer` | 4/4 | 8 | 3.00 | 600.0 / 600.0 / 600.0 / 600.0 | 316.12 / 406.16 | 0.218 |
 | `plant_cellfm_v12_fig3_context_stc` | 4/4 | 6 | 3.00 | 600.0 / 600.0 / 600.0 / 600.0 | 282.62 / 360.93 | 0.281 |
 | `plant_cellfm_v12_fig4_target_adaptation` | 4/4 | 7 | 3.00 | 600.0 / 600.0 / 600.0 / 600.0 | 334.73 / 619.67 | 0.248 |
