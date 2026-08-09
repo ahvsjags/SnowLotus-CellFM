@@ -67,10 +67,12 @@ accepted group. The corresponding accepted accuracies were 92.41% for
 Arabidopsis, 82.89% for wheat and 90.82% for Sorghum. Direct and final labels
 agreed for every cell in all four cases.
 
-`plantcell_agent_expert_audit_template_v1.tsv` is the blinded worksheet and
-`plantcell_agent_expert_audit_key_v1.tsv` is the local scoring key. The current
-reference-backed separation uses existing author labels; it must not be called
-independent expert validation until a reviewer completes the blinded worksheet.
+`plantcell_agent_expert_audit_template_v2.tsv` is the blinded worksheet. The
+scoring key is retained only at
+`outputs/internal/plantcell_agent_expert_audit_key_v2.tsv` and is not shipped in
+the public release. The current reference-backed separation uses existing author
+labels; it must not be called independent expert validation until a reviewer
+completes the blinded worksheet.
 
 ## Central model and specialist-agent contract
 

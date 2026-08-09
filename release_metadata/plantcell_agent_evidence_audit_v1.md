@@ -1,7 +1,7 @@
 # PlantCell-Agent evidence audit v1
 
 This release separates accept-all direct inference from the Agent threshold policy.
-The strict case uses the locked 3,964-row prediction/embedding bundle because its raw H5AD is unavailable.
+The strict case is marked raw_h5ad_end_to_end only when the manifest H5AD is available; otherwise the report remains a locked 3,964-row prediction/embedding replay.
 
 ## Reference-backed audit
 
@@ -13,4 +13,4 @@ The strict case uses the locked 3,964-row prediction/embedding bundle because it
 | sorghum_sealed_library | 19316 | 14986 | 0.7758 | 0.9082 | 0.5233 | 0.0918 | 0.4767 | 0.3849 |
 
 A positive Difference means the Agent review group has higher reference error than the automatically accepted group.
-The public expert worksheet hides the acceptance group and reference label; complete it with an independent expert before claiming independent expert validation.
+The public expert worksheet hides the acceptance group and reference label. Independent expert validation is claimed only when a completed blinded worksheet is passed to this script.

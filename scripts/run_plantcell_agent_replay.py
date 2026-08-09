@@ -116,10 +116,14 @@ def _run_case(
     specialist_plan = route.get("specialist_plan", {})
     primary_specialist = specialist_plan.get("primary_agent", {}).get("agent_id")
     evidence_status = result.get("quality", {}).get("specialist_verification", {}).get("status")
+    raw_input_end_to_end = data_path.suffix.lower() == ".h5ad" and data_path.exists()
     payload: dict[str, Any] = {
         "case_id": case["case_id"],
         "label": case["label"],
         "status": result.get("status"),
+        "raw_input_end_to_end": raw_input_end_to_end,
+        "raw_input_sha256": _sha256(data_path) if raw_input_end_to_end else None,
+        "replay_evidence_mode": "raw_h5ad_end_to_end" if raw_input_end_to_end else "locked_bundle_replay",
         "route": result.get("route"),
         "expected_route": case.get("expected_route"),
         "route_correct": result.get("route") == case.get("expected_route"),
@@ -201,7 +205,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
             "- `coverage` is the fraction accepted by the Agent confidence/open-set policy.",
             "- `accepted_cell_accuracy` is reported separately and is never substituted for all-cell accuracy.",
             "- A route mismatch or species metadata mismatch remains visible in the JSON output.",
-            "- The raw strict H5AD is unavailable; the complete 3,964-cell locked prediction/embedding evidence is reported separately as `locked_bundle_replay`.",
+            "- The strict case is labelled `raw_h5ad_end_to_end` only when the manifest H5AD exists and is directly passed to the Agent; otherwise it remains `locked_bundle_replay` with no inferred raw-input metrics.",
             "- Specialist contract status is reported per end-to-end case; a failed contract activates Review Agent and preserves direct predictions.",
             "",
         ]

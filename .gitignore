@@ -35,6 +35,10 @@ figures/plant_cellfm_submission_v12/**/*.tiff
 # reproducible release package. Their provenance is captured in metadata.
 data/external_validation/
 data/orthologs/
+data/public/geo_raw/
+data/public/GSE*_10x/
+data/public/GSE270342_h5/
+data/public/GSE302041_root_strict_triplet/
 !data/orthologs/
 !data/orthologs/gse297576_sorghum_to_arabidopsis_author_orthogroups.tsv
 log/

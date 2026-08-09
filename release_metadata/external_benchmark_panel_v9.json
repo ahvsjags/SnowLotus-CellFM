@@ -123,11 +123,15 @@
       "protocol": "official web/API route audit",
       "status": "contract_ready_auth_limited",
       "formal_comparison": false,
-      "evidence": "release_metadata/scplantannotate_access_audit.json",
+      "evidence": "release_metadata/scplantannotate_formal_benchmark_v1.json",
       "web_server_reachable": true,
       "scriptable_batch_api_detected": false,
       "anonymous_api_accessible": false,
-      "interpretation": "The official web/API route has been audited and the benchmark input package is defined; final numeric metrics require authenticated or exported official predictions."
+      "input_cells": 5000,
+      "input_classes": 12,
+      "input_sha256": "336ae75b77582785ff6328bfdcb28ea62fa63ef41f4fdec61fdf5786ab1cde33",
+      "truth_sha256": "1d80e4d62c2bd5e6986d97a4a863f4f37b00073b71750c8e68e0e725ec9fbaf1",
+      "interpretation": "A frozen 5,000-cell/12-class input and truth file are now packaged with hashes and an authenticated execution contract; final numeric metrics remain excluded until official predictions are exported and scored."
     }
   ]
 }

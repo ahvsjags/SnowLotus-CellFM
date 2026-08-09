@@ -1,0 +1,22 @@
+{
+  "schema_version": "v9_strict_raw_source_map_v1",
+  "description": "Dataset-scoped raw source map for the strict 3,964-cell benchmark. Paths may point outside the repository during local materialization.",
+  "sources": {
+    "arabidopsis_callus_regeneration_scrna": {"path": "data/public/GSE234192_10x/GSM7453799_7DAC.h5ad"},
+    "arabidopsis_lateral_root_founder_atlas": {"path": "data/public/GSE302041_root_strict_triplet.h5ad"},
+    "arabidopsis_root_atlas": {"path": ""},
+    "arabidopsis_secondary_root_dev_atlas": {"path": "outputs/external_validation/gse270140/raw_assets/GSM8335426_JWE03_filtered_feature_bc_matrix.h5"},
+    "brassicaceae_multi_species_root_atlas": {"path": "data/public/GSE268881_10x/GSM8302004_Ath_Root_Ctrl_scRNAseq_R1.h5ad"},
+    "cotton_glandular_terpenoid_atlas": {"path": "data/public/GSE243419_10x/GSM7785431_Rep1.h5ad"},
+    "scplantdb_CRA002977_1": {"path": "../../data/public/scPlantDB_h5ad/CRA002977_1.h5ad"},
+    "scplantdb_CRA002977_2": {"path": "../../data/public/scPlantDB_h5ad_gz/CRA002977_2.h5ad.gz"},
+    "scplantdb_CRA004848": {"path": "../../data/public/scPlantDB_h5ad_gz/CRA004848.h5ad.gz"},
+    "scplantdb_CRA006988": {"path": "../../data/public/scPlantDB_h5ad_gz/CRA006988.h5ad.gz"},
+    "scplantdb_DRP009643": {"path": "../../data/public/scPlantDB_h5ad_gz/DRP009643.h5ad.gz"},
+    "scplantdb_SRP148288": {"path": "../../data/public/scPlantDB_h5ad_gz/SRP148288.h5ad.gz"},
+    "scplantdb_SRP169576": {"path": "../../data/public/scPlantDB_h5ad/SRP169576.h5ad"},
+    "scplantdb_SRP335448": {"path": "../../data/public/scPlantDB_h5ad_gz/SRP335448.h5ad.gz"},
+    "scplantdb_SRP424189": {"path": "../../data/public/scPlantDB_h5ad_gz/SRP424189.h5ad.gz"},
+    "wheat_soil_root_atlas": {"path": "data/public/GSE270342_h5/GSM8339904_rep1_filtered_feature_bc_matrix.h5"}
+  }
+}

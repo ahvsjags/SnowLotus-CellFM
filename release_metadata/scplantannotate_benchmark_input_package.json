@@ -5,64 +5,64 @@
     "input_h5ad": "outputs/external_benchmarks/scplantannotate_public_sprint_input/scplantannotate_input.h5ad",
     "truth_csv": "outputs/external_benchmarks/scplantannotate_public_sprint_input/truth_labels.csv",
     "selected_cells": 5000,
-    "retained_genes": 27547,
+    "retained_genes": 22506,
     "class_count": 12,
     "species": "Arabidopsis thaliana",
     "label_key": "cell_type",
     "coarse_label_key": "cell_type_coarse",
-    "source_h5ad": "data/plant_foundation_corpus.h5ad",
+    "source_h5ad": "outputs/external_validation/gse270140/GSM8335426_JWE03_author_annotated_secondary_root.h5ad",
     "dataset_name": "snowcell_public_sprint_scplantannotate_probe",
     "organism_id": "1",
     "predictor_id": "1"
   },
   "label_counts": [
     [
-      "Columella root cap",
-      417
+      "Mature phloem parenchyma",
+      1421
     ],
     [
-      "G1/G0 phase",
-      417
+      "Periderm",
+      924
     ],
     [
-      "Lateral root cap",
-      417
+      "Vascular cambium",
+      715
     ],
     [
-      "Non-hair",
-      417
+      "Conductive phloem parenchyma",
+      521
     ],
     [
-      "Phloem",
-      417
+      "Maturing xylem parenchyma",
+      340
     ],
     [
-      "Root cap",
-      417
+      "Young xylem parenchyma",
+      315
     ],
     [
-      "Root cortex",
-      417
+      "Fiber",
+      284
     ],
     [
-      "Root endodermis",
-      417
+      "Mature xylem parenchyma",
+      283
     ],
     [
-      "Root hair",
-      416
+      "Vessel identity cell/expanding vessel",
+      63
     ],
     [
-      "Root stele",
-      416
+      "Companion cell",
+      54
     ],
     [
-      "S phase",
-      416
+      "Sieve element",
+      44
     ],
     [
-      "Xylem",
-      416
+      "Myrosin idioblasts",
+      36
     ]
   ],
   "commands": {

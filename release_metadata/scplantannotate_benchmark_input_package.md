@@ -2,8 +2,8 @@
 
 - Status: `input_ready_waiting_for_authorized_scplantannotate_run`
 - Counts as completed metric: `False`
-- Input h5ad: `outputs/external_benchmarks/scplantannotate_public_sprint_input/scplantannotate_input.h5ad`
-- Truth CSV: `outputs/external_benchmarks/scplantannotate_public_sprint_input/truth_labels.csv`
+- Input h5ad: `release_metadata/external_benchmarks/scplantannotate_public_sprint_input_v2/scplantannotate_input.h5ad` (22,506 genes; SHA256 recorded in `release_metadata/scplantannotate_formal_benchmark_v1.json`)
+- Truth CSV: `release_metadata/external_benchmarks/scplantannotate_public_sprint_input_v2/truth_labels.csv`
 - Selected cells: `5000`
 - Class count: `12`
 - Species: `Arabidopsis thaliana`
@@ -27,17 +27,17 @@ python scripts/run_scplantannotate_authenticated_benchmark.py --prediction-csv <
 
 | Label | Cells |
 | --- | ---: |
-| `Columella root cap` | 417 |
-| `G1/G0 phase` | 417 |
-| `Lateral root cap` | 417 |
-| `Non-hair` | 417 |
-| `Phloem` | 417 |
-| `Root cap` | 417 |
-| `Root cortex` | 417 |
-| `Root endodermis` | 417 |
-| `Root hair` | 416 |
-| `Root stele` | 416 |
-| `S phase` | 416 |
-| `Xylem` | 416 |
+| `Mature phloem parenchyma` | 1421 |
+| `Periderm` | 924 |
+| `Vascular cambium` | 715 |
+| `Conductive phloem parenchyma` | 521 |
+| `Maturing xylem parenchyma` | 340 |
+| `Young xylem parenchyma` | 315 |
+| `Fiber` | 284 |
+| `Mature xylem parenchyma` | 283 |
+| `Vessel identity cell/expanding vessel` | 63 |
+| `Companion cell` | 54 |
+| `Sieve element` | 44 |
+| `Myrosin idioblasts` | 36 |
 
 This package is an input/readiness artifact only. It is intentionally excluded from completed external metric counts until scPlantAnnotate predictions are exported and scored against the truth CSV.

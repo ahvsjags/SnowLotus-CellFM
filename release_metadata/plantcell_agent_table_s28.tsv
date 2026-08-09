@@ -1,5 +1,5 @@
 case_id	label	expected_route	selected_route	status	n_cells	all_cell_accuracy	macro_f1	accepted_coverage	accepted_cell_accuracy	accepted_macro_f1	review_fraction	open_set_fraction	runtime_seconds	cuda_peak_memory_mb	repeatability
-strict_heldout_3964	Strict held-out species	universal_open_set	NOT_REPLAYED	NOT_REPLAYED_INPUT_MISSING											not_run
+strict_heldout_3964	Strict held-out species	universal_open_set	locked_bundle_replay	LOCKED_BUNDLE_ONLY	3964										not_applicable_locked_bundle
 arabidopsis_secondary_root	Arabidopsis secondary root	registered_adapter	registered_adapter	auto_annotation_pass	11760	0.8664116	0.8740179	0.8416667	0.9241261	0.9253125	0.1583333	0.0000000	62.0502	210.2852	exact_match
 wheat_nonoverlap	Wheat root	registered_adapter	registered_adapter	manual_review_required	7164	0.6471245	0.6934819	0.4135958	0.8288896	0.7699115	0.5864042	0.1360972	79.54	186.3	exact_match
 sorghum_sealed_library	Sorghum root	ortholog_stc	ortholog_stc	manual_review_required	19316	0.8219093	0.8321548	0.7758335	0.9081810	0.9095089	0.2241665	0.0000000	218.99	187.0	exact_match

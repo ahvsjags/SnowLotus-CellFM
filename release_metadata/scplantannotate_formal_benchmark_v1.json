@@ -1,0 +1,44 @@
+{
+  "schema_version": "scplantannotate_formal_benchmark_v1",
+  "status": "auth_required_not_counted",
+  "counts_as_completed_metric": false,
+  "method": "scPlantAnnotate official web/API execution on a frozen 5,000-cell Arabidopsis input",
+  "official_publication": {
+    "doi": "10.1016/j.jare.2026.01.035",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41554477/"
+  },
+  "input": {
+    "h5ad": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\release_metadata\\external_benchmarks\\scplantannotate_public_sprint_input_v2\\scplantannotate_input.h5ad",
+    "h5ad_exists": true,
+    "h5ad_sha256": "336ae75b77582785ff6328bfdcb28ea62fa63ef41f4fdec61fdf5786ab1cde33",
+    "truth_csv": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\release_metadata\\external_benchmarks\\scplantannotate_public_sprint_input_v2\\truth_labels.csv",
+    "truth_exists": true,
+    "truth_sha256": "1d80e4d62c2bd5e6986d97a4a863f4f37b00073b71750c8e68e0e725ec9fbaf1",
+    "test_cells": 5000,
+    "classes": 12
+  },
+  "access_audit": {
+    "web_server_reachable": true,
+    "anonymous_api_accessible": false,
+    "auth_required_endpoint_count": 3
+  },
+  "credentials": {
+    "username_env": "SCPLANTANNOTATE_USERNAME",
+    "password_env": "SCPLANTANNOTATE_PASSWORD",
+    "present": false
+  },
+  "metric_acceptance": {
+    "required_fields": [
+      "status=metrics_ready",
+      "test_cells",
+      "accuracy",
+      "macro_f1",
+      "prediction_csv",
+      "truth_csv"
+    ],
+    "same_input_truth_required": true,
+    "dry_run_or_published_context_not_counted": true
+  },
+  "execution_command": "SCPLANTANNOTATE_USERNAME=<user> SCPLANTANNOTATE_PASSWORD=<password> python scripts/run_scplantannotate_authenticated_benchmark.py --input-h5ad D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\release_metadata\\external_benchmarks\\scplantannotate_public_sprint_input_v2\\scplantannotate_input.h5ad --dataset-name snowcell_public_sprint_scplantannotate_probe --organism-id 1 --predictor-id 1 --execute --wait --output outputs/external_benchmarks/scplantannotate_authenticated_benchmark_plan.json",
+  "metrics": null
+}

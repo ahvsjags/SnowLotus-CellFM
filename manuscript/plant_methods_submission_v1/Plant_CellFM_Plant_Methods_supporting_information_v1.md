@@ -239,7 +239,7 @@ Seurat transfer, centroid baselines and the matched scPlantLLM analysis were com
 
 ### S9. PlantCell-Agent replay and audit outputs
 
-The replay manifest in `release_metadata/plantcell_agent_replay_v1.json` records the input paths, checkpoint paths, expected routes, preprocessing statistics, direct-versus-agent metrics, review decisions, retry outcomes, runtime and repeatability hashes. The three available end-to-end replays produced the following all-cell accuracy values: Arabidopsis secondary root, 0.8664; wheat root, 0.6471; and Sorghum root, 0.8219. The workflow layer leaves these direct values unchanged; its measurable output is accepted-cell coverage and the explicit review partition. The raw strict H5AD remains unavailable, but the complete 3,964-cell prediction/embedding bundle was replayed against cell-level author labels and is reported separately as `locked_bundle_replay` in Supplementary Fig. S13 and Table S29. This is not described as an end-to-end input replay.
+The replay manifest in `release_metadata/plantcell_agent_replay_v1.json` records the input paths, checkpoint paths, expected routes, preprocessing statistics, direct-versus-agent metrics, review decisions, retry outcomes, runtime and repeatability hashes. The three available end-to-end replays produced the following all-cell accuracy values: Arabidopsis secondary root, 0.8664; wheat root, 0.6471; and Sorghum root, 0.8219. The workflow layer leaves these direct values unchanged; its measurable output is accepted-cell coverage and the explicit review partition. The raw strict H5AD remains unavailable. `release_metadata/v9_strict_raw_resolution_audit_v1.md` records that the GSE302041 block was recovered as a raw H5AD while the GSE152766 root candidate did not uniquely cover all frozen target barcodes. The complete 3,964-cell prediction/embedding bundle was therefore replayed against cell-level author labels and is reported separately as `locked_bundle_replay` in Supplementary Fig. S13 and Table S29. This is not described as an end-to-end input replay.
 
 ## Supplementary Figure Legends
 
@@ -327,7 +327,7 @@ The replay manifest in `release_metadata/plantcell_agent_replay_v1.json` records
 
 **Table S28.** PlantCell-Agent replay contract, route decisions, direct-versus-agent metrics, accepted-cell metrics, review fractions, runtime, GPU peak memory, retry outcomes and exact-repeat hashes.
 
-**Table S29.** PlantCell-Agent selective-risk metrics, ten-bin calibration curves, expected calibration error, reference-backed accepted-versus-review audit and the blinded expert-audit worksheet/key contract.
+**Table S29.** PlantCell-Agent selective-risk metrics, ten-bin calibration curves, expected calibration error, reference-backed accepted-versus-review audit and the blinded expert-audit worksheet contract. The public worksheet is `release_metadata/plantcell_agent_expert_audit_template_v2.tsv`; its scoring key is retained outside the public release and the independent-expert status remains pending until a completed worksheet is scored.
 
 ## Data and code availability
 

@@ -1,0 +1,1293 @@
+{
+  "unmatched": [
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:AAAGGATCAATTGCTG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:AAAGTGACATGACAGG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:AACCAACCAACTACGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:AAGTCGTTCGGTTGTA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:AATTTCCGTGACTCGC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:ACACGCGCAGAAATTG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:ACACGCGCAGCTGTGC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:ACACTGAAGGGTCAAC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:ACAGCCGAGACATCAA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:ACATCCCCACGAAAGC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:ACATGCATCGAACACT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:ACTTAGGCATCCTTGC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:ACTTATCCAACTGGTT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:AGAACAAAGGTCGAGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:AGACACTGTCGGTAAG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:AGACCATAGGTCGTCC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:AGATAGATCATTGCGA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:AGATGAATCTCCGAAA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:AGCCAATGTCCTCCAT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:AGCTTCCGTTAAACCC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:AGGATAAGTCTGTGCG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:AGGGTCCTCAAAGCCT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:AGTTAGCTCAGAGCAG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:AGTTAGCTCTTGGGCG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:ATCACTTCAGGCTTGC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:ATCGCCTTCCTTGACC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:ATCGTGATCAACACCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:ATGAGGGCAGCGTTGC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:ATTCCATTCGCCATAA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:ATTGTTCAGGGTACGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:ATTGTTCCACGGTGTC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:ATTGTTCTCATCACTT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CACCGTTGTCACCGAC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CATCCCACAGACGATG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CATGCTCCAAGTTCCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CATGGATCAGCACGAA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CCAATGAGTGCCAAGA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CCACACTTCTAGCCTC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CCACCATTCGCTGTCT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CCATCACTCCTTATAC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CCGCAAGTCGGCACTG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CCGTGAGAGCTCGAAG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CCTCAGTTCTCGCAGG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CCTTGTGAGACCAGCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CCTTGTGAGTGTGTTC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CGGAACCTCGTGGTAT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CGGGTCAAGCTGGCTC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CGTAGTAAGTATCTGC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CGTCCATCATCGTGCG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CGTTAGATCGCTCTAC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CTAAGTGAGTCTCCTC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CTAAGTGTCTGGGCAC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CTACATTGTACGAGCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CTACCCAAGGCAGTCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CTACGGGAGGGCGAGA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CTATCTAGTGTGACCC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CTCAGTCCATGACTAC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CTCATTAAGAGGTTTA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CTCCAACGTTATTCCT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CTGAGGCGTGTCCGTG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CTGGCAGCATAGGTTC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CTTCCTTGTTAGCGGA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:CTTCTCTGTTCGGCTG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GAAATGATCTCTGAGA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GAACGTTGTTGTTTGG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GAACTGTAGCATGGGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GAAGGGTCACCACTGG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GACCCTTTCACGTAGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GACTATGAGACTACCT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GAGCTGCAGCCTTCTC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GAGTTACAGAAGCCTG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GAGTTACTCCTCCACA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GATCATGGTCCAATCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GATTCGAAGGACACTG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GCACGTGGTCGCATCG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GCCATTCGTGTTCGTA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GCCGATGCAATAAGGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GCCGATGTCTAACGCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GCGGAAACAAATGGCG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GCGGAAACATCACAGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GGAACCCAGTGAGTGC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GGAAGTGTCACAGTGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GGACGTCAGGTTCATC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GGAGGATGTAAGTTGA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GGAGGATTCGTCAACA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GGGCGTTTCGCTGCGA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GGGCTCACAGCGTATT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GGGTTTAAGTACTCGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GGTGAAGTCATCACAG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GGTGATTGTTATAGAG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GTAACACGTGTGTGTT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GTCAAGTTCGGTTGTA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GTCACTCAGCACACCC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GTCATCCCAGTTGTCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GTCATGATCTCGACGG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GTCATTTTCCTACGAA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GTCCCATCAGAGTCTT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GTGTTCCTCGGTCACG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:GTTCATTGTTCTCTAT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TACCTGCTCTCATAGG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TACGGGCTCATTACGG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TACGTCCAGAGTTGAT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TAGTGCAGTATCGATC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TATTCCATCGACCATA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TATTGCTTCTTCCACG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TCAATTCCATCTTAGG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TCACAAGTCCTCAGGG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TCACGCTGTCCTGGGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TCAGCAATCTCCTGTG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TCCCAGTTCCCATTTA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TCCGATCCAATCTCTT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TCGTAGATCTGTGCGG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TCTGCCAGTCGCATTA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TCTGTCGAGTGGACTG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TCTGTCGGTGGAAATT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TCTTAGTTCCTGCCAT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TCTTCCTTCGCATAGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TGACTCCAGCCATTGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TGAGACTTCTATTTCG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TGAGGTTAGAGCCTGA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TGATGGTCATCTGCGG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TGCACGGGTACGAGCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TGCAGGCTCTATTTCG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TGCGGCATCGGTCAGC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TGGATCAGTCCTGTCT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TGTTCTACAAGTGACG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TTCAATCCACGGATCC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TTCGATTAGGTCATTC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TTCGGTCCAAAGGTTA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TTCGGTCTCTCACCCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TTCTAACCAAAGGGCT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TTCTTGAAGGGAGGTG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TTCTTGACAGCTCCTT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:spliced_counts_filtered:TTGGTTTTCTTCCTAA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:AAAGGGCAGAGGTCAC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:AACAAGAAGAGAGCCT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:AAGCGAGGTTCCTAGA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:AAGCGAGGTTCGTACA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:AAGCGTTAGTATAGAC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:AAGTCGTCAACATACC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ACAAGCTCACGTAGAG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ACAGCCGAGTGGACGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ACATGCAAGAAATTCG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ACCTACCTCTCTTCAA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ACGTACACACGGTAGA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ACGTCCTGTTCCACGG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ACTCTCGTCTTGAGCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ACTGATGAGTATAGGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:AGACACTCACAGAGCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:AGAGAATAGTGGATTA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:AGCCAGCAGAAGGCTC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:AGGATAATCTGTGCGG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:AGGCCACGTTTACGTG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:AGGTTACTCTGAGCAT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:AGTAGTCCAACAAAGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ATACCGATCGCCCAGA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ATCCGTCCAACTGGTT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ATCCGTCTCGTGGAAG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ATCGTCCCATAGCACT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ATGAAAGGTGGCTAGA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ATGCCTCTCAGCGCGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ATGGAGGCACGCAGTC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ATGGTTGCACATAGCT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ATTCACTGTACCGGCT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:ATTTCTGTCCGGCAAC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CAACCTCGTATCGCGC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CAACGGCGTCTAACTG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CAAGGGACAGAATCGG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CACGTTCTCCGGACGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CAGAGCCTCATCTATC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CAGATCACAATTGCGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CAGCAATTCCGTGCGA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CAGGTATAGCTAGAAT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CATAAGCTCGCTCTCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CATAAGCTCTCAAAGC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CATCAAGAGCACCGAA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CATCAAGCATAGATCC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CATGCAACAGATTCGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CCAATTTCACTGCTTC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CCACACTCACGGGTAA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CCACTTGGTCCGGACT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CCCGAAGCATTGTAGC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CCCTCTCTCTCATTTG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CCGGGTACAAGGCCTC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CCTCATGCACAGAGAC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CGGAATTGTGATTCAC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CGGGTGTCAGCTCGGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CGGGTGTTCGACGTCG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CGTAAGTTCCCTCGTA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CTAACCCTCCGCGGAT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CTAAGTGTCCATCTCG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CTATCCGGTTGAGTCT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CTCAATTAGACTACCT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CTCATGCGTCGTCTCT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CTCCATGGTGATACAA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CTCTCGATCTTTGATC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CTGAGCGGTGGGACAT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CTGCCATGTGGAGGTT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CTGGTCTGTACTGTTG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CTGTGAAGTTACACAC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CTTCAATTCGGAGCAA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CTTCTCTGTGTTTCTT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CTTTCGGGTGTTCGTA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:CTTTCGGTCTCGCCTA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GAGACTTTCAAATGAG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GAGACTTTCGTGGACC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GAGGCAACACTAAACC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GAGGCAATCTCTTCAA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GAGGCCTTCGCAGTCG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GAGTGTTTCATTCACT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GAGTTACCATACTGAC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GATCAGTTCTCGCTCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GCCGTGAGTTTGTTGG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GGAGGTAAGCGTACAG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GGCTTGGGTTTCGGCG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GGTTAACAGGAAAGGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GTCAAGTCAAACTAAG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GTCGTAATCAACCTTT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GTGATGTCACTTCATT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GTTACGACACCCTATC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GTTCGCTGTCGCACGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:GTTGTCCAGCGTCGAA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TAAGCACTCACATCAG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TAAGCGTTCTATTGTC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TACATTCTCGTAACAC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TACGGTAGTTTAAGGA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TAGACCACACCACATA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TAGACTGCAGCAGTGA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TATACCTGTATGAAGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TCACAAGCATGAGTAA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TCACAAGTCGATTTCT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TCACTCGGTCACCACG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TCAGTGAGTACAGAGC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TCGACGGGTTGTGCCG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TCGGGCAAGGCCTAGA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TCGGGCACACCGTGCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TCGGGTGCAGCGGATA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TCGGGTGGTTTCGGCG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TCTCAGCAGGGAGAAT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TCTCTGGAGTAGTCTC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TCTTAGTCAGGCGATA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TGACAGTCAGGTCCCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TGAGCGCAGTGATAAC",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TGAGTCAAGTCGCTAT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TGATGCAGTGCTGATT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TGGTGATTCCTCACGT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TGTAACGCAGCGGATA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TGTAGACGTCGGAACA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TTCCACGTCTGCTGAA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TTCGATTAGAAGAGCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TTCGGTCCAAAGGTTA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TTCTAACGTAGGTGCA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TTGTGGATCGTAGAGG",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TTTACCAAGCAGTCTT",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TTTACGTGTCAGTCTA",
+      "reason": "source_missing"
+    },
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "cell_id": "arabidopsis_root_atlas:unspliced_counts_filtered:TTTGACTAGTACTGGG",
+      "reason": "source_missing"
+    }
+  ],
+  "ambiguous": [],
+  "source_records": [
+    {
+      "dataset_id": "arabidopsis_root_atlas",
+      "status": "missing",
+      "path": "None"
+    }
+  ],
+  "stage": "source_preflight"
+}

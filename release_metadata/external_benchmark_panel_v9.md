@@ -16,8 +16,8 @@ This panel separates completed metrics from official-source benchmark contracts 
 | Classical cosine centroid, SRP169576 sample holdout | explicit_leaveout | completed | 0.7337 | 0.4873 | `release_metadata/strict_benchmarks/leaveout_srp169576_sample.centroid_baseline.json` |
 | scPlantLLM frozen embedding nearest-centroid probe | public sprint train/test chunks | contract_ready_metric_pending | - | - | `release_metadata/scplantllm_input_readiness.json` |
 | Seurat label transfer | exported train/test split | completed | 0.2207 | 0.0603 | `release_metadata/external_benchmarks/seurat_v9_subset.json` |
-| scPlantAnnotate | official web/API route audit | contract_ready_auth_limited | - | - | `release_metadata/scplantannotate_access_audit.json` |
+| scPlantAnnotate | frozen 5,000-cell/12-class official web/API contract | contract_ready_auth_limited | - | - | `release_metadata/scplantannotate_formal_benchmark_v1.json` |
 
 ## Interpretation
 
-The strongest completed comparison remains the frozen v9 versus frozen v3 extended benchmark on the same shared-gene public-plant subset. The SRP169576 sample-holdout centroid baseline provides a transparent classical comparator, and the Seurat label-transfer run adds a completed traditional external baseline. scPlantLLM and scPlantAnnotate are included at the evidence level supported by the release tree and the official-source benchmark contract.
+The strongest completed comparison remains the frozen v9 versus frozen v3 extended benchmark on the same shared-gene public-plant subset. The SRP169576 sample-holdout centroid baseline provides a transparent classical comparator, and the Seurat label-transfer run adds a completed traditional external baseline. scPlantAnnotate now has a hash-locked 5,000-cell/12-class input and truth contract; it remains excluded from completed metrics until the authenticated official prediction export is scored.

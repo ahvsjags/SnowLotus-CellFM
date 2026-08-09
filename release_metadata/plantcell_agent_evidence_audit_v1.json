@@ -10,6 +10,7 @@
       "status": "locked_bundle_replay",
       "raw_input_available": false,
       "raw_input_end_to_end": false,
+      "raw_input_sha256": null,
       "n_matched": 3964,
       "direct_agent_label_agreement": 1.0,
       "direct_calibration": {
@@ -42,24 +43,25 @@
     {
       "case_id": "arabidopsis_secondary_root",
       "label": "Arabidopsis secondary root",
-      "mode": "agent_replay",
-      "status": "ok",
+      "mode": "raw_h5ad_end_to_end",
+      "status": "raw_h5ad_end_to_end",
       "raw_input_available": true,
       "raw_input_end_to_end": true,
+      "raw_input_sha256": "25ae23698444d9409b6984f0d899438afcfc63a0598cf362911cddb75d6ed440",
       "n_matched": 11760,
       "direct_agent_label_agreement": 1.0,
       "direct_calibration": {
         "case_id": "arabidopsis_secondary_root",
         "n_cells": 11760,
-        "expected_calibration_error": 0.010398526445578265,
-        "mean_confidence": 0.8733630279761905,
+        "expected_calibration_error": 0.010398530357142933,
+        "mean_confidence": 0.8733630410714286,
         "observed_accuracy": 0.8664115646258503
       },
       "agent_calibration": {
         "case_id": "arabidopsis_secondary_root",
         "n_cells": 11760,
-        "expected_calibration_error": 0.010398526445578265,
-        "mean_confidence": 0.8733630279761905,
+        "expected_calibration_error": 0.010398530357142933,
+        "mean_confidence": 0.8733630410714286,
         "observed_accuracy": 0.8664115646258503
       },
       "reference_backed_audit": {
@@ -78,24 +80,25 @@
     {
       "case_id": "wheat_nonoverlap",
       "label": "Wheat root",
-      "mode": "agent_replay",
-      "status": "ok",
+      "mode": "raw_h5ad_end_to_end",
+      "status": "raw_h5ad_end_to_end",
       "raw_input_available": true,
       "raw_input_end_to_end": true,
+      "raw_input_sha256": "f5321a76ccf4451604c7a1e4ad9cbfd697a33f2abc023ac4d408bf6b6abea5ef",
       "n_matched": 7164,
       "direct_agent_label_agreement": 1.0,
       "direct_calibration": {
         "case_id": "wheat_nonoverlap",
         "n_cells": 7164,
-        "expected_calibration_error": 0.03426860804020104,
-        "mean_confidence": 0.6609392448352875,
+        "expected_calibration_error": 0.034268603992183164,
+        "mean_confidence": 0.6609392530709101,
         "observed_accuracy": 0.6471245114461195
       },
       "agent_calibration": {
         "case_id": "wheat_nonoverlap",
         "n_cells": 7164,
-        "expected_calibration_error": 0.03426860804020104,
-        "mean_confidence": 0.6609392448352875,
+        "expected_calibration_error": 0.034268603992183164,
+        "mean_confidence": 0.6609392530709101,
         "observed_accuracy": 0.6471245114461195
       },
       "reference_backed_audit": {
@@ -114,24 +117,25 @@
     {
       "case_id": "sorghum_sealed_library",
       "label": "Sorghum root",
-      "mode": "agent_replay",
-      "status": "ok",
+      "mode": "raw_h5ad_end_to_end",
+      "status": "raw_h5ad_end_to_end",
       "raw_input_available": true,
       "raw_input_end_to_end": true,
+      "raw_input_sha256": "8cda0c37c3c25f2047e329b66dc22f8ed4dff86fa14af3b86ea6b327954982ef",
       "n_matched": 19316,
       "direct_agent_label_agreement": 1.0,
       "direct_calibration": {
         "case_id": "sorghum_sealed_library",
         "n_cells": 19316,
-        "expected_calibration_error": 0.013339005694760802,
-        "mean_confidence": 0.8349583006833713,
+        "expected_calibration_error": 0.013338988817560517,
+        "mean_confidence": 0.8349582834955477,
         "observed_accuracy": 0.8219092979913025
       },
       "agent_calibration": {
         "case_id": "sorghum_sealed_library",
         "n_cells": 19316,
-        "expected_calibration_error": 0.013339005694760802,
-        "mean_confidence": 0.8349583006833713,
+        "expected_calibration_error": 0.013338988817560517,
+        "mean_confidence": 0.8349582834955477,
         "observed_accuracy": 0.8219092979913025
       },
       "reference_backed_audit": {
@@ -148,9 +152,17 @@
       }
     }
   ],
+  "independent_blind_audit": {
+    "status": "pending_external_expert",
+    "completed_worksheet": null,
+    "public_template": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\release_metadata\\plantcell_agent_expert_audit_template_v2.tsv",
+    "scoring_key": "outputs/internal/plantcell_agent_expert_audit_key_v2.tsv (not shipped)",
+    "reviewer_id": null,
+    "reviewer_role": null
+  },
   "interpretation": {
-    "strict_case": "locked_bundle_replay; raw H5AD unavailable, so this is not an end-to-end input replay",
-    "reference_audit": "author-label reference-backed audit; independent blind expert worksheet is exported separately",
+    "strict_case": "raw_h5ad_end_to_end when raw input exists; otherwise locked_bundle_replay",
+    "reference_audit": "author-label reference-backed audit; independent blind expert worksheet is exported separately and scored only when supplied",
     "baseline": "accept_all_baseline retains the complete denominator",
     "agent": "agent_threshold rejects low-confidence or open-set predictions"
   }

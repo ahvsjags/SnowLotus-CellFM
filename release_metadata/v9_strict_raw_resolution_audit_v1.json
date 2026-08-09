@@ -1,0 +1,40 @@
+{
+  "schema_version": "v9_strict_raw_resolution_audit_v1",
+  "strict_target_cells": 3964,
+  "strict_dataset_blocks": 29,
+  "status": "partial_fail_closed",
+  "raw_h5ad_end_to_end_release_gate": "blocked_until_every_target_cell_matches_a_public_raw_matrix",
+  "completed_source_materialization": {
+    "dataset_id": "arabidopsis_lateral_root_founder_atlas",
+    "source_accession": "GSE302041",
+    "source_format": "Seurat RDS",
+    "source_rows": 32833,
+    "source_cells": 18194,
+    "selected_cells": 256,
+    "output": "data/public/GSE302041_root_strict_triplet.h5ad",
+    "output_sha256": "38bc9572b60442b59547ee739ec46580cae72757d87bb514960ddef4c6bfb2c3",
+    "matching_rule": "exact dataset-scoped S0h/S1h/S3h/S6h barcode identity after suffix normalization"
+  },
+  "arabidopsis_root_resolution": {
+    "dataset_id": "arabidopsis_root_atlas",
+    "source_accession": "GSE152766",
+    "candidate_source": "data/public/geo_raw/GSE152766_Root_Atlas_spliced_unspliced_raw_counts.rds.gz",
+    "candidate_source_sha256": "7d60a824053a6746a9f7b0cb683084a37422bf2cae30e4f9f3e477df2ce7f67c",
+    "assay_results": {
+      "spliced_counts_filtered": {"requested": 134, "exact": 123, "missing": 10, "ambiguous": 1},
+      "unspliced_counts_filtered": {"requested": 122, "exact": 110, "missing": 9, "ambiguous": 3}
+    },
+    "matched_cells": 233,
+    "unresolved_cells": 23,
+    "ambiguous_cells": 4,
+    "source_map_action": "left_blank",
+    "reason": "The public candidate does not contain a unique source column for every frozen target barcode; no expression values were imputed from predictions or embeddings."
+  },
+  "strict_materializer": {
+    "script": "scripts/materialize_v9_strict_raw_input.py",
+    "last_status": "source_preflight_failed",
+    "manifest": "release_metadata/v9_strict_raw_materialization_v1.json",
+    "fail_closed": true,
+    "raw_input_created": false
+  }
+}

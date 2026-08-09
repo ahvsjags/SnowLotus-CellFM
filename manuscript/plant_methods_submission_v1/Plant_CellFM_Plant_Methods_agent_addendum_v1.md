@@ -57,6 +57,8 @@ for the strict 3,964-cell locked bundle and three end-to-end replays.
 Supplementary Table S28 defines the route triggers, replay outcomes and output
 artifacts; Table S29 defines the evidence tables and blinded expert worksheet.
 The strict raw H5AD is unavailable, so the 3,964-cell result is labelled a
-locked-output replay. The public worksheet hides the acceptance group and
-reference label; an independent expert must complete it before an independent
-expert-validation claim is made.
+locked-output replay. The source-resolution audit records the exact public-matrix
+matching results and the fail-closed gate. The public v2 worksheet hides the
+acceptance group and reference label; an independent expert must complete it
+before an independent expert-validation claim is made, while its scoring key is
+kept outside the public release.

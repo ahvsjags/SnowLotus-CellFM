@@ -1,0 +1,29 @@
+{
+  "schema_version": "plantcell_agent_blind_audit_protocol_v1",
+  "status": "pending_external_expert",
+  "template": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\release_metadata\\plantcell_agent_expert_audit_template_v2.tsv",
+  "template_sha256": "90f21103742e86112ab2d5138c8cdb5e66a0f7e80f878e91e62e75dfec324749",
+  "rows": 200,
+  "fields": [
+    "audit_id",
+    "cell_id",
+    "agent_label",
+    "expert_label",
+    "expert_confidence",
+    "expert_decision",
+    "expert_notes"
+  ],
+  "blinding_checks": {
+    "reference_label_hidden": true,
+    "acceptance_group_hidden": true,
+    "agent_correct_hidden": true,
+    "audit_ids_unique": true
+  },
+  "review_instructions": [
+    "The reviewer receives only the TSV worksheet and the expression/visualization bundle identified by audit_id.",
+    "The reviewer records expert_label, expert_confidence, expert_decision and expert_notes without access to reference_label or hidden_group.",
+    "The reviewer returns the completed TSV with the original audit_id values unchanged.",
+    "The scoring script verifies that no blinded columns were added and records the completed worksheet SHA256."
+  ],
+  "completion_gate": "independent_blind_audit is completed_external_expert only after a non-empty expert_label worksheet is scored by run_agent_evidence_audit.py."
+}

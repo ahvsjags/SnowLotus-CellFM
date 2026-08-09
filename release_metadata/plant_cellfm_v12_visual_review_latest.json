@@ -1,0 +1,30 @@
+{
+  "schema_version": "plant_cellfm_v12_visual_review_v1",
+  "reviewed_at": "2026-08-09 Asia/Shanghai",
+  "scope": "figures/plant_cellfm_submission_v12/main",
+  "figures": 7,
+  "status": "pass_with_final_size_proof",
+  "technical": {
+    "four_format_groups": "7/7 canonical figure groups",
+    "formats": ["SVG", "PDF", "PNG", "TIFF"],
+    "raster_dpi": "600/600 dpi for PNG/TIFF across all 7 figures",
+    "editable_vector_typography_and_data_layers": "pass per figures/plant_cellfm_submission_v12/review/plant_cellfm_v12_main_audit.json"
+  },
+  "manual_visual_review": {
+    "blocking_clipping": false,
+    "blocking_panel_overlap": false,
+    "hierarchy_clear": true,
+    "color_semantics_consistent": true,
+    "notes": [
+      "Figures 2–7 were refreshed on 2026-08-08 and Figure 1 on 2026-08-09; all seven refreshed PNG/TIFF exports were rechecked at original resolution.",
+      "Figure 1 has generous lower whitespace but no blocking clipping or hierarchy failure.",
+      "Figure 4a has locally dense route labels; Figure 5c and Figure 7d have the densest heatmap labels.",
+      "The minimum SVG font size is 3 pt; final-size proof remains required.",
+      "SVG/PDF embedded-raster layers include recorded effective dpi as low as 272/361 dpi; canonical external PNG/TIFF exports remain 600 dpi, so this is a non-blocking final-size proof item."
+    ]
+  },
+  "blockers": [],
+  "minimum_action": "Proof at target journal column width, focusing on Figure 4a route labels, Figure 5c/7d labels, small state/species annotations, and embedded raster layers; revise only if ambiguity appears.",
+  "scope_note": "The current top_journal_figure_audit_latest report still audits the older 6+9+13 manifest under figures/plant_cellfm_submission; its 0/15 result does not include this v12 package.",
+  "scientific_content_modified": false
+}

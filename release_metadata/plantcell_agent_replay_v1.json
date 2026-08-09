@@ -17,6 +17,9 @@
       "case_id": "arabidopsis_secondary_root",
       "label": "Arabidopsis secondary root",
       "status": "auto_annotation_pass",
+      "raw_input_end_to_end": true,
+      "raw_input_sha256": "25ae23698444d9409b6984f0d899438afcfc63a0598cf362911cddb75d6ed440",
+      "replay_evidence_mode": "raw_h5ad_end_to_end",
       "route": "registered_adapter",
       "expected_route": "registered_adapter",
       "route_correct": true,
@@ -39,8 +42,8 @@
         "open_set_fraction": 0.0,
         "unknown_reference_cells": 0,
         "unknown_state_recall": null,
-        "mean_confidence": 0.8733630279761905,
-        "accepted_mean_confidence": 0.9308007872297432,
+        "mean_confidence": 0.8733630410714286,
+        "accepted_mean_confidence": 0.9308007922812689,
         "preprocessing_stats": {
           "quality_control": {
             "input_cells": 11760,
@@ -69,8 +72,8 @@
         "open_set_fraction": 0.0,
         "unknown_reference_cells": 0,
         "unknown_state_recall": null,
-        "mean_confidence": 0.8733630279761905,
-        "accepted_mean_confidence": 0.9308007872297432,
+        "mean_confidence": 0.8733630410714286,
+        "accepted_mean_confidence": 0.9308007922812689,
         "preprocessing_stats": {
           "quality_control": {
             "input_cells": 11760,
@@ -91,8 +94,8 @@
         "review_fraction": 0.15833333333333333,
         "open_set_cells": 0,
         "open_set_fraction": 0.0,
-        "mean_confidence": 0.8733630279761905,
-        "accepted_mean_confidence": 0.9308007872297432,
+        "mean_confidence": 0.8733630410714286,
+        "accepted_mean_confidence": 0.9308007922812689,
         "label_count": 14,
         "top_labels": {
           "Mature phloem parenchyma": 3124,
@@ -118,7 +121,7 @@
           "review_threshold": 0.7,
           "accepted_coverage_target": 0.8,
           "accepted_coverage": 0.8416666666666667,
-          "mean_confidence": 0.8733630279761905,
+          "mean_confidence": 0.8733630410714286,
           "review_fraction": 0.15833333333333333,
           "reason": "accepted cells meet the configured coverage and confidence contract"
         },
@@ -163,9 +166,9 @@
           "fallback_agent": null,
           "force_review": false
         },
-        "runtime_seconds": 70.70818210000289,
+        "runtime_seconds": 62.77055439999094,
         "device": "cuda",
-        "cuda_peak_memory_mb": 1107.8828125,
+        "cuda_peak_memory_mb": 210.28515625,
         "marker_evidence": {
           "matched_cells": 11760,
           "marker_rows": 140,
@@ -251,25 +254,28 @@
         "status": "exact_match",
         "files": {
           "predictions_direct.csv": {
-            "first_sha256": "68c21550ec4a4b101fb13be4ca16eae62e45fe03862c8c21ba9da0480cf7a171",
-            "repeat_sha256": "68c21550ec4a4b101fb13be4ca16eae62e45fe03862c8c21ba9da0480cf7a171"
+            "first_sha256": "93a4f9d634882886a5fb7c23e44d1d42147b2b83b32d08cc6c439a2be285c9f8",
+            "repeat_sha256": "93a4f9d634882886a5fb7c23e44d1d42147b2b83b32d08cc6c439a2be285c9f8"
           },
           "predictions.csv": {
-            "first_sha256": "68c21550ec4a4b101fb13be4ca16eae62e45fe03862c8c21ba9da0480cf7a171",
-            "repeat_sha256": "68c21550ec4a4b101fb13be4ca16eae62e45fe03862c8c21ba9da0480cf7a171"
+            "first_sha256": "93a4f9d634882886a5fb7c23e44d1d42147b2b83b32d08cc6c439a2be285c9f8",
+            "repeat_sha256": "93a4f9d634882886a5fb7c23e44d1d42147b2b83b32d08cc6c439a2be285c9f8"
           },
           "embeddings.npy": {
-            "first_sha256": "b1833395a164200926ccd79da9493e2e9e4a9c93fc2b8c622d0464844ddf2ac2",
-            "repeat_sha256": "b1833395a164200926ccd79da9493e2e9e4a9c93fc2b8c622d0464844ddf2ac2"
+            "first_sha256": "4bbe7e92c3a6a269cd6936beed7242a80b582892e134089cb3b7d2625a789757",
+            "repeat_sha256": "4bbe7e92c3a6a269cd6936beed7242a80b582892e134089cb3b7d2625a789757"
           }
         },
-        "repeat_run_id": "agent-26e8428eaf2d"
+        "repeat_run_id": "agent-81f6999f7648"
       }
     },
     {
       "case_id": "wheat_nonoverlap",
       "label": "Wheat non-overlap benchmark",
       "status": "manual_review_required",
+      "raw_input_end_to_end": true,
+      "raw_input_sha256": "f5321a76ccf4451604c7a1e4ad9cbfd697a33f2abc023ac4d408bf6b6abea5ef",
+      "replay_evidence_mode": "raw_h5ad_end_to_end",
       "route": "registered_adapter",
       "expected_route": "registered_adapter",
       "route_correct": true,
@@ -292,8 +298,8 @@
         "open_set_fraction": 0.1360971524288107,
         "unknown_reference_cells": 1667,
         "unknown_state_recall": 0.45830833833233353,
-        "mean_confidence": 0.6609392448352875,
-        "accepted_mean_confidence": 0.900406038474519,
+        "mean_confidence": 0.6609392530709101,
+        "accepted_mean_confidence": 0.9004060391495107,
         "preprocessing_stats": {
           "quality_control": {
             "input_cells": 7164,
@@ -331,8 +337,8 @@
         "open_set_fraction": 0.1360971524288107,
         "unknown_reference_cells": 1667,
         "unknown_state_recall": 0.45830833833233353,
-        "mean_confidence": 0.6609392448352875,
-        "accepted_mean_confidence": 0.900406038474519,
+        "mean_confidence": 0.6609392530709101,
+        "accepted_mean_confidence": 0.9004060391495107,
         "preprocessing_stats": {
           "quality_control": {
             "input_cells": 7164,
@@ -362,8 +368,8 @@
         "review_fraction": 0.5864042434394193,
         "open_set_cells": 975,
         "open_set_fraction": 0.1360971524288107,
-        "mean_confidence": 0.6609392448352875,
-        "accepted_mean_confidence": 0.900406038474519,
+        "mean_confidence": 0.6609392530709101,
+        "accepted_mean_confidence": 0.9004060391495107,
         "label_count": 13,
         "top_labels": {
           "Epidermis": 1051,
@@ -393,8 +399,8 @@
             "review_fraction": 0.7553042992741485,
             "open_set_cells": 1562,
             "open_set_fraction": 0.21803461753210496,
-            "mean_confidence": 0.5633418579006142,
-            "accepted_mean_confidence": 0.8925583742156303,
+            "mean_confidence": 0.5633418343104412,
+            "accepted_mean_confidence": 0.892558358243012,
             "label_count": 13,
             "top_labels": {
               "Unknown": 1562,
@@ -427,7 +433,7 @@
             "review_threshold": 0.7,
             "accepted_coverage_target": 0.8,
             "accepted_coverage": 0.24469570072585148,
-            "mean_confidence": 0.5633418579006142,
+            "mean_confidence": 0.5633418343104412,
             "review_fraction": 0.7553042992741485,
             "reason": "low-confidence or open-set cells remain and are exported for review"
           },
@@ -440,7 +446,7 @@
           "review_threshold": 0.7,
           "accepted_coverage_target": 0.8,
           "accepted_coverage": 0.4135957565605807,
-          "mean_confidence": 0.6609392448352875,
+          "mean_confidence": 0.6609392530709101,
           "review_fraction": 0.5864042434394193,
           "reason": "low-confidence or open-set cells remain and are exported for review"
         },
@@ -485,9 +491,9 @@
           "fallback_agent": null,
           "force_review": false
         },
-        "runtime_seconds": 93.10071290000633,
+        "runtime_seconds": 93.52487959999416,
         "device": "cuda",
-        "cuda_peak_memory_mb": 1107.8828125,
+        "cuda_peak_memory_mb": 210.28515625,
         "marker_evidence": {
           "matched_cells": 7164,
           "marker_rows": 130,
@@ -574,25 +580,28 @@
         "status": "exact_match",
         "files": {
           "predictions_direct.csv": {
-            "first_sha256": "9cbf9c5bd009f4b95583309db500cef351726bde7faa534c235cfb82cb9f4739",
-            "repeat_sha256": "9cbf9c5bd009f4b95583309db500cef351726bde7faa534c235cfb82cb9f4739"
+            "first_sha256": "5728c601b62f32c2125e0d8c5958e5ccbf60f5fd5e6c0bdb7c7a3179c53c380c",
+            "repeat_sha256": "5728c601b62f32c2125e0d8c5958e5ccbf60f5fd5e6c0bdb7c7a3179c53c380c"
           },
           "predictions.csv": {
-            "first_sha256": "9cbf9c5bd009f4b95583309db500cef351726bde7faa534c235cfb82cb9f4739",
-            "repeat_sha256": "9cbf9c5bd009f4b95583309db500cef351726bde7faa534c235cfb82cb9f4739"
+            "first_sha256": "5728c601b62f32c2125e0d8c5958e5ccbf60f5fd5e6c0bdb7c7a3179c53c380c",
+            "repeat_sha256": "5728c601b62f32c2125e0d8c5958e5ccbf60f5fd5e6c0bdb7c7a3179c53c380c"
           },
           "embeddings.npy": {
-            "first_sha256": "38bbc07026a93a948c2fc90d308237136714c1f5b340ac1296f9e842b22447a9",
-            "repeat_sha256": "38bbc07026a93a948c2fc90d308237136714c1f5b340ac1296f9e842b22447a9"
+            "first_sha256": "d4c0ee047036ed297dc78a1a1bab1f0cb6fe122c5bcefe8925aae444ceb19041",
+            "repeat_sha256": "d4c0ee047036ed297dc78a1a1bab1f0cb6fe122c5bcefe8925aae444ceb19041"
           }
         },
-        "repeat_run_id": "agent-6e90367b2325"
+        "repeat_run_id": "agent-99d2d6de5da7"
       }
     },
     {
       "case_id": "sorghum_sealed_library",
       "label": "Sorghum root atlas",
       "status": "manual_review_required",
+      "raw_input_end_to_end": true,
+      "raw_input_sha256": "8cda0c37c3c25f2047e329b66dc22f8ed4dff86fa14af3b86ea6b327954982ef",
+      "replay_evidence_mode": "raw_h5ad_end_to_end",
       "route": "ortholog_stc",
       "expected_route": "ortholog_stc",
       "route_correct": true,
@@ -615,8 +624,8 @@
         "open_set_fraction": 0.0,
         "unknown_reference_cells": 0,
         "unknown_state_recall": null,
-        "mean_confidence": 0.8349583006833713,
-        "accepted_mean_confidence": 0.9203754933271053,
+        "mean_confidence": 0.8349582834955477,
+        "accepted_mean_confidence": 0.920375481115708,
         "preprocessing_stats": {
           "quality_control": {
             "input_cells": 19316,
@@ -654,8 +663,8 @@
         "open_set_fraction": 0.0,
         "unknown_reference_cells": 0,
         "unknown_state_recall": null,
-        "mean_confidence": 0.8349583006833713,
-        "accepted_mean_confidence": 0.9203754933271053,
+        "mean_confidence": 0.8349582834955477,
+        "accepted_mean_confidence": 0.920375481115708,
         "preprocessing_stats": {
           "quality_control": {
             "input_cells": 19316,
@@ -685,8 +694,8 @@
         "review_fraction": 0.22416649409815698,
         "open_set_cells": 0,
         "open_set_fraction": 0.0,
-        "mean_confidence": 0.8349583006833713,
-        "accepted_mean_confidence": 0.9203754933271053,
+        "mean_confidence": 0.8349582834955477,
+        "accepted_mean_confidence": 0.920375481115708,
         "label_count": 27,
         "top_labels": {
           "cortex": 1590,
@@ -728,8 +737,8 @@
             "review_fraction": 0.36555187409401535,
             "open_set_cells": 0,
             "open_set_fraction": 0.0,
-            "mean_confidence": 0.7587480505280597,
-            "accepted_mean_confidence": 0.8977703458996328,
+            "mean_confidence": 0.7587480434872644,
+            "accepted_mean_confidence": 0.8977703436148511,
             "label_count": 27,
             "top_labels": {
               "LRC": 1422,
@@ -774,7 +783,7 @@
             "review_threshold": 0.7,
             "accepted_coverage_target": 0.8,
             "accepted_coverage": 0.6344481259059847,
-            "mean_confidence": 0.7587480505280597,
+            "mean_confidence": 0.7587480434872644,
             "review_fraction": 0.36555187409401535,
             "reason": "low-confidence or open-set cells remain and are exported for review"
           },
@@ -787,7 +796,7 @@
           "review_threshold": 0.7,
           "accepted_coverage_target": 0.8,
           "accepted_coverage": 0.7758335059018431,
-          "mean_confidence": 0.8349583006833713,
+          "mean_confidence": 0.8349582834955477,
           "review_fraction": 0.22416649409815698,
           "reason": "low-confidence or open-set cells remain and are exported for review"
         },
@@ -832,9 +841,9 @@
           "fallback_agent": null,
           "force_review": false
         },
-        "runtime_seconds": 213.6978822999954,
+        "runtime_seconds": 236.9945344000007,
         "device": "cuda",
-        "cuda_peak_memory_mb": 1107.8828125,
+        "cuda_peak_memory_mb": 210.28515625,
         "marker_evidence": {
           "matched_cells": 19316,
           "marker_rows": 270,
@@ -940,19 +949,19 @@
         "status": "exact_match",
         "files": {
           "predictions_direct.csv": {
-            "first_sha256": "8a2323c4e5b52538eb37de367793dc295a6e07abd25773436d90b9e72a6de8de",
-            "repeat_sha256": "8a2323c4e5b52538eb37de367793dc295a6e07abd25773436d90b9e72a6de8de"
+            "first_sha256": "62db9114075e2157d5e762287703a4c0db78589854716e1f3e679f1edc757a47",
+            "repeat_sha256": "62db9114075e2157d5e762287703a4c0db78589854716e1f3e679f1edc757a47"
           },
           "predictions.csv": {
-            "first_sha256": "8a2323c4e5b52538eb37de367793dc295a6e07abd25773436d90b9e72a6de8de",
-            "repeat_sha256": "8a2323c4e5b52538eb37de367793dc295a6e07abd25773436d90b9e72a6de8de"
+            "first_sha256": "62db9114075e2157d5e762287703a4c0db78589854716e1f3e679f1edc757a47",
+            "repeat_sha256": "62db9114075e2157d5e762287703a4c0db78589854716e1f3e679f1edc757a47"
           },
           "embeddings.npy": {
-            "first_sha256": "ee1f8641563e508fb79782da28389190ebb8506c855d9baab693ef173a8b672c",
-            "repeat_sha256": "ee1f8641563e508fb79782da28389190ebb8506c855d9baab693ef173a8b672c"
+            "first_sha256": "9c650dde3ba5753631358e3224fa9f41e9b7f3766997b90d37fbda7752297ab1",
+            "repeat_sha256": "9c650dde3ba5753631358e3224fa9f41e9b7f3766997b90d37fbda7752297ab1"
           }
         },
-        "repeat_run_id": "agent-d244925152ff"
+        "repeat_run_id": "agent-46756ca8318e"
       }
     }
   ]

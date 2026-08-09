@@ -1,0 +1,23 @@
+{
+  "schema_version": "scplantannotate_public_sprint_input_v2",
+  "source": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\outputs\\external_validation\\gse270140\\GSM8335426_JWE03_author_annotated_secondary_root.h5ad",
+  "source_label_column": "expert_annotation_raw",
+  "seed": 20260810,
+  "selected_cells": 5000,
+  "class_count": 12,
+  "labels_hidden_from_input": true,
+  "label_distribution": {
+    "Mature phloem parenchyma": 1421,
+    "Periderm": 924,
+    "Vascular cambium": 715,
+    "Conductive phloem parenchyma": 521,
+    "Maturing xylem parenchyma": 340,
+    "Young xylem parenchyma": 315,
+    "Fiber": 284,
+    "Mature xylem parenchyma": 283,
+    "Vessel identity cell/expanding vessel": 63,
+    "Companion cell": 54,
+    "Sieve element": 44,
+    "Myrosin idioblasts": 36
+  }
+}

@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import hashlib
+import argparse
 from pathlib import Path
 from typing import Any
 
@@ -18,6 +20,7 @@ from snowcell.agent_evidence import (
     calibration_curve,
     sample_expert_audit,
     score_reference_backed_audit,
+    score_completed_expert_audit,
     selective_curve,
 )
 
@@ -25,13 +28,14 @@ from snowcell.agent_evidence import (
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "release_metadata"
 FIG = ROOT / "figures" / "plantcell_agent"
+PRIVATE_AUDIT_DIR = ROOT / "outputs" / "internal"
 
 
 CASES: list[dict[str, Any]] = [
     {
         "case_id": "strict_heldout_3964",
         "label": "Strict held-out 3,964-cell locked bundle",
-        "mode": "locked_bundle_replay",
+        "mode": "raw_h5ad_end_to_end_or_locked_bundle",
         "prediction_direct": "outputs/editor_submission_v9/runtime_smoke_predictions_v9.csv",
         "prediction_agent": "outputs/editor_submission_v9/runtime_smoke_predictions_v9.csv",
         "reference": "release_metadata/species_ontology_obs_labels_with_ids_v9.tsv",
@@ -137,13 +141,15 @@ def _safe_case(case: dict[str, Any], threshold: float, per_group: int) -> dict[s
     public, key = sample_expert_audit(
         agent_aligned, case["case_id"], threshold=threshold, per_group=per_group
     )
+    evidence_mode = "raw_h5ad_end_to_end" if raw_input_available else "locked_bundle_replay"
     return {
         "case_id": case["case_id"],
         "label": case["label"],
-        "mode": case["mode"],
-        "status": "locked_bundle_replay" if case["mode"] == "locked_bundle_replay" else "ok",
+        "mode": evidence_mode,
+        "status": evidence_mode,
         "raw_input_available": raw_input_available,
-        "raw_input_end_to_end": bool(raw_input_available and case["mode"] == "agent_replay"),
+        "raw_input_end_to_end": bool(raw_input_available),
+        "raw_input_sha256": hashlib.sha256(_path(case["raw_input"]).read_bytes()).hexdigest() if raw_input_available else None,
         "n_matched": int(len(agent_aligned)),
         "direct_agent_label_agreement": float(
             direct_aligned["fine_label"].eq(agent_aligned["fine_label"]).mean()
@@ -216,6 +222,11 @@ def _plot(curves: pd.DataFrame, calibration: pd.DataFrame, output: Path) -> None
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--expert-completed", type=Path, default=None, help="Completed public blind worksheet TSV")
+    parser.add_argument("--reviewer-id", default="", help="External reviewer identifier recorded in the audit payload")
+    parser.add_argument("--reviewer-role", default="", help="External reviewer role recorded in the audit payload")
+    args = parser.parse_args()
     threshold = 0.70
     per_group = 25
     results: list[dict[str, Any]] = []
@@ -254,21 +265,49 @@ def main() -> int:
     curve_table.to_csv(OUT / "plantcell_agent_selective_metrics_v1.tsv", sep="\t", index=False)
     calibration_table.to_csv(OUT / "plantcell_agent_calibration_curve_v1.tsv", sep="\t", index=False)
     pd.DataFrame(audit_rows).to_csv(OUT / "plantcell_agent_reference_audit_v1.tsv", sep="\t", index=False)
-    pd.concat(public_tables, ignore_index=True).to_csv(
-        OUT / "plantcell_agent_expert_audit_template_v1.tsv", sep="\t", index=False
-    )
-    pd.concat(key_tables, ignore_index=True).to_csv(
-        OUT / "plantcell_agent_expert_audit_key_v1.tsv", sep="\t", index=False
-    )
+    public_template = OUT / "plantcell_agent_expert_audit_template_v2.tsv"
+    private_key = PRIVATE_AUDIT_DIR / "plantcell_agent_expert_audit_key_v2.tsv"
+    pd.concat(public_tables, ignore_index=True).to_csv(public_template, sep="\t", index=False)
+    PRIVATE_AUDIT_DIR.mkdir(parents=True, exist_ok=True)
+    pd.concat(key_tables, ignore_index=True).to_csv(private_key, sep="\t", index=False)
+    independent_audit: dict[str, Any] = {
+        "status": "pending_external_expert",
+        "completed_worksheet": None,
+        "public_template": str(public_template),
+        "scoring_key": "outputs/internal/plantcell_agent_expert_audit_key_v2.tsv (not shipped)",
+        "reviewer_id": args.reviewer_id or None,
+        "reviewer_role": args.reviewer_role or None,
+    }
+    if args.expert_completed:
+        completed_path = args.expert_completed if args.expert_completed.is_absolute() else ROOT / args.expert_completed
+        if not completed_path.exists():
+            raise FileNotFoundError(completed_path)
+        completed = pd.read_csv(completed_path, sep="\t")
+        if "reference_label" in completed.columns or "hidden_group" in completed.columns:
+            raise ValueError("completed worksheet must remain blinded and cannot include reference_label or hidden_group")
+        key = pd.concat(key_tables, ignore_index=True)
+        scored = score_completed_expert_audit(completed, key)
+        scored.to_csv(OUT / "plantcell_agent_independent_expert_audit_v1.tsv", sep="\t", index=False)
+        independent_audit = {
+            "status": "completed_external_expert",
+            "completed_worksheet": str(completed_path),
+            "completed_sha256": hashlib.sha256(completed_path.read_bytes()).hexdigest(),
+            "reviewer_id": args.reviewer_id or None,
+            "reviewer_role": args.reviewer_role or None,
+            "n_rows": int(len(completed)),
+            "n_completed_labels": int((completed["expert_label"].fillna("").astype(str).str.strip() != "").sum()),
+            "scoring_key": "outputs/internal/plantcell_agent_expert_audit_key_v2.tsv (not shipped)",
+        }
     _plot(curve_table, calibration_table, FIG / "plantcell_agent_extended_data_fig2.svg")
     payload = {
         "schema_version": "plantcell_agent_evidence_audit_v1",
         "review_threshold": threshold,
         "expert_sample_per_group": per_group,
         "cases": results,
+        "independent_blind_audit": independent_audit,
         "interpretation": {
-            "strict_case": "locked_bundle_replay; raw H5AD unavailable, so this is not an end-to-end input replay",
-            "reference_audit": "author-label reference-backed audit; independent blind expert worksheet is exported separately",
+            "strict_case": "raw_h5ad_end_to_end when raw input exists; otherwise locked_bundle_replay",
+            "reference_audit": "author-label reference-backed audit; independent blind expert worksheet is exported separately and scored only when supplied",
             "baseline": "accept_all_baseline retains the complete denominator",
             "agent": "agent_threshold rejects low-confidence or open-set predictions",
         },
@@ -280,7 +319,7 @@ def main() -> int:
         "# PlantCell-Agent evidence audit v1",
         "",
         "This release separates accept-all direct inference from the Agent threshold policy.",
-        "The strict case uses the locked 3,964-row prediction/embedding bundle because its raw H5AD is unavailable.",
+        "The strict case is marked raw_h5ad_end_to_end only when the manifest H5AD is available; otherwise the report remains a locked 3,964-row prediction/embedding replay.",
         "",
         "## Reference-backed audit",
         "",
@@ -299,7 +338,7 @@ def main() -> int:
         [
             "",
             "A positive Difference means the Agent review group has higher reference error than the automatically accepted group.",
-            "The public expert worksheet hides the acceptance group and reference label; complete it with an independent expert before claiming independent expert validation.",
+            "The public expert worksheet hides the acceptance group and reference label. Independent expert validation is claimed only when a completed blinded worksheet is passed to this script.",
             "",
         ]
     )
