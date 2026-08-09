@@ -16,5 +16,5 @@ This packet is a formal comparison contract, not a substitute for the official n
 ## Reproduction
 
 ```text
-SCPLANTANNOTATE_USERNAME=<user> SCPLANTANNOTATE_PASSWORD=<password> python scripts/run_scplantannotate_authenticated_benchmark.py --input-h5ad D:\天山雪莲\tmp\SnowLotus-CellFM_git_20260727032642\release_metadata\external_benchmarks\scplantannotate_public_sprint_input_v2\scplantannotate_input.h5ad --dataset-name snowcell_public_sprint_scplantannotate_probe --organism-id 1 --predictor-id 1 --execute --wait --output outputs/external_benchmarks/scplantannotate_authenticated_benchmark_plan.json
+SCPLANTANNOTATE_USERNAME=<user> SCPLANTANNOTATE_PASSWORD=<password> python scripts/run_scplantannotate_authenticated_benchmark.py --input-h5ad release_metadata/external_benchmarks/scplantannotate_public_sprint_input_v2/scplantannotate_input.h5ad --dataset-name snowcell_public_sprint_scplantannotate_probe --organism-id 1 --predictor-id 1 --execute --wait --output outputs/external_benchmarks/scplantannotate_authenticated_benchmark_plan.json
 ```

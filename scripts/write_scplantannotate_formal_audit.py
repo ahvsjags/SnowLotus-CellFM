@@ -29,6 +29,15 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def display_path(path: Path) -> str:
+    """Keep release metadata portable across checkouts and operating systems."""
+
+    try:
+        return path.resolve().relative_to(ROOT.resolve()).as_posix()
+    except ValueError:
+        return str(path)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input-h5ad", type=Path, default=DEFAULT_INPUT)
@@ -74,10 +83,10 @@ def main() -> int:
             "url": "https://pubmed.ncbi.nlm.nih.gov/41554477/",
         },
         "input": {
-            "h5ad": str(args.input_h5ad),
+            "h5ad": display_path(args.input_h5ad),
             "h5ad_exists": args.input_h5ad.exists(),
             "h5ad_sha256": sha256(args.input_h5ad) if args.input_h5ad.exists() else None,
-            "truth_csv": str(args.truth_csv),
+            "truth_csv": display_path(args.truth_csv),
             "truth_exists": args.truth_csv.exists(),
             "truth_sha256": sha256(args.truth_csv) if args.truth_csv.exists() else None,
             "test_cells": int(len(truth)),
@@ -100,7 +109,7 @@ def main() -> int:
         },
         "execution_command": (
             f"{args.username_env}=<user> {args.password_env}=<password> python scripts/run_scplantannotate_authenticated_benchmark.py "
-            f"--input-h5ad {args.input_h5ad} --dataset-name snowcell_public_sprint_scplantannotate_probe "
+            f"--input-h5ad {display_path(args.input_h5ad)} --dataset-name snowcell_public_sprint_scplantannotate_probe "
             "--organism-id 1 --predictor-id 1 --execute --wait "
             "--output outputs/external_benchmarks/scplantannotate_authenticated_benchmark_plan.json"
         ),

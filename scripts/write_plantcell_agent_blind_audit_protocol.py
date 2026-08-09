@@ -21,6 +21,13 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def display_path(path: Path) -> str:
+    try:
+        return path.resolve().relative_to(ROOT.resolve()).as_posix()
+    except ValueError:
+        return str(path)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--template", type=Path, default=ROOT / "release_metadata/plantcell_agent_expert_audit_template_v2.tsv")
@@ -42,7 +49,7 @@ def main() -> int:
     payload = {
         "schema_version": "plantcell_agent_blind_audit_protocol_v1",
         "status": "pending_external_expert",
-        "template": str(args.template),
+        "template": display_path(args.template),
         "template_sha256": sha256(args.template),
         "rows": int(len(table)),
         "fields": table.columns.tolist(),

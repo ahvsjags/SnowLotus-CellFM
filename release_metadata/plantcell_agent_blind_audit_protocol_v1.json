@@ -1,7 +1,7 @@
 {
   "schema_version": "plantcell_agent_blind_audit_protocol_v1",
   "status": "pending_external_expert",
-  "template": "D:\\天山雪莲\\tmp\\SnowLotus-CellFM_git_20260727032642\\release_metadata\\plantcell_agent_expert_audit_template_v2.tsv",
+  "template": "release_metadata/plantcell_agent_expert_audit_template_v2.tsv",
   "template_sha256": "90f21103742e86112ab2d5138c8cdb5e66a0f7e80f878e91e62e75dfec324749",
   "rows": 200,
   "fields": [
