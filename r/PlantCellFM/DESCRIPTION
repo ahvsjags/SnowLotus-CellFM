@@ -1,0 +1,27 @@
+Package: PlantCellFM
+Type: Package
+Title: R Interface to Plant-CellFM and PlantCell-Agent
+Version: 0.1.0
+Authors@R: person("Plant-CellFM", "Contributors", role = c("aut", "cre"), email = "plantcellfm@example.org")
+Description: Provides an R interface to the Plant-CellFM plant single-cell
+    annotation model and the evidence-aware PlantCell-Agent workflow. Users
+    can run local annotations through the Python command line interface,
+    submit server-side annotation jobs, and read predictions, review queues,
+    marker evidence, routing decisions, and reproducibility traces into R.
+License: MIT + file LICENSE
+URL: https://github.com/ahvsjags/SnowLotus-CellFM
+BugReports: https://github.com/ahvsjags/SnowLotus-CellFM/issues
+Encoding: UTF-8
+Depends:
+    R (>= 4.1)
+Imports:
+    httr2,
+    jsonlite
+Suggests:
+    SeuratDisk,
+    SingleCellExperiment,
+    SummarizedExperiment,
+    testthat (>= 3.0.0),
+    zellkonverter
+Config/testthat/edition: 3
+RoxygenNote: 7.3.2

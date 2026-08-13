@@ -63,3 +63,39 @@ snowcell agent-annotate \
 See [`docs/plantcell_agent.md`](docs/plantcell_agent.md), the
 [`Agent model card`](release_metadata/plantcell_agent_model_card_v1.md) and
 the vector [`specialist-agent architecture`](figures/plantcell_agent/plantcell_agent_extended_data_fig1_v3.svg).
+
+## R Package
+
+An R wrapper is provided in [`r/PlantCellFM`](r/PlantCellFM). It lets R users
+run the local PlantCell-Agent on an H5AD/NPZ file, SingleCellExperiment or
+Seurat object, or call the Plant-CellFM HTTP service. The wrapper returns the
+prediction table together with the review queue, marker evidence, route
+decision, verification report and JSONL trace.
+
+Install the Python runtime from the repository root and then install the R
+package locally:
+
+```bash
+python -m pip install -e ".[singlecell]"
+```
+
+```r
+install.packages(c("httr2", "jsonlite"))
+remotes::install_local("r/PlantCellFM")
+
+library(PlantCellFM)
+result <- plantcellfm_annotate_h5ad(
+  data = "input.h5ad",
+  checkpoint = "models/SnowLotus_CellFM_SRP169576_annotation_1024_best.pt",
+  output_dir = "outputs/r_agent_run",
+  species = "Arabidopsis thaliana",
+  project_root = ".",
+  device = "cuda"
+)
+head(result$predictions)
+head(result$review)
+```
+
+For R-native objects, use `plantcellfm_annotate_sce()` with `zellkonverter`
+or `plantcellfm_annotate_seurat()` with `SeuratDisk`. Full details and the
+server client are in [`r/PlantCellFM/README.md`](r/PlantCellFM/README.md).
