@@ -98,6 +98,7 @@ def test_revision_config_enables_contrastive_objective() -> None:
     assert config.train.hard_negative_loss_weight == 0.15
     assert config.train.validation_metric == "species_macro_f1"
     assert config.train.hierarchy_inference_weight == 0.20
+    assert config.train.unknown_calibration_alpha == 0.05
     assert config.train.species_balance is True
     assert config.architecture.contrastive_dim == 128
 

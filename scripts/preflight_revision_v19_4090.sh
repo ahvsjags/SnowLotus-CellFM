@@ -54,6 +54,11 @@ if "4090" not in gpu_name:
 
 if float(train.get("cross_species_contrastive_loss_weight", 0.0)) <= 0:
     raise SystemExit("v19 config must enable cross_species_contrastive_loss_weight")
+if train.get("validation_metric") != "species_macro_f1":
+    raise SystemExit("v19 config must select validation_metric=species_macro_f1")
+alpha = float(train.get("unknown_calibration_alpha", -1.0))
+if not 0.0 <= alpha <= 1.0:
+    raise SystemExit("v19 config unknown_calibration_alpha must be in [0, 1]")
 if not data.get("ontology_contract"):
     raise SystemExit("v19 config must declare a source-only ontology contract")
 

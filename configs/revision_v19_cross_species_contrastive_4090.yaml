@@ -59,6 +59,7 @@ train:
   hard_negative_margin: 0.20
   validation_metric: species_macro_f1
   hierarchy_inference_weight: 0.20
+  unknown_calibration_alpha: 0.05
   mask_ratio: 0.15
   class_balance: true
   species_balance: true
