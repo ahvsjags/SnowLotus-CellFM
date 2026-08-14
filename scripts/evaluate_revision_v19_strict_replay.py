@@ -40,6 +40,34 @@ def _bootstrap_ci(values: np.ndarray, seed: int, replicates: int) -> list[float]
     return [float(np.quantile(estimates, 0.025)), float(np.quantile(estimates, 0.975))]
 
 
+def _bootstrap_macro_f1_ci(
+    true: np.ndarray,
+    predicted: np.ndarray,
+    seed: int,
+    replicates: int,
+) -> list[float] | None:
+    """Bootstrap the complete macro-F1 statistic, including its label set."""
+    true = np.asarray(true, dtype=str)
+    predicted = np.asarray(predicted, dtype=str)
+    if replicates <= 0 or len(true) < 2:
+        return None
+    rng = np.random.default_rng(seed)
+    estimates = np.empty(replicates, dtype=np.float32)
+    for replicate in range(replicates):
+        indices = rng.integers(0, len(true), size=len(true))
+        sampled_true = true[indices]
+        sampled_predicted = predicted[indices]
+        labels = sorted(set(sampled_true.tolist()) | set(sampled_predicted.tolist()))
+        estimates[replicate] = f1_score(
+            sampled_true,
+            sampled_predicted,
+            labels=labels,
+            average="macro",
+            zero_division=0,
+        )
+    return [float(np.quantile(estimates, 0.025)), float(np.quantile(estimates, 0.975))]
+
+
 def _metrics(
     frame: pd.DataFrame,
     model_labels: set[str],
@@ -59,6 +87,9 @@ def _metrics(
         "n_test": int(len(frame)),
         "n_evaluable_by_model_vocab": int(covered.sum()),
         "coverage": float(covered.mean()) if len(frame) else 0.0,
+        "coverage_ci95": _bootstrap_ci(
+            covered.astype(np.float32), bootstrap_seed + 3, bootstrap_replicates
+        ),
         "all_cell_accuracy": float(accuracy_score(true, predicted)) if len(frame) else None,
         "all_cell_accuracy_ci95": _bootstrap_ci(
             correct, bootstrap_seed, bootstrap_replicates
@@ -66,6 +97,9 @@ def _metrics(
         "macro_f1_all": float(f1_score(true, predicted, labels=labels, average="macro", zero_division=0))
         if len(frame)
         else None,
+        "macro_f1_all_ci95": _bootstrap_macro_f1_ci(
+            true.to_numpy(), predicted.to_numpy(), bootstrap_seed + 4, bootstrap_replicates
+        ),
         "unknown_reference_cells": int(unknown.sum()),
         "unknown_reference_fraction": float(unknown.mean()) if len(frame) else 0.0,
         "unknown_detection_recall": (
@@ -80,6 +114,29 @@ def _metrics(
             _bootstrap_ci(
                 (true[actionable].to_numpy() == predicted[actionable].to_numpy()).astype(np.float32),
                 bootstrap_seed + 1,
+                bootstrap_replicates,
+            )
+            if actionable.any()
+            else None
+        ),
+        "actionable_macro_f1": (
+            float(
+                f1_score(
+                    true[actionable],
+                    predicted[actionable],
+                    labels=sorted(set(true[actionable].tolist()) | set(predicted[actionable].tolist())),
+                    average="macro",
+                    zero_division=0,
+                )
+            )
+            if actionable.any()
+            else None
+        ),
+        "actionable_macro_f1_ci95": (
+            _bootstrap_macro_f1_ci(
+                true[actionable].to_numpy(),
+                predicted[actionable].to_numpy(),
+                bootstrap_seed + 5,
                 bootstrap_replicates,
             )
             if actionable.any()
@@ -102,9 +159,16 @@ def _metrics(
                 zero_division=0,
             )
         )
+        result["covered_label_macro_f1_ci95"] = _bootstrap_macro_f1_ci(
+            true[covered].to_numpy(),
+            predicted[covered].to_numpy(),
+            bootstrap_seed + 6,
+            bootstrap_replicates,
+        )
     else:
         result["covered_label_accuracy"] = None
         result["covered_label_macro_f1"] = None
+        result["covered_label_macro_f1_ci95"] = None
     return result
 
 
