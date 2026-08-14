@@ -53,6 +53,7 @@ train:
   mlm_loss_weight: 0.25
   value_loss_weight: 0.10
   contrastive_loss_weight: 0.30
+  cross_species_contrastive_loss_weight: 0.20
   contrastive_temperature: 0.10
   hard_negative_loss_weight: 0.15
   hard_negative_margin: 0.20

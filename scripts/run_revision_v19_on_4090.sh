@@ -11,6 +11,12 @@ mkdir -p "${LOG_DIR}"
 cd "${PROJECT_DIR}"
 export PYTHONPATH="${PROJECT_DIR}/src${PYTHONPATH:+:${PYTHONPATH}}"
 
+SNOWCELL_PROJECT_DIR="${PROJECT_DIR}" \
+SNOWCELL_PYTHON_BIN="${PYTHON_BIN}" \
+SNOWCELL_V19_CONFIG="${CONFIG}" \
+SNOWCELL_V19_OUTPUT="${OUTPUT_DIR}" \
+bash "${PROJECT_DIR}/scripts/preflight_revision_v19_4090.sh"
+
 echo "[v19] project=${PROJECT_DIR}"
 echo "[v19] config=${CONFIG}"
 echo "[v19] output=${OUTPUT_DIR}"

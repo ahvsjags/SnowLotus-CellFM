@@ -3,7 +3,12 @@ import torch
 from snowcell.artifacts import model_from_checkpoint
 from snowcell.config import ExperimentConfig
 from snowcell.model import ModelConfig, SnowCellModel
-from snowcell.train import _copy_named_rows, hard_negative_margin_loss, supervised_contrastive_loss
+from snowcell.train import (
+    _copy_named_rows,
+    cross_species_contrastive_loss,
+    hard_negative_margin_loss,
+    supervised_contrastive_loss,
+)
 
 
 def test_supervised_contrastive_loss_is_finite_and_uses_same_label_pairs() -> None:
@@ -28,6 +33,26 @@ def test_contrastive_loss_returns_zero_without_positive_pairs() -> None:
     assert float(loss) == 0.0
 
 
+def test_cross_species_contrastive_loss_requires_cross_species_positive() -> None:
+    embeddings = torch.tensor(
+        [
+            [1.0, 0.0, 0.0],
+            [0.9, 0.1, 0.0],
+            [0.0, 1.0, 0.0],
+            [0.0, 0.9, 0.1],
+        ]
+    )
+    labels = torch.tensor([0, 0, 1, 1])
+    species = torch.tensor([0, 1, 0, 1])
+    loss = cross_species_contrastive_loss(embeddings, labels, species, temperature=0.1)
+    assert torch.isfinite(loss)
+    assert float(loss) > 0.0
+
+    same_species = torch.zeros_like(species)
+    no_cross_species = cross_species_contrastive_loss(embeddings, labels, same_species)
+    assert float(no_cross_species) == 0.0
+
+
 def test_hard_negative_loss_is_finite_for_same_coarse_different_fine_states() -> None:
     embeddings = torch.tensor(
         [
@@ -47,6 +72,7 @@ def test_hard_negative_loss_is_finite_for_same_coarse_different_fine_states() ->
 def test_revision_config_enables_contrastive_objective() -> None:
     config = ExperimentConfig.load("configs/revision_v19_cross_species_contrastive_4090.yaml")
     assert config.train.contrastive_loss_weight == 0.30
+    assert config.train.cross_species_contrastive_loss_weight == 0.20
     assert config.train.hard_negative_loss_weight == 0.15
     assert config.train.species_balance is True
     assert config.architecture.contrastive_dim == 128

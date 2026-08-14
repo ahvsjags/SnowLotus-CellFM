@@ -92,6 +92,7 @@ class TrainConfig:
     mlm_loss_weight: float = 0.50
     value_loss_weight: float = 0.25
     contrastive_loss_weight: float = 0.0
+    cross_species_contrastive_loss_weight: float = 0.0
     contrastive_temperature: float = 0.10
     hard_negative_loss_weight: float = 0.0
     hard_negative_margin: float = 0.20
@@ -179,6 +180,8 @@ class ExperimentConfig:
             raise ValueError("architecture.marker_prior_weight 不能为负数")
         if self.train.contrastive_loss_weight < 0:
             raise ValueError("train.contrastive_loss_weight 不能为负数")
+        if self.train.cross_species_contrastive_loss_weight < 0:
+            raise ValueError("train.cross_species_contrastive_loss_weight 不能为负数")
         if self.train.contrastive_temperature <= 0:
             raise ValueError("train.contrastive_temperature 必须大于 0")
         if self.train.hard_negative_loss_weight < 0:

@@ -243,6 +243,16 @@ def classification_losses(
                 temperature=config.train.contrastive_temperature,
             )
         if (
+            config.train.cross_species_contrastive_loss_weight > 0
+            and "contrastive_embedding" in outputs
+        ):
+            losses["cross_species_contrastive_loss"] = cross_species_contrastive_loss(
+                outputs["contrastive_embedding"],
+                fine_labels,
+                batch["species_id"],
+                temperature=config.train.contrastive_temperature,
+            )
+        if (
             config.train.hard_negative_loss_weight > 0
             and "contrastive_embedding" in outputs
         ):
@@ -303,6 +313,43 @@ def supervised_contrastive_loss(
     )
     mean_positive_log_prob = positive_log_prob.sum(dim=1) / positives.sum(dim=1).clamp_min(1)
     return -mean_positive_log_prob[has_positive].mean()
+
+
+def cross_species_contrastive_loss(
+    embeddings: torch.Tensor,
+    labels: torch.Tensor,
+    species: torch.Tensor,
+    temperature: float = 0.10,
+) -> torch.Tensor:
+    """Align the same state across source species.
+
+    Anchors are used only when their state has a positive cell from another
+    species in the current batch. Same-state cells remain positives in the
+    denominator, while different states remain negatives. This adds an
+    explicit cross-species signal without using held-out target labels.
+    """
+    labels = labels.to(embeddings.device)
+    species = species.to(embeddings.device)
+    valid = (labels >= 0) & (species >= 0)
+    if int(valid.sum().item()) < 2:
+        return embeddings.sum() * 0.0
+    z = F.normalize(embeddings[valid], dim=-1)
+    y = labels[valid]
+    s = species[valid]
+    diagonal = torch.eye(z.shape[0], dtype=torch.bool, device=z.device)
+    same_state = y[:, None].eq(y[None, :])
+    cross_species = ~s[:, None].eq(s[None, :])
+    cross_positive = same_state & cross_species & ~diagonal
+    positive = same_state & ~diagonal
+    has_cross_positive = cross_positive.any(dim=1)
+    if not torch.any(has_cross_positive):
+        return embeddings.sum() * 0.0
+    logits = torch.matmul(z, z.T) / float(temperature)
+    logits = logits.masked_fill(diagonal, torch.finfo(logits.dtype).min)
+    log_prob = logits - torch.logsumexp(logits, dim=1, keepdim=True)
+    positive_log_prob = torch.where(positive, log_prob, torch.zeros_like(log_prob))
+    mean_positive_log_prob = positive_log_prob.sum(dim=1) / positive.sum(dim=1).clamp_min(1)
+    return -mean_positive_log_prob[has_cross_positive].mean()
 
 
 def hard_negative_margin_loss(
@@ -407,6 +454,10 @@ def compute_batch_loss(
     )
     total = total + config.train.contrastive_loss_weight * losses.get(
         "contrastive_loss",
+        total * 0.0,
+    )
+    total = total + config.train.cross_species_contrastive_loss_weight * losses.get(
+        "cross_species_contrastive_loss",
         total * 0.0,
     )
     total = total + config.train.hard_negative_loss_weight * losses.get(
