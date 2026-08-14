@@ -181,6 +181,12 @@ def main() -> None:
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--bootstrap-replicates", type=int, default=1000)
     parser.add_argument("--bootstrap-seed", type=int, default=20260814)
+    parser.add_argument(
+        "--expected-cells",
+        type=int,
+        default=3964,
+        help="Locked denominator for the formal replay; use an explicit override only for smoke tests.",
+    )
     args = parser.parse_args()
 
     output_dir = args.output_dir.resolve()
@@ -235,6 +241,11 @@ def main() -> None:
     )
     if len(frame) != len(reference):
         raise ValueError(f"prediction/reference row mismatch: {len(frame)} vs {len(reference)}")
+    if args.expected_cells > 0 and len(frame) != args.expected_cells:
+        raise ValueError(
+            "strict replay denominator mismatch: "
+            f"expected {args.expected_cells} cells, observed {len(frame)}"
+        )
     _, fine_vocab, _, _, _ = vocabs_from_checkpoint(checkpoint)
     model_labels = set(fine_vocab.labels) if fine_vocab is not None else set()
     canonical_metrics = _metrics(
@@ -255,7 +266,9 @@ def main() -> None:
         "checkpoint": str(args.checkpoint),
         "data": str(args.data),
         "n_test": int(len(frame)),
+        "expected_cells": int(args.expected_cells),
         "denominator_locked": True,
+        "denominator_match": bool(args.expected_cells <= 0 or len(frame) == args.expected_cells),
         "target_labels_used_for_training_or_calibration": False,
         "model_labels": sorted(model_labels),
         "preprocessing_stats": preprocessing_stats,

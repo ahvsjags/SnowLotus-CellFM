@@ -6,6 +6,7 @@ PYTHON_BIN="${SNOWCELL_PYTHON_BIN:-/root/miniconda3/envs/myconda/bin/python}"
 CONFIG="${SNOWCELL_V19_CONFIG:-${PROJECT_DIR}/configs/revision_v19_cross_species_contrastive_4090.yaml}"
 REPORT_DIR="${SNOWCELL_V19_OUTPUT:-/root/snowlotus_cellfm_v19_contrastive_4090}"
 REPORT_PATH="${REPORT_DIR}/preflight_v19.json"
+REPLAY_DATA="${SNOWCELL_V19_REPLAY_DATA:-}"
 
 mkdir -p "${REPORT_DIR}"
 cd "${PROJECT_DIR}"
@@ -14,6 +15,9 @@ export PYTHONPATH="${PROJECT_DIR}/src${PYTHONPATH:+:${PYTHONPATH}}"
 command -v nvidia-smi >/dev/null
 test -x "${PYTHON_BIN}"
 test -s "${CONFIG}"
+if [[ -n "${REPLAY_DATA}" ]]; then
+  test -s "${REPLAY_DATA}"
+fi
 
 GPU_INFO="$(nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader | head -n 1)"
 test -n "${GPU_INFO}"
@@ -68,6 +72,7 @@ report = {
     "project_dir": os.getcwd(),
     "gpu": {"name": gpu_name, "count": torch.cuda.device_count()},
     "required_files": {name: str(path) for name, path in required.items()},
+    "replay_data": str(os.environ.get("SNOWCELL_V19_REPLAY_DATA", "")),
     "model": {
         "contrastive_dim": int(architecture.get("contrastive_dim", 0)),
         "marker_prior_weight": float(architecture.get("marker_prior_weight", 0.0)),
