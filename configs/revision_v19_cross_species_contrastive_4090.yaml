@@ -57,6 +57,7 @@ train:
   contrastive_temperature: 0.10
   hard_negative_loss_weight: 0.15
   hard_negative_margin: 0.20
+  validation_metric: species_macro_f1
   mask_ratio: 0.15
   class_balance: true
   species_balance: true

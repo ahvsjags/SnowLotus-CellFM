@@ -96,6 +96,7 @@ class TrainConfig:
     contrastive_temperature: float = 0.10
     hard_negative_loss_weight: float = 0.0
     hard_negative_margin: float = 0.20
+    validation_metric: str = "fine_macro_f1"
     mask_ratio: float = 0.15
     class_balance: bool = True
     species_balance: bool = False
@@ -188,6 +189,16 @@ class ExperimentConfig:
             raise ValueError("train.hard_negative_loss_weight 不能为负数")
         if self.train.hard_negative_margin < 0:
             raise ValueError("train.hard_negative_margin 不能为负数")
+        if self.train.validation_metric not in {
+            "fine_accuracy",
+            "fine_macro_f1",
+            "species_accuracy",
+            "species_macro_f1",
+        }:
+            raise ValueError(
+                "train.validation_metric 必须是 fine_accuracy、fine_macro_f1、"
+                "species_accuracy 或 species_macro_f1"
+            )
         fractions = self.data.validation_fraction + self.data.test_fraction
         if not 0.0 < fractions < 0.9:
             raise ValueError("验证集与测试集比例之和必须位于 (0, 0.9)")

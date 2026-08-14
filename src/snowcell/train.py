@@ -547,6 +547,7 @@ def evaluate(
     losses = []
     fine_true: list[int] = []
     fine_pred: list[int] = []
+    species_true: list[int] = []
     coarse_true: list[int] = []
     coarse_pred: list[int] = []
     for batch_index, raw_batch in enumerate(loader, start=1):
@@ -560,10 +561,12 @@ def evaluate(
         coarse_labels = batch["coarse_label"].detach().cpu().numpy()
         fine_predictions = outputs["fine_logits"].argmax(dim=-1).detach().cpu().numpy()
         coarse_predictions = outputs["coarse_logits"].argmax(dim=-1).detach().cpu().numpy()
+        species_ids = batch["species_id"].detach().cpu().numpy()
         fine_mask = fine_labels >= 0
         coarse_mask = coarse_labels >= 0
         fine_true.extend(fine_labels[fine_mask].tolist())
         fine_pred.extend(fine_predictions[fine_mask].tolist())
+        species_true.extend(species_ids[fine_mask].tolist())
         coarse_true.extend(coarse_labels[coarse_mask].tolist())
         coarse_pred.extend(coarse_predictions[coarse_mask].tolist())
 
@@ -572,6 +575,34 @@ def evaluate(
     if fine_true:
         metrics["fine_accuracy"] = float(accuracy_score(fine_true, fine_pred))
         metrics["fine_macro_f1"] = float(f1_score(fine_true, fine_pred, average="macro"))
+        species_accuracy: list[float] = []
+        species_macro_f1: list[float] = []
+        species_array = np.asarray(species_true, dtype=np.int64)
+        true_array = np.asarray(fine_true, dtype=np.int64)
+        pred_array = np.asarray(fine_pred, dtype=np.int64)
+        for species_id in sorted(set(species_array.tolist())):
+            if species_id < 0:
+                continue
+            species_mask = species_array == species_id
+            if not np.any(species_mask):
+                continue
+            species_accuracy.append(
+                float(accuracy_score(true_array[species_mask], pred_array[species_mask]))
+            )
+            species_macro_f1.append(
+                float(
+                    f1_score(
+                        true_array[species_mask],
+                        pred_array[species_mask],
+                        average="macro",
+                        zero_division=0,
+                    )
+                )
+            )
+        if species_accuracy:
+            metrics["species_accuracy"] = float(np.mean(species_accuracy))
+            metrics["species_macro_f1"] = float(np.mean(species_macro_f1))
+            metrics["validation_species_count"] = float(len(species_accuracy))
     if coarse_true:
         metrics["coarse_accuracy"] = float(accuracy_score(coarse_true, coarse_pred))
         metrics["coarse_macro_f1"] = float(f1_score(coarse_true, coarse_pred, average="macro"))
@@ -989,7 +1020,7 @@ def train_from_config(config_path: str | Path, device: torch.device | None = Non
             },
         )
 
-        monitor = validation_metrics.get("fine_macro_f1")
+        monitor = validation_metrics.get(config.train.validation_metric)
         score = -monitor if monitor is not None else validation_metrics["eval_loss"]
         if score < best_metric:
             best_metric = score
