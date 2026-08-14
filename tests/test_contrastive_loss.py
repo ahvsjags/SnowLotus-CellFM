@@ -6,6 +6,7 @@ from snowcell.model import ModelConfig, SnowCellModel
 from snowcell.train import (
     _copy_named_rows,
     cross_species_contrastive_loss,
+    fuse_hierarchy_logits,
     hard_negative_margin_loss,
     supervised_contrastive_loss,
 )
@@ -69,12 +70,22 @@ def test_hard_negative_loss_is_finite_for_same_coarse_different_fine_states() ->
     assert float(loss) >= 0.0
 
 
+def test_hierarchy_logits_fusion_respects_fine_to_coarse_mapping() -> None:
+    fine_logits = torch.zeros(1, 3)
+    coarse_logits = torch.tensor([[4.0, 0.0]])
+    mapping = torch.tensor([0, 1, 0])
+    fused = fuse_hierarchy_logits(fine_logits, coarse_logits, mapping, weight=1.0)
+    assert fused[0, 0] > fused[0, 1]
+    assert fused[0, 2] > fused[0, 1]
+
+
 def test_revision_config_enables_contrastive_objective() -> None:
     config = ExperimentConfig.load("configs/revision_v19_cross_species_contrastive_4090.yaml")
     assert config.train.contrastive_loss_weight == 0.30
     assert config.train.cross_species_contrastive_loss_weight == 0.20
     assert config.train.hard_negative_loss_weight == 0.15
     assert config.train.validation_metric == "species_macro_f1"
+    assert config.train.hierarchy_inference_weight == 0.20
     assert config.train.species_balance is True
     assert config.architecture.contrastive_dim == 128
 

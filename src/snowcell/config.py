@@ -97,6 +97,7 @@ class TrainConfig:
     hard_negative_loss_weight: float = 0.0
     hard_negative_margin: float = 0.20
     validation_metric: str = "fine_macro_f1"
+    hierarchy_inference_weight: float = 0.0
     mask_ratio: float = 0.15
     class_balance: bool = True
     species_balance: bool = False
@@ -189,6 +190,8 @@ class ExperimentConfig:
             raise ValueError("train.hard_negative_loss_weight 不能为负数")
         if self.train.hard_negative_margin < 0:
             raise ValueError("train.hard_negative_margin 不能为负数")
+        if self.train.hierarchy_inference_weight < 0:
+            raise ValueError("train.hierarchy_inference_weight 不能为负数")
         if self.train.validation_metric not in {
             "fine_accuracy",
             "fine_macro_f1",

@@ -217,6 +217,25 @@ def hierarchy_loss(
     )
 
 
+def fuse_hierarchy_logits(
+    fine_logits: torch.Tensor,
+    coarse_logits: torch.Tensor,
+    fine_to_coarse: torch.Tensor | None,
+    weight: float,
+) -> torch.Tensor:
+    """Add a coarse-state log-prior to fine logits at inference/evaluation."""
+    if weight <= 0 or fine_to_coarse is None or fine_logits.shape[-1] == 0:
+        return fine_logits
+    mapping = fine_to_coarse.to(fine_logits.device)
+    valid = (mapping >= 0) & (mapping < coarse_logits.shape[-1])
+    if not torch.any(valid):
+        return fine_logits
+    coarse_log_probs = F.log_softmax(coarse_logits, dim=-1)
+    prior = torch.zeros_like(fine_logits)
+    prior[:, valid] = coarse_log_probs[:, mapping[valid]]
+    return fine_logits + float(weight) * prior
+
+
 def classification_losses(
     outputs: dict[str, torch.Tensor],
     batch: dict[str, torch.Tensor],
@@ -559,7 +578,13 @@ def evaluate(
         losses.append(batch_losses)
         fine_labels = batch["fine_label"].detach().cpu().numpy()
         coarse_labels = batch["coarse_label"].detach().cpu().numpy()
-        fine_predictions = outputs["fine_logits"].argmax(dim=-1).detach().cpu().numpy()
+        fine_logits = fuse_hierarchy_logits(
+            outputs["fine_logits"],
+            outputs["coarse_logits"],
+            fine_to_coarse,
+            config.train.hierarchy_inference_weight,
+        )
+        fine_predictions = fine_logits.argmax(dim=-1).detach().cpu().numpy()
         coarse_predictions = outputs["coarse_logits"].argmax(dim=-1).detach().cpu().numpy()
         species_ids = batch["species_id"].detach().cpu().numpy()
         fine_mask = fine_labels >= 0
@@ -1082,6 +1107,12 @@ def predict_to_csv(
     gene_vocab, fine_vocab, coarse_vocab, species_vocab, tissue_vocab = vocabs_from_checkpoint(checkpoint)
 
     exp_config = ExperimentConfig.from_dict(checkpoint["experiment_config"])
+    fine_to_coarse = checkpoint.get("fine_to_coarse")
+    fine_to_coarse = (
+        torch.as_tensor(fine_to_coarse, dtype=torch.long, device=device)
+        if fine_to_coarse is not None
+        else None
+    )
     data_config = DataConfig(
         **{
             **exp_config.data.__dict__,
@@ -1133,7 +1164,13 @@ def predict_to_csv(
                 tissue_id=batch["tissue_id"],
                 marker_scores=batch.get("marker_scores"),
             )
-            fine_probs = torch.softmax(outputs["fine_logits"], dim=-1)
+            fine_logits = fuse_hierarchy_logits(
+                outputs["fine_logits"],
+                outputs["coarse_logits"],
+                fine_to_coarse,
+                exp_config.train.hierarchy_inference_weight,
+            )
+            fine_probs = torch.softmax(fine_logits, dim=-1)
             coarse_probs = torch.softmax(outputs["coarse_logits"], dim=-1)
             fine_score, fine_id = fine_probs.max(dim=-1)
             coarse_score, coarse_id = coarse_probs.max(dim=-1)
@@ -1169,6 +1206,12 @@ def annotate_to_bundle(
     gene_vocab, fine_vocab, coarse_vocab, species_vocab, tissue_vocab = vocabs_from_checkpoint(checkpoint)
 
     exp_config = ExperimentConfig.from_dict(checkpoint["experiment_config"])
+    fine_to_coarse = checkpoint.get("fine_to_coarse")
+    fine_to_coarse = (
+        torch.as_tensor(fine_to_coarse, dtype=torch.long, device=device)
+        if fine_to_coarse is not None
+        else None
+    )
     data_config = DataConfig(
         **{
             **exp_config.data.__dict__,
@@ -1228,7 +1271,13 @@ def annotate_to_bundle(
                     marker_scores=batch.get("marker_scores"),
                 )
                 embeddings.append(outputs["embedding"].detach().cpu().numpy().astype(np.float32))
-                fine_probs = torch.softmax(outputs["fine_logits"], dim=-1)
+                fine_logits = fuse_hierarchy_logits(
+                    outputs["fine_logits"],
+                    outputs["coarse_logits"],
+                    fine_to_coarse,
+                    exp_config.train.hierarchy_inference_weight,
+                )
+                fine_probs = torch.softmax(fine_logits, dim=-1)
                 coarse_probs = torch.softmax(outputs["coarse_logits"], dim=-1)
                 fine_score, fine_id = fine_probs.max(dim=-1)
                 coarse_score, coarse_id = coarse_probs.max(dim=-1)
