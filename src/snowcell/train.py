@@ -236,6 +236,26 @@ def fuse_hierarchy_logits(
     return fine_logits + float(weight) * prior
 
 
+def calibrated_fine_prediction(
+    fine_probs: torch.Tensor,
+    calibration: dict[str, Any] | None,
+) -> tuple[torch.Tensor, torch.Tensor]:
+    """Apply a source-validation open-set threshold to fine probabilities."""
+    fine_score, fine_id = fine_probs.max(dim=-1)
+    if not calibration or not calibration.get("enabled", False):
+        return fine_score, fine_id
+    unknown_id = int(calibration.get("unknown_class_id", -1))
+    threshold = float(calibration.get("threshold", 0.0))
+    if unknown_id < 0 or unknown_id >= fine_probs.shape[-1] or threshold <= 0:
+        return fine_score, fine_id
+    fine_score = fine_score.clone()
+    fine_id = fine_id.clone()
+    abstain = (fine_id != unknown_id) & (fine_score < threshold)
+    fine_id[abstain] = unknown_id
+    fine_score[abstain] = 1.0 - fine_score[abstain]
+    return fine_score, fine_id
+
+
 def classification_losses(
     outputs: dict[str, torch.Tensor],
     batch: dict[str, torch.Tensor],
@@ -561,6 +581,7 @@ def evaluate(
     device: torch.device,
     fine_to_coarse: torch.Tensor | None,
     max_batches: int | None = None,
+    inference_calibration: dict[str, Any] | None = None,
 ) -> dict[str, float]:
     model.eval()
     losses = []
@@ -584,7 +605,9 @@ def evaluate(
             fine_to_coarse,
             config.train.hierarchy_inference_weight,
         )
-        fine_predictions = fine_logits.argmax(dim=-1).detach().cpu().numpy()
+        fine_probs = torch.softmax(fine_logits, dim=-1)
+        _, fine_ids = calibrated_fine_prediction(fine_probs, inference_calibration)
+        fine_predictions = fine_ids.detach().cpu().numpy()
         coarse_predictions = outputs["coarse_logits"].argmax(dim=-1).detach().cpu().numpy()
         species_ids = batch["species_id"].detach().cpu().numpy()
         fine_mask = fine_labels >= 0
@@ -632,6 +655,100 @@ def evaluate(
         metrics["coarse_accuracy"] = float(accuracy_score(coarse_true, coarse_pred))
         metrics["coarse_macro_f1"] = float(f1_score(coarse_true, coarse_pred, average="macro"))
     return metrics
+
+
+def calibrate_unknown_threshold(
+    model: nn.Module,
+    loader: DataLoader[dict[str, torch.Tensor]],
+    config: ExperimentConfig,
+    device: torch.device,
+    fine_to_coarse: torch.Tensor | None,
+    fine_labels: list[str],
+    max_batches: int | None = None,
+) -> dict[str, Any]:
+    """Fit an open-set abstention threshold on source validation only."""
+    unknown_ids = {
+        index
+        for index, label in enumerate(fine_labels)
+        if any(term in str(label).strip().lower().replace("-", " ").replace("_", " ")
+               for term in ("unknown", "unknow", "unannotated", "unavailable", "open set"))
+    }
+    if not unknown_ids:
+        return {
+            "enabled": False,
+            "reason": "unknown_class_absent",
+            "source": "source_species_validation_only",
+        }
+    unknown_id = min(unknown_ids)
+    true_ids: list[int] = []
+    predicted_ids: list[int] = []
+    confidences: list[float] = []
+    model.eval()
+    for batch_index, raw_batch in enumerate(loader, start=1):
+        if max_batches is not None and batch_index > max_batches:
+            break
+        batch = move_batch(raw_batch, device)
+        with autocast_context(device, config.train.mixed_precision):
+            outputs = model(
+                batch["gene_ids"],
+                batch["values"],
+                batch["padding_mask"],
+                species_id=batch["species_id"],
+                tissue_id=batch["tissue_id"],
+                marker_scores=batch.get("marker_scores"),
+            )
+            fine_logits = fuse_hierarchy_logits(
+                outputs["fine_logits"],
+                outputs["coarse_logits"],
+                fine_to_coarse,
+                config.train.hierarchy_inference_weight,
+            )
+        probabilities = torch.softmax(fine_logits, dim=-1)
+        confidence, prediction = probabilities.max(dim=-1)
+        labels = batch["fine_label"]
+        valid = labels >= 0
+        true_ids.extend(labels[valid].detach().cpu().tolist())
+        predicted_ids.extend(prediction[valid].detach().cpu().tolist())
+        confidences.extend(confidence[valid].detach().cpu().tolist())
+
+    if not true_ids:
+        return {
+            "enabled": False,
+            "reason": "source_validation_has_no_labels",
+            "source": "source_species_validation_only",
+        }
+    true = np.asarray(true_ids, dtype=np.int64)
+    predicted = np.asarray(predicted_ids, dtype=np.int64)
+    confidence = np.asarray(confidences, dtype=np.float32)
+    true_unknown = np.isin(true, list(unknown_ids))
+    baseline_accuracy = float(np.mean(predicted == true))
+    alpha = float(config.train.unknown_calibration_alpha)
+    best = (baseline_accuracy, 0.0, 0.0)
+    for threshold in np.linspace(0.0, 0.99, 100):
+        abstain = (predicted != unknown_id) & (confidence < threshold)
+        known_false_abstain = float(np.mean(abstain & ~true_unknown))
+        if known_false_abstain > alpha:
+            continue
+        calibrated = predicted.copy()
+        calibrated[abstain] = unknown_id
+        accuracy = float(np.mean(calibrated == true))
+        candidate = (accuracy, -float(threshold), known_false_abstain)
+        if candidate > (best[0], -best[1], best[2]):
+            best = (accuracy, float(threshold), known_false_abstain)
+
+    return {
+        "enabled": bool(best[1] > 0),
+        "source": "source_species_validation_only",
+        "unknown_class_id": int(unknown_id),
+        "unknown_class_labels": [fine_labels[index] for index in sorted(unknown_ids)],
+        "threshold": float(best[1]),
+        "known_false_abstain_fraction": float(best[2]),
+        "source_validation_cells": int(len(true)),
+        "source_validation_unknown_cells": int(true_unknown.sum()),
+        "baseline_accuracy": baseline_accuracy,
+        "calibrated_accuracy": float(best[0]),
+        "alpha": alpha,
+    }
 
 
 def _copy_named_rows(
@@ -1072,8 +1189,20 @@ def train_from_config(config_path: str | Path, device: torch.device | None = Non
             print(f"Early stopping at epoch {epoch}; best epoch was {best_epoch}")
             break
 
-    best_checkpoint = load_checkpoint(output_dir / "best.pt", map_location=device)
+    best_checkpoint = load_checkpoint(output_dir / "best.pt", map_location="cpu")
     best_model = model_from_checkpoint(best_checkpoint, device=device)
+    inference_calibration = calibrate_unknown_threshold(
+        best_model,
+        validation_loader,
+        config,
+        device,
+        fine_to_coarse,
+        list(prepared.fine_vocab.labels) if prepared.fine_vocab is not None else [],
+        max_batches=config.train.max_eval_batches,
+    )
+    best_checkpoint["inference_calibration"] = inference_calibration
+    save_checkpoint(output_dir / "best.pt", best_checkpoint)
+    write_json(output_dir / "inference_calibration.json", inference_calibration)
     test_metrics = evaluate(
         best_model,
         test_loader,
@@ -1081,11 +1210,13 @@ def train_from_config(config_path: str | Path, device: torch.device | None = Non
         device,
         fine_to_coarse,
         max_batches=config.train.max_eval_batches,
+        inference_calibration=inference_calibration,
     )
     write_json(output_dir / "test_metrics.json", test_metrics)
     return {
         "output_dir": str(output_dir),
         "best_epoch": best_epoch,
+        "inference_calibration": inference_calibration,
         "test_metrics": test_metrics,
     }
 
@@ -1107,6 +1238,7 @@ def predict_to_csv(
     gene_vocab, fine_vocab, coarse_vocab, species_vocab, tissue_vocab = vocabs_from_checkpoint(checkpoint)
 
     exp_config = ExperimentConfig.from_dict(checkpoint["experiment_config"])
+    inference_calibration = checkpoint.get("inference_calibration")
     fine_to_coarse = checkpoint.get("fine_to_coarse")
     fine_to_coarse = (
         torch.as_tensor(fine_to_coarse, dtype=torch.long, device=device)
@@ -1172,7 +1304,7 @@ def predict_to_csv(
             )
             fine_probs = torch.softmax(fine_logits, dim=-1)
             coarse_probs = torch.softmax(outputs["coarse_logits"], dim=-1)
-            fine_score, fine_id = fine_probs.max(dim=-1)
+            fine_score, fine_id = calibrated_fine_prediction(fine_probs, inference_calibration)
             coarse_score, coarse_id = coarse_probs.max(dim=-1)
             for row in range(fine_id.shape[0]):
                 fine_label = fine_vocab.labels[int(fine_id[row])] if fine_vocab else "unknown"
@@ -1206,6 +1338,7 @@ def annotate_to_bundle(
     gene_vocab, fine_vocab, coarse_vocab, species_vocab, tissue_vocab = vocabs_from_checkpoint(checkpoint)
 
     exp_config = ExperimentConfig.from_dict(checkpoint["experiment_config"])
+    inference_calibration = checkpoint.get("inference_calibration")
     fine_to_coarse = checkpoint.get("fine_to_coarse")
     fine_to_coarse = (
         torch.as_tensor(fine_to_coarse, dtype=torch.long, device=device)
@@ -1279,7 +1412,7 @@ def annotate_to_bundle(
                 )
                 fine_probs = torch.softmax(fine_logits, dim=-1)
                 coarse_probs = torch.softmax(outputs["coarse_logits"], dim=-1)
-                fine_score, fine_id = fine_probs.max(dim=-1)
+                fine_score, fine_id = calibrated_fine_prediction(fine_probs, inference_calibration)
                 coarse_score, coarse_id = coarse_probs.max(dim=-1)
                 cell_indices = raw_batch["cell_index"].detach().cpu().numpy()
                 for row in range(fine_id.shape[0]):

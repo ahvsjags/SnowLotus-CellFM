@@ -1,10 +1,12 @@
 import torch
+import pytest
 
 from snowcell.artifacts import model_from_checkpoint
 from snowcell.config import ExperimentConfig
 from snowcell.model import ModelConfig, SnowCellModel
 from snowcell.train import (
     _copy_named_rows,
+    calibrated_fine_prediction,
     cross_species_contrastive_loss,
     fuse_hierarchy_logits,
     hard_negative_margin_loss,
@@ -77,6 +79,16 @@ def test_hierarchy_logits_fusion_respects_fine_to_coarse_mapping() -> None:
     fused = fuse_hierarchy_logits(fine_logits, coarse_logits, mapping, weight=1.0)
     assert fused[0, 0] > fused[0, 1]
     assert fused[0, 2] > fused[0, 1]
+
+
+def test_source_calibrated_unknown_prediction_abstains_only_below_threshold() -> None:
+    probabilities = torch.tensor([[0.55, 0.45, 0.0], [0.95, 0.05, 0.0]])
+    scores, ids = calibrated_fine_prediction(
+        probabilities,
+        {"enabled": True, "unknown_class_id": 2, "threshold": 0.60},
+    )
+    assert ids.tolist() == [2, 0]
+    assert float(scores[0]) == pytest.approx(0.45)
 
 
 def test_revision_config_enables_contrastive_objective() -> None:

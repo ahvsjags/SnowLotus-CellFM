@@ -192,6 +192,8 @@ class ExperimentConfig:
             raise ValueError("train.hard_negative_margin 不能为负数")
         if self.train.hierarchy_inference_weight < 0:
             raise ValueError("train.hierarchy_inference_weight 不能为负数")
+        if not 0.0 <= self.train.unknown_calibration_alpha <= 1.0:
+            raise ValueError("train.unknown_calibration_alpha 必须位于 [0, 1]")
         if self.train.validation_metric not in {
             "fine_accuracy",
             "fine_macro_f1",
