@@ -1,0 +1,161 @@
+{
+  "schema_version": "plant_cellfm_source_only_plant_cell_state_contract_v19",
+  "provenance": "source_only_curated",
+  "source_scope": "Generic plant single-cell state names, aliases, and marker symbols curated before strict benchmark scoring.",
+  "marker_bank_version": "plant_marker_bank_v1",
+  "claim_boundary": "This contract does not contain benchmark cells, held-out labels, species-specific counts, predictions, or target-derived statistics.",
+  "states": [
+    {
+      "id": "root_cortex",
+      "canonical_label": "Root cortex",
+      "coarse_label": "ground",
+      "aliases": ["cortex", "root cortex", "cortical cells", "cortical sclerenchyma", "cortical aerenchyma"],
+      "contains": ["cortex", "cortical"],
+      "marker_genes": ["COR", "PLT3", "CO2", "MGP", "AT1G79840"]
+    },
+    {
+      "id": "root_endodermis",
+      "canonical_label": "Root endodermis",
+      "coarse_label": "boundary",
+      "aliases": ["endodermis", "root endodermis", "endodermal cells"],
+      "contains": ["endodermis", "endodermal"],
+      "marker_genes": ["SCR", "MYB36", "CASP1", "ELTP", "ESB1"]
+    },
+    {
+      "id": "root_stele",
+      "canonical_label": "Root stele",
+      "coarse_label": "vascular",
+      "aliases": ["stele", "root stele", "pericycle", "procambium", "provascular cells", "vascular initials", "vascular tissue"],
+      "contains": ["pericycle", "procambium", "provascular", "stele", "vascular tissue"],
+      "marker_genes": ["WOX4", "PXY", "SHR", "MGP", "ATHB8"]
+    },
+    {
+      "id": "xylem",
+      "canonical_label": "Xylem",
+      "coarse_label": "vascular",
+      "aliases": ["xylem", "tracheary element", "vessel element", "xylem precursor"],
+      "contains": ["xylem", "tracheary", "vessel"],
+      "marker_genes": ["VND6", "VND7", "IRX3", "CESA7", "LBD18"]
+    },
+    {
+      "id": "phloem",
+      "canonical_label": "Phloem",
+      "coarse_label": "vascular",
+      "aliases": ["phloem", "sieve element", "sieve tube", "phloem pole", "companion cell"],
+      "contains": ["phloem", "sieve", "companion"],
+      "marker_genes": ["APL", "SEOR1", "SUC2", "NAC45", "CALS7"]
+    },
+    {
+      "id": "root_hair",
+      "canonical_label": "Root hair",
+      "coarse_label": "dermal",
+      "aliases": ["root hair", "root-hair", "trichoblast", "hair cell"],
+      "contains": ["root hair", "trichoblast"],
+      "marker_genes": ["RHD6", "RSL1", "RSL2", "EXP7", "COBL9"]
+    },
+    {
+      "id": "non_hair",
+      "canonical_label": "Non-hair",
+      "coarse_label": "dermal",
+      "aliases": ["non hair", "non-hair", "atrichoblast", "epidermis", "epidermal cell", "leaf pavement cell", "pavement cell"],
+      "contains": ["atrichoblast", "non hair", "epidermis", "epidermal", "pavement cell"],
+      "marker_genes": ["WER", "GL2", "CPC", "ATML1", "PDF2"]
+    },
+    {
+      "id": "root_cap",
+      "canonical_label": "Root cap",
+      "coarse_label": "root_cap",
+      "aliases": ["root cap", "root-cap", "root cap cells"],
+      "contains": ["root cap"],
+      "marker_genes": ["SMB", "FEZ", "BRN1", "BRN2", "MGP"]
+    },
+    {
+      "id": "lateral_root_cap",
+      "canonical_label": "Lateral root cap",
+      "coarse_label": "root_cap",
+      "aliases": ["lateral root cap", "lateral-root-cap", "LRC"],
+      "contains": ["lateral root cap"],
+      "marker_genes": ["SMB", "FEZ", "MGP", "BRN1"]
+    },
+    {
+      "id": "columella_root_cap",
+      "canonical_label": "Columella root cap",
+      "coarse_label": "root_cap",
+      "aliases": ["columella", "columella root cap", "columella cells"],
+      "contains": ["columella"],
+      "marker_genes": ["SMB", "FEZ", "MGP", "BRN1"]
+    },
+    {
+      "id": "meristems",
+      "canonical_label": "Meristems",
+      "coarse_label": "stem_like",
+      "aliases": ["meristem", "meristems", "stem cell", "shoot apical meristem", "root apical meristem"],
+      "contains": ["meristem", "stem cell"],
+      "marker_genes": ["WUS", "CLV3", "WOX5", "PLT1", "PLT2"]
+    },
+    {
+      "id": "dividing_cells",
+      "canonical_label": "Dividing Cells",
+      "coarse_label": "cell_cycle",
+      "aliases": ["dividing cells", "cycling cells", "proliferating cells", "cell cycle"],
+      "contains": ["dividing", "cycling", "proliferating"],
+      "marker_genes": ["MKI67", "PCNA", "CYCB1;1", "CYCA2;3", "HISTONE H4"]
+    },
+    {
+      "id": "s_phase",
+      "canonical_label": "S phase",
+      "coarse_label": "cell_cycle",
+      "aliases": ["s phase", "s-phase", "S phase cells"],
+      "contains": ["s phase"],
+      "marker_genes": ["PCNA", "MCM2", "MCM5", "RNR1", "HISTONE H4"]
+    },
+    {
+      "id": "g2m_phase",
+      "canonical_label": "G2/M phase",
+      "coarse_label": "cell_cycle",
+      "aliases": ["g2 m phase", "g2/m phase", "g2m phase", "g2 m"],
+      "contains": ["g2 m", "g2m"],
+      "marker_genes": ["CYCB1;1", "CYCB2;1", "CDKB2;1", "KNOLLE", "TUBULIN"]
+    },
+    {
+      "id": "mesophyll",
+      "canonical_label": "Mesophyll",
+      "coarse_label": "leaf_ground",
+      "aliases": ["mesophyll", "palisade mesophyll", "spongy mesophyll", "leaf mesophyll"],
+      "contains": ["mesophyll"],
+      "marker_genes": ["RBCS", "CAB1", "LHCB1", "PORA", "GUN5"]
+    },
+    {
+      "id": "guard_cell",
+      "canonical_label": "Guard cell",
+      "coarse_label": "leaf_dermal",
+      "aliases": ["guard cell", "guard cells", "stoma", "stomatal cell"],
+      "contains": ["guard cell", "stoma", "stomatal"],
+      "marker_genes": ["FAMA", "MUTE", "SPCH", "EPF1", "KAT1"]
+    },
+    {
+      "id": "bundle_sheath",
+      "canonical_label": "Bundle sheath",
+      "coarse_label": "leaf_ground",
+      "aliases": ["bundle sheath", "bundle-sheath", "vascular bundle sheath"],
+      "contains": ["bundle sheath"],
+      "marker_genes": ["SCR", "SCARECROW", "NADP-MDH", "GLN2", "RBCS"]
+    },
+    {
+      "id": "callus",
+      "canonical_label": "Callus",
+      "coarse_label": "regenerative",
+      "aliases": ["callus", "callus cells", "regenerating cells"],
+      "contains": ["callus", "regenerating"],
+      "marker_genes": ["WIND1", "LBD16", "LBD18", "WOX5", "PLT2"]
+    },
+    {
+      "id": "unknown",
+      "canonical_label": "Unknown",
+      "coarse_label": "unknown",
+      "aliases": ["unknown", "unknow", "unannotated", "unavailable", "open set", "open-set"],
+      "contains": ["unknown", "unannotated", "unavailable", "open set"],
+      "marker_genes": []
+    }
+  ]
+}

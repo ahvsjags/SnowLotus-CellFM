@@ -475,11 +475,26 @@ def preprocess_matrix(config: DataConfig) -> tuple[MatrixData, dict[str, Any]]:
             keep_unmapped=config.ortholog_keep_unmapped,
             aggregation=config.ortholog_aggregation,
         )
+    ontology_stats: dict[str, Any] | None = None
+    if config.ontology_contract:
+        from .ontology import load_source_only_contract, remap_observations
+
+        contract = load_source_only_contract(config.ontology_contract)
+        remapped_obs, ontology_stats = remap_observations(
+            matrix.obs,
+            label_key=config.label_key,
+            coarse_label_key=config.coarse_label_key,
+            contract=contract,
+            unknown_policy=config.ontology_unknown_policy,
+        )
+        matrix = MatrixData(X=matrix.X, genes=matrix.genes.copy(), obs=remapped_obs)
     matrix, qc_stats = filter_and_normalize(matrix, config)
 
     stats: dict[str, Any] = {"quality_control": qc_stats}
     if ortholog_stats is not None:
         stats["ortholog_mapping"] = ortholog_stats
+    if ontology_stats is not None:
+        stats["source_only_ontology"] = ontology_stats
     return matrix, stats
 
 
@@ -611,6 +626,32 @@ class ExpressionDataset(Dataset[dict[str, torch.Tensor]]):
         self.coarse_ids = self._encode_obs(config.coarse_label_key, coarse_vocab)
         self.species_ids = self._encode_obs(config.species_key, species_vocab, default="unknown_species")
         self.tissue_ids = self._encode_obs(config.tissue_key, tissue_vocab, default="unknown_tissue")
+        self.marker_indices = self._build_marker_indices(fine_vocab)
+
+    def _build_marker_indices(self, fine_vocab: LabelVocabulary | None) -> list[np.ndarray]:
+        if fine_vocab is None or not self.config.ontology_contract:
+            return []
+        from .ontology import load_source_only_contract, normalize_label
+
+        contract = load_source_only_contract(self.config.ontology_contract)
+        markers_by_label = {
+            normalize_label(state["canonical_label"]): state.get("marker_genes", [])
+            for state in contract["states"]
+        }
+        gene_lookup = {
+            normalize_label(gene): index for index, gene in enumerate(self.matrix.genes)
+        }
+        return [
+            np.asarray(
+                [
+                    gene_lookup[normalize_label(gene)]
+                    for gene in markers_by_label.get(normalize_label(label), [])
+                    if normalize_label(gene) in gene_lookup
+                ],
+                dtype=np.int64,
+            )
+            for label in fine_vocab.labels
+        ]
 
     def _encode_obs(
         self,
@@ -661,6 +702,13 @@ class ExpressionDataset(Dataset[dict[str, torch.Tensor]]):
             genes[1 : count + 1] = self.gene_ids[selected[:count]]
             values[1 : count + 1] = row[selected[:count]]
             padding[1 : count + 1] = False
+        if self.marker_indices:
+            marker_scores = np.asarray(
+                [float(row[indices].mean()) if len(indices) else 0.0 for indices in self.marker_indices],
+                dtype=np.float32,
+            )
+        else:
+            marker_scores = np.empty(0, dtype=np.float32)
         return {
             "gene_ids": torch.from_numpy(genes),
             "values": torch.from_numpy(values),
@@ -669,6 +717,7 @@ class ExpressionDataset(Dataset[dict[str, torch.Tensor]]):
             "coarse_label": torch.tensor(self.coarse_ids[matrix_index], dtype=torch.long),
             "species_id": torch.tensor(self.species_ids[matrix_index], dtype=torch.long),
             "tissue_id": torch.tensor(self.tissue_ids[matrix_index], dtype=torch.long),
+            "marker_scores": torch.from_numpy(marker_scores),
             "cell_index": torch.tensor(matrix_index, dtype=torch.long),
         }
 

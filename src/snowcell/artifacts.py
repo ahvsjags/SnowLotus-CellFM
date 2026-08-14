@@ -7,7 +7,7 @@ from typing import Any
 import torch
 
 from .config import ExperimentConfig
-from .model import ModelConfig, SnowCellModel
+from .model import ModelConfig, SnowCellModel, load_matching_state_dict
 from .vocab import LabelVocabulary, Vocabulary
 
 
@@ -85,7 +85,18 @@ def model_from_checkpoint(
 ) -> SnowCellModel:
     config = ModelConfig.from_dict(checkpoint["model_config"])
     model = SnowCellModel(config)
-    model.load_state_dict(checkpoint["model_state"])
+    report = load_matching_state_dict(model, checkpoint["model_state"])
+    tolerated_missing = {
+        key for key in report["missing_keys"] if key.startswith("contrastive_projection.")
+    }
+    unexpected_missing = set(report["missing_keys"]) - tolerated_missing
+    if unexpected_missing or report["incompatible_shape_keys"] or report["unexpected_keys"]:
+        raise RuntimeError(
+            "checkpoint/model contract mismatch: "
+            f"missing={sorted(unexpected_missing)}, "
+            f"incompatible={sorted(report['incompatible_shape_keys'])}, "
+            f"unexpected={sorted(report['unexpected_keys'])}"
+        )
     model.to(device)
     model.eval()
     return model

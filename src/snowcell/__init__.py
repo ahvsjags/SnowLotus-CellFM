@@ -2,6 +2,7 @@
 
 from .config import ExperimentConfig
 from .model import ModelConfig, SnowCellModel
+from .ontology import canonicalize_label, load_source_only_contract, marker_prior_scores
 from .vocab import LabelVocabulary, Vocabulary
 
 __all__ = [
@@ -9,6 +10,9 @@ __all__ = [
     "LabelVocabulary",
     "ModelConfig",
     "SnowCellModel",
+    "canonicalize_label",
+    "load_source_only_contract",
+    "marker_prior_scores",
     "Vocabulary",
 ]
 

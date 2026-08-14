@@ -37,6 +37,8 @@ class DataConfig:
     min_ortholog_confidence: float = 0.0
     ortholog_keep_unmapped: bool = False
     ortholog_aggregation: str = "first"
+    ontology_contract: str | None = None
+    ontology_unknown_policy: str = "keep"
     normalize_total: float = 10_000.0
     log1p: bool = True
     max_genes: int = 512
@@ -62,6 +64,8 @@ class ArchitectureConfig:
     lora_alpha: float = 16.0
     lora_dropout: float = 0.05
     gradient_checkpointing: bool = False
+    contrastive_dim: int = 128
+    marker_prior_weight: float = 0.0
 
 
 @dataclass
@@ -87,8 +91,13 @@ class TrainConfig:
     hierarchy_loss_weight: float = 0.10
     mlm_loss_weight: float = 0.50
     value_loss_weight: float = 0.25
+    contrastive_loss_weight: float = 0.0
+    contrastive_temperature: float = 0.10
+    hard_negative_loss_weight: float = 0.0
+    hard_negative_margin: float = 0.20
     mask_ratio: float = 0.15
     class_balance: bool = True
+    species_balance: bool = False
     early_stopping_patience: int = 5
     max_train_batches_per_epoch: int | None = None
     max_eval_batches: int | None = None
@@ -146,6 +155,8 @@ class ExperimentConfig:
             raise ValueError("data.split_strategy 必须是 group_random 或 explicit_leaveout")
         if self.data.ortholog_aggregation not in {"first", "mean"}:
             raise ValueError("data.ortholog_aggregation 必须是 first 或 mean")
+        if self.data.ontology_unknown_policy not in {"keep", "unknown"}:
+            raise ValueError("data.ontology_unknown_policy 必须是 keep 或 unknown")
         if self.data.split_strategy == "explicit_leaveout":
             if not self.data.leaveout_key:
                 raise ValueError("explicit_leaveout 需要设置 data.leaveout_key")
@@ -162,6 +173,18 @@ class ExperimentConfig:
             raise ValueError("data.max_genes 不能小于 8")
         if self.architecture.d_model % self.architecture.n_heads != 0:
             raise ValueError("architecture.d_model 必须能被 n_heads 整除")
+        if self.architecture.contrastive_dim < 8:
+            raise ValueError("architecture.contrastive_dim 不能小于 8")
+        if self.architecture.marker_prior_weight < 0:
+            raise ValueError("architecture.marker_prior_weight 不能为负数")
+        if self.train.contrastive_loss_weight < 0:
+            raise ValueError("train.contrastive_loss_weight 不能为负数")
+        if self.train.contrastive_temperature <= 0:
+            raise ValueError("train.contrastive_temperature 必须大于 0")
+        if self.train.hard_negative_loss_weight < 0:
+            raise ValueError("train.hard_negative_loss_weight 不能为负数")
+        if self.train.hard_negative_margin < 0:
+            raise ValueError("train.hard_negative_margin 不能为负数")
         fractions = self.data.validation_fraction + self.data.test_fraction
         if not 0.0 < fractions < 0.9:
             raise ValueError("验证集与测试集比例之和必须位于 (0, 0.9)")

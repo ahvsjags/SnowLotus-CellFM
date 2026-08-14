@@ -70,6 +70,8 @@ def build_model_config(config: ExperimentConfig, prepared: PreparedData) -> Mode
         pad_id=prepared.gene_vocab.pad_id,
         cls_id=prepared.gene_vocab.cls_id,
         mask_id=prepared.gene_vocab.mask_id,
+        contrastive_dim=config.architecture.contrastive_dim,
+        marker_prior_weight=config.architecture.marker_prior_weight,
     )
 
 
@@ -93,12 +95,27 @@ def make_loader(
     shuffle: bool,
     num_workers: int,
     class_balance: bool = False,
+    species_balance: bool = False,
 ) -> DataLoader[dict[str, torch.Tensor]]:
     sampler = None
-    if class_balance and np.all(dataset.fine_ids[dataset.indices] >= 0):
-        labels = dataset.fine_ids[dataset.indices]
-        counts = np.bincount(labels)
-        weights = 1.0 / np.maximum(counts[labels], 1)
+    fine_labels = dataset.fine_ids[dataset.indices]
+    species_labels = dataset.species_ids[dataset.indices]
+    has_fine = bool(len(fine_labels) and np.all(fine_labels >= 0))
+    has_species = bool(len(species_labels) and np.all(species_labels >= 0))
+    if (class_balance and has_fine) or (species_balance and has_species):
+        weights = np.ones(len(dataset.indices), dtype=np.float64)
+        if class_balance and has_fine:
+            fine_counts = np.bincount(fine_labels)
+            if species_balance and has_species:
+                weights *= 1.0 / np.sqrt(np.maximum(fine_counts[fine_labels], 1))
+            else:
+                weights *= 1.0 / np.maximum(fine_counts[fine_labels], 1)
+        if species_balance and has_species:
+            species_counts = np.bincount(species_labels)
+            if class_balance and has_fine:
+                weights *= 1.0 / np.sqrt(np.maximum(species_counts[species_labels], 1))
+            else:
+                weights *= 1.0 / np.maximum(species_counts[species_labels], 1)
         sampler = WeightedRandomSampler(weights.tolist(), len(weights), replacement=True)
         shuffle = False
     return DataLoader(
@@ -216,6 +233,25 @@ def classification_losses(
             ignore_index=-1,
             label_smoothing=config.train.label_smoothing,
         )
+        if (
+            config.train.contrastive_loss_weight > 0
+            and "contrastive_embedding" in outputs
+        ):
+            losses["contrastive_loss"] = supervised_contrastive_loss(
+                outputs["contrastive_embedding"],
+                fine_labels,
+                temperature=config.train.contrastive_temperature,
+            )
+        if (
+            config.train.hard_negative_loss_weight > 0
+            and "contrastive_embedding" in outputs
+        ):
+            losses["hard_negative_loss"] = hard_negative_margin_loss(
+                outputs["contrastive_embedding"],
+                fine_labels,
+                coarse_labels,
+                margin=config.train.hard_negative_margin,
+            )
     if torch.any(coarse_labels >= 0):
         losses["coarse_loss"] = F.cross_entropy(
             outputs["coarse_logits"],
@@ -231,6 +267,82 @@ def classification_losses(
             fine_labels,
         )
     return losses
+
+
+def supervised_contrastive_loss(
+    embeddings: torch.Tensor,
+    labels: torch.Tensor,
+    temperature: float = 0.10,
+) -> torch.Tensor:
+    """Pull same-state source cells together without using held-out labels.
+
+    Only cells with at least one same-label partner in the current batch are
+    used as anchors. This keeps the objective well-defined for small or
+    heterogeneous batches and makes the loss a no-op when no positive pair is
+    available.
+    """
+    labels = labels.to(embeddings.device)
+    valid = labels >= 0
+    if int(valid.sum().item()) < 2:
+        return embeddings.sum() * 0.0
+    z = F.normalize(embeddings[valid], dim=-1)
+    y = labels[valid]
+    positives = y[:, None].eq(y[None, :])
+    diagonal = torch.eye(z.shape[0], dtype=torch.bool, device=z.device)
+    positives = positives & ~diagonal
+    has_positive = positives.any(dim=1)
+    if not torch.any(has_positive):
+        return embeddings.sum() * 0.0
+    logits = torch.matmul(z, z.T) / float(temperature)
+    logits = logits.masked_fill(diagonal, torch.finfo(logits.dtype).min)
+    log_prob = logits - torch.logsumexp(logits, dim=1, keepdim=True)
+    positive_log_prob = torch.where(
+        positives,
+        log_prob,
+        torch.zeros_like(log_prob),
+    )
+    mean_positive_log_prob = positive_log_prob.sum(dim=1) / positives.sum(dim=1).clamp_min(1)
+    return -mean_positive_log_prob[has_positive].mean()
+
+
+def hard_negative_margin_loss(
+    embeddings: torch.Tensor,
+    fine_labels: torch.Tensor,
+    coarse_labels: torch.Tensor,
+    margin: float = 0.20,
+) -> torch.Tensor:
+    """Separate fine states that share a coarse organ/tissue label.
+
+    The hardest negative for each anchor is selected only among cells with the
+    same coarse label but a different fine label. This targets biologically
+    confusable states without introducing any target-species information.
+    """
+    valid = (fine_labels >= 0) & (coarse_labels >= 0)
+    if int(valid.sum().item()) < 3:
+        return embeddings.sum() * 0.0
+    z = F.normalize(embeddings[valid], dim=-1)
+    fine = fine_labels[valid].to(z.device)
+    coarse = coarse_labels[valid].to(z.device)
+    similarity = torch.matmul(z, z.T)
+    diagonal = torch.eye(z.shape[0], dtype=torch.bool, device=z.device)
+    positive = fine[:, None].eq(fine[None, :]) & ~diagonal
+    hard_negative = coarse[:, None].eq(coarse[None, :]) & ~fine[:, None].eq(fine[None, :])
+    has_positive = positive.any(dim=1)
+    has_negative = hard_negative.any(dim=1)
+    usable = has_positive & has_negative
+    if not torch.any(usable):
+        return embeddings.sum() * 0.0
+    positive_score = torch.where(
+        positive,
+        similarity,
+        torch.full_like(similarity, torch.finfo(similarity.dtype).min),
+    ).max(dim=1).values
+    negative_score = torch.where(
+        hard_negative,
+        similarity,
+        torch.full_like(similarity, torch.finfo(similarity.dtype).min),
+    ).max(dim=1).values
+    return F.relu(float(margin) - positive_score + negative_score)[usable].mean()
 
 
 def unwrap_model(model: nn.Module) -> SnowCellModel:
@@ -267,6 +379,7 @@ def compute_batch_loss(
         species_id=batch["species_id"],
         tissue_id=batch["tissue_id"],
         mlm_positions=mlm_positions,
+        marker_scores=batch.get("marker_scores"),
     )
 
     losses: dict[str, torch.Tensor] = {}
@@ -290,6 +403,14 @@ def compute_batch_loss(
     total = total + config.train.mlm_loss_weight * losses.get("mlm_gene_loss", total * 0.0)
     total = total + config.train.value_loss_weight * losses.get(
         "mlm_value_loss",
+        total * 0.0,
+    )
+    total = total + config.train.contrastive_loss_weight * losses.get(
+        "contrastive_loss",
+        total * 0.0,
+    )
+    total = total + config.train.hard_negative_loss_weight * losses.get(
+        "hard_negative_loss",
         total * 0.0,
     )
 
@@ -453,7 +574,7 @@ def _adapt_checkpoint_state_for_current_vocabs(
     ) -> None:
         if key not in state or key not in current:
             return
-        if state[key].shape == current[key].shape:
+        if state[key].shape == current[key].shape and list(source_names) == list(target_names):
             return
         adapted, copied = _copy_named_rows(
             current[key],
@@ -626,6 +747,7 @@ def train_from_config(config_path: str | Path, device: torch.device | None = Non
         shuffle=True,
         num_workers=config.train.num_workers,
         class_balance=config.train.class_balance and require_labels,
+        species_balance=config.train.species_balance and require_labels,
     )
     validation_loader = make_loader(
         validation_dataset,
@@ -893,8 +1015,8 @@ def predict_to_csv(
         inference.indices,
         data_config,
         gene_vocab,
-        fine_vocab=None,
-        coarse_vocab=None,
+        fine_vocab=fine_vocab,
+        coarse_vocab=coarse_vocab,
         species_vocab=species_vocab,
         tissue_vocab=tissue_vocab,
     )
@@ -927,6 +1049,7 @@ def predict_to_csv(
                 batch["padding_mask"],
                 species_id=batch["species_id"],
                 tissue_id=batch["tissue_id"],
+                marker_scores=batch.get("marker_scores"),
             )
             fine_probs = torch.softmax(outputs["fine_logits"], dim=-1)
             coarse_probs = torch.softmax(outputs["coarse_logits"], dim=-1)
@@ -979,8 +1102,8 @@ def annotate_to_bundle(
         inference.indices,
         data_config,
         gene_vocab,
-        fine_vocab=None,
-        coarse_vocab=None,
+        fine_vocab=fine_vocab,
+        coarse_vocab=coarse_vocab,
         species_vocab=species_vocab,
         tissue_vocab=tissue_vocab,
     )
@@ -1020,6 +1143,7 @@ def annotate_to_bundle(
                     batch["padding_mask"],
                     species_id=batch["species_id"],
                     tissue_id=batch["tissue_id"],
+                    marker_scores=batch.get("marker_scores"),
                 )
                 embeddings.append(outputs["embedding"].detach().cpu().numpy().astype(np.float32))
                 fine_probs = torch.softmax(outputs["fine_logits"], dim=-1)

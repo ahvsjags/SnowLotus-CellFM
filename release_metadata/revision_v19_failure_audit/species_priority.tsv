@@ -1,0 +1,9 @@
+held_out_species	n_test	n_evaluable	open_set_cells	coverage	accuracy_all	known_accuracy	macro_f1	estimated_correct_cells	open_set_gap_to_80_cells	covered_error_cells	priority_cells	failure_mode	selected_candidate
+Arabidopsis thaliana	2366	1024	1342	0.4327979712595097	0.3241758241758242	0.7490234375	0.1908012056658264	767.0	868.8	257.0	1599.0	coverage_bottleneck	organ_context_prior
+Gossypium hirsutum	256	0	256	0.0	0.0			0.0	204.8		256.0	ontology_or_gene_overlap_gap	gate_leaf_support_64
+Brassica rapa	256	240	16	0.9375	0.17578125	0.1875	0.045112781954887216	45.0	0.0	195.0	211.0	covered_label_transfer_failure	organ_context_prior
+Fragaria vesca	256	161	95	0.62890625	0.53515625	0.8509316770186336	0.22986577181208054	137.0	43.8	24.0	119.0	coverage_bottleneck	gate_leaf_support_64
+Gossypium bickii	256	232	24	0.90625	0.54296875	0.5991379310344828	0.12488769092542677	139.0	0.0	93.0	117.0	moderate_transfer_failure	gate_leaf_support_64
+Catharanthus roseus	256	241	15	0.94140625	0.6953125	0.7385892116182573	0.14160700079554495	178.0	0.0	63.0	78.0	moderate_transfer_failure	gate_leaf_support_64
+Eutrema salsugineum	62	62	0	1.0	1.0	1.0	1.0	62.0	0.0	0.0	0.0	strong_or_mixed_transfer	gate_leaf_support_64
+Triticum aestivum	256	256	0	1.0	1.0	1.0	1.0	256.0	0.0	0.0	0.0	strong_or_mixed_transfer	gate_leaf_support_64

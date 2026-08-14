@@ -30,6 +30,8 @@ class ModelConfig:
     pad_id: int = 0
     cls_id: int = 1
     mask_id: int = 2
+    contrastive_dim: int = 128
+    marker_prior_weight: float = 0.0
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -204,6 +206,12 @@ class SnowCellModel(nn.Module):
             config.d_model, config.num_coarse_classes, config.dropout
         )
         self.value_decoder = nn.Linear(config.d_model, 1)
+        self.contrastive_projection = nn.Sequential(
+            nn.LayerNorm(config.d_model),
+            nn.Linear(config.d_model, config.d_model),
+            nn.GELU(),
+            nn.Linear(config.d_model, config.contrastive_dim),
+        )
         self._reset_parameters()
 
     def _reset_parameters(self) -> None:
@@ -269,6 +277,7 @@ class SnowCellModel(nn.Module):
         species_id: torch.Tensor | None = None,
         tissue_id: torch.Tensor | None = None,
         mlm_positions: torch.Tensor | None = None,
+        marker_scores: torch.Tensor | None = None,
     ) -> dict[str, torch.Tensor]:
         embedding, token_states = self.encode(
             gene_ids,
@@ -277,9 +286,21 @@ class SnowCellModel(nn.Module):
             species_id=species_id,
             tissue_id=tissue_id,
         )
+        fine_logits = self.fine_head(embedding)
+        if (
+            marker_scores is not None
+            and self.config.marker_prior_weight > 0
+            and marker_scores.ndim == 2
+            and marker_scores.shape[-1] == fine_logits.shape[-1]
+        ):
+            evidence = torch.log1p(marker_scores.clamp_min(0.0))
+            evidence = evidence - evidence.mean(dim=-1, keepdim=True)
+            evidence = evidence / evidence.std(dim=-1, keepdim=True).clamp_min(1e-3)
+            fine_logits = fine_logits + self.config.marker_prior_weight * evidence
         output = {
             "embedding": embedding,
-            "fine_logits": self.fine_head(embedding),
+            "contrastive_embedding": self.contrastive_projection(embedding),
+            "fine_logits": fine_logits,
             "coarse_logits": self.coarse_head(embedding),
         }
         if mlm_positions is not None:
@@ -297,7 +318,7 @@ class SnowCellModel(nn.Module):
         if mode == "full":
             return
         if mode == "head":
-            modules = [self.fine_head, self.coarse_head]
+            modules = [self.fine_head, self.coarse_head, self.contrastive_projection]
             for module in modules:
                 for parameter in module.parameters():
                     parameter.requires_grad = True
@@ -316,6 +337,7 @@ class SnowCellModel(nn.Module):
                     or name.startswith("tissue_embedding")
                     or name.startswith("fine_head")
                     or name.startswith("coarse_head")
+                    or name.startswith("contrastive_projection")
                     or name == "covariate_scale"
                 ):
                     parameter.requires_grad = True
